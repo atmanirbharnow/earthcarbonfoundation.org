@@ -1,122 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Earth Carbon Foundation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #ffffff;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #1b5e20;
+    }
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: linear-gradient(to right, #e8f5e9, #f1f8f4);
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #2e7d32;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #1b5e20;
+    }
+    .section {
+      padding: 50px 0;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      padding: 25px;
+      border-top: 1px solid #eee;
+    }
+    .highlight {
+      color: #2e7d32;
+      font-weight: 600;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <h1>Earth Carbon Foundation</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#process">Process</a>
-    <a href="#programs">Programs</a>
-    <a href="#impact">Impact</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h2>Global Carbon Registry for Measurable Climate Action</h2>
-    <p>100 Million Tons Emission Reduction by 2030 | Structured. Verified. Monetized.</p>
-    <div>
-      <a class="btn" href="#contact">Register Your Project</a>
-      <a class="btn secondary" href="#process">How It Works</a>
-    </div>
+<div class="hero">
+  <div class="container">
+    <h1>Know Your Climate Impact in 2 Minutes</h1>
+    <p>Measure your actions. Get your carbon score. Earn from your impact.</p>
+    <a class="btn" href="https://forms.gle/ADpXHsNWwCFMHYoZ9" target="_blank">Calculate My Climate Score</a>
+    <p style="font-size: 14px;">Free • No login required • Instant results</p>
   </div>
-</section>
+</div>
 
-<!-- TRUST -->
-<section class="section trust">
-  <h3>Built on Expertise & Global Frameworks</h3>
-  <div class="grid">
-    <div class="card"><strong>14+ Years</strong><br>Climate & GHG Expertise</div>
-    <div class="card"><strong>2500+</strong><br>Solar Applications</div>
-    <div class="card"><strong>4.5 MW+</strong><br>Aggregated Capacity</div>
-    <div class="card"><strong>Global</strong><br>Registry Vision</div>
-  </div>
-</section>
+<!-- WHAT YOU GET -->
+<div class="section container">
+  <h2>What You Get Instantly</h2>
+  <ul>
+    <li>🌍 <span class="highlight">Your Climate Impact Score</span> (tCO₂e)</li>
+    <li>📊 Clear breakdown of your climate actions</li>
+    <li>🧾 Downloadable Climate Certificate</li>
+    <li>💰 Opportunity to earn from carbon credits</li>
+  </ul>
+</div>
 
-<!-- PROCESS -->
-<section id="process" class="section">
-  <h3>Registry Process Flow</h3>
-  <div class="timeline">
-    <div class="step"><h4>1. Measure</h4><p>Assess baseline emissions.</p></div>
-    <div class="step"><h4>2. Structure</h4><p>Aggregate into carbon assets.</p></div>
-    <div class="step"><h4>3. Verify</h4><p>Validate emission reductions.</p></div>
-    <div class="step"><h4>4. Issue Credits</h4><p>Generate carbon credits.</p></div>
-  </div>
-</section>
+<!-- HOW IT WORKS -->
+<div class="section container">
+  <h2>How It Works</h2>
+  <ol>
+    <li>Enter your actions (solar, waste, water)</li>
+    <li>We calculate your carbon impact</li>
+    <li>Receive your Climate Certificate</li>
+    <li>Convert your impact into carbon credits</li>
+  </ol>
+</div>
 
-<!-- PROGRAMS -->
-<section id="programs" class="section">
-  <h3>Core Programs</h3>
-  <div class="grid">
-    <div class="card"><h4>100 mTons Initiative</h4><p>Global aggregation of emission reduction actions.</p></div>
-    <div class="card"><h4>Carbon Registry</h4><p>Track & validate climate actions.</p></div>
-    <div class="card"><h4>SME & Community</h4><p>Enable small participants.</p></div>
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section id="impact" class="section impact">
-  <h3>Projected Impact</h3>
-  <div class="grid">
-    <div class="card"><strong>100M Tons</strong></div>
-    <div class="card"><strong>Multi-Sector</strong></div>
-    <div class="card"><strong>Global Access</strong></div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <h3>Start Your Carbon Asset Journey</h3>
-  <p>Register, track and monetize your emission reductions</p>
-  <a class="btn" href="#contact">Get Started</a>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section" style="background:#eef5f3;border-radius:12px;margin-bottom:40px;padding:40px 20px;">
-  
-  <h3 style="text-align:center;">Share Your Climate Action</h3>
-  <p style="text-align:center; max-width:700px; margin:auto;">
-    Every effort matters — share your work. We will help structure and unlock its value.
+<!-- WHY IT MATTERS -->
+<div class="section container">
+  <h2>Small Actions. Real Impact.</h2>
+  <p>
+    Every unit of energy saved, waste reduced, or water conserved contributes to climate action.
+    When measured and aggregated, these actions create real, measurable impact.
   </p>
+</div>
 
-  
+<!-- TRUST / VISION -->
+<div class="section container">
+  <h2>Built for a Sustainable Future</h2>
+  <p>
+    Earth Carbon Foundation enables individuals, communities, and organizations to track, verify,
+    and monetize their climate actions — transparently and globally.
+  </p>
+</div>
 
-  <!-- LEFT SIDE (keep your text + whatsapp here) -->
-  <div class="card">
-    <h4>Your Effort Matters</h4>
-    <p>We help translate your work into measurable climate impact.</p>
-    <p><strong>Email:</strong> info@earthcarbonfoundation.org</p>
-    <a href="https://wa.me/919824025431">WhatsApp Us</a>
+<!-- FINAL CTA -->
+<div class="hero">
+  <div class="container">
+    <h2>Start Your Climate Journey Today</h2>
+    <a class="btn" href="https://forms.gle/ADpXHsNWwCFMHYoZ9" target="_blank">Get My Climate Certificate</a>
   </div>
+</div>
 
-  <!-- RIGHT SIDE (Google Form) -->
-  <div class="card" style="padding:0;">
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSf0gumVA3AskABQdouoQjm89qAr9BGV2bPtMQQkP-oCFRsp_w/viewform?embedded=true" 
-      width="100%" 
-      height="800" 
-      style="border:none; border-radius:10px;">
-      Loading…
-    </iframe>
-  </div>
-
-
-  
 <!-- FOOTER -->
-<footer>
-  <p>© Earth Carbon Foundation</p>
-  <p>One Earth. One Family. One Climate Responsibility.</p>
-</footer>
+<div class="footer">
+  © 2026 Earth Carbon Foundation • www.earthcarbonfoundation.org
+</div>
 
 </body>
 </html>
