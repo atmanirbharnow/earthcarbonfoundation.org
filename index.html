@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Earth Carbon Foundation</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -16,13 +16,10 @@ tailwind.config = {
     extend: {
       colors: {
         primary: "#0d631b",
-        "primary-container": "#2e7d32",
         secondary: "#5b6300",
         surface: "#fbf9f1",
         "surface-container-low": "#f5f4eb",
-        "surface-container-lowest": "#ffffff",
-        "on-surface": "#1b1c17",
-        "on-surface-variant": "#40493d"
+        "surface-container-lowest": "#ffffff"
       },
       fontFamily: {
         headline: ["Inter"],
@@ -35,74 +32,72 @@ tailwind.config = {
 
 <style>
 body {
-  background: radial-gradient(circle at center, rgba(0,0,0,0.15), transparent 60%),
-              linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
+  background: linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
   min-height: 100vh;
-}
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 300;
 }
 </style>
 
 </head>
 
-<body class="font-body text-on-surface">
+<body class="font-body text-white">
 
-<!-- FULL WIDTH WRAPPER -->
-<div class="w-full px-8 py-12">
+<!-- NAVBAR -->
+<header class="w-full px-10 py-6 flex justify-between items-center">
+<h1 class="text-xl font-bold">🌱 Earth Carbon Foundation</h1>
+<a href="https://forms.gle/ADpXHsNWwCFMHYoZ9"
+   class="bg-white text-green-800 px-6 py-2 rounded-xl font-semibold">
+Start Now
+</a>
+</header>
 
-<!-- MAIN CARD (CENTERED BUT WIDER) -->
-<div class="mx-auto max-w-4xl">
+<!-- HERO SECTION -->
+<section class="grid lg:grid-cols-2 gap-12 px-10 py-20 items-center">
 
-<div class="bg-white/10 backdrop-blur-3xl rounded-[3rem] p-1 shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20">
-
-<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-[2.5rem] p-12 text-center">
-
-<!-- BADGE -->
-<div class="mb-12">
-<div class="w-32 h-32 mx-auto bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
-<span class="material-symbols-outlined text-6xl">eco</span>
-</div>
-</div>
-
-<!-- HEADLINE -->
-<h1 class="text-5xl font-extrabold text-primary mb-6">
-Measure Your Climate Impact
+<!-- LEFT CONTENT -->
+<div>
+<h1 class="text-5xl font-extrabold leading-tight mb-6">
+Measure Your Climate Impact.<br>
+Make It Count.
 </h1>
 
-<p class="text-on-surface-variant text-xl mb-10 max-w-2xl mx-auto">
-Convert your everyday actions into measurable carbon savings and receive your Climate Certificate.
+<p class="text-lg opacity-80 mb-8">
+Convert your everyday actions into verified carbon savings and receive your Climate Certificate.
 </p>
 
-<!-- FEATURES GRID -->
-<div class="grid md:grid-cols-3 gap-6 mb-12">
-
-<div class="bg-surface-container-low rounded-2xl p-6 flex flex-col items-center gap-3">
-<span class="material-symbols-outlined text-4xl text-primary">eco</span>
-<span class="font-semibold text-center">Trees Equivalent Impact</span>
-</div>
-
-<div class="bg-surface-container-low rounded-2xl p-6 flex flex-col items-center gap-3">
-<span class="material-symbols-outlined text-4xl text-secondary">directions_car</span>
-<span class="font-semibold text-center">Travel Emissions Reduced</span>
-</div>
-
-<div class="bg-surface-container-low rounded-2xl p-6 flex flex-col items-center gap-3">
-<span class="material-symbols-outlined text-4xl text-yellow-600">bolt</span>
-<span class="font-semibold text-center">Energy Savings Calculated</span>
-</div>
-
-</div>
-
-<!-- CTA -->
 <a href="https://forms.gle/ADpXHsNWwCFMHYoZ9"
-   class="inline-block bg-gradient-to-r from-primary to-green-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-xl">
+   class="inline-block bg-white text-green-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg">
 Get My Climate Certificate 🌱
 </a>
 
-<p class="text-sm text-on-surface-variant mt-6">
+<p class="mt-4 text-sm opacity-70">
 Free • Takes 2 minutes • Delivered via email
 </p>
+</div>
+
+<!-- RIGHT CARD -->
+<div class="flex justify-center">
+
+<div class="w-full max-w-md">
+
+<div class="bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-1 border border-white/20 shadow-xl">
+
+<div class="bg-white/90 rounded-[2rem] p-8 text-center text-black">
+
+<div class="mb-6">
+<span class="material-symbols-outlined text-5xl text-green-700">eco</span>
+</div>
+
+<h2 class="text-2xl font-bold mb-4">
+Your Climate Impact
+</h2>
+
+<div class="space-y-4">
+
+<div class="p-4 bg-gray-100 rounded-xl">🌳 Trees Equivalent Impact</div>
+<div class="p-4 bg-gray-100 rounded-xl">🚗 Travel Emissions Reduced</div>
+<div class="p-4 bg-gray-100 rounded-xl">⚡ Energy Savings</div>
+
+</div>
 
 </div>
 </div>
@@ -110,6 +105,37 @@ Free • Takes 2 minutes • Delivered via email
 </div>
 
 </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="bg-white text-black py-20 px-10">
+
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+<div class="p-6 rounded-xl bg-gray-100">
+<h3 class="font-bold mb-2">Verified Impact</h3>
+<p>Accurate carbon calculation based on your actions</p>
+</div>
+
+<div class="p-6 rounded-xl bg-gray-100">
+<h3 class="font-bold mb-2">Climate Certificate</h3>
+<p>Receive your personalized certificate instantly</p>
+</div>
+
+<div class="p-6 rounded-xl bg-gray-100">
+<h3 class="font-bold mb-2">Carbon Credits</h3>
+<p>Opportunity to convert impact into value</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-10 opacity-70">
+© 2026 Earth Carbon Foundation
+</footer>
 
 </body>
 </html>
