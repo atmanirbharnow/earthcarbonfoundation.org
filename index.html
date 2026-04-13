@@ -16,10 +16,7 @@ tailwind.config = {
     extend: {
       colors: {
         primary: "#0d631b",
-        secondary: "#5b6300",
-        surface: "#fbf9f1",
-        "surface-container-low": "#f5f4eb",
-        "surface-container-lowest": "#ffffff"
+        secondary: "#5b6300"
       },
       fontFamily: {
         headline: ["Inter"],
@@ -50,11 +47,12 @@ Start Now
 </a>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="grid lg:grid-cols-2 gap-12 px-10 py-20 items-center">
 
-<!-- LEFT CONTENT -->
+<!-- LEFT -->
 <div>
+
 <h1 class="text-5xl font-extrabold leading-tight mb-6">
 Measure Your Climate Impact.<br>
 Make It Count.
@@ -64,6 +62,12 @@ Make It Count.
 Convert your everyday actions into verified carbon savings and receive your Climate Certificate.
 </p>
 
+<!-- 🔥 LIVE COUNTER -->
+<div class="mb-10">
+<p class="text-sm opacity-70">🌍 Total Climate Impact</p>
+<h2 id="impactCounter" class="text-4xl font-bold mt-2">Loading...</h2>
+</div>
+
 <a href="https://forms.gle/ADpXHsNWwCFMHYoZ9"
    class="inline-block bg-white text-green-900 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg">
 Get My Climate Certificate 🌱
@@ -72,6 +76,7 @@ Get My Climate Certificate 🌱
 <p class="mt-4 text-sm opacity-70">
 Free • Takes 2 minutes • Delivered via email
 </p>
+
 </div>
 
 <!-- RIGHT CARD -->
@@ -136,6 +141,26 @@ Your Climate Impact
 <footer class="text-center py-10 opacity-70">
 © 2026 Earth Carbon Foundation
 </footer>
+
+<!-- 🔥 SCRIPT FOR LIVE COUNTER -->
+<script>
+async function loadImpact() {
+  try {
+    const res = await fetch("PASTE_YOUR_CSV_LINK_HERE");
+    const text = await res.text();
+
+    const rows = text.split("\n");
+    const value = parseFloat(rows[1]);
+
+    document.getElementById("impactCounter").innerText =
+      value.toLocaleString() + " tCO₂e";
+  } catch (e) {
+    document.getElementById("impactCounter").innerText = "—";
+  }
+}
+
+loadImpact();
+</script>
 
 </body>
 </html>
