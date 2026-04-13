@@ -5,29 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Earth Carbon Foundation</title>
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
 <script>
 tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "surface-container": "#efeee5",
-        "background": "#fbf9f1",
-        "surface": "#fbf9f1",
-        "surface-container-lowest": "#ffffff",
-        "surface-container-low": "#f5f4eb",
-        "surface-container-high": "#eae8e0",
-        "surface-container-highest": "#e4e3da",
-        "primary": "#0d631b",
+        primary: "#0d631b",
         "primary-container": "#2e7d32",
-        "secondary": "#5b6300",
-        "secondary-container": "#dded49",
-        "tertiary": "#705d00",
-        "tertiary-container": "#c9a900",
+        secondary: "#5b6300",
+        surface: "#fbf9f1",
+        "surface-container-low": "#f5f4eb",
+        "surface-container-lowest": "#ffffff",
         "on-surface": "#1b1c17",
         "on-surface-variant": "#40493d"
       },
@@ -41,119 +34,82 @@ tailwind.config = {
 </script>
 
 <style>
-.bg-vibrant-mesh {
-  background: linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
+body {
+  background: radial-gradient(circle at center, rgba(0,0,0,0.15), transparent 60%),
+              linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
+  min-height: 100vh;
 }
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 300;
-}
-.fill-icon {
-  font-variation-settings: 'FILL' 1, 'wght' 400;
 }
 </style>
 
 </head>
 
-<body class="bg-surface font-body text-on-surface min-h-screen">
+<body class="font-body text-on-surface flex items-center justify-center">
 
-<!-- Background -->
-<div class="fixed inset-0 bg-vibrant-mesh opacity-90 -z-10"></div>
+<!-- FULL SCREEN WRAPPER -->
+<div class="w-full max-w-6xl px-6 py-12 flex items-center justify-center">
 
-<main class="relative px-6 pt-8 pb-12 flex flex-col items-center">
+<!-- MAIN CARD -->
+<div class="w-full max-w-lg">
 
-<div class="w-full max-w-md space-y-8">
+<div class="bg-white/10 backdrop-blur-3xl rounded-[3rem] p-1 shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20">
 
-<!-- Glass Card -->
-<div class="relative bg-white/10 backdrop-blur-3xl rounded-[2.5rem] p-1 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.25)] border border-white/20">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-[2.5rem] p-10 text-center">
 
-<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-[2.25rem] p-8 flex flex-col items-center text-center">
-
-<!-- Badge -->
-<div class="mb-10 relative">
-<div class="absolute inset-0 bg-tertiary-container blur-2xl opacity-20 rounded-full"></div>
-<div class="relative w-28 h-28 bg-tertiary-container rounded-full flex items-center justify-center shadow-lg">
-<div class="bg-surface-container-lowest/20 backdrop-blur-sm p-4 rounded-full">
-<span class="material-symbols-outlined text-5xl fill-icon">eco</span>
-</div>
+<!-- BADGE -->
+<div class="mb-10">
+<div class="w-28 h-28 mx-auto bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-5xl">eco</span>
 </div>
 </div>
 
 <!-- HEADLINE -->
-<div class="space-y-2 mb-8">
-<span class="text-sm uppercase tracking-[0.2em] text-on-surface-variant font-bold">
-Climate Action Registry
-</span>
-
-<h2 class="font-headline text-4xl font-extrabold text-primary tracking-tight">
+<h1 class="text-4xl font-extrabold text-primary mb-4">
 Measure Your Climate Impact
-</h2>
+</h1>
 
-<p class="font-body text-on-surface-variant text-lg max-w-[260px] mx-auto leading-relaxed">
+<p class="text-on-surface-variant text-lg mb-8 max-w-md mx-auto">
 Convert your everyday actions into measurable carbon savings and receive your Climate Certificate.
 </p>
+
+<!-- FEATURES GRID -->
+<div class="grid gap-6 mb-10">
+
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-primary">eco</span>
+<span class="font-semibold">Trees Equivalent Impact</span>
 </div>
 
-<!-- Divider -->
-<div class="w-12 h-1 bg-surface-variant rounded-full mb-8"></div>
-
-<!-- Cards -->
-<div class="grid gap-6 w-full">
-
-<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-5">
-<div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center">
-<span class="material-symbols-outlined text-3xl">eco</span>
-</div>
-<div class="text-left">
-<p class="font-headline font-bold text-lg">Trees Equivalent Impact</p>
-<p class="text-sm text-on-surface-variant">Understand your environmental contribution</p>
-</div>
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-secondary">directions_car</span>
+<span class="font-semibold">Travel Emissions Reduced</span>
 </div>
 
-<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-5">
-<div class="w-14 h-14 bg-secondary/10 text-secondary rounded-xl flex items-center justify-center">
-<span class="material-symbols-outlined text-3xl">directions_car</span>
-</div>
-<div class="text-left">
-<p class="font-headline font-bold text-lg">Travel Emissions Reduced</p>
-<p class="text-sm text-on-surface-variant">See your avoided emissions</p>
-</div>
-</div>
-
-<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-5">
-<div class="w-14 h-14 bg-tertiary/10 text-tertiary rounded-xl flex items-center justify-center">
-<span class="material-symbols-outlined text-3xl">bolt</span>
-</div>
-<div class="text-left">
-<p class="font-headline font-bold text-lg">Energy Savings Calculated</p>
-<p class="text-sm text-on-surface-variant">Track your efficiency impact</p>
-</div>
+<div class="bg-surface-container-low rounded-2xl p-5 flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl text-yellow-600">bolt</span>
+<span class="font-semibold">Energy Savings Calculated</span>
 </div>
 
 </div>
 
 <!-- CTA -->
-<div class="mt-10 w-full">
 <a href="https://forms.gle/ADpXHsNWwCFMHYoZ9"
-   class="w-full block bg-gradient-to-r from-primary to-primary-container text-white py-5 rounded-2xl font-bold text-lg shadow-xl text-center">
-Get My Climate Certificate
+   class="block w-full bg-gradient-to-r from-primary to-green-600 text-white py-5 rounded-2xl font-bold text-lg shadow-xl">
+Get My Climate Certificate 🌱
 </a>
 
-<p class="text-sm text-on-surface-variant mt-4 text-center">
+<p class="text-sm text-on-surface-variant mt-4">
 Free • Takes 2 minutes • Delivered via email
 </p>
-</div>
 
 </div>
 </div>
 
-<!-- Footer -->
-<div class="text-center text-white/70 px-4">
-<p class="text-sm">Earth Carbon Foundation</p>
 </div>
 
 </div>
-
-</main>
 
 </body>
 </html>
