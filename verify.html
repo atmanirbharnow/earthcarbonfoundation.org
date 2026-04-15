@@ -5,237 +5,153 @@
 
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+      font-family: Arial;
       text-align: center;
       padding: 30px;
+      background: #f4f8f4;
     }
 
-    h1 { color: #1b5e20; }
-
-    .subtitle {
-      color: #555;
-      margin-bottom: 20px;
-    }
+    h1 { color: green; }
 
     input {
       padding: 10px;
-      width: 240px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
+      width: 220px;
     }
 
     button {
-      padding: 10px 18px;
-      background: #1b5e20;
+      padding: 10px;
+      background: green;
       color: white;
       border: none;
-      border-radius: 6px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
-
-    .stats {
-      margin: 20px auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    .stat {
-      background: white;
-      padding: 12px;
-      border-radius: 8px;
-      width: 120px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     .card {
-      margin-top: 25px;
-      padding: 20px;
+      margin-top: 20px;
+      padding: 15px;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       display: inline-block;
-      text-align: left;
-      width: 340px;
     }
 
-    .badge {
-      color: green;
-      font-weight: bold;
-      margin-bottom: 8px;
+    table {
+      margin: auto;
+      margin-top: 20px;
+      border-collapse: collapse;
     }
 
-    .value {
-      font-size: 24px;
-      font-weight: bold;
-      color: #1b5e20;
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
     }
 
-    .section {
-      margin-top: 12px;
-      border-top: 1px solid #eee;
-      padding-top: 8px;
-    }
-
-    .footer {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #777;
-    }
   </style>
 </head>
 
 <body>
 
-<h1>🌍 Climate Certificate Registry</h1>
-<p class="subtitle">Transparent | Measurable | Verifiable</p>
+<h1>🌍 Climate Registry</h1>
 
-<!-- GLOBAL STATS -->
-<div class="stats">
-  <div class="stat">🌍<br><b id="totalCO2">--</b><br>tCO₂e</div>
-  <div class="stat">👥<br><b id="users">--</b><br>Users</div>
-  <div class="stat">⚡<br><b id="energy">--</b></div>
-  <div class="stat">💧<br><b id="water">--</b></div>
-  <div class="stat">♻️<br><b id="waste">--</b></div>
-  <div class="stat">🌳<br><b id="nature">--</b></div>
+<!-- STATS -->
+<div>
+  Total CO₂: <b id="totalCO2">--</b> |
+  Users: <b id="users">--</b>
 </div>
 
-<!-- VERIFY INPUT -->
-<input type="text" id="certId" placeholder="Enter Certificate ID">
+<br>
+
+<!-- INPUT -->
+<input id="certId" placeholder="Enter Certificate ID">
 <button onclick="searchCert()">Verify</button>
 
 <div id="result"></div>
 
+<h2>🏆 Top Contributors</h2>
+<div id="leaderboard"></div>
+
 <script>
 
-// 🔹 SUMMARY DATA (FAST)
+// LINKS
+const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
 const summaryURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372";
 
+// LOAD SUMMARY
 fetch(summaryURL)
 .then(res => res.text())
 .then(data => {
-
   const rows = data.split("\n").map(r => r.split(","));
-
   rows.forEach(row => {
+    if (row[0].includes("Total tCO2e"))
+      document.getElementById("totalCO2").innerText = Number(row[1]).toFixed(0);
 
-    const metric = row[0];
-    const value = row[1];
-
-    if (metric.includes("Total tCO2e"))
-      document.getElementById("totalCO2").innerText = Number(value).toFixed(0);
-
-    if (metric.includes("Total Users"))
-      document.getElementById("users").innerText = value;
-
-    if (metric.includes("Energy"))
-      document.getElementById("energy").innerText = Number(value).toFixed(0);
-
-    if (metric.includes("Water"))
-      document.getElementById("water").innerText = Number(value).toFixed(0);
-
-    if (metric.includes("Waste"))
-      document.getElementById("waste").innerText = Number(value).toFixed(0);
-
-    if (metric.includes("Nature"))
-      document.getElementById("nature").innerText = Number(value).toFixed(0);
-
+    if (row[0].includes("Total Users"))
+      document.getElementById("users").innerText = row[1];
   });
-
 });
 
-// 🔹 FULL DATA (FOR VERIFICATION)
-const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
-
-// GET ID FROM URL
-function getCertId() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
-window.onload = function() {
-  const certId = getCertId();
-  if (certId) {
-    document.getElementById("certId").value = certId;
-    searchCert();
-  }
-};
-
-// 🔹 VERIFY FUNCTION
+// VERIFY
 function searchCert() {
 
   const id = document.getElementById("certId").value;
 
-  if (!id) {
-    document.getElementById("result").innerHTML = "Enter Certificate ID";
-    return;
-  }
-
   fetch(sheetURL)
-    .then(res => res.text())
-    .then(data => {
+  .then(res => res.text())
+  .then(data => {
 
-      const rows = data.split("\n").map(r => r.split(","));
-      let found = false;
+    const rows = data.split("\n").map(r => r.split(","));
+    let found = false;
 
-      rows.forEach(row => {
+    rows.forEach(row => {
+      if (row.includes(id)) {
 
-        if (row.includes(id)) {
+        found = true;
 
-          found = true;
+        const name = row[2];
+        const total = row[row.length - 1];
 
-          const name = row[2];
-          const total = row[row.length - 1];
-          const status = row[row.length - 2];
-
-          // BREAKDOWN
-          const energy = (Number(row[30]) + Number(row[31]) + Number(row[32]) + Number(row[33])).toFixed(2);
-          const water = (Number(row[34]) + Number(row[35]) + Number(row[36])).toFixed(2);
-          const waste = (Number(row[37]) + Number(row[38]) + Number(row[39])).toFixed(2);
-          const nature = Number(row[40] || 0).toFixed(2);
-
-          document.getElementById("result").innerHTML = `
-            <div class="card">
-              <div class="badge">✅ Verified Certificate</div>
-
-              <div><b>ID:</b> ${id}</div>
-              <div><b>Name:</b> ${name}</div>
-
-              <div class="section">
-                Carbon Signature
-                <div class="value">${total} tCO₂e</div>
-              </div>
-
-              <div class="section">
-                <b>Impact Breakdown</b><br>
-                ⚡ Energy: ${energy}<br>
-                💧 Water: ${water}<br>
-                ♻️ Waste: ${waste}<br>
-                🌳 Nature: ${nature}
-              </div>
-
-              <div class="section">
-                <b>Status:</b> ${status}
-              </div>
-
-              <div class="footer">
-                Earth Carbon Foundation Registry
-              </div>
-            </div>
-          `;
-        }
-
-      });
-
-      if (!found) {
-        document.getElementById("result").innerHTML = "❌ Certificate not found";
+        document.getElementById("result").innerHTML =
+          `<div class="card">
+            <b>${name}</b><br>
+            ${total} tCO₂e
+          </div>`;
       }
-
     });
+
+    if (!found) {
+      document.getElementById("result").innerHTML = "Not found";
+    }
+
+  });
 }
+
+// LEADERBOARD
+fetch(sheetURL)
+.then(res => res.text())
+.then(data => {
+
+  const rows = data.split("\n").map(r => r.split(","));
+  let users = [];
+
+  rows.slice(1).forEach(row => {
+    const name = row[2];
+    const total = Number(row[row.length - 1]);
+
+    if (name && total > 0) {
+      users.push({ name, total });
+    }
+  });
+
+  users.sort((a, b) => b.total - a.total);
+
+  let html = "<table><tr><th>Rank</th><th>Name</th><th>tCO₂e</th></tr>";
+
+  users.slice(0, 10).forEach((u, i) => {
+    html += `<tr><td>${i+1}</td><td>${u.name}</td><td>${u.total}</td></tr>`;
+  });
+
+  html += "</table>";
+
+  document.getElementById("leaderboard").innerHTML = html;
+
+});
 
 </script>
 
