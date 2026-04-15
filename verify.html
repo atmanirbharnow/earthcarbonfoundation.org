@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Certificate</title>
+</head>
+<body>
+
+<h2>Climate Certificate Verification</h2>
+
+<input type="text" id="certId" placeholder="Enter Certificate ID">
+<button onclick="searchCert()">Verify</button>
+
+<p id="result"></p>
+
+<script>
+function searchCert() {
+  var id = document.getElementById("certId").value;
+
+  document.getElementById("result").innerHTML =
+  "Searching for Certificate ID: " + id + "<br><br>" +
+  "👉 View full data here:<br>" +
+  "<a href='YOUR_GOOGLE_SHEET_LINK' target='_blank'>Open Registry</a>";
+}
+</script>
+
+</body>
+</html>
