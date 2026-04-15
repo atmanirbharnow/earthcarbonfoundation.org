@@ -13,7 +13,6 @@
 
     h1 {
       color: #1b5e20;
-      margin-bottom: 10px;
     }
 
     .subtitle {
@@ -26,7 +25,6 @@
       width: 260px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      font-size: 16px;
     }
 
     button {
@@ -47,7 +45,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       display: inline-block;
       text-align: left;
-      width: 350px;
+      width: 380px;
     }
 
     .badge {
@@ -60,25 +58,31 @@
       font-size: 26px;
       font-weight: bold;
       color: #1b5e20;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
     }
 
     .row {
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     .footer {
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 12px;
       color: #777;
     }
-
   </style>
 </head>
 
 <body>
 
 <h1>🌍 Climate Certificate Registry</h1>
-<p class="subtitle">Verify your climate action and impact</p>
+<p class="subtitle">Verified Climate Impact Record</p>
 
 <input type="text" id="certId" placeholder="Enter Certificate ID">
 <button onclick="searchCert()">Verify</button>
@@ -89,13 +93,11 @@
 
 const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
 
-// Get ID from URL
 function getCertId() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
 }
 
-// Auto load
 window.onload = function() {
   const certId = getCertId();
   if (certId) {
@@ -104,13 +106,12 @@ window.onload = function() {
   }
 };
 
-// Search function
 function searchCert() {
 
   const id = document.getElementById("certId").value;
 
   if (!id) {
-    document.getElementById("result").innerHTML = "Please enter Certificate ID";
+    document.getElementById("result").innerHTML = "Enter Certificate ID";
     return;
   }
 
@@ -132,22 +133,51 @@ function searchCert() {
           const total = row[row.length - 1];
           const status = row[row.length - 2];
 
+          // 🔥 BREAKDOWN (adjust index if needed)
+          const energy = (
+            Number(row[31]) + Number(row[32]) + Number(row[33]) + Number(row[34])
+          ).toFixed(2);
+
+          const water = (
+            Number(row[35]) + Number(row[36]) + Number(row[37])
+          ).toFixed(2);
+
+          const waste = (
+            Number(row[38]) + Number(row[39]) + Number(row[40])
+          ).toFixed(2);
+
+          const nature = Number(row[41] || 0).toFixed(2);
+
           document.getElementById("result").innerHTML = `
             <div class="card">
+
               <div class="badge">✅ Verified Certificate</div>
 
-              <div class="row"><strong>Certificate ID:</strong> ${id}</div>
+              <div class="row"><strong>ID:</strong> ${id}</div>
               <div class="row"><strong>Name:</strong> ${name}</div>
 
-              <div class="row">Carbon Signature</div>
-              <div class="value">${total} tCO₂e</div>
+              <div class="section">
+                <div>Carbon Signature</div>
+                <div class="value">${total} tCO₂e</div>
+              </div>
 
-              <div class="row"><strong>Status:</strong> ${status}</div>
+              <div class="section">
+                <strong>Impact Breakdown</strong>
+                <div class="row">⚡ Energy: ${energy} tCO₂e</div>
+                <div class="row">💧 Water: ${water} tCO₂e</div>
+                <div class="row">♻️ Waste: ${waste} tCO₂e</div>
+                <div class="row">🌳 Nature: ${nature} tCO₂e</div>
+              </div>
+
+              <div class="section">
+                <div class="row"><strong>Status:</strong> ${status}</div>
+              </div>
 
               <div class="footer">
-                Issued by Earth Carbon Foundation  
-                <br>Building measurable climate impact
+                Earth Carbon Foundation Registry  
+                <br>Transparent | Measurable | Verifiable
               </div>
+
             </div>
           `;
         }
