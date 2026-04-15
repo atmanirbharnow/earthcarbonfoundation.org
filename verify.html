@@ -23,6 +23,7 @@
       background: green;
       color: white;
       border: none;
+      cursor: pointer;
     }
 
     .card {
@@ -36,6 +37,7 @@
       margin: auto;
       margin-top: 20px;
       border-collapse: collapse;
+      background: white;
     }
 
     th, td {
@@ -69,37 +71,67 @@
 
 <script>
 
+// =====================
 // LINKS
+// =====================
 const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
 const summaryURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372";
 
-// LOAD SUMMARY
+// =====================
+// SAFE CSV PARSER
+// =====================
+function parseCSV(text) {
+  return text.split("\n").map(line =>
+    line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+        .map(cell => cell.replace(/"/g, '').trim())
+  );
+}
+
+// =====================
+// LOAD SUMMARY (FIXED)
+// =====================
 fetch(summaryURL)
 .then(res => res.text())
 .then(data => {
-  const rows = data.split("\n").map(r => r.split(","));
+
+  const rows = parseCSV(data);
+
   rows.forEach(row => {
-    if (row[0].includes("Total tCO2e"))
-      document.getElementById("totalCO2").innerText = Number(row[1]).toFixed(0);
 
-    if (row[0].includes("Total Users"))
-      document.getElementById("users").innerText = row[1];
+    const metric = row[0];
+    const value = row[1];
+
+    if (!metric || !value) return;
+
+    if (metric === "Total tCO2e")
+      document.getElementById("totalCO2").innerText = Number(value).toFixed(0);
+
+    if (metric === "Total Users")
+      document.getElementById("users").innerText = value;
+
   });
-});
 
-// VERIFY
+})
+.catch(err => console.log("Summary error:", err));
+
+// =====================
+// VERIFY FUNCTION
+// =====================
 function searchCert() {
 
   const id = document.getElementById("certId").value;
+
+  if (!id) return;
 
   fetch(sheetURL)
   .then(res => res.text())
   .then(data => {
 
-    const rows = data.split("\n").map(r => r.split(","));
+    const rows = parseCSV(data);
     let found = false;
 
     rows.forEach(row => {
+
       if (row.includes(id)) {
 
         found = true;
@@ -110,33 +142,39 @@ function searchCert() {
         document.getElementById("result").innerHTML =
           `<div class="card">
             <b>${name}</b><br>
-            ${total} tCO₂e
+            ${Number(total).toFixed(2)} tCO₂e
           </div>`;
       }
+
     });
 
     if (!found) {
-      document.getElementById("result").innerHTML = "Not found";
+      document.getElementById("result").innerHTML = "❌ Certificate not found";
     }
 
   });
+
 }
 
-// LEADERBOARD
+// =====================
+// LEADERBOARD (FIXED)
+// =====================
 fetch(sheetURL)
 .then(res => res.text())
 .then(data => {
 
-  const rows = data.split("\n").map(r => r.split(","));
+  const rows = parseCSV(data);
   let users = [];
 
   rows.slice(1).forEach(row => {
+
     const name = row[2];
     const total = Number(row[row.length - 1]);
 
-    if (name && total > 0) {
+    if (name && !isNaN(total)) {
       users.push({ name, total });
     }
+
   });
 
   users.sort((a, b) => b.total - a.total);
@@ -144,14 +182,19 @@ fetch(sheetURL)
   let html = "<table><tr><th>Rank</th><th>Name</th><th>tCO₂e</th></tr>";
 
   users.slice(0, 10).forEach((u, i) => {
-    html += `<tr><td>${i+1}</td><td>${u.name}</td><td>${u.total}</td></tr>`;
+    html += `<tr>
+      <td>${i+1}</td>
+      <td>${u.name}</td>
+      <td>${u.total.toFixed(2)}</td>
+    </tr>`;
   });
 
   html += "</table>";
 
   document.getElementById("leaderboard").innerHTML = html;
 
-});
+})
+.catch(err => console.log("Leaderboard error:", err));
 
 </script>
 
