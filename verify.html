@@ -1,26 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Verify Certificate</title>
+  <title>Verify Climate Certificate</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 40px;
+      background: #f4f8f4;
+    }
+    h2 { color: #1b5e20; }
+    input { padding: 10px; width: 250px; }
+    button { padding: 10px; background: green; color: white; }
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+      background: #e8f5e9;
+      display: inline-block;
+      text-align: left;
+    }
+  </style>
 </head>
+
 <body>
 
-<h2>Climate Certificate Verification</h2>
+<h2>🌍 Climate Certificate Verification</h2>
 
 <input type="text" id="certId" placeholder="Enter Certificate ID">
 <button onclick="searchCert()">Verify</button>
 
-<p id="result"></p>
+<div id="result"></div>
 
 <script>
-function searchCert() {
-  var id = document.getElementById("certId").value;
 
-  document.getElementById("result").innerHTML =
-  "Searching for Certificate ID: " + id + "<br><br>" +
-  "👉 View full data here:<br>" +
-  "<a href='https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M' target='_blank'>Open Registry</a>";
+const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
+
+// Get ID from URL
+function getCertId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
 }
+
+// Auto run
+window.onload = function() {
+  const certId = getCertId();
+  if (certId) {
+    document.getElementById("certId").value = certId;
+    searchCert();
+  }
+};
+
+// Fetch + search
+function searchCert() {
+  const id = document.getElementById("certId").value;
+
+  if (!id) {
+    document.getElementById("result").innerHTML = "Enter Certificate ID";
+    return;
+  }
+
+  fetch(sheetURL)
+    .then(res => res.text())
+    .then(data => {
+      const rows = data.split("\n").map(r => r.split(","));
+
+      let found = false;
+
+      rows.forEach(row => {
+        if (row.includes(id)) {
+
+          found = true;
+
+          const name = row[2];
+          const total = row[row.length - 1]; // last column
+          const status = row[row.length - 2];
+
+          document.getElementById("result").innerHTML = `
+            <div class="card">
+              <h3>✅ Certificate Verified</h3>
+              <p><strong>ID:</strong> ${id}</p>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Carbon Signature:</strong> ${total} tCO₂e</p>
+              <p><strong>Status:</strong> ${status}</p>
+            </div>
+          `;
+        }
+      });
+
+      if (!found) {
+        document.getElementById("result").innerHTML = "❌ Certificate not found";
+      }
+
+    });
+}
+
 </script>
 
 </body>
