@@ -103,13 +103,14 @@ fetch(summaryURL)
 
     if (!metric || !value) return;
 
-    if (metric === "Total tCO2e")
-      document.getElementById("totalCO2").innerText = Number(value).toFixed(0);
-
-    if (metric === "Total Users")
-      document.getElementById("users").innerText = value;
-
-  });
+if (metric === "Total tCO2e") {
+  const cleanValue = Number(value.replace(/,/g, ''));
+  document.getElementById("totalCO2").innerText = cleanValue.toFixed(0);
+}
+if (metric === "Total Users") {
+  const cleanUsers = value.replace(/,/g, '');
+  document.getElementById("users").innerText = cleanUsers;
+}
 
 })
 .catch(err => console.log("Summary error:", err));
