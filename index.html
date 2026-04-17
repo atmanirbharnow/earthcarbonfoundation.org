@@ -66,6 +66,9 @@ Convert your everyday actions into verified carbon savings and receive your Clim
 <div class="mb-10">
 <p class="text-sm opacity-70">🌍 Total Climate Impact</p>
 <h2 id="impactCounter" class="text-4xl font-bold mt-2">Loading...</h2>
+
+<!-- 👥 USERS -->
+<p id="userCounter" class="text-sm opacity-70 mt-2"></p>
 </div>
 
 <a href="https://forms.gle/4e1L4J3qyDmQPymM7"
@@ -140,8 +143,26 @@ Your Climate Impact
 © 2026 Earth Carbon Foundation
 </footer>
 
-<!-- 🔥 FINAL FIXED SCRIPT -->
+<!-- 🔥 FINAL SCRIPT -->
 <script>
+
+function animateValue(element, start, end, duration, suffix="") {
+  let startTimestamp = null;
+
+  function step(timestamp) {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+    const value = Math.floor(progress * (end - start) + start);
+    element.innerText = value.toLocaleString() + suffix;
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  window.requestAnimationFrame(step);
+}
 
 async function loadImpact() {
   try {
@@ -151,15 +172,39 @@ async function loadImpact() {
 
     const rows = text.split("\n");
 
-    // ALWAYS pick row 2 (actual value)
-    const cols = rows[1].split(",");
+    // TOTAL CO2 (Row 2)
+    const totalRow = rows[1].split(",");
+    const totalValue = Number((totalRow[1] || "0").replace(/[^0-9.]/g, ''));
 
-    const rawValue = cols[1];
+    // USERS
+    let usersValue = 0;
 
-    const cleanValue = Number((rawValue || "0").replace(/[^0-9.]/g, ''));
+    rows.forEach(row => {
+      const cols = row.split(",");
+      if (cols[0] && cols[0].toLowerCase().includes("user")) {
+        usersValue = Number((cols[1] || "0").replace(/[^0-9.]/g, ''));
+      }
+    });
 
-    document.getElementById("impactCounter").innerText =
-      cleanValue.toLocaleString() + " tCO₂e";
+    // Animate CO2
+    animateValue(
+      document.getElementById("impactCounter"),
+      0,
+      totalValue,
+      2000,
+      " tCO₂e"
+    );
+
+    // Animate Users
+    if (usersValue > 0) {
+      animateValue(
+        document.getElementById("userCounter"),
+        0,
+        usersValue,
+        1500,
+        "+ users contributing"
+      );
+    }
 
   } catch (e) {
     document.getElementById("impactCounter").innerText = "—";
