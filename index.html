@@ -97,11 +97,9 @@ Your Climate Impact
 </h2>
 
 <div class="space-y-4">
-
 <div class="p-4 bg-gray-100 rounded-xl">🌳 Trees Equivalent Impact</div>
 <div class="p-4 bg-gray-100 rounded-xl">🚗 Travel Emissions Reduced</div>
 <div class="p-4 bg-gray-100 rounded-xl">⚡ Energy Savings</div>
-
 </div>
 
 </div>
@@ -142,24 +140,42 @@ Your Climate Impact
 © 2026 Earth Carbon Foundation
 </footer>
 
-<!-- 🔥 SCRIPT FOR LIVE COUNTER -->
+<!-- 🔥 FIXED LIVE COUNTER SCRIPT -->
 <script>
+
 async function loadImpact() {
   try {
-    const res = await fetch("PASTE_YOUR_CSV_LINK_HERE");
+
+    const res = await fetch("https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372");
     const text = await res.text();
 
     const rows = text.split("\n");
-    const value = parseFloat(rows[1]);
 
-    document.getElementById("impactCounter").innerText =
-      value.toLocaleString() + " tCO₂e";
+    rows.forEach(row => {
+
+      const cols = row.split(",");
+
+      const metric = cols[0];
+      const rawValue = cols[1];
+
+      if (metric === "Total tCO2e") {
+
+        const cleanValue = Number((rawValue || "0").replace(/,/g, '').trim());
+
+        document.getElementById("impactCounter").innerText =
+          cleanValue.toLocaleString() + " tCO₂e";
+      }
+
+    });
+
   } catch (e) {
     document.getElementById("impactCounter").innerText = "—";
+    console.log(e);
   }
 }
 
 loadImpact();
+
 </script>
 
 </body>
