@@ -140,7 +140,7 @@ Your Climate Impact
 © 2026 Earth Carbon Foundation
 </footer>
 
-<!-- 🔥 FIXED LIVE COUNTER SCRIPT -->
+<!-- 🔥 FINAL FIXED SCRIPT -->
 <script>
 
 async function loadImpact() {
@@ -151,22 +151,15 @@ async function loadImpact() {
 
     const rows = text.split("\n");
 
-    rows.forEach(row => {
+    // ALWAYS pick row 2 (actual value)
+    const cols = rows[1].split(",");
 
-      const cols = row.split(",");
+    const rawValue = cols[1];
 
-      const metric = cols[0];
-      const rawValue = cols[1];
+    const cleanValue = Number((rawValue || "0").replace(/[^0-9.]/g, ''));
 
-      if (metric === "Total tCO2e") {
-
-        const cleanValue = Number((rawValue || "0").replace(/,/g, '').trim());
-
-        document.getElementById("impactCounter").innerText =
-          cleanValue.toLocaleString() + " tCO₂e";
-      }
-
-    });
+    document.getElementById("impactCounter").innerText =
+      cleanValue.toLocaleString() + " tCO₂e";
 
   } catch (e) {
     document.getElementById("impactCounter").innerText = "—";
