@@ -1,105 +1,93 @@
+/* 1. BRAND COLORS & SMOOTH SCROLLING */
+:root {
+  --primary-green: #0d631b;
+  --industrial-gold: #ffcc00;
+  --deep-slate: #0f172a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background: #f4f7f6;
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
-.header {
-  background: rgba(10,61,46,0.95);
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
+/* 2. GLASS-MORPHISM ENHANCEMENTS */
+/* This adds the professional 'frost' effect to your audit cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.2);
 }
 
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
+/* 3. BUTTON ANIMATION: THE 'SHEEN' EFFECT */
+/* This makes your 'Get My Scorecard' button feel premium */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* HERO */
-.hero {
-  height: 90vh;
-  background: linear-gradient(rgba(10,61,46,0.7), rgba(27,94,32,0.7)), 
-              url('https://images.unsplash.com/photo-1472214103451-9374bd1c798e');
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+.btn-premium:hover {
+  transform: scale(1.05);
 }
 
-.hero-content h2 {
-  font-size: 2.8rem;
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.4) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(30deg);
+  animation: sheen 4s infinite;
 }
 
-/* SECTIONS */
-.section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
+@keyframes sheen {
+  0% { left: -60%; }
+  20% { left: 120%; }
+  100% { left: 120%; }
 }
 
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+/* 4. DATA DISPLAY: THE 'AUDIT TICKER' */
+/* Professional styling for the impact numbers */
+#impactCounter, #userCounter {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.05em;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* CARDS */
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+/* 5. FORM EMBED CONTAINER (If needed later) */
+.form-container {
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* PROCESS STEPS */
-.timeline {
-  display: grid;
-  gap: 20px;
+/* 6. MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.5rem !important;
+  }
 }
 
-.step {
-  background: white;
-  padding: 20px;
-  border-left: 5px solid #4caf50;
+/* 7. COMPLIANCE BADGE ANIMATION */
+.badge-pulse {
+  animation: pulse 2s infinite;
 }
 
-/* CTA */
-.cta {
-  background: linear-gradient(to right, #1b5e20, #2e7d32);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-/* BUTTONS */
-.btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 25px;
-  background: #4caf50;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
-.btn.secondary {
-  background: transparent;
-  border: 1px solid white;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #0a3d2e;
-  color: white;
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
 }
