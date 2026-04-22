@@ -1,84 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Climate Certificate Registry</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Institutional Registry | Earth Carbon Foundation</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      padding: 30px;
-      background: #f4f8f4;
-    }
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
-    h1 { color: green; }
-
-    input {
-      padding: 10px;
-      width: 220px;
-    }
-
-    button {
-      padding: 10px;
-      background: green;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .card {
-      margin-top: 20px;
-      padding: 15px;
-      background: white;
-      display: inline-block;
-    }
-
-    table {
-      margin: auto;
-      margin-top: 20px;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th, td {
-      padding: 8px;
-      border: 1px solid #ccc;
-    }
-  </style>
+<style>
+  body { background: #f8fafc; font-family: 'Manrope', sans-serif; }
+  .registry-header { background: linear-gradient(135deg, #0d631b 0%, #064e3b 100%); }
+  .table-container { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+</style>
 </head>
 
-<body>
+<body class="text-slate-900">
 
-<h1>🌍 Climate Registry</h1>
+<header class="registry-header text-white py-12 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm opacity-80 hover:opacity-100 mb-6 transition-all">
+            <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Audit Tool
+        </a>
+        <h1 class="text-4xl font-black mb-4">Climate Action Registry</h1>
+        <p class="text-green-100 opacity-80 mb-8">Public verification of institutional Atmanirbhar & Carbon certificates.</p>
 
-<!-- STATS -->
-<div>
-  Total CO₂: <b id="totalCO2">--</b> |
-  Users: <b id="users">--</b>
-</div>
+        <div class="flex justify-center gap-8 bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-lg mx-auto">
+            <div class="text-center">
+                <p class="text-[10px] uppercase font-bold tracking-widest text-green-300">Total Verified tCO2e</p>
+                <p id="totalCO2" class="text-2xl font-black">--</p>
+            </div>
+            <div class="h-10 w-[1px] bg-white/20"></div>
+            <div class="text-center">
+                <p class="text-[10px] uppercase font-bold tracking-widest text-green-300">Audited Entities</p>
+                <p id="users" class="text-2xl font-black">--</p>
+            </div>
+        </div>
+    </div>
+</header>
 
-<br>
+<main class="max-w-4xl mx-auto -mt-10 px-6 pb-20">
+    
+    <div class="bg-white rounded-3xl p-8 shadow-2xl border border-slate-100 mb-12">
+        <h2 class="text-sm uppercase font-black text-slate-400 tracking-widest mb-4">Search Certificate</h2>
+        <div class="flex flex-col md:flex-row gap-4">
+            <input id="certId" type="text" placeholder="e.g. ECF-2026-XXXX" 
+                   class="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:ring-2 focus:ring-green-500 focus:outline-none font-bold">
+            <button onclick="searchCert()" 
+                    class="bg-green-700 hover:bg-green-800 text-white font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">verified</span> Verify Now
+            </button>
+        </div>
+        <div id="result" class="mt-6"></div>
+    </div>
 
-<!-- INPUT -->
-<input id="certId" placeholder="Enter Certificate ID">
-<button onclick="searchCert()">Verify</button>
+    <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+        <div class="px-8 py-6 border-b border-slate-50 bg-slate-50/50 flex justify-between items-center">
+            <h2 class="font-black text-slate-800">Top Impact Institutions</h2>
+            <span class="text-[10px] bg-green-100 text-green-700 px-2 py-1 rounded font-bold">LIVE DATA</span>
+        </div>
+        <div id="leaderboard" class="overflow-x-auto">
+            <div class="p-10 text-center text-slate-400">Loading registry data...</div>
+        </div>
+    </div>
 
-<div id="result"></div>
+</main>
 
-<h2>🏆 Top Contributors</h2>
-<div id="leaderboard"></div>
+<footer class="text-center py-10 text-slate-400 text-xs font-bold uppercase tracking-widest">
+    © 2026 Earth Carbon Foundation | Secure Registry
+</footer>
 
 <script>
-
-// =====================
-// LINKS
-// =====================
 const sheetURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv";
 const summaryURL = "https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372";
 
-// =====================
-// SAFE CSV PARSER
-// =====================
 function parseCSV(text) {
   return text.split("\n").map(line =>
     line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
@@ -86,117 +82,90 @@ function parseCSV(text) {
   );
 }
 
-// =====================
-// LOAD SUMMARY (FIXED)
-// =====================
+// LOAD SUMMARY STATS
 fetch(summaryURL)
 .then(res => res.text())
 .then(data => {
-
   const rows = parseCSV(data);
-
   rows.forEach(row => {
-
     const metric = row[0];
     const rawValue = row[1];
-
     if (!metric || !rawValue) return;
-
     const value = Number(rawValue.replace(/,/g, ''));
-
-    if (metric === "Total tCO2e")
-      document.getElementById("totalCO2").innerText = value.toFixed(0);
-
-    if (metric === "Total Users")
-      document.getElementById("users").innerText = rawValue;
-
+    if (metric === "Total tCO2e") document.getElementById("totalCO2").innerText = value.toLocaleString() + " t";
+    if (metric === "Total Users") document.getElementById("users").innerText = rawValue;
   });
-
 })
 .catch(err => console.log("Summary error:", err));
 
-// =====================
-// VERIFY FUNCTION (FIXED)
-// =====================
+// SEARCH/VERIFY FUNCTION
 function searchCert() {
-
   const id = document.getElementById("certId").value.trim();
-
+  const resultDiv = document.getElementById("result");
   if (!id) return;
+
+  resultDiv.innerHTML = `<div class="animate-pulse text-slate-400 text-sm">Querying secure registry...</div>`;
 
   fetch(sheetURL)
   .then(res => res.text())
   .then(data => {
-
     const rows = parseCSV(data);
     let found = false;
-
     rows.slice(1).forEach(row => {
-
       if (row[0] === id) {
-
         found = true;
-
         const name = row[2];
         const total = Number(row[row.length - 1] || 0);
-
-        document.getElementById("result").innerHTML =
-          `<div class="card">
-            <b>${name}</b><br>
-            ${total.toFixed(2)} tCO₂e
+        resultDiv.innerHTML = `
+          <div class="bg-green-50 border border-green-200 rounded-2xl p-6 flex items-center justify-between">
+            <div>
+                <p class="text-[10px] font-black text-green-600 uppercase mb-1 tracking-widest">Verified Certificate Found</p>
+                <h3 class="text-xl font-black text-slate-900">${name}</h3>
+            </div>
+            <div class="text-right">
+                <p class="text-2xl font-black text-green-700">${total.toFixed(2)} <span class="text-xs">tCO2e</span></p>
+            </div>
           </div>`;
       }
-
     });
-
-    if (!found) {
-      document.getElementById("result").innerHTML = "❌ Certificate not found";
-    }
-
+    if (!found) resultDiv.innerHTML = `<div class="bg-red-50 text-red-600 p-4 rounded-xl font-bold text-sm">❌ Certificate ID not found in current vintage.</div>`;
   });
-
 }
 
-// =====================
-// LEADERBOARD (FIXED)
-// =====================
+// LEADERBOARD RENDER
 fetch(sheetURL)
 .then(res => res.text())
 .then(data => {
-
   const rows = parseCSV(data);
   let users = [];
-
   rows.slice(1).forEach(row => {
-
     const name = row[2];
-    const total = Number((row[row.length - 1] || "0").replace(/,/g, ''));
-
-    if (name && !isNaN(total)) {
-      users.push({ name, total });
-    }
-
+    const total = Number((row[row.length - 1] || "0").replace(/[^0-9.]/g, ''));
+    if (name && !isNaN(total)) users.push({ name, total });
   });
-
   users.sort((a, b) => b.total - a.total);
 
-  let html = "<table><tr><th>Rank</th><th>Name</th><th>tCO₂e</th></tr>";
+  let html = `<table class="w-full text-left border-collapse">
+                <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
+                    <tr>
+                        <th class="px-8 py-4">Rank</th>
+                        <th class="px-8 py-4">Institution Name</th>
+                        <th class="px-8 py-4 text-right">Verified Impact</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm font-bold text-slate-700">`;
 
   users.slice(0, 10).forEach((u, i) => {
-    html += `<tr>
-      <td>${i+1}</td>
-      <td>${u.name}</td>
-      <td>${u.total.toFixed(2)}</td>
-    </tr>`;
+    html += `<tr class="border-b border-slate-50 hover:bg-slate-50/50 transition-colors">
+              <td class="px-8 py-4 text-slate-400">#0${i+1}</td>
+              <td class="px-8 py-4">${u.name}</td>
+              <td class="px-8 py-4 text-right text-green-700">${u.total.toLocaleString()} tCO2e</td>
+            </tr>`;
   });
-
-  html += "</table>";
-
+  html += `</tbody></table>`;
   document.getElementById("leaderboard").innerHTML = html;
-
 })
 .catch(err => console.log("Leaderboard error:", err));
-
 </script>
 
 </body>
