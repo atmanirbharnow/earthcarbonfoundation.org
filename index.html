@@ -6,28 +6,10 @@
 <title>Earth Carbon Foundation | Carbon Asset Engine</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#0d631b",
-        accent: "#ffcc00"
-      }
-    }
-  }
-}
-</script>
 
 <style>
 body {
   background: linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
-}
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
 }
 </style>
 </head>
@@ -59,27 +41,27 @@ Know Your <span class="text-yellow-400">Atmanirbhar %</span> & Carbon Value
 Measure your energy, water and waste impact and convert it into carbon credits.
 </p>
 
-<!-- LIVE DASHBOARD -->
+<!-- DASHBOARD -->
 <div class="grid grid-cols-2 gap-4 bg-black/20 p-4 rounded-xl">
 
 <div>
 <p class="text-sm opacity-70">tCO₂e Assessed</p>
-<h2 id="impactCounter" class="text-2xl font-bold text-yellow-300">...</h2>
+<h2 id="impactCounter" class="text-2xl font-bold text-yellow-300">Loading...</h2>
 </div>
 
 <div>
-<p class="text-sm opacity-70">Users</p>
-<h2 id="userCounter" class="text-2xl font-bold">...</h2>
+<p class="text-sm opacity-70">Entities Onboarded</p>
+<h2 id="userCounter" class="text-2xl font-bold">Loading...</h2>
 </div>
 
 <div>
 <p class="text-sm opacity-70">Carbon Value</p>
-<h2 id="revenueCounter" class="text-xl font-bold text-yellow-300">...</h2>
+<h2 id="revenueCounter" class="text-xl font-bold text-yellow-300">Loading...</h2>
 </div>
 
 <div>
 <p class="text-sm opacity-70">Data Confidence</p>
-<h2 id="validCounter" class="text-xl font-bold">...</h2>
+<h2 id="validCounter" class="text-xl font-bold">Loading...</h2>
 </div>
 
 </div>
@@ -95,44 +77,16 @@ Takes 5 minutes • Get instant carbon scorecard
 
 </div>
 
-<!-- SIDE CARD -->
-<div class="glass-card p-6 rounded-2xl">
 <div class="bg-white text-black p-6 rounded-xl">
-
 <h3 class="font-bold mb-3">Your Outcomes</h3>
-
 <ul class="space-y-2">
 <li>Atmanirbhar Score (%)</li>
 <li>Carbon Footprint (tCO₂e)</li>
 <li>Revenue Potential</li>
 <li>Net Zero Plan</li>
 </ul>
-
-</div>
 </div>
 
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="bg-white text-black py-16 text-center">
-<h2 class="text-3xl font-bold mb-6">How It Works</h2>
-
-<div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-<div>1. Fill Form</div>
-<div>2. Get Score</div>
-<div>3. Receive Certificate</div>
-<div>4. Convert to Credits</div>
-</div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="py-16 text-center">
-<h2 class="text-3xl font-bold mb-4">Start Your Carbon Journey</h2>
-
-<a href="https://forms.gle/4PdsxBN66CCKhBSw9"
-class="bg-white text-green-900 px-6 py-3 rounded-lg font-bold">
-Start Now
-</a>
 </section>
 
 <!-- FOOTER -->
@@ -146,23 +100,28 @@ async function loadDashboard() {
   try {
     const res = await fetch("https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372");
     const text = await res.text();
-    const rows = text.split("\n").slice(1);
+    const rows = text.split("\n");
+
+    const headers = rows[0].split(",");
+
+    const co2Index = headers.indexOf("Annual_tCO2");
+    const revenueIndex = headers.indexOf("Revenue_₹");
+    const flagIndex = headers.indexOf("Validation_Flag");
 
     let totalCO2 = 0;
     let totalRevenue = 0;
-    let users = 0;
     let valid = 0;
+    let users = rows.length - 1;
 
-    rows.forEach(row => {
+    rows.slice(1).forEach(row => {
       const cols = row.split(",");
 
-      const co2 = parseFloat(cols[29]) || 0;
-      const revenue = parseFloat(cols[31]) || 0;
-      const flag = cols[28] || "";
+      const co2 = parseFloat(cols[co2Index]) || 0;
+      const revenue = parseFloat(cols[revenueIndex]) || 0;
+      const flag = cols[flagIndex] || "";
 
       totalCO2 += co2;
       totalRevenue += revenue;
-      users++;
 
       if (flag.includes("OK")) valid++;
     });
@@ -179,7 +138,7 @@ async function loadDashboard() {
     document.getElementById("validCounter").innerText =
       (users ? Math.round(valid/users*100) : 0) + "%";
 
-  } catch(e) {
+  } catch (e) {
     console.log("Dashboard error:", e);
   }
 }
