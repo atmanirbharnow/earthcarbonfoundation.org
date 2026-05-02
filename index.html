@@ -11,6 +11,18 @@
 body {
   background: linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
 }
+/* Smooth counter animation */
+.counter-animate {
+  transition: all 0.3s ease;
+}
+/* Loading pulse */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.loading-pulse {
+  animation: pulse 1.5s infinite;
+}
 </style>
 </head>
 
@@ -18,132 +30,324 @@ body {
 
 <!-- HEADER -->
 <header class="flex justify-between items-center px-6 py-6">
-<h1 class="font-bold text-xl">🌱 Earth Carbon Foundation</h1>
-
-<div class="flex gap-4">
-<a href="verify.html">Verify</a>
-<a href="https://forms.gle/4PdsxBN66CCKhBSw9"
-class="bg-white text-green-800 px-4 py-2 rounded-lg font-bold">
-Start
-</a>
-</div>
+  <h1 class="font-bold text-xl">🌱 Earth Carbon Foundation</h1>
+  <div class="flex gap-4">
+    <a href="verify.html" class="hover:underline">Verify</a>
+    <a href="https://forms.gle/4PdsxBN66CCKhBSw9"
+       class="bg-white text-green-800 px-4 py-2 rounded-lg font-bold hover:bg-green-50 transition">
+      Start
+    </a>
+  </div>
 </header>
 
 <!-- HERO -->
 <section class="grid lg:grid-cols-2 gap-10 px-6 py-16 max-w-7xl mx-auto">
 
-<div>
-<h1 class="text-4xl font-bold mb-4">
-Know Your <span class="text-yellow-400">Atmanirbhar %</span> & Carbon Value
-</h1>
+  <div>
+    <h1 class="text-4xl font-bold mb-4">
+      Know Your <span class="text-yellow-400">Atmanirbhar %</span> & Carbon Value
+    </h1>
+    <p class="mb-6">
+      Measure your energy, water and waste impact and convert it into carbon credits.
+    </p>
 
-<p class="mb-6">
-Measure your energy, water and waste impact and convert it into carbon credits.
-</p>
+    <!-- DASHBOARD -->
+    <div class="grid grid-cols-2 gap-4 bg-black/20 p-4 rounded-xl backdrop-blur-sm">
 
-<!-- DASHBOARD -->
-<div class="grid grid-cols-2 gap-4 bg-black/20 p-4 rounded-xl">
+      <div>
+        <p class="text-sm opacity-70">tCO₂e Assessed</p>
+        <h2 id="impactCounter" class="text-2xl font-bold text-yellow-300 counter-animate">Loading...</h2>
+      </div>
 
-<div>
-<p class="text-sm opacity-70">tCO₂e Assessed</p>
-<h2 id="impactCounter" class="text-2xl font-bold text-yellow-300">Loading...</h2>
-</div>
+      <div>
+        <p class="text-sm opacity-70">Entities Onboarded</p>
+        <h2 id="userCounter" class="text-2xl font-bold counter-animate">Loading...</h2>
+      </div>
 
-<div>
-<p class="text-sm opacity-70">Entities Onboarded</p>
-<h2 id="userCounter" class="text-2xl font-bold">Loading...</h2>
-</div>
+      <div>
+        <p class="text-sm opacity-70">Carbon Value</p>
+        <h2 id="revenueCounter" class="text-xl font-bold text-yellow-300 counter-animate">Loading...</h2>
+      </div>
 
-<div>
-<p class="text-sm opacity-70">Carbon Value</p>
-<h2 id="revenueCounter" class="text-xl font-bold text-yellow-300">Loading...</h2>
-</div>
+      <div>
+        <p class="text-sm opacity-70">Data Confidence</p>
+        <h2 id="validCounter" class="text-xl font-bold counter-animate">Loading...</h2>
+      </div>
 
-<div>
-<p class="text-sm opacity-70">Data Confidence</p>
-<h2 id="validCounter" class="text-xl font-bold">Loading...</h2>
-</div>
+    </div>
 
-</div>
+    <a href="https://forms.gle/4PdsxBN66CCKhBSw9"
+       class="mt-6 inline-block bg-white text-green-900 px-6 py-3 rounded-lg font-bold hover:bg-green-50 transition">
+      Start Free Assessment
+    </a>
 
-<a href="https://forms.gle/4PdsxBN66CCKhBSw9"
-class="mt-6 inline-block bg-white text-green-900 px-6 py-3 rounded-lg font-bold">
-Start Free Assessment
-</a>
+    <p class="text-sm mt-2 opacity-70">
+      Takes 5 minutes • Get instant carbon scorecard
+    </p>
 
-<p class="text-sm mt-2 opacity-70">
-Takes 5 minutes • Get instant carbon scorecard
-</p>
+    <!-- Last Updated Timestamp -->
+    <p id="lastUpdated" class="text-xs opacity-50 mt-3">Last updated: --</p>
 
-</div>
+  </div>
 
-<div class="bg-white text-black p-6 rounded-xl">
-<h3 class="font-bold mb-3">Your Outcomes</h3>
-<ul class="space-y-2">
-<li>Atmanirbhar Score (%)</li>
-<li>Carbon Footprint (tCO₂e)</li>
-<li>Revenue Potential</li>
-<li>Net Zero Plan</li>
-</ul>
-</div>
+  <div class="bg-white text-black p-6 rounded-xl shadow-lg">
+    <h3 class="font-bold mb-3">Your Outcomes</h3>
+    <ul class="space-y-2 text-sm">
+      <li>✅ Atmanirbhar Score (%)</li>
+      <li>✅ Carbon Footprint (tCO₂e)</li>
+      <li>✅ Revenue Potential (₹)</li>
+      <li>✅ Net Zero Roadmap</li>
+      <li class="pt-2 border-t mt-2">
+        <span class="font-semibold">Integrity:</span> Only validated submissions counted
+      </li>
+    </ul>
+  </div>
 
 </section>
 
 <!-- FOOTER -->
-<footer class="text-center py-6 bg-green-900">
-Earth Carbon Foundation • Measure • Reduce • Regenerate
+<footer class="text-center py-6 bg-green-900/50 backdrop-blur-sm">
+  <p class="text-sm opacity-90">Earth Carbon Foundation • Measure • Reduce • Regenerate</p>
+  <p class="text-xs opacity-60 mt-1">Data sourced from community submissions • Updated hourly</p>
 </footer>
 
 <!-- LIVE DASHBOARD SCRIPT -->
 <script>
-async function loadDashboard() {
-  try {
-    const res = await fetch("https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372");
-    const text = await res.text();
-    const rows = text.split("\n");
+/**
+ * Earth Carbon Foundation - Live Dashboard
+ * Fetches Google Sheet → Filters validated rows → Updates counters
+ */
 
-    const headers = rows[0].split(",");
+// === CONFIGURATION ===
+const CONFIG = {
+  // Your published Google Sheet CSV endpoint (gviz API for better CORS support)
+  SHEET_URL: 'https://docs.google.com/spreadsheets/d/1ikW2LMpLj_LUANyemKmXKFD2tX0gWA9KE8QDg1ntQ6M/gviz/tq?tqx=out:csv&gid=871606372',
+  
+  // Column names (exactly as in your sheet)
+  COLUMNS: {
+    ANNUAL_TCO2: 'Annual_tCO2',
+    TOTAL_SAVED: 'Total_CO2_Saved',
+    REVENUE: 'Revenue_₹',
+    VALIDATION_FLAG: 'Validation_Flag',
+    CONSENT: 'SECTION 9 — CONSENT | Declaration:'
+  },
+  
+  // Valid flag values (case-insensitive)
+  VALID_FLAGS: ['ok', 'yes', 'valid', 'verified', 'approved', '1', 'true'],
+  
+  // Auto-refresh interval (10 minutes)
+  REFRESH_MS: 600000,
+  
+  // Loading timeout (8 seconds)
+  TIMEOUT_MS: 8000
+};
 
-    const co2Index = headers.indexOf("Annual_tCO2");
-    const revenueIndex = headers.indexOf("Revenue_₹");
-    const flagIndex = headers.indexOf("Validation_Flag");
+// === CORE FUNCTIONS ===
 
-    let totalCO2 = 0;
-    let totalRevenue = 0;
-    let valid = 0;
-    let users = rows.length - 1;
-
-    rows.slice(1).forEach(row => {
-      const cols = row.split(",");
-
-      const co2 = parseFloat(cols[co2Index]) || 0;
-      const revenue = parseFloat(cols[revenueIndex]) || 0;
-      const flag = cols[flagIndex] || "";
-
-      totalCO2 += co2;
-      totalRevenue += revenue;
-
-      if (flag.includes("OK")) valid++;
+/**
+ * Fetch CSV with cache-busting and timeout
+ */
+async function fetchSheetData() {
+  const url = `${CONFIG.SHEET_URL}&t=${Date.now()}`;
+  
+  const fetchPromise = fetch(url)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
     });
+  
+  const timeoutPromise = new Promise((_, reject) => 
+    setTimeout(() => reject(new Error('Timeout')), CONFIG.TIMEOUT_MS)
+  );
+  
+  return Promise.race([fetchPromise, timeoutPromise]);
+}
 
-    document.getElementById("impactCounter").innerText =
-      totalCO2.toFixed(0) + " tCO₂e";
+/**
+ * Parse CSV respecting quoted fields (handles commas in values)
+ */
+function parseCSV(text) {
+  const lines = text.trim().split('\n').filter(l => l.trim());
+  if (lines.length < 2) return { headers: [], rows: [] };
+  
+  const parseLine = (line) => {
+    const values = [];
+    let current = '', inQuotes = false;
+    
+    for (let char of line) {
+      if (char === '"') inQuotes = !inQuotes;
+      else if (char === ',' && !inQuotes) {
+        values.push(current.trim().replace(/^"|"$/g, ''));
+        current = '';
+      } else current += char;
+    }
+    values.push(current.trim().replace(/^"|"$/g, ''));
+    return values;
+  };
+  
+  const headers = parseLine(lines[0]);
+  const rows = lines.slice(1).map(line => {
+    const values = parseLine(line);
+    const obj = {};
+    headers.forEach((h, i) => obj[h] = values[i] || '');
+    return obj;
+  });
+  
+  return { headers, rows };
+}
 
-    document.getElementById("userCounter").innerText =
-      users + "+";
+/**
+ * Check if row passes validation filters
+ */
+function isValid(row) {
+  // Validation_Flag check
+  const flag = (row[CONFIG.COLUMNS.VALIDATION_FLAG] || '').toLowerCase().trim();
+  const flagOk = CONFIG.VALID_FLAGS.some(v => flag.includes(v));
+  
+  // Consent check (Section 9)
+  const consent = (row[CONFIG.COLUMNS.CONSENT] || '').toLowerCase().trim();
+  const consentOk = consent.includes('yes') || consent.includes('agree') || consent === '1';
+  
+  // Must have numeric Annual_tCO2
+  const hasValue = !isNaN(parseFloat(row[CONFIG.COLUMNS.ANNUAL_TCO2]));
+  
+  return flagOk && consentOk && hasValue;
+}
 
-    document.getElementById("revenueCounter").innerText =
-      "₹ " + totalRevenue.toFixed(0);
+/**
+ * Aggregate metrics from valid rows
+ */
+function aggregate(rows) {
+  const valid = rows.filter(isValid);
+  
+  return valid.reduce((acc, row) => {
+    const annual = parseFloat(row[CONFIG.COLUMNS.ANNUAL_TCO2]) || 0;
+    const total = parseFloat(row[CONFIG.COLUMNS.TOTAL_SAVED]) || 0;
+    const revenue = parseFloat(row[CONFIG.COLUMNS.REVENUE]) || 0;
+    
+    return {
+      annual: acc.annual + annual,
+      total: acc.total + total,
+      revenue: acc.revenue + revenue,
+      count: acc.count + 1
+    };
+  }, { annual: 0, total: 0, revenue: 0, count: 0 });
+}
 
-    document.getElementById("validCounter").innerText =
-      (users ? Math.round(valid/users*100) : 0) + "%";
+/**
+ * Animate numeric counter
+ */
+function animateCounter(elementId, target, duration = 1200, suffix = '') {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  
+  const start = 0;
+  const range = target - start;
+  if (range === 0) {
+    el.textContent = `${start.toLocaleString()}${suffix}`;
+    return;
+  }
+  
+  const startTime = performance.now();
+  
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out
+    const value = start + (range * eased);
+    
+    el.textContent = `${Math.round(value).toLocaleString()}${suffix}`;
+    
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
 
-  } catch (e) {
-    console.log("Dashboard error:", e);
+/**
+ * Update dashboard DOM
+ */
+function updateDashboard(metrics, totalRows) {
+  // tCO₂e Assessed (use Annual_tCO2 sum)
+  animateCounter('impactCounter', metrics.annual, 1200, ' tCO₂e');
+  
+  // Entities Onboarded
+  animateCounter('userCounter', totalRows, 1200, '+');
+  
+  // Carbon Value (₹)
+  const revenueEl = document.getElementById('revenueCounter');
+  if (revenueEl) {
+    revenueEl.textContent = `₹ ${Math.round(metrics.revenue).toLocaleString('en-IN')}`;
+  }
+  
+  // Data Confidence (% validated)
+  const validPct = totalRows > 0 ? Math.round((metrics.count / totalRows) * 100) : 0;
+  animateCounter('validCounter', validPct, 1200, '%');
+  
+  // Last updated timestamp
+  const updatedEl = document.getElementById('lastUpdated');
+  if (updatedEl) {
+    const now = new Date();
+    updatedEl.textContent = `Last updated: ${now.toLocaleString('en-IN', {
+      day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'
+    })} IST`;
+  }
+  
+  console.log(`✅ Dashboard updated: ${metrics.annual.toFixed(1)} tCO₂e from ${metrics.count}/${totalRows} validated`);
+}
+
+/**
+ * Main load function
+ */
+async function loadDashboard() {
+  const counters = ['impactCounter', 'userCounter', 'revenueCounter', 'validCounter'];
+  counters.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = '⟳';
+      el.classList.add('loading-pulse');
+    }
+  });
+  
+  try {
+    const csvText = await fetchSheetData();
+    const { headers, rows } = parseCSV(csvText);
+    
+    if (rows.length === 0) throw new Error('No data rows');
+    
+    const metrics = aggregate(rows);
+    const totalRows = rows.length;
+    
+    updateDashboard(metrics, totalRows);
+    
+    // Remove loading animation
+    counters.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('loading-pulse');
+    });
+    
+  } catch (error) {
+    console.warn('⚠️ Dashboard load failed:', error.message);
+    // Fallback values
+    document.getElementById('impactCounter')?.textContent = '0 tCO₂e';
+    document.getElementById('userCounter')?.textContent = '0+';
+    document.getElementById('revenueCounter')?.textContent = '₹ 0';
+    document.getElementById('validCounter')?.textContent = '0%';
+    counters.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('loading-pulse');
+    });
   }
 }
 
-loadDashboard();
+// === INIT ===
+document.addEventListener('DOMContentLoaded', () => {
+  loadDashboard();
+  
+  // Auto-refresh
+  if (CONFIG.REFRESH_MS > 0) {
+    setInterval(loadDashboard, CONFIG.REFRESH_MS);
+    console.log(`🔄 Auto-refresh enabled: every ${CONFIG.REFRESH_MS/1000}s`);
+  }
+});
 </script>
 
 </body>
