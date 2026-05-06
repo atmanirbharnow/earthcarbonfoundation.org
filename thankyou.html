@@ -3,37 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earth Carbon Certificate</title>
+  
+  <!-- Page Title (Dynamic via JS) -->
+  <title>Earth Carbon Certificate | Verified Climate Impact</title>
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="🌱 My Earth Carbon Certificate">
+  <meta property="og:description" content="I verified my Atmanirbhar Score & carbon impact. Check my certificate!">
+  <meta property="og:image" content="https://earthcarbonfoundation.org/og-certificate.png">
+  <meta property="og:url" content="https://earthcarbonfoundation.org/thankyou.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Styles & Libraries -->
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
 </head>
 <body class="cert-page">
+
+  <!-- Header -->
   <header class="cert-header">
-    <h1> Earth Carbon Foundation</h1>
+    <h1>🌱 Earth Carbon Foundation</h1>
     <a href="index.html">← Back to Home</a>
   </header>
 
+  <!-- Main Content -->
   <main class="cert-wrapper">
-    <div id="cert-loader" class="loader">⏳ Verifying & generating your certificate...</div>
+    
+    <!-- Loading State -->
+    <div id="cert-loader" class="loader">
+      <span class="loading-pulse">⏳</span> Verifying & generating your certificate...
+    </div>
+    
+    <!-- Error State (Hidden by Default) -->
     <div id="cert-error" class="error-msg" style="display:none;"></div>
 
-    <div id="cert-container" class="certificate" style="display:none;">
-      <div class="cert-badge">✅ VERIFIED ACTION</div>
-      <h2>Climate Impact Certificate</h2>
-      <p class="cert-subtitle">Issued to <span id="cert-name">—</span></p>
+    <!-- Certificate Container (Hidden Until Loaded) -->
+    <div id="cert-container" class="certificate" style="display:none;" role="region" aria-label="Climate Impact Certificate">
       
+      <!-- Verification Badge -->
+      <div class="cert-badge">✅ VERIFIED ACTION</div>
+      
+      <!-- Certificate Title -->
+      <h2>Climate Impact Certificate</h2>
+      <p class="cert-subtitle">Issued to <strong id="cert-name">—</strong></p>
+      
+      <!-- Metrics Grid -->
       <div class="cert-metrics">
-        <div class="metric"><span class="label">tCO₂e Verified</span><strong id="cert-tco2e">—</strong></div>
-        <div class="metric"><span class="label">Atmanirbhar Score</span><strong id="cert-atmanirbhar">—</strong></div>
-        <div class="metric"><span class="label">SDG Alignment</span><strong id="cert-sdg">—</strong></div>
-        <div class="metric"><span class="label">Revenue Saved</span><strong id="cert-revenue">—</strong></div>
+        <div class="metric">
+          <span class="label">tCO₂e Verified</span>
+          <strong id="cert-tco2e">—</strong>
+        </div>
+        <div class="metric">
+          <span class="label">Atmanirbhar Score</span>
+          <strong id="cert-atmanirbhar">—</strong>
+        </div>
+        <div class="metric">
+          <span class="label">SDG Alignment</span>
+          <strong id="cert-sdg">—</strong>
+        </div>
+        <div class="metric">
+          <span class="label">Revenue Saved</span>
+          <strong id="cert-revenue">—</strong>
+        </div>
       </div>
 
+      <!-- Footer: QR + Verification Details -->
       <div class="cert-footer">
         <div class="cert-qr-wrap">
-          <img id="cert-qr" src="" alt="QR Code">
-          <small>Scan to verify</small>
+          <img id="cert-qr" src="" alt="QR Code for Verification" width="120" height="120" loading="lazy">
+          <small>Scan to verify authenticity</small>
         </div>
         <div class="cert-details">
           <p><strong>Certificate ID:</strong> <span id="cert-id">—</span></p>
@@ -41,15 +84,258 @@
           <p><strong>Issued:</strong> <span id="cert-date">—</span></p>
         </div>
       </div>
-      <div class="cert-seal">🔒 Earth Carbon Foundation • Self-Certified & Publicly Verifiable</div>
+      
+      <!-- Trust Seal -->
+      <div class="cert-seal">
+        🔒 Earth Carbon Foundation • Self-Certified & Publicly Verifiable<br>
+        <small>DPDP Act 2023 Compliant • IPCC-Aligned MRV</small>
+      </div>
     </div>
 
-    <div id="cert-actions" class="cert-actions" style="display:none;">
-      <button id="download-pdf">📄 Download PDF</button>
-      <button id="share-cert"> Share Certificate</button>
+    <!-- Action Buttons (Hidden Until Loaded) -->
+    <div id="cert-actions" class="cert-actions" style="display:none;" role="group" aria-label="Certificate actions">
+      <button id="download-pdf" type="button" aria-label="Download certificate as PDF">
+        📄 Download PDF
+      </button>
+      <button id="share-cert" type="button" aria-label="Share certificate link">
+         Share Certificate
+      </button>
     </div>
+    
   </main>
 
-  <script src="cert-generator.js"></script>
+  <!-- Footer Links -->
+  <footer class="site-footer" style="margin-top:2rem;background:transparent;border:none;padding:1rem;">
+    <p class="text-[10px] opacity-70">
+      <a href="verify.html" class="underline hover:text-yellow-300">Verify a Certificate</a> • 
+      <a href="https://earthcarbonfoundation.org" class="underline hover:text-yellow-300">Learn More</a>
+    </p>
+  </footer>
+
+  <!-- Certificate Generator Script (With Your Web App API) -->
+  <script>
+    // ========================================================================
+    // EARTH CARBON FOUNDATION — CERTIFICATE GENERATOR
+    // Web App API: https://script.google.com/macros/s/AKfycbytZy_MIX41q4ksjbhAramnfX8TrFb3N7ADYiAoSrh3boM1sMWX3jEFcYJvHNUWTj4/exec
+    // ========================================================================
+    
+    const API_URL = "https://script.google.com/macros/s/AKfycbytZy_MIX41q4ksjbhAramnfX8TrFb3N7ADYiAoSrh3boM1sMWX3jEFcYJvHNUWTj4/exec";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const certId = params.get("certId");
+      
+      if (!certId) {
+        showError("No Certificate ID found. Please submit the assessment first.");
+        return;
+      }
+
+      // Show loading state
+      document.getElementById("cert-loader").style.display = "flex";
+      document.getElementById("cert-container").style.display = "none";
+      document.getElementById("cert-actions").style.display = "none";
+      document.getElementById("cert-error").style.display = "none";
+
+      // Fetch certificate data from Google Apps Script Web App
+      fetch(`${API_URL}?certId=${encodeURIComponent(certId)}`)
+        .then(res => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return res.json();
+        })
+        .then(resp => {
+          if (resp.status === "success") {
+            renderCertificate(resp.data);
+          } else {
+            showError(resp.message || "Certificate not found or pending validation.");
+          }
+        })
+        .catch(err => {
+          console.error("Certificate fetch error:", err);
+          showError("Failed to load certificate. Check connection or try again later.");
+        });
+    });
+
+    function renderCertificate(data) {
+      // Populate certificate fields with fallbacks
+      document.getElementById("cert-name").textContent = data.name || "Earth Carbon Participant";
+      document.getElementById("cert-tco2e").textContent = `${data.tCO2e || "0"} tCO₂e`;
+      document.getElementById("cert-atmanirbhar").textContent = `${data.atmanirbhar || "0"}%`;
+      document.getElementById("cert-sdg").textContent = data.sdg || "SDG 7, SDG 13";
+      document.getElementById("cert-revenue").textContent = `₹${Number(data.revenue || 0).toLocaleString("en-IN")}`;
+      document.getElementById("cert-date").textContent = data.date || new Date().toLocaleDateString("en-IN");
+      document.getElementById("cert-id").textContent = data.certId || "ECF-XXXXXX";
+      
+      // Display truncated hash for verification
+      const hash = data.hash || "";
+      document.getElementById("cert-hash").textContent = hash.length > 16 ? hash.substring(0, 16) + "..." : hash;
+
+      // Generate QR Code pointing to verification page
+      const verifyUrl = `${window.location.origin}/verify.html?certId=${data.certId}`;
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(verifyUrl)}`;
+      const qrImg = document.getElementById("cert-qr");
+      if (qrImg) {
+        qrImg.src = qrApiUrl;
+        qrImg.alt = `Verify Certificate ${data.certId}`;
+      }
+
+      // Hide loader, show certificate + actions
+      document.getElementById("cert-loader").style.display = "none";
+      document.getElementById("cert-container").style.display = "block";
+      document.getElementById("cert-actions").style.display = "flex";
+      
+      // Update page title for social sharing
+      document.title = `Certificate: ${data.name} | Earth Carbon Foundation`;
+      
+      console.log("✅ Certificate rendered:", data.certId);
+    }
+
+    function showError(msg) {
+      document.getElementById("cert-loader").style.display = "none";
+      const err = document.getElementById("cert-error");
+      if (err) {
+        err.textContent = msg;
+        err.style.display = "block";
+      }
+      console.warn("❌ Certificate error:", msg);
+    }
+
+    // Download Certificate as PDF
+    document.getElementById("download-pdf")?.addEventListener("click", async () => {
+      const btn = document.getElementById("download-pdf");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "⏳ Generating...";
+      btn.disabled = true;
+
+      try {
+        // Wait for fonts/images to load
+        await document.fonts.ready;
+        
+        const certEl = document.getElementById("cert-container");
+        if (!certEl) throw new Error("Certificate element not found");
+
+        // Render to canvas with high DPI
+        const canvas = await html2canvas(certEl, {
+          scale: 3,
+          backgroundColor: "#ffffff",
+          useCORS: true,
+          logging: false
+        });
+        
+        const imgData = canvas.toDataURL("image/png");
+        const { jsPDF } = window.jspdf;
+        
+        // A4 landscape dimensions in mm
+        const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgProps = pdf.getImageProperties(imgData);
+        const imgHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+        // Center image vertically if shorter than page
+        const yPosition = (pdfHeight - imgHeight) / 2;
+        
+        pdf.addImage(imgData, "PNG", 0, yPosition > 0 ? yPosition : 0, pdfWidth, imgHeight);
+        
+        // Add subtle footer with verification info
+        pdf.setFontSize(8);
+        pdf.setTextColor(100, 100, 100);
+        const certId = document.getElementById("cert-id")?.textContent || "";
+        pdf.text(`Verify: ${window.location.origin}/verify.html?certId=${certId}`, 10, pdfHeight - 5);
+        
+        // Save with descriptive filename
+        const safeName = (document.getElementById("cert-name")?.textContent || "Certificate").replace(/[^a-z0-9]/gi, "_").substring(0, 30);
+        pdf.save(`${safeName}_${certId}_EarthCarbon_Certificate.pdf`);
+        
+        console.log("✅ PDF downloaded");
+      } catch (e) {
+        console.error("PDF generation failed:", e);
+        alert("PDF generation failed. Try taking a screenshot instead.");
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    });
+
+    // Share Certificate via Web Share API or fallback
+    document.getElementById("share-cert")?.addEventListener("click", async () => {
+      const name = document.getElementById("cert-name")?.textContent || "Participant";
+      const atmanirbhar = document.getElementById("cert-atmanirbhar")?.textContent || "0%";
+      const tco2e = document.getElementById("cert-tco2e")?.textContent || "0 tCO₂e";
+      
+      const shareData = {
+        title: `🌱 My Earth Carbon Certificate`,
+        text: `I just earned my Earth Carbon Certificate! 🎉\n\n👤 ${name}\n🇮🇳 Atmanirbhar Score: ${atmanirbhar}\n🌍 Carbon Reduced: ${tco2e}\n\nVerify: ${window.location.href}`,
+        url: window.location.href
+      };
+
+      try {
+        if (navigator.share) {
+          await navigator.share(shareData);
+          console.log("✅ Shared via Web Share API");
+        } else {
+          // Fallback: copy link + show toast
+          await navigator.clipboard.writeText(window.location.href);
+          showToast("🔗 Link copied! Paste anywhere to share.");
+          console.log("✅ Link copied to clipboard");
+        }
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          console.warn("Share failed:", err);
+          await navigator.clipboard.writeText(window.location.href);
+          showToast("🔗 Link copied! Share manually.");
+        }
+      }
+    });
+
+    // Simple toast notification for share feedback
+    function showToast(message) {
+      const toast = document.createElement("div");
+      toast.textContent = message;
+      toast.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0d631b;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        animation: slideUp 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+      `;
+      
+      // Add animation keyframes if not present
+      if (!document.getElementById("toast-styles")) {
+        const style = document.createElement("style");
+        style.id = "toast-styles";
+        style.textContent = `
+          @keyframes slideUp { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+          @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // Preload critical libraries (defensive)
+    (function preloadLibs() {
+      const libs = [
+        { name: "html2canvas", global: "html2canvas", url: "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" },
+        { name: "jspdf", global: "jspdf", url: "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" }
+      ];
+      
+      libs.forEach(lib => {
+        if (typeof window[lib.global] === "undefined") {
+          console.warn(`⚠️ ${lib.name} not loaded. PDF download may fail.`);
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
