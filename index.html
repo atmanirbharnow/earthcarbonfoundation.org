@@ -4,130 +4,147 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Earth Carbon Foundation | Atmanirbhar Carbon Asset Engine</title>
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="Earth Carbon Foundation | Verify Your Climate Impact">
+<meta property="og:description" content="Measure your Atmanirbhar Score, tCO₂e reduction & revenue potential. Get a verified, shareable certificate.">
+<meta property="og:image" content="https://earthcarbonfoundation.org/og-preview.png">
+<meta property="og:url" content="https://earthcarbonfoundation.org">
+<meta property="og:type" content="website">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN (for utility classes) -->
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-body {
-  background: linear-gradient(135deg, #0d631b 0%, #1b6d24 40%, #00897b 100%);
-}
-.counter-animate { transition: all 0.4s ease-out; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-.loading-pulse { animation: pulse 1.2s infinite; }
-.fade-in { animation: fadeIn 0.5s ease-in; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-</style>
+
+<!-- Custom Styles -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
 </head>
 <body class="text-white font-sans">
 
 <!-- HEADER -->
-<header class="flex justify-between items-center px-6 py-5 max-w-7xl mx-auto">
-  <div class="flex items-center gap-3">
+<header class="site-header">
+  <a href="index.html" class="site-logo">
     <span class="text-2xl">🌱</span>
-    <h1 class="font-bold text-lg md:text-xl">Earth Carbon Foundation</h1>
-  </div>
-  <div class="flex gap-3 md:gap-4">
-    <a href="https://registryearthcarbon.org" target="_blank" class="text-sm hover:underline opacity-90 hover:opacity-100 transition">Live Registry</a>
-    <a href="https://forms.gle/4PdsxBN66CCKhBSw9" target="_blank"
-       class="bg-white text-green-800 px-4 py-2 rounded-lg font-bold text-sm hover:bg-green-50 transition shadow">
+    <span>Earth Carbon Foundation</span>
+  </a>
+  <nav class="nav-links">
+    <a href="verify.html" class="hover:underline">Verify Certificate</a>
+    <a href="https://registryearthcarbon.org" target="_blank" class="hover:underline">Live Registry</a>
+    <a href="https://forms.gle/4PdsxBN66CCKhBSw9" target="_blank" class="btn-premium">
       Start Assessment
     </a>
-  </div>
+  </nav>
 </header>
 
 <!-- HERO -->
-<section class="grid lg:grid-cols-2 gap-8 px-6 py-12 max-w-7xl mx-auto">
+<section class="hero-section">
+  <div class="hero-grid">
 
-  <!-- LEFT: Value Prop + Dashboard -->
-  <div>
-    <h1 class="text-3xl md:text-4xl font-bold mb-4">
-      Know Your <span class="text-yellow-400">Atmanirbhar %</span> & Carbon Value
-    </h1>
-    <p class="mb-6 text-sm md:text-base opacity-95">
-      Measure energy, water & waste impact. Convert verified actions into carbon credits. 
-      Built for schools, MSMEs, municipalities & communities across India.
-    </p>
+    <!-- LEFT: Value Prop + Dashboard -->
+    <div>
+      <h1 class="hero-title">
+        Know Your <span class="highlight">Atmanirbhar %</span> & Carbon Value
+      </h1>
+      <p class="mb-6 text-sm md:text-base opacity-95">
+        Measure energy, water & waste impact. Convert verified actions into carbon credits. 
+        Built for schools, MSMEs, municipalities & communities across India.
+      </p>
 
-    <!-- DASHBOARD CARDS -->
-    <div class="grid grid-cols-2 gap-3 md:gap-4 bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+      <!-- DASHBOARD CARDS -->
+      <div class="dashboard-grid glass-panel p-4">
+        
+        <div class="dashboard-card">
+          <p class="text-xs opacity-70">tCO₂e Verified</p>
+          <h2 id="impactCounter" class="text-xl md:text-2xl font-bold text-yellow-300 counter-animate">—</h2>
+          <p id="impactSource" class="text-[10px] opacity-60 mt-1">Source: Earth Carbon Registry</p>
+        </div>
+
+        <div class="dashboard-card">
+          <p class="text-xs opacity-70">Actions Onboarded</p>
+          <h2 id="userCounter" class="text-xl md:text-2xl font-bold counter-animate">—</h2>
+          <p class="text-[10px] opacity-60 mt-1">Schools • MSMEs • Civic</p>
+        </div>
+
+        <div class="dashboard-card">
+          <p class="text-xs opacity-70">Value Generated</p>
+          <h2 id="revenueCounter" class="text-lg md:text-xl font-bold text-yellow-300 counter-animate">—</h2>
+          <p class="text-[10px] opacity-60 mt-1">Cost savings + carbon revenue</p>
+        </div>
+
+        <div class="dashboard-card">
+          <p class="text-xs opacity-70">Data Validated</p>
+          <h2 id="validCounter" class="text-lg md:text-xl font-bold counter-animate">—</h2>
+          <p class="text-[10px] opacity-60 mt-1">IPCC-aligned MRV</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="https://forms.gle/4PdsxBN66CCKhBSw9" target="_blank" class="btn-premium">
+          Start Free Assessment
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a href="verify.html" class="btn-secondary">
+          🔍 Verify Certificate
+        </a>
+      </div>
+      <p class="text-xs mt-2 opacity-70">⏱ 5 minutes • Instant scorecard • No login required</p>
+
+      <!-- Timestamp -->
+      <p id="lastUpdated" class="text-[10px] opacity-50 mt-3">Data verified: —</p>
       
-      <div class="p-2">
-        <p class="text-xs opacity-70">tCO₂e Verified</p>
-        <h2 id="impactCounter" class="text-xl md:text-2xl font-bold text-yellow-300 counter-animate">—</h2>
-        <p id="impactSource" class="text-[10px] opacity-60 mt-1">Source: Earth Carbon Registry</p>
-      </div>
+      <!-- Debug Toggle (hidden on mobile) -->
+      <details class="mt-4 hidden md:block">
+        <summary class="text-[10px] opacity-60 cursor-pointer hover:opacity-90">Technical details ▼</summary>
+        <div class="text-[10px] opacity-70 mt-2 space-y-1">
+          <p>• Fallback data active: ✅</p>
+          <p>• Live sheet fetch: Attempting…</p>
+          <p>• CORS/Sheet errors handled gracefully</p>
+          <p>• View console for debug logs</p>
+        </div>
+      </details>
+    </div>
 
-      <div class="p-2">
-        <p class="text-xs opacity-70">Actions Onboarded</p>
-        <h2 id="userCounter" class="text-xl md:text-2xl font-bold counter-animate">—</h2>
-        <p class="text-[10px] opacity-60 mt-1">Schools • MSMEs • Civic</p>
-      </div>
-
-      <div class="p-2">
-        <p class="text-xs opacity-70">Value Generated</p>
-        <h2 id="revenueCounter" class="text-lg md:text-xl font-bold text-yellow-300 counter-animate">—</h2>
-        <p class="text-[10px] opacity-60 mt-1">Cost savings + carbon revenue</p>
-      </div>
-
-      <div class="p-2">
-        <p class="text-xs opacity-70">Data Validated</p>
-        <h2 id="validCounter" class="text-lg md:text-xl font-bold counter-animate">—</h2>
-        <p class="text-[10px] opacity-60 mt-1">IPCC-aligned MRV</p>
+    <!-- RIGHT: Outcomes Card -->
+    <div class="outcomes-card">
+      <h3 class="font-bold mb-3 text-lg">Your Assessment Delivers</h3>
+      <ul class="space-y-2.5 text-sm">
+        <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Atmanirbhar Score (%)</strong> — Resource independence metric</li>
+        <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Carbon Footprint (tCO₂e)</strong> — IPCC-aligned calculation</li>
+        <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Revenue Potential (₹)</strong> — Carbon credits + utility savings</li>
+        <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Net Zero Roadmap</strong> — Prioritized action plan</li>
+        <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Verified Certificate</strong> — Downloadable, shareable, tamper-proof</li>
+        <li class="pt-3 border-t mt-2">
+          <span class="font-semibold text-xs opacity-80">INTEGRITY FIRST:</span>
+          <span class="text-xs opacity-70 block mt-1">Only DPDP-compliant, consented & validated submissions contribute to public metrics.</span>
+        </li>
+      </ul>
+      
+      <!-- Trust Badges -->
+      <div class="mt-5 pt-4 border-t border-green-200 grid grid-cols-3 gap-2 text-center">
+        <div class="text-[10px]">
+          <div class="font-bold text-green-700">IGBC</div>
+          <div class="opacity-70">Platinum Verified</div>
+        </div>
+        <div class="text-[10px]">
+          <div class="font-bold text-green-700">GEDA</div>
+          <div class="opacity-70">Technical Partner</div>
+        </div>
+        <div class="text-[10px]">
+          <div class="font-bold text-green-700">POA</div>
+          <div class="opacity-70">Methodology</div>
+        </div>
       </div>
     </div>
 
-    <!-- CTA -->
-    <a href="https://forms.gle/4PdsxBN66CCKhBSw9" target="_blank"
-       class="mt-6 inline-flex items-center gap-2 bg-white text-green-900 px-6 py-3 rounded-lg font-bold hover:bg-green-50 transition shadow">
-      <span>Start Free Assessment</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-    </a>
-    <p class="text-xs mt-2 opacity-70">⏱ 5 minutes • Instant scorecard • No login required</p>
-
-    <!-- Timestamp -->
-    <p id="lastUpdated" class="text-[10px] opacity-50 mt-3">Data verified: —</p>
-    
-    <!-- Debug Toggle (hidden on mobile) -->
-    <details class="mt-4 hidden md:block">
-      <summary class="text-[10px] opacity-60 cursor-pointer hover:opacity-90">Technical details ▼</summary>
-      <div class="text-[10px] opacity-70 mt-2 space-y-1">
-        <p>• Fallback data active: ✅</p>
-        <p>• Live sheet fetch: Attempting…</p>
-        <p>• CORS/Sheet errors handled gracefully</p>
-        <p>• View console for debug logs</p>
-      </div>
-    </details>
   </div>
-
-  <!-- RIGHT: Outcomes Card -->
-  <div class="bg-white/95 text-green-900 p-5 md:p-6 rounded-xl shadow-lg border border-green-200">
-    <h3 class="font-bold mb-3 text-lg">Your Assessment Delivers</h3>
-    <ul class="space-y-2.5 text-sm">
-      <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Atmanirbhar Score (%)</strong> — Resource independence metric</li>
-      <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Carbon Footprint (tCO₂e)</strong> — IPCC-aligned calculation</li>
-      <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Revenue Potential (₹)</strong> — Carbon credits + utility savings</li>
-      <li class="flex gap-2"><span class="text-green-600">✓</span> <strong>Net Zero Roadmap</strong> — Prioritized action plan</li>
-      <li class="pt-3 border-t mt-2">
-        <span class="font-semibold text-xs opacity-80">INTEGRITY FIRST:</span>
-        <span class="text-xs opacity-70 block mt-1">Only DPDP-compliant, consented & validated submissions contribute to public metrics.</span>
-      </li>
-    </ul>
-    
-    <!-- Trust Badges -->
-    <div class="mt-5 pt-4 border-t border-green-200 grid grid-cols-3 gap-2 text-center">
-      <div class="text-[10px]">
-        <div class="font-bold text-green-700">IGBC</div>
-        <div class="opacity-70">Platinum Verified</div>
-      </div>
-      <div class="text-[10px]">
-        <div class="font-bold text-green-700">GEDA</div>
-        <div class="opacity-70">Technical Partner</div>
-      </div>
-      <div class="text-[10px]">
-        <div class="font-bold text-green-700">POA</div>
-        <div class="opacity-70">Methodology</div>
-      </div>
-    </div>
-  </div>
-
 </section>
 
 <!-- TRUST BAR -->
@@ -144,18 +161,22 @@ body {
 </div>
 
 <!-- FOOTER -->
-<footer class="text-center py-6 bg-green-900/40 backdrop-blur-sm">
+<footer class="site-footer">
   <p class="text-sm opacity-90">Earth Carbon Foundation • Measure • Reduce • Regenerate</p>
   <p class="text-[10px] opacity-70 mt-1">
     Fallback data reflects verified projects: Mandvi Municipality (IGBC Platinum), 400+ Gujarat schools, Earth Carbon Registry. 
     <a href="https://earthcarbonfoundation.org" class="underline hover:text-yellow-300">View methodology</a>
+  </p>
+  <p class="text-[10px] opacity-70 mt-1">
+    <a href="thankyou.html" class="underline hover:text-yellow-300">Get Your Certificate</a> • 
+    <a href="verify.html" class="underline hover:text-yellow-300">Verify a Certificate</a>
   </p>
 </footer>
 
 <!-- SMART DASHBOARD SCRIPT -->
 <script>
 /**
- * Earth Carbon Foundation — Resilient Dashboard
+ * Earth Carbon Foundation — Resilient Dashboard v3.0
  * Strategy: Show trusted fallback data IMMEDIATELY, then attempt live fetch.
  * If fetch fails (CORS, permissions, sheet changes), fallback remains visible.
  */
