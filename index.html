@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
-  <!-- SEO Meta -->
+  <!-- SEO & Meta -->
   <title>Earth Carbon Foundation | Structuring Climate Assets for India</title>
   <meta name="description" content="We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance."/>
   <meta name="keywords" content="carbon credits, carbon registry, climate action, Gujarat, Verra, IGBC, LEAP, NAMA, carbon markets India"/>
   <meta name="author" content="Earth Carbon Foundation"/>
   <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#0d631b"/>
   
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Earth Carbon Foundation | Verified Carbon Impact"/>
@@ -18,15 +19,16 @@
   <meta property="og:url" content="https://earthcarbonfoundation.org"/>
   <meta property="og:image" content="https://earthcarbonfoundation.org/og-image.jpg"/>
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  <!-- Favicon (SVG Emoji) -->
+  <link rel="icon" type="image/svg+xml" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
   
-  <!-- Styles -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
   
-  <!-- Preconnect for Performance -->
+  <!-- Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -36,9 +38,7 @@
     "name": "Earth Carbon Foundation",
     "url": "https://earthcarbonfoundation.org",
     "logo": "https://earthcarbonfoundation.org/logo.png",
-    "sameAs": [
-      "https://registry.earthcarbonfoundation.org"
-    ],
+    "sameAs": ["https://registry.earthcarbonfoundation.org"],
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "info@earthcarbonfoundation.org",
@@ -50,7 +50,7 @@
 </head>
 <body>
 
-  <!-- Skip Link for Accessibility -->
+  <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Sticky Navigation -->
@@ -275,7 +275,7 @@
       </div>
     </section>
 
-    <!-- 10. CONTACT FORM (MINIMAL 6-FIELD) -->
+    <!-- 10. CONTACT FORM (Zero-Config, No Hash Needed) -->
     <section id="contact" class="section">
       <div class="container contact-wrapper">
         
@@ -286,55 +286,51 @@
           
           <ul class="contact-details">
             <li>📧 <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></li>
+            <!-- ⚠️ UPDATE THIS NUMBER -->
             <li>💬 <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp: +91 98765 43210</a></li>
-            <li>🌐 <a href="https://registryearthcarbon.org/" target="_blank" rel="noopener">Public Registry</a></li>
+            <li>🌐 <a href="https://registryearthcarbon.org" target="_blank" rel="noopener">Public Registry</a></li>
             <li>📍 Ahmedabad, Gujarat, India</li>
           </ul>
           
           <p class="response-time"><em>All inquiries confidential. DPDP Act 2023 compliant.</em></p>
         </div>
 
-        <!-- Right: Minimal Form -->
-        <!-- ⚠️ REPLACE 'YOUR_FORMSPREE_ID' WITH YOUR ACTUAL FORMSPREE ENDPOINT -->
-        <form class="contact-form" id="inquiry-form" 
-              action="https://formspree.io/f/YOUR_FORMSPREE_ID" 
+        <!-- Right: Minimal Form (formsubmit.co) -->
+        <form class="contact-form" 
+              action="https://formsubmit.co/info@earthcarbonfoundation.org" 
               method="POST" 
               novalidate>
           
-          <!-- Hidden Fields for Formspree -->
+          <!-- FormSubmit.co Config (No account/hash required) -->
           <input type="hidden" name="_subject" value="New Inquiry: Earth Carbon Foundation">
-          <input type="hidden" name="_cc" value="info@earthcarbonfoundation.org">
           <input type="hidden" name="_next" value="https://earthcarbonfoundation.org/thankyou.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Earth Carbon Foundation. We've received your inquiry and will respond within 48 hours.">
           
-          <!-- Name Fields (Side-by-side on desktop) -->
+          <!-- Anti-Spam Honeypot (DO NOT MODIFY) -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <!-- Fields -->
           <div class="form-row">
-            <input type="text" name="first_name" placeholder="First Name" required autocomplete="given-name" />
-            <input type="text" name="last_name" placeholder="Last Name" required autocomplete="family-name" />
+            <input type="text" name="First Name" placeholder="First Name" required autocomplete="given-name" />
+            <input type="text" name="Last Name" placeholder="Last Name" required autocomplete="family-name" />
           </div>
 
-          <!-- Organisation & Email -->
-          <input type="text" name="organisation" placeholder="Organisation Name" required autocomplete="organization" />
-          <input type="email" name="email" placeholder="Email ID" required autocomplete="email" />
-
-          <!-- WhatsApp (India-optimized) -->
-          <input type="tel" name="whatsapp" placeholder="WhatsApp Number (e.g., +91 98765 43210)" 
+          <input type="text" name="Organisation" placeholder="Organisation Name" required autocomplete="organization" />
+          <input type="email" name="Email" placeholder="Email ID" required autocomplete="email" />
+          <input type="tel" name="WhatsApp" placeholder="WhatsApp Number (e.g., +91 98765 43210)" 
                  pattern="^\+?[\d\s\-\(\)]{10,15}$" required autocomplete="tel" />
 
-          <!-- Message -->
-          <textarea name="message" placeholder="Briefly describe your project or inquiry..." rows="3" required></textarea>
+          <textarea name="Message" placeholder="Briefly describe your project or inquiry..." rows="3" required></textarea>
 
           <!-- DPDP 2023 Consent -->
           <label class="consent">
-            <input type="checkbox" name="consent" required />
+            <input type="checkbox" name="Consent" required />
             <span>I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and consent to data processing under India's DPDP Act 2023.</span>
           </label>
 
-          <!-- Submit -->
-          <button type="submit" class="btn-primary full-width">
-            Send Inquiry →
-          </button>
-
-          <!-- Status Message (for JS fallback) -->
+          <button type="submit" class="btn-primary full-width">Send Inquiry →</button>
           <div id="form-status" class="form-status" aria-live="polite"></div>
         </form>
 
@@ -348,9 +344,9 @@
     <div class="container">
       <p>&copy; <span id="year"></span> Earth Carbon Foundation. All rights reserved.</p>
       <p class="footer-links">
-        <a href="/privacy" target="_blank">Privacy Policy</a> | 
-        <a href="/terms" target="_blank">Terms of Use</a> | 
-        <a href="https://registry.earthcarbonfoundation.org" target="_blank" rel="noopener">Public Registry</a>
+        <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> | 
+        <a href="/terms" target="_blank" rel="noopener">Terms of Use</a> | 
+        <a href="https://registryearthcarbon.org" target="_blank" rel="noopener">Public Registry</a>
       </p>
     </div>
   </footer>
@@ -358,7 +354,7 @@
   <!-- Scripts -->
   <script src="cert-generator.js"></script>
   <script>
-    // ===== UTILITY: Dynamic Year =====
+    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // ===== MOBILE MENU TOGGLE =====
@@ -372,7 +368,7 @@
       });
     }
 
-    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    // ===== SMOOTH SCROLL & CLOSE MOBILE MENU =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -380,10 +376,8 @@
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          // Close mobile menu if open
           nav?.classList.remove('active');
           toggle?.setAttribute('aria-expanded', 'false');
-          // Scroll
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
@@ -392,104 +386,24 @@
     // ===== ACTIVE NAV LINK ON SCROLL =====
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    
     window.addEventListener('scroll', () => {
       let current = '';
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.scrollY >= sectionTop) {
+        if (window.scrollY >= section.offsetTop - 120) {
           current = section.getAttribute('id');
         }
       });
-      
       navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href')?.slice(1) === current) {
-          link.classList.add('active');
-        }
+        if (link.getAttribute('href')?.slice(1) === current) link.classList.add('active');
       });
     });
 
     // ===== HEADER SHADOW ON SCROLL =====
     const header = document.querySelector('.site-header');
     window.addEventListener('scroll', () => {
-      if (header) {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-      }
+      if (header) header.classList.toggle('scrolled', window.scrollY > 50);
     });
-
-    // ===== FORMSPREE FALLBACK: Show status if JS enabled but redirect fails =====
-    const form = document.getElementById('inquiry-form');
-    const statusEl = document.getElementById('form-status');
-    
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        // Only intercept if we're using JS fetch (optional enhancement)
-        // If using Formspree's native redirect via _next, comment out this block
-        /*
-        e.preventDefault();
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        statusEl.className = 'form-status';
-        statusEl.textContent = '';
-        
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          });
-          
-          if (response.ok) {
-            statusEl.className = 'form-status success';
-            statusEl.textContent = '✅ Thank you! Redirecting...';
-            setTimeout(() => {
-              window.location.href = form.querySelector('input[name="_next"]')?.value || '/thankyou.html';
-            }, 1500);
-          } else {
-            throw new Error('Submission failed');
-          }
-        } catch (error) {
-          console.error('Form error:', error);
-          statusEl.className = 'form-status error';
-          statusEl.textContent = '❌ Submission failed. Please try WhatsApp: +91 98765 43210';
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Inquiry →';
-        }
-        */
-      });
-    }
-
-    // ===== OPTIONAL: Live Metrics Fetch (Uncomment if API available) =====
-    /*
-    async function fetchLiveMetrics() {
-      try {
-        const res = await fetch('https://registryearthcarbon.org/api/metrics');
-        if (!res.ok) return;
-        const data = await res.json();
-        const update = (id, val, suffix = '') => {
-          const el = document.getElementById(id);
-          if (el && val != null) el.textContent = typeof val === 'number' ? val.toLocaleString() + suffix : val + suffix;
-        };
-        update('active-projects', data.projects, '+');
-        update('emissions-reduced', data.emissions, '+');
-        update('actions-logged', data.actions, '+');
-        update('credits-pipeline', data.pipeline ? data.pipeline : '—', data.pipeline ? ' tCO₂e' : '');
-        const note = document.querySelector('.sync-note');
-        if (note) note.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
-      } catch (e) {
-        console.log('Live metrics fetch skipped (dev mode)');
-      }
-    }
-    // Uncomment below to enable:
-    // document.addEventListener('DOMContentLoaded', fetchLiveMetrics);
-    */
   </script>
 </body>
 </html>
