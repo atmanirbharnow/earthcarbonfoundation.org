@@ -3,280 +3,354 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Earth Carbon Foundation | Structuring Climate Assets</title>
-  <meta name="description" content="We enable communities and institutions in India to measure, report, and monetize low-carbon actions through transparent carbon credit issuance."/>
+  
+  <!-- SEO Meta -->
+  <title>Earth Carbon Foundation | Structuring Climate Assets for India</title>
+  <meta name="description" content="We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance."/>
+  <meta name="keywords" content="carbon credits, carbon registry, climate action, Gujarat, Verra, IGBC, LEAP, NAMA, carbon markets India"/>
+  <meta name="author" content="Earth Carbon Foundation"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Earth Carbon Foundation | Verified Carbon Impact"/>
+  <meta property="og:description" content="Measure. Report. Offset. Turn low-carbon actions into verified climate assets."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://earthcarbonfoundation.org"/>
+  <meta property="og:image" content="https://earthcarbonfoundation.org/og-image.jpg"/>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+  
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
-  <!-- Favicon, Open Graph, etc. can be added here -->
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Earth Carbon Foundation",
+    "url": "https://earthcarbonfoundation.org",
+    "logo": "https://earthcarbonfoundation.org/logo.png",
+    "sameAs": [
+      "https://registry.earthcarbonfoundation.org"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@earthcarbonfoundation.org",
+      "contactType": "customer service",
+      "areaServed": "IN"
+    }
+  }
+  </script>
 </head>
 <body>
+
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- Sticky Navigation -->
   <header class="site-header">
     <div class="container nav-flex">
-      <a href="/" class="logo">Earth Carbon Foundation</a>
-      <nav class="nav-links">
+      <a href="/" class="logo" aria-label="Earth Carbon Foundation Home">Earth Carbon</a>
+      
+      <nav class="nav-links" aria-label="Main Navigation">
         <a href="#metrics">Impact</a>
         <a href="#workflow">How It Works</a>
         <a href="#sectors">Sectors</a>
         <a href="#why-us">Why Us</a>
         <a href="#contact" class="btn-primary">Get in Touch</a>
       </nav>
-      <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+      
+      <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <!-- 1. HERO SECTION -->
-  <section id="hero" class="hero-section">
-    <div class="container hero-content">
-      <h1>Structuring Climate Assets.<br/><span class="highlight">Scaling Verified Carbon Impact.</span></h1>
-      <p class="hero-sub">We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance.</p>
-      <div class="hero-ctas">
-        <a href="#workflow" class="btn-primary">Explore Workflow</a>
-        <a href="#contact" class="btn-secondary">Get in Touch</a>
-      </div>
-      <div class="trust-badges">
-        <span>✅ 17,000 tCO₂e verified</span>
-        <span>✅ ₹32 Cr savings</span>
-        <span>✅ IGBC Platinum Partner</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. LIVE PERFORMANCE MATRIX -->
-  <section id="metrics" class="section">
-    <div class="container">
-      <h2>Track Impact, Live</h2>
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <span class="metric-value" id="active-projects">400+</span>
-          <span class="metric-label">Schools Audited</span>
+  <main id="main-content">
+    
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-content">
+        <h1 class="hero-title">Structuring Climate Assets.<br/><span class="highlight">Scaling Verified Carbon Impact.</span></h1>
+        <p class="hero-sub">We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance.</p>
+        <div class="hero-ctas">
+          <a href="#workflow" class="btn-primary">Explore Workflow</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
         </div>
-        <div class="metric-card">
-          <span class="metric-value" id="emissions-reduced">17,000+</span>
-          <span class="metric-label">tCO₂e Verified</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value" id="actions-logged">12,500+</span>
-          <span class="metric-label">Micro-Actions Logged</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value" id="credits-pipeline">—</span>
-          <span class="metric-label">Credits in Pipeline</span>
+        <div class="trust-badges">
+          <span>✅ 17,000 tCO₂e verified</span>
+          <span>✅ ₹32 Cr savings</span>
+          <span>✅ IGBC Platinum Partner</span>
         </div>
       </div>
-      <small class="sync-note">Data synced from registry.earthcarbonfoundation.org • Updated hourly</small>
-    </div>
-  </section>
+    </section>
 
-  <!-- 3. PARTNERS & CLIENTS -->
-  <section id="partners" class="section bg-light">
-    <div class="container">
-      <h2>Trusted By Leaders in Climate Action</h2>
-      <div class="partners-grid">
-        <div class="partner-card">Gujarat Education Department</div>
-        <div class="partner-card">GEDA</div>
-        <div class="partner-card">Mandvi Municipality</div>
-        <div class="partner-card">Divyajyoti Eye Care <span class="badge">IGBC Platinum</span></div>
-        <div class="partner-card">WBG C4D Network</div>
-        <div class="partner-card">MAF Copenhagen</div>
+    <!-- 2. LIVE PERFORMANCE MATRIX -->
+    <section id="metrics" class="section bg-light">
+      <div class="container">
+        <h2>Track Impact, Live</h2>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-value" id="active-projects">400+</span>
+            <span class="metric-label">Schools Audited</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="emissions-reduced">17,000+</span>
+            <span class="metric-label">tCO₂e Verified</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="actions-logged">12,500+</span>
+            <span class="metric-label">Actions Logged</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="credits-pipeline">—</span>
+            <span class="metric-label">Credits in Pipeline</span>
+          </div>
+        </div>
+        <small class="sync-note">Data synced from registry • Updated hourly</small>
       </div>
-      <p class="center-text"><a href="#contact" class="link-arrow">Join Our Network →</a></p>
-    </div>
-  </section>
+    </section>
 
-  <!-- 4. HOW WE DO IT: WORKFLOW -->
-  <section id="workflow" class="section">
-    <div class="container">
-      <h2>Measure → Report → Offset</h2>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-icon">📏</div>
-          <h3>Measure</h3>
-          <p>Deploy hyperlocal audits using LEAP/NAMA frameworks + geo-tagged mobile logging</p>
+    <!-- 3. PARTNERS & CLIENTS -->
+    <section id="partners" class="section">
+      <div class="container">
+        <h2>Trusted By Leaders in Climate Action</h2>
+        <div class="partners-grid">
+          <div class="partner-card">Gujarat Education Dept</div>
+          <div class="partner-card">GEDA</div>
+          <div class="partner-card">Mandvi Municipality</div>
+          <div class="partner-card">Divyajyoti Eye Care <span class="badge">IGBC Platinum</span></div>
+          <div class="partner-card">WBG C4D Network</div>
+          <div class="partner-card">MAF Copenhagen</div>
         </div>
-        <div class="step">
-          <div class="step-icon">📊</div>
-          <h3>Report</h3>
-          <p>Auto-generate compliant documentation via registry with blockchain-linked verification trails</p>
-        </div>
-        <div class="step">
-          <div class="step-icon">🔄</div>
-          <h3>Offset</h3>
-          <p>Aggregate qualified actions into Programme of Activities (POA) bundles for Verra/Gold Standard issuance</p>
-        </div>
+        <p class="center-text"><a href="#contact" class="link-arrow">Join Our Network →</a></p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 5. MAIN HIGHLIGHTS -->
-  <section id="highlights" class="section bg-light">
-    <div class="container">
-      <h2>Why Our Approach Works</h2>
-      <div class="highlights-grid">
-        <div class="highlight-card">
-          <span class="icon">🧩</span>
-          <h4>Micro-Action Aggregation</h4>
-          <p>Turn small-scale solar, biogas, waste actions into bankable credit proposals</p>
-        </div>
-        <div class="highlight-card">
-          <span class="icon">📐</span>
-          <h4>Standards-Aligned</h4>
-          <p>Methodologies under validation with MoEF&CC, Verra, and IGBC</p>
-        </div>
-        <div class="highlight-card">
-          <span class="icon">🔗</span>
-          <h4>Tech-Enabled Transparency</h4>
-          <p>Firebase-powered registry with public-facing verification dashboards</p>
-        </div>
-        <div class="highlight-card">
-          <span class="icon">📋</span>
-          <h4>Policy-Ready Outputs</h4>
-          <p>Tiered classification systems + investment guides for CSR/INDC alignment</p>
+    <!-- 4. HOW WE DO IT: WORKFLOW -->
+    <section id="workflow" class="section bg-light">
+      <div class="container">
+        <h2>Measure → Report → Offset</h2>
+        <div class="workflow-steps">
+          <div class="step">
+            <span class="step-icon">📏</span>
+            <h3>Measure</h3>
+            <p>Deploy hyperlocal audits using LEAP/NAMA frameworks + geo-tagged mobile logging</p>
+          </div>
+          <div class="step">
+            <span class="step-icon">📊</span>
+            <h3>Report</h3>
+            <p>Auto-generate compliant documentation via registry with blockchain-linked verification</p>
+          </div>
+          <div class="step">
+            <span class="step-icon">🔄</span>
+            <h3>Offset</h3>
+            <p>Aggregate qualified actions into POA bundles for Verra/Gold Standard issuance</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 6. SECTORS WE FOCUS ON -->
-  <section id="sectors" class="section">
-    <div class="container">
-      <h2>Where We Drive Impact</h2>
-      <div class="sectors-grid">
-        <div class="sector-card">
-          <span class="sector-icon">🏫</span>
-          <h4>Education</h4>
-          <p>Climate-resilient school upgrades (energy-water-waste integration)</p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-icon">🏥</span>
-          <h4>Healthcare</h4>
-          <p>Net-zero facility transitions (IGBC Platinum pathways)</p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-icon">🏘️</span>
-          <h4>Urban Local Bodies</h4>
-          <p>Municipal waste-to-energy, street lighting, water efficiency</p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-icon">🌾</span>
-          <h4>Rural Livelihoods</h4>
-          <p>Biogas, agro-waste valorization, smallholder solar aggregation</p>
-        </div>
-        <div class="sector-card">
-          <span class="sector-icon">🏭</span>
-          <h4>MSMEs</h4>
-          <p>Low-cost retrofits + carbon revenue stacking for small industries</p>
+    <!-- 5. MAIN HIGHLIGHTS -->
+    <section id="highlights" class="section">
+      <div class="container">
+        <h2>Why Our Approach Works</h2>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="icon">🧩</span>
+            <h4>Micro-Action Aggregation</h4>
+            <p>Turn small-scale solar, biogas, waste actions into bankable credit proposals</p>
+          </div>
+          <div class="highlight-card">
+            <span class="icon">📐</span>
+            <h4>Standards-Aligned</h4>
+            <p>Methodologies under validation with MoEF&CC, Verra, and IGBC</p>
+          </div>
+          <div class="highlight-card">
+            <span class="icon">🔗</span>
+            <h4>Tech-Enabled Transparency</h4>
+            <p>Firebase-powered registry with public-facing verification dashboards</p>
+          </div>
+          <div class="highlight-card">
+            <span class="icon">📋</span>
+            <h4>Policy-Ready Outputs</h4>
+            <p>Tiered classification systems + investment guides for CSR/INDC alignment</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 7. WHY CHOOSE US -->
-  <section id="why-us" class="section bg-emerald">
-    <div class="container">
-      <h2>Beyond Verification – We Build Climate Equity</h2>
-      <ul class="why-us-list">
-        <li><strong>Founder-Led Expertise:</strong> 3+ years in public-sector climate finance, NAMA design, carbon market architecture</li>
-        <li><strong>India-First Methodology:</strong> Tailored for decentralized governance, informal sectors, small-scale actions</li>
-        <li><strong>End-to-End Ownership:</strong> From baseline audit to credit issuance – no black boxes</li>
-        <li><strong>Revenue Recycling:</strong> 80% of credit proceeds flow back to implementing communities</li>
-        <li><strong>Open by Design:</strong> Public registry, open APIs, transparent methodology documentation</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 8. MEASURING STANDARDS -->
-  <section id="standards" class="section">
-    <div class="container">
-      <h2>Rigorous, Recognized, Ready for Market</h2>
-      <div class="standards-grid">
-        <div class="standard-item">
-          <strong>Verra VM0042</strong>
-          <p>Micro-Action Aggregation under POA</p>
-        </div>
-        <div class="standard-item">
-          <strong>GHG Protocol</strong>
-          <p>Project & Corporate Standards</p>
-        </div>
-        <div class="standard-item">
-          <strong>IGBC Green Building</strong>
-          <p>Platinum pathway integration</p>
-        </div>
-        <div class="standard-item">
-          <strong>LEAP/NAMA</strong>
-          <p>Policy-level MRV design</p>
-        </div>
-        <div class="standard-item">
-          <strong>MoEF&CC Guidelines</strong>
-          <p>India's carbon market readiness</p>
+    <!-- 6. SECTORS WE FOCUS ON -->
+    <section id="sectors" class="section bg-light">
+      <div class="container">
+        <h2>Where We Drive Impact</h2>
+        <div class="sectors-grid">
+          <div class="sector-card">
+            <span class="sector-icon">🏫</span>
+            <h4>Education</h4>
+            <p>Climate-resilient school upgrades (energy-water-waste integration)</p>
+          </div>
+          <div class="sector-card">
+            <span class="sector-icon">🏥</span>
+            <h4>Healthcare</h4>
+            <p>Net-zero facility transitions (IGBC Platinum pathways)</p>
+          </div>
+          <div class="sector-card">
+            <span class="sector-icon">🏘️</span>
+            <h4>Urban Local Bodies</h4>
+            <p>Municipal waste-to-energy, street lighting, water efficiency</p>
+          </div>
+          <div class="sector-card">
+            <span class="sector-icon">🌾</span>
+            <h4>Rural Livelihoods</h4>
+            <p>Biogas, agro-waste valorization, smallholder solar aggregation</p>
+          </div>
+          <div class="sector-card">
+            <span class="sector-icon">🏭</span>
+            <h4>MSMEs</h4>
+            <p>Low-cost retrofits + carbon revenue stacking for small industries</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 9. REPORTING FORMATS -->
-  <section id="reporting" class="section bg-light">
-    <div class="container">
-      <h2>Clear, Actionable, Audit-Ready Outputs</h2>
-      <ul class="reporting-list">
-        <li><span class="icon">📄</span> <strong>Project Brief:</strong> 1-pager summarizing scope, baselines, credit potential</li>
-        <li><span class="icon">📈</span> <strong>MRV Dashboard:</strong> Live geo-tagged action logs + emission reduction calculations</li>
-        <li><span class="icon">📑</span> <strong>Verification Dossier:</strong> Third-party ready documentation (PDD, monitoring reports)</li>
-        <li><span class="icon">💼</span> <strong>Credit Structuring Memo:</strong> POA bundling strategy, revenue share, issuance timeline</li>
-        <li><span class="icon">🔗</span> <strong>Public Registry Link:</strong> Permanent, blockchain-anchored record for transparency</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 10. GET IN TOUCH -->
-  <section id="contact" class="section">
-    <div class="container contact-wrapper">
-      <div class="contact-info">
-        <h2>Let's Structure Your Climate Asset</h2>
-        <p>Whether you're a school, municipality, CSR foundation, or project developer – we'll help you turn low-carbon actions into verified impact.</p>
-        <ul class="contact-details">
-          <li>📧 <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></li>
-          <li>🌐 <a href="https://registry.earthcarbonfoundation.org" target="_blank">registry.earthcarbonfoundation.org</a></li>
-          <li>📍 Mandvi, Gujarat, India</li>
+    <!-- 7. WHY CHOOSE US -->
+    <section id="why-us" class="section bg-emerald">
+      <div class="container">
+        <h2>Beyond Verification – We Build Climate Equity</h2>
+        <ul class="why-us-list">
+          <li><strong>Founder-Led Expertise:</strong> 3+ years in public-sector climate finance, NAMA design, carbon market architecture</li>
+          <li><strong>India-First Methodology:</strong> Tailored for decentralized governance, informal sectors, small-scale actions</li>
+          <li><strong>End-to-End Ownership:</strong> From baseline audit to credit issuance – no black boxes</li>
+          <li><strong>Revenue Recycling:</strong> 80% of credit proceeds flow back to implementing communities</li>
+          <li><strong>Open by Design:</strong> Public registry, open APIs, transparent methodology documentation</li>
         </ul>
-        <p class="response-time"><em>We respond within 48 hours. All inquiries confidential.</em></p>
       </div>
-      <form class="contact-form" id="inquiry-form" action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Name / Organization" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <select name="sector" required>
-          <option value="">Select Sector</option>
-          <option value="education">Education</option>
-          <option value="healthcare">Healthcare</option>
-          <option value="ulb">Urban Local Body</option>
-          <option value="rural">Rural Livelihoods</option>
-          <option value="msme">MSME</option>
-          <option value="other">Other</option>
-        </select>
-        <select name="stage" required>
-          <option value="">Project Stage</option>
-          <option value="idea">Idea</option>
-          <option value="pilot">Pilot</option>
-          <option value="scaling">Scaling</option>
-          <option value="verification">Seeking Verification</option>
-        </select>
-        <textarea name="message" placeholder="Tell us about your project..." rows="4" required></textarea>
-        <label class="consent">
-          <input type="checkbox" required /> I agree to the <a href="/privacy" target="_blank">Privacy Policy</a> and consent to data processing under India's DPDP Act 2023.
-        </label>
-        <button type="submit" class="btn-primary full-width">Send Inquiry</button>
-      </form>
-    </div>
-  </section>
+    </section>
+
+    <!-- 8. MEASURING STANDARDS -->
+    <section id="standards" class="section">
+      <div class="container">
+        <h2>Rigorous, Recognized, Ready for Market</h2>
+        <div class="standards-grid">
+          <div class="standard-item">
+            <strong>Verra VM0042</strong>
+            <p>Micro-Action Aggregation under POA</p>
+          </div>
+          <div class="standard-item">
+            <strong>GHG Protocol</strong>
+            <p>Project & Corporate Standards</p>
+          </div>
+          <div class="standard-item">
+            <strong>IGBC Green Building</strong>
+            <p>Platinum pathway integration</p>
+          </div>
+          <div class="standard-item">
+            <strong>LEAP/NAMA</strong>
+            <p>Policy-level MRV design</p>
+          </div>
+          <div class="standard-item">
+            <strong>MoEF&CC Guidelines</strong>
+            <p>India's carbon market readiness</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. REPORTING FORMATS -->
+    <section id="reporting" class="section bg-light">
+      <div class="container">
+        <h2>Clear, Actionable, Audit-Ready Outputs</h2>
+        <ul class="reporting-list">
+          <li><span class="icon">📄</span> <strong>Project Brief:</strong> 1-pager summarizing scope, baselines, credit potential</li>
+          <li><span class="icon">📈</span> <strong>MRV Dashboard:</strong> Live geo-tagged action logs + emission reduction calculations</li>
+          <li><span class="icon">📑</span> <strong>Verification Dossier:</strong> Third-party ready documentation (PDD, monitoring reports)</li>
+          <li><span class="icon">💼</span> <strong>Credit Structuring Memo:</strong> POA bundling strategy, revenue share, issuance timeline</li>
+          <li><span class="icon">🔗</span> <strong>Public Registry Link:</strong> Permanent, blockchain-anchored record for transparency</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10. CONTACT FORM (MINIMAL 6-FIELD) -->
+    <section id="contact" class="section">
+      <div class="container contact-wrapper">
+        
+        <!-- Left: Info -->
+        <div class="contact-info">
+          <h2>Let's Structure Your Climate Asset</h2>
+          <p>Share your details — we'll reach out within 48 hours to explore how we can help you measure, report, and monetize low-carbon actions.</p>
+          
+          <ul class="contact-details">
+            <li>📧 <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></li>
+            <li>💬 <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp: +91 98765 43210</a></li>
+            <li>🌐 <a href="https://registry.earthcarbonfoundation.org" target="_blank" rel="noopener">Public Registry</a></li>
+            <li>📍 Mandvi, Gujarat, India</li>
+          </ul>
+          
+          <p class="response-time"><em>All inquiries confidential. DPDP Act 2023 compliant.</em></p>
+        </div>
+
+        <!-- Right: Minimal Form -->
+        <!-- ⚠️ REPLACE 'YOUR_FORMSPREE_ID' WITH YOUR ACTUAL FORMSPREE ENDPOINT -->
+        <form class="contact-form" id="inquiry-form" 
+              action="https://formspree.io/f/YOUR_FORMSPREE_ID" 
+              method="POST" 
+              novalidate>
+          
+          <!-- Hidden Fields for Formspree -->
+          <input type="hidden" name="_subject" value="New Inquiry: Earth Carbon Foundation">
+          <input type="hidden" name="_cc" value="info@earthcarbonfoundation.org">
+          <input type="hidden" name="_next" value="https://earthcarbonfoundation.org/thankyou.html">
+          
+          <!-- Name Fields (Side-by-side on desktop) -->
+          <div class="form-row">
+            <input type="text" name="first_name" placeholder="First Name" required autocomplete="given-name" />
+            <input type="text" name="last_name" placeholder="Last Name" required autocomplete="family-name" />
+          </div>
+
+          <!-- Organisation & Email -->
+          <input type="text" name="organisation" placeholder="Organisation Name" required autocomplete="organization" />
+          <input type="email" name="email" placeholder="Email ID" required autocomplete="email" />
+
+          <!-- WhatsApp (India-optimized) -->
+          <input type="tel" name="whatsapp" placeholder="WhatsApp Number (e.g., +91 98765 43210)" 
+                 pattern="^\+?[\d\s\-\(\)]{10,15}$" required autocomplete="tel" />
+
+          <!-- Message -->
+          <textarea name="message" placeholder="Briefly describe your project or inquiry..." rows="3" required></textarea>
+
+          <!-- DPDP 2023 Consent -->
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and consent to data processing under India's DPDP Act 2023.</span>
+          </label>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-primary full-width">
+            Send Inquiry →
+          </button>
+
+          <!-- Status Message (for JS fallback) -->
+          <div id="form-status" class="form-status" aria-live="polite"></div>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p>&copy; <span id="year"></span> Earth Carbon Foundation. All rights reserved.</p>
       <p class="footer-links">
-        <a href="/privacy">Privacy Policy</a> | 
-        <a href="/terms">Terms of Use</a> | 
-        <a href="https://registry.earthcarbonfoundation.org" target="_blank">Public Registry</a>
+        <a href="/privacy" target="_blank">Privacy Policy</a> | 
+        <a href="/terms" target="_blank">Terms of Use</a> | 
+        <a href="https://registry.earthcarbonfoundation.org" target="_blank" rel="noopener">Public Registry</a>
       </p>
     </div>
   </footer>
@@ -284,39 +358,137 @@
   <!-- Scripts -->
   <script src="cert-generator.js"></script>
   <script>
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+    // ===== UTILITY: Dynamic Year =====
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
+    // ===== MOBILE MENU TOGGLE =====
     const toggle = document.querySelector('.mobile-toggle');
     const nav = document.querySelector('.nav-links');
-    if (toggle) {
+    if (toggle && nav) {
       toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
         nav.classList.toggle('active');
       });
     }
 
-    // Dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          // Close mobile menu if open
+          nav?.classList.remove('active');
+          toggle?.setAttribute('aria-expanded', 'false');
+          // Scroll
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
 
-    // Optional: Fetch live metrics from Firebase registry
-    // Uncomment and configure if API is available
+    // ===== ACTIVE NAV LINK ON SCROLL =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href')?.slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // ===== HEADER SHADOW ON SCROLL =====
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      }
+    });
+
+    // ===== FORMSPREE FALLBACK: Show status if JS enabled but redirect fails =====
+    const form = document.getElementById('inquiry-form');
+    const statusEl = document.getElementById('form-status');
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        // Only intercept if we're using JS fetch (optional enhancement)
+        // If using Formspree's native redirect via _next, comment out this block
+        /*
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusEl.className = 'form-status';
+        statusEl.textContent = '';
+        
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            statusEl.className = 'form-status success';
+            statusEl.textContent = '✅ Thank you! Redirecting...';
+            setTimeout(() => {
+              window.location.href = form.querySelector('input[name="_next"]')?.value || '/thankyou.html';
+            }, 1500);
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (error) {
+          console.error('Form error:', error);
+          statusEl.className = 'form-status error';
+          statusEl.textContent = '❌ Submission failed. Please try WhatsApp: +91 98765 43210';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Inquiry →';
+        }
+        */
+      });
+    }
+
+    // ===== OPTIONAL: Live Metrics Fetch (Uncomment if API available) =====
     /*
-    fetch('https://registry.earthcarbonfoundation.org/api/metrics')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('active-projects').textContent = data.projects + '+';
-        document.getElementById('emissions-reduced').textContent = data.emissions.toLocaleString() + '+';
-        document.getElementById('actions-logged').textContent = data.actions.toLocaleString() + '+';
-        document.getElementById('credits-pipeline').textContent = data.pipeline ? data.pipeline + ' tCO₂e' : '—';
-      })
-      .catch(err => console.log('Metrics fetch skipped (dev mode):', err));
+    async function fetchLiveMetrics() {
+      try {
+        const res = await fetch('https://registry.earthcarbonfoundation.org/api/metrics');
+        if (!res.ok) return;
+        const data = await res.json();
+        const update = (id, val, suffix = '') => {
+          const el = document.getElementById(id);
+          if (el && val != null) el.textContent = typeof val === 'number' ? val.toLocaleString() + suffix : val + suffix;
+        };
+        update('active-projects', data.projects, '+');
+        update('emissions-reduced', data.emissions, '+');
+        update('actions-logged', data.actions, '+');
+        update('credits-pipeline', data.pipeline ? data.pipeline : '—', data.pipeline ? ' tCO₂e' : '');
+        const note = document.querySelector('.sync-note');
+        if (note) note.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+      } catch (e) {
+        console.log('Live metrics fetch skipped (dev mode)');
+      }
+    }
+    // Uncomment below to enable:
+    // document.addEventListener('DOMContentLoaded', fetchLiveMetrics);
     */
   </script>
 </body>
