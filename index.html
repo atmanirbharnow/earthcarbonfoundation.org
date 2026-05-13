@@ -1,409 +1,524 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- SEO & Meta -->
-  <title>Earth Carbon Foundation | Structuring Climate Assets for India</title>
-  <meta name="description" content="We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance."/>
-  <meta name="keywords" content="carbon credits, carbon registry, climate action, Gujarat, Verra, IGBC, LEAP, NAMA, carbon markets India"/>
-  <meta name="author" content="Earth Carbon Foundation"/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="theme-color" content="#0d631b"/>
-  
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Earth Carbon Foundation | Verified Carbon Impact"/>
-  <meta property="og:description" content="Measure. Report. Offset. Turn low-carbon actions into verified climate assets."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://earthcarbonfoundation.org"/>
-  <meta property="og:image" content="https://earthcarbonfoundation.org/og-image.jpg"/>
-  
-  <!-- Favicon (SVG Emoji) -->
-  <link rel="icon" type="image/svg+xml" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
-  
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
-  
-  <!-- Fonts Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Earth Carbon Foundation",
-    "url": "https://earthcarbonfoundation.org",
-    "logo": "https://earthcarbonfoundation.org/logo.png",
-    "sameAs": ["https://registry.earthcarbonfoundation.org"],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "info@earthcarbonfoundation.org",
-      "contactType": "customer service",
-      "areaServed": "IN"
-    }
-  }
-  </script>
-</head>
-<body>
-
-  <!-- Accessibility Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
-
-  <!-- Sticky Navigation -->
-  <header class="site-header">
-    <div class="container nav-flex">
-      <a href="/" class="logo" aria-label="Earth Carbon Foundation Home">Earth Carbon</a>
-      
-      <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#metrics">Impact</a>
-        <a href="#workflow">How It Works</a>
-        <a href="#sectors">Sectors</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact" class="btn-primary">Get in Touch</a>
-      </nav>
-      
-      <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    </div>
-  </header>
-
-  <main id="main-content">
-    
-    <!-- 1. HERO SECTION -->
-    <section id="hero" class="hero-section">
-      <div class="container hero-content">
-        <h1 class="hero-title">Structuring Climate Assets.<br/><span class="highlight">Scaling Verified Carbon Impact.</span></h1>
-        <p class="hero-sub">We enable communities, institutions, and enterprises in India to measure, report, and monetize low-carbon actions through transparent, standards-aligned carbon credit issuance.</p>
-        <div class="hero-ctas">
-          <a href="#workflow" class="btn-primary">Explore Workflow</a>
-          <a href="#contact" class="btn-outline">Get in Touch</a>
-        </div>
-        <div class="trust-badges">
-          <span>✅ 17,000 tCO₂e verified</span>
-          <span>✅ ₹32 Cr savings</span>
-          <span>✅ IGBC Platinum Partner</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 2. LIVE PERFORMANCE MATRIX -->
-    <section id="metrics" class="section bg-light">
-      <div class="container">
-        <h2>Track Impact, Live</h2>
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-value" id="active-projects">400+</span>
-            <span class="metric-label">Schools Audited</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-value" id="emissions-reduced">17,000+</span>
-            <span class="metric-label">tCO₂e Verified</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-value" id="actions-logged">12,500+</span>
-            <span class="metric-label">Actions Logged</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-value" id="credits-pipeline">—</span>
-            <span class="metric-label">Credits in Pipeline</span>
-          </div>
-        </div>
-        <small class="sync-note">Data synced from registry • Updated hourly</small>
-      </div>
-    </section>
-
-    <!-- 3. PARTNERS & CLIENTS -->
-    <section id="partners" class="section">
-      <div class="container">
-        <h2>Trusted By Leaders in Climate Action</h2>
-        <div class="partners-grid">
-          <div class="partner-card">Gujarat Education Dept</div>
-          <div class="partner-card">GEDA</div>
-          <div class="partner-card">Mandvi Municipality</div>
-          <div class="partner-card">Divyajyoti Eye Care <span class="badge">IGBC Platinum</span></div>
-          <div class="partner-card">WBG C4D Network</div>
-          <div class="partner-card">MAF Copenhagen</div>
-        </div>
-        <p class="center-text"><a href="#contact" class="link-arrow">Join Our Network →</a></p>
-      </div>
-    </section>
-
-    <!-- 4. HOW WE DO IT: WORKFLOW -->
-    <section id="workflow" class="section bg-light">
-      <div class="container">
-        <h2>Measure → Report → Offset</h2>
-        <div class="workflow-steps">
-          <div class="step">
-            <span class="step-icon">📏</span>
-            <h3>Measure</h3>
-            <p>Deploy hyperlocal audits using LEAP/NAMA frameworks + geo-tagged mobile logging</p>
-          </div>
-          <div class="step">
-            <span class="step-icon">📊</span>
-            <h3>Report</h3>
-            <p>Auto-generate compliant documentation via registry with blockchain-linked verification</p>
-          </div>
-          <div class="step">
-            <span class="step-icon">🔄</span>
-            <h3>Offset</h3>
-            <p>Aggregate qualified actions into POA bundles for Verra/Gold Standard issuance</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. MAIN HIGHLIGHTS -->
-    <section id="highlights" class="section">
-      <div class="container">
-        <h2>Why Our Approach Works</h2>
-        <div class="highlights-grid">
-          <div class="highlight-card">
-            <span class="icon">🧩</span>
-            <h4>Micro-Action Aggregation</h4>
-            <p>Turn small-scale solar, biogas, waste actions into bankable credit proposals</p>
-          </div>
-          <div class="highlight-card">
-            <span class="icon">📐</span>
-            <h4>Standards-Aligned</h4>
-            <p>Methodologies under validation with MoEF&CC, Verra, and IGBC</p>
-          </div>
-          <div class="highlight-card">
-            <span class="icon">🔗</span>
-            <h4>Tech-Enabled Transparency</h4>
-            <p>Firebase-powered registry with public-facing verification dashboards</p>
-          </div>
-          <div class="highlight-card">
-            <span class="icon">📋</span>
-            <h4>Policy-Ready Outputs</h4>
-            <p>Tiered classification systems + investment guides for CSR/INDC alignment</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. SECTORS WE FOCUS ON -->
-    <section id="sectors" class="section bg-light">
-      <div class="container">
-        <h2>Where We Drive Impact</h2>
-        <div class="sectors-grid">
-          <div class="sector-card">
-            <span class="sector-icon">🏫</span>
-            <h4>Education</h4>
-            <p>Climate-resilient school upgrades (energy-water-waste integration)</p>
-          </div>
-          <div class="sector-card">
-            <span class="sector-icon">🏥</span>
-            <h4>Healthcare</h4>
-            <p>Net-zero facility transitions (IGBC Platinum pathways)</p>
-          </div>
-          <div class="sector-card">
-            <span class="sector-icon">🏘️</span>
-            <h4>Urban Local Bodies</h4>
-            <p>Municipal waste-to-energy, street lighting, water efficiency</p>
-          </div>
-          <div class="sector-card">
-            <span class="sector-icon">🌾</span>
-            <h4>Rural Livelihoods</h4>
-            <p>Biogas, agro-waste valorization, smallholder solar aggregation</p>
-          </div>
-          <div class="sector-card">
-            <span class="sector-icon">🏭</span>
-            <h4>MSMEs</h4>
-            <p>Low-cost retrofits + carbon revenue stacking for small industries</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. WHY CHOOSE US -->
-    <section id="why-us" class="section bg-emerald">
-      <div class="container">
-        <h2>Beyond Verification – We Build Climate Equity</h2>
-        <ul class="why-us-list">
-          <li><strong>Founder-Led Expertise:</strong> 3+ years in public-sector climate finance, NAMA design, carbon market architecture</li>
-          <li><strong>India-First Methodology:</strong> Tailored for decentralized governance, informal sectors, small-scale actions</li>
-          <li><strong>End-to-End Ownership:</strong> From baseline audit to credit issuance – no black boxes</li>
-          <li><strong>Revenue Recycling:</strong> 80% of credit proceeds flow back to implementing communities</li>
-          <li><strong>Open by Design:</strong> Public registry, open APIs, transparent methodology documentation</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 8. MEASURING STANDARDS -->
-    <section id="standards" class="section">
-      <div class="container">
-        <h2>Rigorous, Recognized, Ready for Market</h2>
-        <div class="standards-grid">
-          <div class="standard-item">
-            <strong>Verra VM0042</strong>
-            <p>Micro-Action Aggregation under POA</p>
-          </div>
-          <div class="standard-item">
-            <strong>GHG Protocol</strong>
-            <p>Project & Corporate Standards</p>
-          </div>
-          <div class="standard-item">
-            <strong>IGBC Green Building</strong>
-            <p>Platinum pathway integration</p>
-          </div>
-          <div class="standard-item">
-            <strong>LEAP/NAMA</strong>
-            <p>Policy-level MRV design</p>
-          </div>
-          <div class="standard-item">
-            <strong>MoEF&CC Guidelines</strong>
-            <p>India's carbon market readiness</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 9. REPORTING FORMATS -->
-    <section id="reporting" class="section bg-light">
-      <div class="container">
-        <h2>Clear, Actionable, Audit-Ready Outputs</h2>
-        <ul class="reporting-list">
-          <li><span class="icon">📄</span> <strong>Project Brief:</strong> 1-pager summarizing scope, baselines, credit potential</li>
-          <li><span class="icon">📈</span> <strong>MRV Dashboard:</strong> Live geo-tagged action logs + emission reduction calculations</li>
-          <li><span class="icon">📑</span> <strong>Verification Dossier:</strong> Third-party ready documentation (PDD, monitoring reports)</li>
-          <li><span class="icon">💼</span> <strong>Credit Structuring Memo:</strong> POA bundling strategy, revenue share, issuance timeline</li>
-          <li><span class="icon">🔗</span> <strong>Public Registry Link:</strong> Permanent, blockchain-anchored record for transparency</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 10. CONTACT FORM (Zero-Config, No Hash Needed) -->
-    <section id="contact" class="section">
-      <div class="container contact-wrapper">
-        
-        <!-- Left: Info -->
-        <div class="contact-info">
-          <h2>Let's Structure Your Climate Asset</h2>
-          <p>Share your details — we'll reach out within 48 hours to explore how we can help you measure, report, and monetize low-carbon actions.</p>
-          
-          <ul class="contact-details">
-            <li>📧 <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></li>
-            <!-- ⚠️ UPDATE THIS NUMBER -->
-            <li>💬 <a href="https://wa.me/919876543210" target="_blank" rel="noopener">WhatsApp: +91 98765 43210</a></li>
-            <li>🌐 <a href="https://registryearthcarbon.org" target="_blank" rel="noopener">Public Registry</a></li>
-            <li>📍 Ahmedabad, Gujarat, India</li>
-          </ul>
-          
-          <p class="response-time"><em>All inquiries confidential. DPDP Act 2023 compliant.</em></p>
-        </div>
-
-        <!-- Right: Minimal Form (formsubmit.co) -->
-        <form class="contact-form" 
-              action="https://formsubmit.co/info@earthcarbonfoundation.org" 
-              method="POST" 
-              novalidate>
-          
-          <!-- FormSubmit.co Config (No account/hash required) -->
-          <input type="hidden" name="_subject" value="New Inquiry: Earth Carbon Foundation">
-          <input type="hidden" name="_next" value="https://earthcarbonfoundation.org/thankyou.html">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Earth Carbon Foundation. We've received your inquiry and will respond within 48 hours.">
-          
-          <!-- Anti-Spam Honeypot (DO NOT MODIFY) -->
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-          <!-- Fields -->
-          <div class="form-row">
-            <input type="text" name="First Name" placeholder="First Name" required autocomplete="given-name" />
-            <input type="text" name="Last Name" placeholder="Last Name" required autocomplete="family-name" />
-          </div>
-
-          <input type="text" name="Organisation" placeholder="Organisation Name" required autocomplete="organization" />
-          <input type="email" name="Email" placeholder="Email ID" required autocomplete="email" />
-          <input type="tel" name="WhatsApp" placeholder="WhatsApp Number (e.g., +91 98765 43210)" 
-                 pattern="^\+?[\d\s\-\(\)]{10,15}$" required autocomplete="tel" />
-
-          <textarea name="Message" placeholder="Briefly describe your project or inquiry..." rows="3" required></textarea>
-
-          <!-- DPDP 2023 Consent -->
-          <label class="consent">
-            <input type="checkbox" name="Consent" required />
-            <span>I agree to the <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> and consent to data processing under India's DPDP Act 2023.</span>
-          </label>
-
-          <button type="submit" class="btn-primary full-width">Send Inquiry →</button>
-          <div id="form-status" class="form-status" aria-live="polite"></div>
-        </form>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Earth Carbon Foundation. All rights reserved.</p>
-      <p class="footer-links">
-        <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a> | 
-        <a href="/terms" target="_blank" rel="noopener">Terms of Use</a> | 
-        <a href="https://registryearthcarbon.org" target="_blank" rel="noopener">Public Registry</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="cert-generator.js"></script>
-  <script>
-    // ===== DYNAMIC YEAR =====
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // ===== MOBILE MENU TOGGLE =====
-    const toggle = document.querySelector('.mobile-toggle');
-    const nav = document.querySelector('.nav-links');
-    if (toggle && nav) {
-      toggle.addEventListener('click', () => {
-        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
-        toggle.setAttribute('aria-expanded', !expanded);
-        nav.classList.toggle('active');
-      });
-    }
-
-    // ===== SMOOTH SCROLL & CLOSE MOBILE MENU =====
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          nav?.classList.remove('active');
-          toggle?.setAttribute('aria-expanded', 'false');
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Earth Carbon Foundation | India-First Precision in Carbon Accounting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;600;700&amp;family=Hanken+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e1e3e2",
+                        "tertiary": "#201500",
+                        "inverse-surface": "#2e3131",
+                        "surface-container": "#eceeed",
+                        "tertiary-fixed": "#ffdea6",
+                        "on-secondary-fixed": "#00210f",
+                        "surface": "#f8faf9",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e6e9e8",
+                        "surface-dim": "#d8dad9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e3e2",
+                        "on-primary-fixed": "#091f1b",
+                        "on-surface": "#191c1c",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#97f3b5",
+                        "outline": "#727876",
+                        "background": "#f8faf9",
+                        "on-secondary-container": "#047240",
+                        "primary-fixed-dim": "#b4ccc5",
+                        "tertiary-container": "#3a2800",
+                        "on-background": "#191c1c",
+                        "secondary-fixed-dim": "#7ed99e",
+                        "surface-bright": "#f8faf9",
+                        "on-primary-container": "#809792",
+                        "surface-tint": "#4d635e",
+                        "secondary-fixed": "#9af6b8",
+                        "tertiary-fixed-dim": "#f7bd48",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f0",
+                        "on-primary-fixed-variant": "#364b46",
+                        "inverse-primary": "#b4ccc5",
+                        "surface-container-low": "#f2f4f3",
+                        "primary": "#051a17",
+                        "primary-container": "#1a2f2b",
+                        "on-tertiary-container": "#bc8a11",
+                        "primary-fixed": "#d0e8e1",
+                        "on-tertiary-fixed-variant": "#5d4200",
+                        "outline-variant": "#c2c8c5",
+                        "secondary": "#006d3d",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#00522d",
+                        "on-tertiary-fixed": "#271900",
+                        "on-surface-variant": "#424846"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["IBM Plex Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "headline-lg": ["IBM Plex Sans"],
+                        "data-mono": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
         }
-      });
-    });
-
-    // ===== ACTIVE NAV LINK ON SCROLL =====
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 120) {
-          current = section.getAttribute('id');
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href')?.slice(1) === current) link.classList.add('active');
-      });
-    });
+        .precision-grid {
+            background-image: radial-gradient(circle, #c2c8c5 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style><style class="">
+.counter-value {
+    display: inline-block;
+    transition: opacity 0.5s ease-out;
+}
+.counter-value.animating {
+    opacity: 0.7;
+}
+</style></head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop w-full py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="account_balance">account_balance</span>
+<span class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors border-b-2 border-primary pb-1" href="#impact">Impact</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#process">Process</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#services">Services</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#reality">Reality Gap</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#standards">Standards</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm active:scale-95 transition-all hover:bg-primary-container">
+                Get in Touch
+            </button>
+</div>
+</header>
+<main class="pt-[72px]">
+<!-- Section 1: Hero -->
+<section class="relative min-h-[751px] flex items-center overflow-hidden precision-grid">
+<div class="absolute inset-0 z-0">
+<img alt="Sustainable Solar Infrastructure in Rural India" class="w-full h-full object-cover opacity-20 grayscale mix-blend-multiply" data-alt="A wide-angle landscape shot of a massive solar power plant in the Indian desert during the golden hour. The long rows of solar panels create a geometric, repetitive pattern reflecting the setting sun's warm light. The sky is a gradient of deep orange and soft teal, giving the scene a hopeful and technologically advanced mood. The overall aesthetic is clean, professional, and grounded in environmental stewardship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvub34BhGaCaEBBiTn-gWO-tfBSOu-AvXM-bCCXrYDYoPOd0RFbi4nxMRuUc6e6yiTzOKUWQGcqrcVkzWvA8yyxlulX8KHx3c1Hedq2YAv4_tFu70fXjf_6KszLa7nxUNJb-Ep0U0UxjnjoUs2yhuQfBHellW7al3JvQCp4yp0l9mvwlvKBeFIwb6qIv1TC0lBdpwWsQ6lZSUZUmUi4bkHWlgYGzPAQfUDJXRdxF3CdQ8hSmlbdL845RnCzehq4nbTP8XL9Uqtjg">
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop w-full relative z-10 py-24">
+<div class="max-w-3xl">
+<span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-6 rounded-sm uppercase tracking-widest">India-First Precision</span>
+<h1 class="text-display-lg font-display-lg text-primary mb-6 uppercase">Structure.<br>Minimise.<br>Monetise.</h1>
+<p class="text-headline-lg font-headline-lg text-on-surface-variant mb-10 max-w-xl">Turning Sustainability Actions into Climate Assets with institutional transparency and local stewardship.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary-container transition-all active:scale-95">Download Framework</button>
+<button class="border border-outline text-primary px-8 py-4 rounded-lg font-semibold hover:bg-surface-container transition-all active:scale-95">Explore Portfolio</button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 right-margin-desktop hidden lg:block border-l border-outline-variant pl-6">
+<p class="text-label-sm font-data-mono text-on-surface-variant mb-2">LAT: 28.6139° N</p>
+<p class="text-label-sm font-data-mono text-on-surface-variant">LONG: 77.2090° E</p>
+</div>
+</section>
+<!-- Section 2: Stats -->
+<section class="bg-surface py-20 border-y border-outline-variant" id="impact">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="p-8 bg-surface-container-lowest border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="description">description</span>
+<h3 class="text-display-lg font-display-lg text-primary"><span class="counter-value" data-target="45" data-suffix="+">0</span>+</h3>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Contracts Signed</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="co2">co2</span>
+<h3 class="text-display-lg font-display-lg text-primary"><span class="counter-value" data-target="1.2" data-suffix="M" data-decimals="1">0</span>M</h3>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">tCO2e Saved</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="payments">payments</span>
+<h3 class="text-display-lg font-display-lg text-primary">$<span class="counter-value" data-target="18" data-prefix="$">0</span>M</h3>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">Amount Saved</p>
+</div>
+<div class="p-8 bg-surface-container-lowest border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-4" data-icon="pending_actions">pending_actions</span>
+<h3 class="text-display-lg font-display-lg text-primary"><span class="counter-value" data-target="2.8" data-suffix="M" data-decimals="1">0</span>M</h3>
+<p class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface-variant">CERs in Pipeline</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Partners -->
+<section class="py-16 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full flex flex-col md:flex-row items-center justify-between gap-8 opacity-60 grayscale">
+<p class="text-label-sm font-data-mono uppercase tracking-widest text-on-surface-variant">Strategic Collaborators</p>
+<div class="flex flex-wrap justify-center items-center gap-12 lg:gap-24">
+<span class="text-headline-lg font-bold tracking-tighter">NAMA Projects</span>
+<span class="text-headline-lg font-bold tracking-tighter">C4D WBG</span>
+<span class="text-headline-lg font-bold tracking-tighter">Mitigation Action Facility</span>
+<span class="text-headline-lg font-bold tracking-tighter">CDM UNFCCC</span><span class="text-headline-lg font-bold tracking-tighter">SDG Goals</span></div>
+</div>
+</section>
+<!-- Section 4: Process -->
+<section class="py-32" id="process">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="mb-16">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-4">The Asset Lifecycle</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">Turn your dead Low-Carbon Actions into monetised Climate Assets through our three-step institutional framework.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter relative">
+<!-- Step 1 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant h-full transition-all group-hover:shadow-lg group-hover:border-primary">
+<div class="text-label-sm font-data-mono text-primary-container mb-8 flex justify-between items-center">
+<span class="">PHASE 01</span>
+<span class="material-symbols-outlined" data-icon="architecture">architecture</span>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-primary mb-6">Asset Structuring</h3>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Compliance &amp; Washing</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Registry MRV Alignment</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Go/No-Go Decision</li>
+</ul>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant h-full transition-all group-hover:shadow-lg group-hover:border-primary">
+<div class="text-label-sm font-data-mono text-primary-container mb-8 flex justify-between items-center">
+<span class="">PHASE 02</span>
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-primary mb-6">Registry Readiness</h3>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Application Documentation</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> MRV Implementation Plan</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Pre-audit Verification</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Registry Submission &amp; Follow-up</li></ul>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="group">
+<div class="bg-surface-container-lowest p-8 border border-outline-variant h-full transition-all group-hover:shadow-lg group-hover:border-primary">
+<div class="text-label-sm font-data-mono text-primary-container mb-8 flex justify-between items-center">
+<span class="">PHASE 03</span>
+<span class="material-symbols-outlined" data-icon="currency_exchange">currency_exchange</span>
+</div>
+<h3 class="text-headline-lg font-headline-lg text-primary mb-6">Monetisation</h3>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Processing Management</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> CER Issuance Protocol</li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span> Market Listing</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Services -->
+<section class="py-32 bg-primary-container text-surface" id="services">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="mb-20 text-center">
+<h2 class="text-display-lg font-display-lg mb-4">India-First Precision</h2>
+<p class="text-on-primary-container max-w-xl mx-auto">Scaling climate action across the sub-continent through rigorous data and community-led models.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div class="p-10 border border-on-primary-fixed-variant bg-primary hover:bg-on-primary-fixed-variant/20 transition-all">
+<h3 class="text-headline-lg font-headline-lg mb-6">For Emitters &amp; Institutions</h3>
+<p class="text-on-primary-container mb-8">Comprehensive frameworks for institutional compliance and transparent reporting.</p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-primary-fixed/10 p-4 border border-primary-fixed/20">
+<p class="text-label-sm font-data-mono text-secondary-fixed">LEAP &amp; NAMA</p>
+</div>
+<div class="bg-primary-fixed/10 p-4 border border-primary-fixed/20">
+<p class="text-label-sm font-data-mono text-secondary-fixed">GHG Protocol</p>
+</div>
+</div>
+<p class="text-label-sm uppercase tracking-widest text-on-primary-container mb-4">Registry Dashboards</p>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-surface-container-low text-primary text-label-sm">MoEF&amp;CC</span>
+<span class="px-3 py-1 bg-surface-container-low text-primary text-label-sm">Verra</span>
+<span class="px-3 py-1 bg-surface-container-low text-primary text-label-sm">IGBC</span>
+</div>
+</div>
+<div class="p-10 border border-on-primary-fixed-variant bg-primary hover:bg-on-primary-fixed-variant/20 transition-all">
+<h3 class="text-headline-lg font-headline-lg mb-6">For Project Owners &amp; Developers</h3>
+<p class="text-on-primary-container mb-8">Unlocking financial value for sustainable projects through streamlined documentation.</p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-primary-fixed/10 p-4 border border-primary-fixed/20">
+<p class="text-label-sm font-data-mono text-secondary-fixed">POA Bundling</p>
+</div>
+<div class="bg-primary-fixed/10 p-4 border border-primary-fixed/20">
+<p class="text-label-sm font-data-mono text-secondary-fixed">Market Access</p>
+</div>
+</div>
+<div class="bg-secondary-container/10 border border-secondary-container p-6">
+<p class="text-secondary-fixed font-bold text-headline-lg mb-1">80%</p>
+<p class="text-label-sm text-on-primary-container">Proceeds directed back to local communities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Sectors -->
+<section class="py-24 border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<p class="text-label-sm font-data-mono uppercase tracking-widest text-on-surface-variant mb-12 text-center">Sectors Aligned for Decarbonisation</p>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="bolt">bolt</span>
+<p class="text-label-sm font-semibold">Energy</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="settings_input_component">settings_input_component</span>
+<p class="text-label-sm font-semibold">Distribution</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="factory">factory</span>
+<p class="text-label-sm font-semibold">Manufacturing</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="construction">construction</span>
+<p class="text-label-sm font-semibold">Metal</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="cloud_off">cloud_off</span>
+<p class="text-label-sm font-semibold">Fugitive</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="delete_sweep">delete_sweep</span>
+<p class="text-label-sm font-semibold">Waste</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="forest">forest</span>
+<p class="text-label-sm font-semibold">A/R</p>
+</div>
+<div class="p-6 border border-outline-variant text-center hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-primary mb-3" data-icon="agriculture">agriculture</span>
+<p class="text-label-sm font-semibold">Agriculture</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 7: Value Prop -->
+<section class="py-32 bg-surface" id="reality">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-5">
+<h2 class="text-display-lg font-display-lg text-primary mb-8 uppercase leading-tight">The Reality Gap</h2>
+<div class="space-y-8">
+<div class="p-8 bg-error-container text-on-error-container border border-error">
+<h4 class="text-headline-lg font-bold mb-2">10-Gigaton</h4>
+<p class="text-body-md">The annual shortfall in global carbon reduction efforts. While pledges grow, the reality of execution remains stagnant.</p>
+</div>
+<div class="p-8 bg-surface-container-highest border border-outline-variant">
+<h4 class="text-headline-lg font-bold text-primary mb-2">48 Hours</h4>
+<p class="text-body-md text-on-surface-variant">Our rapid assessment framework delivers a Go/No-Go feasibility report for your project in under two days.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 lg:pl-16">
+<p class="text-label-sm font-data-mono text-secondary uppercase tracking-[0.2em] mb-6">Why Earth Carbon?</p>
+<h3 class="text-headline-lg font-headline-lg text-primary mb-12">Bridging the gap with institutional integrity.</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h4 class="font-bold text-primary mb-3">Dedicated Teams</h4>
+<p class="text-body-md text-on-surface-variant">Embedded sectoral experts who understand the granular operational realities of Indian infrastructure.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-3">Registry Efficiency</h4>
+<p class="text-body-md text-on-surface-variant">Proprietary automated documentation pathways that reduce issuance time by up to 40%.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-3">Verifiable Impact</h4>
+<p class="text-body-md text-on-surface-variant">Every credit retired is mapped to local SDGs, ensuring tangible community upliftment.</p>
+</div>
+<div>
+<h4 class="font-bold text-primary mb-3">Transparent Fee Structure</h4>
+<p class="text-body-md text-on-surface-variant">Performance-based models that align our incentives with your climate success.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Standards -->
+<section class="py-32 border-t border-outline-variant precision-grid" id="standards">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-16 text-center">Standards &amp; Reporting Frameworks</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest p-12 border border-outline-variant">
+<h3 class="text-headline-lg font-semibold mb-10 text-primary flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+                            Methodologies We Implement
+                        </h3>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">GHG Protocol</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">ISO 14064</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">IPCC Guidelines</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">CDM Protocols</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">NAMA Standards</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">EPA Methods</li>
+</ul>
+</div>
+<div class="bg-surface-container-lowest p-12 border border-outline-variant">
+<h3 class="text-headline-lg font-semibold mb-10 text-primary flex items-center gap-4">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                            Reporting &amp; Disclosure
+                        </h3>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">CDP Disclosure</li>
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">GRI Framework</li>
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">BRSR (SEBI)</li>
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">SBTi Alignment</li>
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">CBAM Compliance</li>
+<li class="p-4 border-l-2 border-secondary bg-surface-container-low font-data-mono text-label-sm">Atmanirbhar Bharat</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 bg-primary">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full text-center">
+<h2 class="text-display-lg font-display-lg text-on-primary mb-8">Ready to Structure Your Climate Asset?</h2>
+<p class="text-on-primary-container text-headline-lg mb-12 max-w-2xl mx-auto">Join the India-first transition to verifiable and monetised carbon accounting.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-secondary text-on-secondary px-10 py-5 rounded-lg font-bold text-headline-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95">Get in Touch</button>
+<button class="border border-on-primary-fixed-variant text-on-primary px-10 py-5 rounded-lg font-bold text-headline-lg hover:bg-white/10 transition-all active:scale-95">Book a Consultation</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop py-16">
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="account_balance">account_balance</span>
+<span class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
+</div>
+<p class="text-on-surface-variant text-body-md mb-8">India-First Precision in Carbon Accounting. Bridging the gap between corporate pledges and reality.</p>
+</div>
+<div>
+<h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Frameworks</h4>
+<nav class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Impact Portfolio</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Asset Structuring</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">The Reality Gap</a>
+</nav>
+</div>
+<div>
+<h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Resources</h4>
+<nav class="flex flex-col gap-4">
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Standards</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+</nav>
+</div>
+<div>
+<h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Headquarters</h4>
+<p class="text-on-surface-variant text-body-md">
+                    Level 14, Carbon Tower<br>
+                    Connaught Place, New Delhi<br>
+                    India - 110001
+                </p>
+<div class="mt-6 flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="public">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant py-8">
+<div class="max-w-container-max mx-auto px-margin-desktop w-full flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<p class="">© 2024 Earth Carbon Foundation. India-First Precision in Carbon Accounting.</p>
+<p class="font-data-mono opacity-50">v2.4.0-STABLE</p>
+</div>
+</div>
+</footer>
 
-    // ===== HEADER SHADOW ON SCROLL =====
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-      if (header) header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
-</body>
-</html>
+
+<script class="">
+(function() {
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter-value');
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const decimals = parseInt(counter.getAttribute('data-decimals') || '0');
+                    const duration = 2000;
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        // Ease out quad
+                        const easedProgress = progress * (2 - progress);
+                        const currentValue = easedProgress * target;
+                        
+                        counter.innerText = currentValue.toFixed(decimals);
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target.toFixed(decimals);
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const impactSection = document.getElementById('impact');
+    if (impactSection) {
+        counterObserver.observe(impactSection);
+    }
+})();
+</script></body></html>
