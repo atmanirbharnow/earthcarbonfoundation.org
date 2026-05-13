@@ -131,8 +131,9 @@
 <a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#services">Services</a>
 <a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#reality">Reality Gap</a>
 <a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#standards">Standards</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#contact">Contact</a>
 </nav>
-<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm active:scale-95 transition-all hover:bg-primary-container">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm active:scale-95 transition-all hover:bg-primary-container" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
                 Get in Touch
             </button>
 </div>
@@ -149,14 +150,14 @@
 <h1 class="text-display-lg font-display-lg text-primary mb-6 uppercase">Structure.<br>Minimise.<br>Monetise.</h1>
 <p class="text-headline-lg font-headline-lg text-on-surface-variant mb-10 max-w-xl">Turning Sustainability Actions into Climate Assets with institutional transparency and local stewardship.</p>
 <div class="flex flex-wrap gap-4">
-<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary-container transition-all active:scale-95">Download Framework</button>
-<button class="border border-outline text-primary px-8 py-4 rounded-lg font-semibold hover:bg-surface-container transition-all active:scale-95">Explore Portfolio</button>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary-container transition-all active:scale-95" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Download Framework</button>
+<button class="border border-outline text-primary px-8 py-4 rounded-lg font-semibold hover:bg-surface-container transition-all active:scale-95" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">Explore Portfolio</button>
 </div>
 </div>
 </div>
 <div class="absolute bottom-12 right-margin-desktop hidden lg:block border-l border-outline-variant pl-6">
-<p class="text-label-sm font-data-mono text-on-surface-variant mb-2">LAT: 28.6139° N</p>
-<p class="text-label-sm font-data-mono text-on-surface-variant">LONG: 77.2090° E</p>
+<p class="text-label-sm font-data-mono text-on-surface-variant mb-2">LAT: 23.0408° N</p>
+<p class="text-label-sm font-data-mono text-on-surface-variant">LONG: 72.5662° E</p>
 </div>
 </section>
 <!-- Section 2: Stats -->
@@ -395,7 +396,7 @@
 <li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">ISO 14064</li>
 <li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">IPCC Guidelines</li>
 <li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">CDM Protocol</li>
-<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">NAMA Actons</li>
+<li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">NAMA Actions</li>
 <li class="p-4 border-l-2 border-primary bg-surface-container-low font-data-mono text-label-sm">EPA </li>
 </ul>
 </div>
@@ -422,11 +423,151 @@
 <h2 class="text-display-lg font-display-lg text-on-primary mb-8">Ready to Structure Your Climate Asset?</h2>
 <p class="text-on-primary-container text-headline-lg mb-12 max-w-2xl mx-auto">Join the World's-first transition to verifiable and monetised carbon accounting.</p>
 <div class="flex flex-col sm:flex-row justify-center gap-6">
-<button class="bg-secondary text-on-secondary px-10 py-5 rounded-lg font-bold text-headline-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95">Get in Touch</button>
+<button class="bg-secondary text-on-secondary px-10 py-5 rounded-lg font-bold text-headline-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
 <button class="border border-on-primary-fixed-variant text-on-primary px-10 py-5 rounded-lg font-bold text-headline-lg hover:bg-white/10 transition-all active:scale-95">Book a Consultation</button>
 </div>
 </div>
 </section>
+
+<!-- Section 10: Get in Touch Form -->
+<section id="contact" class="py-32 bg-surface-container-low border-t border-outline-variant">
+  <div class="max-w-container-max mx-auto px-margin-desktop w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
+      
+      <!-- Left: Contact Info -->
+      <div class="lg:pr-12">
+        <span class="text-label-sm font-data-mono text-secondary uppercase tracking-[0.2em] mb-4 block">Start Here</span>
+        <h2 class="text-display-lg font-display-lg text-primary mb-6">Get in Touch</h2>
+        <p class="text-body-md text-on-surface-variant mb-8">
+          Share your project details. Our dedicated team will respond within 48 hours with a Go/No-Go feasibility assessment.
+        </p>
+        
+        <div class="space-y-6 mb-10">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-2xl mt-1" data-icon="mail">mail</span>
+            <div>
+              <p class="text-label-sm font-data-mono text-on-surface-variant uppercase">Email</p>
+              <a href="mailto:info@earthcarbonfoundation.org" class="text-body-md font-semibold text-primary hover:underline">
+                info@earthcarbonfoundation.org
+              </a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-2xl mt-1" data-icon="phone">phone</span>
+            <div>
+              <p class="text-label-sm font-data-mono text-on-surface-variant uppercase">Phone / WhatsApp</p>
+              <a href="https://wa.me/919824025431" target="_blank" rel="noopener" class="text-body-md font-semibold text-primary hover:underline">
+                +91 98240 25431
+              </a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-primary text-2xl mt-1" data-icon="location_on">location_on</span>
+            <div>
+              <p class="text-label-sm font-data-mono text-on-surface-variant uppercase">Headquarters</p>
+              <p class="text-body-md text-on-surface-variant">
+                358 Saraswatinagar, Azad Society Road,<br>
+                Near Polytechnic, Ahmedabad 380015<br>
+                Gujarat, India - Asia Pacific<br>
+                <span class="text-label-sm font-data-mono mt-1 block">Digi Pin: 3KL-JM6-M62F</span>
+                <span class="text-label-sm font-data-mono block">GPS: 23.04079055, 72.56618214</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Trust Badges -->
+        <div class="p-6 bg-surface-container-highest border border-outline-variant rounded-lg">
+          <p class="text-label-sm font-data-mono text-on-surface-variant mb-3">DPDP Act 2023 Compliant</p>
+          <p class="text-body-md text-on-surface-variant">
+            All submissions are encrypted, consent-logged, and used solely for project assessment. 
+            <a href="/privacy" class="text-primary hover:underline">View Privacy Policy →</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: Minimal Form (formsubmit.co - Zero Config) -->
+      <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg">
+        <form class="space-y-5" 
+              action="https://formsubmit.co/info@earthcarbonfoundation.org" 
+              method="POST" 
+              novalidate>
+          
+          <!-- FormSubmit.co Config -->
+          <input type="hidden" name="_subject" value="New Inquiry: Earth Carbon Foundation">
+          <input type="hidden" name="_next" value="https://earthcarbonfoundation.org/thankyou.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_autoresponse" value="Thank you for contacting Earth Carbon Foundation. We'll respond within 48 hours with your Go/No-Go assessment.">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <!-- Name Fields -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="First Name" required autocomplete="given-name"
+                     class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+            </div>
+            <div>
+              <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="Last Name" required autocomplete="family-name"
+                     class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+            </div>
+          </div>
+
+          <!-- Organisation -->
+          <div>
+            <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="organisation">Organisation Name *</label>
+            <input type="text" id="organisation" name="Organisation" required autocomplete="organization"
+                   class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+          </div>
+
+          <!-- Email & WhatsApp -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="email">Email ID *</label>
+              <input type="email" id="email" name="Email" required autocomplete="email"
+                     class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+            </div>
+            <div>
+              <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="whatsapp">WhatsApp Number *</label>
+              <input type="tel" id="whatsapp" name="WhatsApp" required autocomplete="tel" pattern="^\+?[\d\s\-\(\)]{10,15}$" placeholder="+91 98240 25431"
+                     class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" />
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label class="block text-label-sm font-data-mono text-on-surface-variant mb-2" for="message">Project Brief *</label>
+            <textarea id="message" name="Message" required rows="4" placeholder="Briefly describe your low-carbon action or inquiry..."
+                      class="w-full px-4 py-3 bg-surface border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-vertical"></textarea>
+          </div>
+
+          <!-- DPDP Consent -->
+          <label class="flex items-start gap-3 cursor-pointer group">
+            <input type="checkbox" name="Consent" required 
+                   class="mt-1 w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary accent-primary" />
+            <span class="text-label-sm text-on-surface-variant group-hover:text-on-surface transition-colors">
+              I agree to the <a href="/privacy" class="text-primary hover:underline">Privacy Policy</a> and consent to data processing under India's DPDP Act 2023. *
+            </span>
+          </label>
+
+          <!-- Submit Button -->
+          <button type="submit" 
+                  class="w-full bg-primary text-on-primary px-6 py-4 rounded-lg font-label-sm text-label-sm font-semibold hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+            Submit Inquiry
+          </button>
+
+          <!-- Status Message -->
+          <div id="form-status" class="text-label-sm text-center hidden" aria-live="polite"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 </main>
 <!-- Footer -->
 <footer class="bg-surface-container-lowest border-t border-outline-variant">
@@ -437,40 +578,87 @@
 <span class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
 </div>
 <p class="text-on-surface-variant text-body-md mb-8">World's-First Precision in Carbon Accounting. Bridging the gap between corporate pledges and reality.</p>
+
+<!-- Social Media Boxes -->
+<div class="flex flex-col gap-4">
+  <div class="flex flex-wrap gap-3">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/amit-sinh-earth-carbon-ba84042a2" target="_blank" rel="noopener" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="LinkedIn">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="linkedin">linkedin</span>
+    </a>
+    <!-- X (Twitter) -->
+    <a href="https://x.com/EarthAmit44114" target="_blank" rel="noopener" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="X (Twitter)">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="alternate_email">alternate_email</span>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/amitsinh979/" target="_blank" rel="noopener" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="Instagram">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="photo_camera">photo_camera</span>
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/people/Earth-Carbon-Foundation/100083333313032/" target="_blank" rel="noopener" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="Facebook">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="face">face</span>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919824025431" target="_blank" rel="noopener" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="WhatsApp">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="whatsapp">whatsapp</span>
+    </a>
+    <!-- Email -->
+    <a href="mailto:info@earthcarbonfoundation.org" 
+       class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container hover:border-primary transition-all"
+       aria-label="Email">
+      <span class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="mail">mail</span>
+    </a>
+  </div>
+  
+  <!-- Registry Link -->
+  <a href="https://registry.earthcarbonfoundation.org" target="_blank" rel="noopener"
+     class="text-label-sm font-data-mono text-secondary hover:text-primary transition-colors flex items-center gap-2">
+    <span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+    Public Registry →
+  </a>
+</div>
+
 </div>
 <div>
 <h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Frameworks</h4>
 <nav class="flex flex-col gap-4">
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Impact Portfolio</a>
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Asset Structuring</a>
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">The Reality Gap</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#impact">Impact Portfolio</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#process">Asset Structuring</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#reality">The Reality Gap</a>
 </nav>
 </div>
 <div>
 <h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Resources</h4>
 <nav class="flex flex-col gap-4">
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Services</a>
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Standards</a>
-<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="#standards">Standards</a>
+<a class="text-on-surface-variant hover:text-secondary hover:underline underline-offset-4 transition-colors" href="/privacy">Privacy Policy</a>
 </nav>
 </div>
 <div>
 <h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-6">Headquarters</h4>
 <p class="text-on-surface-variant text-body-md">
-                    358 Saraswatinagar, Ambawadi<br>
-                    Ahmedabad <br>
-                    India - 38015.
-                </p>
-<div class="mt-6 flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="public">public</span>
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="share">share</span>
-</div>
+  358 Saraswatinagar, Azad Society Road<br>
+  Near Polytechnic, Ahmedabad 380015<br>
+  Gujarat, India - Asia Pacific<br>
+  <span class="text-label-sm font-data-mono text-on-surface-variant mt-1 block">Digi Pin: 3KL-JM6-M62F</span>
+</p>
 </div>
 </div>
 <div class="border-t border-outline-variant py-8">
 <div class="max-w-container-max mx-auto px-margin-desktop w-full flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
 <p class="">© 2024 Earth Carbon Foundation. India-First Precision in Carbon Accounting.</p>
-<p class="font-data-mono opacity-50">v2.4.0-STABLE</p>
+<p class="font-data-mono opacity-50">v2.5.0-STABLE</p>
 </div>
 </div>
 </footer>
@@ -521,4 +709,20 @@
         counterObserver.observe(impactSection);
     }
 })();
+
+// FormSubmit.co Success Message Handling
+document.querySelector('#contact form')?.addEventListener('submit', function(e) {
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = this.querySelector('button[type="submit"]');
+  
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Sending...';
+  
+  // FormSubmit.co handles redirect via _next, but show inline success if JS enabled
+  setTimeout(() => {
+    statusEl.textContent = '✅ Inquiry submitted. Redirecting to confirmation...';
+    statusEl.className = 'text-label-sm text-center text-secondary font-semibold block mt-4';
+  }, 1500);
+});
 </script></body></html>
