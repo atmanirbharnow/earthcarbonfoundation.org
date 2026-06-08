@@ -714,206 +714,43 @@
                     </div>
                 </div>
 
-                <!-- FAQ 9 -->
-            <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carbon Monetization Accordion</title>
-    <style>
-        .monetization-container {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 24px;
-            background-color: #ffffff;
-            border: 1px solid #e1e4e8;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Accordion Style wrapper for the Question */
-        .monetization-accordion {
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        /* The clickable Summary Header (The Question) */
-        .monetization-trigger {
-            background-color: #f7fafc;
-            color: #1a202c;
-            padding: 18px 20px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            transition: background-color 0.2s ease;
-        }
-
-        .monetization-trigger:hover {
-            background-color: #edf2f7;
-        }
-
-        /* Custom SVG Arrow Indicator */
-        .monetization-trigger::after {
-            content: "";
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-right: 2px solid #4a5568;
-            border-bottom: 2px solid #4a5568;
-            transform: rotate(45deg);
-            transition: transform 0.2s ease;
-            margin-right: 4px;
-        }
-
-        /* Styles when HTML5 Details element is OPEN */
-        .monetization-accordion[open] .monetization-trigger {
-            background-color: #edf2f7;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .monetization-accordion[open] .monetization-trigger::after {
-            transform: rotate(-135deg);
-        }
-
-        /* Hidden standard marker Chrome/Safari/Firefox */
-        .monetization-trigger::-webkit-details-marker {
-            display: none;
-        }
-        
-        /* Inner Panel Content Layout */
-        .monetization-panel {
-            padding: 24px 20px;
-            background-color: #ffffff;
-        }
-
-        .monetization-header {
-            font-size: 20px;
-            font-weight: 700;
-            color: #0d5f3a;
-            margin-top: 0;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .monetization-intro {
-            font-size: 14.5px;
-            font-weight: 500;
-            color: #4a5568;
-            margin-bottom: 24px;
-            margin-top: 0;
-        }
-
-        .monetization-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .monetization-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #e2e8f0;
-        }
-
-        .monetization-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .monetization-number {
-            background-color: #0d5f3a;
-            color: #ffffff;
-            font-weight: 700;
-            font-size: 13px;
-            min-width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-            margin-top: 2px;
-        }
-
-        .monetization-content {
-            flex: 1;
-        }
-
-        .monetization-title {
-            font-weight: 700;
-            font-size: 15.5px;
-            color: #1a202c;
-            margin-bottom: 4px;
-        }
-
-        .monetization-body {
-            font-size: 14px;
-            color: #4a5568;
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="monetization-container">
-        
-        <!-- Native, accessible HTML5 Accordion Element -->
-        <details class="monetization-accordion">
+    <!-- FAQ 9 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
+    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
+        <h3 class="text-headline-lg font-bold text-primary pr-4">Q9: How does the platform help us monetize carbon assets or attract funding?</h3>
+        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+    </button>
+    <div class="faq-answer px-6">
+        <div class="pb-6 text-body-md text-on-surface-variant">
+            <p class="mb-3 font-semibold text-primary">Carbon Monetization: A Serious 3-Step Process</p>
+            <p class="mb-4">We treat your institution as a serious Carbon Monetization Partner to extract maximum financial value from your green assets:</p>
             
-            <!-- Clickable Title Question Area -->
-            <summary class="monetization-trigger">
-                Q11: How does the platform help us monetize carbon assets or attract funding?
-            </summary>
-            
-            <!-- Expandable Body Content Area -->
-            <div class="monetization-panel">
-                <h2 class="monetization-header">Carbon Monetization: A Serious 3-Step Process</h2>
-                <p class="monetization-intro">We treat your institution as a serious Carbon Monetization Partner to extract maximum financial value from your green assets:</p>
-                
-                <ol class="monetization-list">
-                    <li class="monetization-item">
-                        <div class="monetization-number">1</div>
-                        <div class="monetization-content">
-                            <div class="monetization-title">Bespoke Evaluation</div>
-                            <p class="monetization-body">After your ₹35,000 baseline registration, we process your 36-month data to calculate your campus’s exact carbon asset revenue potential[cite: 2].</p>
-                        </div>
-                    </li>
-                    <li class="monetization-item">
-                        <div class="monetization-number">2</div>
-                        <div class="monetization-content">
-                            <div class="monetization-title">Legal Compliance Check</div>
-                            <p class="monetization-body">We verify eligibility and require board authorization for mandatory frameworks (e.g., NOCs, Anti-Double Counting Agreements) to ensure exclusive, undisputed ownership of your offsets.</p>
-                        </div>
-                    </li>
-                    <li class="monetization-item">
-                        <div class="monetization-number">3</div>
-                        <div class="monetization-content">
-                            <div class="monetization-title">Direct Expert Consultation</div>
-                            <p class="monetization-body">Before registry submission, our carbon market architects consult with your board to ensure your data is audit-proof, risk-free, and structured for the highest market premiums[cite: 2].</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-            
-        </details>
-        
+            <ol class="space-y-4 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">1</span>
+                    <div>
+                        <p class="font-semibold text-primary">Bespoke Evaluation</p>
+                        <p class="text-on-surface-variant">After your ₹35,000 baseline registration, we process your 36-month data to calculate your campus’s exact carbon asset revenue potential.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">2</span>
+                    <div>
+                        <p class="font-semibold text-primary">Legal Compliance Check</p>
+                        <p class="text-on-surface-variant">We verify eligibility and require board authorization for mandatory frameworks (e.g., NOCs, Anti-Double Counting Agreements) to ensure exclusive, undisputed ownership of your offsets.</p>
+                    </div>
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">3</span>
+                    <div>
+                        <p class="font-semibold text-primary">Direct Expert Consultation</p>
+                        <p class="text-on-surface-variant">Before registry submission, our carbon market architects consult with your board to ensure your data is audit-proof, risk-free, and structured for the highest market premiums.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
-
-</body>
-</html>
+</div>
 
                 <!-- FAQ 10 -->
                 <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
