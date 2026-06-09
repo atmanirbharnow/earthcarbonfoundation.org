@@ -1,834 +1,630 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Atmanirbhar Campus Index™ 2027 | Earth Carbon Foundation</title>
-<meta name="description" content="Convert your campus sustainability efforts into verifiable carbon assets. Automate resource tracking, lower utility bills, and lock in permanent financial gains.">
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Atmanirbhar Campus Index 2027 | Live Sustainability Tracking</title>
+<meta content="India's premier live campus sustainability index. Measure, mitigate, and monetize your institution's green efforts." name="description"/>
+<!-- Design System Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700&family=Hanken+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+<!-- Tailwind Configuration -->
 <script id="tailwind-config">
-    tailwind.config = {
+      tailwind.config = {
         darkMode: "class",
         theme: {
-            extend: {
-                "colors": {
-                    "surface-container-highest": "#e1e3e2", "tertiary": "#201500", "inverse-surface": "#2e3131",
-                    "surface-container": "#eceeed", "tertiary-fixed": "#ffdea6", "on-secondary-fixed": "#00210f",
-                    "surface": "#f8faf9", "error": "#ba1a1a", "on-error-container": "#93000a", "surface-container-high": "#e6e9e8",
-                    "surface-dim": "#d8dad9", "surface-container-lowest": "#ffffff", "surface-variant": "#e1e3e2",
-                    "on-primary-fixed": "#091f1b", "on-surface": "#191c1c", "on-primary": "#ffffff", "on-error": "#ffffff",
-                    "on-secondary": "#ffffff", "secondary-container": "#97f3b5", "outline": "#727876", "background": "#f8faf9",
-                    "on-secondary-container": "#047240", "primary-fixed-dim": "#b4ccc5", "tertiary-container": "#3a2800",
-                    "on-background": "#191c1c", "secondary-fixed-dim": "#7ed99e", "surface-bright": "#f8faf9",
-                    "on-primary-container": "#809792", "surface-tint": "#4d635e", "secondary-fixed": "#9af6b8",
-                    "tertiary-fixed-dim": "#f7bd48", "on-tertiary": "#ffffff", "inverse-on-surface": "#eff1f0",
-                    "on-primary-fixed-variant": "#364b46", "inverse-primary": "#b4ccc5", "surface-container-low": "#f2f4f3",
-                    "primary": "#051a17", "primary-container": "#1a2f2b", "on-tertiary-container": "#bc8a11",
-                    "primary-fixed": "#d0e8e1", "on-tertiary-fixed-variant": "#5d4200", "outline-variant": "#c2c8c5",
-                    "secondary": "#006d3d", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#00522d",
-                    "on-tertiary-fixed": "#271900", "on-surface-variant": "#424846"
-                },
-                "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-                "spacing": { "container-max": "1280px", "gutter": "24px", "margin-desktop": "40px", "margin-mobile": "16px", "unit": "8px" },
-                "fontFamily": {
-                    "body-md": ["Inter"], "headline-lg-mobile": ["IBM Plex Sans"], "display-lg": ["IBM Plex Sans"],
-                    "headline-lg": ["IBM Plex Sans"], "data-mono": ["Hanken Grotesk"], "label-sm": ["Hanken Grotesk"]
-                },
-                "fontSize": {
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                    "data-mono": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
-                }
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#94ccff",
+                    "surface-container": "#eceef0",
+                    "on-primary-container": "#8bd6b7",
+                    "inverse-surface": "#2d3133",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary-fixed-variant": "#00513b",
+                    "inverse-primary": "#8bd6b6",
+                    "surface-tint": "#1b6b51",
+                    "surface-dim": "#d8dadc",
+                    "on-tertiary-container": "#bfc7e1",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed": "#dae2fd",
+                    "tertiary": "#343c51",
+                    "on-surface": "#191c1e",
+                    "on-surface-variant": "#3f4944",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#3f465c",
+                    "outline": "#6f7973",
+                    "outline-variant": "#bec9c2",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-tertiary-fixed": "#131b2e",
+                    "on-secondary-fixed": "#001d32",
+                    "on-primary-fixed": "#002116",
+                    "secondary-fixed": "#cde5ff",
+                    "primary": "#004532",
+                    "secondary": "#006399",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "background": "#f7f9fb",
+                    "secondary-container": "#7bc2ff",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "on-secondary-fixed-variant": "#004b74",
+                    "tertiary-container": "#4b5369",
+                    "primary-fixed-dim": "#8bd6b6",
+                    "on-secondary-container": "#004f7b",
+                    "primary-fixed": "#a6f2d1",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#bec6e0",
+                    "on-background": "#191c1e",
+                    "primary-container": "#065f46",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "40px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "xl": "64px",
+                    "gutter": "24px",
+                    "md": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "caption": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
             }
-        }
-    }
-</script>
+          },
+        },
+      }
+    </script>
 <style>
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
-    body { min-height: max(884px, 100dvh); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-    .faq-answer.open { max-height: 1000px; }
-    .faq-icon { transition: transform 0.3s ease; }
-    .faq-icon.open { transform: rotate(180deg); }
-</style>
-</head>
-<body class="bg-background text-on-background font-body-md">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            transition: all 0.3s ease;
+        }
+        .bento-card:hover {
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+            transform: translateY(-4px);
+        }
+        .progress-gradient {
+            background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
+        }
+        .hero-mesh {
+            background-color: #f7f9fb;
+            background-image: radial-gradient(at 0% 0%, rgba(6, 95, 70, 0.05) 0px, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.05) 0px, transparent 50%);
+        }
 
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
-    <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop w-full py-4">
-        <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
-            <span class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
-        </div>
-        <nav class="hidden md:flex gap-8">
-            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#roadblocks">Solutions</a>
-            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#pipeline">Pricing</a>
-            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#credentials">Trust</a>
-            <a class="text-on-surface-variant font-label-sm hover:text-primary transition-colors" href="#faq">FAQ</a>
-        </nav>
-        <a href="#pipeline" class="bg-secondary text-on-secondary px-6 py-2 rounded-lg font-label-sm active:scale-95 transition-all hover:bg-secondary-container hover:text-on-secondary-container">
-            Register Now
-        </a>
-    </div>
-</header>
-
-<main class="pt-[72px]">
-
-    <!-- SECTION 1: HERO -->
-    <section class="relative min-h-[700px] flex items-center bg-gradient-to-br from-primary via-primary-container to-primary text-on-primary overflow-hidden">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
-        </div>
+        /* FAQ Transition Styles */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .faq-item.active .faq-content {
+            max-height: 500px; /* Large enough for content */
+            padding-top: 12px;
+        }
+        .faq-chevron {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-chevron {
+            transform: rotate(180deg);
+        }
+        .faq-item.active {
+            background-color: #f2f4f6; /* surface-container-low */
+        }
         
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full py-24 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                
-                <h1 class="text-display-lg font-display-lg mb-6 uppercase leading-tight">
-                    Stop Wasting Campus Budgets on<br>
-                    <span class="text-secondary-fixed">Fragmented Green Drives.</span>
-                </h1>
-                
-                <p class="text-headline-lg font-headline-lg text-on-primary/90 mb-6 max-w-3xl mx-auto">
-                    Automate Resource Tracking. Lower Utility Bills. Lock In Permanent Financial Gains.
-                </p>
-                
-                <p class="text-body-md text-on-primary/80 mb-12 max-w-2xl mx-auto">
-                    The Atmanirbhar Campus Index converts your day-to-day operations into verifiable, high-integrity environmental assets. By replacing expensive external consultants with automation, we deliver immediate utility ROI and a permanent shield against administrative risk.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                    <a href="#pipeline" class="bg-secondary text-on-secondary px-12 py-6 rounded-lg font-bold text-headline-lg hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95 shadow-2xl flex items-center gap-3">
-                        <span class="material-symbols-outlined text-2xl">how_to_reg</span>
-                        Secure Your Founding 25 Spot
-                    </a>
-                </div>
-                
-                <div class="inline-flex items-center gap-4 bg-white/10 border border-white/20 px-8 py-4 rounded-full backdrop-blur-sm">
-                    <span class="material-symbols-outlined text-secondary animate-pulse">verified</span>
-                    <div class="text-left">
-                        <p class="text-label-sm font-semibold">Starting at ₹35,000 One-Time Registration</p>
-                        <p class="text-label-sm text-on-primary/80">Limited to First 25 Institutions | Assessment: 2026-2027</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: THE 6 ROADBLOCKS -->
-    <section id="roadblocks" class="py-24 bg-surface border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-4 rounded-sm uppercase tracking-widest">The Core Framework</span>
-                <h2 class="text-display-lg font-display-lg text-primary mb-6">6 Roadblocks. 6 Automated Solutions.</h2>
-                <p class="text-headline-lg font-headline-lg text-on-surface-variant max-w-3xl mx-auto">We turn the biggest barriers to campus sustainability into your strongest competitive advantages.</p>
-            </div>
-
-            <div class="space-y-6 max-w-5xl mx-auto">
-                
-                <!-- Roadblock 1 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">1. The Funding Wall</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Independent carbon registry registration is financially impossible for a single school due to massive standalone auditing, third-party validation, and verification costs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: Bundled Economies</h4>
-                                <p class="text-body-md text-on-surface-variant">Our registry automatically pools your campus into a shared regional portfolio. By dividing the structural overhead across multiple institutions, we completely eliminate steep independent validation fees.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadblock 2 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">2. The Expert Payroll Trap</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Keeping a specialized sustainability consultant or carbon accounting expert on a permanent institutional payroll is an expensive, recurring financial drain.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: Pre-Programmed Architecture</h4>
-                                <p class="text-body-md text-on-surface-variant">You don't need to hire specialized talent. The platform's backend is pre-programmed with multiple compliant methodologies. Your existing, non-technical administrative team can handle basic data entry through a guided dashboard.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadblock 3 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">3. The Data Blindness Gap</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Sustainability tracking usually means messy spreadsheets, unorganized paper records, and unverified green claims that fall apart during official audits.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: OCR Automation & Geotagged Proof</h4>
-                                <p class="text-body-md text-on-surface-variant">Your staff simply uploads standard monthly utility invoices. Our built-in OCR engine automatically extracts usage data, combining it with permanent geotagged coordinates for every physical asset to build a bulletproof, audit-ready history.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadblock 4 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">4. The Short-Term Planning Cycle</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Most green drives are temporary, unorganized, and easily reversed. Projects are frequently abandoned when a school principal, trustee, or management board changes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: The Leadership Shield</h4>
-                                <p class="text-body-md text-on-surface-variant">Your project translates daily metrics into a 5-to-10-year target reduction roadmap that automatically aligns with national Net-Zero targets. This creates a legal "Leadership Shield" in your bylaws that protects your infrastructure investments across leadership transitions.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadblock 5 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">5. The Invisible Return on Investment</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Boards of management view environmental guidelines as an un-monetized compliance expense with zero clear financial return.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: Immediate Utility ROI + Carbon Revenue</h4>
-                                <p class="text-body-md text-on-surface-variant">We treat resource saving as a cash-flow pipeline. By instantly tracking the exact savings value of every kilowatt-hour and liter of water saved, the platform demonstrates an immediate operational reduction in your monthly utility bills, layered with a verified path to future carbon asset monetization.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Roadblock 6 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-error-container/30 p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-error text-3xl">block</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary mb-2">6. The Operational Time Drain</h3>
-                                <p class="text-body-md text-on-surface-variant"><strong>The Bottleneck:</strong> Managing environmental data and manual compliance reporting distracts administrative staff and teachers from their primary educational duties.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary-container/30 p-6">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
-                            <div>
-                                <h4 class="text-headline-lg font-bold text-secondary mb-2">The Atmanirbhar Solution: Self-Programmed KPI Dashboards</h4>
-                                <p class="text-body-md text-on-surface-variant">Once your baseline account is initialized online, all environmental KPIs are entirely self-programmed by the platform. The software generates compliance data and performance analytics automatically—reducing human involvement to routine, on-site maintenance and equipment repairs.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 3: ASSESSMENT CATEGORIES -->
-    <section id="categories" class="py-24 bg-surface-container-low border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <h2 class="text-display-lg font-display-lg text-primary mb-6">Assessment Categories</h2>
-                <p class="text-headline-lg font-headline-lg text-on-surface-variant max-w-3xl mx-auto">We measure current usage and actions to replace the conventional means with natural or renewable means.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-                
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">bolt</span>
-                    <h3 class="font-bold text-body-md text-primary">Energy</h3>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">water_drop</span>
-                    <h3 class="font-bold text-body-md text-primary">Water</h3>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">recycling</span>
-                    <h3 class="font-bold text-body-md text-primary">Waste</h3>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">park</span>
-                    <h3 class="font-bold text-body-md text-primary">Biodiversity</h3>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">school</span>
-                    <h3 class="font-bold text-body-md text-primary">Student Participation</h3>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center hover:border-primary transition-all">
-                    <span class="material-symbols-outlined text-primary text-5xl mb-4">rocket_launch</span>
-                    <h3 class="font-bold text-body-md text-primary">Innovation & Climate Leadership</h3>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 4: VALUE CALCULATOR -->
-    <section id="value-calculator" class="py-24 bg-surface border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-4 rounded-sm uppercase tracking-widest">Future Asset Potential</span>
-                <h2 class="text-headline-lg font-headline-lg text-primary mb-4">Value Calculator</h2>
-                <p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Based on your campus size, here's the estimated future carbon asset value you could generate.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg hover:border-primary transition-all">
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase mb-2">Small Size</p>
-                    <p class="text-headline-lg font-bold text-primary mb-6">10 kW Solar</p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Annual Generation</span><span class="font-semibold text-primary">~12 MWh</span></div>
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">tCO₂e Reduction</span><span class="font-semibold text-primary">~10 Tonnes</span></div>
-                    </div>
-                    <div class="pt-6 border-t border-outline-variant">
-                        <p class="text-label-sm text-on-surface-variant mb-1">Estimated Asset Value</p>
-                        <p class="text-display-lg font-display-lg text-secondary">₹1.2 Lakhs</p>
-                    </div>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border-2 border-primary rounded-lg shadow-lg relative">
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-label-sm font-data-mono">MOST COMMON</div>
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase mb-2">Medium Size</p>
-                    <p class="text-headline-lg font-bold text-primary mb-6">25 kW Solar</p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Annual Generation</span><span class="font-semibold text-primary">~30 MWh</span></div>
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">tCO₂e Reduction</span><span class="font-semibold text-primary">~25 Tonnes</span></div>
-                    </div>
-                    <div class="pt-6 border-t border-outline-variant">
-                        <p class="text-label-sm text-on-surface-variant mb-1">Estimated Asset Value</p>
-                        <p class="text-display-lg font-display-lg text-secondary">₹3.0 Lakhs</p>
-                    </div>
-                </div>
-
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg hover:border-primary transition-all">
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase mb-2">Large Size</p>
-                    <p class="text-headline-lg font-bold text-primary mb-6">100 kW Solar</p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">Annual Generation</span><span class="font-semibold text-primary">~120 MWh</span></div>
-                        <div class="flex justify-between text-body-md"><span class="text-on-surface-variant">tCO₂e Reduction</span><span class="font-semibold text-primary">~100 Tonnes</span></div>
-                    </div>
-                    <div class="pt-6 border-t border-outline-variant">
-                        <p class="text-label-sm text-on-surface-variant mb-1">Estimated Asset Value</p>
-                        <p class="text-display-lg font-display-lg text-secondary">₹12.0 Lakhs</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <p class="text-center text-label-sm text-on-surface-variant/60 mt-8 max-w-3xl mx-auto">
-                *Values are indicative estimates based on current Bharat Carbon Credit Registry (BCCR) market rates. Actual generation depends on site-specific solar irradiance and system performance.
-            </p>
-
-        </div>
-    </section>
-
-    <!-- SECTION 5: TRUST & CREDENTIALS -->
-    <section id="credentials" class="py-24 bg-surface-container-low border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-4 rounded-sm uppercase tracking-widest">Verified Track Record</span>
-                <h2 class="text-display-lg font-display-lg text-primary mb-6">Our Credentials & Partners</h2>
-                <p class="text-headline-lg font-headline-lg text-on-surface-variant max-w-3xl mx-auto">Real impact. Verified results. Trusted collaborations.</p>
-            </div>
-
-            <!-- Hero Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center">
-                    <p class="text-display-lg font-display-lg text-primary mb-2">1,276</p>
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase tracking-wider">Total Actions Implemented</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center">
-                    <p class="text-display-lg font-display-lg text-primary mb-2">17,255</p>
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase tracking-wider">tCO₂e Saved Per Year</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center">
-                    <p class="text-display-lg font-display-lg text-primary mb-2">₹31.25 Cr</p>
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase tracking-wider">Cost Savings Generated</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 border border-outline-variant rounded-lg text-center">
-                    <p class="text-display-lg font-display-lg text-primary mb-2">8</p>
-                    <p class="text-label-sm font-data-mono text-on-surface-variant uppercase tracking-wider">Intervention Types</p>
-                </div>
-            </div>
-
-                     <!-- Strategic Collaborators -->
-            <div class="mb-16">
-                <h3 class="text-headline-lg font-bold text-primary text-center mb-8">Strategic Collaborations</h3>
-                <div class="flex flex-wrap justify-center items-center gap-6 max-w-4xl mx-auto">
-                    <a href="https://mitigation-action.org/" target="_blank" rel="noopener noreferrer" 
-                       class="bg-surface-container-lowest px-6 py-3 border border-outline-variant rounded-lg hover:border-primary hover:shadow-md transition-all group">
-                        <p class="text-body-md font-semibold text-primary group-hover:text-secondary flex items-center gap-2">
-                            Mitigation Action Facility
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
-                        </p>
-                    </a>
-                    <a href="https://connect4impact.worldbank.org/" target="_blank" rel="noopener noreferrer" 
-                       class="bg-surface-container-lowest px-6 py-3 border border-outline-variant rounded-lg hover:border-primary hover:shadow-md transition-all group">
-                        <p class="text-body-md font-semibold text-primary group-hover:text-secondary flex items-center gap-2">
-                            C4D WBG
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
-                        </p>
-                    </a>
-                    <a href="https://unfccc.int/topics/mitigation/workstreams/nationally-appropriate-mitigation-actions" target="_blank" rel="noopener noreferrer" 
-                       class="bg-surface-container-lowest px-6 py-3 border border-outline-variant rounded-lg hover:border-primary hover:shadow-md transition-all group">
-                        <p class="text-body-md font-semibold text-primary group-hover:text-secondary flex items-center gap-2">
-                            NAMA
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
-                        </p>
-                    </a>
-                    <a href="https://unfccc.int/" target="_blank" rel="noopener noreferrer" 
-                       class="bg-surface-container-lowest px-6 py-3 border border-outline-variant rounded-lg hover:border-primary hover:shadow-md transition-all group">
-                        <p class="text-body-md font-semibold text-primary group-hover:text-secondary flex items-center gap-2">
-                            UNFCCC
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">open_in_new</span>
-                        </p>
-                    </a>
-
-            <!-- Google Maps -->
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-headline-lg font-bold text-primary text-center mb-8">Our Base</h3>
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="p-6 border-b border-outline-variant">
-                        <div class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
-                            <div>
-                                <p class="text-body-md font-semibold text-primary mb-1">Earth Carbon Foundation</p>
-                                <p class="text-body-md text-on-surface-variant">358 Saraswatinagar, Azad Society Road,<br>Near Polytechnic, Ahmedabad 380015, Gujarat, India</p>
-                            </div>
-                        </div>
-                    </div>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.904!2d72.56618214!3d23.04079055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDAyJzI2LjgiTiA3MsKwMzMnNTguMyJF!5e0!3m2!1sen!2sin!4v1234567890"
-                        width="100%" 
-                        height="350" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 6: TWO-STEP EXECUTION PIPELINE -->
-        <!-- SECTION 6: EXECUTION FRAMEWORK -->
-    <section id="pipeline" class="py-24 bg-surface border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-4 rounded-sm uppercase tracking-widest">The Execution Framework</span>
-                <h2 class="text-display-lg font-display-lg text-primary mb-6">Process With Sincerity. Scale With Data.</h2>
-                <p class="text-headline-lg font-headline-lg text-on-surface-variant max-w-3xl mx-auto">Start with a comprehensive baseline, and unlock monetization only when the data justifies it.</p>
-            </div>
-
-            <div class="max-w-5xl mx-auto space-y-8">
-                
-                <!-- Phase 1 -->
-                <div class="bg-surface-container-lowest border-2 border-primary rounded-lg overflow-hidden shadow-xl">
-                    <div class="bg-primary text-on-primary p-6">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-on-primary text-primary w-12 h-12 rounded-full flex items-center justify-center text-headline-lg font-bold">1</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold">Phase 1: Base Registry Onboarding & Forensic Audit</h3>
-                                <p class="text-label-sm font-data-mono opacity-80">Your Core Deliverable | One-Time Investment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6 pb-6 border-b border-outline-variant">
-                            <div>
-                                <p class="text-label-sm font-data-mono text-on-surface-variant uppercase mb-2">Total Investment</p>
-                                <p class="text-display-lg font-display-lg text-primary">₹35,000</p>
-                            </div>
-                            <a href="https://rzp.io/rzp/UJoG14Wf" rel="noopener noreferrer" 
-                               class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-bold text-label-sm uppercase tracking-widest hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95 shadow-lg whitespace-nowrap">
-                                Start Phase 1 Now
-                            </a>
-                        </div>
-                        <h4 class="text-headline-lg font-bold text-primary mb-4">The Assets You Receive:</h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary text-xl mt-1">check_circle</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>Permanent Registry Link Account:</strong> Activates your permanent, un-erasable digital asset profile locked into international climate registry frameworks.</p>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary text-xl mt-1">check_circle</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>36-Month Forensic Bill Audit:</strong> Converts 3 full years of scattered paper utility invoices into a clean, digital baseline footprint via automated OCR scanning.</p>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary text-xl mt-1">check_circle</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>The "Leadership Shield" Blueprint:</strong> A board-approved 5-to-10-year Net-Zero reduction roadmap institutionalized into your bylaws to protect project continuity across leadership transitions.</p>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-secondary text-xl mt-1">check_circle</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>Atmanirbhar Impact Certificate:</strong> A verified public badge displaying your Self-Reliance Score (%), total tCO₂e avoided, and actual money saved.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Phase 2 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <div class="bg-surface-container-low p-6 border-b border-outline-variant">
-                        <div class="flex items-center gap-4">
-                            <span class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center text-headline-lg font-bold">2</span>
-                            <div>
-                                <h3 class="text-headline-lg font-bold text-primary">Phase 2: Bespoke Carbon Monetization (Optional)</h3>
-                                <p class="text-label-sm font-data-mono text-on-surface-variant">Customized Proposal After Phase 1 Assessment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <p class="text-body-md text-on-surface-variant mb-6">Carbon credit generation is not a one-size-fits-all process. We process every application with absolute sincerity to ensure it makes financial and operational sense for your specific campus.</p>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                            <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-                                <span class="material-symbols-outlined text-primary mb-2">block</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>No Pressure:</strong> Some institutions may not want to monetize their assets at all.</p>
-                            </div>
-                            <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-                                <span class="material-symbols-outlined text-primary mb-2">verified</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>No Duplication:</strong> We check if you have already opted into other credit programs to avoid double-counting.</p>
-                            </div>
-                            <div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant">
-                                <span class="material-symbols-outlined text-primary mb-2">description</span>
-                                <p class="text-body-md text-on-surface-variant"><strong>Clear Documentation:</strong> We guide you through complex NOCs and Double Counting Agreements only if required.</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-secondary-container/30 p-6 rounded-lg border border-secondary">
-                            <h4 class="text-headline-lg font-bold text-primary mb-3">The Phase 2 Process:</h4>
-                            <p class="text-body-md text-on-surface-variant">
-                                After completing Phase 1, our experts will review your specific data, existing credit status, and institutional goals. We will provide a transparent, customized proposal for registry submission and monetization—<strong>only if it makes perfect financial sense for your campus.</strong> No hidden costs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guarantee -->
-                <div class="bg-primary-container text-surface p-8 rounded-lg border-2 border-on-primary-fixed-variant">
-                    <div class="flex items-start gap-4">
-                        <span class="material-symbols-outlined text-on-primary text-4xl">verified_user</span>
-                        <div>
-                            <h3 class="text-headline-lg font-bold mb-3">The No-Brainer Guarantee</h3>
-                            <p class="text-body-md leading-relaxed">
-                                If the Phase 1 Forensic Audit does not identify, track, or prevent resource waste equal to <strong>at least double your ₹35,000 investment</strong> within the first 6 months of active data tracking, we will refund your Phase 1 payment in full. No questions asked. Your permanent baseline dashboard and Net-Zero strategy guide remain yours to keep.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 7: FAQ -->
-    <section id="faq" class="py-24 bg-surface-container-low border-b border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop w-full">
-            
-            <div class="text-center mb-16">
-                <span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container text-label-sm font-data-mono mb-4 rounded-sm uppercase tracking-widest">Your Questions, Answered</span>
-                <h2 class="text-display-lg font-display-lg text-primary mb-6">Frequently Asked Questions</h2>
-            </div>
-
-            <div class="max-w-4xl mx-auto space-y-4">
-                
-                <!-- FAQ 1 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q1: What exactly do we get for our total contribution?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p class="mb-4"><strong>After Step 1 (₹35,000 One-Time Registration):</strong></p>
-                            <ul class="list-disc list-inside space-y-2 mb-4 ml-4">
-                                <li><strong>Permanent Registry Link Account:</strong> Activates your permanent, un-erasable digital asset profile locked into international climate registry frameworks.</li>
-                                <li><strong>36-Month Forensic Bill Audit:</strong> Converts 3 full years of scattered paper utility invoices into a clean, digital baseline footprint via automated OCR scanning.</li>
-                                <li><strong>The "Leadership Shield" Blueprint:</strong> A board-approved 5-to-10-year Net-Zero reduction roadmap institutionalized into your bylaws.</li>
-                            </ul>
-                            <p class="mb-4"><strong>After Step 2 (₹50,000 or ₹1,00,000 First-Year Subscription):</strong></p>
-                            <ul class="list-disc list-inside space-y-2 mb-4 ml-4">
-                                <li><strong>Audit-Ready Compliance Dossiers:</strong> Single-click data compilation for NAAC Criterion 7 and NIRF.</li>
-                                <li><strong>Verified PoA Registry Entry:</strong> Full inclusion in a combined Program of Activities regional portfolio.</li>
-                                <li><strong>Verified Project Concept Note (PCN):</strong> Formalized design architecture submitted to international registry pipelines.</li>
-                                <li><strong>Atmanirbhar Impact Certificate:</strong> A verified public badge displaying your Self-Reliance Score (%), total tCO₂e avoided, and actual money saved.</li>
-                            </ul>
-                            <p><strong>From Year 2 Onwards:</strong> Annual renewal of ₹50,000 (small) or ₹1,00,000 (large) covers ongoing registry maintenance, PCN updates, carbon credit tracking, and certificate renewals.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q2: How is the Atmanirbhar % (Self-Reliance Score) calculated?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p class="mb-4">The software measures your annual resource consumption against your on-site sustainable generation. For example, if your campus consumes 1,00,000 kWh of grid energy but generates 65,000 kWh via rooftop solar, your Clean Energy Self-Reliance is 65%.</p>
-                            <p class="mb-4">Your overall score is an algorithmic average across 6 core pillars:</p>
-                            <ol class="list-decimal list-inside space-y-2 ml-4">
-                                <li>☀️ <strong>Clean Energy (35%):</strong> Rooftop solar, LED penetration, grid independence</li>
-                                <li>💧 <strong>Water Security (32%):</strong> Rainwater harvesting, wastewater recycling</li>
-                                <li>🔄 <strong>Waste Circularity (25%):</strong> On-site composting, source segregation</li>
-                                <li>🌳 <strong>Ecological Density (4%):</strong> Campus canopy cover, native trees</li>
-                                <li>🤝 <strong>Stakeholder Activation (2%):</strong> Student-led green club engagement</li>
-                                <li>💡 <strong>Climate Innovation (2%):</strong> Curricular integration, live labs</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q3: How is my campus classified as Small-Scale or Large-Scale?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p class="mb-4">Classification is determined automatically during Step 1 onboarding based on two easily verifiable technical thresholds:</p>
-                            <ul class="space-y-3">
-                                <li><strong>Small-Scale Track (₹50,000/Year from Year 2):</strong> Your institution consumes ≤ 5,00,000 kWh of energy annually <strong>AND</strong> occupies a campus footprint of ≤ 10 acres.</li>
-                                <li><strong>Large-Scale Track (₹1,00,000/Year from Year 2):</strong> Your institution consumes > 5,00,000 kWh of energy annually <strong>OR</strong> occupies a campus footprint of > 10 acres (or operates as a multi-campus educational trust).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q4: What happens immediately after we pay Step 1 (₹35,000)?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p>You will receive a direct access link to the secure portal. Your non-technical administrative staff simply upload basic campus coordinates and your last 36 months of utility invoices. Our background OCR engine processes the bills within 5–7 business days to deliver your digital baseline ledger, clear out any historical data gaps, and issue your 5-to-10-year target roadmap.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q5: What happens after we complete Phase 1?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p>"After completing Phase 1, our experts will review your specific data, existing credit status, and institutional goals. We will provide a transparent, customized proposal for registry submission and monetization (Phase 2)—only if it makes financial and operational sense for your campus. There is no obligation to proceed to Phase 2."</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q6: Is this independent framework recognized for national accreditations?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p>Yes. The Atmanirbhar Campus Index is developed by the Earth Carbon Foundation and operates in direct alignment with India's National Clean Air Programme (NCAP), MoEF&CC climate guidelines, and the National Net Zero 2070 mandate. Because the platform continuously generates audit-ready data outputs, it acts as a direct compliance engine to secure maximum points for national grading criteria like <strong>NAAC Criterion 7</strong> and <strong>NIRF</strong> assessments.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q7: What is your refund policy?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p>We back our platform with a strict <strong>No-Brainer Guarantee</strong>. If the Atmanirbhar Campus Index software does not identify, track, or prevent resource waste equal to <strong>at least double your total first-year contribution</strong> within the first 6 months of active data tracking, we will refund your total first-year contribution" of "₹35,000 Phase 1 investment". No questions asked. Your permanent baseline dashboard and Net-Zero strategy guide remain yours to keep.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 8 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q8: Is our campus utility and financial data secure?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p>Absolutely. Every data point uploaded to our servers is fully encrypted and strictly protected under India's Digital Personal Data Protection (DPDP) Act 2023. Financial parameters, individual utility bill uploads, and administrative profiles remain completely confidential and are never disclosed to the public or third-party vendors without explicit board authorization.</p>
-                        </div>
-                    </div>
-                </div>
-
-    <!-- FAQ 9 -->
-<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-        <h3 class="text-headline-lg font-bold text-primary pr-4">Q9: How does the platform help us monetize carbon assets or attract funding?</h3>
-        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-    </button>
-    <div class="faq-answer px-6">
-        <div class="pb-6 text-body-md text-on-surface-variant">
-            <p class="mb-3 font-semibold text-primary">Carbon Monetization: A Serious 3-Step Process</p>
-            <p class="mb-4">We treat your institution as a serious Carbon Monetization Partner to extract maximum financial value from your green assets:</p>
-            
-            <ol class="space-y-4 list-none pl-0">
-                <li class="flex items-start gap-3">
-                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">1</span>
-                    <div>
-                        <p class="font-semibold text-primary">Bespoke Evaluation</p>
-                        <p class="text-on-surface-variant">After your ₹35,000 baseline registration, we process your 36-month data to calculate your campus’s exact carbon asset revenue potential.</p>
-                    </div>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">2</span>
-                    <div>
-                        <p class="font-semibold text-primary">Legal Compliance Check</p>
-                        <p class="text-on-surface-variant">We verify eligibility and require board authorization for mandatory frameworks (e.g., NOCs, Anti-Double Counting Agreements) to ensure exclusive, undisputed ownership of your offsets.</p>
-                    </div>
-                </li>
-                <li class="flex items-start gap-3">
-                    <span class="bg-primary text-on-primary w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-1 flex-shrink-0">3</span>
-                    <div>
-                        <p class="font-semibold text-primary">Direct Expert Consultation</p>
-                        <p class="text-on-surface-variant">Before registry submission, our carbon market architects consult with your board to ensure your data is audit-proof, risk-free, and structured for the highest market premiums.</p>
-                    </div>
-                </li>
-            </ol>
-        </div>
-    </div>
+        /* Fade-in-up for FAQ */
+        .faq-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .faq-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky z-50 glass-nav shadow-sm px-md py-sm flex justify-between items-center transition-all duration-300">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md">school</span>
+<span class="text-headline-md font-bold text-primary tracking-tight">Atmanirbhar Campus</span>
 </div>
-
-                <!-- FAQ 10 -->
-                <div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden">
-                    <button onclick="toggleFaq(this)" class="w-full p-6 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
-                        <h3 class="text-headline-lg font-bold text-primary pr-4">Q10: How can we use the Atmanirbhar Impact Certificate?</h3>
-                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <div class="pb-6 text-body-md text-on-surface-variant">
-                            <p class="mb-4">The certificate is a secure, digital asset embedded with a unique verification QR code linked directly to your public registry profile. It translates your raw data into a powerful tool for stakeholder trust:</p>
-                            <ul class="space-y-2">
-                                <li><strong>For Admission Brochures & Websites:</strong> Proves to parents, alumni, and prospective students that your campus is actively cutting down its carbon footprint.</li>
-                                <li><strong>For Board Meetings:</strong> Serves as a verified ledger for trustees displaying exact financial capital retained from utility cost reductions.</li>
-                                <li><strong>For Public Domain:</strong> Formatted perfectly for one-click sharing across corporate networks like LinkedIn, showcase portals, and regional press releases.</li>
-                            </ul>
-                        </div>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-label-md font-label-md text-primary hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#about">About Index</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#institutions">Institutions</a>
+<a class="text-label-md font-label-md text-on-surface-variant hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#impact">Impact Data</a>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-md font-label-md hover:bg-primary-container transition-all active:scale-95">Register</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative hero-mesh pt-xl pb-32 px-md overflow-hidden">
+<div class="max-w-container-max mx-auto text-center relative z-10">
+<span class="inline-block px-4 py-1.5 mb-md rounded-full bg-primary/10 text-primary text-label-md font-label-md">
+                LIVE INDEX 2027
+            </span>
+<h1 class="text-display-lg font-display-lg text-primary max-w-4xl mx-auto mb-sm">
+                Welcome to Atmanirbhar Campus Index 2027
+            </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">
+                India's live campus sustainability ecosystem. Turn your green initiatives into measurable environmental assets and institutional prestige.
+            </p>
+<div class="flex flex-col md:flex-row gap-sm justify-center items-center">
+<button class="w-full md:w-auto px-8 py-4 bg-primary text-on-primary rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95">
+                    Register Your Institution
+                </button>
+<button class="w-full md:w-auto px-8 py-4 border-2 border-primary text-primary rounded-xl font-bold text-lg hover:bg-primary/5 transition-all">
+                    View Live Dashboard
+                </button>
+</div>
+</div>
+<!-- Hero Decorative Element -->
+<div class="mt-xl max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/40">
+<img alt="Sustainable Campus Overview" class="w-full h-[400px] object-cover" data-alt="A sweeping aerial photograph of a sprawling modern university campus in India, showcasing lush green courtyards, rooftop solar panel arrays, and rainwater harvesting structures. The architecture blends traditional stone with contemporary glass. Sunlight bathes the scene in warm, golden light, highlighting a clean, sustainable, and prestigious educational environment under a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuN6Z8W_DfBOWPv2ZD6XRR31afKyZwFof0xXZ6eFkR46386PZFDoXEO2AHADV5LOpLfMHc88cqXPbyybO1MaHzwg2sBG14brjhrhVC2itwF1JMEbcUOTUSsWoXCmH1YAUrNniUh8x1Ye5titucSYICojXo0qwH1L3EWAn0tmJRv3xrgoiTLjAlVgLhNqr9xlUwXQTFRMSyKUkXeLJgtN2g7MVyop3gJztur_bZ_HsgZ8BZ216eDYJTCoP7acOVTWsL_wyIrZgS4gQ"/>
+</div>
+</section>
+<!-- Why It Matters (Bento Grid) -->
+<section class="py-xl px-md max-w-container-max mx-auto" id="about">
+<div class="text-center mb-xl">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-sm">Turn Fragmented Green Actions into a Live Goal-Driven Index</h2>
+<p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Measure. Mitigate. Monetise. Become Atmanirbhar.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Feature 1 -->
+<div class="bento-card p-md rounded-2xl md:col-span-2">
+<span class="material-symbols-outlined text-secondary text-4xl mb-sm">account_balance</span>
+<h3 class="text-headline-md font-headline-md mb-xs text-primary">Resource Balance Sheet</h3>
+<p class="text-body-md text-on-surface-variant">Comprehensive tracking of energy, water, and waste flow with financial implications integrated directly into your institutional ledger.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bento-card p-md rounded-2xl">
+<span class="material-symbols-outlined text-primary text-4xl mb-sm">query_stats</span>
+<h3 class="text-headline-md font-headline-md mb-xs text-primary">Real-Time Progress</h3>
+<p class="text-body-md text-on-surface-variant">Live updates on your sustainability goals with predictive modeling for milestone achievement.</p>
+</div>
+<!-- Feature 3 -->
+<div class="bento-card p-md rounded-2xl">
+<span class="material-symbols-outlined text-secondary text-4xl mb-sm">payments</span>
+<h3 class="text-headline-md font-headline-md mb-xs text-primary">Carbon Revenue</h3>
+<p class="text-body-md text-on-surface-variant">Identify and unlock potential revenue streams through carbon credits and environmental assets.</p>
+</div>
+<!-- Feature 4 -->
+<div class="bento-card p-md rounded-2xl md:col-span-2">
+<span class="material-symbols-outlined text-primary text-4xl mb-sm">verified</span>
+<h3 class="text-headline-md font-headline-md mb-xs text-primary">Global Certification</h3>
+<p class="text-body-md text-on-surface-variant">Get verified certification aligned with UNFCCC and international sustainability standards to boost institutional reputation and ranking.</p>
+</div>
+</div>
+</section>
+<!-- Problems Faced (Contrast Section) -->
+<section class="py-xl bg-inverse-surface text-surface px-md">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xl items-center">
+<div>
+<h2 class="text-headline-lg font-headline-lg mb-md">The Hidden Cost of Inaction</h2>
+<div class="space-y-md">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-error text-3xl shrink-0">warning</span>
+<div>
+<h4 class="font-bold text-lg">Uncoordinated Efforts</h4>
+<p class="text-surface-variant/80">Disconnected green initiatives lead to wasted resources and zero measurable institutional impact.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-error text-3xl shrink-0">thermostat</span>
+<div>
+<h4 class="font-bold text-lg">Climate Vulnerability</h4>
+<p class="text-surface-variant/80">Extreme weather events directly threaten campus operations and student safety without a mitigation roadmap.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface/10 p-md rounded-3xl border border-white/10 backdrop-blur-sm">
+<div class="flex justify-between items-end mb-sm">
+<span class="text-label-md">Current Institutional Risk Profile</span>
+<span class="text-error font-bold">+24% Risk</span>
+</div>
+<div class="w-full h-2 bg-white/20 rounded-full overflow-hidden mb-lg">
+<div class="h-full bg-error w-3/4"></div>
+</div>
+<p class="text-sm italic opacity-70">"Fragmented data results in missed revenue opportunities and lower academic rankings."</p>
+</div>
+</div>
+</section>
+<!-- Solution & Journey Diagram -->
+<section class="py-xl px-md max-w-container-max mx-auto">
+<div class="text-center mb-xl">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-xs">The Atmanirbhar Program</h2>
+<p class="text-body-md text-on-surface-variant">One Earth. One Family. Shared Resources. Shared Responsibility.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-sm relative py-lg">
+<!-- Journey Connector Line (Desktop) -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-surface-variant -z-10 -translate-y-1/2"></div>
+<!-- Journey Steps -->
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">straighten</span>
+</div>
+<span class="font-bold text-primary">Measure</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<span class="font-bold text-primary">Manage</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<span class="font-bold text-primary">Reduce</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">eco</span>
+</div>
+<span class="font-bold text-primary">Restore</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<span class="font-bold text-secondary">Certify</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">currency_exchange</span>
+</div>
+<span class="font-bold text-secondary">Monetise</span>
+</div>
+<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
+<div class="flex flex-col items-center group">
+<div class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm shadow-xl animate-pulse">
+<span class="material-symbols-outlined text-3xl">public</span>
+</div>
+<span class="font-extrabold text-primary">Net Zero</span>
+</div>
+</div>
+</section>
+<!-- Monetisation Section -->
+<section class="py-xl bg-surface-container-low px-md overflow-hidden relative">
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="flex flex-col md:flex-row gap-xl items-center">
+<div class="flex-1">
+<h2 class="text-headline-lg font-headline-lg text-primary mb-md">Turn Sustainability Achievements into Environmental Assets</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary">screen_search_desktop</span>
+<div>
+<h4 class="font-bold">Asset Screening</h4>
+<p class="text-caption">Audit existing projects for credit potential.</p>
+</div>
+</div>
+<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+<div>
+<h4 class="font-bold">MRV Framework</h4>
+<p class="text-caption">Monitoring, Reporting, and Verification.</p>
+</div>
+</div>
+<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary">cloud_done</span>
+<div>
+<h4 class="font-bold">Registry Readiness</h4>
+<p class="text-caption">Prepare for global carbon exchanges.</p>
+</div>
+</div>
+<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-primary">auto_graph</span>
+<div>
+<h4 class="font-bold">Revenue Flow</h4>
+<p class="text-caption">Direct monetisation of green savings.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="bg-primary p-md rounded-3xl text-on-primary">
+<h3 class="text-headline-md font-bold mb-md">Atmanirbhar Score</h3>
+<div class="relative flex justify-center mb-md">
+<!-- Circular Gauge Simulation -->
+<svg class="w-48 h-48 transform -rotate-90">
+<circle class="opacity-20" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#8bd6b7" stroke-dasharray="502" stroke-dashoffset="100" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center rotate-90">
+<span class="text-4xl font-extrabold">82</span>
+<span class="text-caption opacity-80 uppercase tracking-widest">Premium Score</span>
+</div>
+</div>
+<p class="text-sm text-center opacity-90">High potential for Carbon Asset generation this quarter.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact & Credibility -->
+<section class="py-xl px-md max-w-container-max mx-auto text-center" id="impact">
+<h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg">Institutional Impact Realized</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-primary mb-xs">1,276</div>
+<div class="text-body-md font-bold text-on-surface-variant">Green Actions Logged</div>
+</div>
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-secondary mb-xs">17,255</div>
+<div class="text-body-md font-bold text-on-surface-variant">tCO2e Carbon Saved</div>
+</div>
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-primary mb-xs">₹31.25 Cr</div>
+<div class="text-body-md font-bold text-on-surface-variant">Cumulative Savings</div>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-surface-variant">
+<p class="text-caption mb-md opacity-60">GLOBAL PARTNERS &amp; ALIGNED STANDARDS</p>
+<div class="flex flex-wrap justify-center items-center gap-xl grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+<img alt="UNFCCC Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDslbm1F317LofT9S_T2w_pJh0SoEgpOiz_LJWqHl1kt4dOeyjBphqKFeHgsTTmGjJAd4zUA8CzCicUb5XUh7NvGjEgGP45G6TfaODurP3G5wlgA1ri-6u0F-IOoigtDszU-DFIe5X2ahdBsvPAHvhhS7Ey990-B6EdUdG3NchP7Tw0R5Sm7W5kuBtnEkyR_yOiDyaiNOL_x1ej-XLek5otucY0FmLZN1WCUxuAbEr3ehBdGDQ-N7gLBTPCMPhuD-zAw3PSUvBQXPg"/>
+<img alt="World Bank Group Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHwnUZ9YN7j9iP8UrSqskTvuhv4Q_8s0NyyztjVaMV_MHOcsu0QUV3joMk_Op9ITKiWWsbsB8vT1bDSwbUETHp77Z3eDzidZEEFr6KJEGTbqVIWyyfAqexyEqGiRVrr6pEruxSRYz9dxNaZ0YDzuXQhEdm02CTLThgZrkgKGXcLaG4J5iKQvAttZEAD02ZnkWDQ7qPQQYzS3W-1l_QJZXCKu31sk9lmCsfTgOyE8FieKu4_zpx3572XEiHPYpiP-kt2WtysJqSV2s"/>
+<img alt="NAMA Registry Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6HLClMqmE6ziHg2IEVDVaYHo7mx4vDOxyApoXWlqwumd-OP8HSwNQMEYx6BBkmiY6MKgzRFg30VLVwyPZUvImrfONGCZXOePh0k5BbP4H0q_F_QQckAf7X7fidJsfmtcPPnsEm4DSa1Dfw0MMPjqV5QGTdzTmFg6_v7b9P-dfEY5B6Db-fMbjIg-qJ19RAdUS7_QHvkaoksBfRNxii9g05hidWSjNI9qQm09Mh3vhUsL0KDb-AXUYqP4NlLL_OmH3F6Ok2s5m3Tc"/>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-xl bg-primary text-on-primary px-md overflow-hidden" id="pricing">
+<div class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest text-on-surface rounded-3xl p-md md:p-xl shadow-2xl relative">
+<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-6 py-2 rounded-bl-3xl font-bold">
+                    PHASE 1 OPEN
+                </div>
+<h2 class="text-headline-lg font-bold text-primary mb-md">Phase 1 Implementation Fee</h2>
+<div class="flex items-baseline gap-xs mb-lg">
+<span class="text-4xl font-extrabold text-primary">₹35,000</span>
+<span class="text-body-md text-on-surface-variant">/ One-time</span>
+</div>
+<ul class="space-y-sm mb-xl">
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Institutional Resource Balance Sheet</span>
+</li>
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Carbon Potential Baseline Audit</span>
+</li>
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Full Dashboard Access (Live 2027 Index)</span>
+</li>
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Atmanirbhar Performance Certification</span>
+</li>
+<li class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Detailed Assessment Report (5-7 Days)</span>
+</li>
+</ul>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-xl hover:bg-primary-container transition-all shadow-lg active:scale-95">
+                    Register My Organisation
+                </button>
+<p class="text-center mt-md text-caption opacity-60 italic">Inclusive of all implementation tools and support.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Section (Interactive Accordion) -->
+<section class="py-xl px-md max-w-4xl mx-auto" id="faq">
+<h2 class="text-headline-lg font-headline-lg text-primary text-center mb-xl">Frequently Asked Questions</h2>
+<div class="space-y-sm">
+<!-- FAQ Item 1 -->
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="flex justify-between items-center font-bold text-primary faq-trigger">
+<span>How is the Atmanirbhar Score calculated?</span>
+<span class="material-symbols-outlined faq-chevron">expand_more</span>
+</div>
+<div class="faq-content text-on-surface-variant text-body-md">
+<div>
+                        The score is a weighted composite of 5 pillars: Energy Efficiency, Water Conservation, Waste Diversion, Carbon Footprint reduction, and Community Impact, validated against international ISO standards.
                     </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="flex justify-between items-center font-bold text-primary faq-trigger">
+<span>How do we monetize our carbon savings?</span>
+<span class="material-symbols-outlined faq-chevron">expand_more</span>
+</div>
+<div class="faq-content text-on-surface-variant text-body-md">
+<div>
+                        We screen your projects for eligibility in global carbon markets. Once verified via our MRV framework, your environmental assets are registered and can be sold to organizations meeting ESG requirements.
+                    </div>
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="flex justify-between items-center font-bold text-primary faq-trigger">
+<span>Is our data secure?</span>
+<span class="material-symbols-outlined faq-chevron">expand_more</span>
+</div>
+<div class="faq-content text-on-surface-variant text-body-md">
+<div>
+                        Yes, all institutional data is encrypted using AES-256 and stored on secure cloud infrastructure with strictly controlled access management.
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-xl bg-surface-container-high px-md" id="contact">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xl">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-md">Speak with Our Experts</h2>
+<p class="text-body-md text-on-surface-variant mb-lg">Ready to start your Net-Zero journey? Book a 30-minute strategic consultation with our campus sustainability team.</p>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">mail</span>
+<span class="font-bold">connect@earthcarbon.org</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">phone_in_talk</span>
+<span class="font-bold">+91 (0) 11 4050 3020</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">location_on</span>
+<span class="font-bold">Sustainable Hub, Aerocity, New Delhi, India</span>
+</div>
+</div>
+</div>
+<div class="bg-white p-sm rounded-3xl shadow-xl h-[500px] overflow-hidden">
+<!-- Calendly Embed Simulation -->
+<iframe frameborder="0" height="100%" src="https://calendly.com/earthcarbon-org/30min?embed_domain=atmanirbhar.campus&amp;embed_type=Inline" width="100%"></iframe>
+</div>
+</div>
+</section>
 </main>
-
 <!-- Footer -->
-<footer class="bg-surface-container-lowest border-t border-outline-variant">
-    <div class="max-w-container-max mx-auto px-margin-desktop py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div>
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="material-symbols-outlined text-primary text-2xl">account_balance</span>
-                    <span class="text-headline-lg font-headline-lg font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
-                </div>
-                <p class="text-on-surface-variant text-body-md mb-6">World's-First Precision in Carbon Accounting. Bridging the gap between corporate pledges and reality.</p>
-                <div class="flex flex-wrap gap-3 mb-6">
-                    <span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full">DPDP Act 2023 Compliant</span>
-                    <span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full">Razorpay Secured</span>
-                    <span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-label-sm rounded-full">GST Invoice Available</span>
-                </div>
-                <a href="https://registry.earthcarbonfoundation.org" target="_blank" rel="noopener" class="text-label-sm font-data-mono text-secondary hover:text-primary transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined text-sm">verified</span> Public Registry →
-                </a>
-            </div>
-            <div class="text-left md:text-right">
-                <h4 class="text-label-sm font-data-mono uppercase tracking-widest text-primary mb-4">Headquarters</h4>
-                <p class="text-on-surface-variant text-body-md">
-                    358 Saraswatinagar, Azad Society Road,<br>
-                    Near Polytechnic, Ahmedabad 380015<br>
-                    Gujarat, India - Asia Pacific
-                </p>
-                <a href="mailto:info@earthcarbonfoundation.org" class="text-body-md font-semibold text-primary hover:underline block mt-4">info@earthcarbonfoundation.org</a>
-            </div>
-        </div>
-        <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
-            <p>© 2026 Earth Carbon Foundation. All rights reserved.</p>
-            <p class="font-data-mono opacity-50 mt-2 md:mt-0">v5.0-ATMANIRBHAR-PIPELINE</p>
-        </div>
-    </div>
+<footer class="bg-on-tertiary-fixed text-surface-variant/80 px-gutter py-xl flex flex-col items-center text-center w-full gap-md">
+<div class="text-headline-md font-headline-md text-surface-container-lowest font-bold">Atmanirbhar Campus Index</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Privacy Policy</a>
+<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Terms of Service</a>
+<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Compliance</a>
+<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Contact Us</a>
+</div>
+<p class="text-body-md mt-md">© 2027 Atmanirbhar Campus Index. All rights reserved.</p>
 </footer>
-
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 glass-nav shadow-[0_-4px_20px_rgba(15,23,42,0.05)] flex justify-around items-center px-4 pb-safe pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#dashboard">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-caption">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#criteria">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="text-caption">Criteria</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container/30 text-secondary font-bold rounded-xl px-3 py-1" href="#pricing">
+<span class="material-symbols-outlined">app_registration</span>
+<span class="text-caption">Register</span>
+</a>
+</nav>
 <script>
-function toggleFaq(button) {
-    const answer = button.nextElementSibling;
-    const icon = button.querySelector('.faq-icon');
-    answer.classList.toggle('open');
-    icon.classList.toggle('open');
-}
-</script>
+    // Smooth scroll implementation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
-</body>
-</html>
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+                const content = otherItem.querySelector('.faq-content');
+                content.style.maxHeight = '0px';
+            });
+            
+            // Toggle clicked item
+            if (!isActive) {
+                item.classList.add('active');
+                const content = item.querySelector('.faq-content');
+                // Set max-height to scrollHeight for smooth transition to dynamic content size
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // Intersection Observer for FAQ entrance animation and bento cards
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Also handle the legacy bento-card animation classes if they exist
+                if (entry.target.classList.contains('bento-card')) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe FAQ items
+    document.querySelectorAll('.faq-reveal').forEach(faq => {
+        revealObserver.observe(faq);
+    });
+
+    // Maintain existing bento card animations
+    document.querySelectorAll('.bento-card:not(.faq-item)').forEach(card => {
+        card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+        revealObserver.observe(card);
+    });
+</script>
+</body></html>
