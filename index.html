@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Atmanirbhar Campus Index 2027 | Live Sustainability Tracking</title>
-<meta content="India's premier live campus sustainability index. Measure, mitigate, and monetize your institution's green efforts." name="description"/>
+<meta content="India's premier live campus sustainability index. Measure, mitigate, and monetize your institution's green efforts." name="description">
 <!-- Design System Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
 <!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
 <!-- Tailwind Configuration -->
@@ -140,7 +138,7 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
         .faq-item.active .faq-content {
-            max-height: 500px; /* Large enough for content */
+            max-height: 500px;
             padding-top: 12px;
         }
         .faq-chevron {
@@ -150,7 +148,7 @@
             transform: rotate(180deg);
         }
         .faq-item.active {
-            background-color: #f2f4f6; /* surface-container-low */
+            background-color: #f2f4f6;
         }
         
         /* Fade-in-up for FAQ */
@@ -163,8 +161,39 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Journey Animations */
+        .journey-step {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .journey-step.animate {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        .flow-arrow {
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: all 0.5s ease-out;
+        }
+        .flow-arrow.animate {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(27, 107, 81, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(27, 107, 81, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(27, 107, 81, 0); }
+        }
+        .net-zero-pulse {
+            animation: subtle-pulse 2s infinite;
+        }
     </style>
-<style>
+<style id="faq-styles-fix">
         body {
             min-height: max(884px, 100dvh);
         }
@@ -211,7 +240,7 @@
 </div>
 <!-- Hero Decorative Element -->
 <div class="mt-xl max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/40">
-<img alt="Sustainable Campus Overview" class="w-full h-[400px] object-cover" data-alt="A sweeping aerial photograph of a sprawling modern university campus in India, showcasing lush green courtyards, rooftop solar panel arrays, and rainwater harvesting structures. The architecture blends traditional stone with contemporary glass. Sunlight bathes the scene in warm, golden light, highlighting a clean, sustainable, and prestigious educational environment under a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuN6Z8W_DfBOWPv2ZD6XRR31afKyZwFof0xXZ6eFkR46386PZFDoXEO2AHADV5LOpLfMHc88cqXPbyybO1MaHzwg2sBG14brjhrhVC2itwF1JMEbcUOTUSsWoXCmH1YAUrNniUh8x1Ye5titucSYICojXo0qwH1L3EWAn0tmJRv3xrgoiTLjAlVgLhNqr9xlUwXQTFRMSyKUkXeLJgtN2g7MVyop3gJztur_bZ_HsgZ8BZ216eDYJTCoP7acOVTWsL_wyIrZgS4gQ"/>
+<img alt="Sustainable Campus Overview" class="w-full h-[400px] object-cover" data-alt="A sweeping aerial photograph of a sprawling modern university campus in India..." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuN6Z8W_DfBOWPv2ZD6XRR31afKyZwFof0xXZ6eFkR46386PZFDoXEO2AHADV5LOpLfMHc88cqXPbyybO1MaHzwg2sBG14brjhrhVC2itwF1JMEbcUOTUSsWoXCmH1YAUrNniUh8x1Ye5titucSYICojXo0qwH1L3EWAn0tmJRv3xrgoiTLjAlVgLhNqr9xlUwXQTFRMSyKUkXeLJgtN2g7MVyop3gJztur_bZ_HsgZ8BZ216eDYJTCoP7acOVTWsL_wyIrZgS4gQ">
 </div>
 </section>
 <!-- Why It Matters (Bento Grid) -->
@@ -221,26 +250,22 @@
 <p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Measure. Mitigate. Monetise. Become Atmanirbhar.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-<!-- Feature 1 -->
-<div class="bento-card p-md rounded-2xl md:col-span-2">
+<div class="bento-card p-md rounded-2xl md:col-span-2 transition-all duration-700 visible opacity-100 translate-y-0">
 <span class="material-symbols-outlined text-secondary text-4xl mb-sm">account_balance</span>
 <h3 class="text-headline-md font-headline-md mb-xs text-primary">Resource Balance Sheet</h3>
 <p class="text-body-md text-on-surface-variant">Comprehensive tracking of energy, water, and waste flow with financial implications integrated directly into your institutional ledger.</p>
 </div>
-<!-- Feature 2 -->
-<div class="bento-card p-md rounded-2xl">
+<div class="bento-card p-md rounded-2xl transition-all duration-700 visible opacity-100 translate-y-0">
 <span class="material-symbols-outlined text-primary text-4xl mb-sm">query_stats</span>
 <h3 class="text-headline-md font-headline-md mb-xs text-primary">Real-Time Progress</h3>
 <p class="text-body-md text-on-surface-variant">Live updates on your sustainability goals with predictive modeling for milestone achievement.</p>
 </div>
-<!-- Feature 3 -->
-<div class="bento-card p-md rounded-2xl">
+<div class="bento-card p-md rounded-2xl transition-all duration-700 visible opacity-100 translate-y-0">
 <span class="material-symbols-outlined text-secondary text-4xl mb-sm">payments</span>
 <h3 class="text-headline-md font-headline-md mb-xs text-primary">Carbon Revenue</h3>
 <p class="text-body-md text-on-surface-variant">Identify and unlock potential revenue streams through carbon credits and environmental assets.</p>
 </div>
-<!-- Feature 4 -->
-<div class="bento-card p-md rounded-2xl md:col-span-2">
+<div class="bento-card p-md rounded-2xl md:col-span-2 transition-all duration-700 visible opacity-100 translate-y-0">
 <span class="material-symbols-outlined text-primary text-4xl mb-sm">verified</span>
 <h3 class="text-headline-md font-headline-md mb-xs text-primary">Global Certification</h3>
 <p class="text-body-md text-on-surface-variant">Get verified certification aligned with UNFCCC and international sustainability standards to boost institutional reputation and ranking.</p>
@@ -281,8 +306,8 @@
 </div>
 </div>
 </section>
-<!-- Solution & Journey Diagram -->
-<section class="py-xl px-md max-w-container-max mx-auto">
+<!-- Solution & Journey Diagram (Animated) -->
+<section class="py-xl px-md max-w-container-max mx-auto overflow-hidden" id="journey-section">
 <div class="text-center mb-xl">
 <h2 class="text-headline-lg font-headline-lg text-primary mb-xs">The Atmanirbhar Program</h2>
 <p class="text-body-md text-on-surface-variant">One Earth. One Family. Shared Resources. Shared Responsibility.</p>
@@ -291,50 +316,50 @@
 <!-- Journey Connector Line (Desktop) -->
 <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-surface-variant -z-10 -translate-y-1/2"></div>
 <!-- Journey Steps -->
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 100ms;">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">straighten</span>
 </div>
 <span class="font-bold text-primary">Measure</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 200ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 300ms;">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">settings_suggest</span>
 </div>
 <span class="font-bold text-primary">Manage</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 400ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 500ms;">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">trending_down</span>
 </div>
 <span class="font-bold text-primary">Reduce</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 600ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 700ms;">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">eco</span>
 </div>
 <span class="font-bold text-primary">Restore</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 800ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 900ms;">
+<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">verified</span>
 </div>
 <span class="font-bold text-secondary">Certify</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 1000ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" style="transition-delay: 1100ms;">
+<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
 <span class="material-symbols-outlined">currency_exchange</span>
 </div>
 <span class="font-bold text-secondary">Monetise</span>
 </div>
-<div class="material-symbols-outlined text-primary-container md:hidden">arrow_downward</div>
-<div class="flex flex-col items-center group">
-<div class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm shadow-xl animate-pulse">
+<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate" style="transition-delay: 1200ms;">arrow_downward</div>
+<div class="flex flex-col items-center group journey-step animate" id="net-zero-final" style="transition-delay: 1300ms;">
+<div class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm shadow-xl net-zero-pulse">
 <span class="material-symbols-outlined text-3xl">public</span>
 </div>
 <span class="font-extrabold text-primary">Net Zero</span>
@@ -351,7 +376,7 @@
 <div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
 <span class="material-symbols-outlined text-primary">screen_search_desktop</span>
 <div>
-<h4 class="font-bold">Carbon Asset Screening</h4>
+<h4 class="font-bold">Asset Screening</h4>
 <p class="text-caption">Audit existing projects for credit potential.</p>
 </div>
 </div>
@@ -359,7 +384,7 @@
 <span class="material-symbols-outlined text-primary">fact_check</span>
 <div>
 <h4 class="font-bold">MRV Framework</h4>
-<p class="text-caption">Monitoring, Reporting & Verification.</p>
+<p class="text-caption">Monitoring, Reporting, and Verification.</p>
 </div>
 </div>
 <div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
@@ -382,12 +407,11 @@
 <div class="bg-primary p-md rounded-3xl text-on-primary">
 <h3 class="text-headline-md font-bold mb-md">Atmanirbhar Score</h3>
 <div class="relative flex justify-center mb-md">
-<!-- Circular Gauge Simulation -->
-<svg class="w-48 h-48 transform -rotate-90">
+<svg class="w-48 h-48 transform">
 <circle class="opacity-20" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
 <circle cx="96" cy="96" fill="transparent" r="80" stroke="#8bd6b7" stroke-dasharray="502" stroke-dashoffset="100" stroke-width="12"></circle>
 </svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center rotate-90">
+<div class="absolute inset-0 flex flex-col items-center justify-center">
 <span class="text-4xl font-extrabold">82</span>
 <span class="text-caption opacity-80 uppercase tracking-widest">Premium Score</span>
 </div>
@@ -398,158 +422,83 @@
 </div>
 </div>
 </section>
+<!-- Impact & Credibility -->
 <section class="py-xl px-md max-w-container-max mx-auto text-center" id="impact">
-  <h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg"> Live Impacts Realized </h2>
-  
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
-    <div class="p-md">
- <!-- Sustainability & Environmental Assets Row -->
-<div class="flex flex-col lg:flex-row gap-xl items-center justify-between max-w-container-max mx-auto py-xl px-md">
-  
-  <!-- Left Side: Achievements & Metrics (Takes up 60% width on large screens) -->
-  <div class="w-full lg:w-3/5 space-y-lg">
-    <div>
-      <h2 class="text-3xl font-bold text-emerald-800 mb-sm">Converting Campus Sustainability Into High-Integrity Environmental Assets</h2>
-      <p class="text-base text-gray-600 leading-relaxed">
-        Our multi-sector registry framework tracks real-time resource optimization across decentralized networks—turning verified water, waste, and solar energy milestones into monetizable market assets.
-      </p>
-    </div>
-    
-    <!-- Live Metrics Sub-Section (Forced High-Visibility Color Tokens) -->
-    <div class="border-t border-gray-200 pt-md mt-md">
-      <div class="flex flex-wrap gap-xl">
-        <div class="min-w-[150px]">
-          <div class="text-4xl font-extrabold text-emerald-600 mb-xs">8,77,028</div>
-          <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Carbon Credits For Sale</div>
-        </div>
-        <div class="min-w-[150px]">
-          <div class="text-4xl font-extrabold text-teal-600 mb-xs">2027</div>
-          <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active Index Vintage</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right Side: Perfectly Aligned & Uncut Atmanirbhar Score Card -->
-  <div class="w-full lg:w-2/5 flex justify-center lg:justify-end mt-xl lg:mt-0">
-    <div class="w-full max-w-sm bg-emerald-700 p-lg rounded-3xl text-white shadow-xl flex-shrink-0">
-      <h3 class="text-xl font-bold mb-md text-center tracking-wide">Atmanirbhar Index Score</h3>
-      
-      <!-- Fixed Viewport Container for the Gauge -->
-      <div class="relative flex justify-center items-center mb-md mx-auto w-48 h-48">
-        <!-- SVG with Native ViewBox bounds preventing clipping -->
-        <svg class="w-full h-full" viewBox="0 0 192 192">
-          <!-- Background Track -->
-          <circle class="opacity-25" cx="96" cy="96" fill="none" r="80" stroke="currentColor" stroke-width="14"></circle>
-          <!-- Active Progress Ring (82% filled) -->
-          <circle cx="96" cy="96" fill="none" r="80" stroke="#8bd6b7" stroke-width="14"
-                  stroke-dasharray="502.6" stroke-dashoffset="90" stroke-linecap="round" 
-                  transform="rotate(-90 96 96)"></circle>
-        </svg>
-        
-        <!-- Center Text: Dead Centered & Safe From Trailing Rotations -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center">
-          <span class="text-5xl font-black tracking-tight text-white">82</span>
-          <span class="text-xs font-bold text-emerald-200 uppercase tracking-widest mt-1">Premium</span>
-        </div>
-      </div>
-      
-      <p class="text-xs text-center font-medium text-emerald-100 bg-emerald-800/40 py-sm px-md rounded-xl">
-        High potential for Carbon Asset generation this quarter.
-      </p>
-    </div>
-  </div>
-
+<h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg">Institutional Impact Realized</h2>
+<div class="grid grid-cols-1 gap-xl md:grid-cols-4">
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-actions">1,276</div>
+<div class="text-body-md font-bold text-on-surface-variant">Green Actions Logged</div>
 </div>
-
-  <div class="mt-xl pt-lg border-t border-surface-variant">
-    <p class="text-caption mb-md opacity-60">GLOBAL PARTNERS & ALIGNED STANDARDS</p>
-    <div class="flex flex-wrap justify-center items-center gap-xl grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
-      <img alt="UNFCCC Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDslbm1F317LofT9S_T2w_pJh0SoEgpOiz_LJWqHl1kt4dOeyjBphqKFeHgsTTmGjJAd4zUA8CzCicUb5XUh7NvGjEgGP45G6TfaODurP3G5wlgA1ri-6u0F-IOoigtDszU-DFIe5X2ahdBsvPAHvhhS7Ey990-B6EdUdG3NchP7Tw0R5Sm7W5kuBtnEkyR_yOiDyaiNOL_x1ej-XLek5otucY0FmLZN1WCUxuAbEr3ehBdGDQ-N7gLBTPCMPhuD-zAw3PSUvBQXPg"/>
-      <img alt="World Bank Group Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHwnUZ9YN7j9iP8UrSqskTvuhv4Q_8s0NyyztjVaMV_MHOcsu0QUV3joMk_Op9ITKiWWsbsB8vT1bDSwbUETHp77Z3eDzidZEEFr6KJEGTbqVIWyyfAqexyEqGiRVrr6pEruxSRYz9dxNaZ0YDzuXQhEdm02CTLThgZrkgKGXcLaG4J5iKQvAttZEAD02ZnkWDQ7qPQQYzS3W-1l_QJZXCKu31sk9lmCsfTgOyE8FieKu4_zpx3572XEiHPYpiP-kt2WtysJqSV2s"/>
-      <img alt="NAMA Registry Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6HLClMqmE6ziHg2IEVDVaYHo7mx4vDOxyApoXWlqwumd-OP8HSwNQMEYx6BBkmiY6MKgzRFg30VLVwyPZUvImrfONGCZXOePh0k5BbP4H0q_F_QQckAf7X7fidJsfmtcPPnsEm4DSa1Dfw0MMPjqV5QGTdzTmFg6_v7b9P-dfEY5B6Db-fMbjIg-qJ19RAdUS7_QHvkaoksBfRNxii9g05hidWSjNI9qQm09Mh3vhUsL0KDb-AXUYqP4NlLL_OmH3F6Ok2s5m3Tc"/>
-    </div>
-  </div>
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-carbon">17,255</div>
+<div class="text-body-md font-bold text-on-surface-variant">tCO2e Carbon Saved</div>
+</div>
+<div class="p-md">
+<div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-savings">₹31.25 Cr</div>
+<div class="text-body-md font-bold text-on-surface-variant">Cumulative Savings</div>
+</div>
+<div class="p-md"><div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-cer">877,028</div><div class="text-body-md font-bold text-on-surface-variant">CER available for sale</div></div></div>
+<div class="mt-xl pt-lg border-t border-surface-variant">
+<p class="text-caption mb-md opacity-60">GLOBAL PARTNERS &amp; ALIGNED STANDARDS</p>
+<div class="flex flex-wrap justify-center items-center gap-xl grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all">
+<a href="https://mitigation-action.org/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform"><img alt="Mitigation Action Facility Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDslbm1F317LofT9S_T2w_pJh0SoEgpOiz_LJWqHl1kt4dOeyjBphqKFeHgsTTmGjJAd4zUA8CzCicUb5XUh7NvGjEgGP45G6TfaODurP3G5wlgA1ri-6u0F-IOoigtDszU-DFIe5X2ahdBsvPAHvhhS7Ey990-B6EdUdG3NchP7Tw0R5Sm7W5kuBtnEkyR_yOiDyaiNOL_x1ej-XLek5otucY0FmLZN1WCUxuAbEr3ehBdGDQ-N7gLBTPCMPhuD-zAw3PSUvBQXPg"></a>
+<a href="https://connect4impact.worldbank.org/" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform"><img alt="World Bank Group Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHwnUZ9YN7j9iP8UrSqskTvuhv4Q_8s0NyyztjVaMV_MHOcsu0QUV3joMk_Op9ITKiWWsbsB8vT1bDSwbUETHp77Z3eDzidZEEFr6KJEGTbqVIWyyfAqexyEqGiRVrr6pEruxSRYz9dxNaZ0YDzuXQhEdm02CTLThgZrkgKGXcLaG4J5iKQvAttZEAD02ZnkWDQ7qPQQYzS3W-1l_QJZXCKu31sk9lmCsfTgOyE8FieKu4_zpx3572XEiHPYpiP-kt2WtysJqSV2s"></a>
+<a href="https://unfccc.int/topics/mitigation/workstreams/nationally-appropriate-mitigation-actions" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform"><img alt="NAMA Registry Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6HLClMqmE6ziHg2IEVDVaYHo7mx4vDOxyApoXWlqwumd-OP8HSwNQMEYx6BBkmiY6MKgzRFg30VLVwyPZUvImrfONGCZXOePh0k5BbP4H0q_F_QQckAf7X7fidJsfmtcPPnsEm4DSa1Dfw0MMPjqV5QGTdzTmFg6_v7b9P-dfEY5B6Db-fMbjIg-qJ19RAdUS7_QHvkaoksBfRNxii9g05hidWSjNI9qQm09Mh3vhUsL0KDb-AXUYqP4NlLL_OmH3F6Ok2s5m3Tc"></a>
+</div>
+</div>
 </section>
 <!-- Pricing Section -->
 <section class="py-xl bg-primary text-on-primary px-md overflow-hidden" id="pricing">
 <div class="max-w-4xl mx-auto">
 <div class="bg-surface-container-lowest text-on-surface rounded-3xl p-md md:p-xl shadow-2xl relative">
-<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-6 py-2 rounded-bl-3xl font-bold">
-                    PHASE 1 OPEN
-                </div>
+<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-6 py-2 rounded-bl-3xl font-bold">PHASE 1 OPEN</div>
 <h2 class="text-headline-lg font-bold text-primary mb-md">Phase 1 Implementation Fee</h2>
 <div class="flex items-baseline gap-xs mb-lg">
 <span class="text-4xl font-extrabold text-primary">₹35,000</span>
 <span class="text-body-md text-on-surface-variant">/ One-time</span>
 </div>
 <ul class="space-y-sm mb-xl">
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span>Institutional Resource Balance Sheet</span>
-</li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span>Carbon Potential Baseline Audit</span>
-</li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span>Full Dashboard Access (Live 2027 Index)</span>
-</li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span>Atmanirbhar Performance Certification</span>
-</li>
-<li class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span>Detailed Assessment Report (5-7 Days)</span>
-</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Institutional Resource Balance Sheet</span></li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Carbon Potential Baseline Audit</span></li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Full Dashboard Access (Live 2027 Index)</span></li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Atmanirbhar Performance Certification</span></li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Detailed Assessment Report (5-7 Days)</span></li>
 </ul>
-<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-xl hover:bg-primary-container transition-all shadow-lg active:scale-95">
-                    Register My Organisation
-                </button>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-xl hover:bg-primary-container transition-all shadow-lg active:scale-95">Register My Organisation</button>
 <p class="text-center mt-md text-caption opacity-60 italic">Inclusive of all implementation tools and support.</p>
 </div>
 </div>
 </section>
-<!-- FAQ Section (Interactive Accordion) -->
+<!-- FAQ Section -->
 <section class="py-xl px-md max-w-4xl mx-auto" id="faq">
 <h2 class="text-headline-lg font-headline-lg text-primary text-center mb-xl">Frequently Asked Questions</h2>
 <div class="space-y-sm">
-<!-- FAQ Item 1 -->
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible opacity-100 translate-y-0">
 <div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span>How is the Atmanirbhar Score calculated?</span>
+<span class="">How is the Atmanirbhar Score calculated?</span>
 <span class="material-symbols-outlined faq-chevron">expand_more</span>
 </div>
 <div class="faq-content text-on-surface-variant text-body-md">
-<div>
-                        The score is a weighted composite of 5 pillars: Energy Efficiency, Water Conservation, Waste Diversion, Carbon Footprint reduction, and Community Impact, validated against international ISO standards.
-                    </div>
+<div class="">The score is a weighted composite of 5 pillars: Energy Efficiency, Water Conservation, Waste Diversion, Carbon Footprint reduction, and Community Impact, validated against international ISO standards.</div>
 </div>
 </div>
-<!-- FAQ Item 2 -->
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible opacity-100 translate-y-0">
 <div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span>How do we monetize our carbon savings?</span>
+<span class="">How do we monetize our carbon savings?</span>
 <span class="material-symbols-outlined faq-chevron">expand_more</span>
 </div>
 <div class="faq-content text-on-surface-variant text-body-md">
-<div>
-                        We screen your projects for eligibility in global carbon markets. Once verified via our MRV framework, your environmental assets are registered and can be sold to organizations meeting ESG requirements.
-                    </div>
+<div class="">We screen your projects for eligibility in global carbon markets. Once verified via our MRV framework, your environmental assets are registered and can be sold to organizations meeting ESG requirements.</div>
 </div>
 </div>
-<!-- FAQ Item 3 -->
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300">
+<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible opacity-100 translate-y-0">
 <div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span>Is our data secure?</span>
+<span class="">Is our data secure?</span>
 <span class="material-symbols-outlined faq-chevron">expand_more</span>
 </div>
 <div class="faq-content text-on-surface-variant text-body-md">
-<div>
-                        Yes, all institutional data is encrypted using AES-256 and stored on secure cloud infrastructure with strictly controlled access management.
-                    </div>
+<div class="">Yes, all institutional data is encrypted using AES-256 and stored on secure cloud infrastructure with strictly controlled access management.</div>
 </div>
 </div>
 </div>
@@ -561,29 +510,17 @@
 <h2 class="text-headline-lg font-headline-lg text-primary mb-md">Speak with Our Experts</h2>
 <p class="text-body-md text-on-surface-variant mb-lg">Ready to start your Net-Zero journey? Book a 30-minute strategic consultation with our campus sustainability team.</p>
 <div class="space-y-md">
-<div class="flex items-center gap-md">
-<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">mail</span>
-<span class="font-bold">info@earthcarbonfoundation.org</span>
-</div>
-<div class="flex items-center gap-md">
-<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">phone_in_talk</span>
-<span class="font-bold">+91 98240 25431</span>
-</div>
-<div class="flex items-center gap-md">
-<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">location_on</span>
-<span class="font-bold">358, Saraswatinagar, Azad Soc Road,
-      Ambawadi, Ahmedabad, India 380015.</span>
-</div>
+<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">mail</span><span class="font-bold">info@earthcarbonfoundation.org</span></div>
+<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">phone_in_talk</span><span class="font-bold">+91 9824025431</span></div>
+<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">location_on</span><span class="font-bold">358 Saraswatinagar, Ambawadi, Ahmedabad 380016 India.</span></div>
 </div>
 </div>
 <div class="bg-white p-sm rounded-3xl shadow-xl h-[500px] overflow-hidden">
-<!-- Calendly Embed Simulation -->
 <iframe frameborder="0" height="100%" src="https://calendly.com/earthcarbon-org/30min?embed_domain=atmanirbhar.campus&amp;embed_type=Inline" width="100%"></iframe>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer -->
 <footer class="bg-on-tertiary-fixed text-surface-variant/80 px-gutter py-xl flex flex-col items-center text-center w-full gap-md">
 <div class="text-headline-md font-headline-md text-surface-container-lowest font-bold">Atmanirbhar Campus Index</div>
 <div class="flex flex-wrap justify-center gap-md">
@@ -594,85 +531,133 @@
 </div>
 <p class="text-body-md mt-md">© 2027 Atmanirbhar Campus Index. All rights reserved.</p>
 </footer>
-<!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 w-full z-50 glass-nav shadow-[0_-4px_20px_rgba(15,23,42,0.05)] flex justify-around items-center px-4 pb-safe pt-2">
-<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#dashboard">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-caption">Overview</span>
-</a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#criteria">
-<span class="material-symbols-outlined">fact_check</span>
-<span class="text-caption">Criteria</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-secondary-container/30 text-secondary font-bold rounded-xl px-3 py-1" href="#pricing">
-<span class="material-symbols-outlined">app_registration</span>
-<span class="text-caption">Register</span>
-</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#dashboard"><span class="material-symbols-outlined">dashboard</span><span class="text-caption">Overview</span></a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 px-3 py-1" href="#criteria"><span class="material-symbols-outlined">fact_check</span><span class="text-caption">Criteria</span></a>
+<a class="flex flex-col items-center justify-center bg-secondary-container/30 text-secondary font-bold rounded-xl px-3 py-1" href="#pricing"><span class="material-symbols-outlined">app_registration</span><span class="text-caption">Register</span></a>
 </nav>
 <script>
     // Smooth scroll implementation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
-    // FAQ Accordion Logic
+    // FAQ Accordion Logic (Preserved)
     const faqItems = document.querySelectorAll('.faq-item');
-    
     faqItems.forEach(item => {
         item.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            
-            // Close all items
             faqItems.forEach(otherItem => {
                 otherItem.classList.remove('active');
                 const content = otherItem.querySelector('.faq-content');
                 content.style.maxHeight = '0px';
             });
-            
-            // Toggle clicked item
             if (!isActive) {
                 item.classList.add('active');
                 const content = item.querySelector('.faq-content');
-                // Set max-height to scrollHeight for smooth transition to dynamic content size
                 content.style.maxHeight = content.scrollHeight + 'px';
             }
         });
     });
 
-    // Intersection Observer for FAQ entrance animation and bento cards
+    // Intersection Observer for Animations
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px'
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Also handle the legacy bento-card animation classes if they exist
-                if (entry.target.classList.contains('bento-card')) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                // If it's the journey section, trigger step animations
+                if (entry.target.id === 'journey-section') {
+                    const steps = entry.target.querySelectorAll('.journey-step');
+                    const arrows = entry.target.querySelectorAll('.flow-arrow');
+                    
+                    steps.forEach((step, index) => {
+                        setTimeout(() => {
+                            step.classList.add('animate');
+                            // Add pulse to net zero once it's visible
+                            if(step.id === 'net-zero-final') {
+                                setTimeout(() => {
+                                    step.querySelector('div').classList.add('net-zero-pulse');
+                                }, 600);
+                            }
+                        }, index * 200);
+                    });
+
+                    arrows.forEach((arrow, index) => {
+                        setTimeout(() => {
+                            arrow.classList.add('animate');
+                        }, (index * 200) + 100);
+                    });
+                } else {
+                    // Standard reveal (for FAQ and Bento cards)
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('bento-card')) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
                 }
-                revealObserver.unobserve(entry.target);
+                sectionObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     // Observe FAQ items
-    document.querySelectorAll('.faq-reveal').forEach(faq => {
-        revealObserver.observe(faq);
-    });
+    document.querySelectorAll('.faq-reveal').forEach(faq => sectionObserver.observe(faq));
 
-    // Maintain existing bento card animations
+    // Observe Bento cards
     document.querySelectorAll('.bento-card:not(.faq-item)').forEach(card => {
         card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
-        revealObserver.observe(card);
+        sectionObserver.observe(card);
     });
+
+    // Observe Journey Section
+    const journeySection = document.getElementById('journey-section');
+    if(journeySection) sectionObserver.observe(journeySection);
 </script>
+<script>
+    function animateValue(id, start, end, duration, isDecimal = false) {
+        const obj = document.getElementById(id);
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            let current = progress * (end - start) + start;
+            if (isDecimal) {
+                obj.innerHTML = '₹' + current.toFixed(2) + ' Cr';
+            } else {
+                obj.innerHTML = Math.floor(current).toLocaleString();
+            }
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    const impactObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateValue('counter-actions', 0, 1276, 2000);
+                animateValue('counter-carbon', 0, 17255, 2000);
+                animateValue('counter-savings', 0, 31.25, 2000, true);
+                impactObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const impactSection = document.getElementById('impact');
+    if (impactSection) impactObserver.observe(impactSection);
+</script>
+
+<script>const cerObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { animateValue('counter-cer', 0, 877028, 2000); cerObserver.unobserve(entry.target); } }); }, { threshold: 0.5 }); const cerTarget = document.getElementById('counter-cer'); if (cerTarget) cerObserver.observe(cerTarget);</script>
+
 </body></html>
