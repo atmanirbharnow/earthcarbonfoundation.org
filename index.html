@@ -419,22 +419,22 @@
 </div>
 </section>
 <!-- Impact & Credibility -->
-<section class="py-xl px-md max-w-container-max mx-auto text-center" id="impact-section">
-<h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg"> Live Impacts </h2>
-<div class="grid grid-cols-1 gap-xl md:grid-cols-4 [&amp;_div]:font-mono">
-<div class="p-md min-h-[120px]">
+<section class="py-xl px-md max-w-container-max mx-auto text-center" id="impact">
+<h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg">Institutional Impact Realized</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-md md:gap-xl items-start justify-items-center [&amp;_div]:font-mono">
+<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
 <div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-actions">1,276</div>
-<div class="text-body-md font-bold text-on-surface-variant">Actions Logged</div>
+<div class="text-body-md font-bold text-on-surface-variant text-center">Green Actions Logged</div>
 </div>
-<div class="p-md min-h-[120px]">
+<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
 <div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-carbon">17,255</div>
-<div class="text-body-md font-bold text-on-surface-variant">tCO2e saved </div>
+<div class="text-body-md font-bold text-on-surface-variant text-center">tCO2e Carbon Saved</div>
 </div>
-<div class="p-md min-h-[120px]">
+<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
 <div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-savings">₹31.25 Cr</div>
-<div class="text-body-md font-bold text-on-surface-variant">Cumulative Savings </div>
+<div class="text-body-md font-bold text-on-surface-variant text-center">Cumulative Savings</div>
 </div>
-<div class="p-md min-h-[120px]"><div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-cer">877,028</div><div class="text-body-md font-bold text-on-surface-variant">CER available for sale</div></div></div>
+<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full"><div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-cer">877,028</div><div class="text-body-md font-bold text-on-surface-variant text-center">CER available for sale</div></div></div>
 <div class="mt-xl pt-lg border-t border-surface-variant" id="partners-section">
 <p class="text-caption mb-md opacity-60">GLOBAL PARTNERS &amp; ALIGNED STANDARDS</p>
 <div class="flex flex-wrap justify-center items-center gap-xl transition-all bg-white/50 p-md rounded-2xl">
@@ -655,6 +655,8 @@
 </script>
 
 <script>const cerObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { animateValue('counter-cer', 0, 877028, 2000); cerObserver.unobserve(entry.target); } }); }, { threshold: 0.5 }); const cerTarget = document.getElementById('counter-cer'); if (cerTarget) cerObserver.observe(cerTarget);</script>
+
+
 
 
 
