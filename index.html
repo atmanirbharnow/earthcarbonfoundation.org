@@ -403,22 +403,33 @@
   
   <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
     <div class="p-md">
-      <div class="text-display-lg font-display-lg text-primary mb-xs">1,276</div>
-      <div class="text-body-md font-bold text-on-surface-variant">Green Actions Logged</div>
+      </div>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+  <div class="bg-primary p-md rounded-3xl text-on-primary">
+    <h3 class="text-headline-md font-bold mb-md">Atmanirbhar Score</h3>
+    <div class="relative flex justify-center mb-md">
+      <!-- Circular Gauge Simulation (Straightened Native SVG Drawing) -->
+      <svg class="w-48 h-48">
+        <!-- Background Track -->
+        <circle class="opacity-20" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
+        <!-- Active Progress Ring: Starts from Top and Fills Cleanly Clockwise -->
+        <circle cx="96" cy="96" fill="transparent" r="80" stroke="#8bd6b7" stroke-width="12"
+                stroke-dasharray="502" stroke-dashoffset="100" transform="rotate(-90 96 96)"></circle>
+      </svg>
+      <!-- Center Text Container: Unrotated, Straight, and Centered -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <span class="text-4xl font-extrabold">82</span>
+        <span class="text-caption opacity-80 uppercase tracking-widest">Premium Score</span>
+      </div>
     </div>
-    <div class="p-md">
-      <div class="text-display-lg font-display-lg text-secondary mb-xs">17,255</div>
-      <div class="text-body-md font-bold text-on-surface-variant">tCO2e Carbon Saved</div>
-    </div>
-    <div class="p-md">
-      <div class="text-display-lg font-display-lg text-secondary mb-xs">8,77,028</div>
-      <div class="text-body-md font-bold text-on-surface-variant">Credits Available for Sale</div>
-    </div>
-    <div class="p-md">
-      <div class="text-display-lg font-display-lg text-primary mb-xs">₹31.25 Cr</div>
-      <div class="text-body-md font-bold text-on-surface-variant">Cumulative Savings</div>
-    </div>
+    <p class="text-sm text-center opacity-90">High potential for Carbon Asset generation this quarter.</p>
   </div>
+</div>
+</div>
+</div>
 
   <div class="mt-xl pt-lg border-t border-surface-variant">
     <p class="text-caption mb-md opacity-60">GLOBAL PARTNERS & ALIGNED STANDARDS</p>
