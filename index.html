@@ -404,47 +404,59 @@
   <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
     <div class="p-md">
  <!-- Sustainability & Environmental Assets Row -->
-<div class="flex flex-col md:flex-row gap-xl items-center justify-between max-w-container-max mx-auto py-xl px-md">
+<div class="flex flex-col lg:flex-row gap-xl items-center justify-between max-w-container-max mx-auto py-xl px-md">
   
-  <!-- Left Side: Achievements & Metrics -->
-  <div class="flex-1 w-full space-y-lg">
-    <!-- Keep your text-based sustainability achievements / asset descriptions here -->
+  <!-- Left Side: Achievements & Metrics (Takes up 60% width on large screens) -->
+  <div class="w-full lg:w-3/5 space-y-lg">
     <div>
-      <h2 class="text-headline-lg font-bold text-primary mb-sm">Environmental Assets & Sustainability Achievements</h2>
-      <p class="text-body-md text-on-surface-variant">
-        Tracking multi-sector resource optimization and high-integrity carbon credit potential across our decentralized campus network.
+      <h2 class="text-3xl font-bold text-emerald-800 mb-sm">Converting Campus Sustainability Into High-Integrity Environmental Assets</h2>
+      <p class="text-base text-gray-600 leading-relaxed">
+        Our multi-sector registry framework tracks real-time resource optimization across decentralized networks—turning verified water, waste, and solar energy milestones into monetizable market assets.
       </p>
     </div>
     
-    <!-- Add inline asset metrics if needed, matching your core dashboard profile -->
-    <div class="flex gap-md border-t border-surface-variant pt-md">
-      <div>
-        <div class="text-headline-md font-bold text-secondary">8,77,028</div>
-        <div class="text-caption text-on-surface-variant">Credits Ready for Market</div>
+    <!-- Live Metrics Sub-Section (Forced High-Visibility Color Tokens) -->
+    <div class="border-t border-gray-200 pt-md mt-md">
+      <div class="flex flex-wrap gap-xl">
+        <div class="min-w-[150px]">
+          <div class="text-4xl font-extrabold text-emerald-600 mb-xs">8,77,028</div>
+          <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Carbon Credits For Sale</div>
+        </div>
+        <div class="min-w-[150px]">
+          <div class="text-4xl font-extrabold text-teal-600 mb-xs">2027</div>
+          <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Active Index Vintage</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Right Side: Clean Read-Straight Atmanirbhar Score Gauge -->
-  <div class="w-full max-w-md flex-shrink-0">
-    <div class="bg-primary p-md rounded-3xl text-on-primary shadow-lg">
-      <h3 class="text-headline-md font-bold mb-md text-center">Atmanirbhar Score</h3>
-      <div class="relative flex justify-center mb-md">
-        <!-- Circular Gauge Simulation (Straightened Native SVG Drawing) -->
-        <svg class="w-48 h-48">
+  <!-- Right Side: Perfectly Aligned & Uncut Atmanirbhar Score Card -->
+  <div class="w-full lg:w-2/5 flex justify-center lg:justify-end mt-xl lg:mt-0">
+    <div class="w-full max-w-sm bg-emerald-700 p-lg rounded-3xl text-white shadow-xl flex-shrink-0">
+      <h3 class="text-xl font-bold mb-md text-center tracking-wide">Atmanirbhar Index Score</h3>
+      
+      <!-- Fixed Viewport Container for the Gauge -->
+      <div class="relative flex justify-center items-center mb-md mx-auto w-48 h-48">
+        <!-- SVG with Native ViewBox bounds preventing clipping -->
+        <svg class="w-full h-full" viewBox="0 0 192 192">
           <!-- Background Track -->
-          <circle class="opacity-20" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
-          <!-- Active Progress Ring: Starts from Top and Fills Cleanly Clockwise -->
-          <circle cx="96" cy="96" fill="transparent" r="80" stroke="#8bd6b7" stroke-width="12"
-                  stroke-dasharray="502" stroke-dashoffset="100" transform="rotate(-90 96 96)"></circle>
+          <circle class="opacity-25" cx="96" cy="96" fill="none" r="80" stroke="currentColor" stroke-width="14"></circle>
+          <!-- Active Progress Ring (82% filled) -->
+          <circle cx="96" cy="96" fill="none" r="80" stroke="#8bd6b7" stroke-width="14"
+                  stroke-dasharray="502.6" stroke-dashoffset="90" stroke-linecap="round" 
+                  transform="rotate(-90 96 96)"></circle>
         </svg>
-        <!-- Center Text Container: Unrotated, Straight, and Centered -->
+        
+        <!-- Center Text: Dead Centered & Safe From Trailing Rotations -->
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-          <span class="text-4xl font-extrabold">82</span>
-          <span class="text-caption opacity-80 uppercase tracking-widest">Premium Score</span>
+          <span class="text-5xl font-black tracking-tight text-white">82</span>
+          <span class="text-xs font-bold text-emerald-200 uppercase tracking-widest mt-1">Premium</span>
         </div>
       </div>
-      <p class="text-sm text-center opacity-90">High potential for Carbon Asset generation this quarter.</p>
+      
+      <p class="text-xs text-center font-medium text-emerald-100 bg-emerald-800/40 py-sm px-md rounded-xl">
+        High potential for Carbon Asset generation this quarter.
+      </p>
     </div>
   </div>
 
