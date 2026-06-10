@@ -1,719 +1,477 @@
-<html class="scroll-smooth" lang="en"><head></head><body class="bg-surface font-body-md text-on-surface antialiased">```html
+<!DOCTYPE html>
 
+<html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Atmanirbhar Campus Index 2027 | Live Sustainability Tracking</title>
-<meta content="India's premier live campus sustainability index. Measure, mitigate, and monetize your institution's green efforts." name="description"/>
-<!-- Design System Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<title>Earth Carbon | Atmanirbhar Campus Index 2027</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
-<!-- Tailwind Configuration -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "secondary-fixed-dim": "#94ccff",
-                    "surface-container": "#eceef0",
-                    "on-primary-container": "#8bd6b7",
-                    "inverse-surface": "#2d3133",
-                    "surface-variant": "#e0e3e5",
-                    "on-primary-fixed-variant": "#00513b",
-                    "inverse-primary": "#8bd6b6",
-                    "surface-tint": "#1b6b51",
-                    "surface-dim": "#d8dadc",
-                    "on-tertiary-container": "#bfc7e1",
-                    "surface-container-highest": "#e0e3e5",
-                    "tertiary-fixed": "#dae2fd",
-                    "tertiary": "#343c51",
-                    "on-surface": "#191c1e",
-                    "on-surface-variant": "#3f4944",
-                    "surface-container-high": "#e6e8ea",
-                    "on-error-container": "#93000a",
-                    "surface-container-lowest": "#ffffff",
-                    "on-tertiary-fixed-variant": "#3f465c",
-                    "outline": "#6f7973",
-                    "outline-variant": "#bec9c2",
-                    "inverse-on-surface": "#eff1f3",
-                    "on-tertiary-fixed": "#131b2e",
-                    "on-secondary-fixed": "#001d32",
-                    "on-primary-fixed": "#002116",
-                    "secondary-fixed": "#cde5ff",
-                    "primary": "#004532",
-                    "secondary": "#006399",
-                    "on-tertiary": "#ffffff",
-                    "on-primary": "#ffffff",
-                    "surface": "#f7f9fb",
-                    "background": "#f7f9fb",
-                    "secondary-container": "#7bc2ff",
-                    "on-secondary": "#ffffff",
-                    "surface-bright": "#f7f9fb",
-                    "on-secondary-fixed-variant": "#004b74",
-                    "tertiary-container": "#4b5369",
-                    "primary-fixed-dim": "#8bd6b6",
-                    "on-secondary-container": "#004f7b",
-                    "primary-fixed": "#a6f2d1",
-                    "on-error": "#ffffff",
-                    "tertiary-fixed-dim": "#bec6e0",
-                    "on-background": "#191c1e",
-                    "primary-container": "#065f46",
-                    "surface-container-low": "#f2f4f6",
-                    "error": "#ba1a1a",
-                    "error-container": "#ffdad6"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "lg": "40px",
-                    "container-max": "1280px",
-                    "xs": "4px",
-                    "sm": "12px",
-                    "base": "8px",
-                    "xl": "64px",
-                    "gutter": "24px",
-                    "md": "24px"
-            },
-            "fontFamily": {
-                    "display-lg": ["Inter"],
-                    "label-md": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-md": ["Inter"],
-                    "caption": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "headline-lg": ["Inter"],
-                    "body-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#001d32",
+                        "on-primary-container": "#8bd6b7",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-container": "#bfc7e1",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#a6f2d1",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#cde5ff",
+                        "secondary-container": "#7bc2ff",
+                        "primary-fixed-dim": "#8bd6b6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#002116",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-primary-fixed-variant": "#00513b",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#94ccff",
+                        "on-secondary-fixed-variant": "#004b74",
+                        "primary": "#004532",
+                        "tertiary-fixed": "#dae2fd",
+                        "background": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "outline-variant": "#bec9c2",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#065f46",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#6f7973",
+                        "inverse-primary": "#8bd6b6",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#1b6b51",
+                        "surface-container-high": "#e6e8ea",
+                        "on-background": "#191c1e",
+                        "tertiary": "#343c51",
+                        "on-secondary-container": "#004f7b",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#4b5369",
+                        "secondary": "#006399",
+                        "on-surface-variant": "#3f4944",
+                        "tertiary-fixed-dim": "#bec6e0"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "64px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "lg": "40px",
+                        "sm": "12px"
+                    }
+                }
             }
-          },
-        },
-      }
+        }
     </script>
 <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-nav {
-            backdrop-filter: blur(12px);
+        .glass-header {
             background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .bento-card {
-            background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.05);
-            transition: all 0.3s ease;
+        .score-dial {
+            transition: stroke-dashoffset 2s ease-out;
         }
-        .bento-card:hover {
-            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
-            transform: translateY(-4px);
+        .gradient-text {
+            background: linear-gradient(135deg, #004532 0%, #006399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .hero-mesh {
-            background-color: #f7f9fb;
-            background-image: radial-gradient(at 0% 0%, rgba(6, 95, 70, 0.05) 0px, transparent 50%),
-                              radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.05) 0px, transparent 50%);
+        .step-card:hover .step-icon {
+            transform: scale(1.1) rotate(5deg);
         }
-        /* FAQ Transition Styles */
-        .faq-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out, padding 0.3s ease;
-        }
-        .faq-item.active .faq-content {
-            max-height: 500px;
-            padding-top: 12px;
-        }
-        .faq-chevron {
-            transition: transform 0.3s ease;
-        }
-        .faq-item.active .faq-chevron {
-            transform: rotate(180deg);
-        }
-        .faq-item.active {
-            background-color: #f2f4f6;
-        }
-        /* Reveal Animations */
-        .faq-reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .faq-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Journey Animations */
-        .journey-step {
-            opacity: 0;
-            transform: scale(0.8) translateY(20px);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .journey-step.animate {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-        }
-        .flow-arrow {
-            opacity: 0;
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: all 0.5s ease-out;
-        }
-        .flow-arrow.animate {
-            opacity: 1;
-            transform: scaleY(1);
-        }
-        @keyframes subtle-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(27, 107, 81, 0.4); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(27, 107, 81, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(27, 107, 81, 0); }
-        }
-        .net-zero-pulse {
-            animation: subtle-pulse 2s infinite;
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
     </style>
-<header class="docked full-width top-0 sticky z-50 glass-nav shadow-sm px-md py-sm flex justify-between items-center transition-all duration-300">
-<div class="flex items-center gap-sm">
-<span class="material-symbols-outlined text-primary text-headline-md">school</span>
-<span class="text-headline-md font-bold text-primary tracking-tight">Atmanirbhar Campus</span>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-['Inter'] selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation Header -->
+<header class="sticky top-0 z-50 glass-header px-4 py-3">
+<nav class="max-w-container-max mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="text-primary" data-icon="Globe" data-size="32px">
+<span class="material-symbols-outlined text-3xl">public</span>
 </div>
-<div class="hidden md:flex gap-md items-center">
-<a class="text-label-md font-label-md text-primary hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#about">About Index</a>
-<a class="text-label-md font-label-md text-on-surface-variant hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#partners-section">Institutions</a>
-<a class="text-label-md font-label-md text-on-surface-variant hover:bg-primary/10 px-3 py-2 rounded-lg transition-colors" href="#impact-section">Impact Data</a>
-<a class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-md font-label-md hover:bg-primary-container transition-all active:scale-95" href="#register-section">Register</a>
+<span class="text-on-surface text-xl font-black tracking-tight">Earth Carbon</span>
 </div>
-<button class="md:hidden text-primary">
-<span class="material-symbols-outlined">menu</span>
-</button>
+<div class="hidden md:flex gap-8 items-center text-sm font-bold text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#how-it-works">Mechanism</a>
+<a class="hover:text-primary transition-colors" href="#pillars">Pillars</a>
+<a class="hover:text-primary transition-colors" href="#workflow">Workflow</a>
+<a class="bg-primary text-on-primary px-6 py-2 rounded-full hover:shadow-lg transition-all" href="https://rzp.io/l/atmanirbhar">Get Started</a>
+</div>
+</nav>
 </header>
-<main class="overflow-x-hidden">
 <!-- Hero Section -->
-<section class="relative hero-mesh pt-xl pb-32 px-md overflow-hidden">
-<div class="max-w-container-max mx-auto text-center relative z-10">
-<span class="inline-block px-4 py-1.5 mb-md rounded-full bg-primary/10 text-primary text-label-md font-label-md">
-                LIVE INDEX 2027
-            </span>
-<h1 class="text-display-lg font-display-lg text-primary max-w-4xl mx-auto mb-sm">
-                Welcome to Atmanirbhar Campus Index 2027
-            </h1>
-<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">
-                India's live campus sustainability ecosystem. Turn your green initiatives into measurable environmental assets and institutional prestige.
-            </p>
-<div class="flex flex-col md:flex-row gap-sm justify-center items-center">
-<a class="w-full md:w-auto px-8 py-4 bg-primary text-on-primary rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all active:scale-95 text-center" href="#register-section">Register Your Institution</a>
-<a class="w-full md:w-auto px-8 py-4 border-2 border-primary text-primary rounded-xl font-bold text-lg hover:bg-primary/5 transition-all text-center" href="#impact-section">View Live Dashboard</a>
+<section class="relative overflow-hidden bg-surface-container-lowest">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<webgl-shader class="w-full h-full" src="{{DATA:ANIMATION:ANIMATION_1}}"></webgl-shader>
+</div>
+<div class="max-w-container-max mx-auto px-4 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded-full text-xs font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">verified</span>
+                    UNFCCC-Aligned Index
+                </div>
+<h1 class="text-5xl md:text-7xl font-black leading-tight tracking-[-0.03em] text-primary">
+                    Monetize Your <br/><span class="text-secondary">Sustainability</span> Efforts
+                </h1>
+<p class="text-body-lg text-on-surface-variant max-w-[540px]">
+                    Unlock your campus's revenue potential with India's only UNFCCC-aligned Atmanirbhar Score. Pre-verified data from Day 1 for international carbon markets.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all flex items-center gap-2">
+                        Calculate Revenue <span class="material-symbols-outlined">trending_up</span>
+</button>
+<button class="border-2 border-outline-variant text-on-surface px-8 py-4 rounded-xl font-bold text-lg hover:bg-surface-container transition-all">
+                        View Methodology
+                    </button>
 </div>
 </div>
-<!-- Hero Decorative Element -->
-<div class="mt-xl max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/40">
-<img alt="Sustainable Campus Overview" class="w-full h-[400px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuN6Z8W_DfBOWPv2ZD6XRR31afKyZwFof0xXZ6eFkR46386PZFDoXEO2AHADV5LOpLfMHc88cqXPbyybO1MaHzwg2sBG14brjhrhVC2itwF1JMEbcUOTUSsWoXCmH1YAUrNniUh8x1Ye5titucSYICojXo0qwH1L3EWAn0tmJRv3xrgoiTLjAlVgLhNqr9xlUwXQTFRMSyKUkXeLJgtN2g7MVyop3gJztur_bZ_HsgZ8BZ216eDYJTCoP7acOVTWsL_wyIrZgS4gQ"/>
-</div>
-</section>
-<!-- Why It Matters (Bento Grid) -->
-<section class="py-xl px-md max-w-container-max mx-auto" id="about">
-<div class="text-center mb-xl">
-<h2 class="text-headline-lg font-headline-lg text-primary mb-sm">Turn Fragmented Green Actions into a Live Goal-Driven Index</h2>
-<p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Measure. Mitigate. Monetise. Become Atmanirbhar.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-<div class="bento-card p-md rounded-2xl md:col-span-2">
-<span class="material-symbols-outlined text-secondary text-4xl mb-sm">account_balance</span>
-<h3 class="text-headline-md font-headline-md mb-xs text-primary">Resource Balance Sheet</h3>
-<p class="text-body-md text-on-surface-variant">Comprehensive tracking of energy, water, and waste flow with financial implications integrated directly into your institutional ledger.</p>
-</div>
-<div class="bento-card p-md rounded-2xl">
-<span class="material-symbols-outlined text-primary text-4xl mb-sm">query_stats</span>
-<h3 class="text-headline-md font-headline-md mb-xs text-primary">Real-Time Progress</h3>
-<p class="text-body-md text-on-surface-variant">Live updates on your sustainability goals with predictive modeling for milestone achievement.</p>
-</div>
-<div class="bento-card p-md rounded-2xl">
-<span class="material-symbols-outlined text-secondary text-4xl mb-sm">payments</span>
-<h3 class="text-headline-md font-headline-md mb-xs text-primary">Carbon Revenue</h3>
-<p class="text-body-md text-on-surface-variant">Identify and unlock potential revenue streams through carbon credits and environmental assets.</p>
-</div>
-<div class="bento-card p-md rounded-2xl md:col-span-2">
-<span class="material-symbols-outlined text-primary text-4xl mb-sm">verified</span>
-<h3 class="text-headline-md font-headline-md mb-xs text-primary">Global Certification</h3>
-<p class="text-body-md text-on-surface-variant">Get verified certification aligned with UNFCCC and international sustainability standards to boost institutional reputation and ranking.</p>
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+<img alt="Sustainable Campus" class="w-full rounded-2xl shadow-2xl relative z-10 aspect-video object-cover" data-alt="A modern, high-tech sustainable university campus featuring solar panels on rooftops and lush vertical gardens under a bright morning sun. The architecture is futuristic and clean, using glass and sustainable timber, reflecting an ivory-tower sophistication. The lighting is crisp and optimistic, with a color palette of deep forest greens and azure blues to symbolize climate technology and corporate transparency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7mK5xqt71p2UGPrNsc8rCM8DUFkqCRp4E5PC9pN_Z-ffKD_5jwuzXcoPa6nTJpAMMMDYKJOInG0DWXjoZu-Q_hzbDxIbHcMF5vHGqhI4VKT1713kZbsTaYVZ_PbWO_H1_zIXJKuWGFG3a4lhHkXaFY8ckxw4RdzCheosxWWF-b19fvvc5WaPHoxmydV-bTRmWzVCUDbOcG9zi5OEFNWTukGeMum3gXGNfSx8hWbKGZODWBmF8sq4ObEBNHQc9AlgWyqAUUWb1gc"/>
 </div>
 </div>
 </section>
-<!-- Problems Faced (Keep First Instance Only) -->
-<section class="py-xl text-surface px-md bg-on-tertiary-fixed" id="inaction-section">
-<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xl items-center">
-<div class="space-y-lg">
-<h2 class="text-headline-lg font-headline-lg mb-md flex items-center gap-sm text-white">
-<span class="material-symbols-outlined text-amber-500 animate-pulse">report</span>
-                    The Hidden Cost of Inaction
-                </h2>
-<div class="grid gap-md">
-<div class="group bg-white/5 p-md rounded-2xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer active:scale-95">
-<div class="flex gap-md">
-<span class="material-symbols-outlined text-amber-500 text-3xl shrink-0">warning</span>
+<!-- Section 2: Pain Points -->
+<section class="bg-surface px-4 py-20">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16 max-w-[720px]">
+<h2 class="text-headline-lg text-primary mb-4">The Hidden Costs of Inaction</h2>
+<p class="text-body-md text-on-surface-variant">Generic consultants take months. Our automated pipeline reveals inefficiencies instantly.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:border-primary transition-all flex flex-col gap-4">
+<div class="text-primary"><span class="material-symbols-outlined text-4xl">schedule</span></div>
+<h3 class="text-xl font-bold">Manual Audit Lag</h3>
+<p class="text-on-surface-variant">Waiting for spreadsheets costs time. Our automation cuts verification lead times by 70%.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:border-primary transition-all flex flex-col gap-4">
+<div class="text-primary"><span class="material-symbols-outlined text-4xl">security</span></div>
+<h3 class="text-xl font-bold">Compliance Risk</h3>
+<p class="text-on-surface-variant">Generic data fails international audits. We align with UNFCCC standards from the start.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant hover:border-primary transition-all flex flex-col gap-4">
+<div class="text-primary"><span class="material-symbols-outlined text-4xl">trending_down</span></div>
+<h3 class="text-xl font-bold">Missed Credits</h3>
+<p class="text-on-surface-variant">Unstructured data misses revenue windows. We structure your data for immediate market entry.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: The Pillars -->
+<section class="bg-surface-container-lowest px-4 py-20 border-y border-outline-variant" id="pillars">
+<div class="max-w-container-max mx-auto">
+<h2 class="text-headline-lg text-primary mb-12 text-center">The Three Pillars of Registry Alignment</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="text-xl font-bold">Registry Integrity</h3>
+<p class="text-on-surface-variant px-6">Direct alignment with UNFCCC methodologies ensuring your credits hold global value.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-3xl">database</span>
+</div>
+<h3 class="text-xl font-bold">Data Verification</h3>
+<p class="text-on-surface-variant px-6">Pre-verified audit trails from resource invoices, eliminating months of forensic work.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<h3 class="text-xl font-bold">Monetization Pipeline</h3>
+<p class="text-on-surface-variant px-6">Structuring data for international carbon registries to maximize institutional ROI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- NEW SECTION 4: The Mechanism -->
+<section class="relative bg-primary overflow-hidden py-24" id="how-it-works">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+<animated-svg class="w-full h-full" src="{{DATA:ANIMATION:ANIMATION_2}}"></animated-svg>
+</div>
+<div class="max-w-container-max mx-auto px-4 relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="text-on-primary flex flex-col gap-6">
+<h2 class="text-4xl md:text-5xl font-black">How the Atmanirbhar Score Works</h2>
+<p class="text-lg opacity-90 leading-relaxed">
+                        We provide India's only campus index that maps your resource invoices and utility bills directly to United Nations (UNFCCC) methodologies. Because our data pipeline is built this way from the ground up, your audit trail is pre-verified from Day 1.
+                    </p>
+<p class="text-lg opacity-90 italic border-l-4 border-on-primary-container pl-6 py-2 bg-on-primary/5">
+                        "At Earth Carbon, we believe that just as tiny raindrops come together to form a vast ocean, every single baseline activity matters. We track and address the smallest environmental molecules today to engineer a brighter, self-reliant future for the generations to come."
+                    </p>
+<div class="mt-4 flex items-center gap-4">
+<div class="bg-secondary p-4 rounded-xl">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
 <div>
-<h4 class="font-bold text-lg text-amber-500">Uncoordinated Efforts</h4>
-<p class="text-surface-variant/80 text-sm mt-1">Disconnected green initiatives lead to wasted resources and zero measurable institutional impact.</p>
+<h4 class="font-bold text-xl">Carbon Market Readiness</h4>
+<p class="opacity-80 text-sm">Aligning your organization as a formal carbon credit applicant from Day 1.</p>
 </div>
 </div>
 </div>
-<div class="group bg-white/5 p-md rounded-2xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer active:scale-95">
-<div class="flex gap-md">
-<span class="material-symbols-outlined text-amber-500 text-3xl shrink-0">thermostat</span>
-<div>
-<h4 class="font-bold text-lg text-amber-500">Climate Vulnerability</h4>
-<p class="text-surface-variant/80 text-sm mt-1">Extreme weather events directly threaten campus operations and student safety without a mitigation roadmap.</p>
+<div class="grid gap-6">
+<!-- Metric Card 1 -->
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-white text-xl">Carbon Emission Profile</h4>
+<span class="material-symbols-outlined text-secondary-fixed">analytics</span>
+</div>
+<p class="text-white/80 text-sm">An accurate, audit-ready footprint of your institutional emissions using real-time resource tracking.</p>
+<div class="mt-4 h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed w-[85%]"></div>
 </div>
 </div>
+<!-- Metric Card 2 -->
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-white text-xl">Atmanirbhar %</h4>
+<span class="material-symbols-outlined text-primary-fixed">energy_savings_leaf</span>
 </div>
-<div class="group bg-white/5 p-md rounded-2xl border border-white/10 hover:bg-white/10 transition-all cursor-pointer active:scale-95">
-<div class="flex gap-md">
-<span class="material-symbols-outlined text-amber-500 text-3xl shrink-0">trending_down</span>
-<div>
-<h4 class="font-bold text-lg text-amber-500">Lost Revenue</h4>
-<p class="text-surface-variant/80 text-sm mt-1">Missed opportunities in carbon credit markets and environmental asset monetization.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="relative">
-<div class="bg-white/5 p-lg rounded-3xl border border-white/20 backdrop-blur-md relative overflow-hidden">
-<div class="absolute top-0 right-0 p-4"><span class="material-symbols-outlined text-red-400 animate-pulse">emergency_home</span></div>
-<div class="flex justify-between items-end mb-sm">
-<span class="text-label-md uppercase tracking-widest opacity-70 text-white">Institutional Risk Profile</span>
-<span class="text-red-400 font-bold text-xl">+24% CRITICAL</span>
-</div>
-<div class="w-full h-4 bg-white/10 rounded-full overflow-hidden mb-lg border border-white/5">
-<div class="h-full bg-red-500 w-3/4 relative">
-<div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 animate-pulse"></div>
+<p class="text-white/80 text-sm">A bold, transparent metric measuring your true self-reliance across energy and water grids.</p>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-4xl font-black text-primary-fixed counter" data-target="74">0</span>
+<span class="text-xl text-primary-fixed">% Self-Reliant</span>
 </div>
 </div>
-<div class="space-y-sm">
-<p class="text-sm italic opacity-80 text-white">"Fragmented data results in missed revenue opportunities and lower academic rankings."</p>
-<div class="pt-md border-t border-white/10 flex items-center gap-2 text-red-400 text-caption font-bold">
-<span class="material-symbols-outlined text-sm">info</span>ACTION REQUIRED: MITIGATION PHASE OVERDUE
+<!-- Metric Card 3 -->
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all">
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-bold text-white text-xl">Revenue Probability</h4>
+<span class="material-symbols-outlined text-on-primary-container">monetization_on</span>
+</div>
+<p class="text-white/80 text-sm">A clear financial forecast mapping out your monetization potential in current global markets.</p>
+<div class="mt-4 flex items-center gap-2 text-on-primary-container font-bold">
+<span class="material-symbols-outlined">trending_up</span> High Monetization Potential
                         </div>
 </div>
 </div>
-<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-red-500/20 blur-3xl rounded-full -z-10"></div>
 </div>
 </div>
 </section>
-<!-- Solution & Journey Diagram -->
-<section class="py-xl px-md max-w-container-max mx-auto overflow-hidden" id="journey-section">
-<div class="text-center mb-xl">
-<h2 class="text-headline-lg font-headline-lg text-primary mb-xs">The Atmanirbhar Program</h2>
-<p class="text-body-md text-on-surface-variant">One Earth. One Family. Shared Resources. Shared Responsibility.</p>
-</div>
-<div class="flex flex-col md:flex-row justify-between items-center gap-sm relative py-lg">
-<!-- Journey Connector Line (Desktop) -->
-<div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-surface-variant -z-10 -translate-y-1/2"></div>
-<!-- Journey Steps -->
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 100ms;">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">straighten</span>
-</div>
-<span class="font-bold text-primary">Measure</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 200ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 300ms;">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">settings_suggest</span>
-</div>
-<span class="font-bold text-primary">Manage</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 400ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 500ms;">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">trending_down</span>
-</div>
-<span class="font-bold text-primary">Reduce</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 600ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 700ms;">
-<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">eco</span>
-</div>
-<span class="font-bold text-primary">Restore</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 800ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 900ms;">
-<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">verified</span>
-</div>
-<span class="font-bold text-secondary">Certify</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 1000ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" style="transition-delay: 1100ms;">
-<div class="w-16 h-16 rounded-full bg-secondary text-on-secondary flex items-center justify-center mb-sm group-hover:scale-110 transition-transform shadow-md">
-<span class="material-symbols-outlined">currency_exchange</span>
-</div>
-<span class="font-bold text-secondary">Monetise</span>
-</div>
-<div class="material-symbols-outlined text-primary-container flow-arrow md:rotate-[-90deg] animate visible" style="transition-delay: 1200ms;">arrow_downward</div>
-<div class="flex flex-col items-center group journey-step animate visible" id="net-zero-final" style="transition-delay: 1300ms;">
-<div class="w-20 h-20 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-sm shadow-xl">
-<span class="material-symbols-outlined text-3xl">public</span>
-</div>
-<span class="font-extrabold text-primary">Net Zero</span>
-</div>
-</div>
-</section>
-<!-- Restored Registry Workflow Section -->
-<section class="py-xl bg-surface-container-high px-md" id="registry-workflow">
-<div class="max-w-container-max mx-auto">
-<div class="text-center mb-xl">
-<h2 class="text-headline-lg font-headline-lg text-primary mb-sm">How the Registry Works</h2>
-<p class="text-body-md text-on-surface-variant">A streamlined three-phase journey towards verifiable sustainability.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-<!-- Phase 1 -->
-<div class="bento-card p-md rounded-2xl border-l-4 border-primary">
-<div class="flex items-center gap-sm mb-md">
-<span class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center font-bold">1</span>
-<h3 class="text-headline-md font-bold text-primary">Phase 1: Measure</h3>
-</div>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Institution Registers online</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>One-time Fee Payment (₹35k covers Phase 1 &amp; 2)</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Upload Resource Evidence &amp; Invoices</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Baseline Audit &amp; Gap Analysis</li>
-</ul>
-</div>
-<!-- Phase 2 -->
-<div class="bento-card p-md rounded-2xl border-l-4 border-primary">
-<div class="flex items-center gap-sm mb-md">
-<span class="bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center font-bold">2</span>
-<h3 class="text-headline-md font-bold text-primary">Phase 2: Mitigate</h3>
-</div>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Review Detailed Assessment Report</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Implement Targeted Green Actions</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Impact Dashboard Live Updates</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm mt-1">check</span>Atmanirbhar Performance Certification</li>
-</ul>
-</div>
-<!-- Phase 3 -->
-<div class="bento-card p-md rounded-2xl border-l-4 border-secondary">
-<div class="flex items-center gap-sm mb-md">
-<span class="bg-secondary text-on-secondary w-10 h-10 rounded-full flex items-center justify-center font-bold">3</span>
-<h3 class="text-headline-md font-bold text-secondary">Phase 3: Monetise</h3>
-</div>
-<ul class="space-y-sm text-body-md text-on-surface-variant">
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>Global Methodology Mapping</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>Third-Party Verification (MRV)</li>
-<li class="flex gap-2"><span class="material-symbols-outlined text-secondary text-sm mt-1">check</span>Environmental Asset Structuring</li>
-<li class="mt-4 p-3 bg-secondary/10 rounded-lg text-sm italic font-bold">Note: Monetisation quotes provided after Phase 1 evaluation.</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Monetisation Section -->
-<section class="py-xl bg-surface-container-low px-md overflow-hidden relative">
-<div class="max-w-container-max mx-auto relative z-10">
-<div class="flex flex-col md:flex-row gap-xl items-center">
-<div class="flex-1">
-<h2 class="text-headline-lg font-headline-lg text-primary mb-md">Turn Sustainability Achievements into Environmental Assets</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
-<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
-<span class="material-symbols-outlined text-primary">screen_search_desktop</span>
-<div>
-<h4 class="font-bold">Asset Screening</h4>
-<p class="text-caption">Audit existing projects for credit potential.</p>
-</div>
-</div>
-<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
-<span class="material-symbols-outlined text-primary">fact_check</span>
-<div>
-<h4 class="font-bold">MRV Framework</h4>
-<p class="text-caption">Monitoring, Reporting, and Verification.</p>
-</div>
-</div>
-<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
-<span class="material-symbols-outlined text-primary">cloud_done</span>
-<div>
-<h4 class="font-bold">Registry Readiness</h4>
-<p class="text-caption">Prepare for global carbon exchanges.</p>
-</div>
-</div>
-<div class="bg-white p-sm rounded-xl shadow-sm flex items-start gap-sm">
-<span class="material-symbols-outlined text-primary">auto_graph</span>
-<div>
-<h4 class="font-bold">Revenue Flow</h4>
-<p class="text-caption">Direct monetisation of green savings.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="flex-1 w-full max-w-md">
-<div class="bg-primary p-md rounded-3xl text-on-primary">
-<h3 class="text-headline-md font-bold mb-md">Atmanirbhar Score</h3>
-<div class="relative flex justify-center mb-md">
-<svg class="w-48 h-48 transform">
-<circle class="opacity-20" cx="96" cy="96" fill="transparent" r="80" stroke="currentColor" stroke-width="12"></circle>
-<circle cx="96" cy="96" fill="transparent" r="80" stroke="#8bd6b7" stroke-dasharray="502" stroke-dashoffset="100" stroke-width="12"></circle>
+<!-- Section 5: The Score Dial (Social Proof) -->
+<section class="py-20 bg-surface">
+<div class="max-w-container-max mx-auto px-4 text-center">
+<h2 class="text-headline-lg text-primary mb-12">Performance Benchmarking</h2>
+<div class="flex flex-col md:flex-row justify-center items-center gap-16">
+<div class="relative w-64 h-64">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary score-dial" cx="128" cy="128" fill="transparent" r="110" stroke="currentColor" stroke-dasharray="691" stroke-dashoffset="150" stroke-width="12"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="text-4xl font-extrabold">82</span>
-<span class="text-caption opacity-80 uppercase tracking-widest">Premium Score</span>
+<span class="text-5xl font-black text-primary">82</span>
+<span class="text-sm font-bold text-on-surface-variant">Campus Score</span>
 </div>
 </div>
-<p class="text-sm text-center opacity-90">High potential for Carbon Asset generation this quarter.</p>
+<div class="text-left flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<p class="text-lg font-semibold">Tier 1: Institutional Leader (Top 5%)</p>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<p class="text-lg">Tier 2: Developing Green Assets</p>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<p class="text-lg">Tier 3: Early Transition</p>
 </div>
 </div>
-</div>
-</div>
-</section>
-<!-- Impact & Credibility -->
-<section class="py-xl px-md max-w-container-max mx-auto text-center" id="impact-section">
-<h2 class="text-label-md font-label-md text-primary-container tracking-widest uppercase mb-lg">Institutional Impact Realized</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-md md:gap-xl items-start justify-items-center [&amp;_div]:font-mono" id="impact">
-<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
-<div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-actions">1,276</div>
-<div class="text-body-md font-bold text-on-surface-variant text-center">Green Actions Logged</div>
-</div>
-<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
-<div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-carbon">17,255</div>
-<div class="text-body-md font-bold text-on-surface-variant text-center">tCO2e Carbon Saved</div>
-</div>
-<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
-<div class="text-display-lg font-display-lg text-primary mb-xs" id="counter-savings">₹31 Cr</div>
-<div class="text-body-md font-bold text-on-surface-variant text-center">Cumulative Savings</div>
-</div>
-<div class="p-md min-h-[160px] flex flex-col items-center justify-center w-full">
-<div class="text-display-lg font-display-lg text-secondary mb-xs" id="counter-cer">877,028</div>
-<div class="text-body-md font-bold text-on-surface-variant text-center">CER generated</div>
-</div>
-</div>
-<div class="mt-xl pt-lg border-t border-surface-variant" id="partners-section">
-<p class="text-label-md font-bold mb-lg text-primary/60 tracking-widest uppercase">GLOBAL PARTNERS &amp; ALIGNED STANDARDS</p>
-<div class="flex flex-wrap justify-center items-center gap-md md:gap-lg transition-all bg-surface-container-low p-lg rounded-3xl">
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://mitigation-action.org/" rel="noopener noreferrer" target="_blank">
-<img alt="Mitigation Action Facility" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQz6BnI0L_tgtLD06B22TRyL1IK2MfFQXHG00NZqI8SugJyPDGUnXfo7RiYDM13NVrWhnsQWXXJ1jqPgfm250CodAkoN1dXjDiAPweCGVmducITOvzuT6vp5SWITYkMX7XQK5bcQ5YjJWTifNTrLlRaY73IouQtnBhobxp_JCn72op6Dy79ZapGKjZbpw_veQlP4nLUb2z78YC_2gDmVFn_UjAYGYVYls84NUnMHpdOkK9ycpa0ra8k2X1Ruze1OKJzLS_8zzODys"/>
-</a>
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://www.worldbank.org/en/topic/climatechange" rel="noopener noreferrer" target="_blank">
-<img alt="World Bank Group" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0qLmxMLrc4vluHbkb9MoG7a-yPF8kNpsQTtNwxGg1hEVfPClNGhIA2oPhfJzF-egxcSGv1gSeJ5qCjP_1J6F5TvUuyUYaL9p2pnzSY3xlv9i4bRito28GpLTkdcETkamXEliEcCL2mrAKUErlNm2zPEZ9ROsPlspDlTVhuZ03yXIV4n9oFZofA1Foziq9tf_dSd79TQye_Byk2BNIYt1GiUbFvvQKc8tCcop34wVhBwur0ZOwf9-IabkfanGLnQaWOYTZUABRLn8"/>
-</a>
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://unfccc.int/" rel="noopener noreferrer" target="_blank">
-<img alt="UNFCCC" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVupIQW537ku8C82JWYrBwMQXs87HjNqfVYsehPEjrkqbnnChm5Ae1xYUBqawvr6xqqC7zynp2RctjU7CyrgWQplKAeFF7EEpkIj7sZGqSznR9bmciBmngmIF55trJJkz5RkfKfspR6uXjyk1eK8uqNlKvMNVMOVWnel99fhOHtVJgeOWb8FsZFkjhtUS1SRQTFxixNUKRINi0jrEmn0M8d-wyMBC77G2GvJqjh2cvu1euxSepJpCKcTJwYtMzWksvd2g_Dz8v4AI"/>
-</a>
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://sdgs.un.org/goals" rel="noopener noreferrer" target="_blank">
-<img alt="SDG Goals" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcDD68A5OI0U4jL3obO9AYZ8tRV_D-DQfAsSDd15f262otYQ1qjdEnM-yT38GBtzSPhS673ubm7ioPUwd30GKt_6YLvD12XfAoWgMMMdgvEdvb6CKo5LuEIK3c7Nk7yOCQ6hGuV39DvdxZ2JW3QNK6J-ilK3NiLsE1KyVoMFDc6KqG-j_yzgj0ys3huHws3tpiAlbGeoJTgZEESF-z39eKWFQrSknpaOajB0v2q2mGIuiNrsfoM4zjj0XuqAL9w-lErSWJudiKxjo"/>
-</a>
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://leap.sei.org/" rel="noopener noreferrer" target="_blank">
-<img alt="LEAP" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVh3nwV7gCs_CMv5rdBVUIZ5GIGoSbYiXsped9wsqmwzP--q4vNsFKRJjaZXgj3816ScGKClNaXJq1BZpib_nyLZpFcfcrCR0PrnS0A-JtBCs0MywyNetlu6Zi1JLx6qs0H7Fx6EkzKOhwzfvSGzOx6PKkRGms4Of2--5znnCT1WpRHqDvA9L8VtE1_KJ1auurvDkRgnR7IwkGpNQf9Dj0gdZ8N7DD7L_xe33zkdn8SHukpicZe2BsVamhbsz0Y8lMdQ4yCVFwXaQ"/>
-</a>
-<a class="hover:scale-110 transition-transform bg-white border border-surface-variant shadow-md rounded-xl p-6 flex items-center justify-center min-w-[180px]" href="https://www.india.gov.in/spotlight/atmanirbhar-bharat-self-reliant-india-campaign" rel="noopener noreferrer" target="_blank">
-<img alt="Atmanirbhar Bharat" class="h-16 md:h-20 object-contain w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO9rHae_r6-YlFeSdoU4s9LBKanIwQYljREooRFncp3652CkqReUssfIRr6kFLHpsTqihw6-OxDYSCS3O0a9Tg56xUzbtQPlxXJUmZu8lLiNrhFWT-sHi9AXMakSaNkDGKzu3pwsPkU2kFAbUoZbKz9t_PtbJWjAereikhnyRTiAR55tRmVIRBvVGpynngQJYeIfRKERHGJEL8D630y4N6CNZox6xyXx-YDYwV73PKDcqkq_aP_w7JR_kDpb4jlGBZ1QOguKIVbrQ"/>
-</a>
 </div>
 </div>
 </section>
-<!-- Pricing Section -->
-<section class="py-xl bg-primary text-on-primary px-md overflow-hidden" id="register-section">
-<div class="max-w-4xl mx-auto">
-<div class="bg-surface-container-lowest text-on-surface rounded-3xl p-md md:p-xl shadow-2xl relative">
-<div class="absolute top-0 right-0 bg-secondary text-on-secondary px-6 py-2 rounded-bl-3xl font-bold">PHASE 1 OPEN</div>
-<h2 class="text-headline-lg font-bold text-primary mb-md">Phase 1 &amp; 2 Implementation Fee</h2>
-<div class="flex items-baseline gap-xs mb-lg">
-<span class="text-4xl font-extrabold text-primary">₹35,000</span>
-<span class="text-body-md text-on-surface-variant">/ One-time</span>
-</div>
-<ul class="space-y-sm mb-xl">
-<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Institutional Resource Balance Sheet</span></li>
-<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Carbon Potential Baseline Audit</span></li>
-<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Full Dashboard Access (Live 2027 Index)</span></li>
-<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Atmanirbhar Performance Certification</span></li>
-<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="">Detailed Assessment Report (5-7 Days)</span></li>
-</ul>
-<a class="block w-full" href="https://rzp.io/rzp/UJoG14Wf" rel="noopener noreferrer" target="_blank">
-<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-bold text-xl hover:bg-primary-container transition-all shadow-lg active:scale-95">Register My Organisation</button>
-</a>
-<p class="text-center mb-sm text-caption font-bold text-secondary">Phase 3 (Monetisation) is quoted separately based on Phase 1 evaluation results.</p>
-<p class="text-center mt-md text-caption opacity-60 italic">Inclusive of all implementation tools and support.</p>
-</div>
-</div>
-</section>
-<!-- Battle-Tested Architecture Section -->
-<section class="py-xl px-md bg-surface-container-low" id="social-proof">
+<!-- Workflow Section -->
+<section class="py-24 bg-surface-container-low px-4" id="workflow">
 <div class="max-w-container-max mx-auto">
-<div class="text-center mb-xl">
-<span class="inline-block px-4 py-1.5 mb-md rounded-full bg-primary/10 text-primary text-label-md font-label-md uppercase tracking-widest">
-        Battle-Tested Architecture
-      </span>
-<h2 class="text-headline-lg font-headline-lg text-primary mb-sm">
-        Proven Across Communities, Schools, and Energy Assets
-      </h2>
-<p class="text-body-md text-on-surface-variant max-w-3xl mx-auto">
-        Before expanding our data architecture to universal campus registry intakes, the Earth Carbon Foundation engine was rigorously field-tested. Our infrastructure actively manages verified environmental assets in the public domain right now.
-      </p>
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-primary mb-4">Your Path to Certification</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">A streamlined, 3-phase journey from data collection to credit issuance.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg mb-xl relative">
-<!-- Metric 1: Actions (Circular Gauge) -->
-<div class="bento-card p-lg rounded-3xl flex flex-col items-center text-center relative overflow-hidden group">
-<div class="relative w-32 h-32 mb-md flex items-center justify-center">
-<svg class="absolute inset-0 w-full h-full -rotate-90">
-<circle cx="64" cy="64" fill="none" r="58" stroke="#e0e3e5" stroke-width="8"></circle>
-<circle cx="64" cy="64" fill="none" r="58" stroke="#004532" stroke-dasharray="364.4" stroke-dashoffset="91.1" stroke-linecap="round" stroke-width="8"></circle>
-</svg>
-<div class="text-2xl font-extrabold text-primary relative z-10">800+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+<span class="text-xs font-black text-primary uppercase mb-4 block">Phase 01</span>
+<h3 class="text-2xl font-bold mb-4">Assessment</h3>
+<p class="text-on-surface-variant mb-6">Initial baseline audit and resource invoice mapping. Identification of energy and waste streams.</p>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined">check_circle</span> 14 Days
+                    </div>
 </div>
-<div class="font-bold text-primary mb-xs">Total Actions Registered</div>
-<p class="text-caption text-on-surface-variant">Verified decentralised school-level interventions.</p>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
+<span class="text-xs font-black text-secondary uppercase mb-4 block">Phase 02</span>
+<h3 class="text-2xl font-bold mb-4">Verification</h3>
+<p class="text-on-surface-variant mb-6">UNFCCC-aligned validation of emission reductions. Calculation of the Atmanirbhar Score.</p>
+<div class="flex items-center gap-2 text-secondary font-bold">
+<span class="material-symbols-outlined">history</span> In Progress
+                    </div>
 </div>
-<!-- Metric 2: Carbon (Semi-Circular Gauge) -->
-<div class="bento-card p-lg rounded-3xl flex flex-col items-center text-center group">
-<div class="relative w-32 h-20 mb-md overflow-hidden flex items-end justify-center">
-<svg class="w-32 h-32 absolute top-0">
-<circle cx="64" cy="64" fill="none" r="58" stroke="#cde5ff" stroke-dasharray="182.2 182.2" stroke-width="8" transform="rotate(180 64 64)"></circle>
-<circle cx="64" cy="64" fill="none" r="58" stroke="#006399" stroke-dasharray="145.7 218.7" stroke-linecap="round" stroke-width="8" transform="rotate(180 64 64)"></circle>
-</svg>
-<div class="text-xl font-extrabold text-secondary relative z-10 pb-2">17,000+</div>
-</div>
-<div class="font-bold text-secondary mb-xs">tCO2e Saved / Year</div>
-<p class="text-caption text-on-surface-variant">Carbon tracked and aggregated into registry pipelines.</p>
-</div>
-<!-- Metric 3: Solar (Radial/Linear Scale Dial) -->
-<div class="bento-card p-lg rounded-3xl flex flex-col items-center text-center group">
-<div class="w-full h-24 mb-md flex flex-col items-center justify-center">
-<div class="relative w-full h-12 flex items-end justify-between px-4">
-<div class="absolute bottom-0 left-4 right-4 h-2 bg-primary/10 rounded-full overflow-hidden">
-<div class="h-full bg-primary w-3/4 rounded-full"></div>
-</div>
-<div class="absolute bottom-[-10px] left-[75%] -translate-x-1/2 w-4 h-4 bg-primary border-4 border-white rounded-full shadow-md"></div>
-<span class="text-[10px] font-bold text-primary/40 uppercase">25kW</span>
-<span class="text-[10px] font-bold text-primary/40 uppercase">1000kW</span>
-</div>
-<div class="text-xl font-extrabold text-primary mt-4">25-1000kW</div>
-</div>
-<div class="font-bold text-primary mb-xs">Solar Aggregation Scale</div>
-<p class="text-caption text-on-surface-variant">Pooling small installations into high-integrity portfolios.</p>
-</div>
-<!-- Metric 4: Multi-Sector (Donut Chart) -->
-<div class="bento-card p-lg rounded-3xl flex flex-col items-center text-center group">
-<div class="relative w-32 h-32 mb-md flex items-center justify-center">
-<svg class="absolute inset-0 w-full h-full">
-<!-- Energy -->
-<circle cx="64" cy="64" fill="none" r="50" stroke="#004532" stroke-dasharray="141.3 172.7" stroke-dashoffset="0" stroke-width="12"></circle>
-<!-- Water -->
-<circle cx="64" cy="64" fill="none" r="50" stroke="#006399" stroke-dasharray="94.2 220.0" stroke-dashoffset="-141.3" stroke-width="12"></circle>
-<!-- Waste -->
-<circle cx="64" cy="64" fill="none" r="50" stroke="#8bd6b6" stroke-dasharray="78.5 235.5" stroke-dashoffset="-235.5" stroke-width="12"></circle>
-</svg>
-<div class="flex flex-col items-center gap-0 relative z-10">
-<span class="material-symbols-outlined text-secondary text-2xl">hub</span>
+<div class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-2 h-full bg-tertiary"></div>
+<span class="text-xs font-black text-tertiary uppercase mb-4 block">Phase 03</span>
+<h3 class="text-2xl font-bold mb-4">Registry Entry</h3>
+<p class="text-on-surface-variant mb-6">Formal application to international carbon registries. Monetization pipeline activation.</p>
+<div class="flex items-center gap-2 text-tertiary font-bold">
+<span class="material-symbols-outlined">star</span> Certification
+                    </div>
 </div>
 </div>
-<div class="font-bold text-on-surface mb-xs">Intervention Metrics</div>
-<div class="flex gap-2 justify-center mt-xs">
-<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="text-[9px]">E</span></div>
-<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="text-[9px]">W</span></div>
-<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span><span class="text-[9px]">W</span></div>
-</div>
-<p class="text-caption text-on-surface-variant mt-2">Energy, Water, and Waste grid monitoring.</p>
-</div>
-</div>
-<!-- Radical Transparency Block -->
-<div class="bg-primary rounded-3xl p-md md:p-xl text-on-primary relative overflow-hidden shadow-2xl"><div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-lg">
-<div class="flex-1 text-center md:text-left">
-<div class="flex items-center justify-center md:justify-start gap-2 mb-sm">
-<span class="relative flex h-3 w-3">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-primary-container opacity-75"></span>
-<span class="relative inline-flex rounded-full h-3 w-3 bg-on-primary-container"></span>
-</span>
-<span class="text-label-md font-bold uppercase tracking-widest text-on-primary-container">Live Open-Source Ledger</span>
-</div>
-<h3 class="text-headline-lg-mobile md:text-display-lg font-bold mb-md leading-tight">Radical Transparency in Action</h3>
-<p class="text-body-md md:text-body-lg opacity-90 mb-lg max-w-xl mx-auto md:mx-0">
-      You can inspect our live, active tracking database computing total interventions, carbon balances, and financial savings calculations in real-time.
-    </p>
-<div class="flex flex-col sm:flex-row items-center gap-md justify-center md:justify-start">
-<a class="inline-block w-full sm:w-auto px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg hover:bg-surface-container-lowest transition-all active:scale-95 shadow-xl" href="https://atmanirbharnow.github.io/spreadsheet-site/" rel="noopener noreferrer" target="_blank">
-        Explore Live Dashboard Demo →
-      </a>
-<div class="flex items-center gap-2 text-caption opacity-70">
-<span class="material-symbols-outlined text-sm">database</span>
-<span class="">Powered by PapaParse &amp; Chart.js</span>
-</div>
-</div>
-</div>
-<div class="hidden lg:block opacity-10">
-<span class="material-symbols-outlined text-[180px]">analytics</span>
-</div>
-</div>
-<div class="absolute -bottom-10 -right-10 w-96 h-96 bg-white/5 blur-3xl rounded-full"></div>
-<div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 blur-3xl rounded-full"></div></div>
-</div>
-</section>
-<section class="py-xl px-md max-w-4xl mx-auto" id="faq">
-<h2 class="text-headline-lg font-headline-lg text-primary text-center mb-xl">Frequently Asked Questions</h2>
-<div class="space-y-sm">
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible animate">
-<div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span class="">How is the Atmanirbhar Score calculated?</span>
-<span class="material-symbols-outlined faq-chevron">expand_more</span>
-</div>
-<div class="faq-content text-on-surface-variant text-body-md">
-<div class="pt-2">The score is a weighted composite of 5 pillars: Energy Efficiency, Water Conservation, Waste Diversion, Carbon Footprint reduction, and Community Impact, validated against international ISO standards.</div>
-</div>
-</div>
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible animate">
-<div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span class="">How do we monetize our carbon savings?</span>
-<span class="material-symbols-outlined faq-chevron">expand_more</span>
-</div>
-<div class="faq-content text-on-surface-variant text-body-md">
-<div class="pt-2">We screen your projects for eligibility in global carbon markets. Once verified via our MRV framework, your environmental assets are registered and can be sold to organizations meeting ESG requirements.</div>
-</div>
-</div>
-<div class="faq-item faq-reveal bento-card rounded-xl p-sm cursor-pointer transition-all duration-300 visible animate">
-<div class="flex justify-between items-center font-bold text-primary faq-trigger">
-<span class="">Is our data secure?</span>
-<span class="material-symbols-outlined faq-chevron">expand_more</span>
-</div>
-<div class="faq-content text-on-surface-variant text-body-md">
-<div class="pt-2">Yes, all institutional data is encrypted using AES-256 and stored on secure cloud infrastructure with strictly controlled access management.</div>
+<div class="mt-16 text-center">
+<div class="inline-block bg-primary-fixed p-8 rounded-2xl border border-primary/20">
+<p class="text-on-primary-fixed font-bold mb-2">Registration Fee</p>
+<h4 class="text-4xl font-black text-primary mb-6">₹14,999 <span class="text-sm font-normal">/ Audit</span></h4>
+<a class="inline-block bg-primary text-on-primary px-10 py-4 rounded-xl font-bold hover:shadow-xl transition-all" href="https://rzp.io/l/atmanirbhar">Begin Onboarding Now</a>
 </div>
 </div>
 </div>
 </section>
-<!-- Contact Section -->
-<section class="py-xl bg-surface-container-high px-md" id="contact-section">
-<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xl">
+<!-- FAQ Section -->
+<section class="py-20 px-4 bg-surface-container-lowest">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-3xl font-black text-primary mb-10 text-center">Common Questions</h2>
+<div class="space-y-4">
+<details class="group bg-surface p-6 rounded-2xl border border-outline-variant open:border-primary transition-all">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        How is this different from a green audit?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant">Traditional audits provide a report that sits on a shelf. The Atmanirbhar Index provides structured data that functions as a financial asset, ready for the carbon credit registry.</p>
+</details>
+<details class="group bg-surface p-6 rounded-2xl border border-outline-variant open:border-primary transition-all">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        Is my campus data secure?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant">Yes. We use institutional-grade encryption. Data is only shared with recognized international registries during the formal certification process with your explicit consent.</p>
+</details>
+<details class="group bg-surface p-6 rounded-2xl border border-outline-variant open:border-primary transition-all">
+<summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                        How long does the monetization take?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant">Verification typically happens within 30-45 days. Listing on international registries can take 6-12 months, but our pre-verification ensures you're first in line.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- Footer / Contact -->
+<footer class="bg-primary text-on-primary pt-20 pb-10 px-4">
+<div class="max-w-container-max mx-auto">
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">public</span>
+<span class="text-xl font-black tracking-tight">Earth Carbon</span>
+</div>
+<p class="opacity-70">Engineering a brighter, self-reliant future for the generations to come through precise climate technology.</p>
+</div>
 <div>
-<h2 class="text-headline-lg font-headline-lg text-primary mb-md">Speak with Our Experts</h2>
-<p class="text-body-md text-on-surface-variant mb-lg">Ready to start your Net-Zero journey? Book a 30-minute strategic consultation with our campus sustainability team.</p>
-<div class="space-y-md">
-<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">mail</span><a class="font-bold hover:text-primary transition-colors" href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></div>
-<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">phone_in_talk</span><a class="font-bold hover:text-primary transition-colors" href="tel:+919824025431">+91 9824025431</a></div>
-<div class="flex items-center gap-md"><span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg">location_on</span><span class="font-bold">358 Saraswatinagar, Ambawadi, Ahmedabad 380015, India</span></div>
+<h5 class="font-bold mb-6">Contact Us</h5>
+<div class="flex flex-col gap-4 opacity-80">
+<a class="hover:text-secondary-fixed transition-colors" href="mailto:hello@earthcarbon.in">hello@earthcarbon.in</a>
+<p>+91 91520 90623</p>
 </div>
 </div>
-<div class="bg-white p-sm rounded-3xl shadow-xl h-[500px] overflow-hidden">
-<iframe frameborder="0" height="100%" src="https://calendly.com/earthcarbon-org/30min?embed_domain=atmanirbhar.campus&amp;embed_type=Inline" width="100%"></iframe>
+<div>
+<h5 class="font-bold mb-6">Quick Links</h5>
+<div class="flex flex-col gap-4 opacity-80">
+<a class="hover:text-secondary-fixed transition-colors" href="#how-it-works">Mechanism</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#pillars">Methodology</a>
+<a class="hover:text-secondary-fixed transition-colors" href="https://rzp.io/l/atmanirbhar">Pricing</a>
 </div>
 </div>
-</section>
-</main>
-<footer class="bg-on-tertiary-fixed text-surface-variant/80 px-gutter py-xl flex flex-col items-center text-center w-full gap-md">
-<div class="text-headline-md font-headline-md text-surface-container-lowest font-bold">Atmanirbhar Campus Index</div>
-<div class="flex flex-wrap justify-center gap-md">
-<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Privacy Policy</a>
-<a class="hover:text-secondary-fixed-dim transition-colors text-label-md" href="#">Terms of Service</a>
-</div></footer></body></html>
+<div>
+<h5 class="font-bold mb-6">Newsletter</h5>
+<div class="flex flex-col gap-4">
+<p class="text-sm opacity-70">Get the latest updates on Carbon Market Trends in India.</p>
+<div class="flex gap-2">
+<input class="bg-white/10 border-white/20 rounded-lg px-4 py-2 text-white w-full" placeholder="Email address" type="email"/>
+<button class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-secondary/90 transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-60 text-sm">
+<p>© 2024 Earth Carbon (Climate Science Division). All Rights Reserved.</p>
+<div class="flex gap-8">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = { threshold: 0.5 };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    let count = 0;
+                    const speed = target / 50;
+                    const updateCount = () => {
+                        if(count < target) {
+                            count += speed;
+                            entry.target.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            entry.target.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+
+        // Smooth Dial Animation on Scroll
+        const dialObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const dial = entry.target.querySelector('.score-dial');
+                    if(dial) dial.style.strokeDashoffset = '120'; // Animate to 82% (691 * 0.18)
+                }
+            });
+        }, { threshold: 0.5 });
+
+        dialObserver.observe(document.querySelector('.score-dial').parentElement.parentElement);
+    </script>
+</body></html>
