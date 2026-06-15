@@ -5,7 +5,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -164,24 +163,24 @@
 <div class="bg-surface-container-lowest border-t-[6px] border-primary p-8 space-y-8 border border-outline-variant relative">
 <!-- Capacity Warning -->
 <div class="space-y-2"><h2 class="font-headline-md text-headline-md text-on-surface">Initialize Institutional Profile Ledger (2026 Cohort Entry)</h2><p class="font-label-bold text-primary">Baseline Indexation Fee: ₹19,999/- <span class="text-sm font-normal text-on-surface-variant">(All-Inclusive One-Time Deposit)</span></p></div>
-<form class="space-y-6">
+<form class="space-y-6" action="https://rzp.io/rzp/CcP0g4Lx" method="GET">
 <div class="space-y-2">
 <label class="font-label-bold text-label-bold block" for="inst-name">Institution / University Name</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" placeholder="Enter Full University Name" type="text">
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" name="institution_name" placeholder="Enter Full University Name" type="text" required>
 </div>
 <div class="space-y-2">
 <label class="font-label-bold text-label-bold block" for="registrar">Registrar or Vice-Chancellor Name</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" placeholder="Legal Name" type="text">
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" name="registrar_name" placeholder="Legal Name" type="text" required>
 </div>
 <div class="space-y-2">
 <label class="font-label-bold text-label-bold block" for="email">Official Institutional Email Address</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" placeholder="registrar@university.edu.in" type="email">
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" name="email" placeholder="registrar@university.edu.in" type="email" required>
 </div>
 <div class="space-y-2">
 <label class="font-label-bold text-label-bold block" for="mobile">Contact Mobile Number</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="mobile" placeholder="+91 00000 00000" type="tel">
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="mobile" name="phone" placeholder="+91 00000 00000" type="tel" required>
 </div>
-<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform" type="submit" onclick="window.location.href='/welcome-campus'">
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform" type="submit">
                             Proceed to Secure Payment Gateway
                             <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
 </button>
@@ -209,25 +208,17 @@
 <p class="font-data-label text-data-label text-on-surface-variant">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
 <div class="flex flex-wrap justify-center gap-6">
 <a class="font-data-label text-data-label text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Registry Terms</a>
-<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Privacy Policy</a>
-<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Verification Standards</a>
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Privacy Policy</a>
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Verification Standards</a>
 <a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Contact Support</a>
 </div>
 </footer>
 <script>
-        // Simple micro-interaction for the button
+        // Micro-interaction tracking configuration for immediate deployment redirect
         document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
             const btn = e.target.querySelector('button');
-            btn.innerHTML = 'Initialising Secure Session...';
+            btn.innerHTML = 'Redirecting to Razorpay Secure Session...';
             btn.classList.add('opacity-80');
-            setTimeout(() => {
-                alert('Redirecting to secure gateway...');
-                btn.innerHTML = 'Proceed to Secure Payment Gateway';
-                btn.classList.remove('opacity-80');
-            }, 1500);
         });
     </script>
-
-
 </body></html>
