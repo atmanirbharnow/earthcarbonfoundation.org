@@ -1,11 +1,13 @@
-<!DOCTYPE html><html class="light" lang="en-GB"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Earth Carbon Foundation | Institutional Portal</title>
+<!DOCTYPE html>
+
+<html class="light" lang="en-GB"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registry Directorate | Earth Carbon Foundation</title>
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <!-- Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
@@ -98,11 +100,11 @@
             "fontSize": {
                     "label-bold": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
                     "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
-                    "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "display-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
                     "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "800"}],
                     "numerical-data": ["24px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "800"}],
                     "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
                     "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
                     "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
             }
@@ -116,15 +118,12 @@
             display: inline-block;
             vertical-align: middle;
         }
-        .capacity-dial {
-            transition: stroke-dashoffset 0.8s ease-in-out;
-        }
         .neo-input {
             border: none;
             border-bottom: 2px solid #B1B4B6;
             background: transparent;
             border-radius: 0;
-            padding: 12px 0;
+            padding: 10px 0;
             width: 100%;
             font-family: 'Public Sans', sans-serif;
         }
@@ -133,31 +132,17 @@
             border-bottom: 2px solid #005796;
             box-shadow: none;
         }
-        .certificate-border {
-            border: 8px solid #005796;
-            padding: 32px;
-            position: relative;
-        }
-        .step-dot::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 48px;
-            width: 2px;
-            height: calc(100% - 48px);
-            background-color: #B1B4B6;
-            transform: translateX(-50%);
-        }
-        .step-dot:last-child::after {
-            display: none;
-        }
         body {
             min-height: 100dvh;
             font-family: 'Public Sans', sans-serif;
+            scroll-behavior: smooth;
         }
         .heavy-numerical {
             font-weight: 800;
             letter-spacing: -0.01em;
+        }
+        .gov-border {
+            border-left: 4px solid #005796;
         }
     </style>
 </head>
@@ -167,12 +152,11 @@
 <div class="flex flex-col gap-1 max-w-container-max mx-auto">
 <div class="flex justify-between items-center">
 <span class="text-[10px] tracking-widest uppercase font-bold">2026 REGISTRY ALLOCATION COHORT</span>
-<span class="heavy-numerical text-[12px]">14/25 SLOTS</span>
+<span class="heavy-numerical text-[12px]">23/25 SLOTS SECURED</span>
 </div>
 <div class="w-full bg-white/20 h-1 overflow-hidden">
-<div class="bg-white h-full w-[56%] transition-all duration-1000"></div>
+<div class="bg-white h-full w-[92%] transition-all duration-1000"></div>
 </div>
-<p class="text-[11px] leading-tight text-white/90">Institutional allocation window closing in 48 hours.</p>
 </div>
 </div>
 <!-- Top AppBar -->
@@ -181,554 +165,209 @@
 <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
 <h1 class="text-xl font-black text-primary tracking-tighter uppercase">Earth Carbon</h1>
 </div>
+<div class="flex items-center gap-4">
+<img alt="Registry Directorate Seal" class="h-8 w-auto grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLvP0wdIXjxHDyxWGz81E37yEZa0NxREW_mEAJEdpFWQak9hZzBv4BKRe0KdIp630giVAdOxGT6F1nyd6PukFyTH56f9iR6QMPj9ev46AtfwPGB95tyUgD3alpGIey5dK3rONddbp5OvDM0drCBXsEbUagDzUm_zkOaI4mfGpeQNG5SgpaSJGPq2tWhlhmWD8RAQcbULfUkXIqgWPdXUawAZuhFMVWkZZ4B5iO34JwAZpSshyjkFH-fA0oBP"/>
 <span class="material-symbols-outlined text-primary text-3xl cursor-pointer">account_circle</span>
+</div>
 </header>
-<main class="pt-28 pb-stack-lg space-y-stack-lg">
-<!-- Hero Section -->
-<section class="px-margin-mobile text-center">
+<main class="pt-28 pb-0">
+<!-- Section 1: Hero Section -->
+<section class="px-margin-mobile py-12 text-center max-w-4xl mx-auto">
 <div class="inline-block px-3 py-1 bg-primary text-white text-[10px] tracking-[0.2em] uppercase font-black mb-6">
-            THE MODERN ARCHIVE
+            Official Registry Directorate
         </div>
 <h2 class="text-display-xl text-on-background mb-stack-md leading-tight">
-            Transform Your <span class="text-primary">Campus Sustainability Actions</span> into Lifelong <span class="text-primary">Revenue</span>.
-        </h2>
-<div class="max-w-md mx-auto space-y-6 text-on-surface leading-relaxed">
-<p class="text-body-lg">Secure your institutional placement on the Atmanirbhar Campus Index. Validate your energy, water, and waste assets to unlock long-term carbon portfolio payouts.</p>
+            The Earth Carbon Foundation Registry Directorate is now <span class="text-primary">indexing the 2026 cohort.</span>
+</h2>
+<div class="space-y-6 text-on-surface leading-relaxed max-w-2xl mx-auto">
+<p class="text-body-lg font-medium">Elevate your campus prestige through NAAC-aligned sustainability benchmarking. Transform operational assets into verifiable institutional revenue streams through our Sovereign Ledger.</p>
 <div class="h-[2px] w-16 bg-primary mx-auto"></div>
 <p class="text-[12px] font-black uppercase tracking-[0.2em] text-primary">Absolute Authority. Institutional Transparency. Environmental Sovereignty.</p>
 </div>
 </section>
-<!-- Stats -->
-<section class="px-margin-mobile">
-<div class="grid grid-cols-1 gap-4 relative">
-<div class="absolute -top-6 -right-2 w-24 h-24 z-10">
-<img alt="ECF Protocol v4.2 Certified Badge" class="w-full h-full object-contain drop-shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpkDlNrU1_InHkcw0nCk73TsNy04ZIrMTNCkE8xs5QRj9ZFm4o9UCfBBtBt-910soNWuogL-zPCWABAJbKMqpxWEU_pAiiKjlI9fhh8kkubvIfW56xrjS8NLiaSVgvqwokIrEamn-X6wyxBUVYWh0QCGPc_zI5Jkcj-FewZfKKwnHmkUFVb9-dlp4jvR9lXxm585q-oJG1urdONDIDm0-bujITK5IgwoB9kH_I7DdyYKnwSMwJOUBZx7-mGqK7dLMSO10VD6X1VzU">
-</div>
-<div class="bg-white border-2 border-primary/10 p-8 text-center shadow-sm">
-<p class="text-[10px] text-outline uppercase tracking-[0.2em] mb-6 font-black">Sector-Wide Impact</p>
-<div class="grid grid-cols-3 gap-2">
-<div>
-<p class="heavy-numerical text-3xl text-primary">1,276</p>
-<p class="text-[9px] uppercase text-on-surface font-black tracking-wider mt-1">Interventions</p>
-</div>
-<div>
-<p class="heavy-numerical text-3xl text-primary">17,255</p>
-<p class="text-[9px] uppercase text-on-surface font-black tracking-wider mt-1">tCO2e Reduced</p>
-</div>
-<div>
-<p class="heavy-numerical text-3xl text-primary">₹31 Cr+</p>
-<p class="text-[9px] uppercase text-on-surface font-black tracking-wider mt-1">Capital Saved</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Index Preview Section -->
-<section class="px-margin-mobile">
-<div class="bg-white border-2 border-primary/10 p-8 shadow-sm">
-<div class="text-center mb-8">
-<h3 class="text-headline-md text-primary mb-3 uppercase tracking-tight font-black">🏆 National Atmanirbhar Campus Index Leaderboard</h3>
-<p class="text-body-md text-on-surface-variant max-w-2xl mx-auto">Review the active registry entries for leading universities across the region. See how peer institutions are scoring on the four asset pillars—Energy, Water, Waste, and Canopy—to optimize their resource self-reliance.</p>
-</div>
-<div class="relative max-w-md mx-auto mb-8">
-<div class="divide-y divide-primary/5">
-<div class="py-3 flex justify-between items-center">
-<span class="text-body-md font-bold text-on-surface">1. GTU</span>
-<span class="heavy-numerical text-primary">91/100</span>
-</div>
-<div class="py-3 flex justify-between items-center">
-<span class="text-body-md font-bold text-on-surface">2. Symbiosis</span>
-<span class="heavy-numerical text-primary">88/100</span>
-</div>
-<div class="py-3 flex justify-between items-center">
-<span class="text-body-md font-bold text-on-surface">3. Nirma</span>
-<span class="heavy-numerical text-primary">86/100</span>
-</div>
-<div class="py-3 flex justify-between items-center relative">
-<span class="text-body-md font-bold text-on-surface">4. PDEU</span>
-<span class="heavy-numerical text-primary">84/100</span>
-<div class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-</div>
-</div>
-</div>
-<div class="flex justify-center">
-<a class="flex items-center gap-3 px-8 py-4 border border-[#E5E7EB] bg-white text-on-surface text-[13px] uppercase tracking-widest font-black transition-all hover:border-eco-emerald hover:text-eco-emerald group" href="https://drive.google.com/file/d/12VofApIRJEgYLjQ9cBghzQrs-9oy_5t5/view?usp=sharing" target="_blank">
-<span class="material-symbols-outlined text-primary group-hover:text-eco-emerald transition-colors">analytics</span>
-<span class="">📊 Download Full Index Leaderboard (Excel Master)</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Standards Logo -->
-<section class="px-margin-mobile">
-<div class="flex flex-col items-center gap-4 opacity-60 grayscale hover:grayscale-0 transition-all">
-<p class="text-[10px] uppercase tracking-[0.2em] text-outline font-black">Aligned with Global Registry Standards</p>
-<div class="w-full max-w-xs">
-<img alt="UNFCCC, World Bank, and NAMA Logos" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9EOR4q8rGyj8vylgnjQoWgpc3UOMKfg2FxY4jS_9Y4veuR63H1aYYkCf22cwNal7CECi9RSaUm5kuOn5pDFAmSp5yujH4S7IpAuMbQ5D0HO97bNsxVL81H1ee8P6pjuJP5Ov0KdS7shqiQDWG0jKR9BL4iS-cNDG_LHEvqBzinPF4jNYqLBsSlj626mH_SbHdF11mYLjWUld9za568Vt2QL2Y0Jvon7wvfgLErw42SzoH8Q0C4tmDptLXMBQfT2IKvV09iF7hNdz2">
-</div>
-</div>
-</section>
-<!-- Capacity Dials -->
-<section class="px-margin-mobile"><div class="text-center mb-8"><h3 class="text-headline-md text-primary uppercase font-black tracking-tight">Carbon Asset Progress</h3></div>
-<div class="grid grid-cols-2 gap-4">
-<!-- Dial 1 -->
-<div class="text-center p-5 bg-white border border-primary/5 shadow-sm">
-<div class="relative w-24 h-24 mx-auto mb-4">
-<svg class="w-full h-full transform -rotate-90">
-<circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
-<circle class="capacity-dial" cx="48" cy="48" fill="transparent" id="dial-solar" r="40" stroke="#00854d" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="12" style="stroke-dashoffset: 62.8319;"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="heavy-numerical text-lg text-on-surface font-black" id="dial-solar-val">75%</span>
-</div>
-</div>
-<span class="text-[10px] uppercase block leading-tight font-black text-primary">Renewable Energy</span>
-<span class="text-[9px] text-outline block mt-1 font-bold">Solar Thermal</span>
-</div>
-<!-- Dial 2 -->
-<div class="text-center p-5 bg-white border border-primary/5 shadow-sm">
-<div class="relative w-24 h-24 mx-auto mb-4">
-<svg class="w-full h-full transform -rotate-90">
-<circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
-<circle class="capacity-dial" cx="48" cy="48" fill="transparent" id="dial-water" r="40" stroke="#00854d" stroke-dasharray="251.2" stroke-dashoffset="25.1" stroke-width="12" style="stroke-dashoffset: 25.1327;"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="heavy-numerical text-lg text-on-surface font-black" id="dial-water-val">90%</span>
-</div>
-</div>
-<span class="text-[10px] uppercase block leading-tight font-black text-primary">Water Harvesting</span>
-<span class="text-[9px] text-outline block mt-1 font-bold">Recycling Protocols</span>
-</div>
-<!-- Dial 3 -->
-<div class="text-center p-5 bg-white border border-primary/5 shadow-sm">
-<div class="relative w-24 h-24 mx-auto mb-4">
-<svg class="w-full h-full transform -rotate-90">
-<circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
-<circle class="capacity-dial" cx="48" cy="48" fill="transparent" id="dial-waste" r="40" stroke="#00854d" stroke-dasharray="251.2" stroke-dashoffset="125.6" stroke-width="12" style="stroke-dashoffset: 125.664;"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="heavy-numerical text-lg text-on-surface font-black" id="dial-waste-val">50%</span>
-</div>
-</div>
-<span class="text-[10px] uppercase block leading-tight font-black text-primary">Organic Waste</span>
-<span class="text-[9px] text-outline block mt-1 font-bold">Methane Capture</span>
-</div>
-<!-- Dial 4 -->
-<div class="text-center p-5 bg-white border border-primary/5 shadow-sm">
-<div class="relative w-24 h-24 mx-auto mb-4">
-<svg class="w-full h-full transform -rotate-90">
-<circle class="text-surface-container-high" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="4"></circle>
-<circle class="capacity-dial" cx="48" cy="48" fill="transparent" id="dial-canopy" r="40" stroke="#00854d" stroke-dasharray="251.2" stroke-dashoffset="201.0" stroke-width="12" style="stroke-dashoffset: 201.062;"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="heavy-numerical text-lg text-on-surface font-black" id="dial-canopy-val">20%</span>
-</div>
-</div>
-<span class="text-[10px] uppercase block leading-tight font-black text-primary">Tree Plantations</span>
-<span class="text-[9px] text-outline block mt-1 font-bold">Verified Assets</span>
-</div>
-</div>
-</section><section class="px-margin-mobile">
-<div class="bg-surface-container-low border-l-4 border-primary p-6 flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex flex-col md:flex-row gap-x-8 gap-y-4">
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary" href="mailto:info@earthcarbonfoundation.org">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-info@earthcarbonfoundation.org
-</a>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary" href="tel:+919824025431">
-<span class="material-symbols-outlined text-[20px]">call</span>
-+91 98240 25431
-</a>
-</div>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary hover:underline" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
-<span class="material-symbols-outlined text-[20px]">forum</span>
-Talk to us about your green journey
-</a>
-</div>
-</section>
-<!-- Participation Mandate -->
-<section class="px-margin-mobile">
-<div class="bg-primary text-white p-8 shadow-xl relative overflow-hidden">
-<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
-<h3 class="text-headline-lg mb-6 border-l-4 border-white pl-4 uppercase font-black tracking-tight">The Participation Mandate</h3>
-<div class="space-y-6">
-<p class="text-body-lg leading-relaxed text-white/90">
-                    Campuses are the <span class="font-black">training grounds</span> for building the green citizenry. Future leaders are forged here; indexing your sustainability actions transforms the physical campus into a <span class="font-black uppercase tracking-wide">Living Laboratory</span> for environmental stewardship.
-                </p>
-<div class="grid grid-cols-1 gap-4">
-<div class="flex items-start gap-3 bg-white/10 p-5 border border-white/10">
-<span class="material-symbols-outlined text-white text-3xl">military_tech</span>
-<div>
-<h4 class="text-[12px] uppercase tracking-wider font-black">Enhanced Institutional Ranking</h4>
-<p class="text-[13px] text-white/70">Elevate your global standing with audited environmental benchmarks.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 bg-white/10 p-5 border border-white/10">
-<span class="material-symbols-outlined text-white text-3xl">account_balance</span>
-<div>
-<h4 class="text-[12px] uppercase tracking-wider font-black">Verifiable ESG Portfolio</h4>
-<p class="text-[13px] text-white/70">Transition from qualitative claims to quantitative, sovereign assets.</p>
-</div>
-</div>
-<div class="flex items-start gap-3 bg-white/10 p-5 border border-white/10">
-<span class="material-symbols-outlined text-white text-3xl">payments</span>
-<div>
-<h4 class="text-[12px] uppercase tracking-wider font-black">Asset Monetization</h4>
-<p class="text-[13px] text-white/70">Direct financial returns from verified campus efficiency improvements.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section class="px-margin-mobile">
-<div class="bg-surface-container-low border-l-4 border-primary p-6 flex flex-col md:flex-row justify-between items-center gap-6">
-<div class="flex flex-col md:flex-row gap-x-8 gap-y-4">
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary" href="mailto:info@earthcarbonfoundation.org">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-info@earthcarbonfoundation.org
-</a>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary" href="tel:+919824025431">
-<span class="material-symbols-outlined text-[20px]">call</span>
-+91 98240 25431
-</a>
-</div>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-primary hover:underline" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
-<span class="material-symbols-outlined text-[20px]">forum</span>
-Talk to us about your green journey
-</a>
-</div>
-</section>
-<!-- Sincerity Protocol -->
-<section class="px-margin-mobile">
-<div class="bg-white border-4 border-primary p-8 shadow-sm relative overflow-hidden">
-<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
-<h3 class="text-headline-md mb-6 border-l-4 border-primary pl-4 uppercase font-black">The Sincerity Protocol</h3>
-<div class="space-y-4 relative z-10">
-<p class="text-body-lg leading-relaxed text-on-surface">
-                    Every low-carbon action, no matter how granular, is treated with <span class="text-primary font-black uppercase tracking-tight">Utmost Sincerity</span>. We believe that the cumulative impact of small-scale institutional shifts forms the <span class="font-black">bedrock of environmental sovereignty</span>.
-                </p>
-<p class="text-body-md text-on-surface-variant leading-relaxed font-medium">
-                    Absolute integrity is not a choice but a necessity. Our protocol ensures that every kilowatt saved and every gram of waste diverted is indexed with the highest level of verification, securing your institution's legacy in the global green transition.
-                </p>
-</div>
-</div>
-</section>
-<!-- Indexation Journey -->
-<section class="px-margin-mobile">
-<div class="bg-white border-2 border-primary/10 p-8 shadow-sm">
-<h3 class="text-headline-md mb-12 text-center text-primary uppercase font-black">The Indexation Journey</h3>
-<div class="space-y-0">
-<div class="flex gap-6 relative step-dot pb-12">
-<div class="z-10 bg-primary text-white w-14 h-14 flex items-center justify-center shadow-lg">
-<span class="heavy-numerical text-xl">01</span>
-</div>
-<div class="pt-2">
-<h4 class="text-lg font-black text-on-surface uppercase mb-1">Baseline Audit</h4>
-<p class="text-caption text-on-surface-variant">Initiate profile and secure your priority methodology slot in the current cohort.</p>
-</div>
-</div>
-<div class="flex gap-6 relative step-dot pb-12">
-<div class="z-10 bg-primary text-white w-14 h-14 flex items-center justify-center shadow-lg">
-<span class="heavy-numerical text-xl">02</span>
-</div>
-<div class="pt-2">
-<h4 class="text-lg font-black text-on-surface uppercase mb-1">Evidence Submission</h4>
-<p class="text-caption text-on-surface-variant">Upload engineering logs, infrastructure data, and historical utility evidence.</p>
-</div>
-</div>
-<div class="flex gap-6 relative step-dot pb-12">
-<div class="z-10 bg-primary text-white w-14 h-14 flex items-center justify-center shadow-lg">
-<span class="heavy-numerical text-xl">03</span>
-</div>
-<div class="pt-2">
-<h4 class="text-lg font-black text-on-surface uppercase mb-1">Formal Verification</h4>
-<p class="text-caption text-on-surface-variant">ECF Protocol v4.2 rigorous audit and verified environmental asset valuation.</p>
-</div>
-</div>
-<div class="flex gap-6 relative step-dot">
-<div class="z-10 bg-eco-emerald text-white w-14 h-14 flex items-center justify-center shadow-lg">
-<span class="material-symbols-outlined text-3xl">verified</span>
-</div>
-<div class="pt-2">
-<h4 class="text-lg font-black text-on-surface uppercase mb-1">Asset Issuance</h4>
-<p class="text-caption text-on-surface-variant">Download serial-numbered certificates and unlock carbon credit monetization.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Intake Hook Form -->
-<section class="px-margin-mobile">
-<div class="bg-white border-t-8 border-primary p-8 shadow-2xl relative">
-<div class="absolute top-4 right-4 w-24 h-24 opacity-5 pointer-events-none">
-<span class="material-symbols-outlined text-[96px]">description</span>
-</div>
-<h3 class="text-headline-md mb-8 border-l-4 border-primary pl-4 uppercase font-black">Initiate Campus Profile</h3>
-<form class="space-y-8" id="intake-form">
-<div class="space-y-6">
-<div>
-<label class="text-[10px] uppercase text-primary font-black tracking-[0.2em] block mb-2">Institution Name</label>
-<input class="neo-input text-on-surface font-bold text-lg" placeholder="e.g. National Institute of Technology" required="" type="text">
-</div>
-<div>
-<label class="text-[10px] uppercase text-primary font-black tracking-[0.2em] block mb-2">Institutional Email</label>
-<input class="neo-input text-on-surface font-bold text-lg" placeholder="registrar@univ.edu.in" required="" type="email">
-</div>
-<div class="grid grid-cols-1 gap-6">
+<!-- Section 2: The Action Core (Intake + Pricing) -->
+<section class="px-margin-mobile py-12 bg-surface-container-low border-y-2 border-primary/10">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+<!-- Enrollment Form -->
+<div class="bg-white p-8 shadow-xl border-t-8 border-primary relative">
+<h3 class="text-headline-md mb-8 gov-border pl-4 uppercase font-black">Initiate Campus Profile</h3>
+<form class="space-y-6" id="intake-form">
 <div class="space-y-4">
-<h4 class="text-[11px] text-primary border-b-2 border-primary/10 pb-2 uppercase tracking-widest font-black">Sustainability Metrics</h4>
-<div class="grid grid-cols-1 gap-4">
-<div class="space-y-2">
+<div>
+<label class="text-[10px] uppercase text-primary font-black tracking-widest block mb-1">Institution Name</label>
+<input class="neo-input text-on-surface font-bold text-md" placeholder="e.g. National Institute of Technology" required="" type="text"/>
+</div>
+<div>
+<label class="text-[10px] uppercase text-primary font-black tracking-widest block mb-1">Institutional Email</label>
+<input class="neo-input text-on-surface font-bold text-md" placeholder="registrar@univ.edu.in" required="" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
 <label class="text-[10px] uppercase text-outline font-black">Energy Index</label>
-<div class="relative">
-<select class="neo-input text-body-md font-bold appearance-none cursor-pointer pr-10">
+<select class="neo-input text-sm font-bold appearance-none cursor-pointer">
 <option>Solar Ready</option>
 <option>Grid Dependent</option>
-<option>Hybrid</option>
 </select>
-<span class="material-symbols-outlined absolute right-0 top-3 text-primary pointer-events-none text-2xl">expand_more</span>
 </div>
-</div>
-<div class="space-y-2">
-<label class="text-[10px] uppercase text-outline font-black">Conservation Level</label>
-<div class="relative">
-<select class="neo-input text-body-md font-bold appearance-none cursor-pointer pr-10">
-<option>Rainwater Harvesting</option>
-<option>Greywater Recycling</option>
-<option>Efficient Fixtures</option>
+<div class="space-y-1">
+<label class="text-[10px] uppercase text-outline font-black">Waste Level</label>
+<select class="neo-input text-sm font-bold appearance-none cursor-pointer">
+<option>Zero Waste</option>
+<option>Mixed Waste</option>
 </select>
-<span class="material-symbols-outlined absolute right-0 top-3 text-primary pointer-events-none text-2xl">expand_more</span>
-</div>
-</div>
-<div class="space-y-2">
-<label class="text-[10px] uppercase text-outline font-black">Waste Allocation</label>
-<div class="relative">
-<select class="neo-input text-body-md font-bold appearance-none cursor-pointer pr-10" id="waste-allocation-input">
-<option value="Mixed Waste">Mixed Waste</option>
-<option value="Source Segregated">Source Segregated</option>
-<option value="Zero Waste">Zero Waste Facility</option>
-</select>
-<span class="material-symbols-outlined absolute right-0 top-3 text-primary pointer-events-none text-2xl">expand_more</span>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div>
-<label class="text-[10px] uppercase text-primary font-black tracking-[0.2em] block mb-2">Impact Narrative</label>
-<textarea class="neo-input min-h-[140px] text-body-md font-medium" placeholder="Provide a comprehensive overview of your campus's sustainability initiatives across energy, water, waste, and green infrastructure..."></textarea>
+<label class="text-[10px] uppercase text-primary font-black tracking-widest block mb-1">Impact Narrative</label>
+<textarea class="neo-input min-h-[100px] text-sm font-medium" placeholder="Overview of campus sustainability initiatives..."></textarea>
 </div>
 </div>
 <div class="pt-4">
-<a class="w-full bg-primary text-white py-6 px-8 flex flex-col items-center justify-center gap-1 hover:bg-primary/90 transition-all shadow-xl group" href="https://forms.gle/5KAREG1tjMxW7UYJ8" target="_blank">
-<span class="text-xl font-black uppercase tracking-tight">Submit Primary Enrollment</span>
-<span class="text-[11px] opacity-70 group-hover:opacity-100 font-bold tracking-widest">STEP 1: SECURE COHORT SLOT</span>
-</a>
+<button class="w-full bg-primary text-white py-5 px-8 flex flex-col items-center justify-center gap-1 hover:bg-primary/90 transition-all shadow-lg group" type="submit">
+<span class="text-lg font-black uppercase tracking-tight">Initialize Institutional Profile Ledger</span>
+<span class="text-[10px] opacity-70 font-bold tracking-widest uppercase">Step 1: Secure Registry Slot</span>
+</button>
 </div>
 </form>
-<div class="mt-8 pt-6 border-t border-primary/10">
-<p class="text-[11px] text-outline leading-relaxed font-bold">
-<span class="font-black text-on-surface">Legal Disclaimer:</span> Indexation fees are non-refundable after the 15-day verification window opens. Data transmitted is encrypted under the ECF Protocol v4.2 and stored in the verified Verification Archive.
-                </p>
 </div>
-</div>
-<!-- Payment Section -->
-<div class="mt-8 p-8 bg-accent-light-blue border-4 border-primary rounded shadow-inner space-y-6">
-<div class="flex items-center gap-3 border-b-2 border-primary/20 pb-4">
-<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-<h4 class="text-xl font-black text-primary uppercase tracking-tight">Verification &amp; Activation</h4>
-</div>
-<div class="space-y-6">
-<p class="text-body-md text-on-surface font-bold leading-relaxed">
-<span class="text-primary uppercase tracking-wider">Next Step:</span> After completing the Step 1 enrollment form, proceed here to activate your institutional audit. Payment triggers the ledger generation and secures your verified cohort slot.
-                </p>
-<a class="w-full bg-primary text-white py-6 px-8 flex flex-col items-center justify-center gap-1 hover:bg-primary/95 transition-all shadow-lg" href="https://rzp.io/rzp/CcP0g4Lx" target="_blank">
-<span class="text-xl font-black uppercase tracking-tight">Pay Verification Fee (₹19,999/-)</span>
-<span class="text-[12px] opacity-90 font-black tracking-widest">ACTIVATE ECF PROTOCOL V4.2 AUDIT</span>
-</a>
-<div class="flex flex-col items-center gap-4 pt-2">
-<p class="text-[10px] uppercase text-outline font-black tracking-widest">Secure Payment Partners | Encrypted Gateway</p>
-<div class="w-48 opacity-90">
-<img alt="Visa, Mastercard, Bank Transfer" class="w-full h-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLtU-HFXtVG9LbgfqTbtGVn66qhdQYKcpuXAbsUbaGWipTqENzc4fWRLwenmEEsHQjsfuqMBUhNC_a3vS2qvx6IJwFOxyDxwS0nlXjZKA0h8TdF2KSNXwLKttMHtUYoFU_ZH_WkHmoUnScJ5TKl7J4dmPWYmLi6Ph50uFnFjvpiq-MJMM_sdBVVX4HBpTioq7wIiRJ3G3jnL6VsJQpBc9GCCSj_E8OvbG5q4Qr16sRJICp6HLAYTrFf-ZE1j">
-</div>
-</div>
-</div>
-</div>
-<!-- Resources Section -->
-<section class="mt-12 space-y-6">
-<div class="text-center mb-6">
-<span class="text-[11px] text-primary uppercase tracking-[0.4em] font-black">Post-Payment Resources</span>
-</div>
-<div class="bg-primary-container text-white p-8 border-l-[12px] border-primary shadow-xl">
-<div class="flex flex-col gap-6">
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-white text-4xl">download_for_offline</span>
+<!-- Pricing Card -->
+<div class="bg-white border-2 border-primary/20 p-8 shadow-xl flex flex-col h-full justify-between">
 <div>
-<h4 class="text-xl font-black leading-tight mb-3 uppercase tracking-tight">Institutional Evidence &amp; Preparation Manual Available</h4>
-<p class="text-body-md text-white/80 leading-relaxed font-medium">
-                                Download the official v2026.1 registry manual. This document contains precise framing guides for your water pipe diameter photos, scale metrics, and the mandatory utility ledger checklists required to successfully pass our validation pipeline.
-                            </p>
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-headline-md uppercase font-black text-primary">Indexation Fee</h3>
+<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
 </div>
+<div class="mb-8">
+<div class="flex items-baseline gap-2">
+<span class="text-display-xl heavy-numerical text-primary">₹19,999</span>
+<span class="text-caption text-outline font-bold uppercase">/ Audit Cycle</span>
 </div>
-<div class="pt-2">
-<a class="w-full bg-white text-primary py-5 px-6 flex items-center justify-center gap-3 hover:bg-surface transition-all font-black" href="https://drive.google.com/file/d/1S906uzsJ9gpmv0CyoBWB7HqDVKSEXkIK/view?usp=sharing" target="_blank">
-<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
-<span class="uppercase tracking-widest text-[13px]">Download Complete Welcome Kit (PDF)</span>
-</a>
+<p class="text-caption text-on-surface-variant mt-2 font-medium">Standard Institutional Verification for ECF Protocol v4.2</p>
 </div>
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-eco-emerald text-xl">check_circle</span>
+<span class="text-sm font-bold">Formal Sovereign Registry Issuance</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-eco-emerald text-xl">check_circle</span>
+<span class="text-sm font-bold">NAAC/NIRF Environmental Evidence Pack</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-eco-emerald text-xl">check_circle</span>
+<span class="text-sm font-bold">Monetization Pipeline Activation</span>
+</li>
+</ul>
 </div>
-</div>
-</section>
-</section>
-<!-- Certificate Preview Section -->
-<section class="px-margin-mobile">
-<div class="text-center mb-6">
-<span class="text-[11px] text-primary uppercase tracking-[0.4em] font-black">Official Registry Credentials</span>
-</div>
-<div class="bg-white certificate-border shadow-2xl relative">
-<div class="flex justify-between items-start mb-12">
-<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
-<div class="text-right">
-<p class="text-[10px] uppercase text-primary font-black tracking-widest mb-1">Registry Serial Code</p>
-<p class="heavy-numerical text-[12px] text-on-surface">ACI-IN-MH-2026-99284-GOLD</p>
-</div>
-</div>
-<div class="text-center space-y-6 mb-16">
-<h3 class="text-headline-lg text-primary font-black uppercase tracking-tight leading-none">Primary Institutional Enrollment</h3>
-<p class="text-caption text-on-surface-variant font-bold uppercase tracking-widest">This document certifies the pending verification of</p>
-<p class="text-headline-lg border-b-4 border-primary/20 inline-block px-8 pb-3 uppercase tracking-tighter font-black text-on-surface">St. Xavier's Academic Estate</p>
-<div class="grid grid-cols-1 gap-4 mt-12 max-w-sm mx-auto">
-<div class="flex justify-between border-b-2 border-primary/5 pb-3">
-<span class="text-[11px] uppercase text-outline font-black tracking-widest">Retrospective tCO2e</span>
-<span class="heavy-numerical text-[16px] text-primary">4,250 tCO2e</span>
-</div>
-<div class="flex justify-between border-b-2 border-primary/5 pb-3">
-<span class="text-[11px] uppercase text-outline font-black tracking-widest">Atmanirbhar Index</span>
-<span class="heavy-numerical text-[16px] text-primary">82.4%</span>
-</div>
-<div class="flex justify-between border-b-2 border-primary/5 pb-3">
-<span class="text-[11px] uppercase text-outline font-black tracking-widest">Projected Revenue</span>
-<span class="heavy-numerical text-[16px] text-eco-emerald">₹12.4M Annually</span>
-</div>
-</div>
-</div>
-<div class="mt-8 pt-8 border-t-2 border-primary/10">
-<p class="text-[10px] uppercase text-outline mb-2 font-black tracking-widest">Permanent Registry Link</p>
-<p class="heavy-numerical text-[11px] text-primary underline">ecf.registry.org/v4/aci-in-mh-2026-99284</p>
-</div>
-<div class="flex justify-between items-end mt-20">
-<div class="text-left">
-<div class="mb-4">
-<img alt="ECF Seal" class="w-20 h-20 opacity-40 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2n5hhpprxNxfba7iXLuKor1TU9Cd6NngebBrbXZeO1v4Mll-JF5W_zS1mBhOBa_qqwwX6aQE0L4o7TJz11iacbA7tx6dnllsG9IOZaxLgdQbwEG5PDPJ2drp386er5k8wwKgptN4a-2ir1f2yV-RsPTIWudVXc49BaMXe-dx3MdMXzKKmaS_HNUQN_5MshixwMHDv0cyvNmwMKtf8Ju0OwTsFqCqxQitsEipYuxmxAG4R7x4pdPh3MVwl_bDXGfioDIav2Gr1SPfe">
-</div>
-<p class="text-[10px] uppercase font-black text-primary tracking-widest">Emission Reduction Officer</p>
-</div>
-<div class="text-center">
-<p class="text-2xl text-primary border-b-2 border-primary font-black tracking-tighter mb-2">Amitsinh Vaghela</p>
-<p class="text-[10px] uppercase font-black text-outline tracking-[0.2em]">Authorised Signature</p>
-</div>
-</div>
-</div>
-<p class="text-center mt-8 text-caption text-outline font-black uppercase tracking-widest">High-integrity credentials for formal institutional reporting.</p>
-</section>
-<!-- Benchmarks -->
-<section class="px-margin-mobile" id="institutional-benchmarks">
-<div class="bg-surface-container-low border-4 border-primary/20 p-8">
-<h3 class="text-headline-md mb-8 border-l-4 border-primary pl-4 uppercase font-black text-primary">Sustainability ROI Index</h3>
-<p class="text-body-md text-on-surface-variant mb-10 font-bold">Typical annual carbon asset ROI based on verified ECF Protocol v4.2 benchmarks.</p>
 <div class="space-y-4">
-<div class="flex justify-between items-center p-6 bg-white border border-primary/10 shadow-sm">
-<div class="pr-4">
-<p class="text-[10px] uppercase text-outline font-black tracking-widest mb-2">Small Campus</p>
-<p class="text-body-md font-black text-on-surface uppercase tracking-tight">Base Methodology Enrollment</p>
-</div>
-<div class="text-right shrink-0">
-<p class="heavy-numerical text-eco-emerald text-2xl">₹4.2L - ₹8.5L</p>
-<p class="text-[10px] uppercase text-outline font-black tracking-widest">Annual Yield</p>
-</div>
-</div>
-<div class="flex justify-between items-center p-6 bg-white border-4 border-primary shadow-lg scale-[1.02] transform transition-transform">
-<div class="pr-4">
-<p class="text-[10px] uppercase text-primary font-black tracking-widest mb-2">Mid-Size Campus</p>
-<p class="text-body-md font-black text-primary uppercase tracking-tight">Advanced Audit Protocol</p>
-</div>
-<div class="text-right shrink-0">
-<p class="heavy-numerical text-eco-emerald text-2xl">₹12.4L - ₹28.1L</p>
-<p class="text-[10px] uppercase text-outline font-black tracking-widest">Annual Yield</p>
-</div>
-</div>
-<div class="flex justify-between items-center p-6 bg-white border border-primary/10 shadow-sm">
-<div class="pr-4">
-<p class="text-[10px] uppercase text-outline font-black tracking-widest mb-2">Large Campus</p>
-<p class="text-body-md font-black text-on-surface uppercase tracking-tight">Institutional Portfolio Index</p>
-</div>
-<div class="text-right shrink-0">
-<p class="heavy-numerical text-eco-emerald text-2xl">₹45L+</p>
-<p class="text-[10px] uppercase text-outline font-black tracking-widest">Annual Yield</p>
+<a class="w-full bg-primary text-white py-5 px-8 flex flex-col items-center justify-center gap-1 hover:bg-primary/95 transition-all" href="https://rzp.io/rzp/CcP0g4Lx" target="_blank">
+<span class="text-lg font-black uppercase tracking-tight">Activate Audit &amp; Pay Fee</span>
+<span class="text-[10px] opacity-90 font-black tracking-widest uppercase">Encrypted Payment Gateway</span>
+</a>
+<div class="flex flex-col items-center gap-3">
+<img alt="Secure Payment Partners" class="h-6 w-auto opacity-80" src="https://lh3.googleusercontent.com/aida/AP1WRLvYxGiE71q-zmo7-1lOpa3CS087_JnKfkxFQ0GpMJGhnDj2SNur1AXEGO3hrqYbr1Cbwxa1tAl_qIlOtHpnG9N0_-8NSAB1M7qkhIY5hW-2Ft_fEz2zR4q_1YRfPANWC4EIMobHYjL4PnnpqAZs17m46cmuSuUBO-oBNbQGRtN9BHYs-jaXIthwnWcYbjYiatlPJMaMQhEdf32lWPRtdXboHATX3AlAqTQo-ZjioJECKLDtf6UyuK_I6aQP"/>
+<p class="text-[9px] uppercase text-outline font-black tracking-widest">Legal Document: Indexation terms apply</p>
 </div>
 </div>
 </div>
-<div class="mt-10 p-5 bg-primary text-white text-center shadow-md">
-<p class="text-[12px] font-black uppercase tracking-[0.2em]">
-                    *Estimates based on 2024–25 market valuation of high-velocity carbon credits.
+</div>
+</section>
+<!-- Section 3: Trust & Peer Pressure (Leaderboard) -->
+<section class="px-margin-mobile py-16 bg-white">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-10">
+<h3 class="text-headline-md text-primary mb-3 uppercase tracking-tight font-black">🏆 National Atmanirbhar Campus Index</h3>
+<p class="text-body-md text-on-surface-variant max-w-xl mx-auto">Peer institutions actively indexed on the Sovereign Ledger for the 2026 Registry cycle.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+<div class="p-4 border-2 border-primary/10 flex justify-between items-center bg-surface-container-lowest">
+<span class="font-black text-on-surface">1. GTU</span>
+<span class="heavy-numerical text-primary">91/100</span>
+</div>
+<div class="p-4 border-2 border-primary/10 flex justify-between items-center bg-surface-container-lowest">
+<span class="font-black text-on-surface">2. Symbiosis</span>
+<span class="heavy-numerical text-primary">88/100</span>
+</div>
+<div class="p-4 border-2 border-primary/10 flex justify-between items-center bg-surface-container-lowest">
+<span class="font-black text-on-surface">3. Nirma</span>
+<span class="heavy-numerical text-primary">86/100</span>
+</div>
+<div class="p-4 border-2 border-primary/10 flex justify-between items-center bg-surface-container-lowest">
+<span class="font-black text-on-surface">4. PDEU</span>
+<span class="heavy-numerical text-primary">84/100</span>
+</div>
+</div>
+<div class="text-center space-y-4">
+<a class="inline-flex items-center gap-3 px-10 py-4 border-4 border-primary text-primary text-[14px] uppercase tracking-widest font-black transition-all hover:bg-primary hover:text-white" href="https://forms.gle/5KAREG1tjMxW7UYJ8" target="_blank">
+                    Initialize Institutional Profile Ledger &amp; Secure Welcome Kit
+                </a>
+<p class="text-error text-[11px] font-black uppercase tracking-[0.2em] animate-pulse">
+                    ⚠️ Only 2 slots remaining for the current verification cycle.
                 </p>
 </div>
+<div class="mt-16 flex flex-col items-center gap-4 opacity-50 grayscale">
+<p class="text-[10px] uppercase tracking-[0.2em] font-black">Aligned with Global Registry Standards</p>
+<div class="flex gap-8 items-center h-8">
+<img alt="Standard Logo 1" class="h-full w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLu_wf9JHkv_XFvF3Tw0I8pXtrstiXlR2R_zGCop5bqYpBzRC-3sGvg9fdBa-CQYJ8zwwfjV4yt3XY60wotPW_u1nlTIqsBh3m2jGvl7YG87U1m4Yt_jHUlbRMFwzx5KhHNa9qZV36Ria45uJfBEqv5fEvHJ4ji6rGTqn4qHbmVAalfK6ZhJXyU3ZM4VJnWcA37Yal81X0RuEH2xzoi4vYebvrV5fKrCAKDOfY6D8D2tGzGq0WVdc0glxEwj"/>
+<img alt="Standard Logo 2" class="h-full w-auto" src="https://lh3.googleusercontent.com/aida/AP1WRLsH0iykIoQvJfHUqjyb9QMOCfWKsxOMnNx_itVSRIhsnfj99wbH6TFUuLQbxQA3nBWrxymcWUYkt5YltofoV6wu_emME4pvcaPI-4IfXZmQpccITvFX9LX9nIJ72QS439SP1RMhRDEU7_-hwkTOD1WuJCM5sBYWomfyV46baQq_zk5aG5kN4LokgMF_dXlnQluC3StBUtlSeDkHGVtL0aIbbK9IOUXUCgaII2DJDfCVdnY73LmLCXR6QP5Z"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Onboarding & Footer -->
+<section class="bg-primary text-white py-16 px-margin-mobile">
+<div class="max-w-container-max mx-auto">
+<div class="bg-white/10 p-8 border-l-[12px] border-white mb-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-4xl">download_for_offline</span>
+<div>
+<h4 class="text-xl font-black uppercase tracking-tight mb-2">Registry Welcome Kit (v2026.1)</h4>
+<p class="text-white/80 text-sm max-w-md">The complete institutional evidence manual, engineering log checklist, and audit pipeline guide.</p>
+</div>
+</div>
+<a class="bg-white text-primary px-8 py-5 flex items-center gap-3 hover:bg-surface transition-all font-black uppercase tracking-widest text-[13px] whitespace-nowrap" href="https://drive.google.com/file/d/1S906uzsJ9gpmv0CyoBWB7HqDVKSEXkIK/view?usp=sharing" target="_blank">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+                    Download Welcome Kit (PDF)
+                </a>
+</div>
+<footer class="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="text-3xl font-black uppercase tracking-tighter">Earth Carbon</span>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-2 opacity-70">
+<a class="text-[11px] uppercase font-black hover:underline" href="#">Registry Terms</a>
+<a class="text-[11px] uppercase font-black hover:underline" href="#">Privacy Policy</a>
+<a class="text-[11px] uppercase font-black hover:underline" href="#">Verification Standards</a>
+</div>
+<p class="text-[10px] text-white/40 font-black uppercase tracking-[0.3em]">
+                        © 2024 Earth Carbon Foundation. Institutional Transparency Protocol v4.2
+                    </p>
+</div>
+<div class="space-y-4 md:text-right">
+<a class="flex items-center md:justify-end gap-2 text-[12px] uppercase font-black tracking-widest" href="mailto:info@earthcarbonfoundation.org">
+<span class="material-symbols-outlined text-[18px]">mail</span> info@earthcarbonfoundation.org
+                    </a>
+<a class="flex items-center md:justify-end gap-2 text-[12px] uppercase font-black tracking-widest" href="tel:+919824025431">
+<span class="material-symbols-outlined text-[18px]">call</span> +91 98240 25431
+                    </a>
+<a class="flex items-center md:justify-end gap-2 text-[12px] uppercase font-black tracking-widest text-white hover:underline" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
+<span class="material-symbols-outlined text-[18px]">forum</span> Talk to us, we are listening
+                    </a>
+</div>
+</footer>
 </div>
 </section>
 </main>
-<!-- Footer -->
-<footer class="bg-primary text-white px-margin-mobile py-16 text-center md:text-left">
-<div class="max-w-container-max mx-auto flex flex-col gap-10">
-<div class="flex items-center justify-center md:justify-start gap-4">
-<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
-<span class="text-3xl font-black uppercase tracking-tighter">Earth Carbon</span>
-</div>
-<div class="flex flex-wrap justify-center md:justify-start gap-x-12 gap-y-6">
-<a class="text-[12px] uppercase font-black hover:underline transition-all tracking-[0.2em]" href="https://drive.google.com/file/d/1KLsquPudCyeFQIKDaTl_XKmtgon1G0w0/view?usp=drive_link" target="_blank">Registry Terms</a>
-<a class="text-[12px] uppercase font-black hover:underline transition-all tracking-[0.2em]" href="https://drive.google.com/file/d/15T-Ysu23yLNJxRUFV6kW5yErIBuUSWGr/view?usp=drive_link" target="_blank">Privacy Policy</a>
-<a class="text-[12px] uppercase font-black hover:underline transition-all tracking-[0.2em]" href="https://drive.google.com/file/d/1DaGGkjUoHkPQiwFLV8DLeMLg6qRRNogY/view?usp=drive_link" target="_blank">Verification Standards</a>
-</div>
-<div class="flex flex-col md:flex-row flex-wrap justify-center md:justify-start gap-x-12 gap-y-4">
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest" href="mailto:info@earthcarbonfoundation.org">
-<span class="material-symbols-outlined text-[18px]">mail</span>
-                info@earthcarbonfoundation.org
-            </a>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest" href="tel:+919824025431">
-<span class="material-symbols-outlined text-[18px]">call</span>
-                +91 98240 25431
-            </a>
-<a class="flex items-center gap-2 text-[12px] uppercase font-black tracking-widest text-white hover:underline" href="https://calendly.com/earthcarbon-org/30min" target="_blank"><span class="material-symbols-outlined text-[18px]">forum</span> Talk to us about your green journey </a></div>
-<div class="pt-10 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-[11px] text-white/60 font-black uppercase tracking-[0.3em]">
-                © 2024 Earth Carbon Foundation. All Rights Reserved.
-            </p>
-<p class="text-[11px] text-white/40 font-black uppercase tracking-[0.3em]">
-                Institutional Transparency Protocol v4.2
-            </p>
-</div>
-</div>
-</footer>
 <script>
-    function updateDial(id, pct) {
-        const circle = document.getElementById(id);
-        const valSpan = document.getElementById(id + '-val');
-        if(!circle) return;
-        const circumference = 2 * Math.PI * 40;
-        const offset = circumference - (pct / 100) * circumference;
-        circle.style.strokeDashoffset = offset;
-        valSpan.innerText = Math.round(pct) + '%';
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-        const dials = [
-            {id: 'dial-solar', pct: 75},
-            {id: 'dial-water', pct: 90},
-            {id: 'dial-waste', pct: 50},
-            {id: 'dial-canopy', pct: 20}
-        ];
-        dials.forEach(d => updateDial(d.id, d.pct));
+        // Form persistence or tracking could go here
+        const form = document.getElementById('intake-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            window.open('https://forms.gle/5KAREG1tjMxW7UYJ8', '_blank');
+        });
     });
 </script>
-
-
 </body></html>
