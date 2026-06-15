@@ -1,35 +1,233 @@
-Generate a premium, relationship-focused 2-Page transactional funnel optimized for an institutional registry campaign:
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Earth Carbon Foundation | Institutional Registry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(#B1B4B6 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+        .btn-shadow {
+            box-shadow: 0 4px 0 0 #003a66;
+        }
+        .btn-shadow:active {
+            box-shadow: 0 0px 0 0 #003a66;
+            transform: translateY(4px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf9f8",
+                        "surface": "#faf9f8",
+                        "surface-container": "#efeeed",
+                        "on-primary-fixed-variant": "#00497e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-fixed-variant": "#464747",
+                        "tertiary-container": "#5e7079",
+                        "surface-container-low": "#f4f3f2",
+                        "primary-fixed": "#d2e4ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#465861",
+                        "outline": "#717782",
+                        "inverse-on-surface": "#f1f0ef",
+                        "surface-dim": "#dadad9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e3e2e1",
+                        "primary": "#005796",
+                        "tertiary-fixed": "#d2e5f0",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3130",
+                        "border-gray": "#B1B4B6",
+                        "primary-fixed-dim": "#a0caff",
+                        "on-tertiary-fixed-variant": "#384952",
+                        "inverse-primary": "#a0caff",
+                        "on-secondary-container": "#626262",
+                        "on-primary-fixed": "#001c37",
+                        "surface-gray": "#F3F2F1",
+                        "on-tertiary-fixed": "#0c1e26",
+                        "link-blue": "#1D70B8",
+                        "outline-variant": "#c1c7d2",
+                        "on-surface-variant": "#414751",
+                        "on-primary-container": "#e9f1ff",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#e0f4ff",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e1dfdf",
+                        "background": "#faf9f8",
+                        "accent-light-blue": "#D5E8F3",
+                        "tertiary-fixed-dim": "#b7c9d4",
+                        "secondary": "#5e5e5e",
+                        "secondary-fixed": "#e4e2e1",
+                        "text-main": "#0B0C0C",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1d70b8",
+                        "surface-tint": "#0061a6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "15px",
+                        "container-max": "1020px",
+                        "unit": "8px",
+                        "margin-desktop": "30px",
+                        "gutter": "30px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "display-xl": ["Public Sans"],
+                        "caption": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "numerical-data": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                        "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "numerical-data": ["24px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "label-bold": ["16px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-gray font-body-md text-on-surface selection:bg-accent-light-blue overflow-x-hidden" style="background-color: #F9FAFB;">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="font-headline-md text-headline-md text-primary tracking-tight">Earth Carbon Foundation</span>
+</div>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-primary font-semibold border-b-2 border-primary h-full flex items-center transition-colors" href="#">Registry Overview</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Workspace Hub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Asset Ledger</a>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer active:opacity-70" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Value Proposition -->
+<div class="md:col-span-7 space-y-10">
+<div class="space-y-6">
+<h1 class="font-display-xl text-display-xl md:text-display-xl text-primary leading-tight" style="color: #1E3A8A;">
+                        Transform Campus Sustainability Assets into Institutional Prestige &amp; Revenue
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant border-l-4 border-primary pl-6">
+                        Index your university footprint against the 2026 Atmanirbhar Campus Index parameters to secure NAAC-aligned data profiles and permanent public ledger links.
+                    </p>
+</div>
+<div class="space-y-4"><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Full alignment with NAAC Section 7 Green Audit parameters</span></div><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Immutable, permanent public registry entry profile link</span></div><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Baseline validation data for long-term carbon credit asset monetization</span></div></div>
+<!-- Trust Bar -->
+<div class="pt-8 space-y-4 border-t border-border-gray">
+<p class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant">Validated By Global Authorities</p>
+<div class="flex flex-wrap items-center gap-12 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+<img alt="UNFCCC CDM Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvP0wdIXjxHDyxWGz81E37yEZa0NxREW_mEAJEdpFWQak9hZzBv4BKRe0KdIp630giVAdOxGT6F1nyd6PukFyTH56f9iR6QMPj9ev46AtfwPGB95tyUgD3alpGIey5dK3rONddbp5OvDM0drCBXsEbUagDzUm_zkOaI4mfGpeQNG5SgpaSJGPq2tWhlhmWD8RAQcbULfUkXIqgWPdXUawAZuhFMVWkZZ4B5iO34JwAZpSshyjkFH-fA0oBP">
+<img alt="NAMA Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_wf9JHkv_XFvF3Tw0I8pXtrstiXlR2R_zGCop5bqYpBzRC-3sGvg9fdBa-CQYJ8zwwfjV4yt3XY60wotPW_u1nlTIqsBh3m2jGvl7YG87U1m4Yt_jHUlbRMFwzx5KhHNa9qZV36Ria45uJfBEqv5fEvHJ4ji6rGTqn4qHbmVAalfK6ZhJXyU3ZM4VJnWcA37Yal81X0RuEH2xzoi4vYebvrV5fKrCAKDOfY6D8D2tGzGq0WVdc0glxEwj">
+</div>
+</div>
+</div>
+<!-- Right Column: Registration Card -->
+<div class="md:col-span-5">
+<div class="bg-surface-container-lowest border-t-[6px] border-primary p-8 space-y-8 border border-outline-variant relative">
+<!-- Capacity Warning -->
+<div class="space-y-2"><h2 class="font-headline-md text-headline-md text-on-surface">Initialize Institutional Profile Ledger (2026 Cohort Entry)</h2><p class="font-label-bold text-primary">Baseline Indexation Fee: ₹19,999/- <span class="text-sm font-normal text-on-surface-variant">(All-Inclusive One-Time Deposit)</span></p></div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold block" for="inst-name">Institution / University Name</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" placeholder="Enter Full University Name" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold block" for="registrar">Registrar or Vice-Chancellor Name</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" placeholder="Legal Name" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold block" for="email">Official Institutional Email Address</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" placeholder="registrar@university.edu.in" type="email">
+</div>
+<div class="space-y-2">
+<label class="font-label-bold text-label-bold block" for="mobile">Contact Mobile Number</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="mobile" placeholder="+91 00000 00000" type="tel">
+</div>
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform" type="submit" onclick="window.location.href='/welcome-campus'">
+                            Proceed to Secure Payment Gateway
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form><div class="mt-4 bg-[#FFF9E1] border border-primary/20 text-primary px-4 py-3 rounded font-label-bold text-sm flex items-center gap-2 justify-center"><span class="material-symbols-outlined text-lg">warning</span>⚠️ Current Cycle Capacity: Only 2 validation slots remaining for the June 2026 cohort.</div>
+<p class="font-caption text-caption text-center text-on-surface-variant italic">
+                        Securing your entry locks your placement in the next verification cycle.
+                    </p>
+</div>
+<!-- Background Decorative Element -->
+<div class="hidden lg:block mt-8 p-6 bg-surface-container border border-outline-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+<div class="relative z-10 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="verified">verified</span>
+<div>
+<p class="font-label-bold text-label-bold">Security Protocol v4.2</p>
+<p class="text-xs uppercase tracking-tighter opacity-70">ECC-256 Multi-Layer Ledger Encryption</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="mt-16 pt-12 border-t border-outline-variant"><h3 class="font-headline-md text-headline-md mb-8">National Atmanirbhar Campus Index Leaderboard Template</h3><div class="bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm"><table class="w-full text-left border-collapse"><thead class="bg-surface-container border-b border-outline-variant"><tr class="font-label-bold text-sm uppercase tracking-wider"><th class="px-6 py-4">Institution Name</th><th class="px-6 py-4">Index Score</th><th class="px-6 py-4">Verification Status</th><th class="px-6 py-4 text-right">Ledger Link</th></tr></thead><tbody class="divide-y divide-outline-variant"><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Indian Institute of Technology, Madras</td><td class="px-6 py-4 font-numerical-data text-primary">94.2%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Jawaharlal Nehru University</td><td class="px-6 py-4 font-numerical-data text-primary">88.7%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Banaras Hindu University</td><td class="px-6 py-4 font-numerical-data text-primary">82.1%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Amity University, Noida</td><td class="px-6 py-4 font-numerical-data text-primary">79.5%</td><td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">PENDING</span></td><td class="px-6 py-4 text-right text-on-surface-variant italic">Processing...</td></tr></tbody></table></div></section></main>
+<!-- Footer -->
+<footer class="w-full py-stack-md px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-sm border-t border-outline-variant bg-surface-container-lowest mt-12">
+<p class="font-data-label text-data-label text-on-surface-variant">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary underline transition-opacity" href="#">Registry Terms</a>
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Privacy Policy</a>
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Verification Standards</a>
+<a class="font-data-label text-data-label text-on-surface-variant hover:text-primary transition-opacity" href="#">Contact Support</a>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for the button
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = 'Initialising Secure Session...';
+            btn.classList.add('opacity-80');
+            setTimeout(() => {
+                alert('Redirecting to secure gateway...');
+                btn.innerHTML = 'Proceed to Secure Payment Gateway';
+                btn.classList.remove('opacity-80');
+            }, 1500);
+        });
+    </script>
 
-PAGE 1: MAIN CONVERSION GATE (Path: /)
-- Theme: Clean, minimal corporate layout. Deep navy blue primary accents (#1E3A8A), dark charcoal slate text (#334155), and crisp geometric input panels.
-- Layout: Split two-column layout.
-- Left Column:
-  - Header: "Transform Campus Sustainability Assets into Institutional Prestige & Revenue"
-  - Sub-headline: "Index your university footprint against the 2026 Atmanirbhar Campus Index parameters to secure NAAC-aligned data profiles and permanent public ledger links."
-  - Bullet Points:
-    * "✓ Full alignment with NAAC Section 7 green audit metrics."
-    * "✓ Permanent, immutable public registry entry link."
-    * "✓ Immediate baseline tracking for future carbon asset revenue monetization."
-- Right Column:
-  - Container: A sharp, bordered card titled "Initialize Institutional Profile Ledger (2026 Cohort Entry)".
-  - Text Label: "Baseline Indexation Fee: ₹19,999/- (All-Inclusive One-Time Deposit)"
-  - Input Fields: Create 4 essential text inputs: [Institution Name], [Registrar/Decision Maker Name], [Official Institutional Email], and [Contact Mobile Number].
-  - Primary CTA Button: "Proceed to Secure Payment Gateway"
-  - Sub-text directly under button: "⚠️ Current Cycle Capacity: Only 2 validation slots remaining for the June 2026 cohort."
 
-PAGE 2: SUCCESS & RELATIONSHIP BOARD (Path: /welcome-campus)
-- Visibility Rule: This page must render immediately upon successful redirection from the Page 1 checkout webhook action.
-- Top Banner: Full-width emerald green alert block text: "✅ Profile Initialized. Welcome to the Atmanirbhar Registry Directorate."
-- Layout: Split two-column layout.
-- Left Column (Operational Assets):
-  - Card 1: "Step 1: Download Your Preparation Kit"
-    - Sub-text: "Download your v2026.1 Institutional Evidence Manual to see how our engineers process your physical infrastructure parameters."
-    - Button: "📥 Download Welcome Kit (PDF)"
-  - Card 2: "Step 2: Schedule Your Technical Engineering Review"
-    - Sub-text: "Reserve your dedicated 30-minute onboarding consultation with our climate registry architects to map out your verification pipeline."
-    - Button: "📅 Reserve Audit Slot on Calendly"
-- Right Column (The Human Narrative Node):
-  - Container: A large, prominent text-capture card titled "🌿 Talk to us about your green journey."
-  - Description: "Every campus has a distinct history of self-reliance. In your own words, tell us your story. Share your structural milestones, your localized challenges, or your vision for carbon neutrality. Our team reads every narrative thoroughly before our scheduled consultation call."
-  - Component: Multi-line rich text area input field with a 1000-word allowance box.
-  - Submit Button: "Commit Narrative to Public Ledger Directory"
+</body></html>
