@@ -1,1 +1,266 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Welcome Campus | Earth Carbon Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#faf9f8",
+                        "surface": "#faf9f8",
+                        "surface-container": "#efeeed",
+                        "on-primary-fixed-variant": "#00497e",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-fixed-variant": "#464747",
+                        "tertiary-container": "#5e7079",
+                        "surface-container-low": "#f4f3f2",
+                        "primary-fixed": "#d2e4ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#465861",
+                        "outline": "#717782",
+                        "inverse-on-surface": "#f1f0ef",
+                        "surface-dim": "#dadad9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e3e2e1",
+                        "primary": "#005796",
+                        "tertiary-fixed": "#d2e5f0",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2f3130",
+                        "border-gray": "#B1B4B6",
+                        "primary-fixed-dim": "#a0caff",
+                        "on-tertiary-fixed-variant": "#384952",
+                        "inverse-primary": "#a0caff",
+                        "on-secondary-container": "#626262",
+                        "on-primary-fixed": "#001c37",
+                        "surface-gray": "#F3F2F1",
+                        "on-tertiary-fixed": "#0c1e26",
+                        "link-blue": "#1D70B8",
+                        "outline-variant": "#c1c7d2",
+                        "on-surface-variant": "#414751",
+                        "on-primary-container": "#e9f1ff",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-container": "#e0f4ff",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e1dfdf",
+                        "background": "#faf9f8",
+                        "accent-light-blue": "#D5E8F3",
+                        "tertiary-fixed-dim": "#b7c9d4",
+                        "secondary": "#5e5e5e",
+                        "secondary-fixed": "#e4e2e1",
+                        "text-main": "#0B0C0C",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1d70b8",
+                        "surface-tint": "#0061a6",
+                        "success-emerald": "#008543"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0rem",
+                        "lg": "0rem",
+                        "xl": "0rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "15px",
+                        "container-max": "1020px",
+                        "unit": "8px",
+                        "margin-desktop": "30px",
+                        "gutter": "30px",
+                        "stack-sm": "15px",
+                        "stack-md": "30px",
+                        "stack-lg": "60px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Public Sans"],
+                        "body-lg": ["Public Sans"],
+                        "display-xl": ["Public Sans"],
+                        "caption": ["Public Sans"],
+                        "body-md": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
+                        "label-bold": ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F3F2F1;
+            color: #0B0C0C;
+            font-family: 'Public Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .gov-shadow {
+            box-shadow: none;
+        }
+        .focus-ring:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 2px #0b0c0c;
+        }
+        /* Style for the multi-line input field to ensure it feels institutional */
+        textarea {
+            resize: vertical;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-headline-md" data-icon="shield_with_heart">shield_with_heart</span>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Earth Carbon Foundation</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Registry Overview</a>
+<a class="text-on-surface-variant font-body-md hover:text-primary transition-colors" href="#">Workspace Hub</a>
+</nav>
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<!-- Navigation Shell Suppression: Page is task-focused/onboarding, so NavigationDrawer is excluded to prioritize content canvas. -->
+<main class="flex-grow pt-20">
+<!-- Success Banner -->
+<div class="w-full bg-success-emerald text-white py-6 px-margin-desktop md:px-0">
+<div class="max-w-[1020px] mx-auto flex items-center gap-4">
+<span class="material-symbols-outlined text-3xl" data-icon="check_circle">check_circle</span>
+<h2 class="font-headline-md text-headline-md leading-tight">
+                    Profile Initialized. Welcome to the Atmanirbhar Registry Directorate.
+                </h2>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="max-w-[1020px] mx-auto px-margin-mobile md:px-0 py-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Operational Assets -->
+<section class="md:col-span-5 flex flex-col gap-stack-md">
+<h3 class="font-label-bold text-label-bold uppercase tracking-widest text-secondary">Operational Onboarding</h3>
+<!-- Card 1: Kit -->
+<div class="bg-white border-t-4 border-primary border-x border-b border-border-gray p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="description">description</span>
+<h4 class="font-headline-md text-headline-md">Step 1: Download Your Preparation Kit</h4>
+</div>
+<p class="font-body-md text-on-surface-variant">
+                            Download your v2026.1 Institutional Evidence Manual to see how our engineers process your physical infrastructure parameters. This document serves as the foundational technical standard for all subsequent verification steps.
+                        </p>
+<div class="mt-4">
+<a class="inline-flex items-center justify-center bg-primary text-white font-label-bold px-6 py-4 hover:bg-on-primary-fixed-variant transition-colors focus-ring" href="https://drive.google.com/file/d/1C37Av_o2NrTPEYDjJABLCwdAofxyAxnB/view?usp=drive_link" target="_blank">
+<span class="material-symbols-outlined mr-2" data-icon="download">download</span>
+                                Download Welcome Kit (PDF)
+                            </a>
+</div>
+</div>
+<!-- Card 2: Audit -->
+<div class="bg-white border-t-4 border-primary border-x border-b border-border-gray p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+<h4 class="font-headline-md text-headline-md">Step 2: Schedule Your Technical Engineering Review</h4>
+</div>
+<p class="font-body-md text-on-surface-variant">
+                            Reserve your dedicated 30-minute onboarding consultation with our climate registry architects to map out your verification pipeline. Please ensure your key facilities leads are available for this synchronization.
+                        </p>
+<div class="mt-4">
+<a class="inline-flex items-center justify-center bg-white border-2 border-on-background border-b-4 text-on-background font-label-bold px-6 py-4 hover:bg-surface-container transition-colors focus-ring" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
+<span class="material-symbols-outlined mr-2" data-icon="calendar_month">calendar_month</span>
+                                Reserve Audit Slot on Calendly
+                            </a>
+</div>
+</div>
+</section>
+<!-- Right Column: The Human Narrative Node -->
+<section class="md:col-span-7">
+<div class="bg-white border-t-4 border-primary border-x border-b border-border-gray p-8 h-full flex flex-col">
+<div class="mb-6">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-success-emerald" data-icon="eco">eco</span>
+<h3 class="font-headline-md text-headline-md">Talk to us about your green journey.</h3>
+</div>
+<p class="font-body-md text-on-surface-variant mb-6">
+                                Every campus has a distinct history of self-reliance. In your own words, tell us your story. Share your structural milestones, your localized challenges, or your vision for carbon neutrality. Our team reads every narrative thoroughly before our scheduled consultation call.
+                            </p>
+</div>
+<div class="relative flex-grow">
+<label class="block font-label-bold text-label-bold mb-2" for="narrative">Your Institutional Narrative (1000 word allowance)</label>
+<textarea class="w-full p-4 border-2 border-on-background focus:ring-0 focus:border-on-background focus-ring font-body-md bg-surface-bright" id="narrative" name="narrative" placeholder="Type your story here..."></textarea>
+<div class="flex justify-end mt-2">
+<span class="text-caption text-secondary font-caption" id="word-count">0 / 1000 words</span>
+</div>
+</div>
+<div class="mt-8">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf_wCiP51Qd-Q9_5RZvCCJphS5l_V9Kc1E3SZFjt8clvny17A/viewform" target="_blank" class="w-full bg-on-background text-white font-label-bold px-8 py-5 hover:bg-secondary transition-colors focus-ring flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                                Commit Narrative to Public Ledger Directory
+                            </a>
+</div>
+<div class="mt-12 bg-surface-container-low p-6 border-l-4 border-primary">
+<h5 class="font-label-bold text-label-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+                                Institutional Context
+                            </h5>
+<p class="text-caption text-on-surface-variant font-caption">
+                                Your submission will be indexed under <strong>Registry ID: ECF-99284</strong>. All narratives are cryptographically signed to maintain provenance within the Earth Carbon Foundation ecosystem.
+                            </p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-md px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-sm bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col gap-2 text-center md:text-left">
+<span class="font-data-label text-on-surface-variant font-semibold">© 2024 Earth Carbon Foundation. All Rights Reserved.</span>
+<span class="font-caption text-outline">Institutional Transparency Protocol v4.2</span>
+</div>
+<div class="flex gap-6 flex-wrap justify-center">
+<a class="font-data-label text-on-surface-variant hover:text-primary transition-colors" href="#">Registry Terms</a>
+<a class="font-data-label text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-data-label text-on-surface-variant hover:text-primary transition-colors" href="#">Verification Standards</a>
+<a class="font-data-label text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+<script>
+        // Simple word count functionality
+        const textarea = document.getElementById('narrative');
+        const countDisplay = document.getElementById('word-count');
 
+        textarea.addEventListener('input', () => {
+            const words = textarea.value.trim().split(/\s+/).filter(word => word.length > 0).length;
+            countDisplay.textContent = `${words} / 1000 words`;
+            
+            if (words > 1000) {
+                countDisplay.classList.add('text-error');
+            } else {
+                countDisplay.classList.remove('text-error');
+            }
+        });
+
+        // Interactive states for buttons
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => el.style.opacity = '0.7');
+            el.addEventListener('mouseup', () => el.style.opacity = '1');
+            el.addEventListener('mouseleave', () => el.style.opacity = '1');
+        });
+    </script>
+
+
+</body></html>
