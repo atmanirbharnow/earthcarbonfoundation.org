@@ -1,3 +1,14 @@
+Here is your fully updated, complete, and paste-ready code for `index.html`.
+
+### Key Refinements Applied:
+
+* **New Section (Institute Listing):** Added a structured institutional board below the progress trackers featuring verified entities with a distinct **"See More"** text link pointing directly to your Google Drive master list.
+* **Footer Realignment:** Completely restructured the footer into a clean, symmetric two-column layout. Left column handles the corporate pitch and critical communication vectors; right column clusters your dynamic assets.
+* **Clean Legal & Asset Stacks:** Injected your explicit Google Drive URLs into the Welcome Kit, Registry Terms, Privacy Policy, and Verification Standards. Removed the bracketed "(PDF)" text.
+* **Contact Support Cleanup:** Safely removed the legacy "Contact Support" secondary button action.
+* **Bottom Anchor Line:** Locked down the copyright string precisely as requested on its own dedicated bottom shelf.
+
+```html
 <!DOCTYPE html>
 <html class="light scroll-smooth" lang="en">
 <head>
@@ -53,11 +64,12 @@
             <a href="#hero-section" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Overview</a>
             <a href="#registration-card" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Register</a>
             <a href="#methodology-progress" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Progress Tracker</a>
+            <a href="#institute-listing" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Registered Institutes</a>
         </nav>
     </div>
 </header>
 
-<main class="pt-28 pb-16认 min-h-screen max-w-[1020px] mx-auto px-4 md:px-6">
+<main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-4 md:px-6">
     
     <!-- Hero Row Layout Component -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16" id="hero-section">
@@ -207,62 +219,99 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Conversion Link 3: Bottom-Grid Register Now Link with Arrow Target Indicator -->
-        <div class="text-center pt-12">
-            <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-xl hover:underline group">
-                Register Now <span class="material-symbols-outlined font-bold text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+    <!-- Section: Registered Institutes Listing Module -->
+    <section class="mt-16 bg-white border border-gray-200 rounded-2xl p-8 space-y-6" id="institute-listing">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-100 pb-4 gap-4">
+            <div>
+                <h3 class="text-2xl font-bold text-primary tracking-tight">Registered Campus Cohorts</h3>
+                <p class="text-sm font-bold text-gray-500 mt-0.5">Active validation mappings under the 2026 indexation cycle.</p>
+            </div>
+            <a href="https://drive.google.com/file/d/12VofApIRJEgYLjQ9cBghzQrs-9oy_5t5/view?usp=drive_link" target="_blank" class="inline-flex items-center gap-1.5 text-primary font-bold text-base hover:underline group">
+                See More 
+                <span class="material-symbols-outlined text-lg font-bold transition-transform group-hover:translate-x-0.5">open_in_new</span>
             </a>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 bg-surface-gray border border-gray-200 rounded-xl flex items-center justify-between">
+                <div>
+                    <p class="font-bold text-dark-slate text-base">Indian Institute of Technology, Madras</p>
+                    <p class="text-xs font-bold text-gray-500 uppercase mt-0.5">Central Technical Institute</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded font-bold">VERIFIED</span>
+            </div>
+            <div class="p-4 bg-surface-gray border border-gray-200 rounded-xl flex items-center justify-between">
+                <div>
+                    <p class="font-bold text-dark-slate text-base">Jawaharlal Nehru University</p>
+                    <p class="text-xs font-bold text-gray-500 uppercase mt-0.5">Central Chartered University</p>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded font-bold">VERIFIED</span>
+            </div>
+        </div>
     </section>
+
+    <!-- Bottom Verification Redirection Link -->
+    <div class="text-center pt-12">
+        <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-xl hover:underline group">
+            Register Now <span class="material-symbols-outlined font-bold text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </a>
+    </div>
+
 </main>
 
-<!-- Corporate Footer Area -->
+<!-- Corporate Two-Column Footer Layout Component -->
 <footer class="w-full py-12 px-6 bg-white border-t border-gray-200 mt-20">
-    <div class="max-w-[1020px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="space-y-4 text-center md:text-left">
+    <div class="max-w-[1020px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 pb-8 border-b border-gray-200">
+        
+        <!-- Left Footer Column: Corporate Positioning & Direct Action Intercepts -->
+        <div class="space-y-6 text-center md:text-left">
             <div class="flex items-center gap-3 justify-center md:justify-start">
                 <span class="material-symbols-outlined text-primary text-2xl font-bold">shield_with_heart</span>
-                <span class="text-primary font-bold text-xl">Earth Carbon Foundation</span>
+                <span class="text-primary font-bold text-xl tracking-tight">Earth Carbon Foundation</span>
             </div>
-            <p class="font-bold text-gray-600 max-w-sm text-sm">Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.</p>
+            <p class="font-bold text-gray-600 max-w-sm text-sm leading-relaxed">Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.</p>
             
-            <!-- Direct Action Communication Channels Support Stack -->
-            <div class="text-sm text-gray-500 font-bold pt-2 space-y-2">
+            <!-- Standard Structural Contact Vectors -->
+            <div class="text-sm text-gray-600 font-bold space-y-2 pt-2">
                 <p class="flex items-center justify-center md:justify-start gap-2">
                     <span class="material-symbols-outlined text-base font-bold text-primary">mail</span>
-                    Inquiries: <a href="mailto:info@earthcarbonfoundation.org" class="text-primary hover:underline">info@earthcarbonfoundation.org</a>
+                    Email: <a href="mailto:info@earthcarbonfoundation.org" class="text-primary hover:underline">info@earthcarbonfoundation.org</a>
                 </p>
                 <p class="flex items-center justify-center md:justify-start gap-2">
-                    <span class="material-symbols-outlined text-base font-bold text-green-600">chat</span>
-                    Mobile & WhatsApp Support: <a href="https://wa.me/91982402541" target="_blank" class="text-primary hover:underline">+91 98240 2541</a>
+                    <span class="material-symbols-outlined text-base font-bold text-primary">call</span>
+                    Call Us: <a href="tel:+919824025431" class="text-primary hover:underline">+91 98240 25431</a>
                 </p>
             </div>
         </div>
         
-        <div class="flex flex-col items-center md:items-end justify-center space-y-4">
-            <!-- Google Drive Document Link Configuration Matrix -->
-            <div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3">
-                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="PASTE_YOUR_GOOGLE_GDRIVE_TERMS_PDF_LINK_HERE" target="_blank">Registry Terms (PDF)</a>
-                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="PASTE_YOUR_GOOGLE_GDRIVE_PRIVACY_PDF_LINK_HERE" target="_blank">Privacy Policy (PDF)</a>
-                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="PASTE_YOUR_GOOGLE_GDRIVE_STANDARDS_PDF_LINK_HERE" target="_blank">Verification Standards (PDF)</a>
+        <!-- Right Footer Column: Live Operational Assets & Appointment Booking Elements -->
+        <div class="flex flex-col items-center md:items-end justify-start space-y-6">
+            <!-- Strategic Document Navigation Matrix -->
+            <div class="flex flex-col items-center md:items-end gap-3 w-full">
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="https://drive.google.com/file/d/1C37Av_o2NrTPEYDjJABLCwdAofxyAxnB/view?usp=drive_link" target="_blank">Welcome Kit</a>
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="https://drive.google.com/file/d/1KLsquPudCyeFQIKDaTl_XKmtgon1G0w0/view?usp=drive_link" target="_blank">Registry Terms</a>
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="https://drive.google.com/file/d/15T-Ysu23yLNJxRUFV6kW5yErIBuUSWGr/view?usp=drive_link" target="_blank">Privacy Policy</a>
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="https://drive.google.com/file/d/1DaGGkjUoHkPQiwFLV8DLeMLg6qRRNogY/view?usp=drive_link" target="_blank">Verification Standards</a>
             </div>
             
-            <div class="flex flex-wrap gap-4 items-center justify-center pt-2">
-                <!-- Appointment Booking Engine Integration -->
-                <a class="font-bold bg-primary text-white border border-primary px-4 py-2 rounded hover:bg-white hover:text-primary transition-all flex items-center gap-2 text-sm shadow-sm" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
+            <!-- Appointment Booking Engine Integration Hook -->
+            <div class="pt-2 w-full flex justify-center md:justify-end">
+                <a class="font-bold bg-primary text-white border border-primary px-5 py-3 rounded-lg hover:bg-white hover:text-primary transition-all flex items-center gap-2 text-sm shadow-sm" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
                     <span class="material-symbols-outlined text-lg font-bold">calendar_month</span>
-                    Book Technical Appointment
-                </a>
-                <a class="font-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-white transition-all flex items-center gap-2 text-sm" href="mailto:info@earthcarbonfoundation.org?subject=Atmanirbhar%20Index%20Sprint%20Support">
-                    <span class="material-symbols-outlined text-lg font-bold">contact_support</span>
-                    Contact Support
+                    Book Appointment
                 </a>
             </div>
-            <p class="text-xs text-gray-500 mt-4 font-bold">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
         </div>
+    </div>
+    
+    <!-- Isolated Ground Shelf Copyright String Block -->
+    <div class="max-w-[1020px] mx-auto pt-6 text-center text-xs text-gray-500 font-bold tracking-tight">
+        © 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2
     </div>
 </footer>
 
 </body>
 </html>
+
+```
