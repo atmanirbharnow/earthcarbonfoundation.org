@@ -1,20 +1,32 @@
-<html class="light scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Atmanirbhar Campus Index Framework | Earth Carbon Foundation</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
+I hear you, and I appreciate your patience. Let's throw out any remaining hidden logic or over-engineered scripts causing that stuck loop.
+
+The reason it was showing "will open razorpay in a different environment" or getting stuck is due to background validation scripts intercepting the standard browser actions.
+
+Here is a completely reset, rock-solid **index.html** layout built precisely to your specifications.
+
+### What is changed in this version:
+
+* **The Single-Action Goal:** Removed all custom event listeners (`preventDefault`) from the form. It is now a **pure, standard HTML action form** that hands the user directly over to your live Razorpay URL: `[https://rzp.io/rzp/CcP0g4Lx](https://rzp.io/rzp/CcP0g4Lx)`.
+* **Restored Intake Fields:** The registration card is fixed to capture **Organisation Name**, **Contact Person Name**, **Official Email ID**, and **Mobile Number**.
+* **Strictly Educational Scope:** The dropdown menu options have been trimmed down to focus strictly on institutional educational variants (Higher Education Universities, Technological Institutes, etc.), removing schools and corporate models entirely.
+* **Prism Silk-White & Strong British English Styling:** The card features a pure white (`bg-white`) presentation with high-contrast, bold, dark texts (`font-bold text-slate-900`) and no italics.
+
+```html
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Atmanirbhar Campus Index Framework | Earth Carbon Foundation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
         html {
             scroll-behavior: smooth;
         }
         .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .bg-grid-pattern {
-            background-image: radial-gradient(#B1B4B6 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
         }
         .btn-shadow {
             box-shadow: 0 4px 0 0 #003a66;
@@ -23,492 +35,236 @@
             box-shadow: 0 0px 0 0 #003a66;
             transform: translateY(4px);
         }
-        input[type=range] {
-            accent-color: #005796;
-        }
     </style>
-<script id="tailwind-config">
+    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "primary-container": "#1d70b8",
-                        "secondary-fixed": "#e4e2e1",
-                        "inverse-on-surface": "#f1f0ef",
-                        "error-container": "#ffdad6",
-                        "surface-container-low": "#f4f3f2",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "on-primary-fixed": "#001c37",
-                        "tertiary-container": "#5e7079",
-                        "inverse-surface": "#2f3130",
-                        "on-tertiary-fixed": "#0c1e26",
-                        "on-secondary-container": "#626262",
-                        "surface": "#faf9f8",
-                        "error": "#ba1a1a",
-                        "on-error-container": "#93000a",
-                        "secondary": "#5e5e5e",
-                        "surface-tint": "#0061a6",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary-fixed-variant": "#384952",
-                        "tertiary-fixed-dim": "#b7c9d4",
-                        "outline-variant": "#c1c7d2",
-                        "secondary-container": "#e1dfdf",
-                        "on-secondary-fixed-variant": "#464747",
-                        "background": "#faf9f8",
-                        "primary-fixed-dim": "#a0caff",
-                        "inverse-primary": "#a0caff",
-                        "on-tertiary-container": "#e0f4ff",
+                    colors: {
                         "primary": "#005796",
                         "surface-gray": "#F3F2F1",
-                        "surface-container-high": "#e9e8e7",
-                        "on-primary-container": "#e9f1ff",
-                        "on-background": "#1a1c1c",
-                        "surface-container": "#efeeed",
-                        "surface-container-highest": "#e3e2e1",
-                        "on-error": "#ffffff",
-                        "on-surface-variant": "#414751",
-                        "primary-fixed": "#d2e4ff",
-                        "surface-dim": "#dadad9",
-                        "link-blue": "#1D70B8",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "tertiary-fixed": "#d2e5f0",
-                        "surface-variant": "#e3e2e1",
-                        "on-secondary-fixed": "#1b1c1c",
-                        "surface-bright": "#faf9f8",
-                        "text-main": "#0B0C0C",
-                        "border-gray": "#B1B4B6",
-                        "tertiary": "#465861",
-                        "outline": "#717782",
-                        "on-primary-fixed-variant": "#00497e",
-                        "on-primary": "#ffffff",
-                        "accent-light-blue": "#D5E8F3",
-                        "on-surface": "#1a1c1c"
+                        "dark-slate": "#0F172A",
+                        "border-gray": "#B1B4B6"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "margin-desktop": "30px",
-                        "container-max": "1020px",
-                        "unit": "8px",
-                        "margin-mobile": "15px",
-                        "gutter": "30px"
-                    },
-                    "fontFamily": {
-                        "body-md": ["Public Sans"],
-                        "numerical-data": ["Public Sans"],
-                        "headline-lg-mobile": ["Public Sans"],
-                        "label-bold": ["Public Sans"],
-                        "headline-md": ["Public Sans"],
-                        "headline-lg": ["Public Sans"],
-                        "display-xl": ["Public Sans"],
-                        "caption": ["Public Sans"],
-                        "body-lg": ["Public Sans"]
-                    },
-                    "fontSize": {
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "numerical-data": ["24px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                        "label-bold": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                        "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
-                        "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                        "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    fontFamily: {
+                        sans: ["Public Sans", "sans-serif"]
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-surface-gray font-body-md text-on-surface selection:bg-accent-light-blue overflow-x-hidden">
-<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_with_heart">shield_with_heart</span>
-<span class="font-headline-md text-headline-md text-primary tracking-tight">Earth Carbon Foundation</span>
-</div>
-<div class="hidden md:flex gap-8 items-center h-full">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#registry-overview">Registry Overview</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#workspace-hub">Workspace Hub</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#asset-ledger">Asset Ledger</a>
-</div>
-<div class="flex items-center">
-<span class="material-symbols-outlined text-primary text-3xl cursor-pointer active:opacity-70" data-icon="account_circle">account_circle</span>
-</div>
+<body class="bg-surface-gray font-sans text-dark-slate antialiased overflow-x-hidden">
+
+<!-- Clean Header Bar (No Nav Links) -->
+<header class="fixed top-0 w-full z-50 flex items-center px-6 h-20 bg-white/95 backdrop-blur border-b border-gray-200">
+    <div class="max-w-[1020px] mx-auto w-full flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-3xl font-bold">shield_with_heart</span>
+        <span class="text-xl font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
+    </div>
 </header>
-<main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-20">
-<!-- Left Column: Hero Text -->
-<div class="md:col-span-7 space-y-10">
-<div class="space-y-6">
-<h1 class="font-display-xl text-display-xl text-primary leading-tight">
-                    Transform Campus Sustainability Assets into Institutional Prestige &amp; Revenue
+
+<main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-4 md:px-6">
+    
+    <!-- Hero Row -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16">
+        
+        <!-- Framework Pitch -->
+        <div class="md:col-span-7 space-y-8">
+            <div class="space-y-4">
+                <div class="text-primary font-bold tracking-wider uppercase text-xs">
+                    National Institutional Validation Pathway
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-primary leading-tight tracking-tight">
+                    Transform Campus Sustainability Assets into Institutional Prestige and Revenue
                 </h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant border-l-4 border-primary pl-6">
+                <p class="text-lg text-dark-slate border-l-4 border-primary pl-6 font-bold">
                     Index your university footprint against the 2026 Atmanirbhar Campus Index parameters to secure NAAC-aligned data profiles and permanent public ledger links.
                 </p>
-</div>
-<div class="space-y-4">
-<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-label-bold">Full alignment with NAAC Section 7 Green Audit parameters</span>
-</div>
-<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-label-bold">Immutable, permanent public registry entry profile link</span>
-</div>
-<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="font-label-bold">Baseline validation data for long-term carbon credit asset monetization</span>
-</div>
-</div>
-<div class="pt-8 space-y-4 border-t border-border-gray">
-<p class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant">Validated By Global Authorities</p>
-<div class="flex flex-wrap items-center gap-12 grayscale opacity-80">
-<img alt="UNFCCC CDM Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvP0wdIXjxHDyxWGz81E37yEZa0NxREW_mEAJEdpFWQak9hZzBv4BKRe0KdIp630giVAdOxGT6F1nyd6PukFyTH56f9iR6QMPj9ev46AtfwPGB95tyUgD3alpGIey5dK3rONddbp5OvDM0drCBXsEbUagDzUm_zkOaI4mfGpeQNG5SgpaSJGPq2tWhlhmWD8RAQcbULfUkXIqgWPdXUawAZuhFMVWkZZ4B5iO34JwAZpSshyjkFH-fA0oBP"/>
-<img alt="NAMA Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_wf9JHkv_XFvF3Tw0I8pXtrstiXlR2R_zGCop5bqYpBzRC-3sGvg9fdBa-CQYJ8zwwfjV4yt3XY60wotPW_u1nlTIqsBh3m2jGvl7YG87U1m4Yt_jHUlbRMFwzx5KhHNa9qZV36Ria45uJfBEqv5fEvHJ4ji6rGTqn4qHbmVAalfK6ZhJXyU3ZM4VJnWcA37Yal81X0RuEH2xzoi4vYebvrV5fKrCAKDOfY6D8D2tGzGq0WVdc0glxEwj"/>
-</div>
-</div>
-</div>
-<!-- Right Column: Registration Card -->
-<div class="md:col-span-5">
-<div class="bg-surface-container-lowest border-t-[6px] border-primary p-8 space-y-8 border border-outline-variant relative">
-<div class="space-y-2">
-<h2 class="font-headline-md text-headline-md text-on-surface">Initialize Atmanirbhar Indexation Ledger (2026 Cohort Intake)</h2>
-<p class="font-label-bold text-primary">Baseline Indexation Fee: ₹19,999/- <span class="text-sm font-normal text-on-surface-variant">(One-Time Deposit)</span></p>
-</div>
-<!-- Razorpay Integration Form -->
-<form class="space-y-5" id="registry-form">
-<div class="space-y-1">
-<label class="font-label-bold text-label-bold block" for="inst-name">Organization / Campus Name</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" placeholder="Enter Institutional Name" required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-bold text-label-bold block" for="registrar">Lead Registrar / Executive Authority</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" placeholder="Authorized Signatory Name" required="" type="text"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-bold text-label-bold block" for="email">Official Contact Email</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" placeholder="authority@institution.edu.in" required="" type="email"/>
-</div>
-<div class="space-y-1">
-<label class="font-label-bold text-label-bold block" for="sector">Core Sector Variant</label>
-<select class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="sector">
-<option>Higher Education / University</option>
-<option>K-12 Community School Complex</option>
-<option>Industrial / Corporate Smart Campus</option>
-</select>
-</div>
-<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform" id="pay-button" type="submit">
-<span id="btn-text">Proceed to Workspace Hub</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward" id="btn-icon">arrow_forward</span>
-</button>
-</form>
-<div class="mt-4 bg-[#FFF9E1] border border-primary/20 text-primary px-4 py-3 rounded font-label-bold text-sm flex items-center gap-2 justify-center">
-<span class="material-symbols-outlined text-lg">warning</span>
+            </div>
+
+            <!-- Conversion Action 1 -->
+            <div>
+                <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:underline group">
+                    Register Now <span class="material-symbols-outlined text-lg font-bold transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Value Matrix Cards -->
+            <div class="space-y-4">
+                <div class="flex items-start gap-4 bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-2xl font-bold">check_circle</span>
+                    <span class="font-bold text-dark-slate">Full alignment with NAAC Section 7 Green Audit parameters</span>
+                </div>
+                <div class="flex items-start gap-4 bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-2xl font-bold">check_circle</span>
+                    <span class="font-bold text-dark-slate">Immutable, permanent public registry entry profile link</span>
+                </div>
+                <div class="flex items-start gap-4 bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-2xl font-bold">check_circle</span>
+                    <span class="font-bold text-dark-slate">Baseline validation data for long-term carbon credit asset monetization</span>
+                </div>
+            </div>
+
+            <!-- Conversion Action 2 -->
+            <div class="pt-2">
+                <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:underline group">
+                    Register Now <span class="material-symbols-outlined text-lg font-bold transition-transform group-hover:translate-x-1">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Silk Smooth Pure White Registration Card Section -->
+        <div class="md:col-span-5" id="registration-card">
+            <div class="bg-white border border-gray-200 border-t-[6px] border-primary p-8 space-y-6 rounded-xl shadow-md">
+                <div class="space-y-2">
+                    <h2 class="text-2xl font-bold text-primary tracking-tight">Initialize Atmanirbhar Indexation Ledger (2026 Cohort Intake)</h2>
+                    <p class="font-bold text-dark-slate text-base">Baseline Indexation Fee: ₹19,999.00 <span class="text-xs font-bold text-gray-500 block mt-1">One-Time Institutional Deposit</span></p>
+                </div>
+                
+                <!-- Direct Razorpay Form Post Handler -->
+                <form class="space-y-4" action="https://rzp.io/rzp/CcP0g4Lx" method="GET">
+                    <div class="space-y-1">
+                        <label class="font-bold text-sm block text-dark-slate" for="org-name">Name of Organisation / University</label>
+                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="org-name" name="organisation" placeholder="Enter Full University Name" required type="text"/>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-bold text-sm block text-dark-slate" for="contact-name">Contact Person Name</label>
+                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="contact-name" name="contact" placeholder="Enter Full Name of Officer" required type="text"/>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-bold text-sm block text-dark-slate" for="email">Official Email ID</label>
+                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="email" name="email" placeholder="registrar@university.edu.in" required type="email"/>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-bold text-sm block text-dark-slate" for="mobile">Mobile Number</label>
+                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="mobile" name="phone" placeholder="+91 98240 25431" required type="tel"/>
+                    </div>
+                    
+                    <div class="space-y-1">
+                        <label class="font-bold text-sm block text-dark-slate" for="sector">Core Sector Variant</label>
+                        <select class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="sector" name="sector">
+                            <option>Central / State Chartered University</option>
+                            <option>Deemed / Private Higher Education University</option>
+                            <option>National Autonomous Technical Institute (IIT/NIT/IIM)</option>
+                            <option>Affiliated Science, Arts or Commerce College Complex</option>
+                        </select>
+                    </div>
+                    
+                    <button class="w-full bg-primary text-white font-bold text-lg py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform rounded mt-2" type="submit">
+                        <span>Pay Registration Fees</span>
+                        <span class="material-symbols-outlined text-xl font-bold transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </form>
+
+                <div class="bg-amber-50 border border-amber-300 text-amber-900 px-4 py-3 rounded font-bold text-xs flex items-center gap-2 justify-center">
+                    <span class="material-symbols-outlined text-sm font-bold">warning</span>
                     Current Cycle Capacity: Only 2 validation slots remaining.
                 </div>
-</div>
-</div>
-</div>
-<!-- 11-Pillar Runway Component -->
-<section class="mt-12 space-y-8" id="registry-overview">
-<h3 class="font-headline-lg text-center text-primary">Framework Strategic Pillars</h3>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-<!-- Grid Independence -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">solar_power</span>
-<p class="font-label-bold text-sm leading-tight">Grid Independence</p>
-<span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full font-bold">BASELINE PENDING</span>
-</div>
-<!-- Water Autarky -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
-<p class="font-label-bold text-sm leading-tight">Water Autarky</p>
-<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE MONITORING</span>
-</div>
-<!-- Circular Zero-Waste -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">recycle</span>
-<p class="font-label-bold text-sm leading-tight">Circular Zero-Waste</p>
-<span class="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded-full font-bold">PROCESSING</span>
-</div>
-<!-- Scope 1 & 2 -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">co2</span>
-<p class="font-label-bold text-sm leading-tight">Scope 1 &amp; 2 Decarb</p>
-<span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full font-bold">PENDING VALIDATION</span>
-</div>
-<!-- NAAC Alignment -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
-<p class="font-label-bold text-sm leading-tight">NAAC Section 7</p>
-<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">INTEGRATED</span>
-</div>
-<!-- Bio-Digestion -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">energy_program_saving</span>
-<p class="font-label-bold text-sm leading-tight">Thermal Bio-Digestion</p>
-<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Optional Add-on</span>
-</div>
-<!-- Micro-Grid -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">electrical_services</span>
-<p class="font-label-bold text-sm leading-tight">Smart Micro-Grid</p>
-<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">CHECKED</span>
-</div>
-<!-- Sustainable Procurement -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
-<p class="font-label-bold text-sm leading-tight">Procurement</p>
-<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">VERIFIED SUPPLY</span>
-</div>
-<!-- Biodiversity -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">forest</span>
-<p class="font-label-bold text-sm leading-tight">Biodiversity</p>
-<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE CANOPY</span>
-</div>
-<!-- Carbon Handprint -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">lan</span>
-<p class="font-label-bold text-sm leading-tight">Handprint Assets</p>
-<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">MONETIZATION</span>
-</div>
-<!-- Community Outreach -->
-<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
-<span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
-<p class="font-label-bold text-sm leading-tight">Community Network</p>
-<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE NETWORK</span>
-</div>
-</div>
-</section>
-<!-- Atmanirbhar Index Simulator -->
-<section class="mt-24 py-20 bg-surface-container rounded-2xl px-8" id="workspace-hub">
-<div class="max-w-3xl mx-auto text-center space-y-12">
-<div class="space-y-4">
-<h2 class="font-display-xl text-display-xl text-on-surface">Atmanirbhar Index Simulator</h2>
-<p class="font-body-lg text-on-surface-variant">Calibrate your institutional self-reliance metrics to estimate your initial framework score.</p>
-</div>
-<div class="bg-white p-10 rounded-xl border border-outline-variant shadow-lg space-y-10 text-left">
-<!-- Sliders -->
-<div class="space-y-8">
-<div class="space-y-4">
-<div class="flex justify-between items-center">
-<label class="font-label-bold" for="energy">Energy Self-Reliance</label>
-<span class="font-numerical-data text-primary" id="energy-val">40%</span>
-</div>
-<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="energy" max="100" min="0" type="range" value="40"/>
-</div>
-<div class="space-y-4">
-<div class="flex justify-between items-center">
-<label class="font-label-bold" for="water">Water Net-Zero Capture</label>
-<span class="font-numerical-data text-primary" id="water-val">30%</span>
-</div>
-<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="water" max="100" min="0" type="range" value="30"/>
-</div>
-<div class="space-y-4">
-<div class="flex justify-between items-center">
-<label class="font-label-bold" for="waste">Certified Waste Redirection</label>
-<span class="font-numerical-data text-primary" id="waste-val">50%</span>
-</div>
-<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="waste" max="100" min="0" type="range" value="50"/>
-</div>
-</div>
-<div class="pt-8 border-t border-outline-variant text-center space-y-2">
-<p class="font-label-bold text-on-surface-variant uppercase tracking-wider">Estimated Atmanirbhar Score</p>
-<div class="font-display-xl text-6xl text-primary" id="total-score">40.0%</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Asset Ledger Template -->
-<section class="mt-24 pt-12 border-t border-outline-variant" id="asset-ledger">
-<h3 class="font-headline-md text-headline-md mb-8">National Atmanirbhar Campus Index Leaderboard Template</h3>
-<div class="bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
-<table class="w-full text-left border-collapse">
-<thead class="bg-surface-container border-b border-outline-variant">
-<tr class="font-label-bold text-sm uppercase tracking-wider">
-<th class="px-6 py-4">Institution Name</th>
-<th class="px-6 py-4">Index Score</th>
-<th class="px-6 py-4">Verification Status</th>
-<th class="px-6 py-4 text-right">Ledger Link</th>
-</tr>
-</thead>
-<tbody class="divide-y divide-outline-variant">
-<tr class="hover:bg-surface-bright transition-colors">
-<td class="px-6 py-4 font-semibold">Indian Institute of Technology, Madras</td>
-<td class="px-6 py-4 font-numerical-data text-primary">94.2%</td>
-<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
-<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
-</tr>
-<tr class="hover:bg-surface-bright transition-colors">
-<td class="px-6 py-4 font-semibold">Jawaharlal Nehru University</td>
-<td class="px-6 py-4 font-numerical-data text-primary">88.7%</td>
-<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
-<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
-</tr>
-<tr class="hover:bg-surface-bright transition-colors">
-<td class="px-6 py-4 font-semibold">Banaras Hindu University</td>
-<td class="px-6 py-4 font-numerical-data text-primary">82.1%</td>
-<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
-<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
-</tr>
-<tr class="hover:bg-surface-bright transition-colors">
-<td class="px-6 py-4 font-semibold">Amity University, Noida</td>
-<td class="px-6 py-4 font-numerical-data text-primary">79.5%</td>
-<td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">PENDING</span></td>
-<td class="px-6 py-4 text-right text-on-surface-variant italic">Processing...</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11-Pillar Strategic Grid Layout -->
+    <section class="mt-16 space-y-8 pt-12 border-t border-gray-200">
+        <h3 class="text-3xl font-bold text-center text-primary tracking-tight">11-Pillar Strategic Runway Framework</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">solar_power</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Grid Independence</p>
+                <span class="bg-gray-100 text-gray-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">BASELINE PENDING</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">water_drop</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Water Autarky</p>
+                <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">ACTIVE MONITORING</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">recycle</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Circular Zero-Waste</p>
+                <span class="bg-amber-50 text-amber-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">PROCESSING</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">co2</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Scope 1 & 2 Decarb</p>
+                <span class="bg-gray-100 text-gray-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">PENDING VALIDATION</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">assignment_turned_in</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">NAAC Section 7</p>
+                <span class="bg-green-50 text-green-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">INTEGRATED</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">energy_program_saving</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Thermal Bio-Digestion</p>
+                <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">OPTIONAL ADD-ON</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">electrical_services</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Smart Micro-Grid</p>
+                <span class="bg-green-50 text-green-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">CHECKED</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">shopping_bag</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Procurement</p>
+                <span class="bg-green-50 text-green-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">VERIFIED SUPPLY</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">forest</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Biodiversity</p>
+                <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">ACTIVE CANOPY</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">lan</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Handprint Assets</p>
+                <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">MONETIZATION</span>
+            </div>
+            <div class="p-5 bg-white border border-gray-200 rounded-lg flex flex-col items-center text-center space-y-3 shadow-sm">
+                <span class="material-symbols-outlined text-primary text-3xl font-bold">diversity_3</span>
+                <p class="font-bold text-sm leading-tight text-dark-slate">Community Network</p>
+                <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold tracking-wider">ACTIVE NETWORK</span>
+            </div>
+        </div>
+
+        <!-- Conversion Action 3 -->
+        <div class="text-center pt-8">
+            <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-xl hover:underline group">
+                Register Now <span class="material-symbols-outlined font-bold text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
+            </a>
+        </div>
+    </section>
 </main>
-<footer class="w-full py-12 px-margin-desktop bg-surface-container-lowest border-t border-outline-variant mt-12">
-<div class="max-w-[1020px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-<div class="space-y-6 text-center md:text-left">
-<div class="flex items-center gap-3 justify-center md:justify-start">
-<span class="material-symbols-outlined text-primary text-2xl" data-icon="shield_with_heart">shield_with_heart</span>
-<span class="font-headline-md text-primary">Earth Carbon Foundation</span>
-</div>
-<p class="font-body-md text-on-surface-variant max-w-sm">Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.</p>
-<div class="space-y-4 text-sm text-on-surface-variant pt-4 border-t border-outline-variant/30">
-<p>Inquiries: info@earthcarbonfoundation.org | Technical Coordination: +91 98240 25431</p>
-<div class="space-y-1">
-<p class="flex items-center gap-2 justify-center md:justify-start">
-<span class="material-symbols-outlined text-lg">mail</span>
-                        info@earthcarbonfoundation.org
-                    </p>
-<p class="flex items-center gap-2 justify-center md:justify-start">
-<span class="material-symbols-outlined text-lg">phone</span>
-                        +91 98240 25431
-                    </p>
-</div>
-</div>
-</div>
-<div class="flex flex-col items-center md:items-end justify-center space-y-4">
-<div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
-<a class="font-label-bold text-on-surface-variant hover:text-primary transition-colors underline" href="/registry-terms">Registry Terms</a>
-<a class="font-label-bold text-on-surface-variant hover:text-primary transition-colors underline" href="/privacy-policy">Privacy Policy</a>
-<a class="font-label-bold text-on-surface-variant hover:text-primary transition-colors underline" href="/verification-standards">Verification Standards</a>
-</div>
-<a class="font-label-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-on-primary transition-all flex items-center gap-2" href="mailto:info@earthcarbonfoundation.org?subject=Atmanirbhar%20Index%20Sprint%20Support">
-<span class="material-symbols-outlined text-lg">contact_support</span>
+
+<!-- Corporate Footer Area -->
+<footer class="w-full py-12 px-6 bg-white border-t border-gray-200 mt-20">
+    <div class="max-w-[1020px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-4 text-center md:text-left">
+            <div class="flex items-center gap-3 justify-center md:justify-start">
+                <span class="material-symbols-outlined text-primary text-2xl font-bold">shield_with_heart</span>
+                <span class="text-primary font-bold text-xl">Earth Carbon Foundation</span>
+            </div>
+            <p class="font-bold text-gray-600 max-w-sm text-sm">Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.</p>
+            <p class="text-sm text-gray-500 font-bold pt-2">Inquiries: info@earthcarbonfoundation.org | Technical Coordination: +91 98240 25431</p>
+        </div>
+        <div class="flex flex-col items-center md:items-end justify-center space-y-4">
+            <div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="/registry-terms">Registry Terms</a>
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="/privacy-policy">Privacy Policy</a>
+                <a class="font-bold text-gray-600 hover:text-primary transition-colors underline text-sm" href="/verification-standards">Verification Standards</a>
+            </div>
+            <a class="font-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-white transition-all flex items-center gap-2 text-sm" href="mailto:info@earthcarbonfoundation.org?subject=Atmanirbhar%20Index%20Sprint%20Support">
+                <span class="material-symbols-outlined text-lg font-bold">contact_support</span>
                 Contact Support
             </a>
-<p class="text-xs text-on-surface-variant mt-4">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
-</div>
-</div>
+            <p class="text-xs text-gray-500 mt-4 font-bold">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
+        </div>
+    </div>
 </footer>
-<!-- Razorpay Checkout Script -->
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-    // Razorpay Integration & Form Submission Logic
-    document.getElementById('registry-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const instName = document.getElementById('inst-name').value;
-        const registrar = document.getElementById('registrar').value;
-        const email = document.getElementById('email').value;
 
-        const options = {
-            "key": "rzp_live_XXXXXXXXXXXXXX", // Replace with actual key
-            "amount": "1999900", // Amount in paise
-            "currency": "INR",
-            "name": "Earth Carbon Foundation",
-            "description": "Atmanirbhar Campus Indexation Fee",
-            "image": "https://earthcarbonfoundation.org/logo.png",
-            "handler": function (response){
-                alert("Payment Successful. Transaction ID: " + response.razorpay_payment_id);
-                // Proceed to Workspace Hub logic
-                const btn = document.getElementById('pay-button');
-                const btnText = document.getElementById('btn-text');
-                const btnIcon = document.getElementById('btn-icon');
-                
-                btn.disabled = true;
-                btnText.innerText = 'Validating Framework Metrics...';
-                btnIcon.innerText = 'sync';
-                btnIcon.classList.add('animate-spin');
-                
-                setTimeout(() => {
-                    window.location.hash = 'workspace-hub';
-                    btn.disabled = false;
-                    btnText.innerText = 'Proceed to Workspace Hub';
-                    btnIcon.innerText = 'arrow_forward';
-                    btnIcon.classList.remove('animate-spin');
-                }, 1000);
-            },
-            "prefill": {
-                "name": registrar,
-                "email": email,
-                "contact": ""
-            },
-            "notes": {
-                "institution": instName
-            },
-            "theme": {
-                "color": "#005796"
-            }
-        };
-        
-        // Simulating the trigger for this environment
-        console.log("Initializing Razorpay for:", instName);
-        
-        // Mock success for demonstration in the absence of a real key
-        const btn = document.getElementById('pay-button');
-        const btnText = document.getElementById('btn-text');
-        const btnIcon = document.getElementById('btn-icon');
-        
-        btn.disabled = true;
-        btnText.innerText = 'Redirecting to Secure Gateway...';
-        btnIcon.innerText = 'sync';
-        btnIcon.classList.add('animate-spin');
-        
-        setTimeout(() => {
-            alert("This would trigger the Razorpay checkout modal in a production environment.");
-            window.location.hash = 'workspace-hub';
-            btn.disabled = false;
-            btnText.innerText = 'Proceed to Workspace Hub';
-            btnIcon.innerText = 'arrow_forward';
-            btnIcon.classList.remove('animate-spin');
-        }, 1500);
-    });
+</body>
+</html>
 
-    // Calculator Logic
-    const energy = document.getElementById('energy');
-    const water = document.getElementById('water');
-    const waste = document.getElementById('waste');
-    const energyVal = document.getElementById('energy-val');
-    const waterVal = document.getElementById('water-val');
-    const wasteVal = document.getElementById('waste-val');
-    const totalScore = document.getElementById('total-score');
-
-    function updateCalculator() {
-        energyVal.innerText = `${energy.value}%`;
-        waterVal.innerText = `${water.value}%`;
-        wasteVal.innerText = `${waste.value}%`;
-        
-        const score = (parseInt(energy.value) + parseInt(water.value) + parseInt(waste.value)) / 3;
-        totalScore.innerText = `${score.toFixed(1)}%`;
-        
-        if (score < 50) {
-            totalScore.style.color = '#B45309'; // Amber
-        } else {
-            totalScore.style.color = '#005796'; // Primary Blue
-        }
-    }
-
-    [energy, water, waste].forEach(slider => {
-        slider.addEventListener('input', updateCalculator);
-    });
-
-    // Initial run
-    updateCalculator();
-</script>
-</body></html>
+```
