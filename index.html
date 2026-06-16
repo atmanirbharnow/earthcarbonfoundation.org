@@ -1,8 +1,7 @@
-<html class="light scroll-smooth" lang="en"><head></head><body class="bg-surface-gray font-body-md text-on-surface selection:bg-accent-light-blue overflow-x-hidden" style="background-color: #F9FAFB;">```html
-
+<html class="light scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Earth Carbon Foundation | Institutional Registry</title>
+<title>Atmanirbhar Campus Index Framework | Earth Carbon Foundation</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -24,6 +23,9 @@
             box-shadow: 0 0px 0 0 #003a66;
             transform: translateY(4px);
         }
+        input[type=range] {
+            accent-color: #005796;
+        }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -31,58 +33,58 @@
             theme: {
                 extend: {
                     "colors": {
-                        "surface-bright": "#faf9f8",
-                        "surface": "#faf9f8",
-                        "surface-container": "#efeeed",
-                        "on-primary-fixed-variant": "#00497e",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-fixed": "#1b1c1c",
-                        "surface-container-high": "#e9e8e7",
-                        "on-secondary-fixed-variant": "#464747",
-                        "tertiary-container": "#5e7079",
-                        "surface-container-low": "#f4f3f2",
-                        "primary-fixed": "#d2e4ff",
-                        "error": "#ba1a1a",
-                        "tertiary": "#465861",
-                        "outline": "#717782",
+                        "primary-container": "#1d70b8",
+                        "secondary-fixed": "#e4e2e1",
                         "inverse-on-surface": "#f1f0ef",
-                        "surface-dim": "#dadad9",
-                        "surface-container-lowest": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "surface-variant": "#e3e2e1",
-                        "primary": "#005796",
-                        "tertiary-fixed": "#d2e5f0",
-                        "on-error-container": "#93000a",
                         "error-container": "#ffdad6",
-                        "inverse-surface": "#2f3130",
-                        "border-gray": "#B1B4B6",
-                        "primary-fixed-dim": "#a0caff",
-                        "on-tertiary-fixed-variant": "#384952",
-                        "inverse-primary": "#a0caff",
-                        "on-secondary-container": "#626262",
+                        "surface-container-low": "#f4f3f2",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
                         "on-primary-fixed": "#001c37",
-                        "surface-gray": "#F3F2F1",
+                        "tertiary-container": "#5e7079",
+                        "inverse-surface": "#2f3130",
                         "on-tertiary-fixed": "#0c1e26",
-                        "link-blue": "#1D70B8",
+                        "on-secondary-container": "#626262",
+                        "surface": "#faf9f8",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "secondary": "#5e5e5e",
+                        "surface-tint": "#0061a6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#384952",
+                        "tertiary-fixed-dim": "#b7c9d4",
                         "outline-variant": "#c1c7d2",
-                        "on-surface-variant": "#414751",
+                        "secondary-container": "#e1dfdf",
+                        "on-secondary-fixed-variant": "#464747",
+                        "background": "#faf9f8",
+                        "primary-fixed-dim": "#a0caff",
+                        "inverse-primary": "#a0caff",
+                        "on-tertiary-container": "#e0f4ff",
+                        "primary": "#005796",
+                        "surface-gray": "#F3F2F1",
+                        "surface-container-high": "#e9e8e7",
                         "on-primary-container": "#e9f1ff",
                         "on-background": "#1a1c1c",
-                        "on-tertiary-container": "#e0f4ff",
+                        "surface-container": "#efeeed",
                         "surface-container-highest": "#e3e2e1",
-                        "on-secondary": "#ffffff",
-                        "secondary-container": "#e1dfdf",
-                        "background": "#faf9f8",
-                        "accent-light-blue": "#D5E8F3",
-                        "tertiary-fixed-dim": "#b7c9d4",
-                        "secondary": "#5e5e5e",
-                        "secondary-fixed": "#e4e2e1",
-                        "text-main": "#0B0C0C",
-                        "secondary-fixed-dim": "#c7c6c6",
-                        "on-surface": "#1a1c1c",
                         "on-error": "#ffffff",
-                        "primary-container": "#1d70b8",
-                        "surface-tint": "#0061a6"
+                        "on-surface-variant": "#414751",
+                        "primary-fixed": "#d2e4ff",
+                        "surface-dim": "#dadad9",
+                        "link-blue": "#1D70B8",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "tertiary-fixed": "#d2e5f0",
+                        "surface-variant": "#e3e2e1",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-bright": "#faf9f8",
+                        "text-main": "#0B0C0C",
+                        "border-gray": "#B1B4B6",
+                        "tertiary": "#465861",
+                        "outline": "#717782",
+                        "on-primary-fixed-variant": "#00497e",
+                        "on-primary": "#ffffff",
+                        "accent-light-blue": "#D5E8F3",
+                        "on-surface": "#1a1c1c"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -91,70 +93,83 @@
                         "full": "9999px"
                     },
                     "spacing": {
-                        "margin-mobile": "15px",
+                        "margin-desktop": "30px",
                         "container-max": "1020px",
                         "unit": "8px",
-                        "margin-desktop": "30px",
+                        "margin-mobile": "15px",
                         "gutter": "30px"
                     },
                     "fontFamily": {
+                        "body-md": ["Public Sans"],
+                        "numerical-data": ["Public Sans"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "label-bold": ["Public Sans"],
+                        "headline-md": ["Public Sans"],
                         "headline-lg": ["Public Sans"],
-                        "body-lg": ["Public Sans"],
                         "display-xl": ["Public Sans"],
                         "caption": ["Public Sans"],
-                        "body-md": ["Public Sans"],
-                        "headline-lg-mobile": ["Public Sans"],
-                        "numerical-data": ["Public Sans"],
-                        "headline-md": ["Public Sans"],
-                        "label-bold": ["Public Sans"]
+                        "body-lg": ["Public Sans"]
                     },
                     "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "numerical-data": ["24px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "label-bold": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
                         "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
-                        "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}],
                         "display-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
                         "caption": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                        "numerical-data": ["24px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "700"}],
-                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                        "label-bold": ["16px", {"lineHeight": "24px", "fontWeight": "700"}]
+                        "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}]
                     }
                 }
             }
         }
     </script>
-<!-- TopAppBar -->
+</head>
+<body class="bg-surface-gray font-body-md text-on-surface selection:bg-accent-light-blue overflow-x-hidden">
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant">
 <div class="flex items-center gap-3">
 <span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_with_heart">shield_with_heart</span>
 <span class="font-headline-md text-headline-md text-primary tracking-tight">Earth Carbon Foundation</span>
 </div>
 <div class="hidden md:flex gap-8 items-center h-full">
-<a class="text-primary font-semibold border-b-2 border-primary h-full flex items-center transition-colors" href="#registry-overview">Registry Overview</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#workspace-hub">Workspace Hub</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#asset-ledger">Asset Ledger</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#registry-overview">Registry Overview</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#workspace-hub">Workspace Hub</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-bold" href="#asset-ledger">Asset Ledger</a>
 </div>
 <div class="flex items-center">
 <span class="material-symbols-outlined text-primary text-3xl cursor-pointer active:opacity-70" data-icon="account_circle">account_circle</span>
 </div>
 </header>
 <main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start" id="registry-overview">
-<!-- Left Column: Value Proposition -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-20">
+<!-- Left Column: Hero Text -->
 <div class="md:col-span-7 space-y-10">
 <div class="space-y-6">
-<h1 class="font-display-xl text-display-xl md:text-display-xl text-primary leading-tight" style="color: #1E3A8A;">
-                        Transform Campus Sustainability Assets into Institutional Prestige &amp; Revenue
-                    </h1>
+<h1 class="font-display-xl text-display-xl text-primary leading-tight">
+                    Transform Campus Sustainability Assets into Institutional Prestige &amp; Revenue
+                </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant border-l-4 border-primary pl-6">
-                        Index your university footprint against the 2026 Atmanirbhar Campus Index parameters to secure NAAC-aligned data profiles and permanent public ledger links.
-                    </p>
+                    Index your university footprint against the 2026 Atmanirbhar Campus Index parameters to secure NAAC-aligned data profiles and permanent public ledger links.
+                </p>
 </div>
-<div class="space-y-4"><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Full alignment with NAAC Section 7 Green Audit parameters</span></div><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Immutable, permanent public registry entry profile link</span></div><div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm"><span class="material-symbols-outlined text-primary">check_circle</span><span class="font-label-bold">Baseline validation data for long-term carbon credit asset monetization</span></div></div>
-<!-- Trust Bar -->
+<div class="space-y-4">
+<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-bold">Full alignment with NAAC Section 7 Green Audit parameters</span>
+</div>
+<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-bold">Immutable, permanent public registry entry profile link</span>
+</div>
+<div class="flex items-center gap-2 bg-white border border-outline-variant px-4 py-2 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span class="font-label-bold">Baseline validation data for long-term carbon credit asset monetization</span>
+</div>
+</div>
 <div class="pt-8 space-y-4 border-t border-border-gray">
 <p class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant">Validated By Global Authorities</p>
-<div class="flex flex-wrap items-center gap-12 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="flex flex-wrap items-center gap-12 grayscale opacity-80">
 <img alt="UNFCCC CDM Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvP0wdIXjxHDyxWGz81E37yEZa0NxREW_mEAJEdpFWQak9hZzBv4BKRe0KdIp630giVAdOxGT6F1nyd6PukFyTH56f9iR6QMPj9ev46AtfwPGB95tyUgD3alpGIey5dK3rONddbp5OvDM0drCBXsEbUagDzUm_zkOaI4mfGpeQNG5SgpaSJGPq2tWhlhmWD8RAQcbULfUkXIqgWPdXUawAZuhFMVWkZZ4B5iO34JwAZpSshyjkFH-fA0oBP"/>
 <img alt="NAMA Logo" class="h-14 object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLu_wf9JHkv_XFvF3Tw0I8pXtrstiXlR2R_zGCop5bqYpBzRC-3sGvg9fdBa-CQYJ8zwwfjV4yt3XY60wotPW_u1nlTIqsBh3m2jGvl7YG87U1m4Yt_jHUlbRMFwzx5KhHNa9qZV36Ria45uJfBEqv5fEvHJ4ji6rGTqn4qHbmVAalfK6ZhJXyU3ZM4VJnWcA37Yal81X0RuEH2xzoi4vYebvrV5fKrCAKDOfY6D8D2tGzGq0WVdc0glxEwj"/>
 </div>
@@ -163,76 +178,197 @@
 <!-- Right Column: Registration Card -->
 <div class="md:col-span-5">
 <div class="bg-surface-container-lowest border-t-[6px] border-primary p-8 space-y-8 border border-outline-variant relative">
-<!-- Capacity Warning -->
-<div class="space-y-2"><h2 class="font-headline-md text-headline-md text-on-surface">Initialize Institutional Profile Ledger (2026 Cohort Entry)</h2><p class="font-label-bold text-primary">Baseline Indexation Fee: ₹19,999/- <span class="text-sm font-normal text-on-surface-variant">(All-Inclusive One-Time Deposit)</span></p></div>
-<form class="space-y-6" id="registry-form">
 <div class="space-y-2">
-<label class="font-label-bold text-label-bold block" for="inst-name">Institution / University Name</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" placeholder="Enter Full University Name" required="" type="text"/>
+<h2 class="font-headline-md text-headline-md text-on-surface">Initialize Atmanirbhar Indexation Ledger (2026 Cohort Intake)</h2>
+<p class="font-label-bold text-primary">Baseline Indexation Fee: ₹19,999/- <span class="text-sm font-normal text-on-surface-variant">(One-Time Deposit)</span></p>
 </div>
-<div class="space-y-2">
-<label class="font-label-bold text-label-bold block" for="registrar">Registrar or Vice-Chancellor Name</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" placeholder="Legal Name" required="" type="text"/>
+<form class="space-y-5" id="registry-form">
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold block" for="inst-name">Organization / Campus Name</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="inst-name" placeholder="Enter Institutional Name" required="" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="font-label-bold text-label-bold block" for="email">Official Institutional Email Address</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" placeholder="registrar@university.edu.in" required="" type="email"/>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold block" for="registrar">Lead Registrar / Executive Authority</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="registrar" placeholder="Authorized Signatory Name" required="" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="font-label-bold text-label-bold block" for="mobile">Contact Mobile Number</label>
-<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="mobile" placeholder="+91 00000 00000" required="" type="tel"/>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold block" for="email">Official Contact Email</label>
+<input class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="email" placeholder="authority@institution.edu.in" required="" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-bold text-label-bold block" for="sector">Core Sector Variant</label>
+<select class="w-full border-2 border-on-background focus:border-primary focus:ring-0 px-4 py-3 bg-surface-bright outline-none transition-all" id="sector">
+<option>Higher Education / University</option>
+<option>K-12 Community School Complex</option>
+<option>Industrial / Corporate Smart Campus</option>
+</select>
 </div>
 <button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform" type="submit">
-                            Proceed to Workspace Hub
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<span id="btn-text">Proceed to Workspace Hub</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward" id="btn-icon">arrow_forward</span>
 </button>
-</form><div class="mt-4 bg-[#FFF9E1] border border-primary/20 text-primary px-4 py-3 rounded font-label-bold text-sm flex items-center gap-2 justify-center"><span class="material-symbols-outlined text-lg">warning</span>⚠️ Current Cycle Capacity: Only 2 validation slots remaining for the June 2026 cohort.</div>
-<p class="font-caption text-caption text-center text-on-surface-variant italic">
-                        Securing your entry locks your placement in the next verification cycle.
-                    </p>
-</div>
-<!-- Background Decorative Element -->
-<div class="hidden lg:block mt-8 p-6 bg-surface-container border border-outline-variant relative overflow-hidden">
-<div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
-<div class="relative z-10 flex items-center gap-4">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="verified">verified</span>
-<div>
-<p class="font-label-bold text-label-bold">Security Protocol v4.2</p>
-<p class="text-xs uppercase tracking-tighter opacity-70">ECC-256 Multi-Layer Ledger Encryption</p>
+</form>
+<div class="mt-4 bg-[#FFF9E1] border border-primary/20 text-primary px-4 py-3 rounded font-label-bold text-sm flex items-center gap-2 justify-center">
+<span class="material-symbols-outlined text-lg">warning</span>
+                    Current Cycle Capacity: Only 2 validation slots remaining.
+                </div>
 </div>
 </div>
 </div>
+<!-- 11-Pillar Runway Component -->
+<section class="mt-12 space-y-8" id="registry-overview">
+<h3 class="font-headline-lg text-center text-primary">Framework Strategic Pillars</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+<!-- Grid Independence -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">solar_power</span>
+<p class="font-label-bold text-sm leading-tight">Grid Independence</p>
+<span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full font-bold">BASELINE PENDING</span>
+</div>
+<!-- Water Autarky -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
+<p class="font-label-bold text-sm leading-tight">Water Autarky</p>
+<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE MONITORING</span>
+</div>
+<!-- Circular Zero-Waste -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">recycle</span>
+<p class="font-label-bold text-sm leading-tight">Circular Zero-Waste</p>
+<span class="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded-full font-bold">PROCESSING</span>
+</div>
+<!-- Scope 1 & 2 -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">co2</span>
+<p class="font-label-bold text-sm leading-tight">Scope 1 &amp; 2 Decarb</p>
+<span class="bg-gray-100 text-gray-600 text-[10px] px-2 py-0.5 rounded-full font-bold">PENDING VALIDATION</span>
+</div>
+<!-- NAAC Alignment -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
+<p class="font-label-bold text-sm leading-tight">NAAC Section 7</p>
+<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">INTEGRATED</span>
+</div>
+<!-- Bio-Digestion -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">energy_program_saving</span>
+<p class="font-label-bold text-sm leading-tight">Thermal Bio-Digestion</p>
+<span class="bg-primary/10 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Optional Add-on</span>
+</div>
+<!-- Micro-Grid -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">electrical_services</span>
+<p class="font-label-bold text-sm leading-tight">Smart Micro-Grid</p>
+<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">CHECKED</span>
+</div>
+<!-- Sustainable Procurement -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">shopping_bag</span>
+<p class="font-label-bold text-sm leading-tight">Procurement</p>
+<span class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold">VERIFIED SUPPLY</span>
+</div>
+<!-- Biodiversity -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">forest</span>
+<p class="font-label-bold text-sm leading-tight">Biodiversity</p>
+<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE CANOPY</span>
+</div>
+<!-- Carbon Handprint -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">lan</span>
+<p class="font-label-bold text-sm leading-tight">Handprint Assets</p>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">MONETIZATION</span>
+</div>
+<!-- Community Outreach -->
+<div class="p-4 bg-white border border-outline-variant rounded-lg flex flex-col items-center text-center space-y-3">
+<span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
+<p class="font-label-bold text-sm leading-tight">Community Network</p>
+<span class="bg-blue-100 text-blue-700 text-[10px] px-2 py-0.5 rounded-full font-bold">ACTIVE NETWORK</span>
 </div>
 </div>
-<!-- Workspace Hub Placeholder -->
-<section class="mt-24 py-20 border-y border-outline-variant bg-surface-container-low" id="workspace-hub">
-<div class="text-center space-y-6">
-<span class="material-symbols-outlined text-primary text-6xl" data-icon="dashboard">dashboard</span>
-<h2 class="font-display-xl text-display-xl text-on-surface">Institutional Workspace Hub</h2>
-<p class="max-w-2xl mx-auto font-body-lg text-on-surface-variant px-margin-mobile">
-            Your centralized command center for campus audits, document verification, and carbon asset tracking. Access will be granted upon profile initialization.
-        </p>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-12">
-<div class="p-8 bg-white border border-outline-variant rounded-lg space-y-4">
-<span class="material-symbols-outlined text-primary" data-icon="upload_file">upload_file</span>
-<h3 class="font-headline-md text-headline-md">Document Vault</h3>
-<p class="text-on-surface-variant">Securely upload Green Audit reports and utility bills for AI-verification.</p>
+</section>
+<!-- Atmanirbhar Index Simulator -->
+<section class="mt-24 py-20 bg-surface-container rounded-2xl px-8" id="workspace-hub">
+<div class="max-w-3xl mx-auto text-center space-y-12">
+<div class="space-y-4">
+<h2 class="font-display-xl text-display-xl text-on-surface">Atmanirbhar Index Simulator</h2>
+<p class="font-body-lg text-on-surface-variant">Calibrate your institutional self-reliance metrics to estimate your initial framework score.</p>
 </div>
-<div class="p-8 bg-white border border-outline-variant rounded-lg space-y-4">
-<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
-<h3 class="font-headline-md text-headline-md">Impact Analytics</h3>
-<p class="text-on-surface-variant">Real-time tracking of emission reduction and sustainability benchmarks.</p>
+<div class="bg-white p-10 rounded-xl border border-outline-variant shadow-lg space-y-10 text-left">
+<!-- Sliders -->
+<div class="space-y-8">
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label-bold" for="energy">Energy Self-Reliance</label>
+<span class="font-numerical-data text-primary" id="energy-val">40%</span>
 </div>
-<div class="p-8 bg-white border border-outline-variant rounded-lg space-y-4">
-<span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
-<h3 class="font-headline-md text-headline-md">Ledger Access</h3>
-<p class="text-on-surface-variant">Permanent public links and QR-ready institutional certificates.</p>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="energy" max="100" min="0" type="range" value="40"/>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label-bold" for="water">Water Net-Zero Capture</label>
+<span class="font-numerical-data text-primary" id="water-val">30%</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="water" max="100" min="0" type="range" value="30"/>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<label class="font-label-bold" for="waste">Certified Waste Redirection</label>
+<span class="font-numerical-data text-primary" id="waste-val">50%</span>
+</div>
+<input class="w-full h-2 bg-surface-container rounded-lg appearance-none cursor-pointer" id="waste" max="100" min="0" type="range" value="50"/>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant text-center space-y-2">
+<p class="font-label-bold text-on-surface-variant uppercase tracking-wider">Estimated Atmanirbhar Score</p>
+<div class="font-display-xl text-6xl text-primary" id="total-score">40.0%</div>
 </div>
 </div>
 </div>
 </section>
-<section class="mt-16 pt-12 border-t border-outline-variant" id="asset-ledger"><h3 class="font-headline-md text-headline-md mb-8">National Atmanirbhar Campus Index Leaderboard Template</h3><div class="bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm"><table class="w-full text-left border-collapse"><thead class="bg-surface-container border-b border-outline-variant"><tr class="font-label-bold text-sm uppercase tracking-wider"><th class="px-6 py-4">Institution Name</th><th class="px-6 py-4">Index Score</th><th class="px-6 py-4">Verification Status</th><th class="px-6 py-4 text-right">Ledger Link</th></tr></thead><tbody class="divide-y divide-outline-variant"><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Indian Institute of Technology, Madras</td><td class="px-6 py-4 font-numerical-data text-primary">94.2%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Jawaharlal Nehru University</td><td class="px-6 py-4 font-numerical-data text-primary">88.7%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Banaras Hindu University</td><td class="px-6 py-4 font-numerical-data text-primary">82.1%</td><td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td><td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td></tr><tr class="hover:bg-surface-bright transition-colors"><td class="px-6 py-4 font-semibold">Amity University, Noida</td><td class="px-6 py-4 font-numerical-data text-primary">79.5%</td><td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">PENDING</span></td><td class="px-6 py-4 text-right text-on-surface-variant italic">Processing...</td></tr></tbody></table></div></section></main>
-<!-- Footer -->
+<!-- Asset Ledger Template -->
+<section class="mt-24 pt-12 border-t border-outline-variant" id="asset-ledger">
+<h3 class="font-headline-md text-headline-md mb-8">National Atmanirbhar Campus Index Leaderboard Template</h3>
+<div class="bg-white border border-outline-variant rounded-lg overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container border-b border-outline-variant">
+<tr class="font-label-bold text-sm uppercase tracking-wider">
+<th class="px-6 py-4">Institution Name</th>
+<th class="px-6 py-4">Index Score</th>
+<th class="px-6 py-4">Verification Status</th>
+<th class="px-6 py-4 text-right">Ledger Link</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-semibold">Indian Institute of Technology, Madras</td>
+<td class="px-6 py-4 font-numerical-data text-primary">94.2%</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
+<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-semibold">Jawaharlal Nehru University</td>
+<td class="px-6 py-4 font-numerical-data text-primary">88.7%</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
+<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-semibold">Banaras Hindu University</td>
+<td class="px-6 py-4 font-numerical-data text-primary">82.1%</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-bold">VERIFIED</span></td>
+<td class="px-6 py-4 text-right text-primary underline cursor-pointer">View Entry</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-6 py-4 font-semibold">Amity University, Noida</td>
+<td class="px-6 py-4 font-numerical-data text-primary">79.5%</td>
+<td class="px-6 py-4"><span class="bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">PENDING</span></td>
+<td class="px-6 py-4 text-right text-on-surface-variant italic">Processing...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
 <footer class="w-full py-12 px-margin-desktop bg-surface-container-lowest border-t border-outline-variant mt-12">
 <div class="max-w-[1020px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 <div class="space-y-6 text-center md:text-left">
@@ -241,15 +377,18 @@
 <span class="font-headline-md text-primary">Earth Carbon Foundation</span>
 </div>
 <p class="font-body-md text-on-surface-variant max-w-sm">Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.</p>
-<div class="space-y-2 text-sm text-on-surface-variant">
+<div class="space-y-4 text-sm text-on-surface-variant pt-4 border-t border-outline-variant/30">
+<p>Inquiries: info@earthcarbonfoundation.org | Technical Coordination: +91 98240 25431</p>
+<div class="space-y-1">
 <p class="flex items-center gap-2 justify-center md:justify-start">
 <span class="material-symbols-outlined text-lg">mail</span>
-                    info@earthcarbonfoundation.org
-                </p>
+                        info@earthcarbonfoundation.org
+                    </p>
 <p class="flex items-center gap-2 justify-center md:justify-start">
 <span class="material-symbols-outlined text-lg">phone</span>
-                    +91 98240 25431
-                </p>
+                        +91 98240 25431
+                    </p>
+</div>
 </div>
 </div>
 <div class="flex flex-col items-center md:items-end justify-center space-y-4">
@@ -258,7 +397,7 @@
 <a class="font-label-bold text-on-surface-variant hover:text-primary transition-colors underline" href="/privacy-policy">Privacy Policy</a>
 <a class="font-label-bold text-on-surface-variant hover:text-primary transition-colors underline" href="/verification-standards">Verification Standards</a>
 </div>
-<a class="font-label-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-on-primary transition-all flex items-center gap-2" href="mailto:info@earthcarbonfoundation.org?subject=Institutional%20Registry%20Support%20Request">
+<a class="font-label-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-on-primary transition-all flex items-center gap-2" href="mailto:info@earthcarbonfoundation.org?subject=Atmanirbhar%20Index%20Sprint%20Support">
 <span class="material-symbols-outlined text-lg">contact_support</span>
                 Contact Support
             </a>
@@ -267,22 +406,56 @@
 </div>
 </footer>
 <script>
+    // Registry Form Submission Logic
     document.getElementById('registry-form').addEventListener('submit', function(e) {
         e.preventDefault();
         const btn = this.querySelector('button');
-        const originalContent = btn.innerHTML;
+        const btnText = document.getElementById('btn-text');
+        const btnIcon = document.getElementById('btn-icon');
         
         btn.disabled = true;
-        btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Initializing Workspace...';
+        btnText.innerText = 'Validating Framework Metrics...';
+        btnIcon.innerText = 'sync';
+        btnIcon.classList.add('animate-spin');
         
-        // Immediate redirection to internal workspace hub
         setTimeout(() => {
-            window.location.href = '#workspace-hub';
-            // In a real app, this would be a real URL like /workspace-hub
-            // Reset button state just in case
+            window.location.hash = 'workspace-hub';
             btn.disabled = false;
-            btn.innerHTML = originalContent;
-        }, 800);
+            btnText.innerText = 'Proceed to Workspace Hub';
+            btnIcon.innerText = 'arrow_forward';
+            btnIcon.classList.remove('animate-spin');
+        }, 600);
     });
+
+    // Calculator Logic
+    const energy = document.getElementById('energy');
+    const water = document.getElementById('water');
+    const waste = document.getElementById('waste');
+    const energyVal = document.getElementById('energy-val');
+    const waterVal = document.getElementById('water-val');
+    const wasteVal = document.getElementById('waste-val');
+    const totalScore = document.getElementById('total-score');
+
+    function updateCalculator() {
+        energyVal.innerText = `${energy.value}%`;
+        waterVal.innerText = `${water.value}%`;
+        wasteVal.innerText = `${waste.value}%`;
+        
+        const score = (parseInt(energy.value) + parseInt(water.value) + parseInt(waste.value)) / 3;
+        totalScore.innerText = `${score.toFixed(1)}%`;
+        
+        if (score < 50) {
+            totalScore.style.color = '#B45309'; // Amber
+        } else {
+            totalScore.style.color = '#005796'; // Primary Blue
+        }
+    }
+
+    [energy, water, waste].forEach(slider => {
+        slider.addEventListener('input', updateCalculator);
+    });
+
+    // Initial run
+    updateCalculator();
 </script>
-```</body></html>
+</body></html>
