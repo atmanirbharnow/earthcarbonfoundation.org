@@ -1,284 +1,365 @@
-<!DOCTYPE html>
-<html class="light scroll-smooth" lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Atmanirbhar Campus Index 2027 | National Campus Carbon Asset Discovery Program</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
-        }
-        .btn-shadow {
-            box-shadow: 0 4px 0 0 #003a66;
-        }
-        .btn-shadow:active {
-            box-shadow: 0 0px 0 0 #003a66;
-            transform: translateY(4px);
-        }
-    </style>
-    <script id="tailwind-config">
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#005796",
-                        "surface-gray": "#F3F2F1",
-                        "dark-slate": "#0F172A",
-                        "border-gray": "#B1B4B6"
-                    },
-                    fontFamily: {
-                        sans: ["Public Sans", "sans-serif"]
-                    }
-                }
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Atmanirbhar Campus Index 2027</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbc7",
+                    "secondary-fixed": "#e3e2e1",
+                    "surface-container-high": "#e7e8ee",
+                    "on-surface": "#191c20",
+                    "surface-tint": "#1861a0",
+                    "on-primary-fixed": "#001c37",
+                    "on-tertiary-container": "#ffbb90",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#884102",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#d2e4ff",
+                    "surface-variant": "#e1e2e8",
+                    "on-surface-variant": "#414750",
+                    "on-secondary-container": "#626362",
+                    "on-error-container": "#93000a",
+                    "background": "#f8f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#ffb688",
+                    "primary-fixed-dim": "#a0c9ff",
+                    "outline-variant": "#c1c7d2",
+                    "on-secondary-fixed-variant": "#464746",
+                    "primary-container": "#005796",
+                    "on-primary-fixed-variant": "#00497f",
+                    "on-error": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e1e2e8",
+                    "on-tertiary-fixed": "#311300",
+                    "surface-dim": "#d8dae0",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-container-low": "#f2f3f9",
+                    "secondary-fixed-dim": "#c7c6c5",
+                    "secondary": "#5e5e5e",
+                    "inverse-surface": "#2e3035",
+                    "inverse-on-surface": "#eff0f6",
+                    "on-background": "#191c20",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-container": "#a6cdff",
+                    "secondary-container": "#e0dfde",
+                    "outline": "#727781",
+                    "surface-container": "#ecedf3",
+                    "inverse-primary": "#a0c9ff",
+                    "tertiary": "#652e00",
+                    "on-secondary": "#ffffff",
+                    "primary": "#003f70",
+                    "on-tertiary-fixed-variant": "#733500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "sm": "8px",
+                    "gutter": "24px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "base": "4px",
+                    "xl": "32px",
+                    "xxl": "48px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-xl": ["Public Sans"],
+                    "body-sm": ["Public Sans"],
+                    "label-sm": ["Public Sans"],
+                    "label-md": ["Public Sans"],
+                    "display-lg": ["Public Sans"],
+                    "headline-lg": ["Public Sans"],
+                    "display-lg-mobile": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "headline-xl": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
             }
-        }
+          },
+        },
+      }
     </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; display: inline-block; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .bento-inner-shadow { box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.02); }
+    </style>
 </head>
-<body class="bg-surface-gray font-sans text-dark-slate antialiased overflow-x-hidden">
-<!-- Navigation Top Bar -->
-<header class="fixed top-0 w-full z-50 flex items-center px-6 h-20 bg-white/95 backdrop-blur border-b border-gray-200">
-    <div class="max-w-[1020px] mx-auto w-full flex justify-between items-center">
-        <div class="flex items-center gap-3">
-            <span class="material-symbols-outlined text-primary text-3xl font-bold">shield_with_heart</span>
-            <span class="text-xl font-bold text-primary tracking-tight">Earth Carbon Foundation</span>
-        </div>
-        <nav class="hidden md:flex items-center gap-8">
-            <a href="#hero-section" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Overview</a>
-            <a href="#framework-matrix" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Runway Matrix</a>
-            <a href="#registration-card" class="font-bold text-sm text-gray-600 hover:text-primary transition-colors">Register Hub</a>
-        </nav>
-    </div>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<header class="bg-surface sticky top-0 z-50 shadow-sm border-b border-outline-variant h-20">
+<div class="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="text-headline-md font-headline-md font-bold text-primary">Atmanirbhar Campus Index</span>
+</div>
+<button class="hidden md:flex bg-primary-container text-on-primary-container px-lg py-sm rounded-full font-label-md text-label-md transition-all active:scale-95">Register Now</button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-headline-md">menu</span>
+</button>
+</div>
 </header>
-<main class="pt-28 pb-16 min-h-screen max-w-[1020px] mx-auto px-4 md:px-6">
-    
-    <!-- Hero Row Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start mb-16" id="hero-section">
-        
-        <!-- Framework Valuation Column -->
-        <div class="md:col-span-7 space-y-8">
-            <div class="space-y-4">
-                <div class="text-primary font-bold tracking-wider uppercase text-xs">
-                    National Campus Carbon Asset Discovery Program
-                </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-primary leading-tight tracking-tight">
-                    ATMANIRBHAR CAMPUS INDEX 2027
-                </h1>
-                <p class="text-lg text-dark-slate border-l-4 border-primary pl-6 font-bold">
-                    Identify and rank educational institutions with the highest potential to create measurable Energy, Water, Waste, Biodiversity and Carbon Assets to drive immediate institutional prosperity.
-                </p>
-            </div>
-            <!-- Conversion Link 1 -->
-            <div>
-                <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-lg hover:underline group">
-                    Register Now <span class="material-symbols-outlined text-lg font-bold transition-transform group-hover:translate-x-1">arrow_forward</span>
-                </a>
-            </div>
-            <!-- Brief High Level Objective Cards -->
-            <div class="space-y-4">
-                <div class="flex items-start gap-4 bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-2xl font-bold">accountability</span>
-                    <div>
-                        <h4 class="font-bold text-primary">Strategic Stewardship Advantage</h4>
-                        <p class="text-sm font-bold text-gray-600 mt-1">Prioritize high-integrity source resource optimization and long-term carbon monetization opportunities over legacy fragmented audits and spreadsheets.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4 bg-white border border-gray-200 p-5 rounded-lg shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-2xl font-bold">monetization_on</span>
-                    <div>
-                        <h4 class="font-bold text-primary">2% Realized Revenue Retention</h4>
-                        <p class="text-sm font-bold text-gray-600 mt-1">Earth Carbon Foundation aligns completely with asset creation by retaining only 2% of the realized 10-Year Carbon Asset Value generated by the campus.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Silk Smooth Pure White Single-Action Intake Registration Card -->
-        <div class="md:col-span-5" id="registration-card">
-            <div class="bg-white border border-gray-200 border-t-[6px] border-primary p-8 space-y-6 rounded-xl shadow-md">
-                <div class="space-y-2">
-                    <h2 class="text-2xl font-bold text-primary tracking-tight">Initialize Atmanirbhar Indexation Ledger (2027 Cohort Intake)</h2>
-                    <p class="font-bold text-dark-slate text-base">Stage 1 Participation Fee: ₹19,999.00 <span class="text-xs font-bold text-gray-500 block mt-1">One-Time Secure Subscription Assessment Contract</span></p>
-                </div>
-                
-                <!-- Explicit Razorpay Gateway Trigger Action Handler -->
-                <form class="space-y-4" action="https://rzp.io/rzp/CcP0g4Lx" method="GET">
-                    <div class="space-y-1">
-                        <label class="font-bold text-sm block text-dark-slate" for="org-name">Name of Organisation / University</label>
-                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="org-name" name="organisation" placeholder="Enter Full University Name" required type="text"/>
-                    </div>
-                    
-                    <div class="space-y-1">
-                        <label class="font-bold text-sm block text-dark-slate" for="contact-name">Contact Person Name</label>
-                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="contact-name" name="contact" placeholder="Enter Full Name of Officer" required type="text"/>
-                    </div>
-                    
-                    <div class="space-y-1">
-                        <label class="font-bold text-sm block text-dark-slate" for="email">Official Email ID</label>
-                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="email" name="email" placeholder="registrar@university.edu.in" required type="email"/>
-                    </div>
-                    
-                    <div class="space-y-1">
-                        <label class="font-bold text-sm block text-dark-slate" for="mobile">Mobile / WhatsApp Number</label>
-                        <input class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="mobile" name="phone" placeholder="+91 98240 25431" required type="tel"/>
-                    </div>
-                    
-                    <div class="space-y-1">
-                        <label class="font-bold text-sm block text-dark-slate" for="sector">Core Educational Sector Variant</label>
-                        <select class="w-full border-2 border-border-gray focus:border-primary focus:ring-0 px-4 py-3 bg-white font-bold transition-all rounded" id="sector" name="sector">
-                            <option>Central / State Chartered University</option>
-                            <option>Deemed / Private Higher Education University</option>
-                            <option>National Autonomous Technical Institute (IIT/NIT/IIM)</option>
-                            <option>Affiliated Science, Arts or Commerce College Complex</option>
-                        </select>
-                    </div>
-                    
-                    <button class="w-full bg-primary text-white font-bold text-lg py-5 btn-shadow flex items-center justify-center gap-3 group transition-transform rounded mt-2" type="submit">
-                        <span>Pay Registration Fees</span>
-                        <span class="material-symbols-outlined text-xl font-bold transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
-                    </button>
-                </form>
-                <div class="bg-amber-50 border border-amber-300 text-amber-900 px-4 py-3 rounded font-bold text-xs flex items-center gap-2 justify-center">
-                    <span class="material-symbols-outlined text-sm font-bold">warning</span>
-                    Current Cycle Capacity: Only 2 validation slots remaining for the cohort.
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Keyword Integrated Matrix Table Section -->
-    <section class="mt-20 pt-12 border-t border-gray-200" id="framework-matrix">
-        <div class="text-center space-y-2 mb-8">
-            <h3 class="text-3xl font-bold text-primary tracking-tight">Atmanirbhar Runway Strategic Integration Matrix</h3>
-            <p class="font-bold text-gray-600">Unified layout tracking business canvas models and active operational runway components.</p>
-        </div>
-        
-        <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead class="bg-primary text-white border-b border-gray-200">
-                        <tr class="font-bold text-sm uppercase tracking-wider">
-                            <th class="px-6 py-4 w-1/4">Landing Page Section</th>
-                            <th class="px-6 py-4 w-1/2">Operational Program Components</th>
-                            <th class="px-6 py-4 w-1/4">Integrated Canvas Keywords</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-200 text-sm font-bold text-dark-slate">
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">1. Hero Strategy</td>
-                            <td class="px-6 py-4">Title: Atmanirbhar Campus Index 2027. Objective: Identify and rank educational institutions with highest potential to unlock Energy, Water, Waste, Biodiversity, and Carbon Assets.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Atmanirbharta, Decarbonization, Sustainability, Campuses, Stewardship, FirstMover</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">2. Program Model</td>
-                            <td class="px-6 py-4">Stage 1: Assessment Loop (₹19,999.00). Stage 2: Resource Optimization Roadmap. Stage 3: Carbon Asset Development. Revenue Layer: 2% long-term asset value delivery tracking.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Monetization, Prosperity, Assets, Revenue, Optimization, Methodologies</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">3. Target Tiers</td>
-                            <td class="px-6 py-4">Tier 1 (9-10 CAOS): Universities > 50 Acres, Residential, Student > 5,000, Hostels, Medical/Engineering/Agri, Solar. Tier 2 (7-8 CAOS): Universities 20-50 Acres, Student > 2,000, Autonomous, NAAC A/A+/A++.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">ResidentialCampuses, EngineeringColleges, GreenCampuses, PrivateUniversities, Ratings</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">4. 11-Pillar Matrix</td>
-                            <td class="px-6 py-4">Core execution modules mapping Grid Independence, Water Autarky, Circular Zero-Waste, Scope 1 & 2 Decarb, NAAC Section 7 Green Audit Real-Time Alignment, and Micro-Grid handprints.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Independence, Circularity, Regeneration, Resilience, Emissions, Mitigation</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">5. Progress Metrics</td>
-                            <td class="px-6 py-4">Energy Status Validation (60% Deployment Matrix), Water Systems Verification (45% Autarky Channels), Monetization Protocol Status (80% Protocol Validation Tracking).</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Measurement, Efficiency, Savings, tCO₂e, Accountability</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">6. Intake Schema</td>
-                            <td class="px-6 py-4">Comprehensive institutional mapping registry covering Name, Type, Coordinates, NAAC Grade, NIRF Standing along with Vice Chancellor, Registrar, Principal, IQAC, and Facility Manager emails.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">IQACCoordinators, FacilityManagers, LinkedIn, Email, Website</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">7. Asset Indicators</td>
-                            <td class="px-6 py-4">Physical asset diagnostics detailing Acre footprint, populations, building count, solar PV kilowatt thresholds, rainwater infrastructure, wastewater handling, recycling, and tree plantation data.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Framentated data, Spreadsheets, Inefficiency, Pollution, Waste, Reporting</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">8. Scoring Engine</td>
-                            <td class="px-6 py-4">CAOS Algorithm framework calculations: Energy (25%), Water (20%), Waste (20%), Biodiversity (15%), Institutional Readiness (20%). Lead prioritization maps Hot Prospects directly.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Audits, Compliance, Verification, Certifications, Fragmentation</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">9. Gateway Route</td>
-                            <td class="px-6 py-4">Unified single-action form completion linking immediately to Razorpay Production Router Link (`https://rzp.io/rzp/CcP0g4Lx`) for the baseline indexation deposit.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Contracts, Assessments, Subscriptions, Development</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">10. Operational Output</td>
-                            <td class="px-6 py-4">Regional and national data pipeline compilation handling Gujarat Universities, Gujarat Engineering complexes, Gujarat Autonomous entities, and top India Revenue Opportunity lists.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">Registry, Database, Offsets, Consulting, Commissions</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-6 py-4 text-primary font-bold">11. Support Channels</td>
-                            <td class="px-6 py-4">Permanent verification documentation linkages (Google Drive PDF path matrices) alongside direct support channels: Email Hub, WhatsApp Mobile routing, and Calendly appointment integrations.</td>
-                            <td class="px-6 py-4 text-gray-600 bg-gray-50">WhatsApp, Partnerships, Referrals, Consultants, Training</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- Conversion Link 2 -->
-        <div class="text-center pt-8">
-            <a href="#registration-card" class="inline-flex items-center gap-2 text-primary font-bold text-xl hover:underline group">
-                Register Now <span class="material-symbols-outlined font-bold text-xl transition-transform group-hover:translate-x-1">arrow_forward</span>
-            </a>
-        </div>
-    </section>
-</main>
-<!-- Corporate Footer Section -->
-<footer class="w-full py-12 px-6 bg-white border-t border-gray-200 mt-20">
-    <div class="max-w-[1020px] mx-auto flex flex-col space-y-8">
-        
-        <!-- Top Footer Row: Direct Action Communication Channels & Booking -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-4 border-b border-gray-100">
-            <div class="space-y-3 text-center md:text-left">
-                <p class="flex items-center justify-center md:justify-start gap-2 text-sm text-gray-600 font-bold">
-                    <span class="material-symbols-outlined text-base font-bold text-primary">mail</span>
-                    Inquiries: <a href="mailto:info@earthcarbonfoundation.org" class="text-primary hover:underline">info@earthcarbonfoundation.org</a>
-                </p>
-                <p class="flex items-center justify-center md:justify-start gap-2 text-sm text-gray-600 font-bold">
-                    <span class="material-symbols-outlined text-base font-bold text-green-600">chat</span>
-                    Mobile & WhatsApp Support: <a href="https://wa.me/919824025431" target="_blank" class="text-primary hover:underline">+91 98240 25431</a>
-                </p>
-            </div>
-            
-            <div class="flex flex-wrap gap-4 items-center justify-center md:justify-end">
-                <a class="font-bold bg-primary text-white border border-primary px-4 py-2 rounded hover:bg-white hover:text-primary transition-all flex items-center gap-2 text-sm shadow-sm" href="https://calendly.com/earthcarbon-org/30min" target="_blank">
-                    <span class="material-symbols-outlined text-lg font-bold">calendar_month</span>
-                    Book Technical Appointment
-                </a>
-                <a class="font-bold bg-primary/5 text-primary border border-primary/20 px-4 py-2 rounded hover:bg-primary hover:text-white transition-all flex items-center gap-2 text-sm" href="mailto:info@earthcarbonfoundation.org?subject=Atmanirbhar%20Index%20Sprint%20Support">
-                    <span class="material-symbols-outlined text-lg font-bold">contact_support</span>
-                    Contact Support
-                </a>
-            </div>
-        </div>
-        <!-- Middle Footer Row: Documentation Track Links Matrix (Single Line) -->
-        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 text-sm text-gray-600 font-bold bg-gray-50 py-3 px-4 rounded-lg border border-gray-100">
-            <a class="hover:text-primary transition-colors underline" href="PASTE_YOUR_GOOGLE_GDRIVE_WELCOME_KIT_LINK_HERE" target="_blank">Welcome Kit</a>
-            <a class="hover:text-primary transition-colors underline" href="PASTE_YOUR_GOOGLE_GDRIVE_TERMS_PDF_LINK_HERE" target="_blank">Registry Terms</a>
-            <a class="hover:text-primary transition-colors underline" href="PASTE_YOUR_GOOGLE_GDRIVE_PRIVACY_PDF_LINK_HERE" target="_blank">Privacy Policy</a>
-            <a class="hover:text-primary transition-colors underline" href="PASTE_YOUR_GOOGLE_GDRIVE_STANDARDS_PDF_LINK_HERE" target="_blank">Verification Standards</a>
-        </div>
-        <!-- Bottom Footer Row: Corporate Branding Frame -->
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-2">
-            <div class="flex items-center gap-3 justify-center md:justify-start">
-                <span class="material-symbols-outlined text-primary text-2xl font-bold">shield_with_heart</span>
-                <span class="text-primary font-bold text-xl tracking-tight">Earth Carbon Foundation</span>
-            </div>
-            <p class="text-xs text-gray-500 font-bold">© 2024 Earth Carbon Foundation. All Rights Reserved. Institutional Transparency Protocol v4.2</p>
-        </div>
-        
-    </div>
+<main class="max-w-container-max mx-auto overflow-x-hidden">
+<!-- 1. Visual Hero Section -->
+<section class="px-gutter py-xxl text-center bg-gradient-to-b from-primary-container to-primary text-on-primary-container rounded-b-xxl relative overflow-hidden transition-all duration-700 ease-out opacity-100 translate-y-0">
+<!-- Background Decoration -->
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none transform translate-x-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-[300px]">language</span>
+</div>
+<div class="relative z-10 space-y-md md:space-y-lg">
+<span class="inline-block px-sm py-xs bg-on-primary-container text-primary-container text-label-sm font-label-sm rounded-lg uppercase tracking-wider">Cohort 2027 Intake</span>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg leading-tight">Transform Campus Assets into Institutional Prestige</h1>
+<p class="text-body-md md:text-body-lg max-w-2xl mx-auto opacity-90">Secure NAAC-aligned data profiles and permanent public ledger links for your university's sustainable future.</p>
+<div class="pt-md flex flex-col md:flex-row gap-md justify-center">
+<button class="bg-surface-container-lowest text-primary font-label-md text-label-md px-xxl py-md rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95">Register Now</button>
+<button class="border border-on-primary-container text-on-primary-container font-label-md text-label-md px-xxl py-md rounded-full transition-colors hover:bg-on-primary-container/10">Download Kit</button>
+</div>
+<div class="flex flex-wrap justify-center gap-md mt-xl">
+<div class="flex items-center gap-xs text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="">NAAC Section 7 Aligned</span>
+</div>
+<div class="flex items-center gap-xs text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="">Permanent Public Ledger</span>
+</div>
+<div class="flex items-center gap-xs text-label-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="">Carbon Asset Monetization</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Impact Icons Section (Grid) -->
+<section class="px-gutter py-xxl bg-surface-bright transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-xxl items-center">
+<div class="space-y-lg">
+<h2 class="text-display-lg-mobile md:text-headline-xl font-display-lg text-primary">Empowering Student Participation</h2>
+<p class="text-body-lg text-on-surface-variant leading-relaxed">
+        Students are the heart of the Atmanirbhar mission. Beyond data and ledgers, the true transformation happens through ground-level action and student-led innovation. 
+      </p>
+<p class="text-body-md text-on-surface-variant">
+        From managing on-campus solar grids to implementing circular waste protocols, our program provides the framework for students to lead the charge toward a sustainable institutional future.
+      </p>
+<div class="pt-md">
+<button class="inline-flex items-center gap-sm text-primary font-label-md hover:underline">
+          Learn about student initiatives
+          <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-primary-container/10 rounded-xxl -rotate-2"></div>
+<div class="relative rounded-xl overflow-hidden shadow-xl"><img src="https://lh3.googleusercontent.com/aida/AP1WRLvUXVpG3lXz206PlSuRg5HHSHZ-CHmQp4O0wl6MywwyUB3P1tt8K78VK0WDped4ghfSr2IqoOONaRUJ8yZwlXI2eV29mWyiWAxRQv3LGBRED19S_mGjj-3q1K2Ypm4sipAqTkpVcEy2woWbJ2XpqDWfCT48UvxoCC7Mtd5xg3z70hsKOSdh3Zgo_Dd0xqWt984FDId9cLSnum1CEY1zvOmNCUAxtyqQmo0fWrkYawtWSDnxmNWvJ8mSZdrp" alt="University students collaborating on sustainability projects" class="w-full h-auto block mx-auto"></div>
+</div>
+</div>
+</section>
+<!-- 2. Resource-to-Prosperity Section (Visual Flow) -->
+<section class="px-gutter py-xl transition-all duration-700 ease-out opacity-100 translate-y-0 py-xxl bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto">
+<div class="text-center mb-xl">
+<h2 class="text-headline-xl font-headline-xl text-primary">Resource to Prosperity</h2>
+<p class="text-on-surface-variant text-body-md mt-xs">The architectural value flow of our institutional program</p>
+</div>
+<div class="bg-surface rounded-xxl p-md md:p-xl shadow-lg">
+<img alt="A clean, professional architecture diagram for 'Atmanirbhar Campus Index' showing a flow from left to right. 1. 'Resource Optimization' (Energy, Water, Waste icons) -&gt; 2. 'Carbon Asset Development' (Leaf and Monetization icons) -&gt; 3. 'Institutional Prosperity' (Building and Growth icons)." class="w-full h-auto rounded-xl mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9d7tVAjc7jshsZWGTpbyRfKz6lZ0X2cqBdN3I7iaJT9DGNdmEsJCMyXIOHTGToM_vf2-z0pR2lSwlwRBHUGMsfV4GlzWyNNz3Zgz6w95qJGqPBTdfDbcVJTAMK9YN_9IwxZMoha6lNVxeiHfvy_-2p6laIxVoib8e6CXKZfJyzPsZU8dXp7JOdZxF-ZNwUg9iHgWbHBQGUZeHdztb4cNG4nAtI2qjmoMrLlJLJYHrm419XPcwO3x8QtD7pQGTGvYX57W6ZdiTiiBZ">
+</div>
+</div>
+</section>
+<!-- 3. Core Pillars Section (Scrolling Card Matrix) -->
+<section class="py-xl overflow-hidden transition-all duration-700 ease-out opacity-100 translate-y-0 py-xxl bg-surface-bright">
+<div class="px-gutter mb-xl flex justify-between items-end">
+<div>
+<h2 class="text-headline-xl font-headline-xl text-primary">The 11-Pillar Matrix</h2>
+<p class="text-on-surface-variant text-body-md">Strategic runway framework for campus sustainability</p>
+</div>
+<div class="hidden md:flex gap-sm">
+<button class="p-sm rounded-full bg-surface-container border border-outline-variant hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-sm rounded-full bg-surface-container border border-outline-variant hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-md px-gutter hide-scrollbar pb-md">
+<!-- Mobile optimization: We present the 11 pillars through the high-level matrix image first, then a scrollable view -->
+<div class="min-w-[300px] md:min-w-[800px] flex-shrink-0 bg-surface border border-outline-variant rounded-xl p-md shadow-sm">
+<img alt="A clean, professional 11-pillar sustainability framework diagram for universities." class="w-full h-auto rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOFDecU--8P_eeeU-sBSqhPqYrqhK98CG8VYBcl6YfRCWct6KrOz5rTzDYiVAJNJUQBjmK0zdbeVQoVAIsD5feLuEqBMX5O5mL1EOD1sl2R-RUch0NJ40-xOwcp8-ELQQhIutDr4U12ePk3VL0xBohIFXJwrRGMJaFiy_fC1-XVzigX33GNTKcVcKWeIR0TPWbhExAGGWu1xT819nNbGgtR9D4e2y_ir9w0G_O8i6LMZ3ZDo2e8eveY2tMTLmNRf0BMjhHh-r48483">
+</div>
+<!-- Expanded Detail Card Example -->
+
+
+</div>
+</section>
+<!-- 5. Simplified Intake Section (Registration Form) -->
+<section class="px-gutter py-xxl bg-background transition-all duration-700 ease-out opacity-100 translate-y-0">
+<div class="max-w-xl mx-auto">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xxl p-xl shadow-xl">
+<div class="flex items-center gap-sm mb-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">app_registration</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Campus Intake 2027</h2>
+</div>
+<div class="bg-error-container text-on-error-container p-md rounded-xl mb-xl flex items-start gap-md">
+<span class="material-symbols-outlined">warning</span>
+<div class="text-body-sm">
+<span class="font-bold">Urgent:</span> Only 2 validation slots remaining for the current cycle.
+                        </div>
+</div>
+<form class="space-y-lg">
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant">Name of Organisation / University</label>
+<input class="w-full px-md py-md bg-surface border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all" placeholder="e.g. IIT Madras" type="text">
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant">Contact Person</label>
+<input class="w-full px-md py-md bg-surface border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="text">
+</div>
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant">Official Email ID</label>
+<input class="w-full px-md py-md bg-surface border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all" type="email">
+</div>
+</div>
+<div class="space-y-xs">
+<label class="text-label-md text-on-surface-variant">Core Sector Variant</label>
+<select class="w-full px-md py-md bg-surface border border-outline rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all appearance-none">
+<option>Central / State Chartered University</option>
+<option>Deemed / Private University</option>
+<option>Autonomous Technical Institute (IIT/NIT/IIM)</option>
+<option>Affiliated College Complex</option>
+</select>
+</div>
+<div class="pt-md">
+<button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-md rounded-xl flex items-center justify-center gap-md hover:bg-primary-container transition-all shadow-md active:scale-95" type="submit">
+                                Register and Pay
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-label-sm text-on-surface-variant mt-md">₹19,999.00 One-Time Institutional Deposit</p>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 6. Institutional Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant mt-xxl">
+<div class="w-full py-xl px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-lg">
+<div class="md:col-span-2 space-y-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-md" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="text-headline-sm font-bold text-on-surface">Earth Carbon Foundation</span>
+</div>
+<p class="text-body-sm text-on-surface-variant max-w-sm">
+                        Leading the transition to institutional sustainability through immutable ledger technology and NAAC-aligned indexation.
+                    </p>
+<div class="space-y-sm">
+<a class="flex items-center gap-sm text-body-sm text-on-surface hover:text-primary transition-colors" href="mailto:info@earthcarbonfoundation.org">
+<span class="material-symbols-outlined text-md">mail</span>
+                            info@earthcarbonfoundation.org
+                        </a>
+<a class="flex items-center gap-sm text-body-sm text-on-surface hover:text-primary transition-colors" href="tel:+919824025431">
+<span class="material-symbols-outlined text-md">call</span>
+                            +91 98240 25431
+                        </a>
+</div>
+</div>
+<div class="space-y-md">
+<h4 class="text-label-md text-primary">Resource Portal</h4>
+<ul class="space-y-sm">
+<li class=""><a class="text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Welcome Kit</a></li>
+<li class=""><a class="text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Registry Terms</a></li>
+<li class=""><a class="text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Verification Standards</a></li>
+<li class=""><a class="text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h4 class="text-label-md text-primary">Support</h4>
+<div class="space-y-sm">
+<p class="text-body-sm text-on-surface-variant">Need specialized guidance?</p>
+<a class="inline-flex items-center gap-sm px-md py-sm bg-primary text-on-primary rounded-lg text-label-md transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined text-md">calendar_month</span>
+                            Book Appointment
+                        </a>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant py-md">
+<div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="text-label-sm text-on-surface-variant">© 2024 Integrated Campus Sustainability Solutions | Atmanirbhar Mission</p>
+<p class="text-label-sm text-on-surface-variant opacity-60">Institutional Transparency Protocol v4.2</p>
+</div>
+</div>
 </footer>
-</body>
-</html>
+</main>
+<!-- Mobile Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface-container-low border-t border-outline-variant shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="text-label-sm font-label-sm">Framework</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">app_registration</span>
+<span class="text-label-sm font-label-sm">Register</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-label-sm font-label-sm">Support</span>
+</a>
+</nav>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple reveal on scroll effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+
+
+</body></html>
