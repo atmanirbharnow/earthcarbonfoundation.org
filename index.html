@@ -17,6 +17,7 @@
             --text-muted: #718096;    /* Secondary grey text */
             --card-shadow: 0 10px 30px rgba(27, 67, 50, 0.06);
             --font: 'Plus Jakarta Sans', sans-serif;
+            --success-green: #2d6a4f;  /* Highlight color for Free */
         }
 
         * {
@@ -119,7 +120,8 @@
             color: white;
             width: 100%;
             margin-top: auto;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            padding: 10px 15px;
         }
 
         .btn-card:hover {
@@ -128,7 +130,7 @@
 
         /* Container & Section Architecture */
         .container {
-            max-width: 1200px;
+            max-width: 1400px; /* Expanded to beautifully hold 5 items inline */
             margin: 0 auto;
             padding: 80px 20px;
         }
@@ -148,22 +150,24 @@
             margin-bottom: 50px;
         }
 
-        /* Program Cards Ecosystem grid */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* 5 Cards in a Single Line Layout */
+        .programs-flex-row {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
         }
 
         .card {
             background: white;
             border-radius: 16px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             box-shadow: var(--card-shadow);
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(45, 106, 79, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1; /* Forces identical matching widths */
+            min-width: 220px; 
         }
 
         .card:hover {
@@ -172,21 +176,24 @@
         }
 
         .card-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .card h4 {
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
         .card p {
             color: var(--text-muted);
-            margin-bottom: 30px;
-            font-size: 1.05rem;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
             flex-grow: 1;
+            text-align: center;
         }
 
         /* Live Impact Tracking Metrics Section */
@@ -242,7 +249,7 @@
         }
 
         .progress-bar {
-            width: 17%; /* Tracks active validation pipelines */
+            width: 17%; 
             background: linear-gradient(90deg, var(--primary-light) 0%, var(--accent) 100%);
             height: 100%;
             border-radius: 20px;
@@ -255,7 +262,8 @@
         }
 
         .table-responsive {
-            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
             overflow-x: auto;
             background: white;
             border-radius: 12px;
@@ -290,6 +298,18 @@
 
         tr:nth-child(even) {
             background-color: #f8faf9;
+        }
+
+        /* Dynamic Green Pill Badge for Free Tier */
+        .badge-free {
+            background-color: #e8f5e9;
+            color: var(--success-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: inline-block;
+            border: 1px solid #c8e6c9;
         }
 
         /* Universal Asset Footers */
@@ -340,10 +360,21 @@
             text-decoration: underline;
         }
 
+        /* Responsiveness adjustments for standard screens */
+        @media (max-width: 1200px) {
+            .programs-flex-row {
+                overflow-x: auto; /* Allows smooth horizontal swipe on tablet viewports instead of compression */
+                padding-bottom: 15px;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.4rem; }
             .hero h2 { font-size: 1.4rem; }
             .container { padding: 50px 20px; }
+            .programs-flex-row {
+                flex-direction: column; /* Stacks completely on mobile devices */
+            }
             .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -357,19 +388,17 @@
         <h3>Measure. Register. Develop. Grow.</h3>
         <p>Helping organizations identify, document and grow environmental assets across energy, water, waste and nature.</p>
         <div class="hero-buttons">
-            <!-- Link to intake form -->
             <a href="https://forms.google.com" target="_blank" class="btn btn-primary">Register Asset</a>
-            <!-- Jumps smoothly down to programs view -->
             <a href="#programs" class="btn btn-outline">Explore Programs</a>
         </div>
     </section>
 
-    <!-- Unified Operational Pathways Grid -->
+    <!-- Unified Operational Pathways Section (5 Cards Inline) -->
     <section class="container" id="programs">
         <h2 class="section-title">Choose Your Path</h2>
         <p class="section-subtitle">Select an institutional portal framework to interact with environmental metrics</p>
         
-        <div class="programs-grid">
+        <div class="programs-flex-row">
             
             <!-- Path 1 -->
             <div class="card">
@@ -408,7 +437,6 @@
                 <div class="card-icon">🎓</div>
                 <h4>Atmanirbhar Campus Index</h4>
                 <p>University Sustainability Benchmark.</p>
-                <!-- Links straight into the native subfolder we constructed -->
                 <a href="./campus" class="btn btn-card">Visit Campus Index</a>
             </div>
 
@@ -466,27 +494,27 @@
                     <tr>
                         <td><strong>Registered Asset</strong></td>
                         <td>1–100</td>
-                        <td>Free</td>
+                        <td><span class="badge-free">Free</span></td>
                     </tr>
                     <tr>
                         <td><strong>Watchlist</strong></td>
                         <td>101–500</td>
-                        <td>Free</td>
+                        <td><span class="badge-free">Free</span></td>
                     </tr>
                     <tr>
                         <td><strong>Starter Development</strong></td>
                         <td>501–5,000</td>
-                        <td>₹3,999</td>
+                        <td>&#8377;3,999</td>
                     </tr>
                     <tr>
                         <td><strong>Growth Development</strong></td>
                         <td>5,001–25,000</td>
-                        <td>₹3,999</td>
+                        <td>&#8377;3,999</td>
                     </tr>
                     <tr>
                         <td><strong>Institutional Development</strong></td>
                         <td>25,000+</td>
-                        <td>₹11,999</td>
+                        <td>&#8377;11,999</td>
                     </tr>
                 </tbody>
             </table>
