@@ -15,7 +15,7 @@
             --bg-light: #f4f7f5;      /* Clean Off-white background */
             --text-main: #2d3748;     /* Charcoal text */
             --text-muted: #718096;    /* Secondary grey text */
-            --card-shadow: 0 10px 30px rgba(27, 67, 50, 0.08);
+            --card-shadow: 0 10px 30px rgba(27, 67, 50, 0.06);
             --font: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -36,54 +36,123 @@
         .hero {
             background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
             color: white;
-            padding: 100px 20px 80px 20px;
+            padding: 120px 20px 100px 20px;
             text-align: center;
-            position: relative;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: -0.5px;
         }
 
         .hero h2 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: #d8f3dc;
-            font-weight: 500;
-            margin-bottom: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .hero h3 {
+            font-size: 1.3rem;
+            color: #b7e4c7;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            max-width: 680px;
-            margin: 0 auto;
+            max-width: 720px;
+            margin: 0 auto 40px auto;
             font-size: 1.15rem;
-            color: #b7e4c7;
             opacity: 0.9;
+            color: #f4f7f5;
         }
 
-        /* Section Setup */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Base Button styling */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-light);
+            color: white;
+            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #40916c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #d8f3dc;
+            border: 2px solid #2d6a4f;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(45, 106, 79, 0.2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-card {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        .btn-card:hover {
+            background-color: var(--primary-light);
+        }
+
+        /* Container & Section Architecture */
         .container {
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 80px 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 40px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
-        /* Pathway Cards Layout */
-        .pathways {
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* Program Cards Ecosystem grid */
+        .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-bottom: 60px;
         }
 
         .card {
@@ -93,14 +162,13 @@
             box-shadow: var(--card-shadow);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            border: 1px solid rgba(45, 106, 79, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(45, 106, 79, 0.05);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(27, 67, 50, 0.12);
+            box-shadow: 0 20px 40px rgba(27, 67, 50, 0.1);
         }
 
         .card-icon {
@@ -108,132 +176,156 @@
             margin-bottom: 15px;
         }
 
-        .card h3 {
-            font-size: 1.5rem;
+        .card h4 {
+            font-size: 1.4rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .card p {
             color: var(--text-muted);
             margin-bottom: 30px;
             font-size: 1.05rem;
+            flex-grow: 1;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: background-color 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Registry Progress / Stats Section */
-        .registry-section {
+        /* Live Impact Tracking Metrics Section */
+        .impact-section {
             background-color: white;
             padding: 80px 20px;
-            text-align: center;
-            box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+            border-top: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto 50px auto;
+            text-align: center;
         }
 
         .stat-box {
-            padding: 20px;
+            padding: 15px;
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--primary-light);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .stat-label {
             font-size: 0.95rem;
             color: var(--text-muted);
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Custom Progress Bar for 100M Ton Pipeline */
-        .progress-container {
-            max-width: 600px;
+        .tracker-wrapper {
+            max-width: 650px;
             margin: 0 auto;
+            text-align: center;
+        }
+
+        .progress-container {
             background: #e2e8f0;
             border-radius: 20px;
             height: 24px;
             overflow: hidden;
             position: relative;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+            margin-top: 10px;
         }
 
         .progress-bar {
-            width: 17%; /* Updates dynamically based on current tracking (~17,000 verified in pilot Phase) */
+            width: 17%; /* Tracks active validation pipelines */
             background: linear-gradient(90deg, var(--primary-light) 0%, var(--accent) 100%);
             height: 100%;
             border-radius: 20px;
-            transition: width 0.5s ease-in-out;
         }
 
-        /* Action/CTA Section */
-        .cta-section {
-            text-align: center;
-            padding: 60px 20px;
+        /* Development Pathway Matrix Table block */
+        .pathways-table-section {
+            padding: 80px 20px;
+            background-color: var(--bg-light);
         }
 
-        .btn-large {
-            padding: 16px 40px;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.2);
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
         }
 
-        /* Universal Site Footer */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 600px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8faf9;
+        }
+
+        /* Universal Asset Footers */
         .site-footer {
             background-color: #081c15;
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 70px 20px;
             font-size: 0.95rem;
-            border-top: 4px solid var(--primary-light);
+            border-top: 5px solid var(--primary-light);
         }
 
-        .footer-power {
-            font-weight: 600;
+        .footer-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
             letter-spacing: 0.5px;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             color: #ffffff;
         }
 
         .footer-tagline {
             color: #b7e4c7;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .footer-links a {
@@ -249,62 +341,84 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero h2 { font-size: 1.3rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero h2 { font-size: 1.4rem; }
             .container { padding: 50px 20px; }
+            .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Header -->
+    <!-- Hero Framework Header UI -->
     <section class="hero">
-        <h1>One Registry. Three Pathways. One Mission.</h1>
-        <h2>Measure. Register. Develop. Grow.</h2>
-        <p>Helping organizations identify, document, and grow environmental assets across energy, water, waste, and nature.</p>
+        <h1>Earth Carbon Foundation</h1>
+        <h2>One Registry. Three Pathways. One Mission.</h2>
+        <h3>Measure. Register. Develop. Grow.</h3>
+        <p>Helping organizations identify, document and grow environmental assets across energy, water, waste and nature.</p>
+        <div class="hero-buttons">
+            <!-- Link to intake form -->
+            <a href="https://forms.google.com" target="_blank" class="btn btn-primary">Register Asset</a>
+            <!-- Jumps smoothly down to programs view -->
+            <a href="#programs" class="btn btn-outline">Explore Programs</a>
+        </div>
     </section>
 
-    <!-- Three Pathways Section -->
-    <main class="container">
+    <!-- Unified Operational Pathways Grid -->
+    <section class="container" id="programs">
         <h2 class="section-title">Choose Your Path</h2>
-        <div class="pathways">
+        <p class="section-subtitle">Select an institutional portal framework to interact with environmental metrics</p>
+        
+        <div class="programs-grid">
             
-            <!-- Pathway 1 -->
+            <!-- Path 1 -->
             <div class="card">
-                <div>
-                    <div class="card-icon">⚡</div>
-                    <h3>AtmanirbharNow</h3>
-                    <p>Measure Resource Independence. Track asset-level metric data points to score grid independence.</p>
-                </div>
-                <a href="https://atmanirbharnow.org" class="btn">Visit AtmanirbharNow</a>
+                <div class="card-icon">⚡</div>
+                <h4>AtmanirbharNow</h4>
+                <p>Measure Resource Independence.</p>
+                <a href="https://atmanirbharnow.org" class="btn btn-card">Visit AtmanirbharNow</a>
             </div>
 
-            <!-- Pathway 2 -->
+            <!-- Path 2 -->
             <div class="card">
-                <div>
-                    <div class="card-icon">💰</div>
-                    <h3>Time2Repay</h3>
-                    <p>Unlock Hidden Value. Transform your green operational achievements into high-integrity carbon credit registries.</p>
-                </div>
-                <a href="https://time2repay.com" class="btn">Visit Time2Repay</a>
+                <div class="card-icon">💰</div>
+                <h4>Time2Repay</h4>
+                <p>Unlock Hidden Value.</p>
+                <a href="https://time2repay.com" class="btn btn-card">Visit Time2Repay</a>
             </div>
 
-            <!-- Pathway 3 -->
+            <!-- Path 3 -->
             <div class="card">
-                <div>
-                    <div class="card-icon">🌍</div>
-                    <h3>100M Tons</h3>
-                    <p>Build Climate Impact. Aggregating high-integrity community actions to remove carbon emissions systematically.</p>
-                </div>
-                <a href="https://100mtons.com" class="btn">Visit 100M Tons</a>
+                <div class="card-icon">🌍</div>
+                <h4>100M Tons</h4>
+                <p>Build Climate Impact.</p>
+                <a href="https://100mtons.com" class="btn btn-card">Visit 100M Tons</a>
+            </div>
+
+            <!-- Path 4 -->
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h4>Climate Asset Registry</h4>
+                <p>Register and Verify Environmental Assets.</p>
+                <a href="https://registryearth.org" class="btn btn-card">Visit Registry</a>
+            </div>
+
+            <!-- Path 5 -->
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h4>Atmanirbhar Campus Index</h4>
+                <p>University Sustainability Benchmark.</p>
+                <!-- Links straight into the native subfolder we constructed -->
+                <a href="./campus" class="btn btn-card">Visit Campus Index</a>
             </div>
 
         </div>
-    </main>
+    </section>
 
-    <!-- Registry Metrics Dashboard -->
-    <section class="registry-section">
-        <h2 class="section-title">Registry Progress</h2>
+    <!-- Live Data Analytics Metrics Tracking Section -->
+    <section class="impact-section">
+        <h2 class="section-title">Live Impact Tracking</h2>
+        <p class="section-subtitle">Real-time asset validation and structural processing performance registry</p>
         
         <div class="stats-grid">
             <div class="stat-box">
@@ -325,32 +439,70 @@
             </div>
         </div>
 
-        <div style="max-width: 600px; margin: 0 auto;">
-            <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary);">100 Million Ton Progress Tracker</p>
+        <div class="tracker-wrapper">
+            <p style="font-weight: 600; color: var(--primary);">100M Ton Progress Tracker</p>
             <div class="progress-container">
                 <div class="progress-bar"></div>
             </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Pilot Validation Framework Phase Active</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Institutional Scale Phase Verified Execution</p>
         </div>
     </section>
 
-    <!-- Action Intake Pipeline -->
-    <section class="cta-section">
-        <a href="https://forms.google.com" target="_blank" class="btn btn-large">Register My Asset</a>
+    <!-- Pricing / Development Pathways Section -->
+    <section class="container">
+        <h2 class="section-title">Registry Development Pathways</h2>
+        <p class="section-subtitle">Transparent structural options to scale and manage credit portfolios</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Development Status</th>
+                        <th>CER Potential</th>
+                        <th>Annual Registry Contribution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Registered Asset</strong></td>
+                        <td>1–100</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Watchlist</strong></td>
+                        <td>101–500</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Starter Development</strong></td>
+                        <td>501–5,000</td>
+                        <td>₹3,999</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Growth Development</strong></td>
+                        <td>5,001–25,000</td>
+                        <td>₹3,999</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Institutional Development</strong></td>
+                        <td>25,000+</td>
+                        <td>₹11,999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <!-- Unified Master Brand Footer -->
+    <!-- Master Central Hub Architecture Footer -->
     <footer class="site-footer">
-        <div class="footer-power">Powered By Earth Carbon Foundation</div>
+        <div class="footer-brand">Earth Carbon Foundation</div>
         <div class="footer-tagline">Measure. Register. Develop. Grow.</div>
         <div class="footer-links">
-            <a href="https://atmanirbharnow.org">AtmanirbharNow</a>
-            <span>|</span>
-            <a href="https://time2repay.com">Time2Repay</a>
-            <span>|</span>
-            <a href="https://100mtons.com">100M Tons</a>
-            <span>|</span>
-            <a href="https://registryearth.org">Registry</a>
+            <a href="https://atmanirbharnow.org" target="_blank">AtmanirbharNow</a>
+            <a href="https://time2repay.com" target="_blank">Time2Repay</a>
+            <a href="https://100mtons.com" target="_blank">100M Tons</a>
+            <a href="https://registryearth.org" target="_blank">Climate Asset Registry</a>
+            <a href="./campus">Atmanirbhar Campus Index</a>
         </div>
     </footer>
 
