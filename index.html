@@ -130,7 +130,7 @@
 
         /* Container & Section Architecture */
         .container {
-            max-width: 1400px; /* Expanded to beautifully hold 5 items inline */
+            max-width: 1400px;
             margin: 0 auto;
             padding: 80px 20px;
         }
@@ -150,7 +150,7 @@
             margin-bottom: 50px;
         }
 
-        /* 5 Cards in a Single Line Layout */
+        /* 5 Cards Inline Layout */
         .programs-flex-row {
             display: flex;
             gap: 20px;
@@ -166,7 +166,7 @@
             flex-direction: column;
             border: 1px solid rgba(45, 106, 79, 0.04);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex: 1; /* Forces identical matching widths */
+            flex: 1;
             min-width: 220px; 
         }
 
@@ -206,26 +206,29 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto 50px auto;
             text-align: center;
         }
 
         .stat-box {
-            padding: 15px;
+            padding: 20px;
+            background-color: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid rgba(45, 106, 79, 0.04);
         }
 
         .stat-number {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary-light);
             margin-bottom: 4px;
         }
 
         .stat-label {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             font-weight: 600;
             text-transform: uppercase;
@@ -312,6 +315,16 @@
             border: 1px solid #c8e6c9;
         }
 
+        .table-note {
+            max-width: 1000px;
+            margin: 20px auto 0 auto;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-align: left;
+            padding: 0 10px;
+            font-style: italic;
+        }
+
         /* Universal Asset Footers */
         .site-footer {
             background-color: #081c15;
@@ -363,7 +376,7 @@
         /* Responsiveness adjustments for standard screens */
         @media (max-width: 1200px) {
             .programs-flex-row {
-                overflow-x: auto; /* Allows smooth horizontal swipe on tablet viewports instead of compression */
+                overflow-x: auto; 
                 padding-bottom: 15px;
             }
         }
@@ -373,7 +386,10 @@
             .hero h2 { font-size: 1.4rem; }
             .container { padding: 50px 20px; }
             .programs-flex-row {
-                flex-direction: column; /* Stacks completely on mobile devices */
+                flex-direction: column; 
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
             }
             .footer-links { flex-direction: column; gap: 15px; }
         }
@@ -450,25 +466,25 @@
         
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="stat-number">17K+</div>
-                <div class="stat-label">Registered Assets (tCO2e)</div>
+                <div class="stat-number">1,200+</div>
+                <div class="stat-label">Participants</div>
             </div>
             <div class="stat-box">
                 <div class="stat-number">800+</div>
-                <div class="stat-label">Organizations</div>
+                <div class="stat-label">Assets Identified</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">Active</div>
-                <div class="stat-label">CER Pipeline</div>
+                <div class="stat-number">17,000+</div>
+                <div class="stat-label">Annual tCO₂e Pipeline</div>
             </div>
             <div class="stat-box">
-                <div class="stat-number">Global</div>
-                <div class="stat-label">Countries</div>
+                <div class="stat-number">1+</div>
+                <div class="stat-label">States Covered</div>
             </div>
         </div>
 
         <div class="tracker-wrapper">
-            <p style="font-weight: 600; color: var(--primary);">100M Ton Progress Tracker</p>
+            <p style="font-weight: 600; color: var(--primary);">Mission Target: 100 Million Tons</p>
             <div class="progress-container">
                 <div class="progress-bar"></div>
             </div>
@@ -518,6 +534,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="table-note">
+            Includes 12 months of registry participation, asset tracking, development screening and opportunity assessment.
         </div>
     </section>
 
