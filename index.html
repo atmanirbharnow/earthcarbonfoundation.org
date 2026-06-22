@@ -14,7 +14,7 @@
             --accent: #40916c;        /* Soft Active Green */
             --bg-light: #f4f7f5;      /* Clean Off-white background */
             --text-main: #2d3748;     /* Charcoal text */
-            --text-muted: #718096;    /* Secondary grey text */
+            --text-muted: #718096;    --Secondary grey text */
             --card-shadow: 0 10px 30px rgba(27, 67, 50, 0.06);
             --font: 'Plus Jakarta Sans', sans-serif;
             --success-green: #2d6a4f;  /* Highlight color for Free */
@@ -259,6 +259,46 @@
             border-radius: 20px;
         }
 
+        /* Share Your Impact Inner Dashboard Styles */
+        .impact-share-box {
+            max-width: 1350px;
+            margin: 60px auto 0 auto;
+            background-color: var(--bg-light);
+            border-radius: 16px;
+            padding: 40px 30px;
+            border: 1px solid rgba(27, 67, 50, 0.08);
+            text-align: left;
+        }
+        .impact-grid-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .impact-column-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .impact-column-card h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+        .impact-list-raw {
+            list-style: none;
+        }
+        .impact-list-raw li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
         /* Development Pathway Matrix Table block */
         .pathways-table-section {
             padding: 80px 20px;
@@ -396,6 +436,10 @@
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
+            .impact-grid-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
             .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -499,6 +543,50 @@
                 <div class="progress-bar"></div>
             </div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Active Registry Portfolios Scaling to Phase 2 Targets</p>
+        </div>
+
+        <!-- NEW ATTACHED SECTION: SHARE YOUR IMPACT (PLACED BELOW KPI COUNTERS & TRACKER) -->
+        <div class="impact-share-box">
+            <h3 style="font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 6px;">Share Your Impact</h3>
+            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">Environmental action becomes more powerful when it is visible.</p>
+            
+            <div class="impact-grid-row">
+                <!-- Portal Deliverables Card -->
+                <div class="impact-column-card">
+                    <h4>Every Participant Receives</h4>
+                    <ul class="impact-list-raw">
+                        <li>✅ Registry ID</li>
+                        <li>✅ Impact Certificate</li>
+                        <li>✅ Public Verification Link</li>
+                        <li>✅ Social Sharing Badge</li>
+                        <li>✅ Contribution to the 100 Million Tons Mission</li>
+                    </ul>
+                </div>
+                
+                <!-- Example Signatures Card -->
+                <div class="impact-column-card">
+                    <h4>Example Impact Signatures</h4>
+                    <ul class="impact-list-raw" style="font-weight: 600;">
+                        <li style="color: #0b0c0c; margin-bottom: 10px;">🌍 42 tCO₂e Impact (2026)</li>
+                        <li style="color: #00703c; margin-bottom: 10px;">⚡ 76% Atmanirbhar</li>
+                        <li style="color: #005a30; margin-bottom: 10px;">♻ 34% Circularity Score</li>
+                        <li style="color: #2d6a4f;">🏅 Contributor to 100 Million Tons by 2030</li>
+                    </ul>
+                </div>
+                
+                <!-- Use Cases Card -->
+                <div class="impact-column-card">
+                    <h4>Where Participants Use Them</h4>
+                    <ul class="impact-list-raw" style="color: var(--text-main); font-weight: 500;">
+                        <li>• Email Signatures</li>
+                        <li>• LinkedIn Profiles</li>
+                        <li>• Company Websites</li>
+                        <li>• University Portals</li>
+                        <li>• Annual Reports</li>
+                        <li>• Tender Documents</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
