@@ -3,687 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | One Registry. Three Pathways. One Mission.</title>
+    <title>Earth Carbon Foundation | Environmental Asset Management Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1b4332;       /* Deep Forest Green */
-            --primary-light: #2d6a4f; /* Emerald Accent */
-            --accent: #40916c;        /* Soft Active Green */
-            --bg-light: #f4f7f5;      /* Clean Off-white background */
-            --text-main: #2d3748;     /* Charcoal text */
-            --text-muted: #718096;    /* Secondary grey text */
-            --card-shadow: 0 10px 30px rgba(27, 67, 50, 0.06);
-            --font: 'Plus Jakarta Sans', sans-serif;
-            --success-green: #2d6a4f;  /* Highlight color for Free */
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font);
-            color: var(--text-main);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1b4332 0%, #081c15 100%);
-            color: white;
-            padding: 120px 20px 100px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .hero h2 {
-            font-size: 1.8rem;
-            color: #d8f3dc;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .hero h3 {
-            font-size: 1.3rem;
-            color: #b7e4c7;
-            font-weight: 400;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero p {
-            max-width: 720px;
-            margin: 0 auto 40px auto;
-            font-size: 1.15rem;
-            opacity: 0.9;
-            color: #f4f7f5;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Base Button styling */
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.2s ease;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-light);
-            color: white;
-            box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: #40916c;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: #d8f3dc;
-            border: 2px solid #2d6a4f;
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(45, 106, 79, 0.2);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .btn-card {
-            background-color: var(--primary);
-            color: white;
-            width: 100%;
-            margin-top: auto;
-            font-size: 0.85rem;
-            padding: 10px 15px;
-        }
-
-        .btn-card:hover {
-            background-color: var(--primary-light);
-        }
-
-        /* Container & Section Architecture */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-        }
-
-        /* 5 Cards Inline Layout */
-        .programs-flex-row {
-            display: flex;
-            gap: 20px;
-            justify-content: space-between;
-        }
-
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px 20px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(45, 106, 79, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex: 1;
-            min-width: 220px; 
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(27, 67, 50, 0.1);
-        }
-
-        .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .card h4 {
-            font-size: 1.15rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        /* Live Impact Tracking Metrics Section */
-        .impact-section {
-            background-color: white;
-            padding: 80px 20px;
-            border-top: 1px solid rgba(0,0,0,0.03);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .stats-grid-5 {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-            max-width: 1350px;
-            margin: 0 auto 50px auto;
-            text-align: center;
-        }
-
-        .stat-box {
-            padding: 20px 10px;
-            background-color: var(--bg-light);
-            border-radius: 12px;
-            border: 1px solid rgba(45, 106, 79, 0.04);
-        }
-
-        .stat-number {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: var(--primary-light);
-            margin-bottom: 6px;
-            word-wrap: break-word;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .tracker-wrapper {
-            max-width: 650px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .progress-container {
-            background: #e2e8f0;
-            border-radius: 20px;
-            height: 24px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-            margin-top: 10px;
-        }
-
-        .progress-bar {
-            width: 17%; 
-            background: linear-gradient(90deg, var(--primary-light) 0%, var(--accent) 100%);
-            height: 100%;
-            border-radius: 20px;
-        }
-
-        /* Share Your Impact Inner Dashboard Styles */
-        .impact-share-box {
-            max-width: 1350px;
-            margin: 60px auto 0 auto;
-            background-color: var(--bg-light);
-            border-radius: 16px;
-            padding: 40px 30px;
-            border: 1px solid rgba(27, 67, 50, 0.08);
-            text-align: left;
-        }
-        .impact-grid-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
-        .impact-column-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-        .impact-column-card h4 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--bg-light);
-        }
-        .impact-list-raw {
-            list-style: none;
-        }
-        .impact-list-raw li {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-
-        /* Development Pathway Matrix Table block */
-        .pathways-table-section {
-            padding: 80px 20px;
-            background-color: var(--bg-light);
-        }
-
-        .table-responsive {
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow-x: auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            min-width: 600px;
-        }
-
-        th {
-            background-color: var(--primary);
-            color: white;
-            padding: 16px 20px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        td {
-            padding: 16px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            color: var(--text-main);
-            font-size: 0.95rem;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8faf9;
-        }
-
-        /* Dynamic Green Pill Badge for Free Tier */
-        .badge-free {
-            background-color: #e8f5e9;
-            color: var(--success-green);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: inline-block;
-            border: 1px solid #c8e6c9;
-        }
-
-        .table-note {
-            max-width: 1000px;
-            margin: 20px auto 0 auto;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            text-align: left;
-            padding: 0 10px;
-        }
-
-        .inclusion-list {
-            margin-top: 15px;
-            padding-left: 10px;
-            list-style: none;
-        }
-
-        .inclusion-list li {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-        }
-
-        .inclusion-list li::before {
-            content: "•";
-            color: var(--primary-light);
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-right: 10px;
-            display: inline-block;
-            width: 8px;
-        }
-
-        /* Universal Asset Footers */
-        .site-footer {
-            background-color: #081c15;
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-            font-size: 0.95rem;
-            border-top: 5px solid var(--primary-light);
-        }
-
-        .footer-brand {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            color: #ffffff;
-        }
-
-        .footer-tagline {
-            color: #b7e4c7;
-            font-size: 0.95rem;
-            margin-bottom: 35px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .footer-links a {
-            color: #d8f3dc;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        /* Responsiveness adjustments for standard screens */
-        @media (max-width: 1200px) {
-            .programs-flex-row {
-                overflow-x: auto; 
-                padding-bottom: 15px;
-            }
-            .stats-grid-5 {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .hero h2 { font-size: 1.4rem; }
-            .container { padding: 50px 20px; }
-            .programs-flex-row {
-                flex-direction: column; 
-            }
-            .stats-grid-5 {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .impact-grid-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .footer-links { flex-direction: column; gap: 15px; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <section class="hero" id="mission-target">
-        <h1>Earth Carbon Foundation</h1>
-        <h2>One Registry. Three Pathways. One Mission.</h2>
-        <h3>Measure. Register. Develop. Grow.</h3>
-        <p>Helping organizations identify, document and grow environmental assets across energy, water, waste and nature.</p>
-        <div class="hero-buttons">
-            <a href="https://forms.gle/FPJrxAaU3JZo8CZg8" target="_blank" class="btn btn-primary">Register Asset</a>
-            <a href="https://registryearthcarbon.org/" target="_blank" class="btn btn-outline">View Registry</a>
-            <a href="#live-impact-tracking" class="btn btn-outline">View Mission Progress</a>
-        </div>
-    </section>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <section class="container" id="programs">
-        <h2 class="section-title">Choose Your Path</h2>
-        <p class="section-subtitle">Select an institutional portal framework to interact with environmental metrics</p>
+    <!-- Sticky Navigation Header -->
+    <header class="site-header" dashed-border="false">
+        <div class="nav-flex">
+            <a href="#" class="logo" aria-label="Earth Carbon Foundation Home">
+                Earth Carbon Foundation
+            </a>
+            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
+            <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
+                <a href="#journey">Your Journey</a>
+                <a href="#sectors">Who Can Join</a>
+                <a href="#services">Capabilities</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#impact" class="active">Live Impact</a>
+                <a href="https://registryearthcarbon.org" target="_blank" class="btn-secondary">View Registry</a>
+                <a href="#contact" class="btn-primary">Create Free Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
         
-        <div class="programs-flex-row">
-            
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h4>AtmanirbharNow</h4>
-                <p>Measure Resource Independence.</p>
-                <a href="https://atmanirbharnow.org" class="btn btn-card">Visit AtmanirbharNow</a>
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title" class="hero-title">Every Environmental Asset Deserves a <span class="highlight">Permanent Home</span>.</h1>
+                <p class="hero-sub">
+                    Create your Environmental Profile. Build your Environmental Asset Portfolio. Grow your sustainability journey. 
+                    We manage the long-term data history of your physical green assets on India's premier infrastructure platform.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn-premium">Create Free Profile</a>
+                    <a href="https://registryearthcarbon.org" target="_blank" class="btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);">View Registry</a>
+                </div>
+                <div class="trust-badges" aria-label="Platform credentials">
+                    <span>✓ Central Environmental Ledger</span>
+                    <span>✓ Clear Asset Tracking</span>
+                    <span>✓ Zero Fee Onboarding</span>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-icon">💰</div>
-                <h4>Time2Repay</h4>
-                <p>Unlock Hidden Value.</p>
-                <a href="https://time2repay.com" class="btn btn-card">Visit Time2Repay</a>
+        <!-- The Customer Journey Section -->
+        <section id="journey" class="section bg-light" aria-labelledby="journey-title">
+            <div class="container">
+                <h2 id="journey-title">Your Sustainability Journey</h2>
+                <p class="center-text" style="color: var(--text-muted); max-width: 600px; margin: -2rem auto 3rem auto;">
+                    Every organization follows the exact same high-integrity deployment process. Whether you connect directly or via an active implementation partner, your profile remains permanently yours.
+                </p>
+                
+                <div class="workflow-steps">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <span class="step-icon" aria-hidden="true">🔑</span>
+                        <h3>1. Join (Free)</h3>
+                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Create your permanent corporate Environmental Profile.</p>
+                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
+                            <li>Instant secure Registry ID</li>
+                            <li>Centralized Asset Dashboard</li>
+                            <li>Lifetime foundational access</li>
+                        </ul>
+                        <a href="#contact" class="link-arrow">Create Free Profile →</a>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <span class="step-icon" aria-hidden="true">📊</span>
+                        <h3>2. Build</h3>
+                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Compile your active environmental asset portfolio.</p>
+                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
+                            <li>Upload metrics and document files</li>
+                            <li>Confirm asset legal ownership</li>
+                            <li>Generate public environmental summary</li>
+                        </ul>
+                        <a href="#contact" class="link-arrow">Build My Portfolio →</a>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <span class="step-icon" aria-hidden="true">📈</span>
+                        <h3>3. Grow <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(Optional)</span></h3>
+                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Expand features when your enterprise is ready.</p>
+                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
+                            <li>Carbon Footprint & accounting models</li>
+                            <li>BRSR & ESG compliance reporting</li>
+                            <li>PoA Bundled Program coordination</li>
+                        </ul>
+                        <a href="#contact" class="link-arrow">Explore Growth Pathways →</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-icon">🌍</div>
-                <h4>100M Tons</h4>
-                <p>Build Climate Impact.</p>
-                <a href="https://100mtons.com" class="btn btn-card">Visit 100M Tons</a>
+        <!-- Partner Network Section -->
+        <section class="section bg-emerald" aria-labelledby="partner-title">
+            <div class="container">
+                <h2 id="partner-title">Partner With Us</h2>
+                <p class="center-text" style="color: var(--text-muted); max-width: 700px; margin: -2rem auto 2.5rem auto;">
+                    We collaborate closely with ecosystem stakeholders to simplify data tracking. Asset records always vest directly with the physical owner, while implementers earn documented, public recognition.
+                </p>
+                <div class="partners-grid">
+                    <div class="partner-card">EPC Companies <span class="badge">Solar/Wind</span></div>
+                    <div class="partner-card">Architects <span class="badge">Green Building</span></div>
+                    <div class="partner-card">Consultants <span class="badge">ESG/BRSR</span></div>
+                    <div class="partner-card">Educational Institutions <span class="badge">Campuses</span></div>
+                    <div class="partner-card">Industry Associations <span class="badge">MSMEs</span></div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-icon">📋</div>
-                <h4>Climate Asset Registry</h4>
-                <p>Register and Verify Environmental Assets.</p>
-                <a href="https://registryearthcarbon.org/" class="btn btn-card">Visit Registry</a>
+        <!-- Who Can Join Section -->
+        <section id="sectors" class="section bg-light" aria-labelledby="sectors-title">
+            <div class="container">
+                <h2 id="sectors-title">Supported Asset Categories</h2>
+                <div class="sectors-grid">
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🏭</span>
+                        <h4>Manufacturing</h4>
+                        <p>Track thermal efficiency, process adjustments, and waste management cycles.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🏢</span>
+                        <h4>Commercial Buildings</h4>
+                        <p>Verify HVAC optimization, LED transitions, and structural energy footprints.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🎓</span>
+                        <h4>Educational Institutions</h4>
+                        <p>Benchmark schools and universities using green campus sustainability ratings.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🏥</span>
+                        <h4>Hospitals</h4>
+                        <p>Manage critical resource tracking, backup systems, and water consumption matrix profiles.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">💼</span>
+                        <h4>MSMEs</h4>
+                        <p>Unlock simple, cost-effective environmental validation pathways tailored for small units.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">☀️</span>
+                        <h4>Renewable Energy</h4>
+                        <p>Centralize cross-location rooftop solar installations, wind, and storage capacities.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🏡</span>
+                        <h4>Residential Communities</h4>
+                        <p>Aggregate localized rainwater systems, organic compost sites, and community solar arrays.</p>
+                    </div>
+                    <div class="sector-card">
+                        <span class="sector-icon" aria-hidden="true">🏛️</span>
+                        <h4>Government Organizations</h4>
+                        <p>Document municipal operations, urban mass transit saves, and public utility milestones.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <div class="card-icon">🎓</div>
-                <h4>Atmanirbhar Campus Index</h4>
-                <p>University Sustainability Benchmark.</p>
-                <a href="https://earthcarbonfoundation.org/campus/" class="btn btn-card">Visit Campus Index</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="impact-section" id="live-impact-tracking">
-        <h2 class="section-title">Live Impact Tracking</h2>
-        <p class="section-subtitle">Real-time asset validation and structural processing performance registry</p>
-        
-        <div class="stats-grid-5">
-            <div class="stat-box">
-                <div class="stat-number">1,203</div>
-                <div class="stat-label">Participants</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">806</div>
-                <div class="stat-label">Assets Registered</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">17,000+</div>
-                <div class="stat-label">Impact Identified (tCO₂e)</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">16,029,297,777</div>
-                <div class="stat-label">Value Created (Rs)</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">99,983,000</div>
-                <div class="stat-label">Still To Be Reduced (tCO₂e)</div>
-            </div>
-        </div>
-
-        <div class="tracker-wrapper">
-            <p style="font-weight: 600; color: var(--primary);">Mission Target: 100,000,000 tCO₂e</p>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 8px;">Active Registry Portfolios Scaling to Phase 2 Targets</p>
-        </div>
-
-        <div class="impact-share-box">
-            <h3 style="font-size: 1.6rem; font-weight: 700; color: var(--primary); margin-bottom: 6px;">Share Your Impact</h3>
-            <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">Environmental action becomes more powerful when it is visible.</p>
-            
-            <div class="impact-grid-row">
-                <div class="impact-column-card">
-                    <h4>Every Participant Receives</h4>
-                    <ul class="impact-list-raw">
-                        <li>✅ Registry ID</li>
-                        <li>✅ Impact Certificate</li>
-                        <li>✅ Public Verification Link</li>
-                        <li>✅ Social Sharing Badge</li>
-                        <li>✅ Contribution to the 100 Million Tons Mission</li>
-                    </ul>
+        <!-- Live Impact Metrics Section -->
+        <section id="impact" class="section" style="background: rgba(0,0,0,0.2);" aria-labelledby="impact-title">
+            <div class="container">
+                <h2 id="impact-title" style="color: white; text-align: center; margin-bottom: 3rem;">Ecosystem Platform Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-value" id="userCounter">1,203</span>
+                        <span class="metric-label">Organizations Registered</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="validCounter">806</span>
+                        <span class="metric-label">Environmental Assets Tracked</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="impactCounter" style="color: var(--industrial-gold);">17,000+</span>
+                        <span class="metric-label">Climate Impact (tCO₂e Identified)</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-value" id="revenueCounter" style="color: var(--industrial-gold);">16,029,297</span>
+                        <span class="metric-label">Value Visualized (INR)</span>
+                    </div>
                 </div>
                 
-                <div class="impact-column-card">
-                    <h4>Example Impact Signatures</h4>
-                    <ul class="impact-list-raw" style="font-weight: 600;">
-                        <li style="color: #0b0c0c; margin-bottom: 10px;">🌍 42 tCO₂e Impact (2026)</li>
-                        <li style="color: #00703c; margin-bottom: 10px;">⚡ 76% Atmanirbhar</li>
-                        <li style="color: #005a30; margin-bottom: 10px;">♻ 34% Circularity Score</li>
-                        <li style="color: #2d6a4f;">🏅 Contributor to 100 Million Tons by 2030</li>
-                    </ul>
-                </div>
-                
-                <div class="impact-column-card">
-                    <h4>Where Participants Use Them</h4>
-                    <ul class="impact-list-raw" style="color: var(--text-main); font-weight: 500;">
-                        <li>• Email Signatures</li>
-                        <li>• LinkedIn Profiles</li>
-                        <li>• Company Websites</li>
-                        <li>• University Portals</li>
-                        <li>• Annual Reports</li>
-                        <li>• Tender Documents</li>
-                    </ul>
+                <div style="max-width: 600px; margin: 2.5rem auto 0 auto; text-align: center;">
+                    <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Mission Progress Target: 100 Million Tons</p>
+                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
+                        <div class="progress-bar" style="width: 17%; background: var(--industrial-gold); height: 100%;"></div>
+                    </div>
+                    <span class="sync-note" id="lastUpdated" style="color: rgba(255,255,255,0.7); margin-top: 0.5rem; display: block;">
+                        Live synchronization active • Main Ledger verified
+                    </span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="container">
-        <h2 class="section-title">Climate Asset Registry Participation</h2>
-        <p class="section-subtitle">Transparent structural options to scale and manage credit portfolios</p>
-        
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Development Status</th>
-                        <th>Asset Size (kW Equivalent)</th>
-                        <th>Annual Registry Contribution</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Registered Asset</strong></td>
-                        <td>1–50 kW</td>
-                        <td><span class="badge-free">Free</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Watchlist</strong></td>
-                        <td>51–250 kW</td>
-                        <td>&#8377;4,999</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Starter </strong></td>
-                        <td>251–500 kW</td>
-                        <td>&#8377;9,999</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Growth </strong></td>
-                        <td>501–750 kW</td>
-                        <td>&#8377;14,999</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Institutional </strong></td>
-                        <td>751 kW–1 MW</td>
-                        <td>&#8377;19,999</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Corporate </strong></td>
-                        <td>Above 1 MW</td>
-                        <td><strong>On Request</strong></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Strategic Projects</strong></td>
-                        <td>Large / Complex Assets</td>
-                        <td><strong>Proposal on Request</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="table-note" style="margin-top: 35px; max-width: 1000px;">
-            <h3 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; font-weight: 700;">All Development Pathways Include:</h3>
-            <ul class="inclusion-list">
-                <li>12 Months Registry Participation</li>
-                <li>Registry ID & Registry Link</li>
-                <li>Climate Asset Tracking</li>
-                <li>Opportunity Assessment</li>
-                <li>Development Screening</li>
-                <li>Methodology Mapping</li>
-                <li>Eligibility Review</li>
-                <li>Access to Future Bundled Program Consideration</li>
-            </ul>
-        </div>
+        <!-- Unified Capabilities Portfolio -->
+        <section id="services" class="section bg-light" aria-labelledby="services-title">
+            <div class="container">
+                <h2 id="services-title">Platform Capabilities</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-card">
+                        <span class="icon" aria-hidden="true">📂</span>
+                        <h4>Environmental Portfolio Management</h4>
+                        <p>One structural profile containing all water, waste, energy, and biodiversity metrics securely updated across locations.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="icon" aria-hidden="true">🌤️</span>
+                        <h4>Carbon & Climate Accounting</h4>
+                        <p>Clear calculation mechanisms for Scope 1, Scope 2, and supply-chain offsets adhering strictly to international rules.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="icon" aria-hidden="true">📋</span>
+                        <h4>Sustainability Reporting Infrastructure</h4>
+                        <p>Turn raw physical tracking numbers into ready compliance files formatted for BRSR, ESG matrix systems, and corporate disclosures.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="icon" aria-hidden="true">📉</span>
+                        <h4>Environmental Resource Auditing</h4>
+                        <p>Comprehensive tracking of circular economy transformations, landfill balances, and localized facility footprints.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <span class="icon" aria-hidden="true">🌱</span>
+                        <h4>Carbon Project Development</h4>
+                        <p>Structural aggregation frameworks linking individual 25 kW to 1000 kW installations into unified institutional asset programs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://forms.gle/FPJrxAaU3JZo8CZg8" target="_blank" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 36px;">Start Free Asset Registration</a>
-        </div>
-    </section>
+        <!-- Ecosystem Integration Block -->
+        <section id="ecosystem" class="section bg-emerald" aria-labelledby="ecosystem-title">
+            <div class="container">
+                <h2 id="ecosystem-title">The Earth Carbon Foundation Ecosystem</h2>
+                <p class="center-text" style="color: var(--text-muted); max-width: 700px; margin: -2rem auto 3rem auto;">
+                    We operate five dedicated program initiatives unified under our central technology framework. They work together as one single data ecosystem.
+                </p>
+                
+                <div class="standards-grid">
+                    <div class="standard-item">
+                        <strong>Climate Asset Registry</strong>
+                        <p>The sovereign central platform verifying asset provenance, ownership rights, and active credit tracking.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>AtmanirbharNow</strong>
+                        <p>Direct dashboard computing independent self-reliance metrics for grid power usage and localized water resources.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>Time2Repay</strong>
+                        <p>Financial baseline engine determining cost recovery periods and clean technology asset depreciation metrics.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>100 Million Tons</strong>
+                        <p>Our macroscopic environmental mission program focusing on accelerating aggregate public carbon reduction targets by 2030.</p>
+                    </div>
+                    <div class="standard-item">
+                        <strong>Campus Index</strong>
+                        <p>Specialized institutional scoring metrics specifically designed to map university, campus, and research house footprints.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="site-footer">
-        <div class="footer-brand">Earth Carbon Foundation</div>
-        <div class="footer-tagline">Measure. Register. Develop. Grow.</div>
-        <div class="footer-links">
-            <a href="https://atmanirbharnow.org" target="_blank">AtmanirbharNow</a>
-            <a href="https://time2repay.com" target="_blank">Time2Repay</a>
-            <a href="https://100mtons.com" target="_blank">100M Tons</a>
-            <a href="https://registryearthcarbon.org/" target="_blank">Climate Asset Registry</a>
-            <a href="https://earthcarbonfoundation.org/campus/">Atmanirbhar Campus Index</a>
+        <!-- Call to Action / Onboarding Intake Form -->
+        <section id="contact" class="section bg-light" aria-labelledby="form-title">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h2 id="form-title">Initialize Your Environmental Profile</h2>
+                        <p>
+                            Onboarding takes less than five minutes. Provide basic organizational details to secure your permanent tracking link, unique Registry ID, and baseline status dashboard completely free.
+                        </p>
+                        <ul class="contact-details">
+                            <li><strong>Ecosystem Hub:</strong> Gujarat, India</li>
+                            <li><strong>Email Interface:</strong> <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></li>
+                        </ul>
+                        <p class="response-time">Registry allocations are processed within 24 operational hours.</p>
+                    </div>
+                    
+                    <form class="contact-form" id="intakeForm" action="#" method="POST" novalidate>
+                        <div>
+                            <label for="orgName" style="display:block; font-size:0.9rem; font-weight:600; margin-bottom:0.4rem; color:var(--deep-slate);">Organization Legal Name *</label>
+                            <input type="text" id="orgName" name="orgName" required placeholder="e.g., Razon Solar Pvt. Ltd.">
+                        </div>
+                        <div>
+                            <label for="contactEmail" style="display:block; font-size:0.9rem; font-weight:600; margin-bottom:0.4rem; color:var(--deep-slate);">Official Contact Email *</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required placeholder="name@company.in">
+                        </div>
+                        <div>
+                            <label for="assetSector" style="display:block; font-size:0.9rem; font-weight:600; margin-bottom:0.4rem; color:var(--deep-slate);">Primary Operational Sector *</label>
+                            <select id="assetSector" name="assetSector" required>
+                                <option value="">Select your sector...</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="commercial">Commercial Buildings</option>
+                                <option value="education">Educational Institutions / Campuses</option>
+                                <option value="healthcare">Hospitals & Healthcare</option>
+                                <option value="msme">MSMEs</option>
+                                <option value="renewables">Renewable Energy Assets</option>
+                                <option value="residential">Residential Communities</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="initialNotes" style="display:block; font-size:0.9rem; font-weight:600; margin-bottom:0.4rem; color:var(--deep-slate);">Asset Inventory Summary <span style="font-weight:normal; color:var(--text-muted);">(Optional)</span></label>
+                            <textarea id="initialNotes" name="initialNotes" placeholder="Briefly list existing solar kW capacities, water capture setups, or facility parameters..."></textarea>
+                        </div>
+                        <div class="consent">
+                            <input type="checkbox" id="dataConsent" name="dataConsent" required>
+                            <label for="dataConsent">I authorize Earth Carbon Foundation to verify the uploaded data profile markers against public utility ledgers to generate our profile.</label>
+                        </div>
+                        <button type="submit" class="btn-primary full-width">Generate Free Profile & Dashboard</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Professional Clean Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p style="font-weight: 700; color: white; margin-bottom: 0.5rem;">Earth Carbon Foundation</p>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">India's Environmental Asset Management Platform • Managed Registry Hub</p>
+            <div class="footer-links">
+                <a href="https://registryearthcarbon.org" target="_blank">Registry Core</a>
+                <a href="#journey">Journey Pathway</a>
+                <a href="#sectors">Sector Roster</a>
+                <a href="#services">Capabilities</a>
+                <a href="mailto:info@earthcarbonfoundation.org">Registry Desk Contact</a>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">
+                © 2026 Earth Carbon Foundation. All rights reserved. Built to conform with international carbon accounting principles and BRSR metrics disclosures.
+            </p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
