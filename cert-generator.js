@@ -64,7 +64,57 @@ function renderCertificate(data) {
   // Hide loader, show certificate + actions
   document.getElementById("cert-loader").style.display = "none";
   document.getElementById("cert-container").style.display = "block";
-  document.getElementById("cert-actions").style.display = "flex";
+  
+  const shareActionsContainer = document.getElementById("cert-actions");
+  if (shareActionsContainer) {
+    shareActionsContainer.style.display = "flex";
+    
+    // --- START LINKEDIN CERTIFICATION ENHANCEMENT ---
+    if (!document.getElementById("linkedin-certification-btn")) {
+      const liBtn = document.createElement("button");
+      liBtn.id = "linkedin-certification-btn";
+      liBtn.innerHTML = `💼 Add to LinkedIn Profile`;
+      
+      // Inherit look from your existing classes but styled for LinkedIn brand guidelines
+      liBtn.style.cssText = `
+        background: #0077b5;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.2s;
+        margin-left: 10px;
+      `;
+      
+      liBtn.addEventListener("mouseover", () => liBtn.style.background = "#005582");
+      liBtn.addEventListener("mouseout", () => liBtn.style.background = "#0077b5");
+
+      liBtn.addEventListener("click", () => {
+        const nameParam = encodeURIComponent(`Atmanirbhar Sustainability Certificate (${data.atmanirbhar || "0"}% Self-Reliant)`);
+        const authorityParam = encodeURIComponent("Earth Carbon Foundation");
+        const licenseNumber = encodeURIComponent(data.certId || "ECF-XXXXXX");
+        const certUrl = encodeURIComponent(`${window.location.origin}/verify.html?certId=${data.certId}`);
+        
+        // Exact time variables mapped to current 2026 deployment timeline
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth() + 1;
+
+        const linkedinAddCertUrl = `https://www.linkedin.com/official-guide/add-to-profile/certification?name=${nameParam}&organizationName=${authorityParam}&issueYear=${currentYear}&issueMonth=${currentMonth}&certId=${licenseNumber}&certUrl=${certUrl}`;
+        
+        window.open(linkedinAddCertUrl, "_blank");
+      });
+
+      shareActionsContainer.appendChild(liBtn);
+    }
+    // --- END LINKEDIN CERTIFICATION ENHANCEMENT ---
+  }
   
   // Update page title for social sharing
   document.title = `Certificate: ${data.name} | Earth Carbon Foundation`;
