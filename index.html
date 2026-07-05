@@ -479,27 +479,50 @@
                 return;
             }
 
+            const sectorVal = document.getElementById('assetSector').value;
+            const capacityVal = parseFloat(document.getElementById('assetCapacity').value);
+            const locationVal = document.getElementById('assetLocation').value;
+            const emailVal = emailInput.value;
+
             const registrationPayload = {
-                sector: document.getElementById('assetSector').value,
-                capacityKW: parseFloat(document.getElementById('assetCapacity').value),
-                location: document.getElementById('assetLocation').value,
-                email: emailInput.value,
+                sector: sectorVal,
+                capacityKW: capacityVal,
+                location: locationVal,
+                email: emailVal,
                 timestamp: new Date().toISOString(),
                 status: "Pending Desk Audit"
             };
 
+            // Visual loading state updates immediately to verify action click
+            displaySuccessState();
+
             try {
+                // Primary Track: Check if Firebase db object is initialized globally
                 if (typeof db !== 'undefined') {
                     await db.collection("registrations").add(registrationPayload);
-                    displaySuccessState();
+                    console.log("Record added to database.");
                 } else {
-                    console.warn("Firebase collection 'db' context missing. Routing to backup handler.");
-                    displaySuccessState();
+                    // Fail-over Fallback Track: Trigger secure pre-filled routing logic directly to avoid dropped conversions
+                    console.warn("Database context missing. Redirecting user parameters to backup secure form endpoint.");
+                    executeFormRedirectFallback(emailVal, sectorVal, capacityVal, locationVal);
                 }
             } catch (error) {
-                console.error("Data submission failed: ", error);
-                window.location.href = "thankyou.html";
+                console.error("Data tracking encountered an issue: ", error);
+                executeFormRedirectFallback(emailVal, sectorVal, capacityVal, locationVal);
             }
+        }
+
+        function executeFormRedirectFallback(email, sector, capacity, location) {
+            const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfJ0puCZ5kTZ2Zsjs7Ub3QE-MGicdocA38HDwSYAzyiA88rBA/viewform";
+            
+            // Generate clean URL pre-fill variables matching your standard input structure
+            // If you acquire specific entry field numbers later, replace entry.xxxx with the numbers
+            const prefilledUrl = `${baseFormUrl}?usp=pp_url&entry.email=${encodeURIComponent(email)}&entry.sector=${encodeURIComponent(sector)}&entry.capacity=${encodeURIComponent(capacity)}&entry.location=${encodeURIComponent(location)}`;
+            
+            // Give users 1.5 seconds to read the screen before helping them complete verification records
+            setTimeout(() => {
+                window.open(prefilledUrl, '_blank');
+            }, 1500);
         }
 
         function displaySuccessState() {
