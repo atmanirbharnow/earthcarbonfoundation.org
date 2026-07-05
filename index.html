@@ -71,6 +71,12 @@
         /* Outcome Visual Result Areas */
         .outcome-banner { padding: 20px; border-left: 8px solid var(--un-green); margin-bottom: 30px; font-size: 1.2rem; line-height: 1.4; }
 
+        /* Asset Grid Columns */
+        .asset-class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .asset-class-card { border: 2px solid var(--gov-black); padding: 20px; background: #ffffff; }
+        .asset-class-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+        .asset-class-card p { font-size: 0.95rem; color: var(--gov-dark-grey); }
+
         .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 100px; font-size: 1.05rem; }
     </style>
 </head>
@@ -85,11 +91,11 @@
 
     <main class="main-container" id="main-content">
         
-        <!-- SECTION 1: SYSTEM MONITOR CORE -->
+        <!-- SECTION 1: SYSTEM MONITOR CORE & FRAMEWORK EXPLANATION -->
         <section class="section-block">
             <h1 class="section-heading">Environmental Infrastructure Asset Ledger</h1>
             <p class="lead-text">
-                Central verification standard tracking long-term data metrics and asset provenance boundaries for commercial clean infrastructure networks.
+                Applying the Earth Carbon Framework™ to systematically recognize, register, and monetize operational sustainability investments across five key integration pillars long before they graduate to carbon markets.
             </p>
             
             <!-- EXPLICIT RIGID SINGLE ROW COMPONENT -->
@@ -108,11 +114,27 @@
                 </div>
             </div>
 
-            <!-- Operational Cumulative Progress Tracker -->
-            <div style="background-color: var(--gov-light-grey); padding: 25px; border: 3px solid var(--gov-black);">
-                <p style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">Macro Environmental Registration Index: <span id="liveMeterText">17,000</span> / 100,000,000 Tons</p>
-                <div style="background: #e2e8f0; height: 20px; border: 2px solid var(--gov-black); overflow: hidden;">
-                    <div id="liveProgressBar" style="width: 0%; background: var(--un-blue); height: 100%; transition: width 1s ease-out;"></div>
+            <!-- THE JINDAL ASSET CLASSIFICATION PILLARS (EACS™) -->
+            <div class="asset-class-grid">
+                <div class="asset-class-card" style="border-top: 6px solid var(--gov-black);">
+                    <h3>⚡ Energy</h3>
+                    <p>Waste Heat Recovery (WHR), solar installations, PPAs, process gas recycling, and grid-mix optimizations.</p>
+                </div>
+                <div class="asset-class-card" style="border-top: 6px solid var(--un-blue);">
+                    <h3>💧 Water</h3>
+                    <p>Decentralized rainwater harvesting, industrial reuse loops, STP assets, and Zero Liquid Discharge (ZLD) systems.</p>
+                </div>
+                <div class="asset-class-card" style="border-top: 6px solid var(--un-green);">
+                    <h3>♻ Waste</h3>
+                    <p>Briquetting, bio-methanation, circular material recovery, and structural waste-to-energy asset tracking.</p>
+                </div>
+                <div class="asset-class-card" style="border-top: 6px solid #8b5cf6;">
+                    <h3>🌳 Nature</h3>
+                    <p>Afforestation, localized carbon sink development, biodiversity enhancements, and green credit baseline monitoring.</p>
+                </div>
+                <div class="asset-class-card" style="border-top: 6px solid #f59e0b;">
+                    <h3>🌍 Climate</h3>
+                    <p>Carbon Capture (CCUS) monitoring, internal carbon pricing models, and programmatic decarbonization roadmaps.</p>
                 </div>
             </div>
         </section>
@@ -154,7 +176,7 @@
                                     <option value="250 Crore+">Above ₹250 Crore Turnover Flat</option>
                                 </select>
                             </div>
-                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Next Step &rarr;</button>
+                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Continue &rarr;</button>
                         </div>
 
                         <!-- Step 2: Scale Metrics -->
@@ -191,9 +213,9 @@
                     </form>
                 </div>
 
-                <!-- Simulation Matrix Tool (CLEANED AND FIXED) -->
+                <!-- Simulation Matrix Tool -->
                 <div class="calculator-box">
-                    <h2 style="font-size: 1.6rem; margin-bottom: 8px; font-weight: 800; letter-spacing: -0.5px;">2. AtmanirbharNow Balance Simulator</h2>
+                    <h2 style="font-size: 1.6rem; margin-bottom: 8px; font-weight: 800; letter-spacing: -0.5px;">2. Resource Balance Simulator</h2>
                     
                     <div class="form-group" style="margin-bottom: 20px;">
                         <label style="font-size:0.95rem; font-weight:700; margin-bottom:6px; color: var(--gov-dark-grey);">On-Site Yield Generation (kWh/Month):</label>
@@ -224,9 +246,9 @@
     <footer class="site-footer">
         <div class="nav-container" style="display:block;">
             <p style="font-weight: 800; color: var(--gov-black); margin-bottom: 6px; font-size: 1.2rem;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gov-dark-grey);">Central Environmental Infrastructure Asset Registry Network Framework</p>
+            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gov-dark-grey);">Proprietors of the Earth Carbon Framework™, EAR™, and NRBS™ Methodologies</p>
             <p style="font-size: 0.85rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Mapped to conform with macro compliance indices, BRSR environmental asset tracking specifications, and UCR data standards.
+                © 2026 Earth Carbon Foundation. All rights reserved. Managed in absolute compliance with United Nations NAMA standards, BRSR environmental asset tracking specifications, and Universal Carbon Registry (UCR) rules.
             </p>
         </div>
     </footer>
