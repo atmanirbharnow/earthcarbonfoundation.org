@@ -200,13 +200,12 @@
                 
                 <div style="max-width: 600px; margin: 2.5rem auto 0 auto; text-align: center;">
                     <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Mission Progress Target: 100 Million Tons</p>
-                  <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
-    Mission Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons
-</p>
-<div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
-    <!-- Added id="liveProgressBar" and set initial width to 0% -->
-    <div id="liveProgressBar" class="progress-bar" style="width: 0%; background: var(--industrial-gold); height: 100%; transition: width 1s ease-out;"></div>
-</div>
+                    <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
+                        Mission Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons
+                    </p>
+                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
+                        <div id="liveProgressBar" class="progress-bar" style="width: 0%; background: var(--industrial-gold); height: 100%; transition: width 1s ease-out;"></div>
+                    </div>
                     <span class="sync-note" id="lastUpdated" style="color: rgba(255,255,255,0.7); margin-top: 0.5rem; display: block;">
                         Live synchronization active • Main Ledger verified
                     </span>
@@ -264,6 +263,41 @@
                     <div class="standard-item">
                         <strong>AtmanirbharNow</strong>
                         <p>Direct dashboard computing independent self-reliance metrics for grid power usage and localized water resources.</p>
+                        
+                        <!-- START ATMANIRBHAR INDEX DASHBOARD CARD -->
+                        <div class="atmanirbhar-dashboard-card" style="background: #ffffff; border-radius: 12px; padding: 25px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #10b981; text-align: left;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                                <div>
+                                    <h4 style="margin: 0 0 5px 0; color: #1e293b; font-size: 1.15rem;">AtmanirbharNow Calculator</h4>
+                                    <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Compute your facility's net self-reliance score instantly.</p>
+                                    
+                                    <div style="margin-top: 15px; display: grid; gap: 10px;">
+                                        <div>
+                                            <label style="display:block; font-size:0.8rem; font-weight:600; color:#475569; margin-bottom:4px;">Clean On-Site Generation (kWh/Month):</label>
+                                            <input type="number" id="calcSolarGenerated" value="2500" style="padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; width: 120px;" oninput="calculateAtmanirbharScore()">
+                                        </div>
+                                        <div>
+                                            <label style="display:block; font-size:0.8rem; font-weight:600; color:#475569; margin-bottom:4px;">Total Grid Consumption (kWh/Month):</label>
+                                            <input type="number" id="calcGridConsumed" value="5000" style="padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; width: 120px;" oninput="calculateAtmanirbharScore()">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- The Visual Index Meter Ring -->
+                                <div style="text-align: center; margin: 0 auto;">
+                                    <div class="index-wheel-outer" style="position: relative; width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#10b981 0% 50%, #e2e8f0 50% 100%); display: flex; align-items: center; justify-content: center; transition: background 0.4s ease;">
+                                        <div class="index-wheel-inner" style="width: 110px; height: 110px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                            <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: #1e293b; line-height: 1;">50%</span>
+                                            <span style="font-size: 0.65rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Self-Reliant</span>
+                                        </div>
+                                    </div>
+                                    <div id="atmanirbharBadgeStatus" style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #059669; background: #ecfdf5; padding: 4px 10px; border-radius: 12px; display: inline-block;">
+                                        Silver Tier Asset
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END ATMANIRBHAR INDEX DASHBOARD CARD -->
                     </div>
                     <div class="standard-item">
                         <strong>Time2Repay</strong>
@@ -455,12 +489,10 @@
             };
 
             try {
-                // If your Firebase initialization script exposes a global 'db' reference:
                 if (typeof db !== 'undefined') {
                     await db.collection("registrations").add(registrationPayload);
                     displaySuccessState();
                 } else {
-                    // Fail-safe fallback if Firebase SDK hasn't loaded fully or isn't globally exposed
                     console.warn("Firebase collection 'db' context missing. Routing to backup handler.");
                     displaySuccessState();
                 }
@@ -470,58 +502,104 @@
             }
         }
 
-  // Function to update the public progress meter dynamically
-function updateProgressMeter(currentVolume) {
-    const targetVolume = 100000000; // Your 100M Tonne Milestone
-    
-    // Calculate the percentage
-    let percentage = (currentVolume / targetVolume) * 100;
-    
-    // Ensure the percentage doesn't break layout boundaries
-    if (percentage < 0.1) percentage = 0.1; // Visual minimum so bar is slightly visible
-    if (percentage > 100) percentage = 100;
-    
-    // Update the UI Text and Progress Bar style smoothly
-    document.getElementById('liveMeterText').innerText = Number(currentVolume).toLocaleString('en-IN');
-    document.getElementById('liveProgressBar').style.width = percentage + '%';
-    
-    // Optional: Sync the bottom text counter card if you want them identical
-    const impactCard = document.getElementById('impactCounter');
-    if (impactCard) {
-        impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+";
-    }
-}
-
-// Firebase Real-time Listener Configuration
-function initializeLiveMeter() {
-    // Fail-safe default: If Firebase isn't actively initialized yet, load your current 17,000 pilot volume
-    let fallbackVolume = 17000; 
-    
-    try {
-        if (typeof db !== 'undefined') {
-            // Listens to a single document inside a collection named 'stats'
-            db.collection("stats").doc("global_metrics")
-              .onSnapshot((doc) => {
-                  if (doc.exists && doc.data().total_co2_reduced) {
-                      const liveVolume = doc.data().total_co2_reduced;
-                      updateProgressMeter(liveVolume);
-                  } else {
-                      updateProgressMeter(fallbackVolume);
-                  }
-              });
-        } else {
-            // No Firebase detected locally? Run the fallback volume smoothly
-            updateProgressMeter(fallbackVolume);
+        function displaySuccessState() {
+            document.getElementById('eligibilityOutcome').style.background = "#ecfdf5";
+            document.getElementById('eligibilityOutcome').style.border = "1px solid #a7f3d0";
+            document.getElementById('eligibilityOutcome').style.color = "#065f46";
+            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Profile Set Up!</strong> Your submission is registered. Our aggregation desk will verify your details against the central registry framework.`;
+            document.getElementById('leadCaptureZone').style.display = "none";
+            document.getElementById('wizardProgress').style.width = '100%';
         }
-    } catch (error) {
-        console.warn("Live meter listener paused: ", error);
-        updateProgressMeter(fallbackVolume);
-    }
-}
 
-// Run the initialization the moment the script runs
-initializeLiveMeter();
+        // Function to update the public progress meter dynamically
+        function updateProgressMeter(currentVolume) {
+            const targetVolume = 100000000; // Your 100M Tonne Milestone
+            
+            let percentage = (currentVolume / targetVolume) * 100;
+            
+            if (percentage < 0.1) percentage = 0.1;
+            if (percentage > 100) percentage = 100;
+            
+            document.getElementById('liveMeterText').innerText = Number(currentVolume).toLocaleString('en-IN');
+            document.getElementById('liveProgressBar').style.width = percentage + '%';
+            
+            const impactCard = document.getElementById('impactCounter');
+            if (impactCard) {
+                impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+";
+            }
         }
+
+        // Firebase Real-time Listener Configuration
+        function initializeLiveMeter() {
+            let fallbackVolume = 17000; 
+            
+            try {
+                if (typeof db !== 'undefined') {
+                    db.collection("stats").doc("global_metrics")
+                      .onSnapshot((doc) => {
+                          if (doc.exists && doc.data().total_co2_reduced) {
+                              const liveVolume = doc.data().total_co2_reduced;
+                              updateProgressMeter(liveVolume);
+                          } else {
+                              updateProgressMeter(fallbackVolume);
+                          }
+                      });
+                } else {
+                    updateProgressMeter(fallbackVolume);
+                }
+            } catch (error) {
+                console.warn("Live meter listener paused: ", error);
+                updateProgressMeter(fallbackVolume);
+            }
+        }
+
+        // Atmanirbhar Index Automatic Computing Engine
+        function calculateAtmanirbharScore() {
+            const solarGenerated = parseFloat(document.getElementById('calcSolarGenerated').value) || 0;
+            const gridConsumed = parseFloat(document.getElementById('calcGridConsumed').value) || 0;
+            
+            const totalEnergyPool = solarGenerated + gridConsumed;
+            
+            let indexScore = 0;
+            if (totalEnergyPool > 0) {
+                indexScore = Math.round((solarGenerated / totalEnergyPool) * 100);
+            }
+            
+            if (indexScore < 0) indexScore = 0;
+            if (indexScore > 100) indexScore = 100;
+            
+            const wheel = document.querySelector('.index-wheel-outer');
+            if (wheel) {
+                wheel.style.background = `conic-gradient(#10b981 0% ${indexScore}%, #e2e8f0 ${indexScore}% 100%)`;
+            }
+            
+            document.getElementById('atmanirbharPercentageText').innerText = indexScore + '%';
+            
+            const statusBadge = document.getElementById('atmanirbharBadgeStatus');
+            if (statusBadge) {
+                if (indexScore >= 80) {
+                    statusBadge.innerText = "Platinum Tier Asset";
+                    statusBadge.style.background = "#eff6ff";
+                    statusBadge.style.color = "#1d4ed8";
+                } else if (indexScore >= 50) {
+                    statusBadge.innerText = "Gold Tier Asset";
+                    statusBadge.style.background = "#fefcbf";
+                    statusBadge.style.color = "#975a16";
+                } else if (indexScore >= 25) {
+                    statusBadge.innerText = "Silver Tier Asset";
+                    statusBadge.style.background = "#ecfdf5";
+                    statusBadge.style.color = "#065f46";
+                } else {
+                    statusBadge.innerText = "Bronze Tier Entry";
+                    statusBadge.style.background = "#f1f5f9";
+                    statusBadge.style.color = "#475569";
+                }
+            }
+        }
+
+        // Initialize calculations and listeners on page load
+        initializeLiveMeter();
+        calculateAtmanirbharScore();
     </script>
     <script src="script.js"></script>
 </body>
