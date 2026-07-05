@@ -3,445 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Environmental Asset Management Platform</title>
+    <title>Earth Carbon Foundation | Environmental Asset Registry Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gov-black: #0b0c0c;
+            --gov-dark-grey: #3b3e40;
+            --gov-light-grey: #f3f2f1;
+            --gov-border-grey: #b1b4b6;
+            --un-blue: #008cd2;
+            --un-blue-dark: #005a96;
+            --un-green: #007d32;
+            --un-green-light: #ecfdf5;
+            --font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-stack); color: var(--gov-black); background-color: #ffffff; line-height: 1.5; font-size: 1.125rem; -webkit-font-smoothing: antialiased; }
+
+        /* GOV.UK Institutional Header */
+        .site-header { background-color: var(--gov-black); color: #ffffff; padding: 15px 30px; border-bottom: 10px solid var(--un-blue); }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { font-weight: 400; color: var(--gov-border-grey); }
+
+        /* Structural Layout */
+        .main-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr; gap: 60px; }
+        
+        /* UN-Style Section Containers */
+        .section-block { border-top: 4px solid var(--gov-black); padding-top: 25px; }
+        .section-heading { font-size: 2.25rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 15px; color: var(--gov-black); }
+        .lead-text { font-size: 1.35rem; color: var(--gov-dark-grey); margin-bottom: 30px; max-width: 750px; }
+
+        /* Crisp Single-Line Flex Metrics Configuration */
+        .metrics-summary-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 20px; width: 100%; margin-bottom: 30px; }
+        .metric-data-card { background: var(--gov-light-grey); padding: 20px; border-left: 6px solid var(--un-blue); flex: 1; min-width: 0; }
+        .metric-big-num { font-size: 2.5rem; font-weight: 700; color: var(--gov-black); display: block; letter-spacing: -1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .metric-text-label { font-size: 1rem; font-weight: 600; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* Responsive adjustments for extremely tight layouts */
+        @media (max-width: 600px) {
+            .metrics-summary-row { flex-direction: column; }
+        }
+
+        /* GOV.UK Form Controls & Typography */
+        .form-group { margin-bottom: 30px; display: flex; flex-direction: column; }
+        .form-label { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--gov-black); }
+        .form-hint { font-size: 1rem; color: var(--gov-dark-grey); margin-bottom: 10px; }
+        .form-select, .form-input { font-family: inherit; font-size: 1.125rem; padding: 12px; border: 3px solid var(--gov-black); color: var(--gov-black); background-color: #ffffff; width: 100%; max-width: 550px; border-radius: 0; appearance: none; -webkit-appearance: none; }
+        .form-select:focus, .form-input:focus { outline: 3px solid #ffdd00; outline-offset: 0; box-shadow: inset 0 0 0 2px #ffffff; }
+
+        /* Hard Institutional Buttons */
+        .btn-gov { display: inline-block; font-family: inherit; font-size: 1.25rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 12px 24px; border: none; border-bottom: 3px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; max-width: 350px; }
+        .btn-gov:hover { background-color: #006428; }
+        .btn-gov:active { transform: translateY(2px); border-bottom: none; }
+        .btn-secondary { background-color: var(--gov-light-grey); color: var(--gov-black); border: 3px solid var(--gov-black); border-bottom: 3px solid var(--gov-dark-grey); margin-right: 15px; }
+        .btn-secondary:hover { background-color: var(--gov-border-grey); }
+
+        /* Columns Grid Layouts */
+        .two-column-panel { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        @media (min-width: 768px) {
+            .two-column-panel { grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+        }
+
+        /* Unified Calculator Box */
+        .calculator-box { border: 3px solid var(--gov-border-grey); padding: 30px; background-color: #ffffff; }
+
+        /* Footer */
+        .site-footer { background-color: var(--gov-light-grey); border-top: 1px solid var(--gov-border-grey); padding: 40px 20px; margin-top: 80px; font-size: 1rem; color: var(--gov-dark-grey); }
+    </style>
 </head>
 <body>
 
-    <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Sticky Navigation Header -->
-    <header class="site-header" dashed-border="false">
-        <div class="nav-flex">
-            <a href="#" class="logo" aria-label="Earth Carbon Foundation Home">
-                Earth Carbon Foundation
-            </a>
-            <button class="mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                ☰
-            </button>
-            <nav class="nav-links" id="navLinks" aria-label="Main Navigation">
-                <a href="#journey">Your Journey</a>
-                <a href="#sectors">Who Can Join</a>
-                <a href="#services">Capabilities</a>
-                <a href="#ecosystem">Ecosystem</a>
-                <a href="#impact" class="active">Live Impact</a>
-                <a href="https://registryearthcarbon.org" target="_blank" class="btn-secondary">View Registry</a>
-                <a href="#contact" class="btn-primary">Create Free Profile</a>
-            </nav>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
+            <span style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Asset Registry Desk</span>
         </div>
     </header>
 
-    <main id="main-content">
+    <main class="main-container" id="main-content">
         
-        <!-- Hero Section -->
-        <section class="hero-section" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <h1 id="hero-title" class="hero-title">Every Environmental Asset Deserves a <span class="highlight">Permanent Home</span>.</h1>
-                <p class="hero-sub">
-                    Create your Environmental Profile. Build your Environmental Asset Portfolio. Grow your sustainability journey. 
-                    We manage the long-term data history of your physical green assets on India's premier infrastructure platform.
-                </p>
-                <div class="hero-ctas">
-                    <a href="#contact" class="btn-premium">Create Free Profile</a>
-                    <a href="https://registryearthcarbon.org" target="_blank" class="btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);">View Registry</a>
+        <!-- SECTION 1: MANDATE & ACTION OVERVIEW -->
+        <section class="section-block">
+            <h1 class="section-heading">Environmental Asset Registration Protocol</h1>
+            <p class="lead-text">
+                We document, verify, and register the long-term operational records of physical green assets across India's institutional framework.
+            </p>
+            
+            <!-- Restructured Strict Single-Line Container -->
+            <div class="metrics-summary-row">
+                <div class="metric-data-card">
+                    <span class="metric-big-num">1,203</span>
+                    <span class="metric-text-label">Verified Corporations</span>
                 </div>
-                <div class="trust-badges" aria-label="Platform credentials">
-                    <span>✓ Central Environmental Ledger</span>
-                    <span>✓ Clear Asset Tracking</span>
-                    <span>✓ Zero Fee Onboarding</span>
+                <div class="metric-data-card">
+                    <span class="metric-big-num">806</span>
+                    <span class="metric-text-label">Assets Tracked</span>
+                </div>
+                <div class="metric-data-card" style="border-left-color: var(--un-green);">
+                    <span class="metric-big-num" id="impactCounter">17,000+</span>
+                    <span class="metric-text-label">tCO₂e Managed</span>
+                </div>
+            </div>
+
+            <!-- Global Target Meter Block -->
+            <div style="background-color: var(--gov-light-grey); padding: 20px; border: 1px solid var(--gov-border-grey);">
+                <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 10px;">Macro Registration Milestone Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons</p>
+                <div style="background: #e2e8f0; height: 16px; border: 1px solid var(--gov-border-grey); overflow: hidden;">
+                    <div id="liveProgressBar" style="width: 0%; background: var(--un-blue); height: 100%; transition: width 1s ease-out;"></div>
                 </div>
             </div>
         </section>
 
-        <!-- The Customer Journey Section -->
-        <section id="journey" class="section bg-light" aria-labelledby="journey-title">
-            <div class="container">
-                <h2 id="journey-title">Your Sustainability Journey</h2>
-                <p class="center-text" style="color: var(--text-muted); max-width: 600px; margin: -2rem auto 3rem auto;">
-                    Every organization follows the exact same high-integrity deployment process. Whether you connect directly or via an active implementation partner, your profile remains permanently yours.
-                </p>
+        <!-- SECTION 2: THE SPLIT SCREEN ACTION ZONE -->
+        <section class="section-block">
+            <div class="two-column-panel">
                 
-                <div class="workflow-steps">
-                    <!-- Step 1 -->
-                    <div class="step">
-                        <span class="step-icon" aria-hidden="true">🔑</span>
-                        <h3>1. Join (Free)</h3>
-                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Create your permanent corporate Environmental Profile.</p>
-                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
-                            <li>Instant secure Registry ID</li>
-                            <li>Centralized Asset Dashboard</li>
-                            <li>Lifetime foundational access</li>
-                        </ul>
-                        <a href="#contact" class="link-arrow">Create Free Profile →</a>
-                    </div>
+                <!-- Left Column: Pre-Qualification Wizard -->
+                <div class="calculator-box" style="border: 4px solid var(--gov-black);">
+                    <h2 style="font-size: 1.75rem; margin-bottom: 10px; font-weight: 700;">1. Pre-Qualification Assessment</h2>
+                    <p style="font-size: 1rem; color: var(--gov-dark-grey); margin-bottom: 25px;">Complete these steps to check eligibility boundaries against the UCR framework.</p>
                     
-                    <!-- Step 2 -->
-                    <div class="step">
-                        <span class="step-icon" aria-hidden="true">📊</span>
-                        <h3>2. Build</h3>
-                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Compile your active environmental asset portfolio.</p>
-                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
-                            <li>Upload metrics and document files</li>
-                            <li>Confirm asset legal ownership</li>
-                            <li>Generate public environmental summary</li>
-                        </ul>
-                        <a href="#contact" class="link-arrow">Build My Portfolio →</a>
+                    <div class="progress-bar-container" style="background:#e2e8f0; height:6px; margin-bottom:25px; overflow:hidden;">
+                        <div id="wizardProgress" style="width: 25%; background:var(--un-blue); height:100%; transition:width 0.3s ease;"></div>
                     </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="step">
-                        <span class="step-icon" aria-hidden="true">📈</span>
-                        <h3>3. Grow <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(Optional)</span></h3>
-                        <p style="margin-bottom: 1rem; font-weight: 500; color: var(--deep-slate);">Expand features when your enterprise is ready.</p>
-                        <ul style="text-align: left; margin: 0 0 1.5rem 1rem; padding: 0; color: var(--text-muted); font-size: 0.9rem;">
-                            <li>Carbon Footprint & accounting models</li>
-                            <li>BRSR & ESG compliance reporting</li>
-                            <li>PoA Bundled Program coordination</li>
-                        </ul>
-                        <a href="#contact" class="link-arrow">Explore Growth Pathways →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Partner Network Section -->
-        <section class="section bg-emerald" aria-labelledby="partner-title">
-            <div class="container">
-                <h2 id="partner-title">Partner With Us</h2>
-                <p class="center-text" style="color: var(--text-muted); max-width: 700px; margin: -2rem auto 2.5rem auto;">
-                    We collaborate closely with ecosystem stakeholders to simplify data tracking. Asset records always vest directly with the physical owner, while implementers earn documented, public recognition.
-                </p>
-                <div class="partners-grid">
-                    <div class="partner-card">EPC Companies <span class="badge">Solar/Wind</span></div>
-                    <div class="partner-card">Architects <span class="badge">Green Building</span></div>
-                    <div class="partner-card">Consultants <span class="badge">ESG/BRSR</span></div>
-                    <div class="partner-card">Educational Institutions <span class="badge">Campuses</span></div>
-                    <div class="partner-card">Industry Associations <span class="badge">MSMEs</span></div>
-                    <div class="partner-card">Orbit Network <span class="badge">Partners</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Who Can Join Section -->
-        <section id="sectors" class="section bg-light" aria-labelledby="sectors-title">
-            <div class="container">
-                <h2 id="sectors-title">Supported Asset Categories</h2>
-                <div class="sectors-grid">
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🏭</span>
-                        <h4>Manufacturing</h4>
-                        <p>Track thermal efficiency, process adjustments, and waste management cycles.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🏢</span>
-                        <h4>Commercial Buildings</h4>
-                        <p>Verify HVAC optimization, LED transitions, and structural energy footprints.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🎓</span>
-                        <h4>Educational Institutions</h4>
-                        <p>Benchmark schools and universities using green campus sustainability ratings.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🏥</span>
-                        <h4>Hospitals</h4>
-                        <p>Manage critical resource tracking, backup systems, and water consumption matrix profiles.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">💼</span>
-                        <h4>MSMEs</h4>
-                        <p>Unlock simple, cost-effective environmental validation pathways tailored for small units.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">☀️</span>
-                        <h4>Renewable Energy</h4>
-                        <p>Centralize cross-location rooftop solar installations, wind, and storage capacities.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🏡</span>
-                        <h4>Residential Communities</h4>
-                        <p>Aggregate localized rainwater systems, organic compost sites, and community solar arrays.</p>
-                    </div>
-                    <div class="sector-card">
-                        <span class="sector-icon" aria-hidden="true">🏛️</span>
-                        <h4>Government Organizations</h4>
-                        <p>Document municipal operations, urban mass transit saves, and public utility milestones.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Live Impact Metrics Section -->
-        <section id="impact" class="section" style="background: rgba(0,0,0,0.2);" aria-labelledby="impact-title">
-            <div class="container">
-                <h2 id="impact-title" style="color: white; text-align: center; margin-bottom: 3rem;">Ecosystem Platform Metrics</h2>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-value" id="userCounter">1,203</span>
-                        <span class="metric-label">Organizations Registered</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value" id="validCounter">806</span>
-                        <span class="metric-label">Environmental Assets Tracked</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value" id="impactCounter" style="color: var(--industrial-gold);">17,000+</span>
-                        <span class="metric-label">Climate Impact (tCO₂e Identified)</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value" id="revenueCounter" style="color: var(--industrial-gold);">16,029,297</span>
-                        <span class="metric-label">Value Visualized (INR)</span>
-                    </div>
-                </div>
-                
-                <div style="max-width: 600px; margin: 2.5rem auto 0 auto; text-align: center;">
-                    <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Mission Progress Target: 100 Million Tons</p>
-                    <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
-                        Mission Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons
-                    </p>
-                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
-                        <div id="liveProgressBar" class="progress-bar" style="width: 0%; background: var(--industrial-gold); height: 100%; transition: width 1s ease-out;"></div>
-                    </div>
-                    <span class="sync-note" id="lastUpdated" style="color: rgba(255,255,255,0.7); margin-top: 0.5rem; display: block;">
-                        Live synchronization active • Main Ledger verified
-                    </span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Unified Capabilities Portfolio -->
-        <section id="services" class="section bg-light" aria-labelledby="services-title">
-            <div class="container">
-                <h2 id="services-title">Platform Capabilities</h2>
-                <div class="highlights-grid">
-                    <div class="highlight-card">
-                        <span class="icon" aria-hidden="true">📂</span>
-                        <h4>Environmental Portfolio Management</h4>
-                        <p>One structural profile containing all water, waste, energy, and biodiversity metrics securely updated across locations.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <span class="icon" aria-hidden="true">🌤️</span>
-                        <h4>Carbon & Climate Accounting</h4>
-                        <p>Clear calculation mechanisms for Scope 1, Scope 2, and supply-chain offsets adhering strictly to international rules.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <span class="icon" aria-hidden="true">📋</span>
-                        <h4>Sustainability Reporting Infrastructure</h4>
-                        <p>Turn raw physical tracking numbers into ready compliance files formatted for BRSR, ESG matrix systems, and corporate disclosures.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <span class="icon" aria-hidden="true">📋</span>
-                        <h4>Environmental Resource Auditing</h4>
-                        <p>Comprehensive tracking of circular economy transformations, landfill balances, and localized facility footprints.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <span class="icon" aria-hidden="true">🌱</span>
-                        <h4>Carbon Project Development</h4>
-                        <p>Structural aggregation frameworks linking individual 25 kW to 1000 kW installations into unified institutional asset programs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ecosystem Integration Block -->
-        <section id="ecosystem" class="section bg-emerald" aria-labelledby="ecosystem-title">
-            <div class="container">
-                <h2 id="ecosystem-title">The Earth Carbon Foundation Ecosystem</h2>
-                <p class="center-text" style="color: var(--text-muted); max-width: 700px; margin: -2rem auto 3rem auto;">
-                    We operate five dedicated program initiatives unified under our central technology framework. They work together as one single data ecosystem.
-                </p>
-                
-                <div class="standards-grid">
-                    <div class="standard-item">
-                        <strong>Climate Asset Registry</strong>
-                        <p>The sovereign central platform verifying asset provenance, ownership rights, and active credit tracking.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>Program Focus: AtmanirbharNow</strong>
-                        
-                        <!-- START ATMANIRBHAR INDEX DASHBOARD CARD -->
-                        <div class="atmanirbhar-dashboard-card" style="background: #ffffff; border-radius: 12px; padding: 25px; margin: 15px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #10b981; text-align: left;">
-                            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                                <div>
-                                    <h4 style="margin: 0 0 5px 0; color: #1e293b; font-size: 1.15rem;">AtmanirbharNow Calculator</h4>
-                                    <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Compute independent self-reliance metrics for grid power usage and localized water resources instantly.</p>
-                                    
-                                    <div style="margin-top: 15px; display: grid; gap: 10px;">
-                                        <div>
-                                            <label style="display:block; font-size:0.8rem; font-weight:600; color:#475569; margin-bottom:4px;">Clean On-Site Generation (kWh/Month):</label>
-                                            <input type="number" id="calcSolarGenerated" value="2500" style="padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; width: 120px;" oninput="calculateAtmanirbharScore()">
-                                        </div>
-                                        <div>
-                                            <label style="display:block; font-size:0.8rem; font-weight:600; color:#475569; margin-bottom:4px;">Total Grid Consumption (kWh/Month):</label>
-                                            <input type="number" id="calcGridConsumed" value="5000" style="padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; width: 120px;" oninput="calculateAtmanirbharScore()">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- The Visual Index Meter Ring -->
-                                <div style="text-align: center; margin: 0 auto;">
-                                    <div class="index-wheel-outer" style="position: relative; width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#10b981 0% 33%, #e2e8f0 33% 100%); display: flex; align-items: center; justify-content: center; transition: background 0.4s ease;">
-                                        <div class="index-wheel-inner" style="width: 110px; height: 110px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                            <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: #1e293b; line-height: 1;">33%</span>
-                                            <span style="font-size: 0.65rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Self-Reliant</span>
-                                        </div>
-                                    </div>
-                                    <div id="atmanirbharBadgeStatus" style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #065f46; background: #ecfdf5; padding: 4px 10px; border-radius: 12px; display: inline-block;">
-                                        Silver Tier Asset
-                                    </div>
-                                </div>
+                    <form id="eligibilityWizardForm">
+                        <!-- Step 1: Sector & Financial Scale -->
+                        <div class="wizard-step" id="step1">
+                            <div class="form-group">
+                                <label class="form-label" for="assetSector">Operational Sector</label>
+                                <select class="form-select" id="assetSector" required>
+                                    <option value="" disabled selected>Select sector...</option>
+                                    <option value="Educational Organisation">Educational Organisations / Campus</option>
+                                    <option value="MSME / Commercial">MSME / Industrial Facility</option>
+                                    <option value="Community Micro-Grid">Renewable Grid</option>
+                                </select>
                             </div>
-                        </div>
-                        <!-- END ATMANIRBHAR INDEX DASHBOARD CARD -->
-                    </div>
-                    <div class="standard-item">
-                        <strong>Time2Repay</strong>
-                        <p>Financial baseline engine determining cost recovery periods and clean technology asset depreciation metrics.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>100 Million Tons</strong>
-                        <p>Our macroscopic environmental mission program focusing on accelerating aggregate public carbon reduction targets by 2030.</p>
-                    </div>
-                    <div class="standard-item">
-                        <strong>Campus Index</strong>
-                        <p>Specialized institutional scoring metrics specifically designed to map university, campus, and research house footprints.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Redesigned Profile Registration & Eligibility Wizard Journey -->
-        <section id="contact" class="section bg-light" aria-labelledby="form-title">
-            <div class="container">
-                <div class="contact-wrapper">
-                    
-                    <!-- Left Side: Interactive Low-Code Eligibility Wizard -->
-                    <div class="contact-info" style="background: #ffffff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-                        <div class="wizard-header">
-                            <h2 id="form-title" style="margin-top:0; font-size:1.6rem; color:var(--deep-slate);">Check Asset PoA Eligibility</h2>
-                            <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem;">
-                                Verify if your clean energy or facility installation qualifies for our high-integrity asset aggregation program in 3 minutes.
-                            </p>
-                            <div class="progress-bar-container" style="background:#e2e8f0; height:6px; border-radius:3px; margin-bottom:1.5rem; overflow:hidden;">
-                                <div id="wizardProgress" style="width: 25%; background:#10b981; height:100%; transition:width 0.3s ease;"></div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="corporateTurnover">Annual Corporate Turnover Bracket</label>
+                                <select class="form-select" id="corporateTurnover" required>
+                                    <option value="" disabled selected>Select scale...</option>
+                                    <option value="Up to 50 Crore">Up to ₹50 Crore</option>
+                                    <option value="50 - 100 Crore">₹50 Crore – ₹100 Crore</option>
+                                    <option value="100 - 150 Crore">₹100 Crore – ₹150 Crore</option>
+                                    <option value="150 - 200 Crore">₹150 Crore – ₹200 Crore</option>
+                                    <option value="200 - 250 Crore">₹200 Crore – ₹250 Crore</option>
+                                    <option value="250 Crore+">Above ₹250 Crore Flat</option>
+                                </select>
                             </div>
+                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Continue &rarr;</button>
                         </div>
 
-                        <form id="eligibilityWizardForm" style="display:grid; gap:1.25rem;">
-                            <!-- Step 1: Sector & Corporate Turnover Pre-Qualification Dropdown -->
-                            <div class="wizard-step active-step" id="step1">
-                                <div style="margin-bottom: 1.25rem;">
-                                    <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Select Your Operational Sector:</label>
-                                    <select id="assetSector" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" required>
-                                        <option value="" disabled selected>Choose a category...</option>
-                                        <option value="Educational Organisation">Educational Organisations / Campus</option>
-                                        <option value="MSME / Commercial">MSME / Industrial Facility</option>
-                                        <option value="Community Micro-Grid">Renewable Grid</option>
-                                    </select>
-                                </div>
-                                
-                                <div style="margin-bottom: 1.25rem;">
-                                    <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Annual Corporate Turnover Bracket:</label>
-                                    <select id="corporateTurnover" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" required>
-                                        <option value="" disabled selected>Select financial scale...</option>
-                                        <option value="Up to 50 Crore">Up to ₹50 Crore Turnover</option>
-                                        <option value="50 - 100 Crore">₹50 Crore – ₹100 Crore Turnover</option>
-                                        <option value="100 - 150 Crore">₹100 Crore – ₹150 Crore Turnover</option>
-                                        <option value="150 - 200 Crore">₹150 Crore – ₹200 Crore Turnover</option>
-                                        <option value="200 - 250 Crore">₹200 Crore – ₹250 Crore Turnover</option>
-                                        <option value="250 Crore+">Above ₹250 Crore Turnover Flat</option>
-                                    </select>
-                                </div>
-                                <button type="button" class="btn-primary" style="margin-top:0.5rem; width:100%; border:none; cursor:pointer;" onclick="nextStep(1, 2)">Next Step &rarr;</button>
+                        <!-- Step 2: Capacity -->
+                        <div class="wizard-step" id="step2" style="display:none;">
+                            <div class="form-group">
+                                <label class="form-label" for="assetCapacity">Estimated Infrastructure Capacity (in kW)</label>
+                                <p class="form-hint">Enter the total nameplate rating of the generation array.</p>
+                                <input type="number" class="form-input" id="assetCapacity" placeholder="e.g. 250" min="1" required>
                             </div>
+                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(2, 1)">Back</button>
+                            <button type="button" class="btn-gov" onclick="nextStep(2, 3)">Continue &rarr;</button>
+                        </div>
 
-                            <!-- Step 2: Capacity Metric Entry -->
-                            <div class="wizard-step" id="step2" style="display:none;">
-                                <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Estimated Clean Energy Capacity (in kW):</label>
-                                <input type="number" id="assetCapacity" placeholder="e.g. 25, 250, 1000" min="1" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem; box-sizing:border-box;" required>
-                                <div style="display:flex; gap:1rem; margin-top:1.5rem;">
-                                    <button type="button" class="btn-secondary" style="flex:1; border:1px solid #cbd5e1; cursor:pointer;" onclick="prevStep(2, 1)">&larr; Back</button>
-                                    <button type="button" class="btn-primary" style="flex:1; border:none; cursor:pointer;" onclick="nextStep(2, 3)">Next Step &rarr;</button>
-                                </div>
+                        <!-- Step 3: Location -->
+                        <div class="wizard-step" id="step3" style="display:none;">
+                            <div class="form-group">
+                                <label class="form-label" for="assetLocation">Project Location Region</label>
+                                <input type="text" class="form-input" id="assetLocation" placeholder="e.g. Gujarat, India" required>
                             </div>
+                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(3, 2)">Back</button>
+                            <button type="button" class="btn-gov" onclick="processEligibility()">Analyze Asset Suitability &rarr;</button>
+                        </div>
 
-                            <!-- Step 3: Regional Location Fields -->
-                            <div class="wizard-step" id="step3" style="display:none;">
-                                <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Project Location (State / Region):</label>
-                                <input type="text" id="assetLocation" placeholder="e.g. Gujarat, India" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem; box-sizing:border-box;" required>
-                                <div style="display:flex; gap:1rem; margin-top:1.5rem;">
-                                    <button type="button" class="btn-secondary" style="flex:1; border:1px solid #cbd5e1; cursor:pointer;" onclick="prevStep(3, 2)">&larr; Back</button>
-                                    <button type="button" class="btn-primary" style="flex:1; border:none; cursor:pointer;" onclick="processEligibility()">Check Suitability &rarr;</button>
+                        <!-- Step 4: Outcome Mapping -->
+                        <div class="wizard-step" id="step4" style="display:none;">
+                            <div id="eligibilityOutcome" style="padding:15px; border-left: 5px solid var(--un-green); margin-bottom:25px; font-weight:600;"></div>
+                            <div id="leadCaptureZone" style="display:none;">
+                                <div class="form-group">
+                                    <label class="form-label" for="contactEmail">Institutional Email Address</label>
+                                    <input type="email" class="form-input" id="contactEmail" placeholder="officer@organization.com" required>
                                 </div>
+                                <button type="button" class="btn-gov" style="background-color: var(--gov-black); border-bottom-color: #000;" onclick="submitToFirebaseRegistry()">Submit Secure Intake File</button>
                             </div>
+                        </div>
+                    </form>
+                </div>
 
-                            <!-- Step 4: Outcome Mapping & Database Lead Capture -->
-                            <div class="wizard-step" id="step4" style="display:none;">
-                                <div id="eligibilityOutcome" style="padding:1rem; border-radius:6px; margin-bottom:1.5rem; font-weight:500; font-size:0.95rem; line-height:1.4;"></div>
-                                <div id="leadCaptureZone" style="display:none;">
-                                    <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Enter Institutional Email to Secure Entry:</label>
-                                    <input type="email" id="contactEmail" placeholder="name@organization.com" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem; box-sizing:border-box; margin-bottom:1rem;" required>
-                                    <button type="button" class="btn-premium" style="width:100%; border:none; cursor:pointer; text-align:center; display:block;" onclick="submitToFirebaseRegistry()">Lock in Asset Profile</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <!-- Right Column: Interactive Audit Simulator (With Duplicate Headers Removed) -->
+                <div class="calculator-box">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 5px; font-weight: 700;">2. Net Self-Reliance Indicator</h2>
+                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey); margin-bottom: 20px;">Simulate your physical on-site resource balances.</p>
                     
-                    <!-- Right Side: Structural Product Deliverables Panel -->
-                    <div class="highlight-card" style="border-left: 4px solid var(--primary-green); background: #ffffff; padding: 2.5rem; height: 100%;">
-                        <h3 style="color: var(--deep-slate); font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 700;">What You'll Receive</h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem;">
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); font-size: 1rem; line-height: 1.4;">
-                                <span style="color: var(--primary-green); font-weight: 700; flex-shrink: 0;">✔</span>
-                                <span><strong>Permanent Environmental Profile</strong> — A single, continuous ecosystem view mapping unified long-term organizational data.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); font-size: 1rem; line-height: 1.4;">
-                                <span style="color: var(--primary-green); font-weight: 700; flex-shrink: 0;">✔</span>
-                                <span><strong>Unique Registry ID</strong> — A distinct regional identifier securing verified ownership mapping credentials.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); font-size: 1rem; line-height: 1.4;">
-                                <span style="color: var(--primary-green); font-weight: 700; flex-shrink: 0;">✔</span>
-                                <span><strong>Permanent Online Profile Link</strong> — A standalone, highly shareable registry endpoint for key corporate stakeholder validation.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); font-size: 1rem; line-height: 1.4;">
-                                <span style="color: var(--primary-green); font-weight: 700; flex-shrink: 0;">✔</span>
-                                <span><strong>Environmental Recognition</strong> — Structured platform validation confirming active contributions to the Atmanirbhar baseline index.</span>
-                            </li>
-                            <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text-muted); font-size: 1rem; line-height: 1.4;">
-                                <span style="color: var(--primary-green); font-weight: 700; flex-shrink: 0;">✔</span>
-                                <span><strong>Future Carbon Opportunity Review</strong> — Continuous assessment screening for eligibility trends across bundled micro-asset protocols.</span>
-                            </li>
-                        </ul>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:5px;">On-Site Generation (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcSolarGenerated" value="2500" style="padding:8px;" oninput="calculateAtmanirbharScore()">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:5px;">Grid Net Consumption (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcGridConsumed" value="5000" style="padding:8px;" oninput="calculateAtmanirbharScore()">
+                    </div>
+
+                    <div style="text-align: center; border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
+                        <div class="index-wheel-outer" style="position: relative; width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(var(--un-green) 0% 33%, var(--gov-light-grey) 33% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto;">
+                            <div style="width: 96px; height: 96px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <span id="atmanirbharPercentageText" style="font-size: 1.5rem; font-weight: 700; color: var(--gov-black);">33%</span>
+                                <span style="font-size: 0.6rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase;">Independent</span>
+                            </div>
+                        </div>
+                        <div id="atmanirbharBadgeStatus" style="font-size: 0.85rem; font-weight: 700; color: var(--un-green); background: var(--un-green-light); padding: 4px 12px; display: inline-block; border: 1px solid var(--gov-border-grey);">
+                            Silver Tier Asset
+                        </div>
                     </div>
                 </div>
+
             </div>
         </section>
-
     </main>
 
-    <!-- Professional Clean Footer -->
     <footer class="site-footer" role="contentinfo">
-        <div class="container">
-            <p style="font-weight: 700; color: white; margin-bottom: 0.5rem;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">India's Environmental Asset Management Platform • Managed Registry Hub</p>
-            <div class="footer-links">
-                <a href="https://registryearthcarbon.org" target="_blank">Registry Core</a>
-                <a href="#journey">Journey Pathway</a>
-                <a href="#sectors">Sector Roster</a>
-                <a href="#services">Capabilities</a>
-                <a href="mailto:info@earthcarbonfoundation.org">Registry Desk Contact</a>
-            </div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1.5rem;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Built to conform with international carbon accounting principles and BRSR metrics disclosures.
+        <div class="nav-container" style="display:block;">
+            <p style="font-weight: 700; color: var(--gov-black); margin-bottom: 5px;">Earth Carbon Foundation</p>
+            <p style="font-size: 0.9rem; margin-bottom: 20px;">Central Environmental Data Ledger Infrastructure Portal</p>
+            <p style="font-size: 0.8rem; color: var(--gov-dark-grey);">
+                © 2026 Earth Carbon Foundation. All rights reserved. Mapped in conformity with international carbon accounting standards and BRSR disclosure framework rules.
             </p>
         </div>
     </footer>
 
-    <!-- Native Wizard Navigation Engine -->
     <script>
         function nextStep(current, next) {
             const currentZone = document.getElementById('step' + current);
@@ -464,22 +257,18 @@
         }
 
         function processEligibility() {
-            const sector = document.getElementById('assetSector').value;
             const capacity = parseFloat(document.getElementById('assetCapacity').value);
             const outcomeBox = document.getElementById('eligibilityOutcome');
             const leadCapture = document.getElementById('leadCaptureZone');
 
-            // Business logic tracking the high-integrity 25kW - 1000kW aggregation boundaries
             if (capacity >= 25 && capacity <= 1000) {
-                outcomeBox.style.background = "#ecfdf5";
-                outcomeBox.style.border = "1px solid #a7f3d0";
-                outcomeBox.style.color = "#065f46";
-                outcomeBox.innerHTML = `<strong>Asset Qualified!</strong> Your proposed ${capacity} kW profile fits right into our clean energy Program of Activities framework.`;
+                outcomeBox.style.color = "#004d1a";
+                outcomeBox.style.backgroundColor = "#ecfdf5";
+                outcomeBox.innerHTML = `<strong>Asset Category Qualified:</strong> Capacity (${capacity} kW) meets baseline verification criteria under the institutional Program of Activities framework.`;
             } else {
-                outcomeBox.style.background = "#fff7ed";
-                outcomeBox.style.border = "1px solid #ffedd5";
-                outcomeBox.style.color = "#9a3412";
-                outcomeBox.innerHTML = `<strong>Custom Review Required:</strong> Capacity (${capacity} kW) sits outside standard micro-aggregation paths. We can onboard this as a standalone corporate portfolio asset entry.`;
+                outcomeBox.style.color = "#592200";
+                outcomeBox.style.backgroundColor = "#fff7ed";
+                outcomeBox.innerHTML = `<strong>Custom Review Required:</strong> Capacity (${capacity} kW) falls outside standard micro-aggregation limits. Onboarding requires standalone forensic asset documentation.`;
             }
 
             leadCapture.style.display = "block";
@@ -499,146 +288,83 @@
             const locationVal = document.getElementById('assetLocation').value;
             const emailVal = emailInput.value;
 
-            const registrationPayload = {
-                sector: sectorVal,
-                turnoverBracket: turnoverVal,
-                capacityKW: capacityVal,
-                location: locationVal,
-                email: emailVal,
-                timestamp: new Date().toISOString(),
-                status: "Pending Forensic Audit"
-            };
-
-            // Visual loading state updates immediately to verify action click
             displaySuccessState();
 
             try {
-                // Primary Track: Check if Firebase db object is initialized globally
                 if (typeof db !== 'undefined') {
-                    await db.collection("registrations").add(registrationPayload);
-                    console.log("Record added to database.");
+                    await db.collection("registrations").add({
+                        sector: sectorVal, turnoverBracket: turnoverVal, capacityKW: capacityVal, location: locationVal, email: emailVal, timestamp: new Date().toISOString(), status: "Pending Forensic Audit"
+                    });
                 } else {
-                    // Fail-over Fallback Track: Trigger secure pre-filled routing logic directly to avoid dropped conversions
-                    console.warn("Database context missing. Redirecting user parameters to backup secure form endpoint.");
                     executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
                 }
             } catch (error) {
-                console.error("Data tracking encountered an issue: ", error);
                 executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
             }
         }
 
         function executeCorporateRedirectFallback(email, sector, turnover, capacity, location) {
             const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfJ0puCZ5kTZ2Zsjs7Ub3QE-MGicdocA38HDwSYAzyiA88rBA/viewform";
-            
-            // Generate clean URL pre-fill variables matching your standard input structure
             const prefilledUrl = `${baseFormUrl}?usp=pp_url&entry.email=${encodeURIComponent(email)}&entry.sector=${encodeURIComponent(sector)}&entry.turnover=${encodeURIComponent(turnover)}&entry.capacity=${encodeURIComponent(capacity)}&entry.location=${encodeURIComponent(location)}`;
-            
-            // Give users 1.5 seconds to read the screen before helping them complete verification records
-            setTimeout(() => {
-                window.open(prefilledUrl, '_blank');
-            }, 1500);
+            setTimeout(() => { window.open(prefilledUrl, '_blank'); }, 1500);
         }
 
         function displaySuccessState() {
-            document.getElementById('eligibilityOutcome').style.background = "#ecfdf5";
-            document.getElementById('eligibilityOutcome').style.border = "1px solid #a7f3d0";
-            document.getElementById('eligibilityOutcome').style.color = "#065f46";
-            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Profile Set Up!</strong> Your submission is registered. Our aggregation desk will verify your details against the central registry framework.`;
+            document.getElementById('eligibilityOutcome').style.backgroundColor = "#ecfdf5";
+            document.getElementById('eligibilityOutcome').style.color = "#004d1a";
+            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Data Intake Logged:</strong> Your file is submitted. The aggregation desk will verify the credentials against the framework parameters.`;
             document.getElementById('leadCaptureZone').style.display = "none";
             document.getElementById('wizardProgress').style.width = '100%';
         }
 
-        // Function to update the public progress meter dynamically
         function updateProgressMeter(currentVolume) {
-            const targetVolume = 100000000; // Your 100M Tonne Milestone
-            
+            const targetVolume = 100000000;
             let percentage = (currentVolume / targetVolume) * 100;
-            
             if (percentage < 0.1) percentage = 0.1;
             if (percentage > 100) percentage = 100;
-            
             document.getElementById('liveMeterText').innerText = Number(currentVolume).toLocaleString('en-IN');
             document.getElementById('liveProgressBar').style.width = percentage + '%';
-            
             const impactCard = document.getElementById('impactCounter');
-            if (impactCard) {
-                impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+";
-            }
+            if (impactCard) { impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+"; }
         }
 
-        // Firebase Real-time Listener Configuration
         function initializeLiveMeter() {
-            let fallbackVolume = 17000; 
-            
+            let fallbackVolume = 17000;
             try {
                 if (typeof db !== 'undefined') {
-                    db.collection("stats").doc("global_metrics")
-                      .onSnapshot((doc) => {
-                          if (doc.exists && doc.data().total_co2_reduced) {
-                              const liveVolume = doc.data().total_co2_reduced;
-                              updateProgressMeter(liveVolume);
-                          } else {
-                              updateProgressMeter(fallbackVolume);
-                          }
-                      });
-                } else {
-                    updateProgressMeter(fallbackVolume);
-                }
-            } catch (error) {
-                console.warn("Live meter listener paused: ", error);
-                updateProgressMeter(fallbackVolume);
-            }
+                    db.collection("stats").doc("global_metrics").onSnapshot((doc) => {
+                        if (doc.exists && doc.data().total_co2_reduced) {
+                            updateProgressMeter(doc.data().total_co2_reduced);
+                        } else { updateProgressMeter(fallbackVolume); }
+                    });
+                } else { updateProgressMeter(fallbackVolume); }
+            } catch (error) { updateProgressMeter(fallbackVolume); }
         }
 
-        // Atmanirbhar Index Automatic Computing Engine
         function calculateAtmanirbharScore() {
             const solarGenerated = parseFloat(document.getElementById('calcSolarGenerated').value) || 0;
             const gridConsumed = parseFloat(document.getElementById('calcGridConsumed').value) || 0;
-            
             const totalEnergyPool = solarGenerated + gridConsumed;
-            
             let indexScore = 0;
-            if (totalEnergyPool > 0) {
-                indexScore = Math.round((solarGenerated / totalEnergyPool) * 100);
-            }
-            
+            if (totalEnergyPool > 0) { indexScore = Math.round((solarGenerated / totalEnergyPool) * 100); }
             if (indexScore < 0) indexScore = 0;
             if (indexScore > 100) indexScore = 100;
             
             const wheel = document.querySelector('.index-wheel-outer');
-            if (wheel) {
-                wheel.style.background = `conic-gradient(#10b981 0% ${indexScore}%, #e2e8f0 ${indexScore}% 100%)`;
-            }
-            
+            if (wheel) { wheel.style.background = `conic-gradient(var(--un-green) 0% ${indexScore}%, var(--gov-light-grey) ${indexScore}% 100%)`; }
             document.getElementById('atmanirbharPercentageText').innerText = indexScore + '%';
             
             const statusBadge = document.getElementById('atmanirbharBadgeStatus');
             if (statusBadge) {
-                if (indexScore >= 80) {
-                    statusBadge.innerText = "Platinum Tier Asset";
-                    statusBadge.style.background = "#eff6ff";
-                    statusBadge.style.color = "#1d4ed8";
-                } else if (indexScore >= 50) {
-                    statusBadge.innerText = "Gold Tier Asset";
-                    statusBadge.style.background = "#fefcbf";
-                    statusBadge.style.color = "#975a16";
-                } else if (indexScore >= 25) {
-                    statusBadge.innerText = "Silver Tier Asset";
-                    statusBadge.style.background = "#ecfdf5";
-                    statusBadge.style.color = "#065f46";
-                } else {
-                    statusBadge.innerText = "Bronze Tier Entry";
-                    statusBadge.style.background = "#f1f5f9";
-                    statusBadge.style.color = "#475569";
-                }
+                if (indexScore >= 80) { statusBadge.innerText = "Platinum Tier Asset"; statusBadge.style.color = "#1d4ed8"; statusBadge.style.backgroundColor = "#eff6ff"; }
+                else if (indexScore >= 50) { statusBadge.innerText = "Gold Tier Asset"; statusBadge.style.color = "#975a16"; statusBadge.style.backgroundColor = "#fefcbf"; }
+                else if (indexScore >= 25) { statusBadge.innerText = "Silver Tier Asset"; statusBadge.style.color = "var(--un-green)"; statusBadge.style.backgroundColor = "var(--un-green-light)"; }
+                else { statusBadge.innerText = "Bronze Tier Entry"; statusBadge.style.color = "#475569"; statusBadge.style.backgroundColor = "#f1f5f9"; }
             }
         }
 
-        // Initialize calculations and listeners on page load
         initializeLiveMeter();
         calculateAtmanirbharScore();
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
