@@ -200,9 +200,13 @@
                 
                 <div style="max-width: 600px; margin: 2.5rem auto 0 auto; text-align: center;">
                     <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">Mission Progress Target: 100 Million Tons</p>
-                    <div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
-                        <div class="progress-bar" style="width: 17%; background: var(--industrial-gold); height: 100%;"></div>
-                    </div>
+                  <p style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
+    Mission Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons
+</p>
+<div class="progress-container" style="background: rgba(255,255,255,0.2); height: 16px; border-radius: 8px; overflow: hidden;">
+    <!-- Added id="liveProgressBar" and set initial width to 0% -->
+    <div id="liveProgressBar" class="progress-bar" style="width: 0%; background: var(--industrial-gold); height: 100%; transition: width 1s ease-out;"></div>
+</div>
                     <span class="sync-note" id="lastUpdated" style="color: rgba(255,255,255,0.7); margin-top: 0.5rem; display: block;">
                         Live synchronization active • Main Ledger verified
                     </span>
