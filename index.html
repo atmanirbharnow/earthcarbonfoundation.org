@@ -470,13 +470,57 @@
             }
         }
 
-        function displaySuccessState() {
-            document.getElementById('eligibilityOutcome').style.background = "#ecfdf5";
-            document.getElementById('eligibilityOutcome').style.border = "1px solid #a7f3d0";
-            document.getElementById('eligibilityOutcome').style.color = "#065f46";
-            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Profile Set Up!</strong> Your submission is registered. Our aggregation desk will verify your details against the central registry framework.`;
-            document.getElementById('leadCaptureZone').style.display = "none";
-            document.getElementById('wizardProgress').style.width = '100%';
+  // Function to update the public progress meter dynamically
+function updateProgressMeter(currentVolume) {
+    const targetVolume = 100000000; // Your 100M Tonne Milestone
+    
+    // Calculate the percentage
+    let percentage = (currentVolume / targetVolume) * 100;
+    
+    // Ensure the percentage doesn't break layout boundaries
+    if (percentage < 0.1) percentage = 0.1; // Visual minimum so bar is slightly visible
+    if (percentage > 100) percentage = 100;
+    
+    // Update the UI Text and Progress Bar style smoothly
+    document.getElementById('liveMeterText').innerText = Number(currentVolume).toLocaleString('en-IN');
+    document.getElementById('liveProgressBar').style.width = percentage + '%';
+    
+    // Optional: Sync the bottom text counter card if you want them identical
+    const impactCard = document.getElementById('impactCounter');
+    if (impactCard) {
+        impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+";
+    }
+}
+
+// Firebase Real-time Listener Configuration
+function initializeLiveMeter() {
+    // Fail-safe default: If Firebase isn't actively initialized yet, load your current 17,000 pilot volume
+    let fallbackVolume = 17000; 
+    
+    try {
+        if (typeof db !== 'undefined') {
+            // Listens to a single document inside a collection named 'stats'
+            db.collection("stats").doc("global_metrics")
+              .onSnapshot((doc) => {
+                  if (doc.exists && doc.data().total_co2_reduced) {
+                      const liveVolume = doc.data().total_co2_reduced;
+                      updateProgressMeter(liveVolume);
+                  } else {
+                      updateProgressMeter(fallbackVolume);
+                  }
+              });
+        } else {
+            // No Firebase detected locally? Run the fallback volume smoothly
+            updateProgressMeter(fallbackVolume);
+        }
+    } catch (error) {
+        console.warn("Live meter listener paused: ", error);
+        updateProgressMeter(fallbackVolume);
+    }
+}
+
+// Run the initialization the moment the script runs
+initializeLiveMeter();
         }
     </script>
     <script src="script.js"></script>
