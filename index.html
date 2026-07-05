@@ -6,7 +6,7 @@
     <title>Earth Carbon Foundation | Environmental Asset Registry Platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --gov-black: #0b0c0c;
@@ -14,65 +14,64 @@
             --gov-light-grey: #f3f2f1;
             --gov-border-grey: #b1b4b6;
             --un-blue: #008cd2;
-            --un-blue-dark: #005a96;
             --un-green: #007d32;
             --un-green-light: #ecfdf5;
-            --font-stack: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-stack: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-stack); color: var(--gov-black); background-color: #ffffff; line-height: 1.5; font-size: 1.125rem; -webkit-font-smoothing: antialiased; }
 
-        /* GOV.UK Institutional Header */
-        .site-header { background-color: var(--gov-black); color: #ffffff; padding: 15px 30px; border-bottom: 10px solid var(--un-blue); }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
+        /* GOV.UK Header Frame */
+        .site-header { background-color: var(--gov-black); color: #ffffff; padding: 20px 30px; border-bottom: 8px solid var(--un-blue); }
+        .nav-container { max-width: 1150px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
         .logo span { font-weight: 400; color: var(--gov-border-grey); }
 
-        /* Structural Layout */
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr; gap: 60px; }
+        /* Structural Container */
+        .main-container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; display: grid; grid-template-columns: 1fr; gap: 60px; }
         
-        /* UN-Style Section Containers */
-        .section-block { border-top: 4px solid var(--gov-black); padding-top: 25px; }
-        .section-heading { font-size: 2.25rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 15px; color: var(--gov-black); }
-        .lead-text { font-size: 1.35rem; color: var(--gov-dark-grey); margin-bottom: 30px; max-width: 750px; }
+        /* Rigid Section Rule Borders */
+        .section-block { border-top: 5px solid var(--gov-black); padding-top: 30px; }
+        .section-heading { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; color: var(--gov-black); }
+        .lead-text { font-size: 1.4rem; color: var(--gov-dark-grey); margin-bottom: 35px; max-width: 800px; }
 
-        /* Crisp Single-Line Flex Metrics Configuration */
-        .metrics-summary-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 20px; width: 100%; margin-bottom: 30px; }
-        .metric-data-card { background: var(--gov-light-grey); padding: 20px; border-left: 6px solid var(--un-blue); flex: 1; min-width: 0; }
-        .metric-big-num { font-size: 2.5rem; font-weight: 700; color: var(--gov-black); display: block; letter-spacing: -1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .metric-text-label { font-size: 1rem; font-weight: 600; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        /* STRICT SINGLE ROW BLOCK - NO MULTI-LINE OVERFLOW */
+        .metrics-single-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 25px; width: 100%; margin-bottom: 35px; }
+        .metric-data-card { background: var(--gov-light-grey); padding: 25px; border-left: 8px solid var(--un-blue); flex: 1; min-width: 0; }
+        .metric-big-num { font-size: 3rem; font-weight: 800; color: var(--gov-black); display: block; letter-spacing: -1.5px; line-height: 1.1; }
+        .metric-text-label { font-size: 1.05rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 8px; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-        /* Responsive adjustments for extremely tight layouts */
-        @media (max-width: 600px) {
-            .metrics-summary-row { flex-direction: column; }
+        @media (max-width: 768px) {
+            .metrics-single-row { flex-direction: column; gap: 15px; }
         }
 
-        /* GOV.UK Form Controls & Typography */
+        /* Form Inputs & Labels */
         .form-group { margin-bottom: 30px; display: flex; flex-direction: column; }
-        .form-label { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--gov-black); }
-        .form-hint { font-size: 1rem; color: var(--gov-dark-grey); margin-bottom: 10px; }
-        .form-select, .form-input { font-family: inherit; font-size: 1.125rem; padding: 12px; border: 3px solid var(--gov-black); color: var(--gov-black); background-color: #ffffff; width: 100%; max-width: 550px; border-radius: 0; appearance: none; -webkit-appearance: none; }
-        .form-select:focus, .form-input:focus { outline: 3px solid #ffdd00; outline-offset: 0; box-shadow: inset 0 0 0 2px #ffffff; }
+        .form-label { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; color: var(--gov-black); letter-spacing: -0.5px; }
+        .form-select, .form-input { font-family: inherit; font-size: 1.15rem; padding: 14px; border: 3px solid var(--gov-black); color: var(--gov-black); background-color: #ffffff; width: 100%; max-width: 550px; border-radius: 0; outline-offset: 4px; }
+        .form-select:focus, .form-input:focus { outline: 4px solid #ffdd00; background-color: #ffffff; }
 
-        /* Hard Institutional Buttons */
-        .btn-gov { display: inline-block; font-family: inherit; font-size: 1.25rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 12px 24px; border: none; border-bottom: 3px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; max-width: 350px; }
+        /* Heavy Institutional Buttons */
+        .btn-gov { display: inline-block; font-family: inherit; font-size: 1.3rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 14px 28px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; max-width: 380px; }
         .btn-gov:hover { background-color: #006428; }
         .btn-gov:active { transform: translateY(2px); border-bottom: none; }
-        .btn-secondary { background-color: var(--gov-light-grey); color: var(--gov-black); border: 3px solid var(--gov-black); border-bottom: 3px solid var(--gov-dark-grey); margin-right: 15px; }
+        .btn-secondary { background-color: var(--gov-light-grey); color: var(--gov-black); border: 3px solid var(--gov-black); border-bottom: 4px solid var(--gov-dark-grey); margin-right: 20px; }
         .btn-secondary:hover { background-color: var(--gov-border-grey); }
 
-        /* Columns Grid Layouts */
-        .two-column-panel { display: grid; grid-template-columns: 1fr; gap: 40px; }
+        /* Two Column Panel Grid */
+        .two-column-panel { display: grid; grid-template-columns: 1fr; gap: 45px; }
         @media (min-width: 768px) {
-            .two-column-panel { grid-template-columns: 1.2fr 0.8fr; gap: 50px; }
+            .two-column-panel { grid-template-columns: 1.25fr 0.75fr; gap: 60px; }
         }
 
-        /* Unified Calculator Box */
-        .calculator-box { border: 3px solid var(--gov-border-grey); padding: 30px; background-color: #ffffff; }
+        /* Rigid Box Controls */
+        .calculator-box { border: 3px solid var(--gov-black); padding: 35px; background-color: #ffffff; }
 
-        /* Footer */
-        .site-footer { background-color: var(--gov-light-grey); border-top: 1px solid var(--gov-border-grey); padding: 40px 20px; margin-top: 80px; font-size: 1rem; color: var(--gov-dark-grey); }
+        /* Outcome Visual Result Areas */
+        .outcome-banner { padding: 20px; border-left: 8px solid var(--un-green); margin-bottom: 30px; font-size: 1.2rem; line-height: 1.4; }
+
+        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 100px; font-size: 1.05rem; }
     </style>
 </head>
 <body>
@@ -80,24 +79,24 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
-            <span style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Asset Registry Desk</span>
+            <span style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Ecosystem Registry Desk</span>
         </div>
     </header>
 
     <main class="main-container" id="main-content">
         
-        <!-- SECTION 1: MANDATE & ACTION OVERVIEW -->
+        <!-- SECTION 1: SYSTEM MONITOR CORE -->
         <section class="section-block">
-            <h1 class="section-heading">Environmental Asset Registration Protocol</h1>
+            <h1 class="section-heading">Environmental Infrastructure Asset Ledger</h1>
             <p class="lead-text">
-                We document, verify, and register the long-term operational records of physical green assets across India's institutional framework.
+                Central verification standard tracking long-term data metrics and asset provenance boundaries for commercial clean infrastructure networks.
             </p>
             
-            <!-- Restructured Strict Single-Line Container -->
-            <div class="metrics-summary-row">
+            <!-- EXPLICIT RIGID SINGLE ROW COMPONENT -->
+            <div class="metrics-single-row">
                 <div class="metric-data-card">
                     <span class="metric-big-num">1,203</span>
-                    <span class="metric-text-label">Verified Corporations</span>
+                    <span class="metric-text-label">Registered Corps</span>
                 </div>
                 <div class="metric-data-card">
                     <span class="metric-big-num">806</span>
@@ -105,39 +104,38 @@
                 </div>
                 <div class="metric-data-card" style="border-left-color: var(--un-green);">
                     <span class="metric-big-num" id="impactCounter">17,000+</span>
-                    <span class="metric-text-label">tCO₂e Managed</span>
+                    <span class="metric-text-label">tCO₂e Identified</span>
                 </div>
             </div>
 
-            <!-- Global Target Meter Block -->
-            <div style="background-color: var(--gov-light-grey); padding: 20px; border: 1px solid var(--gov-border-grey);">
-                <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 10px;">Macro Registration Milestone Progress: <span id="liveMeterText">17,000</span> / 100,000,000 Tons</p>
-                <div style="background: #e2e8f0; height: 16px; border: 1px solid var(--gov-border-grey); overflow: hidden;">
+            <!-- Operational Cumulative Progress Tracker -->
+            <div style="background-color: var(--gov-light-grey); padding: 25px; border: 3px solid var(--gov-black);">
+                <p style="font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px;">Macro Environmental Registration Index: <span id="liveMeterText">17,000</span> / 100,000,000 Tons</p>
+                <div style="background: #e2e8f0; height: 20px; border: 2px solid var(--gov-black); overflow: hidden;">
                     <div id="liveProgressBar" style="width: 0%; background: var(--un-blue); height: 100%; transition: width 1s ease-out;"></div>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: THE SPLIT SCREEN ACTION ZONE -->
+        <!-- SECTION 2: INTERACTIVE DEPLOYMENT SUITE -->
         <section class="section-block">
             <div class="two-column-panel">
                 
-                <!-- Left Column: Pre-Qualification Wizard -->
-                <div class="calculator-box" style="border: 4px solid var(--gov-black);">
-                    <h2 style="font-size: 1.75rem; margin-bottom: 10px; font-weight: 700;">1. Pre-Qualification Assessment</h2>
-                    <p style="font-size: 1rem; color: var(--gov-dark-grey); margin-bottom: 25px;">Complete these steps to check eligibility boundaries against the UCR framework.</p>
+                <!-- Intake File Pre-Qualification Block -->
+                <div class="calculator-box" style="border-width: 4px;">
+                    <h2 style="font-size: 1.85rem; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px;">1. Verification Intake Form</h2>
                     
-                    <div class="progress-bar-container" style="background:#e2e8f0; height:6px; margin-bottom:25px; overflow:hidden;">
+                    <div style="background:#e2e8f0; height:8px; margin-bottom:30px; overflow:hidden; border: 1px solid var(--gov-border-grey);">
                         <div id="wizardProgress" style="width: 25%; background:var(--un-blue); height:100%; transition:width 0.3s ease;"></div>
                     </div>
 
                     <form id="eligibilityWizardForm">
-                        <!-- Step 1: Sector & Financial Scale -->
+                        <!-- Step 1: Core Categorization Variables -->
                         <div class="wizard-step" id="step1">
                             <div class="form-group">
-                                <label class="form-label" for="assetSector">Operational Sector</label>
+                                <label class="form-label" for="assetSector">Select Operational Sector</label>
                                 <select class="form-select" id="assetSector" required>
-                                    <option value="" disabled selected>Select sector...</option>
+                                    <option value="" disabled selected>Select category...</option>
                                     <option value="Educational Organisation">Educational Organisations / Campus</option>
                                     <option value="MSME / Commercial">MSME / Industrial Facility</option>
                                     <option value="Community Micro-Grid">Renewable Grid</option>
@@ -145,77 +143,75 @@
                             </div>
                             
                             <div class="form-group">
-                                <label class="form-label" for="corporateTurnover">Annual Corporate Turnover Bracket</label>
+                                <label class="form-label" for="corporateTurnover">Select Annual Corporate Turnover Bracket</label>
                                 <select class="form-select" id="corporateTurnover" required>
-                                    <option value="" disabled selected>Select scale...</option>
+                                    <option value="" disabled selected>Select financial bracket...</option>
                                     <option value="Up to 50 Crore">Up to ₹50 Crore</option>
                                     <option value="50 - 100 Crore">₹50 Crore – ₹100 Crore</option>
                                     <option value="100 - 150 Crore">₹100 Crore – ₹150 Crore</option>
                                     <option value="150 - 200 Crore">₹150 Crore – ₹200 Crore</option>
                                     <option value="200 - 250 Crore">₹200 Crore – ₹250 Crore</option>
-                                    <option value="250 Crore+">Above ₹250 Crore Flat</option>
+                                    <option value="250 Crore+">Above ₹250 Crore Turnover Flat</option>
                                 </select>
                             </div>
-                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Continue &rarr;</button>
+                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Next Step &rarr;</button>
                         </div>
 
-                        <!-- Step 2: Capacity -->
+                        <!-- Step 2: Scale Metrics -->
                         <div class="wizard-step" id="step2" style="display:none;">
                             <div class="form-group">
-                                <label class="form-label" for="assetCapacity">Estimated Infrastructure Capacity (in kW)</label>
-                                <p class="form-hint">Enter the total nameplate rating of the generation array.</p>
-                                <input type="number" class="form-input" id="assetCapacity" placeholder="e.g. 250" min="1" required>
+                                <label class="form-label" for="assetCapacity">Infrastructure System Nameplate Capacity (in kW)</label>
+                                <input type="number" class="form-input" id="assetCapacity" placeholder="e.g. 500" min="1" required>
                             </div>
                             <button type="button" class="btn-gov btn-secondary" onclick="prevStep(2, 1)">Back</button>
-                            <button type="button" class="btn-gov" onclick="nextStep(2, 3)">Continue &rarr;</button>
+                            <button type="button" class="btn-gov" onclick="nextStep(2, 3)">Next Step &rarr;</button>
                         </div>
 
-                        <!-- Step 3: Location -->
+                        <!-- Step 3: Geographic Metrics -->
                         <div class="wizard-step" id="step3" style="display:none;">
                             <div class="form-group">
-                                <label class="form-label" for="assetLocation">Project Location Region</label>
+                                <label class="form-label" for="assetLocation">Jurisdiction Region / State Location</label>
                                 <input type="text" class="form-input" id="assetLocation" placeholder="e.g. Gujarat, India" required>
                             </div>
                             <button type="button" class="btn-gov btn-secondary" onclick="prevStep(3, 2)">Back</button>
-                            <button type="button" class="btn-gov" onclick="processEligibility()">Analyze Asset Suitability &rarr;</button>
+                            <button type="button" class="btn-gov" onclick="processEligibility()">Execute System Analysis &rarr;</button>
                         </div>
 
-                        <!-- Step 4: Outcome Mapping -->
+                        <!-- Step 4: Real-Time Results Matrix -->
                         <div class="wizard-step" id="step4" style="display:none;">
-                            <div id="eligibilityOutcome" style="padding:15px; border-left: 5px solid var(--un-green); margin-bottom:25px; font-weight:600;"></div>
+                            <div id="eligibilityOutcome" class="outcome-banner"></div>
                             <div id="leadCaptureZone" style="display:none;">
                                 <div class="form-group">
-                                    <label class="form-label" for="contactEmail">Institutional Email Address</label>
+                                    <label class="form-label" for="contactEmail">Corporate Officer Email Address</label>
                                     <input type="email" class="form-input" id="contactEmail" placeholder="officer@organization.com" required>
                                 </div>
-                                <button type="button" class="btn-gov" style="background-color: var(--gov-black); border-bottom-color: #000;" onclick="submitToFirebaseRegistry()">Submit Secure Intake File</button>
+                                <button type="button" class="btn-gov" style="background-color: var(--gov-black); border-bottom-color: #000; max-width: 100%;" onclick="submitToFirebaseRegistry()">Commit Secure Profile to Ledger</button>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <!-- Right Column: Interactive Audit Simulator (With Duplicate Headers Removed) -->
+                <!-- Simulation Matrix Tool (CLEANED AND FIXED) -->
                 <div class="calculator-box">
-                    <h2 style="font-size: 1.5rem; margin-bottom: 5px; font-weight: 700;">2. Net Self-Reliance Indicator</h2>
-                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey); margin-bottom: 20px;">Simulate your physical on-site resource balances.</p>
+                    <h2 style="font-size: 1.6rem; margin-bottom: 8px; font-weight: 800; letter-spacing: -0.5px;">2. AtmanirbharNow Balance Simulator</h2>
                     
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:5px;">On-Site Generation (kWh/Month):</label>
-                        <input type="number" class="form-input" id="calcSolarGenerated" value="2500" style="padding:8px;" oninput="calculateAtmanirbharScore()">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label style="font-size:0.95rem; font-weight:700; margin-bottom:6px; color: var(--gov-dark-grey);">On-Site Yield Generation (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcSolarGenerated" value="2500" style="padding:10px; max-width: 100%;" oninput="calculateAtmanirbharScore()">
                     </div>
-                    <div class="form-group" style="margin-bottom: 25px;">
-                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:5px;">Grid Net Consumption (kWh/Month):</label>
-                        <input type="number" class="form-input" id="calcGridConsumed" value="5000" style="padding:8px;" oninput="calculateAtmanirbharScore()">
+                    <div class="form-group" style="margin-bottom: 30px;">
+                        <label style="font-size:0.95rem; font-weight:700; margin-bottom:6px; color: var(--gov-dark-grey);">Grid Infrastructure Draw (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcGridConsumed" value="5000" style="padding:10px; max-width: 100%;" oninput="calculateAtmanirbharScore()">
                     </div>
 
-                    <div style="text-align: center; border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
-                        <div class="index-wheel-outer" style="position: relative; width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(var(--un-green) 0% 33%, var(--gov-light-grey) 33% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto;">
-                            <div style="width: 96px; height: 96px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                <span id="atmanirbharPercentageText" style="font-size: 1.5rem; font-weight: 700; color: var(--gov-black);">33%</span>
-                                <span style="font-size: 0.6rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase;">Independent</span>
+                    <div style="text-align: center; border-top: 2px solid var(--gov-black); padding-top: 25px;">
+                        <div class="index-wheel-outer" style="position: relative; width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(var(--un-green) 0% 33%, var(--gov-light-grey) 33% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; border: 2px solid var(--gov-black);">
+                            <div style="width: 104px; height: 104px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: var(--gov-black); line-height: 1;">33%</span>
+                                <span style="font-size: 0.65rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Independent</span>
                             </div>
                         </div>
-                        <div id="atmanirbharBadgeStatus" style="font-size: 0.85rem; font-weight: 700; color: var(--un-green); background: var(--un-green-light); padding: 4px 12px; display: inline-block; border: 1px solid var(--gov-border-grey);">
+                        <div id="atmanirbharBadgeStatus" style="font-size: 0.9rem; font-weight: 800; color: var(--un-green); background: var(--un-green-light); padding: 6px 14px; display: inline-block; border: 2px solid var(--gov-black);">
                             Silver Tier Asset
                         </div>
                     </div>
@@ -225,12 +221,12 @@
         </section>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
+    <footer class="site-footer">
         <div class="nav-container" style="display:block;">
-            <p style="font-weight: 700; color: var(--gov-black); margin-bottom: 5px;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.9rem; margin-bottom: 20px;">Central Environmental Data Ledger Infrastructure Portal</p>
-            <p style="font-size: 0.8rem; color: var(--gov-dark-grey);">
-                © 2026 Earth Carbon Foundation. All rights reserved. Mapped in conformity with international carbon accounting standards and BRSR disclosure framework rules.
+            <p style="font-weight: 800; color: var(--gov-black); margin-bottom: 6px; font-size: 1.2rem;">Earth Carbon Foundation</p>
+            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gov-dark-grey);">Central Environmental Infrastructure Asset Registry Network Framework</p>
+            <p style="font-size: 0.85rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
+                © 2026 Earth Carbon Foundation. All rights reserved. Mapped to conform with macro compliance indices, BRSR environmental asset tracking specifications, and UCR data standards.
             </p>
         </div>
     </footer>
@@ -264,11 +260,13 @@
             if (capacity >= 25 && capacity <= 1000) {
                 outcomeBox.style.color = "#004d1a";
                 outcomeBox.style.backgroundColor = "#ecfdf5";
-                outcomeBox.innerHTML = `<strong>Asset Category Qualified:</strong> Capacity (${capacity} kW) meets baseline verification criteria under the institutional Program of Activities framework.`;
+                outcomeBox.style.borderLeftColor = "var(--un-green)";
+                outcomeBox.innerHTML = `<strong>System Profile Eligible:</strong> Stated capacity (${capacity} kW) satisfies validation thresholds for regional micro-aggregation programs.`;
             } else {
                 outcomeBox.style.color = "#592200";
                 outcomeBox.style.backgroundColor = "#fff7ed";
-                outcomeBox.innerHTML = `<strong>Custom Review Required:</strong> Capacity (${capacity} kW) falls outside standard micro-aggregation limits. Onboarding requires standalone forensic asset documentation.`;
+                outcomeBox.style.borderLeftColor = "#9a3412";
+                outcomeBox.innerHTML = `<strong>Standalone Evaluation Mandatory:</strong> System scale (${capacity} kW) sits outside standard group bounds. Profile requiring direct forensic asset auditing pipeline.`;
             }
 
             leadCapture.style.display = "block";
@@ -312,7 +310,8 @@
         function displaySuccessState() {
             document.getElementById('eligibilityOutcome').style.backgroundColor = "#ecfdf5";
             document.getElementById('eligibilityOutcome').style.color = "#004d1a";
-            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Data Intake Logged:</strong> Your file is submitted. The aggregation desk will verify the credentials against the framework parameters.`;
+            document.getElementById('eligibilityOutcome').style.borderLeftColor = "var(--un-green)";
+            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Data Transmission Secured:</strong> Asset profile logged into local pipeline servers. The aggregation desk will review system attributes against baseline targets.`;
             document.getElementById('leadCaptureZone').style.display = "none";
             document.getElementById('wizardProgress').style.width = '100%';
         }
