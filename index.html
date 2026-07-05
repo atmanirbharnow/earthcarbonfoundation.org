@@ -261,15 +261,14 @@
                         <p>The sovereign central platform verifying asset provenance, ownership rights, and active credit tracking.</p>
                     </div>
                     <div class="standard-item">
-                        <strong>AtmanirbharNow</strong>
-                        <p>Direct dashboard computing independent self-reliance metrics for grid power usage and localized water resources.</p>
+                        <strong>Program Focus: AtmanirbharNow</strong>
                         
                         <!-- START ATMANIRBHAR INDEX DASHBOARD CARD -->
-                        <div class="atmanirbhar-dashboard-card" style="background: #ffffff; border-radius: 12px; padding: 25px; margin: 20px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #10b981; text-align: left;">
+                        <div class="atmanirbhar-dashboard-card" style="background: #ffffff; border-radius: 12px; padding: 25px; margin: 15px auto; max-width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #10b981; text-align: left;">
                             <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
                                 <div>
                                     <h4 style="margin: 0 0 5px 0; color: #1e293b; font-size: 1.15rem;">AtmanirbharNow Calculator</h4>
-                                    <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Compute your facility's net self-reliance score instantly.</p>
+                                    <p style="margin: 0; color: #64748b; font-size: 0.85rem;">Compute independent self-reliance metrics for grid power usage and localized water resources instantly.</p>
                                     
                                     <div style="margin-top: 15px; display: grid; gap: 10px;">
                                         <div>
@@ -285,13 +284,13 @@
                                 
                                 <!-- The Visual Index Meter Ring -->
                                 <div style="text-align: center; margin: 0 auto;">
-                                    <div class="index-wheel-outer" style="position: relative; width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#10b981 0% 50%, #e2e8f0 50% 100%); display: flex; align-items: center; justify-content: center; transition: background 0.4s ease;">
+                                    <div class="index-wheel-outer" style="position: relative; width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(#10b981 0% 33%, #e2e8f0 33% 100%); display: flex; align-items: center; justify-content: center; transition: background 0.4s ease;">
                                         <div class="index-wheel-inner" style="width: 110px; height: 110px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                            <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: #1e293b; line-height: 1;">50%</span>
+                                            <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: #1e293b; line-height: 1;">33%</span>
                                             <span style="font-size: 0.65rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Self-Reliant</span>
                                         </div>
                                     </div>
-                                    <div id="atmanirbharBadgeStatus" style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #059669; background: #ecfdf5; padding: 4px 10px; border-radius: 12px; display: inline-block;">
+                                    <div id="atmanirbharBadgeStatus" style="margin-top: 10px; font-size: 0.8rem; font-weight: 700; color: #065f46; background: #ecfdf5; padding: 4px 10px; border-radius: 12px; display: inline-block;">
                                         Silver Tier Asset
                                     </div>
                                 </div>
@@ -333,16 +332,31 @@
                         </div>
 
                         <form id="eligibilityWizardForm" style="display:grid; gap:1.25rem;">
-                            <!-- Step 1: Sector Dropdown Selection -->
+                            <!-- Step 1: Sector & Corporate Turnover Pre-Qualification Dropdown -->
                             <div class="wizard-step active-step" id="step1">
-                                <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Select Your Operational Sector:</label>
-                                <select id="assetSector" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" required>
-                                    <option value="" disabled selected>Choose a category...</option>
-                                    <option value="Educational Organisation">Educational Organisations / Campus</option>
-                                    <option value="MSME / Commercial">MSME / Industrial Facility</option>
-                                    <option value="Community Micro-Grid">Renewable Grid</option>
-                                </select>
-                                <button type="button" class="btn-primary" style="margin-top:1.5rem; width:100%; border:none; cursor:pointer;" onclick="nextStep(1, 2)">Next Step &rarr;</button>
+                                <div style="margin-bottom: 1.25rem;">
+                                    <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Select Your Operational Sector:</label>
+                                    <select id="assetSector" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" required>
+                                        <option value="" disabled selected>Choose a category...</option>
+                                        <option value="Educational Organisation">Educational Organisations / Campus</option>
+                                        <option value="MSME / Commercial">MSME / Industrial Facility</option>
+                                        <option value="Community Micro-Grid">Renewable Grid</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.25rem;">
+                                    <label style="display:block; font-weight:600; margin-bottom:0.5rem; color:#475569;">Annual Corporate Turnover Bracket:</label>
+                                    <select id="corporateTurnover" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:6px; font-size:1rem;" required>
+                                        <option value="" disabled selected>Select financial scale...</option>
+                                        <option value="Up to 50 Crore">Up to ₹50 Crore Turnover</option>
+                                        <option value="50 - 100 Crore">₹50 Crore – ₹100 Crore Turnover</option>
+                                        <option value="100 - 150 Crore">₹100 Crore – ₹150 Crore Turnover</option>
+                                        <option value="150 - 200 Crore">₹150 Crore – ₹200 Crore Turnover</option>
+                                        <option value="200 - 250 Crore">₹200 Crore – ₹250 Crore Turnover</option>
+                                        <option value="250 Crore+">Above ₹250 Crore Turnover Flat</option>
+                                    </select>
+                                </div>
+                                <button type="button" class="btn-primary" style="margin-top:0.5rem; width:100%; border:none; cursor:pointer;" onclick="nextStep(1, 2)">Next Step &rarr;</button>
                             </div>
 
                             <!-- Step 2: Capacity Metric Entry -->
@@ -480,17 +494,19 @@
             }
 
             const sectorVal = document.getElementById('assetSector').value;
+            const turnoverVal = document.getElementById('corporateTurnover').value;
             const capacityVal = parseFloat(document.getElementById('assetCapacity').value);
             const locationVal = document.getElementById('assetLocation').value;
             const emailVal = emailInput.value;
 
             const registrationPayload = {
                 sector: sectorVal,
+                turnoverBracket: turnoverVal,
                 capacityKW: capacityVal,
                 location: locationVal,
                 email: emailVal,
                 timestamp: new Date().toISOString(),
-                status: "Pending Desk Audit"
+                status: "Pending Forensic Audit"
             };
 
             // Visual loading state updates immediately to verify action click
@@ -504,20 +520,19 @@
                 } else {
                     // Fail-over Fallback Track: Trigger secure pre-filled routing logic directly to avoid dropped conversions
                     console.warn("Database context missing. Redirecting user parameters to backup secure form endpoint.");
-                    executeFormRedirectFallback(emailVal, sectorVal, capacityVal, locationVal);
+                    executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
                 }
             } catch (error) {
                 console.error("Data tracking encountered an issue: ", error);
-                executeFormRedirectFallback(emailVal, sectorVal, capacityVal, locationVal);
+                executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
             }
         }
 
-        function executeFormRedirectFallback(email, sector, capacity, location) {
+        function executeCorporateRedirectFallback(email, sector, turnover, capacity, location) {
             const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfJ0puCZ5kTZ2Zsjs7Ub3QE-MGicdocA38HDwSYAzyiA88rBA/viewform";
             
             // Generate clean URL pre-fill variables matching your standard input structure
-            // If you acquire specific entry field numbers later, replace entry.xxxx with the numbers
-            const prefilledUrl = `${baseFormUrl}?usp=pp_url&entry.email=${encodeURIComponent(email)}&entry.sector=${encodeURIComponent(sector)}&entry.capacity=${encodeURIComponent(capacity)}&entry.location=${encodeURIComponent(location)}`;
+            const prefilledUrl = `${baseFormUrl}?usp=pp_url&entry.email=${encodeURIComponent(email)}&entry.sector=${encodeURIComponent(sector)}&entry.turnover=${encodeURIComponent(turnover)}&entry.capacity=${encodeURIComponent(capacity)}&entry.location=${encodeURIComponent(location)}`;
             
             // Give users 1.5 seconds to read the screen before helping them complete verification records
             setTimeout(() => {
