@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Environmental Asset Journey Desk</title>
+    <title>Earth Carbon Foundation | CER Onboarding Lifecycle Tracker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,58 +22,45 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-stack); color: var(--gov-black); background-color: #ffffff; line-height: 1.5; font-size: 1.125rem; -webkit-font-smoothing: antialiased; }
 
-        /* GOV.UK Top Frame Bar */
+        /* Institutional Top Branding Header Bar */
         .site-header { background-color: var(--gov-black); color: #ffffff; padding: 20px 30px; border-bottom: 8px solid var(--un-blue); }
         .nav-container { max-width: 1150px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
         .logo span { font-weight: 400; color: var(--gov-border-grey); }
 
-        /* Structural Grid Panels */
-        .main-container { max-width: 1150px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr; gap: 40px; }
-        @media (min-width: 900px) {
-            .split-journey-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
-        }
+        /* Layout Architecture Containers */
+        .main-container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; }
+        .hero-section { text-align: center; max-width: 900px; margin: 0 auto 50px auto; }
+        .section-heading { font-size: 3.2rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+        .lead-text { font-size: 1.4rem; color: var(--gov-dark-grey); margin-bottom: 35px; }
 
-        .header-block { border-bottom: 3px solid var(--gov-black); padding-bottom: 25px; margin-bottom: 10px; }
-        .section-heading { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 15px; }
-        .lead-text { font-size: 1.3rem; color: var(--gov-dark-grey); max-width: 900px; }
+        /* Bold Frictionless CTA Elements */
+        .btn-launch { display: inline-block; font-family: inherit; font-size: 1.4rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 16px 36px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; border-radius: 0; transition: background 0.2s; }
+        .btn-launch:hover { background-color: #006428; }
+        .btn-subtext { font-size: 0.95rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 12px; display: block; }
 
-        /* Left Side: Rigid Intake Card */
-        .intake-card { border: 4px solid var(--gov-black); padding: 35px; background-color: #ffffff; }
-        .form-group { margin-bottom: 25px; display: flex; flex-direction: column; }
-        .form-label { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: var(--gov-black); }
-        .form-select, .form-input { font-family: inherit; font-size: 1.1rem; padding: 12px; border: 3px solid var(--gov-black); width: 100%; border-radius: 0; color: var(--gov-black); }
-        .form-select:focus, .form-input:focus { outline: 4px solid #ffdd00; }
+        /* THE CHRONOLOGICAL FULL-SCALE JOURNEY MATRIX */
+        .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 40px 0; width: 100%; }
+        .journey-step-card { border: 3px solid var(--gov-black); padding: 30px; background: #ffffff; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         
-        .btn-action { display: block; font-family: inherit; font-size: 1.3rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 14px 24px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-align: center; width: 100%; text-decoration: none; }
-        .btn-action:hover { background-color: #006428; }
-
-        /* Right Side: Interactive Real-time Timeline */
-        .journey-timeline { display: flex; flex-direction: column; gap: 20px; }
-        .timeline-step { border: 2px solid var(--gov-border-grey); background-color: var(--gov-light-grey); padding: 25px; position: relative; transition: all 0.3s ease; }
-        .timeline-step.active { border: 3px solid var(--un-blue); background-color: #ffffff; box-shadow: 0 4px 12px rgba(0,140,210,0.1); }
-        .timeline-step.completed { border-color: var(--un-green); background-color: var(--un-green-light); }
-
-        /* Step Metadata Badges */
-        .step-badge-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .step-number { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--gov-dark-grey); background: #e3e3e3; padding: 4px 8px; }
-        .timeline-step.active .step-number { background: var(--un-blue); color: #ffffff; }
-        .timeline-step.completed .step-number { background: var(--un-green); color: #ffffff; }
-        .duration-tag { font-size: 0.9rem; font-weight: 700; color: #b91c1c; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* Progress Indicator Header Details */
+        .step-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 2px solid var(--gov-light-grey); padding-bottom: 10px; }
+        .step-tag { font-size: 0.85rem; font-weight: 800; background-color: var(--gov-black); color: #ffffff; padding: 4px 10px; text-transform: uppercase; }
+        .duration-badge { font-size: 0.9rem; font-weight: 800; color: #b91c1c; text-transform: uppercase; letter-spacing: 0.5px; }
         
-        .step-title { font-size: 1.35rem; font-weight: 800; color: var(--gov-black); margin-bottom: 8px; }
-        .step-desc { font-size: 1rem; color: var(--gov-dark-grey); line-height: 1.4; }
+        .step-title { font-size: 1.4rem; font-weight: 800; color: var(--gov-black); margin-bottom: 12px; letter-spacing: -0.5px; }
+        .step-body { font-size: 1.05rem; color: var(--gov-dark-grey); margin-bottom: 20px; flex-grow: 1; }
+        
+        /* Step Status Footers */
+        .step-status { font-size: 0.9rem; font-weight: 700; color: var(--un-blue); background: #e0f2fe; padding: 6px 12px; text-align: center; text-transform: uppercase; }
 
-        /* Interactive Dynamic Highlight Container */
-        .dynamic-value-pill { font-weight: 700; color: var(--un-blue); background-color: #e0f2fe; padding: 2px 6px; font-size: 0.95rem; }
+        /* Multi-Sector Sub-Domain Crosslinks */
+        .ecosystem-tray { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 60px; border-top: 4px solid var(--gov-black); padding-top: 40px; }
+        .eco-card { border: 2px dashed var(--gov-border-grey); padding: 20px; background: var(--gov-light-grey); text-decoration: none; color: inherit; }
+        .eco-card:hover { border-style: solid; border-color: var(--un-blue); background: #ffffff; }
+        .eco-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--un-blue); margin-bottom: 4px; }
 
-        /* Core Ecosystem Link Footer */
-        .ecosystem-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 40px; border-top: 3px solid var(--gov-black); padding-top: 30px; }
-        .eco-link-card { background: var(--gov-light-grey); padding: 15px; border: 1px dashed var(--gov-border-grey); text-decoration: none; color: inherit; font-size: 0.95rem; }
-        .eco-link-card:hover { border-style: solid; border-color: var(--un-blue); background: #ffffff; }
-        .eco-link-card h4 { color: var(--un-blue); font-weight: 800; margin-bottom: 4px; }
-
-        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 60px; font-size: 0.95rem; }
+        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 80px; font-size: 1rem; }
     </style>
 </head>
 <body>
@@ -81,141 +68,106 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
-            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Ecosystem Integration Desk</span>
+            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">CER Lifecycle Tracker</span>
         </div>
     </header>
 
     <main class="main-container">
         
-        <!-- INTRO CONTENT INTERFACE -->
-        <div class="header-block">
-            <h1 class="section-heading">Your Asset Decarbonization & Revenue Journey</h1>
+        <!-- HERO SEGMENT: IMMEDIATE PURPOSE FOCUS -->
+        <section class="hero-section">
+            <h1 class="section-heading">Your Full-Scale Certified Emission Reduction Lifecycle</h1>
             <p class="lead-text">
-                Map your distributed clean energy infrastructure straight to capital markets. Enter your baseline metrics below to visualize your full-scale verification lifecycle, milestone durations, and expected outputs in real-time.
+                Bypass complex code deployments and costly administrative infrastructure. Review our audited timeline below to trace exactly how your distributed solar assets move from structural intake directly to verified carbon asset issuance.
             </p>
-        </div>
+            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-launch">Launch Registration Protocol</a>
+            <span class="btn-subtext">Launches Step 1: Integrated Intake Form. Complete in under 60 seconds.</span>
+        </section>
 
-        <!-- DYNAMIC SPLIT CONTROL GRID -->
-        <div class="split-journey-panel">
-            
-            <!-- LEFT SIDE: INTERACTIVE INTAKE CONSOLE -->
-            <div class="intake-card">
-                <h2 style="font-size: 1.5rem; margin-bottom: 25px; font-weight: 800; border-bottom: 2px solid var(--gov-black); padding-bottom: 10px;">1. System Parameters Intake</h2>
+        <!-- PROGRESS INDICATOR TRACKER INTERFACE -->
+        <section style="margin-top: 20px;">
+            <div class="journey-grid">
                 
-                <form id="journeyLiveForm">
-                    <div class="form-group">
-                        <label class="form-label" for="userOrg">Organization Name</label>
-                        <input type="text" class="form-input" id="userOrg" placeholder="e.g. Maruti Manufacturing" oninput="syncJourneyData()" required>
+                <!-- STEP 1: GOOGLE FORM SUBMISSION -->
+                <div class="journey-step-card">
+                    <div>
+                        <div class="step-header">
+                            <span class="step-tag">Step 01</span>
+                            <span class="duration-badge" style="color:#007d32;">Immediate</span>
+                        </div>
+                        <h3 class="step-title">Submit Integrated Intake</h3>
+                        <p class="step-body">
+                            Complete our consolidated registration form. Provide basic contact references, your array nameplate scale (kW), and your official annual company turnover bracket in a single action sequence.
+                        </p>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="userSector">Operational Sector Category</label>
-                        <select class="form-select" id="userSector" onchange="syncJourneyData()" required>
-                            <option value="Your Organization" selected>Select sector classification...</option>
-                            <option value="Commercial Facility">Commercial / Industrial Facility</option>
-                            <option value="Educational Campus">Educational Institution / Campus</option>
-                            <option value="Renewable Array">Distributed Grid Project</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="userTurnover">Annual Corporate Turnover Bracket</label>
-                        <select class="form-select" id="userTurnover" required>
-                            <option value="" disabled selected>Select financial tier...</option>
-                            <option value="Up to 5 Cr">Up to ₹5 Crore</option>
-                            <option value="5 - 25 Cr">₹5 Crore – ₹25 Crore</option>
-                            <option value="25 - 100 Cr">₹25 Crore – ₹100 Crore</option>
-                            <option value="Above 100 Cr">Above ₹100 Crore Flat</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="userCapacity">Solar Array / Clean Infrastructure Scale (kW)</label>
-                        <input type="number" class="form-input" id="userCapacity" placeholder="e.g. 350" oninput="syncJourneyData()" required>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 10px;">
-                        <label class="form-label" for="userEmail">Corporate Officer Email</label>
-                        <input type="email" class="form-input" id="userEmail" placeholder="officer@organization.com" required>
-                    </div>
-
-                    <button type="button" class="btn-action" onclick="executeJourneySubmission()">Initialize Asset Protocol &rarr;</button>
-                </form>
-                <p style="font-size:0.85rem; color:var(--gov-dark-grey); text-align:center; margin-top:12px; font-weight:600;">₹0 Upfront Cost Architecture • Secure Data Link</p>
-            </div>
-
-            <!-- RIGHT SIDE: REAL-TIME DYNAMIC TIMELINE LIFE CYCLE -->
-            <div class="journey-timeline" id="journeyTimelineBox">
-                <h2 style="font-size: 1.5rem; margin-bottom: 5px; font-weight: 800; border-bottom: 2px solid var(--gov-black); padding-bottom: 10px;">2. Your Actionable Lifecyle</h2>
-                
-                <!-- STEP 1: INITIAL DIGITIZATION -->
-                <div class="timeline-step active" id="timeStep1">
-                    <div class="step-badge-row">
-                        <span class="step-number">Step 01</span>
-                        <span class="duration-tag">Duration: <span style="color:#007d32;">Real-Time</span></span>
-                    </div>
-                    <h3 class="step-title">Frictionless Data Capture</h3>
-                    <p class="step-desc">
-                        The moment you click initialize, <span class="dynamic-value-pill" id="dynOrgName1">Your Facility</span> logs its metadata directly into our secure tracking sheets. This immediately bypasses legacy data leaks and establishes your official entry registry timestamp.
-                    </p>
+                    <div class="step-status">Action Required</div>
                 </div>
 
-                <!-- STEP 2: METRIC MAPPING -->
-                <div class="timeline-step" id="timeStep2">
-                    <div class="step-badge-row">
-                        <span class="step-number">Step 02</span>
-                        <span class="duration-tag">Duration: 48 Hours</span>
+                <!-- STEP 2: READINESS STATEMENT OUTBOUND -->
+                <div class="journey-step-card">
+                    <div>
+                        <div class="step-header">
+                            <span class="step-tag">Step 02</span>
+                            <span class="duration-badge">Within 48 Hrs</span>
+                        </div>
+                        <h3 class="step-title">Receive Asset Readiness Quote</h3>
+                        <p class="step-body">
+                            Our structuring desk maps your asset volume against local Discom 15-minute grid settlement blocks. We issue an automated evaluation report containing your baseline **Atmanirbhar Index %** target and clear commercial revenue splits.
+                        </p>
                     </div>
-                    <h3 class="step-title">Automated AI Assessment & Proposals</h3>
-                    <p class="step-desc">
-                        Our system maps your stated <span class="dynamic-value-pill" id="dynCapacity">0 kW</span> clean infrastructure against regional grid 15-minute settlement blocks. You will receive an automated **Introduction Proposal** detailing your estimated **Atmanirbhar Index %** target, instantly followed by our commercial structural splits.
-                    </p>
+                    <div class="step-status" style="color: var(--gov-dark-grey); background: #e5e7eb;">Automated Delivery</div>
                 </div>
 
-                <!-- STEP 3: LEGAL MUTUAL COMMITMENT -->
-                <div class="timeline-step" id="timeStep3">
-                    <div class="step-badge-row">
-                        <span class="step-number">Step 03</span>
-                        <span class="duration-tag">Duration: 7 Days</span>
+                <!-- STEP 3: REGISTRY COMPLIANCE COMMITTAL -->
+                <div class="journey-step-card">
+                    <div>
+                        <div class="step-header">
+                            <span class="step-tag">Step 03</span>
+                            <span class="duration-badge">7 Days Block</span>
+                        </div>
+                        <h3 class="step-title">Submit Proposal to Registry</h3>
+                        <p class="step-body">
+                            We compile your data streams and execute our standardized, zero-friction **Tripartite Assignment Framework**. This legally pools the Asset Owner, the technical EPC installer, and the Foundation into our active Program of Activities (PoA).
+                        </p>
                     </div>
-                    <h3 class="step-title">Tripartite Portfolio Pooling</h3>
-                    <p class="step-desc">
-                        We execute our standardized, low-friction **Tripartite Assignment Agreement** matching <span class="dynamic-value-pill" id="dynOrgName2">Your Organization</span>, your technical EPC installer, and the Foundation into a high-integrity Program of Activities (PoA) asset bundle.
-                    </p>
+                    <div class="step-status" style="color: var(--gov-dark-grey); background: #e5e7eb;">Compliance Check</div>
                 </div>
 
-                <!-- STEP 4: ASSET REALIZATION -->
-                <div class="timeline-step" id="timeStep4">
-                    <div class="step-badge-row">
-                        <span class="step-number">Step 04</span>
-                        <span class="duration-tag">Duration: 14 Days (Recurring)</span>
+                <!-- STEP 4: LIQUID CREDIT ISSUANCE -->
+                <div class="journey-step-card" style="border-color: var(--un-green);">
+                    <div>
+                        <div class="step-header">
+                            <span class="step-tag" style="background-color: var(--un-green);">Step 04</span>
+                            <span class="duration-badge" style="color: var(--un-green);">14 Days Loop</span>
+                        </div>
+                        <h3 class="step-title">Issuance of CER Capital</h3>
+                        <p class="step-body">
+                            Your generation audits lock securely into `www.registryearthcarbon.org`. The network completes issuance protocols, releases your high-integrity **Institutional Carbon Mitigation Certificate**, and triggers recurring asset distributions.
+                        </p>
                     </div>
-                    <h3 class="step-title">Registry Verification & Capital Release</h3>
-                    <p class="step-desc">
-                        Your aggregated generation logs lock cleanly into `www.registryearthcarbon.org`. We issue your formal boardroom-ready **Institutional Carbon Certificate** and manage the automated execution of your performance-based credit revenue splits.
-                    </p>
+                    <div class="step-status" style="color: var(--un-green); background: var(--un-green-light);">Final Realization</div>
                 </div>
 
             </div>
-        </div>
+        </section>
 
-        <!-- ECOSYSTEM STRATEGIC SUB-DOMAINS LINKS -->
-        <section class="ecosystem-bar">
-            <a href="http://www.registryearthcarbon.org" target="_blank" class="eco-link-card">
+        <!-- SUB-DOMAIN ARCHITECTURE LINKS CONTAINER -->
+        <section class="ecosystem-tray">
+            <a href="http://www.registryearthcarbon.org" target="_blank" class="eco-card">
                 <h4>www.registryearthcarbon.org</h4>
-                <p>The core data infrastructure hosting live ledger assets.</p>
+                <p>The centralized multi-sector data ledger verifying active pipeline attributes.</p>
             </a>
-            <a href="https://www.100mtons.com" target="_blank" class="eco-link-card">
+            <a href="https://www.100mtons.com" target="_blank" class="eco-card">
                 <h4>www.100mtons.com</h4>
-                <p>Track progress toward our 100 Million Tonne 2030 macro target.</p>
+                <p>Track aggregated portfolio capacity balancing toward our 2030 macro target.</p>
             </a>
-            <a href="http://www.atmanribharnow.org" target="_blank" class="eco-link-card">
+            <a href="http://www.atmanribharnow.org" target="_blank" class="eco-card">
                 <h4>www.atmanribharnow.org</h4>
-                <p>Calculate your organization's total grid self-reliance rating.</p>
+                <p>Review public rating metrics grading individual corporate energy self-reliance.</p>
             </a>
-            <a href="https://www.timerepay.com" target="_blank" class="eco-link-card">
+            <a href="https://www.timerepay.com" target="_blank" class="eco-card">
                 <h4>www.timerepay.com</h4>
-                <p>Sub-hourly granular tracing matching EnergyTag schemes.</p>
+                <p>Granular temporal settlement layers matching advanced international attribute metrics.</p>
             </a>
         </section>
 
@@ -223,69 +175,19 @@
 
     <footer class="site-footer">
         <div class="nav-container" style="display:block;">
-            <p style="font-weight: 800; font-size: 1.15rem; margin-bottom: 4px;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.9rem; color: var(--gov-dark-grey); margin-bottom: 20px;">Proprietors of the Earth Carbon Framework™ and Universal Decentralized Asset Ledgers</p>
+            <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 4px; color: var(--gov-black);">Earth Carbon Foundation</p>
+            <p style="font-size: 0.95rem; color: var(--gov-dark-grey); margin-bottom: 25px;">Proprietors of the Earth Carbon Framework™ and Global Environmental Asset Aggregation Models</p>
             
-            <p style="font-size: 0.85rem; color: var(--gov-dark-grey); margin-bottom: 20px; line-height: 1.5;">
-                <strong>Corporate Registry Location:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
-                <strong>Desk Support Matrix:</strong> info@earthcarbonfoundation.org
-            </p>
+            <div style="font-size: 0.9rem; color: var(--gov-dark-grey); line-height: 1.6; margin-bottom: 25px;">
+                <strong>Corporate Head Office:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
+                <strong>Ecosystem Communications Matrix:</strong> info@earthcarbonfoundation.org
+            </div>
 
-            <p style="font-size: 0.8rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 15px;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Runways optimized in conformity with lean validation frameworks, UN NAMA protocols, and global environmental asset matching guidelines.
+            <p style="font-size: 0.8rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
+                © 2026 Earth Carbon Foundation. All rights reserved. Framework runways engineered in conformity with lean validation methodologies, United Nations NAMA tracking specs, and sub-hourly carbon attribute matching principles.
             </p>
         </div>
     </footer>
 
-    <script>
-        // LEAN PRINCIPLE: Dynamic interface feedback loop mapping user inputs directly onto timelines
-        function syncJourneyData() {
-            const orgInput = document.getElementById('userOrg').value.trim();
-            const sectorInput = document.getElementById('userSector').value;
-            const capacityInput = document.getElementById('userCapacity').value.trim();
-
-            // Fallback default labels
-            const activeOrg = orgInput ? orgInput : "Your Organization";
-            const activeCapacity = capacityInput ? capacityInput + " kW" : "0 kW";
-
-            document.getElementById('dynOrgName1').innerText = activeOrg;
-            document.getElementById('dynOrgName2').innerText = activeOrg;
-            document.getElementById('dynCapacity').innerText = activeCapacity;
-
-            // Shift timeline focuses dynamically based on input completion values
-            if (orgInput && capacityInput) {
-                document.getElementById('timeStep1').classList.add('completed');
-                document.getElementById('timeStep2').classList.add('active');
-            } else {
-                document.getElementById('timeStep1').classList.remove('completed');
-                document.getElementById('timeStep2').classList.remove('active');
-            }
-        }
-
-        function executeJourneySubmission() {
-            const form = document.getElementById('journeyLiveForm');
-            const emailInput = document.getElementById('userEmail');
-
-            // Force browser validation rule checking natively
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            // Mark phases complete on form execution
-            document.getElementById('timeStep1').classList.add('completed');
-            document.getElementById('timeStep2').classList.add('completed');
-            document.getElementById('timeStep3').classList.add('active');
-            document.getElementById('timeStep4').classList.add('active');
-
-            // Redirect user to the fallback Google Form intake to fully store elements
-            const baseFormUrl = "https://forms.gle/GcQ24md9TmhnHEQa9";
-            
-            alert("Asset attributes mapped into tracking loop. Redirecting to your master verification ledger to finalize security credentials...");
-            setTimeout(() => {
-                window.open(baseFormUrl, '_blank');
-            }, 1000);
-        }
-    </script>
 </body>
 </html>
