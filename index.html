@@ -30,34 +30,38 @@
         .main-container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; }
         .section-block { border-top: 4px solid var(--gov-black); padding-top: 45px; margin-top: 45px; }
         .section-heading { font-size: 3.2rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
-        .sub-heading { font-size: 2rem; font-weight: 800; margin-bottom: 25px; letter-spacing: -0.5px; color: var(--gov-black); }
+        .sub-heading { font-size: 2rem; font-weight: 700; margin-bottom: 25px; letter-spacing: -0.5px; color: var(--gov-black); }
         .lead-text { font-size: 1.4rem; color: var(--gov-dark-grey); margin-bottom: 35px; max-width: 950px; }
 
         .btn-premium { display: inline-block; font-family: inherit; font-size: 1.4rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 16px 36px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; }
         .btn-premium:hover { background-color: #006428; }
         
-        /* Section 2: Metrics Grid */
+        /* Section 2: Trust Matrix */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 25px; }
         .metric-card { background: var(--gov-light-grey); padding: 25px; border-left: 6px solid var(--un-blue); }
         .metric-num { font-size: 2.8rem; font-weight: 800; display: block; line-height: 1.1; letter-spacing: -1px; }
         .metric-label { font-size: 0.95rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px; }
 
-        /* Section 4: Audience Sectors Grid */
+        /* Section 3: Audience Grid */
         .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
         .sector-card { border: 2px solid var(--gov-border-grey); padding: 20px; background: var(--gov-light-grey); font-weight: 700; font-size: 1.2rem; color: var(--gov-black); }
 
-        /* Section 5: Real-Time Specimen Container */
-        .specimen-card { border: 3px solid var(--gov-black); padding: 35px; background-color: #ffffff; max-width: 750px; margin-top: 30px; }
-        .specimen-header { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px; }
-        .line-item-check { display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+        /* Section 4: Problem Comparative Split */
+        .problem-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 25px; }
+        .problem-col { border-left: 4px solid var(--gov-border-grey); padding-left: 20px; }
+        .problem-col.highlight { border-left-color: #b91c1c; }
+
+        /* Section 5: Specimen Mockup Component */
+        .specimen-card { border: 3px solid var(--gov-black); padding: 35px; background-color: #ffffff; max-width: 750px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .specimen-header { display: flex; justify-content: space-between; margin-bottom: 25px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; border-bottom: 2px solid var(--gov-light-grey); padding-bottom: 15px; }
+        .line-item-check { display: flex; align-items: center; gap: 12px; font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; }
         .item-icon { color: var(--un-green); font-weight: 900; }
         
-        /* Progress Bar Token */
         .progress-container { background: #e2e8f0; border: 1px solid var(--gov-border-grey); height: 24px; width: 100%; max-width: 300px; margin-top: 5px; position: relative; }
-        .progress-bar { background: var(--un-green); height: 100%; width: 87%; }
+        .progress-bar { background: var(--un-green); height: 100%; width: 89%; }
         .progress-text { position: absolute; right: 8px; top: 0; font-size: 0.85rem; font-weight: 800; color: var(--gov-black); line-height: 22px; }
 
-        /* Section 6: Workflow Map Architecture */
+        /* Section 6: Workflow Map Grid */
         .lifecycle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 30px; }
         .lifecycle-card { border: 2px solid var(--gov-black); padding: 20px; background: #ffffff; }
         .lf-step { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--un-blue); display: block; margin-bottom: 6px; }
@@ -78,19 +82,19 @@
 
     <main class="main-container">
         
-        <!-- SECTION 1: HERO CONTAINER -->
-        <section style="padding: 30px 0; max-width: 1000px;">
+        <!-- SECTION 1: HERO HUB -->
+        <section style="padding: 20px 0; max-width: 1000px;">
             <h1 class="section-heading">Discover the Environmental Assets Your Organization Already Owns.</h1>
             <p class="lead-text">
-                Receive a FREE Environmental Asset Portfolio that identifies your existing sustainability investments, registry readiness, and future development opportunities.
+                Receive a FREE Environmental Asset Portfolio that identifies your existing infrastructure investments, structural registry readiness, and future carbon opportunities.
             </p>
             <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-premium">Get My FREE Environmental Asset Portfolio</a>
-            <p style="font-size: 0.9rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 15px;">No obligation. No engineering data required. Complete in about 5 minutes.</p>
+            <p style="font-size: 0.9rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 15px;">✓ Under 5 Minutes &nbsp;&bull;&nbsp; ✓ No Engineering Data Required &nbsp;&bull;&nbsp; ✓ No Financial Data Required &nbsp;&bull;&nbsp; ✓ No Obligation</p>
         </section>
 
         <!-- SECTION 2: TRUST VERIFICATIONS -->
         <section class="section-block">
-            <h2 class="sub-heading">Verified Institutional Foundations</h2>
+            <h2 class="sub-heading">Verified Institutional Scale</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <span class="metric-num">12+</span>
@@ -111,42 +115,52 @@
             </div>
         </section>
 
-        <!-- SECTION 3: THE PROBLEM -->
-        <section class="section-block">
-            <h2 class="sub-heading">Most Organizations Already Own Environmental Assets.</h2>
-            <p class="lead-text">
-                Most companies evaluate clean infrastructure upgrades solely through monthly utility bill cost reductions. Because this operational data remains siloed and unrecorded, permanent assets are hidden as baseline expenses. You remain blind to your true registry readiness and long-term development opportunities.
-            </p>
-        </section>
-
-        <!-- SECTION 4: ELIGIBLE OPERATIONAL SECTORS -->
+        <!-- SECTION 3: ELIGIBLE OPERATIONAL SECTORS -->
         <section class="section-block">
             <h2 class="sub-heading">Eligible Infrastructure Sectors</h2>
-            <p class="lead-text" style="font-size: 1.2rem; margin-bottom: 10px;">Our platform architecture is pre-configured to systematically onboard assets from these core areas:</p>
+            <p class="lead-text" style="font-size: 1.2rem; margin-bottom: 10px;">Our platform architecture is engineered to systematically map properties from these core areas:</p>
             <div class="sector-grid">
                 <div class="sector-card">🏭 Manufacturing Industries</div>
                 <div class="sector-card">⚡ Renewable Energy Developers</div>
-                <div class="sector-card">🏢 Commercial Buildings</div>
+                <div class="sector-card">🏢 Commercial Parks</div>
                 <div class="sector-card">🏫 Educational Institutions</div>
                 <div class="sector-card">🏥 Hospital Infrastructure</div>
-                <div class="sector-card">🏡 Residential Communities</div>
+                <div class="sector-card">🏡 Housing Societies</div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: THE PROBLEM (SPLIT PANEL) -->
+        <section class="section-block">
+            <h2 class="sub-heading">The Structural Capital Blindspot</h2>
+            <div class="problem-split">
+                <div class="problem-col">
+                    <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:10px; color:var(--gov-dark-grey);">Your Current Internal View:</h3>
+                    <p style="font-size:1.1rem; color:var(--gov-dark-grey);">Solar installations, water systems, and recycling loops are tracked solely as basic utility cost reductions.</p>
+                </div>
+                <div class="problem-col highlight">
+                    <h3 style="font-size:1.3rem; font-weight:800; margin-bottom:10px; color:#b91c1c;">The Hidden Valuation Leak:</h3>
+                    <p style="font-size:1.1rem; color:var(--gov-black); font-weight:600;">Because your assets remain unrecorded, permanent infrastructure stays locked as baseline expenses. You operate blind to true registry readiness and future carbon opportunities.</p>
+                </div>
             </div>
         </section>
 
         <!-- SECTION 5: SAMPLE ENVIRONMENTAL ASSET PORTFOLIO -->
         <section class="section-block">
-            <h2 class="sub-heading">Your Environmental Asset Portfolio</h2>
-            <p class="lead-text" style="font-size: 1.15rem;">Here is a realistic preview of your corporate structural register profile after processing raw fields:</p>
+            <h2 class="sub-heading">The Strategic Delivery Deliverable</h2>
+            <p class="lead-text" style="font-size: 1.15rem;">Realistic executive register summary preview generated immediately following intake screening:</p>
             
             <div class="specimen-card">
                 <div class="specimen-header">
-                    <span style="color: var(--un-blue);">ENVIRONMENTAL ASSET PORTFOLIO | RECORDFILE</span>
-                    <span style="color: #b91c1c;">CASE: ABC MANUFACTURING</span>
+                    <span style="color: var(--un-blue);">Environmental Asset Portfolio</span>
+                    <span style="color: var(--gov-dark-grey);">Case: ABC Manufacturing</span>
                 </div>
-                <h4 style="font-size: 1.2rem; margin-bottom: 20px; font-weight: 800; text-transform: uppercase;">Identified Baseline Assets:</h4>
-                <div class="line-item-check"><span class="item-icon">✓</span> Rooftop Solar PV Installation</div>
-                <div class="line-item-check"><span class="item-icon">✓</span> Rainwater Harvesting Well Matrix</div>
-                <div class="line-item-check"><span class="item-icon">✓</span> Operational Wastewater Recycling Unit</div>
+                
+                <h4 style="font-size: 1rem; font-weight: 800; text-transform: uppercase; color: var(--gov-dark-grey); margin-bottom: 12px; letter-spacing: 0.5px;">Energy Infrastructure</h4>
+                <div class="line-item-check"><span class="item-icon">✓</span> Rooftop Solar PV Generation Array</div>
+                <div class="line-item-check"><span class="item-icon">✓</span> Clean Power Battery Storage Bank</div>
+                
+                <h4 style="font-size: 1rem; font-weight: 800; text-transform: uppercase; color: var(--gov-dark-grey); margin: 20px 0 12px 0; letter-spacing: 0.5px;">Water & Circular Assets</h4>
+                <div class="line-item-check"><span class="item-icon">✓</span> Rainwater Harvesting Recharge System</div>
                 <div class="line-item-check"><span class="item-icon">✓</span> Organic Waste Composting Plant</div>
                 
                 <div style="margin-top: 30px; padding-top: 25px; border-top: 2px dashed var(--gov-border-grey); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
@@ -154,12 +168,12 @@
                         <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Registry Readiness</span>
                         <div class="progress-container">
                             <div class="progress-bar"></div>
-                            <div class="progress-text">87% Score</div>
+                            <div class="progress-text">89% Score</div>
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Recommended Next Step</span>
-                        <span style="font-size: 1.1rem; font-weight: 800; color: var(--un-blue); display: block; margin-top: 5px;">Professional Environmental Performance Assessment</span>
+                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Future Carbon Opportunity</span>
+                        <span style="font-size: 1.25rem; font-weight: 800; color: var(--un-blue); display: block; margin-top: 2px;">Verified [Medium-to-High]</span>
                     </div>
                 </div>
             </div>
@@ -167,43 +181,31 @@
 
         <!-- SECTION 6: HOW IT WORKS (THE VALUE LADDER) -->
         <section class="section-block">
-            <h2 class="sub-heading">The Structured Lifecycle Journey</h2>
+            <h2 class="sub-heading">The Onboarding Lifecycle</h2>
             <div class="lifecycle-grid">
                 <div class="lifecycle-card">
                     <span class="lf-step">Phase 01</span>
                     <h3 class="lf-title">Discovery Form</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Log physical plant capacities and turnover brackets via our consolidated intake form.</p>
+                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Log raw baseline plant infrastructure capacities via our integrated intake link.</p>
                     <span class="lf-tag" style="color: #007d32;">5 Minutes</span>
                 </div>
                 <div class="lifecycle-card">
                     <span class="lf-step">Phase 02</span>
                     <h3 class="lf-title">Asset Portfolio</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Secure your automated structural register profile tracking initial readiness metrics.</p>
+                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Secure your automated 7-page structural register document in your inbox.</p>
                     <span class="lf-tag" style="color: var(--un-blue);">48 Hours</span>
                 </div>
-                <div class="lifecycle-card">
-                    <span class="lf-step">Phase 03</span>
+                <div class="lifecycle-card" style="border-color: var(--un-green);">
+                    <span class="lf-step" style="color: var(--un-green);">Phase 03</span>
                     <h3 class="lf-title">FREE Expert Review</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Connect with senior architects to map asset potential and review your score parameters.</p>
+                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Connect directly with our architects to walk through your score parameters live.</p>
                     <span class="lf-tag" style="color: var(--un-green);">30 Minutes</span>
                 </div>
-                <div class="lifecycle-card" style="border-color: var(--un-blue);">
-                    <span class="lf-step" style="color: var(--un-blue);">Phase 04</span>
-                    <h3 class="lf-title">Professional Assessment</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Unlock your certified Natural Resource Balance Sheet and Atmanirbhar % score.</p>
-                    <span class="lf-tag" style="color: var(--un-blue);">₹35,000 Flat Fee</span>
-                </div>
-                <div class="lifecycle-card" style="border-color: var(--un-green);">
-                    <span class="lf-step" style="color: var(--un-green);">Phase 05</span>
-                    <h3 class="lf-title">Asset Development</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Deploy telemetry tracking networks and execute infrastructure optimization plans.</p>
-                    <span class="lf-tag" style="color: var(--un-green);">₹4-7 Lakh Retainer</span>
-                </div>
                 <div class="lifecycle-card">
-                    <span class="lf-step">Phase 06</span>
-                    <h3 class="lf-title">Carbon Program</h3>
-                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Onboard verified, high-integrity portfolios into global asset registry channels.</p>
-                    <span class="lf-tag">Long-Term Partnership</span>
+                    <span class="lf-step">Phase 04</span>
+                    <h3 class="lf-title">Professional Assessment</h3>
+                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey);">Unlock your certified Natural Resource Balance Sheet and Atmanirbhar index rating.</p>
+                    <span class="lf-tag">Commercial Phase</span>
                 </div>
             </div>
         </section>
@@ -224,7 +226,7 @@
             
             <div style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 25px;">
                 <strong>Corporate Head Office:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
-                <strong>Desk Desk Communication:</strong> info@earthcarbonfoundation.org
+                <strong>Desk Desk Channels:</strong> info@earthcarbonfoundation.org
             </div>
 
             <p style="font-size: 0.8rem; border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
