@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | CER Onboarding Lifecycle Tracker</title>
+    <title>Earth Carbon Foundation | Environmental Asset Lifecycle Desk</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,45 +22,40 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-stack); color: var(--gov-black); background-color: #ffffff; line-height: 1.5; font-size: 1.125rem; -webkit-font-smoothing: antialiased; }
 
-        /* Institutional Top Branding Header Bar */
         .site-header { background-color: var(--gov-black); color: #ffffff; padding: 20px 30px; border-bottom: 8px solid var(--un-blue); }
         .nav-container { max-width: 1150px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
         .logo span { font-weight: 400; color: var(--gov-border-grey); }
 
-        /* Layout Architecture Containers */
-        .main-container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; }
-        .hero-section { text-align: center; max-width: 900px; margin: 0 auto 50px auto; }
-        .section-heading { font-size: 3.2rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
-        .lead-text { font-size: 1.4rem; color: var(--gov-dark-grey); margin-bottom: 35px; }
+        .main-container { max-width: 1150px; margin: 0 auto; padding: 40px 20px; }
+        .section-block { border-top: 4px solid var(--gov-black); padding-top: 40px; margin-top: 40px; }
+        .section-heading { font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+        .sub-heading { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .lead-text { font-size: 1.35rem; color: var(--gov-dark-grey); margin-bottom: 30px; max-width: 900px; }
 
-        /* Bold Frictionless CTA Elements */
-        .btn-launch { display: inline-block; font-family: inherit; font-size: 1.4rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 16px 36px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; border-radius: 0; transition: background 0.2s; }
-        .btn-launch:hover { background-color: #006428; }
-        .btn-subtext { font-size: 0.95rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 12px; display: block; }
-
-        /* THE CHRONOLOGICAL FULL-SCALE JOURNEY MATRIX */
-        .journey-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin: 40px 0; width: 100%; }
-        .journey-step-card { border: 3px solid var(--gov-black); padding: 30px; background: #ffffff; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+        .btn-cta { display: inline-block; font-family: inherit; font-size: 1.35rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 16px 32px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; margin-top: 10px; }
+        .btn-cta:hover { background-color: #006428; }
         
-        /* Progress Indicator Header Details */
-        .step-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 2px solid var(--gov-light-grey); padding-bottom: 10px; }
-        .step-tag { font-size: 0.85rem; font-weight: 800; background-color: var(--gov-black); color: #ffffff; padding: 4px 10px; text-transform: uppercase; }
-        .duration-badge { font-size: 0.9rem; font-weight: 800; color: #b91c1c; text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        .step-title { font-size: 1.4rem; font-weight: 800; color: var(--gov-black); margin-bottom: 12px; letter-spacing: -0.5px; }
-        .step-body { font-size: 1.05rem; color: var(--gov-dark-grey); margin-bottom: 20px; flex-grow: 1; }
-        
-        /* Step Status Footers */
-        .step-status { font-size: 0.9rem; font-weight: 700; color: var(--un-blue); background: #e0f2fe; padding: 6px 12px; text-align: center; text-transform: uppercase; }
+        /* Section 2: Trust Grid */
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 20px; }
+        .trust-card { background: var(--gov-light-grey); padding: 25px; border-left: 6px solid var(--un-blue); }
+        .trust-num { font-size: 2.8rem; font-weight: 800; display: block; line-height: 1; letter-spacing: -1px; }
+        .trust-label { font-size: 1rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 5px; }
 
-        /* Multi-Sector Sub-Domain Crosslinks */
-        .ecosystem-tray { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 60px; border-top: 4px solid var(--gov-black); padding-top: 40px; }
-        .eco-card { border: 2px dashed var(--gov-border-grey); padding: 20px; background: var(--gov-light-grey); text-decoration: none; color: inherit; }
-        .eco-card:hover { border-style: solid; border-color: var(--un-blue); background: #ffffff; }
-        .eco-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--un-blue); margin-bottom: 4px; }
+        /* Section 5: Real-Time Example Visual Component */
+        .example-box { border: 3px solid var(--gov-black); padding: 30px; background-color: #ffffff; max-width: 650px; margin-top: 20px; }
+        .example-badge-line { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; font-size: 0.95rem; }
+        .check-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .check-icon { color: var(--un-green); font-weight: 800; }
 
-        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 80px; font-size: 1rem; }
+        /* Section 6: Workflow Map Grid */
+        .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
+        .workflow-card { border: 2px solid var(--gov-black); padding: 25px; background: #ffffff; }
+        .wf-step { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--un-blue); display: block; margin-bottom: 5px; }
+        .wf-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+        .wf-duration { font-size: 0.9rem; font-weight: 700; color: #b91c1c; text-transform: uppercase; display: block; margin-top: 15px; }
+
+        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 80px; font-size: 0.95rem; color: var(--gov-dark-grey); }
     </style>
 </head>
 <body>
@@ -68,123 +63,137 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
-            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">CER Lifecycle Tracker</span>
+            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Ecosystem Integration Desk</span>
         </div>
     </header>
 
     <main class="main-container">
         
-        <!-- HERO SEGMENT: IMMEDIATE PURPOSE FOCUS -->
-        <section class="hero-section">
-            <h1 class="section-heading">Your Full-Scale Certified Emission Reduction Lifecycle</h1>
+        <!-- SECTION 1: HERO -->
+        <section style="padding: 20px 0;">
+            <h1 class="section-heading">Stop Leaving Your Environmental Capital Unrecorded.</h1>
             <p class="lead-text">
-                Bypass complex code deployments and costly administrative infrastructure. Review our audited timeline below to trace exactly how your distributed solar assets move from structural intake directly to verified carbon asset issuance.
+                Your organization has already invested heavily in clean energy, water infrastructure, and waste management loops. Discover what those physical assets are actually worth. Get your preliminary scorecard in under 5 minutes.
             </p>
-            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-launch">Launch Registration Protocol</a>
-            <span class="btn-subtext">Launches Step 1: Integrated Intake Form. Complete in under 60 seconds.</span>
+            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-cta">Get My Free Environmental Asset Snapshot</a>
+            <p style="font-size: 0.9rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 12px;">Takes under 5 minutes. Zero financial or engineering data required.</p>
         </section>
 
-        <!-- PROGRESS INDICATOR TRACKER INTERFACE -->
-        <section style="margin-top: 20px;">
-            <div class="journey-grid">
-                
-                <!-- STEP 1: GOOGLE FORM SUBMISSION -->
-                <div class="journey-step-card">
-                    <div>
-                        <div class="step-header">
-                            <span class="step-tag">Step 01</span>
-                            <span class="duration-badge" style="color:#007d32;">Immediate</span>
-                        </div>
-                        <h3 class="step-title">Submit Integrated Intake</h3>
-                        <p class="step-body">
-                            Complete our consolidated registration form. Provide basic contact references, your array nameplate scale (kW), and your official annual company turnover bracket in a single action sequence.
-                        </p>
-                    </div>
-                    <div class="step-status">Action Required</div>
+        <!-- SECTION 2: TRUST FOUNDATIONS -->
+        <section class="section-block">
+            <h2 class="sub-heading">Verified Institutional Foundations</h2>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <span class="trust-num">12+</span>
+                    <span class="trust-label">Years Experience</span>
                 </div>
-
-                <!-- STEP 2: READINESS STATEMENT OUTBOUND -->
-                <div class="journey-step-card">
-                    <div>
-                        <div class="step-header">
-                            <span class="step-tag">Step 02</span>
-                            <span class="duration-badge">Within 48 Hrs</span>
-                        </div>
-                        <h3 class="step-title">Receive Asset Readiness Quote</h3>
-                        <p class="step-body">
-                            Our structuring desk maps your asset volume against local Discom 15-minute grid settlement blocks. We issue an automated evaluation report containing your baseline **Atmanirbhar Index %** target and clear commercial revenue splits.
-                        </p>
-                    </div>
-                    <div class="step-status" style="color: var(--gov-dark-grey); background: #e5e7eb;">Automated Delivery</div>
+                <div class="trust-card">
+                    <span class="trust-num">1,200+</span>
+                    <span class="trust-label">Orgs Supported</span>
                 </div>
-
-                <!-- STEP 3: REGISTRY COMPLIANCE COMMITTAL -->
-                <div class="journey-step-card">
-                    <div>
-                        <div class="step-header">
-                            <span class="step-tag">Step 03</span>
-                            <span class="duration-badge">7 Days Block</span>
-                        </div>
-                        <h3 class="step-title">Submit Proposal to Registry</h3>
-                        <p class="step-body">
-                            We compile your data streams and execute our standardized, zero-friction **Tripartite Assignment Framework**. This legally pools the Asset Owner, the technical EPC installer, and the Foundation into our active Program of Activities (PoA).
-                        </p>
-                    </div>
-                    <div class="step-status" style="color: var(--gov-dark-grey); background: #e5e7eb;">Compliance Check</div>
+                <div class="trust-card">
+                    <span class="trust-num">17,000+</span>
+                    <span class="trust-label">tCO₂e Identified</span>
                 </div>
-
-                <!-- STEP 4: LIQUID CREDIT ISSUANCE -->
-                <div class="journey-step-card" style="border-color: var(--un-green);">
-                    <div>
-                        <div class="step-header">
-                            <span class="step-tag" style="background-color: var(--un-green);">Step 04</span>
-                            <span class="duration-badge" style="color: var(--un-green);">14 Days Loop</span>
-                        </div>
-                        <h3 class="step-title">Issuance of CER Capital</h3>
-                        <p class="step-body">
-                            Your generation audits lock securely into `www.registryearthcarbon.org`. The network completes issuance protocols, releases your high-integrity **Institutional Carbon Mitigation Certificate**, and triggers recurring asset distributions.
-                        </p>
-                    </div>
-                    <div class="step-status" style="color: var(--un-green); background: var(--un-green-light);">Final Realization</div>
+                <div class="trust-card" style="border-left-color: var(--un-green);">
+                    <span class="trust-num">100M</span>
+                    <span class="trust-label">Tonne 2030 Target</span>
                 </div>
-
             </div>
         </section>
 
-        <!-- SUB-DOMAIN ARCHITECTURE LINKS CONTAINER -->
-        <section class="ecosystem-tray">
-            <a href="http://www.registryearthcarbon.org" target="_blank" class="eco-card">
-                <h4>www.registryearthcarbon.org</h4>
-                <p>The centralized multi-sector data ledger verifying active pipeline attributes.</p>
-            </a>
-            <a href="https://www.100mtons.com" target="_blank" class="eco-card">
-                <h4>www.100mtons.com</h4>
-                <p>Track aggregated portfolio capacity balancing toward our 2030 macro target.</p>
-            </a>
-            <a href="http://www.atmanribharnow.org" target="_blank" class="eco-card">
-                <h4>www.atmanribharnow.org</h4>
-                <p>Review public rating metrics grading individual corporate energy self-reliance.</p>
-            </a>
-            <a href="https://www.timerepay.com" target="_blank" class="eco-card">
-                <h4>www.timerepay.com</h4>
-                <p>Granular temporal settlement layers matching advanced international attribute metrics.</p>
-            </a>
+        <!-- SECTION 3: THE PROBLEM -->
+        <section class="section-block">
+            <h2 class="sub-heading">The Unmapped Resource Blindspot</h2>
+            <p class="lead-text" style="font-size: 1.25rem;">
+                Most companies evaluate their clean tech installations solely through standard utility bill cost savings. Because this data remains siloed, their underlying physical infrastructure is treated as an operational expense. Their true registry readiness and future carbon opportunities are completely lost.
+            </p>
+        </section>
+
+        <!-- SECTION 4: FREE ENVIRONMENTAL ASSET DISCOVERY -->
+        <section class="section-block">
+            <h2 class="sub-heading">Experience Your Capital Vectors</h2>
+            <p class="lead-text" style="font-size: 1.25rem;">
+                We bypass complex code deployments and policy debates. Our streamlined, 5-minute screening evaluates permanent physical installations to map out your infrastructure's true compliance readiness instantly.
+            </p>
+        </section>
+
+        <!-- SECTION 5: SAMPLE ENVIRONMENTAL ASSET SNAPSHOT -->
+        <section class="section-block">
+            <h2 class="sub-heading">What You Instantly Experience</h2>
+            <p class="lead-text" style="font-size: 1.15rem;">Here is exactly how your initial operational command profile displays after tracking entry inputs:</p>
+            
+            <div class="example-box">
+                <div class="example-badge-line">
+                    <span style="color: var(--un-blue);">PROFILE IDENTIFIER: ABC MANUFACTURING</span>
+                    <span style="color: #b91c1c;">STATUS: PRELIMINARY</span>
+                </div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 15px; font-weight: 800;">Environmental Assets Found:</h4>
+                <div class="check-item"><span class="check-icon">✓</span> Rooftop Solar PV Installation</div>
+                <div class="check-item"><span class="check-icon">✓</span> Decentralized Rainwater Harvesting Array</div>
+                <div class="check-item"><span class="check-icon">✓</span> Active On-Site Sewage Treatment Plant (STP)</div>
+                <div class="check-item"><span class="check-icon">✓</span> Organic Composting Recycling Matrix</div>
+                <div class="check-item"><span class="check-icon">✓</span> Managed Boundary Tree Plantation Sinks</div>
+                
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--gov-border-grey); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Registry Readiness</span>
+                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--un-green);">87% Rating</span>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Recommended Next Step</span>
+                        <span style="font-size: 1.1rem; font-weight: 800; color: var(--un-blue);">Professional Assessment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: HOW IT WORKS (THE MILESTONE ROADMAP) -->
+        <section class="section-block">
+            <h2 class="sub-heading">The Structured Lifecycle Journey</h2>
+            <div class="workflow-grid">
+                <div class="workflow-card">
+                    <span class="wf-step">Milestone 01</span>
+                    <h3 class="wf-title">Submit 5-Min Discovery</h3>
+                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Log raw baseline capacities and turnover brackets cleanly via our single consolidated intake form.</p>
+                    <span class="wf-duration" style="color: #007d32;">Immediate Action</span>
+                </div>
+                <div class="workflow-card" style="border-color: var(--un-blue);">
+                    <span class="wf-step" style="color: var(--un-blue);">Milestone 02</span>
+                    <h3 class="wf-title">Review Asset Snapshot</h3>
+                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Secure your automated asset register profile containing initial maturity scoring metrics.</p>
+                    <span class="wf-duration" style="color: var(--un-blue);">Delivered in 48 Hrs</span>
+                </div>
+                <div class="workflow-card" style="border-color: var(--un-green);">
+                    <span class="wf-step" style="color: var(--un-green);">Milestone 03</span>
+                    <h3 class="wf-title">30-Min Strategy Call</h3>
+                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Connect directly with our senior architects to review unmapped assets and define next steps.</p>
+                    <span class="wf-duration" style="color: var(--un-green);">Schedule On-Demand</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FINAL CALL TO ACTION -->
+        <section class="section-block" style="text-align: center; padding-bottom: 40px;">
+            <h2 class="section-heading" style="font-size: 2.5rem; margin-bottom: 15px;">Ready to Experience Your Real Asset Capacity?</h2>
+            <p class="lead-text" style="margin: 0 auto 30px auto; font-size: 1.2rem;">Claim your clean infrastructure snapshot now. Stop leaving active carbon credit opportunities unrecorded.</p>
+            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-cta" style="max-width: 440px; width: 100%;">Get My Free Environmental Asset Snapshot</a>
         </section>
 
     </main>
 
     <footer class="site-footer">
         <div class="nav-container" style="display:block;">
-            <p style="font-weight: 800; font-size: 1.2rem; margin-bottom: 4px; color: var(--gov-black);">Earth Carbon Foundation</p>
-            <p style="font-size: 0.95rem; color: var(--gov-dark-grey); margin-bottom: 25px;">Proprietors of the Earth Carbon Framework™ and Global Environmental Asset Aggregation Models</p>
+            <p style="font-weight: 800; font-size: 1.2rem; color: var(--gov-black); margin-bottom: 5px;">Earth Carbon Foundation</p>
+            <p style="font-size: 0.9rem; margin-bottom: 25px;">Proprietors of the Universal Environmental Asset Registry Framework</p>
             
-            <div style="font-size: 0.9rem; color: var(--gov-dark-grey); line-height: 1.6; margin-bottom: 25px;">
-                <strong>Corporate Head Office:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
-                <strong>Ecosystem Communications Matrix:</strong> info@earthcarbonfoundation.org
-            </div>
+            <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
+                <strong>Corporate Registry Hub:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
+                <strong>Desk Desk Channels:</strong> info@earthcarbonfoundation.org
+            </p>
 
-            <p style="font-size: 0.8rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Framework runways engineered in conformity with lean validation methodologies, United Nations NAMA tracking specs, and sub-hourly carbon attribute matching principles.
+            <p style="font-size: 0.8rem; border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
+                © 2026 Earth Carbon Foundation. All rights reserved. Managed in absolute compliance with institutional asset aggregation principles and lean structural conversion models.
             </p>
         </div>
     </footer>
