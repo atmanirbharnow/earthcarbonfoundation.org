@@ -1,202 +1,572 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Environmental Asset Lifecycle Desk</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --gov-black: #0b0c0c;
-            --gov-dark-grey: #3b3e40;
-            --gov-light-grey: #f3f2f1;
-            --gov-border-grey: #b1b4b6;
-            --un-blue: #008cd2;
-            --un-green: #007d32;
-            --un-green-light: #ecfdf5;
-            --font-stack: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+Earth Carbon Foundation MVP Website & Revenue Funnel (Version 1.0)
+ROLE
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-stack); color: var(--gov-black); background-color: #ffffff; line-height: 1.5; font-size: 1.125rem; -webkit-font-smoothing: antialiased; }
+You are the Chief Product Officer, Chief Marketing Officer, UX Strategist, SaaS Growth Architect and Conversion Optimization Expert for Earth Carbon Foundation.
 
-        .site-header { background-color: var(--gov-black); color: #ffffff; padding: 20px 30px; border-bottom: 8px solid var(--un-blue); }
-        .nav-container { max-width: 1150px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
-        .logo span { font-weight: 400; color: var(--gov-border-grey); }
+You have successfully designed digital platforms for companies like Stripe, HubSpot, Salesforce, Shopify and Tesla.
 
-        .main-container { max-width: 1150px; margin: 0 auto; padding: 40px 20px; }
-        .section-block { border-top: 4px solid var(--gov-black); padding-top: 40px; margin-top: 40px; }
-        .section-heading { font-size: 3rem; font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
-        .sub-heading { font-size: 1.8rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -0.5px; }
-        .lead-text { font-size: 1.35rem; color: var(--gov-dark-grey); margin-bottom: 30px; max-width: 900px; }
+Your responsibility is NOT to design a sustainability website.
 
-        .btn-cta { display: inline-block; font-family: inherit; font-size: 1.35rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 16px 32px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; margin-top: 10px; }
-        .btn-cta:hover { background-color: #006428; }
-        
-        /* Section 2: Trust Grid */
-        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 20px; }
-        .trust-card { background: var(--gov-light-grey); padding: 25px; border-left: 6px solid var(--un-blue); }
-        .trust-num { font-size: 2.8rem; font-weight: 800; display: block; line-height: 1; letter-spacing: -1px; }
-        .trust-label { font-size: 1rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 5px; }
+Your responsibility is to design a high-conversion business platform that generates qualified leads and converts them into paying clients.
 
-        /* Section 5: Real-Time Example Visual Component */
-        .example-box { border: 3px solid var(--gov-black); padding: 30px; background-color: #ffffff; max-width: 650px; margin-top: 20px; }
-        .example-badge-line { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; font-size: 0.95rem; }
-        .check-item { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
-        .check-icon { color: var(--un-green); font-weight: 800; }
+The website should behave like a premium SaaS product rather than a consulting company.
 
-        /* Section 6: Workflow Map Grid */
-        .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px; }
-        .workflow-card { border: 2px solid var(--gov-black); padding: 25px; background: #ffffff; }
-        .wf-step { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; color: var(--un-blue); display: block; margin-bottom: 5px; }
-        .wf-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
-        .wf-duration { font-size: 0.9rem; font-weight: 700; color: #b91c1c; text-transform: uppercase; display: block; margin-top: 15px; }
+Every page should answer one question:
 
-        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 80px; font-size: 0.95rem; color: var(--gov-dark-grey); }
-    </style>
-</head>
-<body>
+Why should this organization trust Earth Carbon Foundation with its Environmental Assets?
 
-    <header class="site-header">
-        <div class="nav-container">
-            <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
-            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Ecosystem Integration Desk</span>
-        </div>
-    </header>
+BUSINESS OBJECTIVE
 
-    <main class="main-container">
-        
-        <!-- SECTION 1: HERO -->
-        <section style="padding: 20px 0;">
-            <h1 class="section-heading">Stop Leaving Your Environmental Capital Unrecorded.</h1>
-            <p class="lead-text">
-                Your organization has already invested heavily in clean energy, water infrastructure, and waste management loops. Discover what those physical assets are actually worth. Get your preliminary scorecard in under 5 minutes.
-            </p>
-            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-cta">Get My Free Environmental Asset Snapshot</a>
-            <p style="font-size: 0.9rem; font-weight: 700; color: var(--gov-dark-grey); margin-top: 12px;">Takes under 5 minutes. Zero financial or engineering data required.</p>
-        </section>
+Earth Carbon Foundation is creating a new business category called
 
-        <!-- SECTION 2: TRUST FOUNDATIONS -->
-        <section class="section-block">
-            <h2 class="sub-heading">Verified Institutional Foundations</h2>
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <span class="trust-num">12+</span>
-                    <span class="trust-label">Years Experience</span>
-                </div>
-                <div class="trust-card">
-                    <span class="trust-num">1,200+</span>
-                    <span class="trust-label">Orgs Supported</span>
-                </div>
-                <div class="trust-card">
-                    <span class="trust-num">17,000+</span>
-                    <span class="trust-label">tCO₂e Identified</span>
-                </div>
-                <div class="trust-card" style="border-left-color: var(--un-green);">
-                    <span class="trust-num">100M</span>
-                    <span class="trust-label">Tonne 2030 Target</span>
-                </div>
-            </div>
-        </section>
+Environmental Assets
 
-        <!-- SECTION 3: THE PROBLEM -->
-        <section class="section-block">
-            <h2 class="sub-heading">The Unmapped Resource Blindspot</h2>
-            <p class="lead-text" style="font-size: 1.25rem;">
-                Most companies evaluate their clean tech installations solely through standard utility bill cost savings. Because this data remains siloed, their underlying physical infrastructure is treated as an operational expense. Their true registry readiness and future carbon opportunities are completely lost.
-            </p>
-        </section>
+The company does NOT sell
 
-        <!-- SECTION 4: FREE ENVIRONMENTAL ASSET DISCOVERY -->
-        <section class="section-block">
-            <h2 class="sub-heading">Experience Your Capital Vectors</h2>
-            <p class="lead-text" style="font-size: 1.25rem;">
-                We bypass complex code deployments and policy debates. Our streamlined, 5-minute screening evaluates permanent physical installations to map out your infrastructure's true compliance readiness instantly.
-            </p>
-        </section>
+• Carbon Footprints
 
-        <!-- SECTION 5: SAMPLE ENVIRONMENTAL ASSET SNAPSHOT -->
-        <section class="section-block">
-            <h2 class="sub-heading">What You Instantly Experience</h2>
-            <p class="lead-text" style="font-size: 1.15rem;">Here is exactly how your initial operational command profile displays after tracking entry inputs:</p>
-            
-            <div class="example-box">
-                <div class="example-badge-line">
-                    <span style="color: var(--un-blue);">PROFILE IDENTIFIER: ABC MANUFACTURING</span>
-                    <span style="color: #b91c1c;">STATUS: PRELIMINARY</span>
-                </div>
-                <h4 style="font-size: 1.2rem; margin-bottom: 15px; font-weight: 800;">Environmental Assets Found:</h4>
-                <div class="check-item"><span class="check-icon">✓</span> Rooftop Solar PV Installation</div>
-                <div class="check-item"><span class="check-icon">✓</span> Decentralized Rainwater Harvesting Array</div>
-                <div class="check-item"><span class="check-icon">✓</span> Active On-Site Sewage Treatment Plant (STP)</div>
-                <div class="check-item"><span class="check-icon">✓</span> Organic Composting Recycling Matrix</div>
-                <div class="check-item"><span class="check-icon">✓</span> Managed Boundary Tree Plantation Sinks</div>
-                
-                <div style="margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--gov-border-grey); display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Registry Readiness</span>
-                        <span style="font-size: 1.8rem; font-weight: 800; color: var(--un-green);">87% Rating</span>
-                    </div>
-                    <div style="text-align: right;">
-                        <span style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; display: block; color: var(--gov-dark-grey);">Recommended Next Step</span>
-                        <span style="font-size: 1.1rem; font-weight: 800; color: var(--un-blue);">Professional Assessment</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+• Carbon Consultancy
 
-        <!-- SECTION 6: HOW IT WORKS (THE MILESTONE ROADMAP) -->
-        <section class="section-block">
-            <h2 class="sub-heading">The Structured Lifecycle Journey</h2>
-            <div class="workflow-grid">
-                <div class="workflow-card">
-                    <span class="wf-step">Milestone 01</span>
-                    <h3 class="wf-title">Submit 5-Min Discovery</h3>
-                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Log raw baseline capacities and turnover brackets cleanly via our single consolidated intake form.</p>
-                    <span class="wf-duration" style="color: #007d32;">Immediate Action</span>
-                </div>
-                <div class="workflow-card" style="border-color: var(--un-blue);">
-                    <span class="wf-step" style="color: var(--un-blue);">Milestone 02</span>
-                    <h3 class="wf-title">Review Asset Snapshot</h3>
-                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Secure your automated asset register profile containing initial maturity scoring metrics.</p>
-                    <span class="wf-duration" style="color: var(--un-blue);">Delivered in 48 Hrs</span>
-                </div>
-                <div class="workflow-card" style="border-color: var(--un-green);">
-                    <span class="wf-step" style="color: var(--un-green);">Milestone 03</span>
-                    <h3 class="wf-title">30-Min Strategy Call</h3>
-                    <p style="font-size: 0.95rem; color: var(--gov-dark-grey);">Connect directly with our senior architects to review unmapped assets and define next steps.</p>
-                    <span class="wf-duration" style="color: var(--un-green);">Schedule On-Demand</span>
-                </div>
-            </div>
-        </section>
+• Sustainability Audits
 
-        <!-- SECTION 7: FINAL CALL TO ACTION -->
-        <section class="section-block" style="text-align: center; padding-bottom: 40px;">
-            <h2 class="section-heading" style="font-size: 2.5rem; margin-bottom: 15px;">Ready to Experience Your Real Asset Capacity?</h2>
-            <p class="lead-text" style="margin: 0 auto 30px auto; font-size: 1.2rem;">Claim your clean infrastructure snapshot now. Stop leaving active carbon credit opportunities unrecorded.</p>
-            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-cta" style="max-width: 440px; width: 100%;">Get My Free Environmental Asset Snapshot</a>
-        </section>
+Instead it helps organizations
 
-    </main>
+• Discover
 
-    <footer class="site-footer">
-        <div class="nav-container" style="display:block;">
-            <p style="font-weight: 800; font-size: 1.2rem; color: var(--gov-black); margin-bottom: 5px;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.9rem; margin-bottom: 25px;">Proprietors of the Universal Environmental Asset Registry Framework</p>
-            
-            <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
-                <strong>Corporate Registry Hub:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
-                <strong>Desk Desk Channels:</strong> info@earthcarbonfoundation.org
-            </p>
+• Register
 
-            <p style="font-size: 0.8rem; border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Managed in absolute compliance with institutional asset aggregation principles and lean structural conversion models.
-            </p>
-        </div>
-    </footer>
+• Verify
 
-</body>
-</html>
+• Develop
+
+• Grow
+
+their Environmental Assets.
+
+Carbon Footprint becomes one output of a larger Professional Environmental Performance Assessment.
+
+BUSINESS PHILOSOPHY
+
+Environmental Assets are similar to Financial Assets.
+
+Every organization already owns Environmental Assets.
+
+Most organizations simply do not recognize them.
+
+Earth Carbon Foundation helps them discover these hidden assets and convert them into long-term environmental and business value.
+
+This idea must become the central story throughout the website.
+
+PRIMARY OBJECTIVE
+
+The website has only ONE objective.
+
+Convert visitors into completed
+
+FREE Environmental Asset Discovery
+
+Nothing else.
+
+Do NOT sell consulting.
+
+Do NOT sell carbon credits.
+
+Do NOT sell sustainability.
+
+Sell curiosity.
+
+Make visitors think
+
+"I wonder what Environmental Assets my organization already owns."
+
+CUSTOMER JOURNEY
+
+The website must follow this exact sequence.
+
+STEP 1
+Website
+
+Within 10 seconds visitors understand
+
+✔ What Earth Carbon Foundation does
+
+✔ Why it is different
+
+✔ What they receive FREE
+
+One CTA only
+
+Discover My FREE Environmental Assets
+
+No pricing.
+
+No NRBS.
+
+No Carbon Footprints.
+
+No Carbon Credits.
+
+No Atmanirbhar.
+
+No complicated climate terminology.
+
+STEP 2
+FREE Environmental Asset Discovery
+
+A simple Google Form.
+
+Completion time
+
+5–7 minutes.
+
+Collect only
+
+Permanent Environmental Assets
+
+Examples
+
+Solar
+
+Rainwater Harvesting
+
+STP
+
+Composting
+
+Tree Plantation
+
+Battery Storage
+
+Green Buildings
+
+Never collect
+
+Annual electricity bills
+
+Annual carbon emissions
+
+Annual financial data
+
+Complex engineering calculations
+
+STEP 3
+Automatic Environmental Asset Snapshot
+
+Immediately after submission
+
+The participant receives
+
+Environmental Asset Snapshot
+
+Including
+
+✔ Environmental Asset Register
+
+✔ Environmental Asset Portfolio
+
+✔ Registry Readiness
+
+✔ Environmental Asset Maturity Score
+
+✔ Carbon Opportunity Indicator
+
+✔ Development Pathway
+
+The participant should feel
+
+"I didn't realize our organization already owns these Environmental Assets."
+
+Do NOT generate
+
+Carbon Footprint
+
+NRBS™
+
+Atmanirbhar %
+
+Carbon Revenue
+
+These belong to the Professional Assessment.
+
+STEP 4
+FREE 30-Minute Environmental Asset Review
+
+This becomes the first human interaction.
+
+Purpose
+
+Review the Environmental Asset Snapshot.
+
+Discuss opportunities.
+
+Explain next steps.
+
+Answer questions.
+
+Recommend the Professional Environmental Performance Assessment only if appropriate.
+
+Never hard sell.
+
+The objective is to build trust.
+
+STEP 5
+Professional Environmental Performance Assessment
+
+Only after the review meeting.
+
+Price
+
+₹35,000
+
+Never describe this as
+
+Processing
+
+Instead position it as
+
+Professional Expert Assessment
+
+Deliverables
+
+✔ Natural Resource Balance Sheet (NRBS™)
+
+✔ Carbon Footprint (tCO₂e)
+
+✔ Atmanirbhar %
+
+✔ Resource Dependency Analysis
+
+✔ Environmental Asset Valuation
+
+✔ Carbon Opportunity Assessment
+
+✔ Five-Year Environmental Roadmap
+
+✔ Executive Management Report
+
+✔ Expert Review Session
+
+The client is paying for
+
+Professional interpretation
+
+Validation
+
+Strategy
+
+Recommendations
+
+Not calculations.
+
+STEP 6
+Environmental Asset Development Plan
+
+Price
+
+₹4–7 lakh
+
+Earth Carbon Foundation helps
+
+Develop projects
+
+Improve Environmental Performance
+
+Prepare Documentation
+
+Implementation Support
+
+Registry Preparation
+
+Verification Support
+
+Carbon Program Readiness
+
+This service should generate recurring consulting revenue.
+
+STEP 7
+Carbon Program Development
+
+Only after successful Environmental Asset Development.
+
+Deliverables
+
+Registry
+
+Carbon Programs
+
+Carbon Finance
+
+Environmental Asset Management
+
+Long-term partnership.
+
+WEBSITE STRUCTURE
+
+Only seven homepage sections.
+
+HERO
+
+One powerful headline.
+
+One supporting paragraph.
+
+One CTA
+
+Discover My FREE Environmental Assets
+TRUST
+
+Years Experience
+
+Organizations Supported
+
+Environmental Assets Identified
+
+Climate Impact
+
+Partner Logos
+
+Professional Credentials
+
+THE PROBLEM
+
+Most organizations have already invested in
+
+Solar
+
+Water
+
+Waste
+
+Green Buildings
+
+Trees
+
+But they rarely know
+
+• What Environmental Assets they own
+
+• Their Registry Readiness
+
+• Their future opportunities
+
+THE SOLUTION
+
+Simple visual journey
+
+Website
+
+↓
+
+Environmental Asset Discovery
+
+↓
+
+Environmental Asset Snapshot
+
+↓
+
+FREE Expert Review
+
+↓
+
+Professional Assessment
+
+↓
+
+Environmental Asset Development
+
+↓
+
+Carbon Program
+
+SAMPLE ENVIRONMENTAL ASSET SNAPSHOT
+
+Instead of explaining
+
+SHOW
+
+ABC Manufacturing
+
+Environmental Assets Found
+
+✔ Rooftop Solar
+
+✔ Rainwater Harvesting
+
+✔ Composting
+
+✔ Tree Plantation
+
+Registry Readiness
+
+89%
+
+Recommended Next Step
+
+FREE Environmental Asset Review
+
+People trust examples more than descriptions.
+
+WHY UPGRADE
+
+After the Snapshot
+
+Explain
+
+Professional Environmental Performance Assessment
+
+Benefits only.
+
+No technical explanations.
+
+FINAL CTA
+
+Discover My FREE Environmental Assets
+
+DESIGN PRINCIPLES
+
+Premium
+
+Minimal
+
+Corporate
+
+White background
+
+Green accents
+
+Blue accents
+
+Large whitespace
+
+Professional typography
+
+Simple icons
+
+High-quality illustrations
+
+Few words
+
+Maximum 50 words per section.
+
+Replace paragraphs with diagrams wherever possible.
+
+LANGUAGE RULES
+
+Never say
+
+Carbon Consultancy
+
+Say
+
+Environmental Asset Discovery
+
+Never say
+
+Carbon Credits
+
+Say
+
+Future Carbon Opportunities
+
+Never say
+
+Data Collection
+
+Say
+
+Environmental Asset Discovery
+
+Never say
+
+Processing
+
+Say
+
+Professional Assessment
+
+Never say
+
+Audit
+
+Say
+
+Environmental Performance Assessment
+
+Always speak in business language.
+
+Never use technical climate jargon.
+
+VISUAL STYLE
+
+Think
+
+Apple
+
+Stripe
+
+Not
+
+Government sustainability portal
+
+Minimal
+
+Elegant
+
+Professional
+
+Fast
+
+Modern
+
+FINAL DELIVERABLES
+
+Generate
+
+Complete Website Sitemap
+
+Homepage Wireframe
+
+Desktop Layout
+
+Mobile Layout
+
+Complete Copywriting
+
+Icons
+
+Illustrations
+
+Infographics
+
+CTA Strategy
+
+Google Form Integration
+
+Environmental Asset Snapshot Design
+
+Professional Assessment Page
+
+Pricing Strategy
+
+Email Automation
+
+WhatsApp Follow-up
+
+Sales Funnel
+
+Lead Qualification
+
+Conversion Strategy
+
+Recommendations for acquiring the first 30 paying Professional Environmental Performance Assessment clients.
+
+FINAL BUSINESS RULE
+
+Every design decision must answer one question:
+
+"Will this increase the number of organizations completing the FREE Environmental Asset Discovery?"
+
+If the answer is No, remove it from Version 1.0.
+
+Everything else belongs to Version 2.0 after the business has acquired its first paying clients.
