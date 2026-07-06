@@ -28,56 +28,64 @@
         .logo { font-size: 1.6rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: -0.5px; }
         .logo span { font-weight: 400; color: var(--gov-border-grey); }
 
-        /* Structural Container */
+        /* Structural Layouts */
         .main-container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; display: grid; grid-template-columns: 1fr; gap: 60px; }
-        
-        /* Rigid Section Rule Borders */
-        .section-block { border-top: 5px solid var(--gov-black); padding-top: 30px; }
+        .section-block { border-top: 5px solid var(--gov-black); padding-top: 40px; margin-bottom: 20px; }
         .section-heading { font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 15px; color: var(--gov-black); }
-        .lead-text { font-size: 1.4rem; color: var(--gov-dark-grey); margin-bottom: 35px; max-width: 800px; }
+        .sub-section-heading { font-size: 1.8rem; font-weight: 800; margin-bottom: 25px; color: var(--gov-black); letter-spacing: -0.5px; }
+        .lead-text { font-size: 1.35rem; color: var(--gov-dark-grey); margin-bottom: 35px; max-width: 900px; }
 
-        /* STRICT SINGLE ROW BLOCK - NO MULTI-LINE OVERFLOW */
-        .metrics-single-row { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 25px; width: 100%; margin-bottom: 35px; }
-        .metric-data-card { background: var(--gov-light-grey); padding: 25px; border-left: 8px solid var(--un-blue); flex: 1; min-width: 0; }
+        /* Metrics Grid Layout */
+        .metrics-single-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; width: 100%; margin-bottom: 35px; }
+        .metric-data-card { background: var(--gov-light-grey); padding: 25px; border-left: 8px solid var(--un-blue); }
         .metric-big-num { font-size: 3rem; font-weight: 800; color: var(--gov-black); display: block; letter-spacing: -1.5px; line-height: 1.1; }
-        .metric-text-label { font-size: 1.05rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 8px; letter-spacing: 0.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .metric-text-label { font-size: 1.05rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; margin-top: 8px; letter-spacing: 0.5px; }
+        .wiifm-desc { font-size: 0.95rem; color: var(--gov-dark-grey); margin-top: 8px; }
 
-        @media (max-width: 768px) {
-            .metrics-single-row { flex-direction: column; gap: 15px; }
-        }
+        /* Steps Layout */
+        .journey-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin: 30px 0; }
+        .step-card { border: 2px solid var(--gov-black); padding: 25px; position: relative; background: #ffffff; }
+        .step-num { font-size: 0.95rem; font-weight: 800; text-transform: uppercase; color: var(--un-blue); margin-bottom: 5px; display: block; }
+        .step-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 10px; }
+        .step-card p { font-size: 0.95rem; color: var(--gov-dark-grey); }
 
-        /* Form Inputs & Labels */
-        .form-group { margin-bottom: 30px; display: flex; flex-direction: column; }
-        .form-label { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; color: var(--gov-black); letter-spacing: -0.5px; }
-        .form-select, .form-input { font-family: inherit; font-size: 1.15rem; padding: 14px; border: 3px solid var(--gov-black); color: var(--gov-black); background-color: #ffffff; width: 100%; max-width: 550px; border-radius: 0; outline-offset: 4px; }
-        .form-select:focus, .form-input:focus { outline: 4px solid #ffdd00; background-color: #ffffff; }
+        /* Audience & Ecosystem Component Structures */
+        .info-table-wrapper { width: 100%; overflow-x: auto; margin-top: 20px; }
+        .info-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .info-table th { background-color: var(--gov-black); color: #ffffff; padding: 12px; font-size: 1rem; font-weight: 700; }
+        .info-table td { padding: 14px 12px; border-bottom: 2px solid var(--gov-border-grey); font-size: 1rem; }
+        .info-table tr:nth-child(even) { background-color: var(--gov-light-grey); }
 
-        /* Heavy Institutional Buttons */
-        .btn-gov { display: inline-block; font-family: inherit; font-size: 1.3rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 14px 28px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; max-width: 380px; }
-        .btn-gov:hover { background-color: #006428; }
-        .btn-gov:active { transform: translateY(2px); border-bottom: none; }
-        .btn-secondary { background-color: var(--gov-light-grey); color: var(--gov-black); border: 3px solid var(--gov-black); border-bottom: 4px solid var(--gov-dark-grey); margin-right: 20px; }
-        .btn-secondary:hover { background-color: var(--gov-border-grey); }
-
-        /* Two Column Panel Grid */
+        /* Interactive Split Panel */
         .two-column-panel { display: grid; grid-template-columns: 1fr; gap: 45px; }
-        @media (min-width: 768px) {
-            .two-column-panel { grid-template-columns: 1.25fr 0.75fr; gap: 60px; }
-        }
-
-        /* Rigid Box Controls */
+        @media (min-width: 900px) { .two-column-panel { grid-template-columns: 1.15fr 0.85fr; gap: 50px; } }
         .calculator-box { border: 3px solid var(--gov-black); padding: 35px; background-color: #ffffff; }
 
-        /* Outcome Visual Result Areas */
-        .outcome-banner { padding: 20px; border-left: 8px solid var(--un-green); margin-bottom: 30px; font-size: 1.2rem; line-height: 1.4; }
+        /* Form Inputs & Utility Buttons */
+        .form-group { margin-bottom: 25px; display: flex; flex-direction: column; }
+        .form-label { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--gov-black); }
+        .form-select, .form-input { font-family: inherit; font-size: 1.1rem; padding: 12px; border: 3px solid var(--gov-black); width: 100%; border-radius: 0; }
+        .form-select:focus, .form-input:focus { outline: 4px solid #ffdd00; }
+        .btn-gov { display: block; font-family: inherit; font-size: 1.25rem; font-weight: 700; background-color: var(--un-green); color: #ffffff; padding: 14px 24px; border: none; border-bottom: 4px solid #004d1a; cursor: pointer; text-decoration: none; text-align: center; width: 100%; margin-top: 15px; }
+        .btn-gov:hover { background-color: #006428; }
+        .btn-secondary { background-color: var(--gov-light-grey); color: var(--gov-black); border: 3px solid var(--gov-black); border-bottom: 4px solid var(--gov-dark-grey); margin-bottom: 10px; }
+        
+        /* Text Callout Blocks */
+        .outcome-banner { padding: 20px; border-left: 8px solid var(--un-green); margin-bottom: 25px; font-size: 1.15rem; }
+        .blockquote-banner { border-left: 8px solid var(--gov-black); background-color: var(--gov-light-grey); padding: 25px; margin: 30px 0; }
 
-        /* Asset Grid Columns */
-        .asset-class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .ecosystem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 25px; }
+        .ecosystem-card { border: 2px dashed var(--gov-border-grey); padding: 20px; background: var(--gov-light-grey); text-decoration: none; color: inherit; display: block; }
+        .ecosystem-card:hover { border-style: solid; border-color: var(--un-blue); background-color: #fff; }
+        .ecosystem-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--un-blue); margin-bottom: 5px; }
+
+        .asset-class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 25px; }
         .asset-class-card { border: 2px solid var(--gov-black); padding: 20px; background: #ffffff; }
         .asset-class-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
         .asset-class-card p { font-size: 0.95rem; color: var(--gov-dark-grey); }
 
-        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 100px; font-size: 1.05rem; }
+        .site-footer { background-color: var(--gov-light-grey); border-top: 3px solid var(--gov-black); padding: 50px 20px; margin-top: 80px; font-size: 1rem; }
+        .footer-link { color: var(--un-blue); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -85,36 +93,246 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="#" class="logo">Earth Carbon <span>Foundation</span></a>
-            <span style="font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Ecosystem Registry Desk</span>
+            <span style="font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gov-border-grey);">Universal Registry Desk</span>
         </div>
     </header>
 
     <main class="main-container" id="main-content">
         
-        <!-- SECTION 1: SYSTEM MONITOR CORE & FRAMEWORK EXPLANATION -->
-        <section class="section-block">
-            <h1 class="section-heading">Environmental Infrastructure Asset Ledger</h1>
+        <!-- HERO SECTION & MAIN VALUE PROP -->
+        <section style="padding-bottom: 20px;">
+            <h1 class="section-heading" style="font-size: 3.2rem; line-height: 1.1; margin-bottom: 20px;">Turn Your Distributed Clean Energy Assets Into High-Integrity Carbon Capital.</h1>
             <p class="lead-text">
-                Applying the Earth Carbon Framework™ to systematically recognize, register, and monetize operational sustainability investments across five key integration pillars long before they graduate to carbon markets.
+                Stop leaving carbon revenue on the table. Register your corporate solar infrastructure or multi-sector grid assets in 60 seconds. Instantly unlock your automated Natural Balance Sheet, live environmental account tracking, and institutional-grade certificates to scale your true market value.
             </p>
-            
-            <!-- EXPLICIT RIGID SINGLE ROW COMPONENT -->
+            <a href="https://forms.gle/GcQ24md9TmhnHEQa9" target="_blank" class="btn-gov" style="max-width: 420px; display: inline-block; text-align: center;">Assess My Asset Potential Now</a>
+            <p style="font-size: 0.9rem; font-weight: 700; margin-top: 10px; color: var(--gov-dark-grey);">Free initial evaluation. Takes under 60 seconds.</p>
+        </section>
+
+        <!-- WIIFM 4 CORE METRICS SECTION -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">Strategic Environmental Asset Metrics</h2>
             <div class="metrics-single-row">
-                <div class="metric-data-card">
-                    <span class="metric-big-num">1,203</span>
-                    <span class="metric-text-label">Registered Corps</span>
-                </div>
-                <div class="metric-data-card">
-                    <span class="metric-big-num">806</span>
-                    <span class="metric-text-label">Assets Tracked</span>
+                <div class="metric-data-card" style="border-left-color: var(--un-blue);">
+                    <span class="metric-big-num">₹0</span>
+                    <span class="metric-text-label">Upfront Capital</span>
+                    <p class="wiifm-desc">Monetize your unregistered clean energy installations with zero out-of-pocket setup fees.</p>
                 </div>
                 <div class="metric-data-card" style="border-left-color: var(--un-green);">
-                    <span class="metric-big-num" id="impactCounter">17,000+</span>
-                    <span class="metric-text-label">tCO₂e Identified</span>
+                    <span class="metric-big-num">100%</span>
+                    <span class="metric-text-label">Turnover Yield</span>
+                    <p class="wiifm-desc">Incorporate realized environmental assets directly into your corporate balance sheets.</p>
+                </div>
+                <div class="metric-data-card" style="border-left-color: #8b5cf6;">
+                    <span class="metric-big-num">Score</span>
+                    <span class="metric-text-label">Atmanirbhar %</span>
+                    <p class="wiifm-desc">Publicly verify your absolute tier of resource self-reliance and grid independence tracking.</p>
+                </div>
+                <div class="metric-data-card" style="border-left-color: #f59e0b;">
+                    <span class="metric-big-num">Audit</span>
+                    <span class="metric-text-label">Future Proof</span>
+                    <p class="wiifm-desc">Secure baseline protection and validation matching global EnergyTag sub-hourly frameworks.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- THE JINDAL ASSET CLASSIFICATION PILLARS (EACS™) -->
+        <!-- USER EXPERIENCE ONBOARDING JOURNEY SECTION -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">The Complete Asset Registration Journey</h2>
+            <p class="lead-text" style="font-size: 1.15rem;">A streamlined onboarding protocol engineered to move distributed multi-sector asset owners from physical production validation to credit liquidation without operational friction.</p>
+            
+            <div class="journey-steps-grid">
+                <div class="step-card">
+                    <span class="step-num">Step 01</span>
+                    <h3>Digital Intake</h3>
+                    <p>Submit your baseline parameters, asset nameplate capacity (kW), and your corporate turnover bracket via our single consolidated registry portal under 60 seconds.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">Step 02</span>
+                    <h3>System Analysis</h3>
+                    <p>Our backend engine, powered by Google AI Pro, cross-references generation capacity data against regional 15-minute grid settlement blocks to map potential.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">Step 03</span>
+                    <h3>Ecosystem Pool</h3>
+                    <p>We execute a legal tripartite assignment framework linking the Asset Owner, the technical EPC partner, and our foundation into a high-integrity Program of Activities.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">Step 04</span>
+                    <h3>Capital Issuance</h3>
+                    <p>Your clean energy profiles lock cleanly into global registries. We issue your formal Institutional Carbon Certificate and manage performance revenue splits.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TARGET AUDIENCE MATRICES SECTION -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">Eligible Operational Sectors</h2>
+            <div class="info-table-wrapper">
+                <table class="info-table">
+                    <thead>
+                        <tr>
+                            <th>Target Segment</th>
+                            <th>Asset Profile Capacity Range</th>
+                            <th>Primary Collaboration Mandate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Corporate & Industrial (C&I) Facilities</strong></td>
+                            <td>100 kW – 1000 kW installations</td>
+                            <td>Monetizing extensive idle rooftop assets into liquid balancing balances.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Institutional Networks & Campus Sites</strong></td>
+                            <td>25 kW – 100 kW micro-inventories</td>
+                            <td>Aggregating group school and cooperative arrays into programmatic portfolios.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EPC Contractors & Solar Developers</strong></td>
+                            <td>Multi-site installer portfolios</td>
+                            <td>Packaging project development pipelines with pre-structured carbon asset yields.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE VERIFICATION SUITE & SIMULATOR -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">Integrated Verification & Simulation Suite</h2>
+            <div class="two-column-panel">
+                
+                <!-- Verification Input Box Layout -->
+                <div class="calculator-box" style="border-width: 4px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 800;">1. Verification Intake Module</h3>
+                    
+                    <div style="background:#e2e8f0; height:8px; margin-bottom:30px; overflow:hidden; border: 1px solid var(--gov-border-grey);">
+                        <div id="wizardProgress" style="width: 25%; background:var(--un-blue); height:100%; transition:width 0.3s ease;"></div>
+                    </div>
+
+                    <form id="eligibilityWizardForm">
+                        <div class="wizard-step" id="step1">
+                            <div class="form-group">
+                                <label class="form-label" for="assetSector">Operational Classification Sector</label>
+                                <select class="form-select" id="assetSector" required>
+                                    <option value="" disabled selected>Select category...</option>
+                                    <option value="Educational Organisation">Educational Organisations / Campus</option>
+                                    <option value="MSME / Commercial">MSME / Industrial Facility</option>
+                                    <option value="Community Micro-Grid">Renewable Grid Aggregator</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="corporateTurnover">Annual Corporate Turnover Bracket</label>
+                                <select class="form-select" id="corporateTurnover" required>
+                                    <option value="" disabled selected>Select financial bracket...</option>
+                                    <option value="Up to 5 Crore">Up to ₹5 Crore</option>
+                                    <option value="5 - 25 Crore">₹5 Crore – ₹25 Crore</option>
+                                    <option value="25 - 100 Crore">₹25 Crore – ₹100 Crore</option>
+                                    <option value="Above 100 Crore">Above ₹100 Crore Turnover Flat</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Continue &rarr;</button>
+                        </div>
+
+                        <div class="wizard-step" id="step2" style="display:none;">
+                            <div class="form-group">
+                                <label class="form-label" for="assetCapacity">Infrastructure System Nameplate Capacity (in kW)</label>
+                                <input type="number" class="form-input" id="assetCapacity" placeholder="e.g. 250" min="1" required>
+                            </div>
+                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(2, 1)">Back</button>
+                            <button type="button" class="btn-gov" onclick="nextStep(2, 3)">Next Step &rarr;</button>
+                        </div>
+
+                        <div class="wizard-step" id="step3" style="display:none;">
+                            <div class="form-group">
+                                <label class="form-label" for="assetLocation">Jurisdiction Region / State Location</label>
+                                <input type="text" class="form-input" id="assetLocation" placeholder="e.g. Gujarat, India" required>
+                            </div>
+                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(3, 2)">Back</button>
+                            <button type="button" class="btn-gov" onclick="processEligibility()">Execute System Analysis &rarr;</button>
+                        </div>
+
+                        <div class="wizard-step" id="step4" style="display:none;">
+                            <div id="eligibilityOutcome" class="outcome-banner"></div>
+                            <div id="leadCaptureZone" style="display:none;">
+                                <div class="form-group">
+                                    <label class="form-label" for="contactEmail">Corporate Officer Email Address</label>
+                                    <input type="email" class="form-input" id="contactEmail" placeholder="officer@organization.com" required>
+                                </div>
+                                <button type="button" class="btn-gov" style="background-color: var(--gov-black); border-bottom-color: #000;" onclick="submitToFirebaseRegistry()">Commit Secure Profile to Ledger</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Live Resource Balance Simulator -->
+                <div class="calculator-box">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; font-weight: 800;">2. Atmanirbhar Index Simulator</h3>
+                    <p style="font-size: 0.9rem; color: var(--gov-dark-grey); margin-bottom: 20px;">Tweak on-site generation balances against external utility draw variables to map out estimated grid self-reliance scores.</p>
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:6px;">On-Site Yield Generation (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcSolarGenerated" value="3000" style="padding:10px;" oninput="calculateAtmanirbharScore()">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label style="font-size:0.9rem; font-weight:700; margin-bottom:6px;">Grid Infrastructure Draw (kWh/Month):</label>
+                        <input type="number" class="form-input" id="calcGridConsumed" value="4500" style="padding:10px;" oninput="calculateAtmanirbharScore()">
+                    </div>
+
+                    <div style="text-align: center; border-top: 2px solid var(--gov-black); padding-top: 25px;">
+                        <div class="index-wheel-outer" style="position: relative; width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(var(--un-green) 0% 40%, var(--gov-light-grey) 40% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; border: 2px solid var(--gov-black);">
+                            <div style="width: 104px; height: 104px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: var(--gov-black); line-height: 1;">40%</span>
+                                <span style="font-size: 0.65rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Independent</span>
+                            </div>
+                        </div>
+                        <div id="atmanirbharBadgeStatus" style="font-size: 0.9rem; font-weight: 800; color: var(--un-green); background: var(--un-green-light); padding: 6px 14px; display: inline-block; border: 2px solid var(--gov-black);">
+                            Silver Tier Asset
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PRICING DEFINITION CONTENT BLOCK -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">Performance-Based Pricing Architecture</h2>
+            <div class="blockquote-banner">
+                <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 10px;">Absolute Alignment of Interests: We Only Win When You Win.</p>
+                <p>Earth Carbon Foundation structures all micro-aggregation programs under a pure **₹0 Upfront Operational Cost** model. Registration, telemetry auditing, and methodology compliance validations are fully absorbed by our pooling framework. Verification costs are settled directly via a standard percentage-based commercial revenue share model upon successful carbon credit asset liquidation events.</p>
+            </div>
+        </section>
+
+        <!-- 4 LOCKED ECOSYSTEM LINKS SECTION -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">The Underlying Multi-Sector Strategic Hub</h2>
+            <p class="lead-text" style="font-size: 1.1rem; margin-bottom: 10px;">Our platform interfaces directly with four specific programmatic frameworks driving compliance across local and cross-border settlement loops.</p>
+            <div class="ecosystem-grid">
+                <a href="http://www.registryearthcarbon.org" target="_blank" class="ecosystem-card">
+                    <h4>Asset Registry Hub</h4>
+                    <p style="font-size: 0.85rem; color: var(--gov-dark-grey);">Data verification pipelines at registryearthcarbon.org</p>
+                </a>
+                <a href="https://www.100mtons.com" target="_blank" class="ecosystem-card">
+                    <h4>The 2030 Climate Mandate</h4>
+                    <p style="font-size: 0.85rem; color: var(--gov-dark-grey);">Progress tracking matrices for 100mtons.com</p>
+                </a>
+                <a href="http://www.atmanribharnow.org" target="_blank" class="ecosystem-card">
+                    <h4>Self-Reliance Networks</h4>
+                    <p style="font-size: 0.85rem; color: var(--gov-dark-grey);">Public score indexes managed at atmanribharnow.org</p>
+                </a>
+                <a href="https://www.timerepay.com" target="_blank" class="ecosystem-card">
+                    <h4>Resource Balancing</h4>
+                    <p style="font-size: 0.85rem; color: var(--gov-dark-grey);">Granular sub-hourly loops tracking timerepay.com</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- JINDAL CLASSIFICATION SYSTEM BLOCK -->
+        <section class="section-block">
+            <h2 class="sub-section-heading">The Core Classification Infrastructure</h2>
             <div class="asset-class-grid">
                 <div class="asset-class-card" style="border-top: 6px solid var(--gov-black);">
                     <h3>⚡ Energy</h3>
@@ -132,123 +350,23 @@
                     <h3>🌳 Nature</h3>
                     <p>Afforestation, localized carbon sink development, biodiversity enhancements, and green credit baseline monitoring.</p>
                 </div>
-                <div class="asset-class-card" style="border-top: 6px solid #f59e0b;">
-                    <h3>🌍 Climate</h3>
-                    <p>Carbon Capture (CCUS) monitoring, internal carbon pricing models, and programmatic decarbonization roadmaps.</p>
-                </div>
             </div>
         </section>
 
-        <!-- SECTION 2: INTERACTIVE DEPLOYMENT SUITE -->
-        <section class="section-block">
-            <div class="two-column-panel">
-                
-                <!-- Intake File Pre-Qualification Block -->
-                <div class="calculator-box" style="border-width: 4px;">
-                    <h2 style="font-size: 1.85rem; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px;">1. Verification Intake Form</h2>
-                    
-                    <div style="background:#e2e8f0; height:8px; margin-bottom:30px; overflow:hidden; border: 1px solid var(--gov-border-grey);">
-                        <div id="wizardProgress" style="width: 25%; background:var(--un-blue); height:100%; transition:width 0.3s ease;"></div>
-                    </div>
-
-                    <form id="eligibilityWizardForm">
-                        <!-- Step 1: Core Categorization Variables -->
-                        <div class="wizard-step" id="step1">
-                            <div class="form-group">
-                                <label class="form-label" for="assetSector">Select Operational Sector</label>
-                                <select class="form-select" id="assetSector" required>
-                                    <option value="" disabled selected>Select category...</option>
-                                    <option value="Educational Organisation">Educational Organisations / Campus</option>
-                                    <option value="MSME / Commercial">MSME / Industrial Facility</option>
-                                    <option value="Community Micro-Grid">Renewable Grid</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="corporateTurnover">Select Annual Corporate Turnover Bracket</label>
-                                <select class="form-select" id="corporateTurnover" required>
-                                    <option value="" disabled selected>Select financial bracket...</option>
-                                    <option value="Up to 50 Crore">Up to ₹50 Crore</option>
-                                    <option value="50 - 100 Crore">₹50 Crore – ₹100 Crore</option>
-                                    <option value="100 - 150 Crore">₹100 Crore – ₹150 Crore</option>
-                                    <option value="150 - 200 Crore">₹150 Crore – ₹200 Crore</option>
-                                    <option value="200 - 250 Crore">₹200 Crore – ₹250 Crore</option>
-                                    <option value="250 Crore+">Above ₹250 Crore Turnover Flat</option>
-                                </select>
-                            </div>
-                            <button type="button" class="btn-gov" onclick="nextStep(1, 2)">Continue &rarr;</button>
-                        </div>
-
-                        <!-- Step 2: Scale Metrics -->
-                        <div class="wizard-step" id="step2" style="display:none;">
-                            <div class="form-group">
-                                <label class="form-label" for="assetCapacity">Infrastructure System Nameplate Capacity (in kW)</label>
-                                <input type="number" class="form-input" id="assetCapacity" placeholder="e.g. 500" min="1" required>
-                            </div>
-                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(2, 1)">Back</button>
-                            <button type="button" class="btn-gov" onclick="nextStep(2, 3)">Next Step &rarr;</button>
-                        </div>
-
-                        <!-- Step 3: Geographic Metrics -->
-                        <div class="wizard-step" id="step3" style="display:none;">
-                            <div class="form-group">
-                                <label class="form-label" for="assetLocation">Jurisdiction Region / State Location</label>
-                                <input type="text" class="form-input" id="assetLocation" placeholder="e.g. Gujarat, India" required>
-                            </div>
-                            <button type="button" class="btn-gov btn-secondary" onclick="prevStep(3, 2)">Back</button>
-                            <button type="button" class="btn-gov" onclick="processEligibility()">Execute System Analysis &rarr;</button>
-                        </div>
-
-                        <!-- Step 4: Real-Time Results Matrix -->
-                        <div class="wizard-step" id="step4" style="display:none;">
-                            <div id="eligibilityOutcome" class="outcome-banner"></div>
-                            <div id="leadCaptureZone" style="display:none;">
-                                <div class="form-group">
-                                    <label class="form-label" for="contactEmail">Corporate Officer Email Address</label>
-                                    <input type="email" class="form-input" id="contactEmail" placeholder="officer@organization.com" required>
-                                </div>
-                                <button type="button" class="btn-gov" style="background-color: var(--gov-black); border-bottom-color: #000; max-width: 100%;" onclick="submitToFirebaseRegistry()">Commit Secure Profile to Ledger</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Simulation Matrix Tool -->
-                <div class="calculator-box">
-                    <h2 style="font-size: 1.6rem; margin-bottom: 8px; font-weight: 800; letter-spacing: -0.5px;">2. Resource Balance Simulator</h2>
-                    
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label style="font-size:0.95rem; font-weight:700; margin-bottom:6px; color: var(--gov-dark-grey);">On-Site Yield Generation (kWh/Month):</label>
-                        <input type="number" class="form-input" id="calcSolarGenerated" value="2500" style="padding:10px; max-width: 100%;" oninput="calculateAtmanirbharScore()">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 30px;">
-                        <label style="font-size:0.95rem; font-weight:700; margin-bottom:6px; color: var(--gov-dark-grey);">Grid Infrastructure Draw (kWh/Month):</label>
-                        <input type="number" class="form-input" id="calcGridConsumed" value="5000" style="padding:10px; max-width: 100%;" oninput="calculateAtmanirbharScore()">
-                    </div>
-
-                    <div style="text-align: center; border-top: 2px solid var(--gov-black); padding-top: 25px;">
-                        <div class="index-wheel-outer" style="position: relative; width: 130px; height: 130px; border-radius: 50%; background: conic-gradient(var(--un-green) 0% 33%, var(--gov-light-grey) 33% 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; border: 2px solid var(--gov-black);">
-                            <div style="width: 104px; height: 104px; border-radius: 50%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                                <span id="atmanirbharPercentageText" style="font-size: 1.75rem; font-weight: 800; color: var(--gov-black); line-height: 1;">33%</span>
-                                <span style="font-size: 0.65rem; font-weight: 700; color: var(--gov-dark-grey); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;">Independent</span>
-                            </div>
-                        </div>
-                        <div id="atmanirbharBadgeStatus" style="font-size: 0.9rem; font-weight: 800; color: var(--un-green); background: var(--un-green-light); padding: 6px 14px; display: inline-block; border: 2px solid var(--gov-black);">
-                            Silver Tier Asset
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
     </main>
 
     <footer class="site-footer">
         <div class="nav-container" style="display:block;">
             <p style="font-weight: 800; color: var(--gov-black); margin-bottom: 6px; font-size: 1.2rem;">Earth Carbon Foundation</p>
-            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gov-dark-grey);">Proprietors of the Earth Carbon Framework™, EAR™, and NRBS™ Methodologies</p>
+            <p style="font-size: 0.95rem; margin-bottom: 25px; color: var(--gov-dark-grey);">Proprietors of the Earth Carbon Framework™, Universal Environmental Registries, and NRBS™ Methodologies</p>
+            
+            <div style="font-size: 0.9rem; color: var(--gov-dark-grey); line-height: 1.6; margin-bottom: 25px;">
+                <strong>Corporate Head Office:</strong> 358 Saraswatinagar, Azad Society Road, Ambawadi, Ahmedabad - 380015, Gujarat, India.<br>
+                <strong>Direct Desk Communication:</strong> <a href="mailto:info@earthcarbonfoundation.org" class="footer-link">info@earthcarbonfoundation.org</a>
+            </div>
+
             <p style="font-size: 0.85rem; color: var(--gov-dark-grey); border-top: 1px solid var(--gov-border-grey); padding-top: 20px;">
-                © 2026 Earth Carbon Foundation. All rights reserved. Managed in absolute compliance with United Nations NAMA standards, BRSR environmental asset tracking specifications, and Universal Carbon Registry (UCR) rules.
+                © 2026 Earth Carbon Foundation. All rights reserved. Managed in absolute conformity with United Nations NAMA standards, BRSR carbon tracking specifications, and international sub-hourly clean energy attribute tracing principles.
             </p>
         </div>
     </footer>
@@ -282,13 +400,13 @@
             if (capacity >= 25 && capacity <= 1000) {
                 outcomeBox.style.color = "#004d1a";
                 outcomeBox.style.backgroundColor = "#ecfdf5";
-                outcomeBox.style.borderLeftColor = "var(--un-green)";
-                outcomeBox.innerHTML = `<strong>System Profile Eligible:</strong> Stated capacity (${capacity} kW) satisfies validation thresholds for regional micro-aggregation programs.`;
+                outcomeBox.style.borderLeft = "8px solid var(--un-green)";
+                outcomeBox.innerHTML = `<strong>System Profile Eligible:</strong> Stated clean energy capacity (${capacity} kW) satisfies aggregation parameters for our regional Program of Activities (PoA).`;
             } else {
                 outcomeBox.style.color = "#592200";
                 outcomeBox.style.backgroundColor = "#fff7ed";
-                outcomeBox.style.borderLeftColor = "#9a3412";
-                outcomeBox.innerHTML = `<strong>Standalone Evaluation Mandatory:</strong> System scale (${capacity} kW) sits outside standard group bounds. Profile requiring direct forensic asset auditing pipeline.`;
+                outcomeBox.style.borderLeft = "8px solid #9a3412";
+                outcomeBox.innerHTML = `<strong>Forensic Evaluation Triggered:</strong> Stated infrastructure capacity (${capacity} kW) requires standalone baseline methodology mapping before validation.`;
             }
 
             leadCapture.style.display = "block";
@@ -309,57 +427,21 @@
             const emailVal = emailInput.value;
 
             displaySuccessState();
-
-            try {
-                if (typeof db !== 'undefined') {
-                    await db.collection("registrations").add({
-                        sector: sectorVal, turnoverBracket: turnoverVal, capacityKW: capacityVal, location: locationVal, email: emailVal, timestamp: new Date().toISOString(), status: "Pending Forensic Audit"
-                    });
-                } else {
-                    executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
-                }
-            } catch (error) {
-                executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
-            }
+            executeCorporateRedirectFallback(emailVal, sectorVal, turnoverVal, capacityVal, locationVal);
         }
 
         function executeCorporateRedirectFallback(email, sector, turnover, capacity, location) {
-            const baseFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfJ0puCZ5kTZ2Zsjs7Ub3QE-MGicdocA38HDwSYAzyiA88rBA/viewform";
-            const prefilledUrl = `${baseFormUrl}?usp=pp_url&entry.email=${encodeURIComponent(email)}&entry.sector=${encodeURIComponent(sector)}&entry.turnover=${encodeURIComponent(turnover)}&entry.capacity=${encodeURIComponent(capacity)}&entry.location=${encodeURIComponent(location)}`;
-            setTimeout(() => { window.open(prefilledUrl, '_blank'); }, 1500);
+            const baseFormUrl = "https://forms.gle/GcQ24md9TmhnHEQa9";
+            setTimeout(() => { window.open(baseFormUrl, '_blank'); }, 1200);
         }
 
         function displaySuccessState() {
             document.getElementById('eligibilityOutcome').style.backgroundColor = "#ecfdf5";
             document.getElementById('eligibilityOutcome').style.color = "#004d1a";
-            document.getElementById('eligibilityOutcome').style.borderLeftColor = "var(--un-green)";
-            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Data Transmission Secured:</strong> Asset profile logged into local pipeline servers. The aggregation desk will review system attributes against baseline targets.`;
+            document.getElementById('eligibilityOutcome').style.borderLeft = "8px solid var(--un-green)";
+            document.getElementById('eligibilityOutcome').innerHTML = `<strong>Transmission Secured:</strong> Initial metadata registered. Redirecting to your unified verification form to finalize tracking...`;
             document.getElementById('leadCaptureZone').style.display = "none";
             document.getElementById('wizardProgress').style.width = '100%';
-        }
-
-        function updateProgressMeter(currentVolume) {
-            const targetVolume = 100000000;
-            let percentage = (currentVolume / targetVolume) * 100;
-            if (percentage < 0.1) percentage = 0.1;
-            if (percentage > 100) percentage = 100;
-            document.getElementById('liveMeterText').innerText = Number(currentVolume).toLocaleString('en-IN');
-            document.getElementById('liveProgressBar').style.width = percentage + '%';
-            const impactCard = document.getElementById('impactCounter');
-            if (impactCard) { impactCard.innerText = Number(currentVolume).toLocaleString('en-IN') + "+"; }
-        }
-
-        function initializeLiveMeter() {
-            let fallbackVolume = 17000;
-            try {
-                if (typeof db !== 'undefined') {
-                    db.collection("stats").doc("global_metrics").onSnapshot((doc) => {
-                        if (doc.exists && doc.data().total_co2_reduced) {
-                            updateProgressMeter(doc.data().total_co2_reduced);
-                        } else { updateProgressMeter(fallbackVolume); }
-                    });
-                } else { updateProgressMeter(fallbackVolume); }
-            } catch (error) { updateProgressMeter(fallbackVolume); }
         }
 
         function calculateAtmanirbharScore() {
@@ -384,7 +466,6 @@
             }
         }
 
-        initializeLiveMeter();
         calculateAtmanirbharScore();
     </script>
 </body>
