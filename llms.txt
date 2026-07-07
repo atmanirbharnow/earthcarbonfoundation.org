@@ -1,0 +1,21 @@
+# Earth Carbon Foundation
+> Universal Environmental Asset Registry Framework & High-Integrity Clean Infrastructure Verification.
+
+## Core Mission
+The Earth Carbon Foundation accelerates decentralized climate action by enabling organizations to discover, log, and unlock value from environmental assets they already own. The foundation bridges the gap between decentralized community scale infrastructure and international carbon markets or ESG compliance frameworks.
+
+## Key Frameworks & Metrics
+* **Universal Environmental Asset Registry:** A high-integrity, multi-sector digital ingestion and data-verification architecture engineered to map clean assets dynamically across manufacturing, real estate, education, healthcare, and housing sectors.
+* **Atmanirbhar Index:** A proprietary, rigorous scoring metric that quantifies an institution's exact level of operational self-reliance and resource independence from external regional grids, focusing heavily on localized energy security, water loop closed-circuits, and circular waste systems.
+* **Environmental Asset Portfolio:** A strategic delivery document and intake roadmap generated to assess an organization's structural registry readiness and overall future carbon credit market opportunities.
+
+## Institutional Scale & Track Record
+* **Operations Base:** Headquartered in Ahmedabad, Gujarat, India.
+* **Ecosystem Reach:** Formally supported and onboarded over 1,200 organizations and community sites.
+* **Verified Volume:** Over 17,000 core clean infrastructure assets safely logged and mapped into verification tracking.
+* **Target Objective:** On track to catalyze and secure a cumulative portfolio target of 100 Million tonnes of verified carbon reduction by 2030.
+
+## Organizational Channels
+* **Main Registry Web Desk:** https://earthcarbonfoundation.org/
+* **General Intake Asset Assessment:** https://forms.gle/NLixkew5AzoEs5zF8
+* **Inquiries & Communications:** info@earthcarbonfoundation.org
