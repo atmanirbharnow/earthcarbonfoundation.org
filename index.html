@@ -5,18 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earth Carbon Foundation</title>
+    <!-- Inter Font Family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================================
-           EXISTING CSS ARCHITECTURE & RESET (Maintained)
+           EXISTING CSS ARCHITECTURE, RESET & RESET BASE
            ========================================================================== */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -38,6 +43,9 @@
         header {
             border-bottom: 1px solid #e5e7eb;
             background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .nav-container {
@@ -73,7 +81,7 @@
         }
 
         /* ==========================================================================
-           UNIFIED TYPOGRAPHY & BUTTON SYSTEM (Design Philosophy: Executive/Clean)
+           UNIFIED ENTERPRISE TYPOGRAPHY & BUTTON SYSTEM
            ========================================================================== */
         .t-h1 {
             font-size: 2.15rem;
@@ -109,12 +117,16 @@
             padding: 0.875rem 2rem;
             border-radius: 4px;
             border: none;
-            transition: background-color 0.15s ease;
+            transition: background-color 0.15s ease, transform 0.1s ease;
             cursor: pointer;
         }
 
         .btn-primary:hover {
             background-color: #1f2937;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
         }
 
         /* Global Layout Spacing Rules */
@@ -155,8 +167,8 @@
            SECTION 1: HERO SECTION
            ========================================================================== */
         .hero-section {
-            padding: 6rem 0;
-            background-color: #ffffff;
+            padding: 7rem 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('hero-background.jpg') center/cover no-repeat;
             text-align: center;
         }
 
@@ -180,7 +192,7 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             list-style: none;
             padding: 0;
         }
@@ -190,6 +202,7 @@
             color: #6b7280;
             display: flex;
             align-items: center;
+            font-weight: 500;
         }
 
         /* ==========================================================================
@@ -199,7 +212,7 @@
             border-top: 1px solid #e5e7eb;
             border-bottom: 1px solid #e5e7eb;
             background-color: #f9fafb;
-            padding: 1.5rem 0;
+            padding: 1.75rem 0;
             margin-bottom: 3.5rem;
         }
 
@@ -222,7 +235,8 @@
         }
 
         .trust-item span {
-            color: #111827;
+            color: #065f46; /* Forest Green Accent */
+            font-size: 1.1rem;
         }
 
         /* ==========================================================================
@@ -239,13 +253,22 @@
             margin: 0.25rem 0;
         }
 
+        .contact-info-block a {
+            color: #111827;
+            text-decoration: none;
+        }
+
+        .contact-info-block a:hover {
+            text-decoration: underline;
+        }
+
         /* ==========================================================================
-           PRODUCTION ENTERPRISE FOOTER
+           PRODUCTION ENTERPRISE FOOTER & MISSION STRIP
            ========================================================================== */
         .mission-strip {
             background-color: #1f2937;
             color: #ffffff;
-            padding: 2.5rem 0;
+            padding: 3rem 0;
             text-align: center;
             border-bottom: 1px solid #374151;
         }
@@ -256,15 +279,16 @@
             letter-spacing: 0.15em;
             color: #9ca3af;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .mission-text {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            max-width: 48rem;
+            max-width: 52rem;
             margin: 0 auto;
             color: #ffffff;
+            line-height: 1.4;
         }
 
         footer {
@@ -295,6 +319,7 @@
         .footer-address {
             font-style: normal;
             color: #9ca3af;
+            margin-top: 1rem;
         }
 
         .footer-services-list {
@@ -307,6 +332,10 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .footer-services-list span {
+            color: #9ca3af;
         }
 
         .copyright-row {
@@ -343,7 +372,7 @@
             }
             .trust-grid {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.25rem;
                 align-items: flex-start;
                 max-width: max-content;
                 margin: 0 auto;
@@ -383,7 +412,7 @@
                 <h1 class="t-h1 hero-heading">Bring Your Scattered Low-Carbon Actions Together in One Focused Environmental Asset Portfolio.</h1>
                 <p class="t-body hero-subheading">We bring together your organization's low-carbon and nature-based actions, verify their performance and build a permanent, traceable Environmental Asset Portfolio.</p>
                 
-                <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 
                 <ul class="hero-meta">
                     <li>• Takes Under 5 Minutes</li>
@@ -393,34 +422,34 @@
             </div>
         </section>
 
-        <!-- SECTION 2: PROBLEM & COMPARISON -->
+        <!-- SECTION 2: WHY DO I NEED IT? -->
         <section class="production-section">
             <div class="container">
                 <h2 class="t-h2 section-heading">Why Environmental Actions Often Deliver Less Than Expected</h2>
                 <p class="t-body section-supporting">Most organizations manage environmental actions separately. We help bring them together into one Focused Environmental Asset Portfolio.</p>
                 
                 <div class="infographic-container">
-                    <img src="infographic.png" alt="Environmental Asset Portfolio Comparison" class="section-infographic">
+                    <img src="section2-before-after.png" alt="Environmental Asset Portfolio Comparison" class="section-infographic">
                 </div>
 
                 <div>
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 3: IMMEDIATE DELIVERABLE -->
-        <section class="production-section">
+        <section class="production-section" id="about">
             <div class="container">
                 <h2 class="t-h2 section-heading">Your Environmental Asset Portfolio</h2>
                 <p class="t-body section-supporting">Submit your organization's basic information and receive a Portfolio ID with a complimentary Environmental Asset Portfolio prepared from your existing low-carbon and nature-based actions.</p>
                 
                 <div class="infographic-container">
-                    <img src="section3-portfolio.png" alt="Your Environmental Asset Portfolio" class="section-infographic">
+                    <img src="section3-portfolio-card.png" alt="Your Environmental Asset Portfolio" class="section-infographic">
                 </div>
 
                 <div>
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 </div>
             </div>
         </section>
@@ -432,7 +461,7 @@
                 <p class="t-body section-supporting">Our professional assessment transforms your preliminary Environmental Asset Portfolio into a verified development portfolio with quantified performance, registry readiness and a structured roadmap for long-term environmental asset development.</p>
                 
                 <div class="infographic-container">
-                    <img src="section4-professional.png" alt="Professional Environmental Asset Development" class="section-infographic">
+                    <img src="section4-development.png" alt="Professional Environmental Asset Development" class="section-infographic">
                 </div>
 
                 <p class="t-body" style="font-weight: 600; margin-bottom: 2.5rem; color: #111827;">After our professional assessment, you will know:</p>
@@ -448,13 +477,13 @@
         </section>
 
         <!-- SECTION 5: REGISTRY DEVELOPMENT -->
-        <section class="production-section">
+        <section class="production-section" id="registry">
             <div class="container">
                 <h2 class="t-h2 section-heading">From Environmental Asset Portfolio to Registry Development</h2>
                 <p class="t-body section-supporting">Every organization follows a structured three-phase journey—from identifying existing environmental assets to developing registry-ready portfolios and supporting long-term monitoring, where applicable.</p>
                 
                 <div class="infographic-container">
-                    <img src="section5-journey.png" alt="Development Journey" class="section-infographic">
+                    <img src="section5-development-journey.png" alt="Development Journey" class="section-infographic">
                 </div>
 
                 <div>
@@ -462,7 +491,7 @@
                 </div>
 
                 <div class="contact-info-block">
-                    <p>info@earthcarbonfoundation.org</p>
+                    <p><a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></p>
                     <p>+91 9824025431</p>
                 </div>
             </div>
@@ -489,7 +518,7 @@
                 </div>
 
                 <div>
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Start Your Environmental Asset Portfolio</a>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Start Your Environmental Asset Portfolio</a>
                 </div>
             </div>
         </section>
@@ -505,13 +534,13 @@
                 </div>
 
                 <div>
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 </div>
 
                 <div style="margin-top: 3rem; border-top: 1px solid #e5e7eb; padding-top: 2.5rem;">
                     <p class="t-body" style="font-weight: 500; margin-bottom: 0.5rem;">Need to discuss your organization before starting?</p>
                     <div class="contact-info-block" style="margin-top: 0.5rem;">
-                        <p>info@earthcarbonfoundation.org</p>
+                        <p><a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></p>
                         <p>+91 9824025431</p>
                     </div>
                 </div>
@@ -533,7 +562,8 @@
             <div class="footer-grid">
                 <!-- Column 1 -->
                 <div>
-                    <p class="footer-col-title" style="color: #ffffff; font-size: 1.1rem; text-transform: none; letter-spacing: normal; margin-bottom: 0.5rem;">Earth Carbon Foundation</p>
+                    <img src="footer-logo.png" alt="Earth Carbon Foundation Logo" style="max-height: 2.5rem; width: auto; display: block; margin-bottom: 1rem; filter: brightness(0) invert(1);">
+                    <p class="footer-col-title" style="color: #ffffff; font-size: 1.1rem; text-transform: none; letter-spacing: normal; margin-bottom: 0.25rem;">Earth Carbon Foundation</p>
                     <p style="margin-bottom: 1.5rem; color: #6b7280; font-size: 0.85rem;">Building Structured Environmental Asset Portfolios</p>
                     <address class="footer-address">
                         358, Saraswatinagar<br>
@@ -546,8 +576,8 @@
                 <!-- Column 2 -->
                 <div>
                     <p class="footer-col-title">Contact</p>
-                    <p style="margin-bottom: 0.75rem;">Email: <a href="mailto:info@earthcarbonfoundation.org" style="color: #9ca3af; text-decoration: none;">info@earthcarbonfoundation.org</a></p>
-                    <p>Phone: +91 9824025431</p>
+                    <p style="margin-bottom: 0.75rem;">Email: <br><a href="mailto:info@earthcarbonfoundation.org" style="color: #9ca3af; text-decoration: none; font-weight: 500;">info@earthcarbonfoundation.org</a></p>
+                    <p>Phone: <br><span style="color: #ffffff; font-weight: 500;">+91 9824025431</span></p>
                 </div>
                 <!-- Column 3 -->
                 <div>
