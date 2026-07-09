@@ -76,7 +76,7 @@
            UNIFIED TYPOGRAPHY & BUTTON SYSTEM (Design Philosophy: Executive/Clean)
            ========================================================================== */
         .t-h1 {
-            font-size: 2.25rem;
+            font-size: 2.15rem;
             font-weight: 700;
             color: #111827;
             line-height: 1.2;
@@ -117,17 +117,51 @@
             background-color: #1f2937;
         }
 
+        /* Global Layout Spacing Rules */
+        .production-section {
+            padding: 6rem 0;
+            background-color: #ffffff;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .section-heading {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-supporting {
+            max-width: 46rem;
+            margin: 0 auto 3.5rem auto;
+        }
+
+        /* Production Infographic Container Architecture */
+        .infographic-container {
+            width: 95%;
+            max-width: 1140px;
+            margin: 0 auto 3.5rem auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .section-infographic {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
         /* ==========================================================================
            SECTION 1: HERO SECTION
            ========================================================================== */
         .hero-section {
-            padding: 5rem 0;
+            padding: 6rem 0;
             background-color: #ffffff;
             text-align: center;
         }
 
         .hero-container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -159,307 +193,136 @@
         }
 
         /* ==========================================================================
-           SECTION 2: INFOGRAPHIC NATIVE BUILD (Today vs Tomorrow)
+           TRUST STRIP COMPONENT
            ========================================================================== */
-        .strategy-section {
-            padding: 5rem 0;
-            background-color: #ffffff;
-            text-align: center;
+        .trust-strip {
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            background-color: #f9fafb;
+            padding: 1.5rem 0;
+            margin-bottom: 3.5rem;
         }
 
-        .strategy-heading {
-            margin-bottom: 1.5rem;
+        .trust-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .strategy-supporting {
-            max-width: 42rem;
-            margin: 0 auto 3.5rem auto;
-        }
-
-        .infographic-wrapper {
-            width: 95%;
-            max-width: 1200px;
-            margin: 0 auto 3.5rem auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            text-align: left;
-        }
-
-        /* Column Blocks */
-        .info-col {
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e5e7eb;
-        }
-
-        .info-col.today {
-            background-color: #fffbfa;
-            border-top: 4px solid #dc2626;
-        }
-
-        .info-col.tomorrow {
-            background-color: #f0fdf4;
-            border-top: 4px solid #16a34a;
-        }
-
-        .col-header {
+        .trust-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-
-        .col-header .status-icon {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .today .status-icon { color: #dc2626; }
-        .tomorrow .status-icon { color: #16a34a; }
-
-        .col-header h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .col-header p {
-            font-size: 0.875rem;
-            color: #4b5563;
-        }
-
-        /* Asset Grid */
-        .asset-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .asset-icon-box {
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .asset-label {
-            font-size: 0.75rem;
+            gap: 0.5rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #374151;
         }
 
-        /* Flow Indicators */
-        .flow-arrow {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #9ca3af;
-            margin: 1.5rem 0;
-        }
-
-        /* Feature Lists & Blocks */
-        .info-block-neutral {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .today .info-block-neutral h4 { color: #b91c1c; font-size: 0.95rem; font-weight: 700; text-align: center; }
-
-        .portfolio-banner-callout {
-            background-color: #111827;
-            color: #ffffff;
-            border-radius: 6px;
-            padding: 1.25rem;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.02em;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Outcome Sub Grids */
-        .outcome-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .outcome-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            padding: 1rem;
-        }
-
-        .outcome-card h5 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 0.25rem;
-        }
-
-        .outcome-card p {
-            font-size: 0.8rem;
-            color: #4b5563;
-        }
-
-        /* Business Outcomes Base */
-        .business-outcomes-header {
-            text-align: center;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: #374151;
-            letter-spacing: 0.05em;
-            margin: 2rem 0 1rem 0;
-        }
-
-        .outcomes-pill-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .outcome-pill {
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .trust-item span {
             color: #111827;
         }
 
         /* ==========================================================================
-           SECTION 3: YOUR FINISHED PRODUCT (ENVIRONMENTAL ASSET PORTFOLIO)
+           ENTERPRISE CONTACT INFO BLOCK
            ========================================================================== */
-        .portfolio-section {
-            padding: 5rem 0;
-            background-color: #ffffff;
+        .contact-info-block {
+            margin-top: 2rem;
+            font-size: 1.125rem;
+            color: #111827;
+            font-weight: 600;
+        }
+        
+        .contact-info-block p {
+            margin: 0.25rem 0;
+        }
+
+        /* ==========================================================================
+           PRODUCTION ENTERPRISE FOOTER
+           ========================================================================== */
+        .mission-strip {
+            background-color: #1f2937;
+            color: #ffffff;
+            padding: 2.5rem 0;
             text-align: center;
-            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #374151;
         }
 
-        .portfolio-heading {
-            margin-bottom: 1.5rem;
-        }
-
-        .portfolio-supporting {
-            max-width: 46rem;
-            margin: 0 auto 3.5rem auto;
-        }
-
-        .portfolio-display {
-            width: 92%;
-            max-width: 900px;
-            margin: 0 auto 3.5rem auto;
-            background: #ffffff;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            padding: 3rem;
-            text-align: left;
-        }
-
-        .portfolio-display-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .portfolio-display-header p {
+        .mission-heading {
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: #6b7280;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .portfolio-display-header h3 {
-            font-size: 1.5rem;
+            color: #9ca3af;
             font-weight: 700;
-            color: #111827;
-            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
         }
 
-        .portfolio-divider {
-            border: none;
-            border-top: 1px solid #111827;
-            margin: 1.5rem 0;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2.5rem 0;
-        }
-
-        .portfolio-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: #111827;
-        }
-
-        .portfolio-item .icon {
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .portfolio-summary-row {
-            text-align: center;
+        .mission-text {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #111827;
-            padding: 0.5rem 0;
+            max-width: 48rem;
+            margin: 0 auto;
+            color: #ffffff;
         }
 
-        .portfolio-attributes-row {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 1.5rem;
-        }
-
-        .portfolio-attribute {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #111827;
-        }
-
-        /* Existing Footer Styling */
         footer {
             background-color: #111827;
             color: #9ca3af;
-            padding: 4rem 0;
-            font-size: 0.875rem;
+            padding: 5rem 0 3rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        .footer-container {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            text-align: left;
+        }
+
+        .footer-col-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-address {
+            font-style: normal;
+            color: #9ca3af;
+        }
+
+        .footer-services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-services-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copyright-row {
+            border-top: 1px solid #27272a;
+            padding-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 0.8rem;
+            color: #6b7280;
         }
 
         /* ==========================================================================
            RESPONSIVE BREAKPOINTS & WRAPPING RULES
            ========================================================================== */
-        @media (max-width: 1280px) {
+        @media (max-width: 1340px) {
             .hero-heading {
                 font-size: 1.85rem;
             }
@@ -475,39 +338,31 @@
                 gap: 0.75rem;
                 align-items: center;
             }
-            .infographic-wrapper {
-                grid-template-columns: 1fr;
+            .infographic-container {
                 width: 100%;
             }
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .asset-row {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .outcome-grid-layout {
-                grid-template-columns: 1fr;
-            }
-            .portfolio-display {
-                padding: 1.5rem;
-            }
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .portfolio-attributes-row {
+            .trust-grid {
                 flex-direction: column;
-                align-items: center;
                 gap: 1rem;
+                align-items: flex-start;
+                max-width: max-content;
+                margin: 0 auto;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .copyright-row {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Existing Website Navigation -->
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">Earth Carbon Foundation</a>
@@ -522,6 +377,7 @@
     </header>
 
     <main>
+        <!-- SECTION 1: HERO -->
         <section class="hero-section">
             <div class="hero-container">
                 <h1 class="t-h1 hero-heading">Bring Your Scattered Low-Carbon Actions Together in One Focused Environmental Asset Portfolio.</h1>
@@ -537,165 +393,178 @@
             </div>
         </section>
 
-        <section class="strategy-section">
+        <!-- SECTION 2: PROBLEM & COMPARISON -->
+        <section class="production-section">
             <div class="container">
-                <h2 class="t-h2 strategy-heading">Why Environmental Actions Often Deliver Less Than Expected</h2>
-                <p class="t-body strategy-supporting">Most organizations manage environmental actions separately. We help bring them together into one Focused Environmental Asset Portfolio.</p>
+                <h2 class="t-h2 section-heading">Why Environmental Actions Often Deliver Less Than Expected</h2>
+                <p class="t-body section-supporting">Most organizations manage environmental actions separately. We help bring them together into one Focused Environmental Asset Portfolio.</p>
                 
-                <div class="infographic-wrapper">
-                    
-                    <div class="info-col today">
-                        <div class="col-header">
-                            <span class="status-icon">✕</span>
-                            <div>
-                                <h3>TODAY</h3>
-                                <p>Environmental Actions Are Managed Separately</p>
-                            </div>
-                        </div>
-
-                        <div class="asset-row">
-                            <div><div class="asset-icon-box">☀</div><div class="asset-label">Solar</div></div>
-                            <div><div class="asset-icon-box">💧</div><div class="asset-label">Water</div></div>
-                            <div><div class="asset-icon-box">♻</div><div class="asset-label">Waste</div></div>
-                            <div><div class="asset-icon-box">🌳</div><div class="asset-label">Trees</div></div>
-                        </div>
-                        <div class="asset-row">
-                            <div><div class="asset-icon-box">⚡</div><div class="asset-label">Efficiency</div></div>
-                            <div><div class="asset-icon-box">♨</div><div class="asset-label">Waste Heat</div></div>
-                            <div><div class="asset-icon-box">🚗</div><div class="asset-label">EV Fleet</div></div>
-                            <div><div class="asset-icon-box">🏢</div><div class="asset-label">Others</div></div>
-                        </div>
-
-                        <div class="flow-arrow">↓</div>
-
-                        <div class="outcome-grid-layout" style="margin-bottom: 1.5rem;">
-                            <div class="outcome-card"><h5>Separate Silos</h5><p>Managed via independent internal departments and vendors.</p></div>
-                            <div class="outcome-card"><h5>Fragmented Data</h5><p>Scattered records across different reports and systems.</p></div>
-                        </div>
-
-                        <div class="flow-arrow">↓</div>
-
-                        <div class="info-block-neutral">
-                            <h4>NO ENVIRONMENTAL ASSET PORTFOLIO</h4>
-                        </div>
-
-                        <div class="flow-arrow">↓</div>
-
-                        <div class="outcome-grid-layout">
-                            <div class="outcome-card"><h5>Limited Visibility</h5><p>Hard to track real corporate impact.</p></div>
-                            <div class="outcome-card"><h5>Lost Business Value</h5><p>Fewer organizational scale advantages.</p></div>
-                        </div>
-                    </div>
-
-                    <div class="info-col tomorrow">
-                        <div class="col-header">
-                            <span class="status-icon">✓</span>
-                            <div>
-                                <h3>TOMORROW</h3>
-                                <p>With One Focused Environmental Asset Portfolio</p>
-                            </div>
-                        </div>
-
-                        <div class="asset-row">
-                            <div><div class="asset-icon-box">☀</div><div class="asset-label">Solar</div></div>
-                            <div><div class="asset-icon-box">💧</div><div class="asset-label">Water</div></div>
-                            <div><div class="asset-icon-box">♻</div><div class="asset-label">Waste</div></div>
-                            <div><div class="asset-icon-box">🌳</div><div class="asset-label">Trees</div></div>
-                        </div>
-                        <div class="asset-row">
-                            <div><div class="asset-icon-box">⚡</div><div class="asset-label">Efficiency</div></div>
-                            <div><div class="asset-icon-box">♨</div><div class="asset-label">Waste Heat</div></div>
-                            <div><div class="asset-icon-box">🚗</div><div class="asset-label">EV Fleet</div></div>
-                            <div><div class="asset-icon-box">➕</div><div class="asset-label">Future Assets</div></div>
-                        </div>
-
-                        <div class="flow-arrow">↓</div>
-
-                        <div class="portfolio-banner-callout">
-                            ONE FOCUSED ENVIRONMENTAL ASSET PORTFOLIO
-                        </div>
-
-                        <div class="flow-arrow">↓</div>
-
-                        <div class="outcome-grid-layout">
-                            <div class="outcome-card"><h5>✓ Verified</h5><p>Performance is structurally evaluated.</p></div>
-                            <div class="outcome-card"><h5>✓ Traceable</h5><p>All environmental records in one place.</p></div>
-                            <div class="outcome-card"><h5>✓ Managed</h5><p>Consistent framework management.</p></div>
-                            <div class="outcome-card"><h5>✓ Ready</h5><p>Prepared for programmatic growth.</p></div>
-                        </div>
-
-                        <div class="business-outcomes-header">Business Outcomes</div>
-                        <div class="outcomes-pill-wrapper">
-                            <div class="outcome-pill">Better Strategic Decisions</div>
-                            <div class="outcome-pill">Lower Systems Cost</div>
-                            <div class="outcome-pill">Sustainability Reporting</div>
-                            <div class="outcome-pill">Green Finance Readiness</div>
-                        </div>
-                    </div>
-
+                <div class="infographic-container">
+                    <img src="infographic.png" alt="Environmental Asset Portfolio Comparison" class="section-infographic">
                 </div>
 
-                <div style="text-align: center;">
+                <div>
                     <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 </div>
             </div>
         </section>
 
-        <section class="portfolio-section">
+        <!-- SECTION 3: IMMEDIATE DELIVERABLE -->
+        <section class="production-section">
             <div class="container">
-                <h2 class="t-h2 portfolio-heading">Your Environmental Asset Portfolio</h2>
-                <p class="t-body portfolio-supporting">Every portfolio is built from your organization's existing low-carbon and nature-based actions and verified through a structured assessment process.</p>
+                <h2 class="t-h2 section-heading">Your Environmental Asset Portfolio</h2>
+                <p class="t-body section-supporting">Submit your organization's basic information and receive a Portfolio ID with a complimentary Environmental Asset Portfolio prepared from your existing low-carbon and nature-based actions.</p>
                 
-                <div class="portfolio-display">
-                    <div class="portfolio-display-header">
-                        <p>Your</p>
-                        <h3>Environmental Asset Portfolio</h3>
-                    </div>
+                <div class="infographic-container">
+                    <img src="section3-portfolio.png" alt="Your Environmental Asset Portfolio" class="section-infographic">
+                </div>
 
-                    <hr class="portfolio-divider">
+                <div>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                </div>
+            </div>
+        </section>
 
-                    <div class="portfolio-grid">
-                        <div class="portfolio-item"><span class="icon">☀</span> Solar</div>
-                        <div class="portfolio-item"><span class="icon">⚡</span> Energy Efficiency</div>
-                        <div class="portfolio-item"><span class="icon">💧</span> Water</div>
-                        <div class="portfolio-item"><span class="icon">♻</span> Waste Management</div>
-                        <div class="portfolio-item"><span class="icon">🌳</span> Trees & Afforestation</div>
-                        <div class="portfolio-item"><span class="icon">🔥</span> Waste Heat Recovery</div>
-                        <div class="portfolio-item"><span class="icon">🚗</span> Electric Mobility</div>
-                        <div class="portfolio-item"><span class="icon">🏭</span> Process Improvements</div>
-                        <div class="portfolio-item"><span class="icon">🌿</span> Nature-Based Actions</div>
-                        <div class="portfolio-item"><span class="icon">🏢</span> Green Buildings</div>
-                        <div class="portfolio-item"><span class="icon">🌾</span> Agriculture & Bioenergy</div>
-                        <div class="portfolio-item" style="border-style: dashed; background-color: transparent; color: #6b7280;"><span class="icon">➕</span> Future Environmental Assets</div>
-                    </div>
+        <!-- SECTION 4: PROFESSIONAL ASSESSMENT -->
+        <section class="production-section">
+            <div class="container">
+                <h2 class="t-h2 section-heading">Unlock Your Professional Environmental Asset Portfolio</h2>
+                <p class="t-body section-supporting">Our professional assessment transforms your preliminary Environmental Asset Portfolio into a verified development portfolio with quantified performance, registry readiness and a structured roadmap for long-term environmental asset development.</p>
+                
+                <div class="infographic-container">
+                    <img src="section4-professional.png" alt="Professional Environmental Asset Development" class="section-infographic">
+                </div>
 
-                    <hr class="portfolio-divider">
+                <p class="t-body" style="font-weight: 600; margin-bottom: 2.5rem; color: #111827;">After our professional assessment, you will know:</p>
 
-                    <div class="portfolio-summary-row">
-                        One Focused Environmental Asset Portfolio
-                    </div>
+                <div class="infographic-container">
+                    <img src="section4-know.png" alt="I NOW KNOW Infographic" class="section-infographic">
+                </div>
 
-                    <hr class="portfolio-divider">
+                <div>
+                    <a href="#contact" class="btn-primary">Unlock Professional Assessment</a>
+                </div>
+            </div>
+        </section>
 
-                    <div class="portfolio-attributes-row">
-                        <div class="portfolio-attribute"><span>✓</span> Permanent</div>
-                        <div class="portfolio-attribute"><span>✓</span> Traceable</div>
-                        <div class="portfolio-attribute"><span>✓</span> Verified</div>
-                        <div class="portfolio-attribute"><span>✓</span> Managed</div>
+        <!-- SECTION 5: REGISTRY DEVELOPMENT -->
+        <section class="production-section">
+            <div class="container">
+                <h2 class="t-h2 section-heading">From Environmental Asset Portfolio to Registry Development</h2>
+                <p class="t-body section-supporting">Every organization follows a structured three-phase journey—from identifying existing environmental assets to developing registry-ready portfolios and supporting long-term monitoring, where applicable.</p>
+                
+                <div class="infographic-container">
+                    <img src="section5-journey.png" alt="Development Journey" class="section-infographic">
+                </div>
+
+                <div>
+                    <a href="#contact" class="btn-primary">Schedule Your Development Consultation</a>
+                </div>
+
+                <div class="contact-info-block">
+                    <p>info@earthcarbonfoundation.org</p>
+                    <p>+91 9824025431</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: WHY THE PORTFOLIO APPROACH -->
+        <section class="production-section">
+            <div class="container">
+                <h2 class="t-h2 section-heading">Why Organizations Choose the Environmental Asset Portfolio Approach</h2>
+                <p class="t-body section-supporting">Instead of developing one environmental project at a time, we bring together multiple existing low-carbon and nature-based actions into one structured Environmental Asset Portfolio, creating a stronger foundation for long-term environmental asset development.</p>
+                
+                <div class="infographic-container">
+                    <img src="section6-comparison.png" alt="Approach Comparison" class="section-infographic">
+                </div>
+
+                <!-- Slim Horizontal Trust Strip Component -->
+                <div class="trust-strip">
+                    <div class="trust-grid">
+                        <div class="trust-item"><span>✓</span> Complimentary Portfolio</div>
+                        <div class="trust-item"><span>✓</span> Structured Development</div>
+                        <div class="trust-item"><span>✓</span> Transparent Process</div>
+                        <div class="trust-item"><span>✓</span> Long-Term Partnership</div>
                     </div>
                 </div>
 
-                <div style="text-align: center;">
+                <div>
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Start Your Environmental Asset Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FINAL CALL TO ACTION & ENQUIRY -->
+        <section class="production-section" id="contact">
+            <div class="container">
+                <h2 class="t-h2 section-heading">Start Building Your Environmental Asset Portfolio Today</h2>
+                <p class="t-body section-supporting">Complete your organization's basic information to receive a complimentary Environmental Asset Portfolio with a unique Portfolio ID and an initial assessment of your existing low-carbon and nature-based actions.</p>
+                
+                <div class="infographic-container">
+                    <img src="section7-cta.png" alt="Start Your Portfolio Framework" class="section-infographic">
+                </div>
+
+                <div>
                     <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary">Create My Environmental Asset Portfolio</a>
+                </div>
+
+                <div style="margin-top: 3rem; border-top: 1px solid #e5e7eb; padding-top: 2.5rem;">
+                    <p class="t-body" style="font-weight: 500; margin-bottom: 0.5rem;">Need to discuss your organization before starting?</p>
+                    <div class="contact-info-block" style="margin-top: 0.5rem;">
+                        <p>info@earthcarbonfoundation.org</p>
+                        <p>+91 9824025431</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- MISSION STRIP -->
+    <div class="mission-strip">
+        <div class="container">
+            <p class="mission-heading">Our Mission</p>
+            <p class="mission-text">Transform 100 Million tCO₂e of existing environmental actions into structured Environmental Asset Portfolios by 2030.</p>
+        </div>
+    </div>
+
+    <!-- PRODUCTION ENTERPRISE FOOTER -->
     <footer>
-        <div class="container footer-container">
-            <p>&copy; 2026 Earth Carbon Foundation. All rights reserved.</p>
-            <p>Guiding high-integrity carbon frameworks across multi-sector applications.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div>
+                    <p class="footer-col-title" style="color: #ffffff; font-size: 1.1rem; text-transform: none; letter-spacing: normal; margin-bottom: 0.5rem;">Earth Carbon Foundation</p>
+                    <p style="margin-bottom: 1.5rem; color: #6b7280; font-size: 0.85rem;">Building Structured Environmental Asset Portfolios</p>
+                    <address class="footer-address">
+                        358, Saraswatinagar<br>
+                        Azad Society Road<br>
+                        Ambawadi<br>
+                        Ahmedabad – 380015<br>
+                        Gujarat, India
+                    </address>
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <p class="footer-col-title">Contact</p>
+                    <p style="margin-bottom: 0.75rem;">Email: <a href="mailto:info@earthcarbonfoundation.org" style="color: #9ca3af; text-decoration: none;">info@earthcarbonfoundation.org</a></p>
+                    <p>Phone: +91 9824025431</p>
+                </div>
+                <!-- Column 3 -->
+                <div>
+                    <p class="footer-col-title">Our Development Services</p>
+                    <ul class="footer-services-list">
+                        <li><span>✓</span> Environmental Asset Portfolio</li>
+                        <li><span>✓</span> Professional Environmental Asset Development</li>
+                        <li><span>✓</span> Registry Development & Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- COPYRIGHT ROW -->
+            <div class="copyright-row">
+                <p>© 2026 Earth Carbon Foundation. All Rights Reserved.</p>
+                <p>Developing Environmental Asset Portfolios for Long-Term Climate Action.</p>
+            </div>
         </div>
     </footer>
 
