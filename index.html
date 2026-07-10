@@ -182,29 +182,40 @@
         }
 
         /* ==========================================================================
-           SECTION 1: HERO SECTION
+           SECTION 1: HERO SECTION (Title Centered, Scaled & Appeal Enhanced)
            ========================================================================== */
         .hero-section {
-            padding: 7rem 0;
+            padding: 8rem 0;
             background: #ffffff;
             text-align: center;
             width: 100%;
         }
 
         .hero-container {
-            max-width: 1440px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-heading {
-            white-space: nowrap;
+            font-size: 2.35rem; /* Appealing size adjustment */
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.25;
+            color: #111827;
             margin-bottom: 2rem;
+            text-align: center;
+            width: 100%;
         }
 
         .hero-subheading {
-            max-width: 48rem;
+            max-width: 46rem;
             margin: 0 auto 2.5rem auto;
+            text-align: center;
         }
 
         .hero-meta {
@@ -375,21 +386,8 @@
         /* ==========================================================================
            RESPONSIVE BREAKPOINTS & WRAPPING RULES
            ========================================================================== */
-        @media (max-width: 1340px) {
-            .hero-heading {
-                font-size: 1.85rem;
-            }
-        }
-
-        @media (max-width: 1140px) {
-            .infographic-container {
-                max-width: 90%;
-            }
-        }
-
         @media (max-width: 1024px) {
             .hero-heading {
-                white-space: normal;
                 font-size: 2rem;
             }
             .hero-meta {
@@ -440,7 +438,7 @@
         <!-- SECTION 1: HERO -->
         <section class="hero-section">
             <div class="hero-container">
-                <h1 class="t-h1 hero-heading">Bring Your Scattered Low-Carbon Actions into One Focused Environmental Asset Portfolio.</h1>
+                <h1 class="hero-heading">Bring Your Scattered Low-Carbon Actions Together in One Focused Environmental Asset Portfolio.</h1>
                 <p class="t-body hero-subheading">We bring together your organization's low-carbon and nature-based actions, verify their performance and build a permanent, traceable Environmental Asset Portfolio.</p>
                 
                 <a href="#contact" class="btn-primary">Create My Environmental Asset Portfolio</a>
@@ -481,7 +479,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: PROFESSIONAL ASSESSMENT (Duplicates Cleaned & Streamlined Flow) -->
+        <!-- SECTION 4: PROFESSIONAL ASSESSMENT -->
         <section class="production-section">
             <div class="container">
                 <h2 class="t-h2 section-heading">Unlock Your Professional Environmental Asset Portfolio</h2>
@@ -533,7 +531,7 @@
             </div>
         </section>
 
-        <!-- SECTION 7: FINAL CALL TO ACTION & ENQUIRY -->
+        <!-- SECTION 7: FINAL CALL TO ACTION & ENQUIRY (Consolidated to One Live Transaction Gateway) -->
         <section class="production-section" id="contact">
             <div class="container">
                 <div class="infographic-container">
@@ -541,6 +539,7 @@
                 </div>
 
                 <div>
+                    <!-- Unified Focal CTA Button Asset Entry -->
                     <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener" class="btn-primary">Create My Environmental Asset Portfolio</a>
                 </div>
 
