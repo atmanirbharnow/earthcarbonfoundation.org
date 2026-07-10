@@ -20,6 +20,7 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -28,6 +29,7 @@
             color: #111827;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
@@ -44,6 +46,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            width: 100%;
         }
 
         .nav-container {
@@ -51,6 +54,8 @@
             justify-content: space-between;
             align-items: center;
             height: 4.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
@@ -133,6 +138,7 @@
             background-color: #ffffff;
             text-align: center;
             border-top: 1px solid #e5e7eb;
+            width: 100%;
         }
 
         .section-heading {
@@ -146,8 +152,8 @@
 
         /* Production Infographic Container Architecture */
         .infographic-container {
-            width: 95%;
-            max-width: 1140px;
+            width: 100%;
+            max-width: 1000px;
             margin: 0 auto 3.5rem auto;
             display: flex;
             justify-content: center;
@@ -170,7 +176,6 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        /* Subtle feedback to show the enterprise user that the image contains a live link */
         .infographic-link-wrapper:hover .section-infographic {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -183,6 +188,7 @@
             padding: 7rem 0;
             background: #ffffff;
             text-align: center;
+            width: 100%;
         }
 
         .hero-container {
@@ -226,7 +232,8 @@
             border-bottom: 1px solid #e5e7eb;
             background-color: #f9fafb;
             padding: 1.75rem 0;
-            margin-bottom: 3.5rem;
+            margin-top: 3.5rem;
+            width: 100%;
         }
 
         .trust-grid {
@@ -236,6 +243,7 @@
             gap: 1.5rem;
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         .trust-item {
@@ -284,6 +292,7 @@
             padding: 3rem 0;
             text-align: center;
             border-bottom: 1px solid #374151;
+            width: 100%;
         }
 
         .mission-heading {
@@ -302,6 +311,7 @@
             margin: 0 auto;
             color: #ffffff;
             line-height: 1.4;
+            padding: 0 1.5rem;
         }
 
         footer {
@@ -310,6 +320,7 @@
             padding: 5rem 0 3rem 0;
             font-size: 0.9rem;
             line-height: 1.6;
+            width: 100%;
         }
 
         .footer-grid {
@@ -370,6 +381,12 @@
             }
         }
 
+        @media (max-width: 1140px) {
+            .infographic-container {
+                max-width: 90%;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero-heading {
                 white-space: normal;
@@ -382,6 +399,7 @@
             }
             .infographic-container {
                 width: 100%;
+                max-width: 100%;
             }
             .trust-grid {
                 flex-direction: column;
@@ -404,6 +422,7 @@
 </head>
 <body>
 
+    <!-- Existing Website Navigation -->
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">Earth Carbon Foundation</a>
@@ -418,6 +437,7 @@
     </header>
 
     <main>
+        <!-- SECTION 1: HERO -->
         <section class="hero-section">
             <div class="hero-container">
                 <h1 class="t-h1 hero-heading">Bring Your Scattered Low-Carbon Actions Together in One Focused Environmental Asset Portfolio.</h1>
@@ -433,6 +453,7 @@
             </div>
         </section>
 
+        <!-- SECTION 2: WHY DO I NEED IT? -->
         <section class="production-section">
             <div class="container">
                 <h2 class="t-h2 section-heading">Why Environmental Actions Often Deliver Less Than Expected</h2>
@@ -446,6 +467,7 @@
             </div>
         </section>
 
+        <!-- SECTION 3: IMMEDIATE DELIVERABLE -->
         <section class="production-section" id="about">
             <div class="container">
                 <h2 class="t-h2 section-heading">Your Environmental Asset Portfolio</h2>
@@ -459,6 +481,7 @@
             </div>
         </section>
 
+        <!-- SECTION 4: PROFESSIONAL ASSESSMENT (Duplicates Cleaned & Streamlined Flow) -->
         <section class="production-section">
             <div class="container">
                 <h2 class="t-h2 section-heading">Unlock Your Professional Environmental Asset Portfolio</h2>
@@ -467,15 +490,10 @@
                 <div class="infographic-container">
                     <img src="Landing_page_section_4.png" alt="Professional Environmental Asset Development" class="section-infographic">
                 </div>
-
-                <p class="t-body" style="font-weight: 600; margin-bottom: 2.5rem; color: #111827;">After our professional assessment, you will know:</p>
-
-                <div class="infographic-container">
-                    <img src="Landing_page_section_5a.png" alt="Professional Assessment Deliverables Checklist Summary" class="section-infographic">
-                </div>
             </div>
         </section>
 
+        <!-- SECTION 5: REGISTRY DEVELOPMENT -->
         <section class="production-section" id="registry">
             <div class="container">
                 <h2 class="t-h2 section-heading">From Environmental Asset Portfolio to Registry Development</h2>
@@ -492,6 +510,7 @@
             </div>
         </section>
 
+        <!-- SECTION 6: WHY THE PORTFOLIO APPROACH -->
         <section class="production-section">
             <div class="container">
                 <h2 class="t-h2 section-heading">Why Organizations Choose the Environmental Asset Portfolio Approach</h2>
@@ -514,6 +533,7 @@
             </div>
         </section>
 
+        <!-- SECTION 7: FINAL CALL TO ACTION & ENQUIRY -->
         <section class="production-section" id="contact">
             <div class="container">
                 <div class="infographic-container">
@@ -545,6 +565,7 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
+                <!-- Column 1 -->
                 <div>
                     <p class="footer-col-title" style="color: #ffffff; font-size: 1.1rem; text-transform: none; letter-spacing: normal; margin-bottom: 0.25rem;">Earth Carbon Foundation</p>
                     <p style="margin-bottom: 1.5rem; color: #6b7280; font-size: 0.85rem;">Building Structured Environmental Asset Portfolios</p>
@@ -556,11 +577,13 @@
                         Gujarat, India
                     </address>
                 </div>
+                <!-- Column 2 -->
                 <div>
                     <p class="footer-col-title">Contact</p>
                     <p style="margin-bottom: 0.75rem;">Email: <br><a href="mailto:info@earthcarbonfoundation.org" style="color: #9ca3af; text-decoration: none; font-weight: 500;">info@earthcarbonfoundation.org</a></p>
                     <p>Phone: <br><span style="color: #ffffff; font-weight: 500;">+91 9824025431</span></p>
                 </div>
+                <!-- Column 3 -->
                 <div>
                     <p class="footer-col-title">Our Development Services</p>
                     <ul class="footer-services-list">
