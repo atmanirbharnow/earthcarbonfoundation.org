@@ -148,7 +148,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.75rem;
             align-items: center;
             margin: 0;
             padding: 0;
@@ -157,7 +157,7 @@
         .nav-menu a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.925rem;
             font-weight: 600;
             transition: color 0.15s ease;
         }
@@ -282,12 +282,23 @@
             background-color: var(--bg-light);
         }
 
-        /* STATS SECTION */
+        /* SECTION 2: STATS & TRUST STRIP */
         .stats-section {
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
-            padding: 2.5rem 0;
+            padding: 3rem 0;
+        }
+
+        .stats-header-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
         }
 
         .stats-grid {
@@ -359,6 +370,12 @@
             gap: 1.5rem;
         }
 
+        .grid-3-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
         .feature-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -389,6 +406,78 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.5;
+        }
+
+        /* CASE STUDY DIGITAL CERTIFICATES */
+        .cert-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-light);
+        }
+
+        .cert-body {
+            padding: 1.5rem;
+        }
+
+        .cert-id {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .cert-client {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .cert-meta-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .cert-meta-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .cert-meta-list strong {
+            color: var(--text-main);
+        }
+
+        .cert-status-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .cert-status-verified {
+            background-color: #d1fae5;
+            color: #065f46;
         }
 
         /* ONE-LINE HORIZONTAL FLOW (HOW IT WORKS) */
@@ -730,7 +819,7 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            .grid-4, .stats-grid {
+            .grid-4, .grid-3-cards, .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .flow-arrow {
@@ -742,7 +831,7 @@
             .hero-title {
                 font-size: 2rem;
             }
-            .grid-4, .stats-grid {
+            .grid-4, .grid-3-cards, .stats-grid {
                 grid-template-columns: 1fr;
             }
             .footer-grid {
@@ -781,6 +870,7 @@
                 <ul class="nav-menu">
                     <li><a href="#deliverables">Deliverables</a></li>
                     <li><a href="#receive">What You Get</a></li>
+                    <li><a href="#cases">Case Studies</a></li>
                     <li><a href="#process">How It Works</a></li>
                     <li><a href="#sectors">Who We Serve</a></li>
                     <li><a href="#ecosystem">Ecosystem</a></li>
@@ -816,9 +906,10 @@
             </div>
         </section>
 
-        <!-- 2. STATS STRIP -->
+        <!-- 2. SECTION 2: TRUST & CREDIBILITY -->
         <section class="stats-section">
             <div class="container">
+                <div class="stats-header-title">TRUST &amp; CREDIBILITY</div>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <span class="stat-value">14+</span>
@@ -881,8 +972,66 @@
             </div>
         </section>
 
-        <!-- 4. WHAT YOU WILL RECEIVE (NEW SECTION) -->
-        <section class="section-block bg-alt" id="receive">
+        <!-- 4. SECTION 4: CASE STUDIES & DIGITAL CERTIFICATES -->
+        <section class="section-block bg-alt" id="cases">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 4</span>
+                    <h2 class="section-title">CASE STUDIES</h2>
+                    <p class="section-lead">Auditable, public digital certificates and environmental scoreboards generated across active public and educational deployments.</p>
+                </div>
+                <div class="grid-3-cards">
+                    <!-- Case Study 1 -->
+                    <div class="cert-card">
+                        <img src="Copy of GLS climate Certificate.png" alt="Gujarat Law Society Climate Certificate" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">SUMMARY ID: CAF-SCH-0025</span>
+                            <h3 class="cert-client">Gujarat Law Society, Ellisbridge</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Sector:</strong> Educational Institution[cite: 5]</li>
+                                <li><strong>Action:</strong> Rooftop Solar (30,948 kWh/yr)[cite: 5]</li>
+                                <li><strong>Offset:</strong> 6,167.43 tCO₂e Reduced[cite: 5]</li>
+                                <li><strong>Atmanirbhar Score:</strong> 99%[cite: 5]</li>
+                            </ul>
+                            <span class="cert-status-badge">PENDING / SELF-REPORTED</span>[cite: 5]
+                        </div>
+                    </div>
+                    <!-- Case Study 2 -->
+                    <div class="cert-card">
+                        <img src="Ghandhinagar Asset .png" alt="Gandhinagar Constituency Scoreboard" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">CONSTITUENCY SCOREBOARD</span>
+                            <h3 class="cert-client">Gandhinagar Parliamentary Constituency</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Scope:</strong> 235 Environmental Assets Registered[cite: 4]</li>
+                                <li><strong>Action:</strong> Solar, Water, Waste &amp; Biodiversity[cite: 4]</li>
+                                <li><strong>Offset:</strong> 1,25,000 tCO₂e / year[cite: 4]</li>
+                                <li><strong>Atmanirbhar Score:</strong> 78% Overall[cite: 4]</li>
+                            </ul>
+                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 4]
+                        </div>
+                    </div>
+                    <!-- Case Study 3 -->
+                    <div class="cert-card">
+                        <img src="Board Of Control for Cricket In India.png" alt="Cricket Infrastructure Environmental Scoreboard" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">INFRASTRUCTURE REGISTRY</span>
+                            <h3 class="cert-client">Cricket Infrastructure Scoreboard</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Scope:</strong> 125 Stadium Facilities Registered[cite: 3]</li>
+                                <li><strong>Capacity:</strong> 85 MW Solar &amp; 2.5B Liters Water[cite: 3]</li>
+                                <li><strong>Offset:</strong> 150,000 tCO₂e / year[cite: 3]</li>
+                                <li><strong>Target:</strong> 100M Tons Mission Support[cite: 3]</li>
+                            </ul>
+                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 3]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. WHAT YOU WILL RECEIVE -->
+        <section class="section-block" id="receive">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">VERIFIED OUTPUTS</span>
@@ -914,8 +1063,8 @@
             </div>
         </section>
 
-        <!-- 5. HOW IT WORKS (Single Line Flow Diagram) -->
-        <section class="section-block" id="process">
+        <!-- 6. HOW IT WORKS (Single Line Flow Diagram) -->
+        <section class="section-block bg-alt" id="process">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">HOW IT WORKS</span>
@@ -950,8 +1099,8 @@
             </div>
         </section>
 
-        <!-- 6. TARGET SECTORS (Single Line Grid) -->
-        <section class="section-block bg-alt" id="sectors">
+        <!-- 7. TARGET SECTORS (Single Line Grid) -->
+        <section class="section-block" id="sectors">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">TARGET SECTORS</span>
@@ -1010,8 +1159,8 @@
             </div>
         </section>
 
-        <!-- 7. INFOGRAPHICS DISPLAY (BALANCED & EXPANDED) -->
-        <section class="section-block">
+        <!-- 8. INFOGRAPHICS DISPLAY (BALANCED & EXPANDED) -->
+        <section class="section-block bg-alt">
             <div class="container">
                 <div class="section-header text-center">
                     <span class="section-tag">VISUAL ARCHITECTURE</span>
@@ -1030,8 +1179,8 @@
             </div>
         </section>
 
-        <!-- 8. THE ECOSYSTEM (Single Line Row) -->
-        <section class="section-block bg-alt" id="ecosystem">
+        <!-- 9. THE ECOSYSTEM (Single Line Row) -->
+        <section class="section-block" id="ecosystem">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">THE ECOSYSTEM</span>
@@ -1083,7 +1232,7 @@
             </div>
         </section>
 
-        <!-- 9. FINAL CTA & CONTACT SECTION -->
+        <!-- 10. FINAL CTA & CONTACT SECTION -->
         <section class="cta-section" id="contact">
             <div class="container">
                 <div class="cta-box">
