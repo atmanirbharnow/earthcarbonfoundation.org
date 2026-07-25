@@ -352,7 +352,7 @@
             max-width: 44rem;
         }
 
-        /* GRID 4 DELIVERABLES */
+        /* GRID 4 DELIVERABLES & RECEIVE */
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -533,25 +533,27 @@
             text-decoration: underline;
         }
 
-        /* PROPORTIONAL INFOGRAPHICS */
+        /* BALANCED FULL-WIDTH INFOGRAPHICS */
         .infographic-wrapper {
-            max-width: 900px;
+            width: 100%;
+            max-width: 1140px;
             margin: 0 auto;
         }
 
         .space-bottom {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .infographic-img {
             width: 100%;
-            max-height: 480px;
+            height: auto;
+            max-height: none;
             object-fit: contain;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-color);
             display: block;
             background-color: var(--bg-white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
         /* FINAL CTA */
@@ -778,6 +780,7 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu">
                     <li><a href="#deliverables">Deliverables</a></li>
+                    <li><a href="#receive">What You Get</a></li>
                     <li><a href="#process">How It Works</a></li>
                     <li><a href="#sectors">Who We Serve</a></li>
                     <li><a href="#ecosystem">Ecosystem</a></li>
@@ -867,7 +870,6 @@
                         <p class="card-desc">Real-time digital visibility into ongoing asset performance, impact verification, and valuation.</p>
                     </div>
                 </div>
-                <!-- ADDED CTA AFTER CORE DELIVERABLES -->
                 <div class="section-cta-wrapper">
                     <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
                         Start Free Assessment
@@ -879,8 +881,41 @@
             </div>
         </section>
 
-        <!-- 4. HOW IT WORKS (Single Line Flow Diagram) -->
-        <section class="section-block bg-alt" id="process">
+        <!-- 4. WHAT YOU WILL RECEIVE (NEW SECTION) -->
+        <section class="section-block bg-alt" id="receive">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">VERIFIED OUTPUTS</span>
+                    <h2 class="section-title">What You Will Receive</h2>
+                    <p class="section-lead">Every participating entity receives official, auditable registry documentation detailing measurable environmental and resource impact.</p>
+                </div>
+                <div class="grid-4">
+                    <div class="feature-card">
+                        <div class="card-icon-box">📜</div>
+                        <h3 class="card-title">Climate Asset Registry Impact Certificate</h3>
+                        <p class="card-desc">Verified registry documentation featuring unique Summary IDs, verified status tracking, and MoEF&CC-aligned methodology factor seals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">🌱</div>
+                        <h3 class="card-title">Atmanirbhar % Score Card</h3>
+                        <p class="card-desc">A standardized self-sustaining rate evaluating clean energy generation, water security, and resource independence across operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">♻️</div>
+                        <h3 class="card-title">Circularity &amp; Waste Diversion Metrics</h3>
+                        <p class="card-desc">Quantified metrics for waste diverted from landfills, resource re-use rates, and annual tCO₂e reduction baselines.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">🔒</div>
+                        <h3 class="card-title">Public Verification &amp; Digital Signatures</h3>
+                        <p class="card-desc">Publicly verifiable QR codes, online verification portal links, and unique cryptographic digital signature footprints for audit compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HOW IT WORKS (Single Line Flow Diagram) -->
+        <section class="section-block" id="process">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">HOW IT WORKS</span>
@@ -915,8 +950,8 @@
             </div>
         </section>
 
-        <!-- 5. TARGET SECTORS (Single Line Grid) -->
-        <section class="section-block" id="sectors">
+        <!-- 6. TARGET SECTORS (Single Line Grid) -->
+        <section class="section-block bg-alt" id="sectors">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">TARGET SECTORS</span>
@@ -967,7 +1002,6 @@
                         <p class="sector-text">Agri-enterprises and forestry authorities measuring land-use carbon sequestration and soil regeneration.</p>
                     </div>
                 </div>
-                <!-- ADDED CTA AFTER TARGET SECTORS -->
                 <div class="section-cta-wrapper">
                     <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
                         Start Free Assessment
@@ -976,8 +1010,8 @@
             </div>
         </section>
 
-        <!-- 6. INFOGRAPHICS DISPLAY (PROPORTIONATED) -->
-        <section class="section-block bg-alt">
+        <!-- 7. INFOGRAPHICS DISPLAY (BALANCED & EXPANDED) -->
+        <section class="section-block">
             <div class="container">
                 <div class="section-header text-center">
                     <span class="section-tag">VISUAL ARCHITECTURE</span>
@@ -996,8 +1030,8 @@
             </div>
         </section>
 
-        <!-- 7. THE ECOSYSTEM (Single Line Row) -->
-        <section class="section-block" id="ecosystem">
+        <!-- 8. THE ECOSYSTEM (Single Line Row) -->
+        <section class="section-block bg-alt" id="ecosystem">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">THE ECOSYSTEM</span>
@@ -1049,7 +1083,7 @@
             </div>
         </section>
 
-        <!-- 8. FINAL CTA & CONTACT SECTION -->
+        <!-- 9. FINAL CTA & CONTACT SECTION -->
         <section class="cta-section" id="contact">
             <div class="container">
                 <div class="cta-box">
