@@ -1,661 +1,512 @@
-/* =============================================================================
-   EARTH CARBON FOUNDATION — SYSTEM STYLESHEET 2.0
-   Design Specification: Enterprise Environmental Asset Platform (EEAP™) Engine
-   Standards: W3C Validated, High-Integrity Institutional UI Grid Stack
-   ============================================================================= */
+/* ==========================================================================
+   LEAN RUNWAY LANDING PAGE SYSTEM
+   Rules: Clean Grid, Institutional Authority, No Framework Dependencies
+   ========================================================================== */
 
-/* 1. TOKENS & DESIGN SYSTEM PARAMETERS */
 :root {
-  --neutral-900: #0D0F12;
-  --neutral-800: #1E2229;
-  --neutral-600: #4A5262;
-  --neutral-300: #C8D1E0;
-  --neutral-100: #F4F6F9;
-  --accent-blue: #0066CC;
-  --accent-blue-hover: #0052A3;
-  --accent-gold: #B58900;
-  --accent-gold-bg: #FFFDF0;
-  --utility-green: #008A4B;
-  --utility-green-light: #ECFDF5;
-  --utility-red: #D9381E;
-  
-  --shadow-sm: 0 2px 4px rgba(13, 15, 18, 0.02);
-  --shadow-lg: 0 20px 40px rgba(13, 15, 18, 0.06);
-  --transition-fast: 150ms ease;
-  --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --font-stack: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --color-white: #ffffff;
+    --color-dark: #111827;
+    --color-medium: #4b5563;
+    --color-light: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-accent-blue: #1d4ed8;
+    --color-accent-blue-hover: #1e40af;
+    --color-accent-green: #065f46;
+    --max-width: 1280px;
+    --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* 2. BASE PLATFORM RESET & STRUCTURES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-  font-family: var(--font-stack);
-  color: var(--neutral-900);
-  background-color: #ffffff;
-  margin: 0;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  display: block;
+    font-family: var(--font-stack);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6rem 1.5rem;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-/* 3. STICKY PLATFORM HEADER REGISTRY */
+/* TOP BAR */
+.top-bar {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    font-size: 0.8125rem;
+    padding: 0.5rem 0;
+}
+
+.top-bar-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.badge {
+    background-color: var(--color-accent-green);
+    color: var(--color-white);
+    padding: 0.15rem 0.5rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.bar-text {
+    color: #9ca3af;
+}
+
+/* SITE HEADER */
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--neutral-900);
-  border-bottom: 4px solid var(--accent-blue);
-  padding: 1.25rem 0;
-  transition: var(--transition-smooth);
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.5rem;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-
-.logo span {
-  font-weight: 400;
-  color: var(--neutral-300);
+.brand-logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    text-decoration: none;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+    display: flex;
+    list-style: none;
+    gap: 1.75rem;
+    align-items: center;
 }
 
 .nav-links a {
-  color: var(--neutral-300);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: var(--transition-fast);
+    color: var(--color-medium);
+    text-decoration: none;
+    font-size: 0.925rem;
+    font-weight: 500;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: #ffffff;
+.nav-links a:hover {
+    color: var(--color-dark);
 }
 
-.nav-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: var(--neutral-800);
-  padding: 6px 12px;
-  border: 1px solid var(--neutral-600);
-  border-radius: 2px;
-  color: #ffffff;
+.nav-links a.nav-cta {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-  cursor: pointer;
+/* HERO SECTION */
+.hero-section {
+    padding: 6rem 0;
+    text-align: center;
 }
 
-/* 4. TYPOGRAPHY ARCHITECTURE */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
+.hero-container {
+    max-width: 900px;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: var(--neutral-900);
-  line-height: 1.15;
-  letter-spacing: -1.5px;
-  margin-bottom: 1.5rem;
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
 }
 
-.hero-sub {
-  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-  color: var(--neutral-600);
-  margin-bottom: 2.5rem;
-  line-height: 1.4;
-  max-width: 850px;
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-medium);
+    max-width: 44rem;
+    margin: 0 auto 2.25rem auto;
 }
 
-.block-title {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: var(--neutral-900);
-  margin-bottom: 1.5rem;
-}
-
-.constrained-body {
-  font-size: 1.125rem;
-  color: var(--neutral-600);
-  max-width: 750px;
-  margin-bottom: 2rem;
-}
-
-/* 5. SECTIONS & LAYOUT SYSTEMS */
-.panel-section {
-  padding: 6rem 0;
-  border-bottom: 1px solid var(--neutral-300);
-}
-
-.panel-section:last-of-type {
-  border-bottom: none;
-}
-
-.bg-light {
-  background-color: var(--neutral-100);
-}
-
-.asymmetric-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.symmetric-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem;
-}
-
-.matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-/* 6. COMPONENT STYLING: CARDS & WORKFLOW LAYOUTS */
-.infographic-wrapper {
-  background: var(--neutral-100);
-  border: 1px solid var(--neutral-300);
-  border-radius: 6px;
-  padding: 3rem;
-  margin-top: 2rem;
-}
-
-.infographic-flow {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.flow-node {
-  background: #ffffff;
-  border: 1px solid var(--neutral-300);
-  border-left: 4px solid var(--neutral-600);
-  padding: 1rem 1.5rem;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flow-node.highlight {
-  border-left-color: var(--utility-red);
-  background: #FFF9F8;
-}
-
-.flow-node.success {
-  border-left-color: var(--utility-green);
-}
-
-.flow-node-title {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--neutral-900);
-}
-
-.flow-node-meta {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.flow-vector-arrow {
-  display: flex;
-  justify-content: center;
-  padding: 0.25rem 0;
-  color: var(--neutral-300);
-}
-
-/* 7. ASSET OUTCOMES & CAPABILITIES CARDS */
-.outcome-card {
-  border: 1px solid var(--neutral-300);
-  padding: 2rem;
-  border-radius: 4px;
-  background: #ffffff;
-  transition: var(--transition-smooth);
-}
-
-.outcome-card:hover {
-  border-color: var(--accent-blue);
-  box-shadow: var(--shadow-lg);
-}
-
-.outcome-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.outcome-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--accent-blue);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.outcome-title {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--neutral-900);
-  margin: 0;
-}
-
-.outcome-desc {
-  font-size: 1rem;
-  color: var(--neutral-600);
-  margin: 0;
-}
-
-/* 8. DOCUMENT PREVIEW SPECIMEN COMPONENT */
-.eeap-specimen {
-  background: #ffffff;
-  border: 2px solid var(--neutral-900);
-  border-radius: 4px;
-  box-shadow: var(--shadow-lg);
-  padding: 2.5rem;
-}
-
-.specimen-meta-row {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid var(--neutral-100);
-  padding-bottom: 1rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--neutral-600);
-  letter-spacing: 0.5px;
-}
-
-.specimen-asset-line {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-.specimen-asset-line span {
-  color: var(--utility-green);
-  font-weight: 800;
-}
-
-.specimen-data-dock {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed var(--neutral-300);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.specimen-readiness-container {
-  width: 100%;
-  max-width: 240px;
-}
-
-.specimen-progress-frame {
-  background: var(--neutral-100);
-  border: 1px solid var(--neutral-300);
-  height: 20px;
-  width: 100%;
-  position: relative;
-  margin-top: 4px;
-}
-
-.specimen-progress-fill {
-  background: var(--utility-green);
-  height: 100%;
-  width: 89%;
-}
-
-.specimen-progress-text {
-  position: absolute;
-  right: 8px;
-  top: 0;
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 18px;
-  color: var(--neutral-900);
-}
-
-.specimen-locked-vault {
-  background: var(--accent-gold-bg);
-  border: 1px dashed var(--accent-gold);
-  padding: 12px 16px;
-  text-align: right;
-  border-radius: 2px;
-}
-
-.vault-label {
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--neutral-600);
-  display: block;
-}
-
-.vault-value {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--accent-gold);
-  display: block;
-  margin-top: 2px;
-}
-
-/* 9. ONBOARDING LIFECYCLE GRID ENGINE */
-.lifecycle-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.step-matrix-card {
-  background: #ffffff;
-  border: 1px solid var(--neutral-300);
-  padding: 1.5rem;
-  border-radius: 4px;
-  position: relative;
-}
-
-.step-matrix-card.focus-track {
-  border-color: var(--accent-blue);
-  background: var(--neutral-100);
-}
-
-.step-num-flag {
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--accent-blue);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.step-matrix-card.focus-track .step-num-flag {
-  color: var(--utility-green);
-}
-
-.step-matrix-title {
-  font-weight: 800;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: var(--neutral-900);
-}
-
-.step-matrix-desc {
-  font-size: 0.95rem;
-  color: var(--neutral-600);
-}
-
-.step-matrix-timeline {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  display: block;
-  margin-top: 1rem;
-  color: var(--neutral-800);
-}
-
-/* 10. METRICS & TRUST INDEX ENGINE */
-.metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.metric-card-legacy {
-  background: var(--neutral-100);
-  padding: 1.5rem;
-  border-left: 6px solid var(--accent-blue);
-  border-radius: 2px;
-}
-
-.metric-num-legacy {
-  font-size: 2.8rem;
-  font-weight: 800;
-  display: block;
-  line-height: 1.1;
-  letter-spacing: -1px;
-}
-
-.metric-label-legacy {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--neutral-600);
-  text-transform: uppercase;
-  margin-top: 6px;
-  letter-spacing: 0.5px;
-}
-
-/* 11. STRIPE-GRADE TRANSACTIONAL CTA LAYOUTS */
-.btn-action {
-  display: inline-block;
-  font-family: inherit;
-  font-size: 1.125rem;
-  font-weight: 700;
-  background-color: var(--accent-blue);
-  color: #ffffff;
-  padding: 18px 40px;
-  border: none;
-  border-bottom: 4px solid var(--accent-blue-hover);
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  border-radius: 4px;
-  transition: var(--transition-smooth);
-}
-
-.btn-action:hover {
-  background-color: var(--accent-blue-hover);
-  transform: translateY(-1px);
-}
-
-.btn-meta-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--neutral-600);
-  display: flex;
-  gap: 1.5rem;
-}
-
-.anchor-cta-block {
-  text-align: center;
-  background: var(--neutral-900);
-  color: #ffffff;
-  border-radius: 6px;
-  padding: 5rem 2.5rem;
-  margin-bottom: 6rem;
-}
-
-/* 12. DATA INTAKE FORM STYLING PARADIGMS */
-.contact-form {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--neutral-300);
-  box-shadow: var(--shadow-sm);
-  display: grid;
-  gap: 1.25rem;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--neutral-300);
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
-  color: var(--neutral-900);
-  background-color: #ffffff;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-  outline: 2px solid var(--accent-blue);
-  outline-offset: -1px;
-}
-
-/* 13. ACCESSIBILITY & CORE SYSTEM ANCHORS */
-.site-footer {
-  background-color: var(--neutral-100);
-  border-top: 1px solid var(--neutral-300);
-  padding: 4rem 2rem;
-  font-size: 0.95rem;
-  color: var(--neutral-600);
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-identity {
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--neutral-900);
-  margin-bottom: 4px;
-}
-
-.footer-sub-label {
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-  color: var(--neutral-600);
-}
-
-.footer-address-block {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  border-left: 3px solid var(--neutral-300);
-  padding-left: 1rem;
-}
-
-.footer-copyright {
-  font-size: 0.8125rem;
-  border-top: 1px solid var(--neutral-300);
-  padding-top: 1.5rem;
-  color: var(--neutral-600);
-}
-
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: var(--accent-gold);
-  color: var(--neutral-900);
-  padding: 0.75rem 1.5rem;
-  font-weight: 700;
-  z-index: 2000;
-  transition: top 0.2s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-/* 14. RESPONSIVE MEDIA SPECIFICATIONS */
-@media (max-width: 960px) {
-  html { font-size: 15px; }
-  .asymmetric-grid, .symmetric-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-title { font-size: 2.25rem; }
-  .panel-section { padding: 4rem 0; }
-  .infographic-wrapper { padding: 1.5rem; }
-  
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: var(--neutral-900);
-    flex-direction: column;
-    padding: 1.5rem;
-    border-bottom: 4px solid var(--accent-blue);
-  }
-  
-  .nav-links.active {
+.cta-group {
     display: flex;
-  }
-  
-  .mobile-toggle {
-    display: block;
-  }
-  
-  .btn-meta-label {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *:before, *:after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+.center-group {
+    margin-top: 1.5rem;
+}
+
+/* BUTTONS */
+.btn-primary, .btn-primary-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-accent-blue);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-blue-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 1px solid var(--color-border);
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-light);
+}
+
+.btn-primary-light {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.btn-secondary-light {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--color-white);
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* EVIDENCE STRIP */
+.evidence-section {
+    background-color: var(--color-light);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 2.5rem 0;
+}
+
+.metrics-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.metric-card {
+    text-align: center;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-accent-green);
+    line-height: 1;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-medium);
+    margin-top: 0.5rem;
+}
+
+/* SECTIONS */
+.section-block {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.bg-alt {
+    background-color: var(--color-light);
+}
+
+.bg-accent {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.section-lead {
+    font-size: 1.125rem;
+    color: var(--color-medium);
+}
+
+.text-white {
+    color: var(--color-white) !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* GRIDS & CARDS */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.card, .card-subtle, .card-eco, .step-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.75rem;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.925rem;
+    color: var(--color-medium);
+    line-height: 1.5;
+}
+
+.card-eco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.link-btn {
+    display: inline-block;
+    color: var(--color-accent-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+/* TIMELINE */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.step-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-accent-green);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.step-desc {
+    font-size: 0.875rem;
+    color: var(--color-medium);
+}
+
+/* MEDIA / INFOGRAPHICS */
+.media-container {
+    max-width: 1008px;
+    margin: 0 auto;
+}
+
+.media-link {
+    display: block;
+    width: 100%;
+}
+
+.media-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    display: block;
+}
+
+/* CTA BLOCK & CONTACT */
+.cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-direct {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #9ca3af;
+}
+
+.contact-direct a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* MISSION STRIP */
+.mission-strip {
+    background-color: #1f2937;
+    color: var(--color-white);
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #374151;
+}
+
+.mission-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: #9ca3af;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.mission-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+/* FOOTER */
+.site-footer {
+    background-color: var(--color-dark);
+    color: #9ca3af;
+    padding: 4rem 0 2rem 0;
+    font-size: 0.875rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-title {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.footer-sub {
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.footer-heading {
+    color: var(--color-white);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+.footer-item a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #1f2937;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1024px) {
+    .grid-4, .grid-3, .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    .grid-4, .grid-3, .timeline-grid {
+        grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    .nav-links {
+        display: none; /* Add toggle or keep key action visible */
+    }
+}
