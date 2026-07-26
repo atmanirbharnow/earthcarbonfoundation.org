@@ -1,382 +1,1297 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Climate Asset Registry | Earth Carbon Foundation</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Carbon Foundation | Environmental Asset Registry & Infrastructure</title>
+    <meta name="description" content="Discover, measure, register, and develop hidden environmental assets inside your organization into auditable ecological and balance sheet value.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           EARTH CARBON FOUNDATION — COMPLETE SINGLE-FILE ARCHITECTURE
+           ========================================================================== */
+        
+        :root {
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-dark: #0f172a;
+            --bg-card: #ffffff;
+            
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-light: #94a3b8;
+            
+            --primary-green: #059669;
+            --primary-green-hover: #047857;
+            --primary-green-light: #ecfdf5;
+            
+            --brand-navy: #0284c7;
+            
+            --border-color: #e2e8f0;
+            --border-green: #a7f3d0;
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            
+            --max-width: 1240px;
+            --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background-color: #022c22;
+            color: #ecfdf5;
+            font-size: 0.85rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #065f46;
+        }
+
+        .bar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-pill {
+            background-color: #059669;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        .bar-text {
+            font-weight: 500;
+        }
+
+        /* HEADER & NAV */
+        .site-header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4.75rem;
+        }
+
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-mark {
+            background: linear-gradient(135deg, #059669, #0284c7);
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            color: var(--primary-green);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.75rem;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.925rem;
+            font-weight: 600;
+            transition: color 0.15s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-nav {
+            background-color: var(--text-main) !important;
+            color: var(--bg-white) !important;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem !important;
+        }
+
+        .btn-nav:hover {
+            background-color: #334155 !important;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding: 5.5rem 0 4.5rem 0;
+            background: radial-gradient(circle at top right, rgba(5, 150, 105, 0.08), transparent 40%);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-green-light);
+            color: var(--primary-green);
+            border: 1px solid var(--border-green);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            max-width: 960px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-lead {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 48rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .section-cta-wrapper {
+            margin-top: 2.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-green);
+            color: var(--bg-white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.95rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: background-color 0.15s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-green-hover);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.95rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-light);
+        }
+
+        /* SECTION 2: STATS & TRUST STRIP */
+        .stats-section {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 0;
+        }
+
+        .stats-header-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* SECTIONS GENERAL */
+        .section-block {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bg-alt {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: 2.75rem;
+        }
+
+        .section-tag {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-lead {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 44rem;
+        }
+
+        /* GRID 4 DELIVERABLES & RECEIVE */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .grid-3-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-green);
+        }
+
+        .card-icon-box {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* CASE STUDY DIGITAL CERTIFICATES */
+        .cert-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-light);
+        }
+
+        .cert-body {
+            padding: 1.5rem;
+        }
+
+        .cert-id {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .cert-client {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .cert-meta-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .cert-meta-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .cert-meta-list strong {
+            color: var(--text-main);
+        }
+
+        .cert-status-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .cert-status-verified {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        /* ONE-LINE HORIZONTAL FLOW (HOW IT WORKS) */
+        .flow-pipeline {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .flow-step {
+            flex: 1;
+            min-width: 220px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-green);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.25rem;
+        }
+
+        .flow-num {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .flow-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        /* ONE-LINE HORIZONTAL ROW (TARGET SECTORS & ECOSYSTEM) */
+        .row-grid {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .grid-6-row .sector-card-compact {
+            flex: 1;
+            min-width: 180px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+        }
+
+        .grid-5-row .eco-card-compact {
+            flex: 1;
+            min-width: 210px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sector-card-compact .sector-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sector-card-compact .sector-icon {
+            font-size: 1.25rem;
+        }
+
+        .sector-card-compact .sector-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .sector-card-compact .sector-text {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .eco-card-compact .eco-badge {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            color: var(--brand-navy);
+            background-color: #e0f2fe;
+            padding: 0.15rem 0.4rem;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .eco-card-compact .eco-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            word-break: break-word;
+        }
+
+        .eco-card-compact .eco-text {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 1rem;
+        }
+
+        .eco-card-compact .eco-link {
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .eco-card-compact .eco-link:hover {
+            text-decoration: underline;
+        }
+
+        /* BALANCED FULL-WIDTH INFOGRAPHICS */
+        .infographic-wrapper {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .space-bottom {
+            margin-bottom: 3rem;
+        }
+
+        .infographic-img {
+            width: 100%;
+            height: auto;
+            max-height: none;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            display: block;
+            background-color: var(--bg-white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        /* FINAL CTA */
+        .cta-section {
+            background-color: var(--bg-dark);
+            color: var(--bg-white);
+            padding: 5.5rem 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-heading {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-sub {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary-light {
+            background-color: var(--primary-green);
+            color: var(--bg-white);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 0.95rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary-light {
+            background-color: transparent;
+            color: var(--bg-white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            padding: 0.95rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-strip {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .contact-strip span {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-strip a {
+            color: var(--bg-white);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* MISSION BANNER */
+        .mission-banner {
+            background-color: #022c22;
+            color: #ffffff;
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid #065f46;
+        }
+
+        .mission-tag {
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #34d399;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-quote {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            max-width: 52rem;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 4.5rem 0 2rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--bg-white);
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-tagline {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .footer-address {
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        .footer-col-title {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--bg-white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-link-item {
+            margin-bottom: 0.65rem;
+        }
+
+        .footer-link-item a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+
+        .footer-link-item a:hover {
+            color: var(--bg-white);
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .grid-4, .grid-3-cards, .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .flow-arrow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .grid-4, .grid-3-cards, .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
-  <!-- ================= HEADER / NAVBAR ================= -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md">
-          <i class="fa-solid fa-globe"></i>
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="announcement-bar">
+        <div class="container bar-flex">
+            <span class="badge-pill">REGISTRY ACTIVE</span>
+            <span class="bar-text">Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
         </div>
-        <div>
-          <span class="text-base font-extrabold text-slate-900 tracking-tight block leading-none">CLIMATE ASSET REGISTRY</span>
-          <span class="text-[10px] text-emerald-700 font-bold uppercase tracking-widest block mt-0.5">Earth Carbon Foundation</span>
-        </div>
-      </div>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-600">
-        <a href="#section-1" class="hover:text-emerald-600 transition-colors">Overview</a>
-        <a href="#section-2" class="hover:text-emerald-600 transition-colors">Framework</a>
-        <a href="#section-3" class="hover:text-emerald-600 transition-colors">Scoreboards</a>
-        <a href="#section-4" class="hover:text-emerald-600 transition-colors">Case Studies</a>
-        <a href="#section-5" class="hover:text-emerald-600 transition-colors">Methodology</a>
-        <a href="#section-6" class="hover:text-emerald-600 transition-colors">Registry Intake</a>
-        <a href="#section-7" class="hover:text-emerald-600 transition-colors">Verification</a>
-      </nav>
-      <div>
-        <a href="#section-6" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition-all inline-block">
-          Register Asset
-        </a>
-      </div>
     </div>
-  </header>
 
-  <!-- ================= SECTION 1: OVERVIEW & HERO ================= -->
-  <section id="section-1" class="py-24 bg-slate-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
-    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-      <span class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 px-3.5 py-1.5 rounded-full">
-        SECTION 1 • Measure • Manage • Monetise
-      </span>
-      <h1 class="text-4xl md:text-6xl font-black text-white mt-6 tracking-tight leading-tight">
-        Auditable Environmental Asset Registries
-      </h1>
-      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mt-4 font-normal">
-        Deploying high-integrity scoreboards and verifiable digital climate impact certificates across public, educational, and sports infrastructure deployments.
-      </p>
-      <div class="mt-8 flex justify-center space-x-4">
-        <a href="#section-4" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-sm px-6 py-3 rounded-lg shadow-lg transition-all">
-          View Live Case Studies
-        </a>
-      </div>
+    <!-- NAVIGATION -->
+    <header class="site-header">
+        <div class="container nav-flex">
+            <a href="/" class="brand-logo">
+                <span class="logo-mark">ECF</span>
+                <span class="logo-text">Earth Carbon <span>Foundation</span></span>
+            </a>
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu">
+                    <li><a href="#deliverables">Deliverables</a></li>
+                    <li><a href="#receive">What You Get</a></li>
+                    <li><a href="#cases">Case Studies</a></li>
+                    <li><a href="#process">How It Works</a></li>
+                    <li><a href="#sectors">Who We Serve</a></li>
+                    <li><a href="#ecosystem">Ecosystem</a></li>
+                    <li><a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-nav" target="_blank" rel="noopener">Start Free Assessment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="dot"></span> Next-Gen Climate Asset Infrastructure
+                    </div>
+                    <h1 class="hero-title">
+                        Discover the Environmental Assets Hidden Inside Your Organisation
+                    </h1>
+                    <p class="hero-lead">
+                        Identify • Measure • Register • Develop Environmental Assets into measurable environmental and business value.
+                    </p>
+                    <div class="cta-group">
+                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
+                            Start Free Assessment
+                        </a>
+                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
+                            Download Environmental Asset Playbook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. SECTION 2: TRUST & CREDIBILITY -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-header-title">TRUST &amp; CREDIBILITY</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value">14+</span>
+                        <span class="stat-label">Years Operational Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">1,200+</span>
+                        <span class="stat-label">Institutional Participants</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">17,000+</span>
+                        <span class="stat-label">tCO₂e Identified &amp; Registered</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">100M</span>
+                        <span class="stat-label">Ton Target Mitigation Mission</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CORE DELIVERABLES -->
+        <section class="section-block" id="deliverables">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">CORE DELIVERABLES</span>
+                    <h2 class="section-title">Turn Uncredited Actions Into Quantifiable Balance-Sheet Value</h2>
+                    <p class="section-lead">Instead of developing one isolated project at a time, we aggregate existing low-carbon initiatives into structured, high-integrity portfolios.</p>
+                </div>
+                <div class="grid-4">
+                    <div class="feature-card">
+                        <div class="card-icon-box">📁</div>
+                        <h3 class="card-title">Environmental Asset Portfolio</h3>
+                        <p class="card-desc">Consolidates scattered operational actions into unified, auditable environmental balance sheet assets.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">📊</div>
+                        <h3 class="card-title">Natural Resource Balance Sheet (NRBS™)</h3>
+                        <p class="card-desc">Standardized accounting metrics mapping operational carbon avoidance alongside financial statements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">📜</div>
+                        <h3 class="card-title">Registry Certificate</h3>
+                        <p class="card-desc">Formal registration and validation of your verified carbon avoidance and capture data points.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">🖥️</div>
+                        <h3 class="card-title">Environmental Dashboard</h3>
+                        <p class="card-desc">Real-time digital visibility into ongoing asset performance, impact verification, and valuation.</p>
+                    </div>
+                </div>
+                <div class="section-cta-wrapper">
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
+                        Start Free Assessment
+                    </a>
+                    <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
+                        Download Environmental Asset Playbook
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECTION 4: CASE STUDIES & DIGITAL CERTIFICATES -->
+        <section class="section-block bg-alt" id="cases">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 4</span>
+                    <h2 class="section-title">CASE STUDIES</h2>
+                    <p class="section-lead">Auditable, public digital certificates and environmental scoreboards generated across active public and educational deployments.</p>
+                </div>
+                <div class="grid-3-cards">
+                    <!-- Case Study 1 -->
+                    <div class="cert-card">
+                        <img src="Copy of GLS climate Certificate.png" alt="Gujarat Law Society Climate Certificate" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">SUMMARY ID: CAF-SCH-0025</span>
+                            <h3 class="cert-client">Gujarat Law Society, Ellisbridge</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Sector:</strong> Educational Institution[cite: 5]</li>
+                                <li><strong>Action:</strong> Rooftop Solar (30,948 kWh/yr)[cite: 5]</li>
+                                <li><strong>Offset:</strong> 6,167.43 tCO₂e Reduced[cite: 5]</li>
+                                <li><strong>Atmanirbhar Score:</strong> 99%[cite: 5]</li>
+                            </ul>
+                            <span class="cert-status-badge">PENDING / SELF-REPORTED</span>[cite: 5]
+                        </div>
+                    </div>
+                    <!-- Case Study 2 -->
+                    <div class="cert-card">
+                        <img src="Ghandhinagar Asset .png" alt="Gandhinagar Constituency Scoreboard" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">CONSTITUENCY SCOREBOARD</span>
+                            <h3 class="cert-client">Gandhinagar Parliamentary Constituency</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Scope:</strong> 235 Environmental Assets Registered[cite: 4]</li>
+                                <li><strong>Action:</strong> Solar, Water, Waste &amp; Biodiversity[cite: 4]</li>
+                                <li><strong>Offset:</strong> 1,25,000 tCO₂e / year[cite: 4]</li>
+                                <li><strong>Atmanirbhar Score:</strong> 78% Overall[cite: 4]</li>
+                            </ul>
+                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 4]
+                        </div>
+                    </div>
+                    <!-- Case Study 3 -->
+                    <div class="cert-card">
+                        <img src="Board Of Control for Cricket In India.png" alt="Cricket Infrastructure Environmental Scoreboard" class="cert-img">
+                        <div class="cert-body">
+                            <span class="cert-id">INFRASTRUCTURE REGISTRY</span>
+                            <h3 class="cert-client">Cricket Infrastructure Scoreboard</h3>
+                            <ul class="cert-meta-list">
+                                <li><strong>Scope:</strong> 125 Stadium Facilities Registered[cite: 3]</li>
+                                <li><strong>Capacity:</strong> 85 MW Solar &amp; 2.5B Liters Water[cite: 3]</li>
+                                <li><strong>Offset:</strong> 150,000 tCO₂e / year[cite: 3]</li>
+                                <li><strong>Target:</strong> 100M Tons Mission Support[cite: 3]</li>
+                            </ul>
+                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 3]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. WHAT YOU WILL RECEIVE -->
+        <section class="section-block" id="receive">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">VERIFIED OUTPUTS</span>
+                    <h2 class="section-title">What You Will Receive</h2>
+                    <p class="section-lead">Every participating entity receives official, auditable registry documentation detailing measurable environmental and resource impact.</p>
+                </div>
+                <div class="grid-4">
+                    <div class="feature-card">
+                        <div class="card-icon-box">📜</div>
+                        <h3 class="card-title">Climate Asset Registry Impact Certificate</h3>
+                        <p class="card-desc">Verified registry documentation featuring unique Summary IDs, verified status tracking, and MoEF&CC-aligned methodology factor seals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">🌱</div>
+                        <h3 class="card-title">Atmanirbhar % Score Card</h3>
+                        <p class="card-desc">A standardized self-sustaining rate evaluating clean energy generation, water security, and resource independence across operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">♻️</div>
+                        <h3 class="card-title">Circularity &amp; Waste Diversion Metrics</h3>
+                        <p class="card-desc">Quantified metrics for waste diverted from landfills, resource re-use rates, and annual tCO₂e reduction baselines.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="card-icon-box">🔒</div>
+                        <h3 class="card-title">Public Verification &amp; Digital Signatures</h3>
+                        <p class="card-desc">Publicly verifiable QR codes, online verification portal links, and unique cryptographic digital signature footprints for audit compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. HOW IT WORKS (Single Line Flow Diagram) -->
+        <section class="section-block bg-alt" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">HOW IT WORKS</span>
+                    <h2 class="section-title">Structured 4-Step Asset Development Pipeline</h2>
+                    <p class="section-lead">A seamless, scientific methodology designed to unlock value without disrupting core operations.</p>
+                </div>
+                <div class="flow-pipeline">
+                    <div class="flow-step">
+                        <span class="flow-num">01</span>
+                        <h3 class="flow-title">Discover</h3>
+                        <p class="flow-text">Audit facilities, clean power setups, and waste systems to isolate unregistered environmental assets.</p>
+                    </div>
+                    <div class="flow-arrow" aria-hidden="true">→</div>
+                    <div class="flow-step">
+                        <span class="flow-num">02</span>
+                        <h3 class="flow-title">Measure</h3>
+                        <p class="flow-text">Quantify carbon avoidance, sequestration, and resource savings using UN-aligned scientific metrics.</p>
+                    </div>
+                    <div class="flow-arrow" aria-hidden="true">→</div>
+                    <div class="flow-step">
+                        <span class="flow-num">03</span>
+                        <h3 class="flow-title">Register</h3>
+                        <p class="flow-text">Issue official registry certificates and log verifiable entries into the central registry database.</p>
+                    </div>
+                    <div class="flow-arrow" aria-hidden="true">→</div>
+                    <div class="flow-step">
+                        <span class="flow-num">04</span>
+                        <h3 class="flow-title">Develop</h3>
+                        <p class="flow-text">Package validated data into institutional portfolios for long-term ESG and financial positioning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. TARGET SECTORS (Single Line Grid) -->
+        <section class="section-block" id="sectors">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">TARGET SECTORS</span>
+                    <h2 class="section-title">Built for Multi-Sector Climate Action</h2>
+                    <p class="section-lead">Empowering organizations across industrial, public, and private spectrums.</p>
+                </div>
+                <div class="row-grid grid-6-row">
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">🏭</span>
+                            <h3 class="sector-title">Industry</h3>
+                        </div>
+                        <p class="sector-text">Manufacturing and heavy industrial units converting sustainability actions into quantifiable balance-sheet assets.</p>
+                    </div>
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">🏛️</span>
+                            <h3 class="sector-title">Institutions</h3>
+                        </div>
+                        <p class="sector-text">Academic and corporate campuses structuralizing large-scale green infrastructure and solar setups.</p>
+                    </div>
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">☀️</span>
+                            <h3 class="sector-title">Solar EPC</h3>
+                        </div>
+                        <p class="sector-text">Developers monetizing and registering carbon assets embedded in distributed solar generation capacity.</p>
+                    </div>
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">🏢</span>
+                            <h3 class="sector-title">Government</h3>
+                        </div>
+                        <p class="sector-text">Public bodies and municipal entities capturing local environmental action value for regional target tracking.</p>
+                    </div>
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">🚆</span>
+                            <h3 class="sector-title">Infrastructure</h3>
+                        </div>
+                        <p class="sector-text">Transit, logistics, and port infrastructure registering energy efficiency and electrification gains.</p>
+                    </div>
+                    <div class="sector-card-compact">
+                        <div class="sector-header">
+                            <span class="sector-icon">🌾</span>
+                            <h3 class="sector-title">Agriculture</h3>
+                        </div>
+                        <p class="sector-text">Agri-enterprises and forestry authorities measuring land-use carbon sequestration and soil regeneration.</p>
+                    </div>
+                </div>
+                <div class="section-cta-wrapper">
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
+                        Start Free Assessment
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. INFOGRAPHICS DISPLAY (BALANCED & EXPANDED) -->
+        <section class="section-block bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">VISUAL ARCHITECTURE</span>
+                    <h2 class="section-title">Institutional Portfolio Framework</h2>
+                </div>
+                <div class="infographic-wrapper space-bottom">
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener">
+                        <img src="landing page section 6.png" alt="Approach Comparison Framework" class="infographic-img">
+                    </a>
+                </div>
+                <div class="infographic-wrapper">
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener">
+                        <img src="landing_page_section_7.png" alt="Start Your Portfolio Framework Flow" class="infographic-img">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. THE ECOSYSTEM (Single Line Row) -->
+        <section class="section-block" id="ecosystem">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">THE ECOSYSTEM</span>
+                    <h2 class="section-title">Earth Carbon Infrastructure Network</h2>
+                    <p class="section-lead">Interconnected platforms driving scientific verification, public registration, and citizen action.</p>
+                </div>
+                <div class="row-grid grid-5-row">
+                    <div class="eco-card-compact">
+                        <div>
+                            <span class="eco-badge">GOVERNANCE</span>
+                            <h3 class="eco-title">EarthCarbonFoundation.org</h3>
+                            <p class="eco-text">Governing body driving portfolio methodologies, research, and technical asset standards.</p>
+                        </div>
+                        <a href="https://earthcarbonfoundation.org" class="eco-link" target="_blank" rel="noopener">Explore Foundation →</a>
+                    </div>
+                    <div class="eco-card-compact">
+                        <div>
+                            <span class="eco-badge">REGISTRY</span>
+                            <h3 class="eco-title">RegistryEarthCarbon.org</h3>
+                            <p class="eco-text">Centralized registry for tracking, verifying, and issuing environmental assets.</p>
+                        </div>
+                        <a href="https://registryearthcarbon.org" class="eco-link" target="_blank" rel="noopener">Access Registry →</a>
+                    </div>
+                    <div class="eco-card-compact">
+                        <div>
+                            <span class="eco-badge">GLOBAL MISSION</span>
+                            <h3 class="eco-title">100MTons.com</h3>
+                            <p class="eco-text">Global campaign tracking organizational commitments toward 100M tCO₂e mitigation.</p>
+                        </div>
+                        <a href="https://100mtons.com" class="eco-link" target="_blank" rel="noopener">View Target →</a>
+                    </div>
+                    <div class="eco-card-compact">
+                        <div>
+                            <span class="eco-badge">ENGAGEMENT</span>
+                            <h3 class="eco-title">Time2Repay.com</h3>
+                            <p class="eco-text">Citizen and corporate engagement framework for active ecological restitution.</p>
+                        </div>
+                        <a href="https://time2repay.com" class="eco-link" target="_blank" rel="noopener">Explore Framework →</a>
+                    </div>
+                    <div class="eco-card-compact">
+                        <div>
+                            <span class="eco-badge">SELF-RELIANCE</span>
+                            <h3 class="eco-title">AtmanirbharNow.org</h3>
+                            <p class="eco-text">Decentralized resource self-reliance and sustainability development engine.</p>
+                        </div>
+                        <a href="https://atmanirbharnow.org" class="eco-link" target="_blank" rel="noopener">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FINAL CTA & CONTACT SECTION -->
+        <section class="cta-section" id="contact">
+            <div class="container">
+                <div class="cta-box">
+                    <h2 class="cta-heading">Ready to Discover Your Environmental Assets?</h2>
+                    <p class="cta-sub">Start a free assessment today or download our Environmental Asset Playbook to get started.</p>
+                    <div class="cta-group">
+                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary-light" target="_blank" rel="noopener">Start Free Assessment</a>
+                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary-light" target="_blank" rel="noopener">Download Environmental Asset Playbook</a>
+                    </div>
+                    <div class="contact-strip">
+                        <span>Need to consult with our secretariat before registering?</span>
+                        <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a> | <a href="tel:+919824025431">+91 9824025431</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MISSION BANNER -->
+    <div class="mission-banner">
+        <div class="container">
+            <p class="mission-tag">GLOBAL GOAL</p>
+            <p class="mission-quote">Transform 100 Million tCO₂e of existing environmental actions into structured Environmental Asset Portfolios by 2030.</p>
+        </div>
     </div>
-  </section>
 
-  <!-- ================= SECTION 2: FRAMEWORK ================= -->
-  <section id="section-2" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <span class="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">SECTION 2</span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">THE ATMANIRBHAR REGISTRY FRAMEWORK</h2>
-        <p class="text-slate-600 mt-2 text-base max-w-3xl">Structuring institutional climate action into transparent, verifiable data points across three core pillars.</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-          <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center font-bold mb-4"><i class="fa-solid fa-solar-panel"></i></div>
-          <h3 class="font-bold text-lg text-slate-900 mb-2">Energy Self-Reliance</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Aggregating distributed rooftop solar deployments into consolidated Programs of Activities (PoA) for carbon accounting.</p>
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="footer-brand">Earth Carbon Foundation</p>
+                    <p class="footer-tagline">Building Structured Environmental Asset Portfolios</p>
+                    <address class="footer-address">
+                        358, Saraswatinagar, Azad Society Road<br>
+                        Ambawadi, Ahmedabad – 380015<br>
+                        Gujarat, India
+                    </address>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Secretariat &amp; Contact</p>
+                    <p class="footer-link-item">Email: <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></p>
+                    <p class="footer-link-item">Phone: <a href="tel:+919824025431">+91 9824025431</a></p>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-title">Framework Services</p>
+                    <ul class="footer-list">
+                        <li>Environmental Asset Portfolio</li>
+                        <li>Natural Resource Balance Sheet (NRBS™)</li>
+                        <li>Registry Development &amp; Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Earth Carbon Foundation. All Rights Reserved.</p>
+                <p>Developing Environmental Asset Portfolios for Long-Term Climate Action.</p>
+            </div>
         </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-          <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center font-bold mb-4"><i class="fa-solid fa-droplet"></i></div>
-          <h3 class="font-bold text-lg text-slate-900 mb-2">Water Security</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Quantifying rainwater harvesting, groundwater recharge, and wastewater recycling across regional infrastructure.</p>
-        </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-          <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center font-bold mb-4"><i class="fa-solid fa-recycle"></i></div>
-          <h3 class="font-bold text-lg text-slate-900 mb-2">Zero Waste & Circularity</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">Tracking landfill diversion rates, organic waste composting, and material resource reuse scores.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 3: ACTIVE SCOREBOARDS ================= -->
-  <section id="section-3" class="py-16 bg-slate-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10 border-b border-slate-800 pb-6">
-        <span class="text-xs font-bold font-mono tracking-widest text-emerald-400 uppercase">SECTION 3</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">ACTIVE CONSTITUENCY & INFRASTRUCTURE SCOREBOARDS</h2>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Scoreboard Card 1 -->
-        <div class="p-6 bg-slate-800/90 rounded-2xl border border-slate-700">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Gandhinagar Parliamentary Constituency</span>
-            <span class="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-bold">✓ Active</span>
-          </div>
-          <div class="grid grid-cols-2 gap-4 my-4">
-            <div class="p-3 bg-slate-900/60 rounded-lg border border-slate-700/60">
-              <span class="text-[10px] text-slate-400 uppercase block font-semibold">Registered Assets</span>
-              <span class="text-xl font-bold text-white">235 Assets</span>
-            </div>
-            <div class="p-3 bg-slate-900/60 rounded-lg border border-slate-700/60">
-              <span class="text-[10px] text-slate-400 uppercase block font-semibold">Annual Offset</span>
-              <span class="text-xl font-bold text-emerald-400">1,25,000 tCO₂e</span>
-            </div>
-          </div>
-          <div class="flex justify-between items-center pt-3 border-t border-slate-700 text-xs text-slate-300">
-            <span>Overall Atmanirbhar Score</span>
-            <span class="text-sm font-extrabold bg-emerald-600 px-2.5 py-0.5 rounded text-white">78%</span>
-          </div>
-        </div>
-
-        <!-- Scoreboard Card 2 -->
-        <div class="p-6 bg-slate-800/90 rounded-2xl border border-slate-700">
-          <div class="flex justify-between items-start mb-4">
-            <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider">Cricket Infrastructure Scoreboard</span>
-            <span class="text-xs bg-blue-500/20 text-blue-300 border border-blue-500/30 px-2.5 py-0.5 rounded-full font-bold">✓ Active</span>
-          </div>
-          <div class="grid grid-cols-2 gap-4 my-4">
-            <div class="p-3 bg-slate-900/60 rounded-lg border border-slate-700/60">
-              <span class="text-[10px] text-slate-400 uppercase block font-semibold">Facilities Registered</span>
-              <span class="text-xl font-bold text-white">125 Stadiums</span>
-            </div>
-            <div class="p-3 bg-slate-900/60 rounded-lg border border-slate-700/60">
-              <span class="text-[10px] text-slate-400 uppercase block font-semibold">Annual Offset</span>
-              <span class="text-xl font-bold text-blue-400">1,50,000 tCO₂e</span>
-            </div>
-          </div>
-          <div class="flex justify-between items-center pt-3 border-t border-slate-700 text-xs text-slate-300">
-            <span>Target Mission Support</span>
-            <span class="text-xs font-bold bg-slate-700 px-2.5 py-1 rounded text-slate-200">100M Tons Target</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 4: CASE STUDIES (Embedded SVG Fallbacks) ================= -->
-  <section id="section-4" class="py-16 bg-slate-50 border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-12 border-b border-slate-200 pb-6">
-        <span class="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">SECTION 4</span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">CASE STUDIES</h2>
-        <p class="text-slate-600 mt-2 text-base max-w-3xl">
-          Auditable, public digital certificates and environmental scoreboards generated across active public and educational deployments.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <!-- Case Study 1: Educational Deployment Certificate -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
-          <div class="p-4 bg-slate-900 text-white border-b border-slate-200 flex flex-col justify-between h-56">
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-[10px] font-mono text-emerald-400 font-bold block">IMPACT CERTIFICATE</span>
-                <span class="text-xs font-bold text-white uppercase">Gujarat Law Society</span>
-              </div>
-              <span class="text-[9px] bg-amber-500/20 text-amber-300 border border-amber-500/30 px-1.5 py-0.5 rounded font-mono">PENDING</span>
-            </div>
-            <div class="grid grid-cols-3 gap-2 text-center my-2">
-              <div class="bg-emerald-700 p-2 rounded">
-                <span class="text-[8px] uppercase block text-emerald-100">Offset</span>
-                <span class="text-xs font-black">6167.4t</span>
-              </div>
-              <div class="bg-emerald-950 p-2 rounded">
-                <span class="text-[8px] uppercase block text-emerald-200">Atmanirbhar</span>
-                <span class="text-xs font-black">99%</span>
-              </div>
-              <div class="bg-sky-600 p-2 rounded">
-                <span class="text-[8px] uppercase block text-sky-100">Circularity</span>
-                <span class="text-xs font-black">100%</span>
-              </div>
-            </div>
-            <div class="text-[9px] text-slate-400 font-mono flex justify-between">
-              <span>ID: CAF-SCH-0025</span>
-              <span>Rooftop Solar 30,948 kWh/yr</span>
-            </div>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-[11px] font-mono font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded">ID: CAF-SCH-0025</span>
-                <span class="text-[11px] font-semibold text-emerald-600">Educational Module</span>
-              </div>
-              <h3 class="font-bold text-slate-900 text-base mb-1">Gujarat Law Society, Ellisbridge</h3>
-              <p class="text-xs text-slate-500 mb-4">Rooftop Solar | 30,948 kWh/yr | 6,167.43 tCO₂e Reduced</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-600">Atmanirbhar Score: <strong class="text-emerald-600">99%</strong></span>
-              <a href="#section-7" class="text-xs font-bold text-emerald-700 hover:underline">Verify Entry →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 2: Constituency Scoreboard -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
-          <div class="p-4 bg-emerald-950 text-white border-b border-slate-200 flex flex-col justify-between h-56">
-            <div>
-              <span class="text-[10px] font-mono text-emerald-400 font-bold block">CONSTITUENCY SCOREBOARD</span>
-              <span class="text-xs font-bold text-white uppercase">Gandhinagar Constituency</span>
-            </div>
-            <div class="grid grid-cols-2 gap-2 my-2 text-xs">
-              <div class="bg-slate-900/80 p-2 rounded border border-emerald-800/50">
-                <span class="text-[9px] text-slate-400 block">Scope</span>
-                <span class="font-bold text-white">235 Assets</span>
-              </div>
-              <div class="bg-slate-900/80 p-2 rounded border border-emerald-800/50">
-                <span class="text-[9px] text-slate-400 block">Reduction</span>
-                <span class="font-bold text-emerald-400">1,25,000 tCO₂e</span>
-              </div>
-            </div>
-            <div class="text-[9px] text-slate-300 font-mono">
-              Action: Solar, Water, Waste & Biodiversity
-            </div>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded">235 Assets</span>
-                <span class="text-[11px] font-semibold text-emerald-600">Public Sector</span>
-              </div>
-              <h3 class="font-bold text-slate-900 text-base mb-1">Gandhinagar Parliamentary Constituency</h3>
-              <p class="text-xs text-slate-500 mb-4">1,25,000 tCO₂e/yr | Solar, Water, Waste & Biodiversity</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-600">Atmanirbhar Score: <strong class="text-emerald-600">78%</strong></span>
-              <a href="#section-3" class="text-xs font-bold text-emerald-700 hover:underline">View Scoreboard →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 3: Cricket Infrastructure -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col">
-          <div class="p-4 bg-slate-900 text-white border-b border-slate-200 flex flex-col justify-between h-56">
-            <div>
-              <span class="text-[10px] font-mono text-blue-400 font-bold block">INFRASTRUCTURE REGISTRY</span>
-              <span class="text-xs font-bold text-white uppercase">Cricket Infrastructure</span>
-            </div>
-            <div class="grid grid-cols-2 gap-2 my-2 text-xs">
-              <div class="bg-slate-800 p-2 rounded border border-slate-700">
-                <span class="text-[9px] text-slate-400 block">Capacity</span>
-                <span class="font-bold text-white">85 MW Solar</span>
-              </div>
-              <div class="bg-slate-800 p-2 rounded border border-slate-700">
-                <span class="text-[9px] text-slate-400 block">Water</span>
-                <span class="font-bold text-blue-400">2.5B Liters</span>
-              </div>
-            </div>
-            <div class="text-[9px] text-slate-300 font-mono">
-              Target: 100M Tons Mission Support
-            </div>
-          </div>
-          <div class="p-5 flex-1 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-[11px] font-mono font-bold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded">125 Stadiums</span>
-                <span class="text-[11px] font-semibold text-emerald-600">Sports Infra</span>
-              </div>
-              <h3 class="font-bold text-slate-900 text-base mb-1">Cricket Infrastructure Registry</h3>
-              <p class="text-xs text-slate-500 mb-4">85 MW Solar & 2.5B Liters Water | 150,000 tCO₂e/yr</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-xs font-semibold text-slate-600">Target Support: <strong class="text-blue-600">100M Tons</strong></span>
-              <a href="#section-3" class="text-xs font-bold text-emerald-700 hover:underline">View Scoreboard →</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 5: METHODOLOGY ================= -->
-  <section id="section-5" class="py-16 bg-white border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-10">
-        <span class="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">SECTION 5</span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">ACCOUNTING & VERIFICATION METHODOLOGY</h2>
-        <p class="text-slate-600 mt-2 text-base max-w-3xl">Aligned with global carbon credit protocols and national environmental guidelines.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8 text-xs text-slate-700">
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-          <h3 class="font-bold text-sm text-slate-900 mb-2">Emission Factor Standards</h3>
-          <p class="leading-relaxed mb-4">Emission reduction calculations utilize MoEF&CC regional grid emission factors combined with custom registry protocol parameters specific to solar rooftop generation and waste diversion.</p>
-          <span class="font-mono text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-200 font-semibold">Protocol: CAF-VER-2026</span>
-        </div>
-        <div class="p-6 bg-slate-50 rounded-xl border border-slate-200">
-          <h3 class="font-bold text-sm text-slate-900 mb-2">Atmanirbhar Index Calculation</h3>
-          <p class="leading-relaxed mb-4">Calculates an institution's percentage self-reliance across energy generation, water capture, and landfill waste diversion against total annual facility consumption.</p>
-          <span class="font-mono text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-200 font-semibold">Metric: Self-Sustaining Ratio %</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 6: INTAKE REGISTRY ================= -->
-  <section id="section-6" class="py-16 bg-slate-100 border-t border-slate-200">
-    <div class="max-w-3xl mx-auto px-4">
-      <div class="text-center mb-8">
-        <span class="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">SECTION 6</span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">UNIVERSAL ASSET REGISTRY INTAKE</h2>
-        <p class="text-slate-600 text-xs mt-1">Submit institutional or public environmental data for registry onboarding.</p>
-      </div>
-      <form class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-4 text-xs">
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Organization Name</label>
-            <input type="text" placeholder="e.g. Gujarat Law Society" class="w-full p-2.5 border rounded-lg bg-slate-50 focus:outline-emerald-500" />
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Sector Type</label>
-            <select class="w-full p-2.5 border rounded-lg bg-slate-50 focus:outline-emerald-500">
-              <option>Educational Institution</option>
-              <option>Public Constituency</option>
-              <option>Sports & Infrastructure</option>
-              <option>Commercial / Industrial</option>
-            </select>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Rooftop Solar Capacity (kW or kWh/yr)</label>
-            <input type="text" placeholder="30,948 kWh/yr" class="w-full p-2.5 border rounded-lg bg-slate-50 focus:outline-emerald-500" />
-          </div>
-          <div>
-            <label class="block font-bold text-slate-700 mb-1">Location / PIN Code</label>
-            <input type="text" placeholder="Ahmedabad, 380015" class="w-full p-2.5 border rounded-lg bg-slate-50 focus:outline-emerald-500" />
-          </div>
-        </div>
-        <button type="button" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition-colors">Submit Asset for Verification</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 7: PUBLIC VERIFICATION ================= -->
-  <section id="section-7" class="py-16 bg-white border-t border-slate-200">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <span class="text-xs font-bold font-mono tracking-widest text-emerald-600 uppercase">SECTION 7</span>
-      <h2 class="text-3xl font-extrabold text-slate-900 mt-1">PUBLIC VERIFICATION PORTAL</h2>
-      <p class="text-slate-600 text-xs mt-2 mb-6">Enter a Summary ID to audit public digital certificates and footprints.</p>
-      
-      <div class="flex max-w-md mx-auto space-x-2">
-        <input type="text" value="CAF-SCH-0025" class="flex-1 p-3 border rounded-lg font-mono text-xs uppercase bg-slate-50 font-bold focus:outline-emerald-500" />
-        <button class="bg-slate-900 text-white px-6 py-3 rounded-lg text-xs font-bold hover:bg-slate-800 transition-colors">Audit Certificate</button>
-      </div>
-
-      <div class="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-left text-xs max-w-md mx-auto">
-        <div class="flex justify-between font-mono font-bold text-emerald-800 border-b border-emerald-200 pb-2 mb-2">
-          <span>CAF-SCH-0025</span>
-          <span class="text-amber-700">SELF-REPORTED</span>
-        </div>
-        <p class="font-bold text-slate-800">Gujarat Law Society, Ellisbridge</p>
-        <p class="text-slate-600 text-[11px] mt-1">Digital Signature Footprint:</p>
-        <p class="font-mono text-[9px] bg-white p-1 rounded border mt-0.5 text-slate-500 break-all">fa23dcb9c5772bffffa1d79cee544af3457759f9be52ea2958c15eb492d64249f</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <div>
-        <p class="text-white font-bold text-sm">Earth Carbon Foundation</p>
-        <p class="mt-0.5">Regenerate | Restore | Resilience</p>
-      </div>
-      <p>© 2026 Climate Asset Foundation. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
 
 </body>
 </html>
