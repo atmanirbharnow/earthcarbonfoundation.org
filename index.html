@@ -180,7 +180,7 @@
 
         /* HERO SECTION */
         .hero-section {
-            padding: 5.5rem 0 4.5rem 0;
+            padding: 4.5rem 0 4rem 0;
             background: radial-gradient(circle at top right, rgba(5, 150, 105, 0.08), transparent 40%);
         }
 
@@ -202,7 +202,7 @@
             font-weight: 700;
             padding: 0.35rem 1rem;
             border-radius: 999px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         .hero-badge .dot {
@@ -214,20 +214,87 @@
 
         .hero-title {
             font-family: var(--font-heading);
-            font-size: 3.25rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
             color: var(--text-main);
-            max-width: 960px;
+            max-width: 980px;
             margin-bottom: 1.25rem;
         }
 
         .hero-lead {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 48rem;
+            max-width: 52rem;
             margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-lead strong {
+            color: var(--text-main);
+        }
+
+        /* HIGHLIGHTED LIFECYCLE OUTCOMES BOX */
+        .hero-outcomes-box {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-green);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            max-width: 1040px;
+            width: 100%;
+            margin: 0 auto 2.5rem auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            text-align: left;
+        }
+
+        .outcomes-header-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--primary-green);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        .outcomes-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .outcome-item {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+        }
+
+        .outcome-item-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .outcome-item-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.45;
         }
 
         .cta-group {
@@ -898,7 +965,7 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            .grid-4, .grid-3-cards, .stats-grid {
+            .grid-4, .grid-3-cards, .stats-grid, .outcomes-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .flow-arrow {
@@ -919,7 +986,7 @@
             .hero-title {
                 font-size: 2rem;
             }
-            .grid-4, .grid-3-cards, .stats-grid {
+            .grid-4, .grid-3-cards, .stats-grid, .outcomes-grid {
                 grid-template-columns: 1fr;
             }
             .footer-grid {
@@ -969,7 +1036,7 @@
     </header>
 
     <main>
-        <!-- 1. HERO SECTION -->
+        <!-- 1. HERO SECTION (WITH HIGHLIGHTED LIFECYCLE & OUTCOME PILLARS) -->
         <section class="hero-section">
             <div class="container hero-grid">
                 <div class="hero-content">
@@ -977,11 +1044,33 @@
                         <span class="dot"></span> Next-Gen Climate Asset Infrastructure
                     </div>
                     <h1 class="hero-title">
-                        Discover the Environmental Assets Hidden Inside Your Organisation
+                        Discover &amp; Monetise the Environmental Assets Hidden Inside Your Organisation
                     </h1>
                     <p class="hero-lead">
-                        Identify • Measure • Register • Develop Environmental Assets into measurable environmental and business value.
+                        <strong>Earth Carbon Foundation develops, registers, manages, and monetises Environmental Assets throughout their complete lifecycle.</strong><br>
+                        Identify • Measure • Register • Develop Environmental Assets into measurable economic and balance sheet value.
                     </p>
+
+                    <!-- LIFECYCLE OUTCOME HIGHLIGHT BOX -->
+                    <div class="hero-outcomes-box">
+                        <div class="outcomes-header-title">KEY REALITY: CARBON CREDITS ARE ONLY ONE OF SEVERAL POSSIBLE OUTCOMES</div>
+                        <div class="outcomes-subtitle">We structure your uncredited low-carbon installations into multi-value assets:</div>
+                        <div class="outcomes-grid">
+                            <div class="outcome-item">
+                                <div class="outcome-item-title"><span>📈</span> Carbon Credit Pooling</div>
+                                <p class="outcome-item-desc">Aggregate small installations (solar, waste, efficiency) to cross verification thresholds for credit issuance.</p>
+                            </div>
+                            <div class="outcome-item">
+                                <div class="outcome-item-title"><span>🏦</span> Green Financing &amp; Capital</div>
+                                <p class="outcome-item-desc">Use Natural Resource Balance Sheets (NRBS™) to qualify for lower interest rates and preferential debt funding.</p>
+                            </div>
+                            <div class="outcome-item">
+                                <div class="outcome-item-title"><span>📜</span> ESG &amp; Supply Chain Mandates</div>
+                                <p class="outcome-item-desc">Secure enterprise contracts and board compliance through auditable Scope 1/2/3 data and digital certificates.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="cta-group">
                         <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
                             Start Free Assessment
