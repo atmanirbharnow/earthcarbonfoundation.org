@@ -8,38 +8,29 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================================
-           EARTH CARBON FOUNDATION — COMPLETE SINGLE-FILE ARCHITECTURE
+           EARTH CARBON FOUNDATION — STREAMLINED INSTITUTIONAL ARCHITECTURE
            ========================================================================== */
         
         :root {
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-dark: #0f172a;
-            --bg-card: #ffffff;
+            --un-blue: #009edb;
+            --un-navy: #002b49;
+            --un-blue-hover: #0077b5;
+            --un-light-bg: #f0f8ff;
             
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --text-light: #94a3b8;
-            
-            --primary-green: #059669;
-            --primary-green-hover: #047857;
-            --primary-green-light: #ecfdf5;
-            
-            --brand-navy: #0284c7;
-            
-            --border-color: #e2e8f0;
-            --border-green: #a7f3d0;
+            --gov-black: #0b0c0c;
+            --gov-dark-grey: #111827;
+            --gov-medium-grey: #4b5563;
+            --gov-border: #bfc1c3;
+            --gov-white: #ffffff;
             
             --radius-sm: 6px;
             --radius-md: 12px;
-            
             --max-width: 1240px;
-            --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         * {
@@ -54,10 +45,10 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-white);
-            color: var(--text-main);
-            line-height: 1.6;
+            font-family: var(--font-stack);
+            background-color: var(--gov-white);
+            color: var(--gov-black);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -68,42 +59,36 @@
             padding: 0 1.5rem;
         }
 
-        /* ANNOUNCEMENT BAR */
+        /* TOP ANNOUNCEMENT BAR */
         .announcement-bar {
-            background-color: #022c22;
-            color: #ecfdf5;
+            background-color: var(--un-navy);
+            color: var(--gov-white);
             font-size: 0.85rem;
             padding: 0.6rem 0;
-            border-bottom: 1px solid #065f46;
+            border-bottom: 3px solid var(--un-blue);
         }
 
         .bar-flex {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
         .badge-pill {
-            background-color: #059669;
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 800;
+            background-color: var(--un-blue);
+            color: var(--gov-white);
+            font-size: 0.75rem;
+            font-weight: 700;
             letter-spacing: 0.05em;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-        }
-
-        .bar-text {
-            font-weight: 500;
+            padding: 0.25rem 0.75rem;
+            text-transform: uppercase;
         }
 
         /* HEADER & NAV */
         .site-header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--gov-white);
+            border-bottom: 1px solid var(--gov-border);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -113,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 4.75rem;
+            height: 4.5rem;
         }
 
         .brand-logo {
@@ -124,25 +109,19 @@
         }
 
         .logo-mark {
-            background: linear-gradient(135deg, #059669, #0284c7);
-            color: #ffffff;
-            font-family: var(--font-heading);
+            background-color: var(--un-blue);
+            color: var(--gov-white);
             font-weight: 800;
-            font-size: 1rem;
-            padding: 0.4rem 0.6rem;
+            font-size: 1.1rem;
+            padding: 0.4rem 0.75rem;
             border-radius: var(--radius-sm);
         }
 
         .logo-text {
-            font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--text-main);
+            font-size: 1.25rem;
+            color: var(--un-navy);
             letter-spacing: -0.02em;
-        }
-
-        .logo-text span {
-            color: var(--primary-green);
         }
 
         .nav-menu {
@@ -155,7 +134,7 @@
         }
 
         .nav-menu a {
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             text-decoration: none;
             font-size: 0.925rem;
             font-weight: 600;
@@ -163,41 +142,42 @@
         }
 
         .nav-menu a:hover {
-            color: var(--text-main);
+            color: var(--un-blue);
+            text-decoration: underline;
         }
 
         .btn-nav {
-            background-color: var(--text-main) !important;
-            color: var(--bg-white) !important;
+            background-color: var(--un-navy) !important;
+            color: var(--gov-white) !important;
             padding: 0.6rem 1.25rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem !important;
         }
 
         .btn-nav:hover {
-            background-color: #334155 !important;
+            background-color: #001f35 !important;
         }
 
         /* HERO SECTION */
         .hero-section {
-            padding: 5.5rem 0 4.5rem 0;
-            background: radial-gradient(circle at top right, rgba(5, 150, 105, 0.08), transparent 40%);
+            padding: 4.5rem 0 3.5rem 0;
+            background-color: var(--un-light-bg);
+            border-bottom: 1px solid var(--gov-border);
         }
 
-        .hero-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .hero-content {
             text-align: center;
+            max-width: 920px;
+            margin: 0 auto 3rem auto;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: var(--primary-green-light);
-            color: var(--primary-green);
-            border: 1px solid var(--border-green);
+            background-color: #e0f2fe;
+            color: var(--un-navy);
+            border: 1px solid #bae6fd;
             font-size: 0.85rem;
             font-weight: 700;
             padding: 0.35rem 1rem;
@@ -205,29 +185,20 @@
             margin-bottom: 1.5rem;
         }
 
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-green);
-            border-radius: 50%;
-        }
-
         .hero-title {
-            font-family: var(--font-heading);
-            font-size: 3.25rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
-            color: var(--text-main);
-            max-width: 960px;
+            color: var(--un-navy);
             margin-bottom: 1.25rem;
         }
 
         .hero-lead {
             font-size: 1.2rem;
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             max-width: 48rem;
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem auto;
         }
 
         .cta-group {
@@ -237,40 +208,30 @@
             flex-wrap: wrap;
         }
 
-        .section-cta-wrapper {
-            margin-top: 2.5rem;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
         .btn-primary {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: var(--primary-green);
-            color: var(--bg-white);
-            font-family: var(--font-heading);
+            background-color: var(--un-blue);
+            color: var(--gov-white);
             font-weight: 700;
             font-size: 1rem;
             padding: 0.95rem 2rem;
             border-radius: var(--radius-sm);
             text-decoration: none;
             transition: background-color 0.15s ease;
+            border-bottom: 3px solid #005a87;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-green-hover);
+            background-color: var(--un-blue-hover);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
-            background-color: var(--bg-white);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            font-family: var(--font-heading);
+            background-color: var(--gov-white);
+            color: var(--gov-dark-grey);
+            border: 1px solid var(--gov-border);
             font-weight: 700;
             font-size: 1rem;
             padding: 0.95rem 2rem;
@@ -279,24 +240,61 @@
         }
 
         .btn-secondary:hover {
-            background-color: var(--bg-light);
+            background-color: #f3f4f6;
         }
 
-        /* SECTION 2: STATS & TRUST STRIP */
+        /* THUMBNAILS GRID (ASSET CATEGORIES) */
+        .asset-thumbnails-title {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--un-navy);
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .thumbnails-grid {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            gap: 0.75rem;
+        }
+
+        .thumb-card {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+        }
+
+        .thumb-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .thumb-label {
+            font-size: 0.725rem;
+            font-weight: 700;
+            color: var(--gov-dark-grey);
+            line-height: 1.2;
+        }
+
+        /* TRUST & CREDIBILITY STRIP */
         .stats-section {
-            background-color: var(--bg-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--un-navy);
+            color: var(--gov-white);
             padding: 3rem 0;
+            border-bottom: 3px solid var(--un-blue);
         }
 
         .stats-header-title {
             text-align: center;
-            font-family: var(--font-heading);
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.15em;
-            color: var(--primary-green);
+            color: var(--un-blue);
             text-transform: uppercase;
             margin-bottom: 1.5rem;
         }
@@ -310,10 +308,9 @@
 
         .stat-value {
             display: block;
-            font-family: var(--font-heading);
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: var(--un-blue);
             line-height: 1;
             margin-bottom: 0.5rem;
         }
@@ -321,17 +318,17 @@
         .stat-label {
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--text-muted);
+            color: #d1d5db;
         }
 
         /* SECTIONS GENERAL */
         .section-block {
             padding: 5rem 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--gov-border);
         }
 
         .bg-alt {
-            background-color: var(--bg-light);
+            background-color: var(--un-light-bg);
         }
 
         .section-header {
@@ -339,54 +336,48 @@
         }
 
         .section-tag {
-            font-family: var(--font-heading);
             font-size: 0.8rem;
             font-weight: 800;
             letter-spacing: 0.1em;
-            color: var(--primary-green);
+            color: var(--un-blue);
             display: block;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         .section-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 2.25rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            color: var(--text-main);
+            color: var(--un-navy);
             margin-bottom: 0.5rem;
         }
 
         .section-lead {
             font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 44rem;
+            color: var(--gov-medium-grey);
+            max-width: 46rem;
         }
 
-        /* GRID 4 DELIVERABLES & RECEIVE */
+        /* UNIFIED VERIFIED OUTPUT PACKAGE (MERGED DELIVERABLES & RECEIVE) */
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
 
-        .grid-3-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
+        .output-card {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-top: 4px solid var(--un-blue);
             border-radius: var(--radius-md);
             padding: 1.75rem;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .feature-card:hover {
+        .output-card:hover {
             transform: translateY(-3px);
-            border-color: var(--primary-green);
+            border-color: var(--un-blue);
         }
 
         .card-icon-box {
@@ -395,23 +386,28 @@
         }
 
         .card-title {
-            font-family: var(--font-heading);
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--un-navy);
             margin-bottom: 0.5rem;
         }
 
         .card-desc {
             font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            color: var(--gov-medium-grey);
+            line-height: 1.55;
         }
 
         /* CASE STUDY DIGITAL CERTIFICATES */
+        .grid-3-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
         .cert-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
             border-radius: var(--radius-md);
             overflow: hidden;
             display: flex;
@@ -424,8 +420,8 @@
             height: 280px;
             object-fit: cover;
             object-position: top;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-light);
+            border-bottom: 1px solid var(--gov-border);
+            background-color: var(--un-light-bg);
         }
 
         .cert-body {
@@ -435,17 +431,16 @@
         .cert-id {
             font-size: 0.75rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: var(--un-blue);
             letter-spacing: 0.05em;
             margin-bottom: 0.25rem;
             display: block;
         }
 
         .cert-client {
-            font-family: var(--font-heading);
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text-main);
+            color: var(--un-navy);
             margin-bottom: 0.75rem;
             line-height: 1.3;
         }
@@ -453,7 +448,7 @@
         .cert-meta-list {
             list-style: none;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             margin-bottom: 1rem;
         }
 
@@ -462,7 +457,7 @@
         }
 
         .cert-meta-list strong {
-            color: var(--text-main);
+            color: var(--gov-dark-grey);
         }
 
         .cert-status-badge {
@@ -480,6 +475,17 @@
             color: #065f46;
         }
 
+        .btn-link {
+            color: var(--un-blue);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
         /* ONE-LINE HORIZONTAL FLOW (HOW IT WORKS) */
         .flow-pipeline {
             display: flex;
@@ -493,33 +499,31 @@
         .flow-step {
             flex: 1;
             min-width: 220px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--primary-green);
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-top: 4px solid var(--un-blue);
             border-radius: var(--radius-md);
             padding: 1.5rem 1.25rem;
         }
 
         .flow-num {
-            font-family: var(--font-heading);
             font-size: 0.85rem;
             font-weight: 800;
-            color: var(--primary-green);
+            color: var(--un-blue);
             display: block;
             margin-bottom: 0.5rem;
         }
 
         .flow-title {
-            font-family: var(--font-heading);
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--text-main);
+            color: var(--un-navy);
         }
 
         .flow-text {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             line-height: 1.45;
         }
 
@@ -528,7 +532,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
-            color: var(--primary-green);
+            color: var(--un-blue);
             font-weight: 700;
         }
 
@@ -543,8 +547,8 @@
         .grid-6-row .sector-card-compact {
             flex: 1;
             min-width: 180px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
             border-radius: var(--radius-md);
             padding: 1.25rem;
         }
@@ -552,8 +556,8 @@
         .grid-5-row .eco-card-compact {
             flex: 1;
             min-width: 210px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
             border-radius: var(--radius-md);
             padding: 1.25rem;
             display: flex;
@@ -573,14 +577,14 @@
         }
 
         .sector-card-compact .sector-title {
-            font-family: var(--font-heading);
             font-size: 1rem;
             font-weight: 700;
+            color: var(--un-navy);
         }
 
         .sector-card-compact .sector-text {
             font-size: 0.825rem;
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             line-height: 1.45;
         }
 
@@ -588,7 +592,7 @@
             font-size: 0.65rem;
             font-weight: 800;
             letter-spacing: 0.08em;
-            color: var(--brand-navy);
+            color: var(--un-navy);
             background-color: #e0f2fe;
             padding: 0.15rem 0.4rem;
             border-radius: var(--radius-sm);
@@ -597,22 +601,22 @@
         }
 
         .eco-card-compact .eco-title {
-            font-family: var(--font-heading);
             font-size: 1rem;
             font-weight: 700;
+            color: var(--un-navy);
             margin-bottom: 0.35rem;
             word-break: break-word;
         }
 
         .eco-card-compact .eco-text {
             font-size: 0.825rem;
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             line-height: 1.45;
             margin-bottom: 1rem;
         }
 
         .eco-card-compact .eco-link {
-            color: var(--primary-green);
+            color: var(--un-blue);
             font-weight: 700;
             font-size: 0.85rem;
             text-decoration: none;
@@ -622,7 +626,7 @@
             text-decoration: underline;
         }
 
-        /* BALANCED FULL-WIDTH INFOGRAPHICS */
+        /* INFOGRAPHICS */
         .infographic-wrapper {
             width: 100%;
             max-width: 1140px;
@@ -636,19 +640,18 @@
         .infographic-img {
             width: 100%;
             height: auto;
-            max-height: none;
             object-fit: contain;
             border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--gov-border);
             display: block;
-            background-color: var(--bg-white);
+            background-color: var(--gov-white);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
         }
 
-        /* FINAL CTA */
+        /* FINAL CONVERSION BLOCK */
         .cta-section {
-            background-color: var(--bg-dark);
-            color: var(--bg-white);
+            background-color: var(--un-navy);
+            color: var(--gov-white);
             padding: 5.5rem 0;
             text-align: center;
         }
@@ -659,7 +662,6 @@
         }
 
         .cta-heading {
-            font-family: var(--font-heading);
             font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -668,14 +670,13 @@
 
         .cta-sub {
             font-size: 1.15rem;
-            color: var(--text-light);
+            color: #d1d5db;
             margin-bottom: 2rem;
         }
 
         .btn-primary-light {
-            background-color: var(--primary-green);
-            color: var(--bg-white);
-            font-family: var(--font-heading);
+            background-color: var(--un-blue);
+            color: var(--gov-white);
             font-weight: 700;
             padding: 0.95rem 2rem;
             border-radius: var(--radius-sm);
@@ -685,9 +686,8 @@
 
         .btn-secondary-light {
             background-color: transparent;
-            color: var(--bg-white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: var(--font-heading);
+            color: var(--gov-white);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             font-weight: 700;
             padding: 0.95rem 2rem;
             border-radius: var(--radius-sm);
@@ -698,7 +698,7 @@
         .contact-strip {
             margin-top: 2rem;
             font-size: 0.95rem;
-            color: var(--text-light);
+            color: #9ca3af;
         }
 
         .contact-strip span {
@@ -707,41 +707,15 @@
         }
 
         .contact-strip a {
-            color: var(--bg-white);
+            color: var(--gov-white);
             font-weight: 600;
             text-decoration: none;
         }
 
-        /* MISSION BANNER */
-        .mission-banner {
-            background-color: #022c22;
-            color: #ffffff;
-            padding: 2.5rem 0;
-            text-align: center;
-            border-top: 1px solid #065f46;
-        }
-
-        .mission-tag {
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            color: #34d399;
-            margin-bottom: 0.5rem;
-        }
-
-        .mission-quote {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            max-width: 52rem;
-            margin: 0 auto;
-            line-height: 1.4;
-        }
-
-        /* FOOTER */
+        /* SITE FOOTER */
         .site-footer {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--gov-dark-grey);
+            color: #9ca3af;
             padding: 4.5rem 0 2rem 0;
             font-size: 0.9rem;
             border-top: 1px solid #1e293b;
@@ -755,10 +729,9 @@
         }
 
         .footer-brand {
-            font-family: var(--font-heading);
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--bg-white);
+            color: var(--gov-white);
             margin-bottom: 0.25rem;
         }
 
@@ -773,12 +746,11 @@
         }
 
         .footer-col-title {
-            font-family: var(--font-heading);
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--bg-white);
+            color: var(--gov-white);
             margin-bottom: 1rem;
         }
 
@@ -787,12 +759,12 @@
         }
 
         .footer-link-item a {
-            color: var(--text-light);
+            color: #9ca3af;
             text-decoration: none;
         }
 
         .footer-link-item a:hover {
-            color: var(--bg-white);
+            color: var(--gov-white);
         }
 
         .footer-list {
@@ -816,36 +788,18 @@
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .grid-4, .grid-3-cards, .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .flow-arrow {
-                display: none;
-            }
+            .hero-title { font-size: 2.5rem; }
+            .grid-4, .grid-3-cards, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .thumbnails-grid { grid-template-columns: repeat(3, 1fr); }
+            .flow-arrow { display: none; }
         }
 
         @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            .grid-4, .grid-3-cards, .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .nav-menu {
-                display: none;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
+            .hero-title { font-size: 2rem; }
+            .grid-4, .grid-3-cards, .stats-grid, .thumbnails-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-menu { display: none; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
         }
     </style>
 </head>
@@ -855,7 +809,7 @@
     <div class="announcement-bar">
         <div class="container bar-flex">
             <span class="badge-pill">REGISTRY ACTIVE</span>
-            <span class="bar-text">Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
+            <span>Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
         </div>
     </div>
 
@@ -868,8 +822,7 @@
             </a>
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu">
-                    <li><a href="#deliverables">Deliverables</a></li>
-                    <li><a href="#receive">What You Get</a></li>
+                    <li><a href="#outputs">Verified Outputs</a></li>
                     <li><a href="#cases">Case Studies</a></li>
                     <li><a href="#process">How It Works</a></li>
                     <li><a href="#sectors">Who We Serve</a></li>
@@ -883,10 +836,10 @@
     <main>
         <!-- 1. HERO SECTION -->
         <section class="hero-section">
-            <div class="container hero-grid">
+            <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">
-                        <span class="dot"></span> Next-Gen Climate Asset Infrastructure
+                        Next-Gen Climate Asset Infrastructure
                     </div>
                     <h1 class="hero-title">
                         Discover the Environmental Assets Hidden Inside Your Organisation
@@ -903,10 +856,24 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- REGISTERED ASSET THUMBNAIL CATEGORIES -->
+                <p class="asset-thumbnails-title">Registered Environmental Asset Categories</p>
+                <div class="thumbnails-grid">
+                    <div class="thumb-card"><span class="thumb-icon">☀️</span><span class="thumb-label">Solar Plant</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">☣️</span><span class="thumb-label">Biogas</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">💨</span><span class="thumb-label">Wind Power</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">🌧️</span><span class="thumb-label">Rainwater Harvesting</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">🚿</span><span class="thumb-label">Waterless Urinals</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">🌲</span><span class="thumb-label">Forest Plantation</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">🏭</span><span class="thumb-label">Industrial Efficiency</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">♻️</span><span class="thumb-label">Wastewater Recycling</span></div>
+                    <div class="thumb-card"><span class="thumb-icon">🔥</span><span class="thumb-label">Solar Thermal</span></div>
+                </div>
             </div>
         </section>
 
-        <!-- 2. SECTION 2: TRUST & CREDIBILITY -->
+        <!-- 2. TRUST & CREDIBILITY -->
         <section class="stats-section">
             <div class="container">
                 <div class="stats-header-title">TRUST &amp; CREDIBILITY</div>
@@ -931,59 +898,51 @@
             </div>
         </section>
 
-        <!-- 3. CORE DELIVERABLES -->
-        <section class="section-block" id="deliverables">
+        <!-- 3. UNIFIED VERIFIED OUTPUT PACKAGE (CUSTOMER DELIVERABLES) -->
+        <section class="section-block" id="outputs">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">CORE DELIVERABLES</span>
-                    <h2 class="section-title">Turn Uncredited Actions Into Quantifiable Balance-Sheet Value</h2>
-                    <p class="section-lead">Instead of developing one isolated project at a time, we aggregate existing low-carbon initiatives into structured, high-integrity portfolios.</p>
+                    <span class="section-tag">VERIFIED OUTPUTS</span>
+                    <h2 class="section-title">Your Complete Environmental Asset Package</h2>
+                    <p class="section-lead">Instead of single, uncredited projects, participating entities receive auditable, standardized documentation mapping natural capital to economic value.</p>
                 </div>
                 <div class="grid-4">
-                    <div class="feature-card">
-                        <div class="card-icon-box">📁</div>
-                        <h3 class="card-title">Environmental Asset Portfolio</h3>
-                        <p class="card-desc">Consolidates scattered operational actions into unified, auditable environmental balance sheet assets.</p>
+                    <div class="output-card">
+                        <div class="card-icon-box">📜</div>
+                        <h3 class="card-title">Climate Asset Impact Certificate</h3>
+                        <p class="card-desc">Official registry certificate featuring unique Summary IDs, verified status tracking, MoEF&amp;CC methodology seals, and cryptographic digital signature footprints.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="output-card">
                         <div class="card-icon-box">📊</div>
                         <h3 class="card-title">Natural Resource Balance Sheet (NRBS™)</h3>
-                        <p class="card-desc">Standardized accounting metrics mapping operational carbon avoidance alongside financial statements.</p>
+                        <p class="card-desc">Standardized accounting framework evaluating clean energy generation, water security, and resource savings directly alongside traditional financial statements.</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">📜</div>
-                        <h3 class="card-title">Registry Certificate</h3>
-                        <p class="card-desc">Formal registration and validation of your verified carbon avoidance and capture data points.</p>
+                    <div class="output-card">
+                        <div class="card-icon-box">🌱</div>
+                        <h3 class="card-title">Atmanirbhar &amp; Circularity Scores</h3>
+                        <p class="card-desc">Quantified self-sustaining rates measuring independence from grid power, municipal water usage, landfill diversion, and annual tCO₂e reduction baselines.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="output-card">
                         <div class="card-icon-box">🖥️</div>
-                        <h3 class="card-title">Environmental Dashboard</h3>
-                        <p class="card-desc">Real-time digital visibility into ongoing asset performance, impact verification, and valuation.</p>
+                        <h3 class="card-title">Dashboard &amp; QR Verification</h3>
+                        <p class="card-desc">Real-time digital visibility into asset performance paired with public QR badges and online portal links ensuring total audit compliance for external stakeholders.</p>
                     </div>
-                </div>
-                <div class="section-cta-wrapper">
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                        Start Free Assessment
-                    </a>
-                    <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
-                        Download Environmental Asset Playbook
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- 4. SECTION 4: CASE STUDIES & DIGITAL CERTIFICATES -->
+        <!-- 4. CASE STUDIES & DIGITAL CERTIFICATES -->
         <section class="section-block bg-alt" id="cases">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">SECTION 4</span>
-                    <h2 class="section-title">CASE STUDIES</h2>
-                    <p class="section-lead">Auditable, public digital certificates and environmental scoreboards generated across active public and educational deployments.</p>
+                    <span class="section-tag">PUBLIC REGISTRY PROOF</span>
+                    <h2 class="section-title">Active Deployment Case Studies</h2>
+                    <p class="section-lead">Auditable digital certificates and environmental scoreboards generated across active educational, municipal, and infrastructure deployments.</p>
                 </div>
                 <div class="grid-3-cards">
                     <!-- Case Study 1 -->
                     <div class="cert-card">
-                        <img src="Copy of GLS climate Certificate.png" alt="Gujarat Law Society Climate Certificate" class="cert-img">
+                        <img src="GLS climate Certificate.png" alt="Gujarat Law Society Climate Certificate" class="cert-img">
                         <div class="cert-body">
                             <span class="cert-id">SUMMARY ID: CAF-SCH-0025</span>
                             <h3 class="cert-client">Gujarat Law Society, Ellisbridge</h3>
@@ -993,12 +952,12 @@
                                 <li><strong>Offset:</strong> 6,167.43 tCO₂e Reduced[cite: 5]</li>
                                 <li><strong>Atmanirbhar Score:</strong> 99%[cite: 5]</li>
                             </ul>
-                            <span class="cert-status-badge">PENDING / SELF-REPORTED</span>[cite: 5]
+                            <a href="GLS climate Certificate.png" target="_blank" class="btn-link">View Full Certificate →</a>
                         </div>
                     </div>
                     <!-- Case Study 2 -->
                     <div class="cert-card">
-                        <img src="Ghandhinagar Asset .png" alt="Gandhinagar Constituency Scoreboard" class="cert-img">
+                        <img src="Ghandhinagar Asset _2.png" alt="Gandhinagar Constituency Scoreboard" class="cert-img">
                         <div class="cert-body">
                             <span class="cert-id">CONSTITUENCY SCOREBOARD</span>
                             <h3 class="cert-client">Gandhinagar Parliamentary Constituency</h3>
@@ -1008,12 +967,12 @@
                                 <li><strong>Offset:</strong> 1,25,000 tCO₂e / year[cite: 4]</li>
                                 <li><strong>Atmanirbhar Score:</strong> 78% Overall[cite: 4]</li>
                             </ul>
-                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 4]
+                            <a href="Ghandhinagar Asset _2.png" target="_blank" class="btn-link">View One-Page Report →</a>
                         </div>
                     </div>
                     <!-- Case Study 3 -->
                     <div class="cert-card">
-                        <img src="Board Of Control for Cricket In India.png" alt="Cricket Infrastructure Environmental Scoreboard" class="cert-img">
+                        <img src="Board Of Control for Cricket In India_2.png" alt="Cricket Infrastructure Environmental Scoreboard" class="cert-img">
                         <div class="cert-body">
                             <span class="cert-id">INFRASTRUCTURE REGISTRY</span>
                             <h3 class="cert-client">Cricket Infrastructure Scoreboard</h3>
@@ -1023,48 +982,15 @@
                                 <li><strong>Offset:</strong> 150,000 tCO₂e / year[cite: 3]</li>
                                 <li><strong>Target:</strong> 100M Tons Mission Support[cite: 3]</li>
                             </ul>
-                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 3]
+                            <a href="Board Of Control for Cricket In India_2.png" target="_blank" class="btn-link">View Scoreboard →</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. WHAT YOU WILL RECEIVE -->
-        <section class="section-block" id="receive">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">VERIFIED OUTPUTS</span>
-                    <h2 class="section-title">What You Will Receive</h2>
-                    <p class="section-lead">Every participating entity receives official, auditable registry documentation detailing measurable environmental and resource impact.</p>
-                </div>
-                <div class="grid-4">
-                    <div class="feature-card">
-                        <div class="card-icon-box">📜</div>
-                        <h3 class="card-title">Climate Asset Registry Impact Certificate</h3>
-                        <p class="card-desc">Verified registry documentation featuring unique Summary IDs, verified status tracking, and MoEF&CC-aligned methodology factor seals.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">🌱</div>
-                        <h3 class="card-title">Atmanirbhar % Score Card</h3>
-                        <p class="card-desc">A standardized self-sustaining rate evaluating clean energy generation, water security, and resource independence across operations.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">♻️</div>
-                        <h3 class="card-title">Circularity &amp; Waste Diversion Metrics</h3>
-                        <p class="card-desc">Quantified metrics for waste diverted from landfills, resource re-use rates, and annual tCO₂e reduction baselines.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">🔒</div>
-                        <h3 class="card-title">Public Verification &amp; Digital Signatures</h3>
-                        <p class="card-desc">Publicly verifiable QR codes, online verification portal links, and unique cryptographic digital signature footprints for audit compliance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. HOW IT WORKS (Single Line Flow Diagram) -->
-        <section class="section-block bg-alt" id="process">
+        <!-- 5. HOW IT WORKS (HORIZONTAL FLOW DIAGRAM) -->
+        <section class="section-block" id="process">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">HOW IT WORKS</span>
@@ -1099,8 +1025,8 @@
             </div>
         </section>
 
-        <!-- 7. TARGET SECTORS (Single Line Grid) -->
-        <section class="section-block" id="sectors">
+        <!-- 6. TARGET SECTORS -->
+        <section class="section-block bg-alt" id="sectors">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">TARGET SECTORS</span>
@@ -1151,16 +1077,11 @@
                         <p class="sector-text">Agri-enterprises and forestry authorities measuring land-use carbon sequestration and soil regeneration.</p>
                     </div>
                 </div>
-                <div class="section-cta-wrapper">
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                        Start Free Assessment
-                    </a>
-                </div>
             </div>
         </section>
 
-        <!-- 8. INFOGRAPHICS DISPLAY (BALANCED & EXPANDED) -->
-        <section class="section-block bg-alt">
+        <!-- 7. INSTITUTIONAL PORTFOLIO FRAMEWORK INFOGRAPHICS -->
+        <section class="section-block">
             <div class="container">
                 <div class="section-header text-center">
                     <span class="section-tag">VISUAL ARCHITECTURE</span>
@@ -1179,8 +1100,8 @@
             </div>
         </section>
 
-        <!-- 9. THE ECOSYSTEM (Single Line Row) -->
-        <section class="section-block" id="ecosystem">
+        <!-- 8. THE ECOSYSTEM -->
+        <section class="section-block bg-alt" id="ecosystem">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">THE ECOSYSTEM</span>
@@ -1232,7 +1153,7 @@
             </div>
         </section>
 
-        <!-- 10. FINAL CTA & CONTACT SECTION -->
+        <!-- 9. FINAL CTA SECTION -->
         <section class="cta-section" id="contact">
             <div class="container">
                 <div class="cta-box">
@@ -1250,14 +1171,6 @@
             </div>
         </section>
     </main>
-
-    <!-- MISSION BANNER -->
-    <div class="mission-banner">
-        <div class="container">
-            <p class="mission-tag">GLOBAL GOAL</p>
-            <p class="mission-quote">Transform 100 Million tCO₂e of existing environmental actions into structured Environmental Asset Portfolios by 2030.</p>
-        </div>
-    </div>
 
     <!-- SITE FOOTER -->
     <footer class="site-footer">
