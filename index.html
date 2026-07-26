@@ -3,43 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Environmental Asset Registry & Infrastructure</title>
-    <meta name="description" content="Discover, measure, register, and develop hidden environmental assets inside your organization into auditable ecological and balance sheet value.">
+    <title>Earth Carbon Foundation | Environmental Asset Discovery & Value Registry</title>
+    <meta name="description" content="Discover, measure, register, and maximize the full value of the environmental assets inside your organisation.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* ==========================================================================
-           EARTH CARBON FOUNDATION — COMPLETE SINGLE-FILE ARCHITECTURE
+           UNITED NATIONS BLUE & GOV.UK INSTITUTIONAL SINGLE-FILE ARCHITECTURE
            ========================================================================== */
         
         :root {
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-dark: #0f172a;
-            --bg-card: #ffffff;
+            --un-blue: #009edb;
+            --un-navy: #002b49;
+            --un-blue-hover: #0077b5;
+            --un-light-bg: #f0f8ff;
             
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --text-light: #94a3b8;
+            --gov-black: #0b0c0c;
+            --gov-dark-grey: #111827;
+            --gov-medium-grey: #4b5563;
+            --gov-border: #bfc1c3;
+            --gov-white: #ffffff;
             
-            --primary-green: #059669;
-            --primary-green-hover: #047857;
-            --primary-green-light: #ecfdf5;
-            
-            --brand-navy: #0284c7;
-            
-            --border-color: #e2e8f0;
-            --border-green: #a7f3d0;
-            
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            
+            --radius-sm: 4px;
+            --radius-md: 8px;
             --max-width: 1240px;
-            --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         * {
@@ -54,9 +45,9 @@
         }
 
         body {
-            font-family: var(--font-body);
-            background-color: var(--bg-white);
-            color: var(--text-main);
+            font-family: var(--font-stack);
+            background-color: var(--gov-white);
+            color: var(--gov-black);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -68,42 +59,36 @@
             padding: 0 1.5rem;
         }
 
-        /* ANNOUNCEMENT BAR */
+        /* TOP ANNOUNCEMENT BANNER */
         .announcement-bar {
-            background-color: #022c22;
-            color: #ecfdf5;
+            background-color: var(--un-navy);
+            color: var(--gov-white);
             font-size: 0.85rem;
             padding: 0.6rem 0;
-            border-bottom: 1px solid #065f46;
+            border-bottom: 3px solid var(--un-blue);
         }
 
         .bar-flex {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
         .badge-pill {
-            background-color: #059669;
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 800;
+            background-color: var(--un-blue);
+            color: var(--gov-white);
+            font-size: 0.75rem;
+            font-weight: 700;
             letter-spacing: 0.05em;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
+            padding: 0.25rem 0.75rem;
+            text-transform: uppercase;
         }
 
-        .bar-text {
-            font-weight: 500;
-        }
-
-        /* HEADER & NAV */
+        /* HEADER & NAVIGATION */
         .site-header {
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--gov-white);
+            border-bottom: 1px solid var(--gov-border);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -113,7 +98,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 4.75rem;
+            height: 4.5rem;
         }
 
         .brand-logo {
@@ -124,25 +109,19 @@
         }
 
         .logo-mark {
-            background: linear-gradient(135deg, #059669, #0284c7);
-            color: #ffffff;
-            font-family: var(--font-heading);
+            background-color: var(--un-blue);
+            color: var(--gov-white);
             font-weight: 800;
-            font-size: 1rem;
-            padding: 0.4rem 0.6rem;
+            font-size: 1.1rem;
+            padding: 0.4rem 0.75rem;
             border-radius: var(--radius-sm);
         }
 
         .logo-text {
-            font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--text-main);
+            font-size: 1.25rem;
+            color: var(--un-navy);
             letter-spacing: -0.02em;
-        }
-
-        .logo-text span {
-            color: var(--primary-green);
         }
 
         .nav-menu {
@@ -155,189 +134,113 @@
         }
 
         .nav-menu a {
-            color: var(--text-muted);
+            color: var(--gov-medium-grey);
             text-decoration: none;
-            font-size: 0.925rem;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: color 0.15s ease;
         }
 
         .nav-menu a:hover {
-            color: var(--text-main);
+            color: var(--un-blue);
+            text-decoration: underline;
         }
 
         .btn-nav {
-            background-color: var(--text-main) !important;
-            color: var(--bg-white) !important;
+            background-color: var(--un-navy) !important;
+            color: var(--gov-white) !important;
             padding: 0.6rem 1.25rem;
             border-radius: var(--radius-sm);
             font-size: 0.9rem !important;
         }
 
-        .btn-nav:hover {
-            background-color: #334155 !important;
+        /* SECTION STYLING BASE */
+        .section-block {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--gov-border);
         }
 
-        /* HERO SECTION */
-        .hero-section {
-            padding: 4.5rem 0 4rem 0;
-            background: radial-gradient(circle at top right, rgba(5, 150, 105, 0.08), transparent 40%);
+        .bg-alt {
+            background-color: var(--un-light-bg);
         }
 
-        .hero-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        .bg-navy {
+            background-color: var(--un-navy);
+            color: var(--gov-white);
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--primary-green-light);
-            color: var(--primary-green);
-            border: 1px solid var(--border-green);
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--primary-green);
-            border-radius: 50%;
-        }
-
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: 3rem;
+        .section-tag {
+            font-size: 0.8rem;
             font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            color: var(--text-main);
-            max-width: 980px;
-            margin-bottom: 1.25rem;
+            letter-spacing: 0.1em;
+            color: var(--un-blue);
+            display: block;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        .hero-lead {
+        .bg-navy .section-tag {
+            color: #38bdf8;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--un-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .bg-navy .section-title {
+            color: var(--gov-white);
+        }
+
+        .section-lead {
             font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 52rem;
-            margin-bottom: 2rem;
+            color: var(--gov-medium-grey);
+            max-width: 48rem;
             line-height: 1.6;
         }
 
-        .hero-lead strong {
-            color: var(--text-main);
+        .bg-navy .section-lead {
+            color: #d1d5db;
         }
 
-        /* HIGHLIGHTED LIFECYCLE OUTCOMES BOX */
-        .hero-outcomes-box {
-            background-color: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--primary-green);
-            border-radius: var(--radius-md);
-            padding: 1.75rem;
-            max-width: 1040px;
-            width: 100%;
-            margin: 0 auto 2.5rem auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-            text-align: left;
-        }
-
-        .outcomes-header-title {
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--primary-green);
-            margin-bottom: 0.75rem;
-            text-align: center;
-        }
-
-        .outcomes-subtitle {
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-        }
-
-        .outcome-item {
-            background-color: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-            padding: 1.25rem;
-        }
-
-        .outcome-item-title {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.35rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .outcome-item-desc {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            line-height: 1.45;
-        }
-
+        /* BUTTONS */
         .cta-group {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        .section-cta-wrapper {
-            margin-top: 2.5rem;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .btn-primary {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background-color: var(--primary-green);
-            color: var(--bg-white);
-            font-family: var(--font-heading);
+            background-color: var(--un-blue);
+            color: var(--gov-white);
             font-weight: 700;
             font-size: 1rem;
             padding: 0.95rem 2rem;
             border-radius: var(--radius-sm);
             text-decoration: none;
             transition: background-color 0.15s ease;
+            border-bottom: 3px solid #005a87;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-green-hover);
+            background-color: var(--un-blue-hover);
         }
 
         .btn-secondary {
             display: inline-flex;
             align-items: center;
-            background-color: var(--bg-white);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            font-family: var(--font-heading);
+            gap: 0.5rem;
+            background-color: var(--gov-white);
+            color: var(--un-navy);
+            border: 1px solid var(--gov-border);
             font-weight: 700;
             font-size: 1rem;
             padding: 0.95rem 2rem;
@@ -346,548 +249,366 @@
         }
 
         .btn-secondary:hover {
-            background-color: var(--bg-light);
+            background-color: #f3f4f6;
         }
 
-        /* SECTION 2: STATS & TRUST STRIP */
-        .stats-section {
-            background-color: var(--bg-light);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 3rem 0;
-        }
-
-        .stats-header-title {
-            text-align: center;
-            font-family: var(--font-heading);
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            color: var(--primary-green);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+        /* SECTION 1: HERO */
+        .hero-section {
+            padding: 5.5rem 0 4.5rem 0;
+            background-color: var(--un-light-bg);
+            border-bottom: 1px solid var(--gov-border);
             text-align: center;
         }
 
-        .stat-value {
-            display: block;
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
+        .hero-content {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-size: 3.25rem;
             font-weight: 800;
-            color: var(--primary-green);
-            line-height: 1;
-            margin-bottom: 0.5rem;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: var(--un-navy);
+            margin-bottom: 1.25rem;
         }
 
-        .stat-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        /* SECTIONS GENERAL */
-        .section-block {
-            padding: 5rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .bg-alt {
-            background-color: var(--bg-light);
-        }
-
-        .section-header {
-            margin-bottom: 2.75rem;
-        }
-
-        .section-tag {
-            font-family: var(--font-heading);
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            color: var(--primary-green);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-lead {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 44rem;
-        }
-
-        /* GRID 4 DELIVERABLES & RECEIVE */
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        .grid-3-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .feature-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 1.75rem;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-green);
-        }
-
-        .card-icon-box {
-            font-size: 1.75rem;
+        .hero-subheadline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--un-blue);
             margin-bottom: 1rem;
         }
 
-        .card-title {
-            font-family: var(--font-heading);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* CASE STUDY DIGITAL CERTIFICATES */
-        .cert-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            overflow: hidden;
+        .hero-pillars {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0 2.5rem 0;
+            flex-wrap: wrap;
         }
 
-        .cert-img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            object-position: top;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-light);
-        }
-
-        .cert-body {
-            padding: 1.5rem;
-        }
-
-        .cert-id {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: var(--primary-green);
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-            display: block;
-        }
-
-        .cert-client {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
+        .pillar-pill {
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            padding: 0.5rem 1.25rem;
             font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
+            font-size: 0.95rem;
+            color: var(--un-navy);
+            border-radius: 999px;
         }
 
-        .cert-meta-list {
-            list-style: none;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        /* SECTION 2: WHY ECF? */
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin: 2.5rem 0;
+        }
+
+        .asset-card {
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-top: 4px solid var(--un-blue);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--un-navy);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .highlight-banner {
+            background-color: var(--un-navy);
+            color: var(--gov-white);
+            padding: 1.75rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            border-left: 6px solid var(--un-blue);
+        }
+
+        /* SECTION 3: PHILOSOPHY */
+        .philosophy-box {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        .philosophy-quote {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--un-navy);
+            line-height: 1.5;
             margin-bottom: 1rem;
         }
 
-        .cert-meta-list li {
-            margin-bottom: 0.35rem;
-        }
-
-        .cert-meta-list strong {
-            color: var(--text-main);
-        }
-
-        .cert-status-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--radius-sm);
-            background-color: #fef3c7;
-            color: #92400e;
-        }
-
-        .cert-status-verified {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        /* ONE-LINE HORIZONTAL FLOW (HOW IT WORKS) */
-        .flow-pipeline {
+        /* SECTION 4: DISCOVERY PIPELINE */
+        .discovery-pipeline {
             display: flex;
             align-items: stretch;
             justify-content: space-between;
-            gap: 0.75rem;
+            gap: 1rem;
+            margin: 3rem 0;
             overflow-x: auto;
-            padding-bottom: 0.5rem;
         }
 
-        .flow-step {
+        .discovery-step {
             flex: 1;
             min-width: 220px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-top: 4px solid var(--primary-green);
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-top: 4px solid var(--un-blue);
             border-radius: var(--radius-md);
-            padding: 1.5rem 1.25rem;
+            padding: 1.75rem;
+            text-align: center;
         }
 
-        .flow-num {
-            font-family: var(--font-heading);
+        .step-num-badge {
             font-size: 0.85rem;
             font-weight: 800;
-            color: var(--primary-green);
-            display: block;
+            color: var(--un-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .flow-title {
-            font-family: var(--font-heading);
+        .step-num-title {
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
+            color: var(--un-navy);
         }
 
-        .flow-text {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.45;
-        }
-
-        .flow-arrow {
+        .flow-arrow-down {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
-            color: var(--primary-green);
-            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--un-blue);
+            font-weight: 800;
         }
 
-        /* ONE-LINE HORIZONTAL ROW (TARGET SECTORS & ECOSYSTEM) */
-        .row-grid {
+        /* SECTION 5: DASHBOARD DELIVERABLES */
+        .dashboard-list-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .dashboard-item-card {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            padding: 1.75rem;
+            border-radius: var(--radius-md);
             display: flex;
+            align-items: flex-start;
             gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
         }
 
-        .grid-6-row .sector-card-compact {
-            flex: 1;
-            min-width: 180px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
+        .check-icon {
+            color: var(--un-blue);
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .dashboard-item-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--un-navy);
+        }
+
+        /* SECTION 6: UNLOCK VALUE & IMPORTANT CALLOUT */
+        .unlock-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin: 2.5rem 0;
+        }
+
+        .unlock-card {
+            background: var(--gov-white);
+            border: 1px solid var(--gov-border);
             padding: 1.25rem;
-        }
-
-        .grid-5-row .eco-card-compact {
-            flex: 1;
-            min-width: 210px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .sector-card-compact .sector-header {
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--un-navy);
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-bottom: 0.5rem;
         }
 
-        .sector-card-compact .sector-icon {
-            font-size: 1.25rem;
-        }
-
-        .sector-card-compact .sector-title {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .sector-card-compact .sector-text {
-            font-size: 0.825rem;
-            color: var(--text-muted);
-            line-height: 1.45;
-        }
-
-        .eco-card-compact .eco-badge {
-            font-size: 0.65rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            color: var(--brand-navy);
+        .important-callout {
             background-color: #e0f2fe;
-            padding: 0.15rem 0.4rem;
-            border-radius: var(--radius-sm);
-            display: inline-block;
-            margin-bottom: 0.75rem;
-        }
-
-        .eco-card-compact .eco-title {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-            word-break: break-word;
-        }
-
-        .eco-card-compact .eco-text {
-            font-size: 0.825rem;
-            color: var(--text-muted);
-            line-height: 1.45;
-            margin-bottom: 1rem;
-        }
-
-        .eco-card-compact .eco-link {
-            color: var(--primary-green);
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-decoration: none;
-        }
-
-        .eco-card-compact .eco-link:hover {
-            text-decoration: underline;
-        }
-
-        /* SECTION 7: FRAMEWORK COMPARISON FLOW & INFOGRAPHICS */
-        .framework-comparison-grid {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .comparison-card {
-            flex: 1;
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
+            border: 1px solid #7dd3fc;
+            border-left: 6px solid var(--un-blue);
+            padding: 1.5rem 2rem;
             border-radius: var(--radius-md);
-            padding: 2rem;
+            margin-top: 2.5rem;
+            color: var(--un-navy);
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
-        .traditional {
+        /* SECTION 7: WHY ECF VS CONSULTANTS */
+        .comparison-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .comp-box {
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gov-border);
+        }
+
+        .comp-box.traditional {
+            background-color: #fef2f2;
             border-top: 4px solid #ef4444;
         }
 
-        .ecf-solution {
-            border-top: 4px solid var(--primary-green);
-            background-color: var(--primary-green-light);
+        .comp-box.ecf {
+            background-color: #f0fdf4;
+            border-top: 4px solid #10b981;
         }
 
-        .comp-badge {
-            font-size: 0.7rem;
+        .comp-label {
+            font-size: 0.8rem;
             font-weight: 800;
-            letter-spacing: 0.08em;
-            padding: 0.25rem 0.6rem;
-            border-radius: var(--radius-sm);
-            display: inline-block;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             margin-bottom: 1rem;
+            display: block;
         }
 
-        .status-bad {
-            background-color: #fee2e2;
-            color: #991b1b;
-        }
+        .traditional .comp-label { color: #991b1b; }
+        .ecf .comp-label { color: #065f46; }
 
-        .status-good {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-
-        .comp-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--text-main);
-            margin-bottom: 1rem;
-        }
-
-        .comp-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .comp-list li {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 0.75rem;
+        .comp-question {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--gov-black);
             line-height: 1.4;
         }
 
-        .comp-vs {
-            font-weight: 800;
+        /* SECTION 8: 7-STEP FRAMEWORK PIPELINE */
+        .framework-pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-top: 3rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .framework-node {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            border-top: 4px solid var(--un-blue);
+            padding: 1.25rem 1rem;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            min-width: 130px;
+            flex: 1;
+        }
+
+        .framework-node-title {
             font-size: 1rem;
-            color: var(--text-light);
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
+            font-weight: 800;
+            color: var(--un-navy);
+        }
+
+        .framework-arrow {
+            color: var(--un-blue);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* SECTION 9: WHAT HAPPENS NEXT */
+        .next-steps-list {
+            list-style: none;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 850px;
+        }
+
+        .next-step-item {
+            background-color: var(--gov-white);
+            border: 1px solid var(--gov-border);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .step-index-circle {
+            background-color: var(--un-blue);
+            color: var(--gov-white);
+            font-weight: 800;
+            font-size: 1.1rem;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            width: 42px;
-            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
 
-        .infographic-wrapper {
-            width: 100%;
-            max-width: 1140px;
-            margin: 0 auto;
+        .next-step-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--un-navy);
         }
 
-        .space-bottom {
-            margin-bottom: 3rem;
-        }
-
-        .infographic-img {
-            width: 100%;
-            height: auto;
-            max-height: none;
-            object-fit: contain;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
-            display: block;
-            background-color: var(--bg-white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-        }
-
-        /* FINAL CTA */
-        .cta-section {
-            background-color: var(--bg-dark);
-            color: var(--bg-white);
-            padding: 5.5rem 0;
+        /* SECTION 10: FINAL CTA & FOOTER */
+        .final-cta-section {
+            background-color: var(--un-navy);
+            color: var(--gov-white);
+            padding: 6rem 0;
             text-align: center;
         }
 
-        .cta-box {
-            max-width: 800px;
+        .final-cta-box {
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        .cta-heading {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
+        .final-cta-title {
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
-        .cta-sub {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .btn-primary-light {
-            background-color: var(--primary-green);
-            color: var(--bg-white);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            padding: 0.95rem 2rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary-light {
-            background-color: transparent;
-            color: var(--bg-white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            padding: 0.95rem 2rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .contact-strip {
-            margin-top: 2rem;
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .contact-strip span {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-strip a {
-            color: var(--bg-white);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        /* MISSION BANNER */
-        .mission-banner {
-            background-color: #022c22;
-            color: #ffffff;
-            padding: 2.5rem 0;
-            text-align: center;
-            border-top: 1px solid #065f46;
-        }
-
-        .mission-tag {
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            color: #34d399;
-            margin-bottom: 0.5rem;
-        }
-
-        .mission-quote {
-            font-family: var(--font-heading);
+        .final-cta-lead {
             font-size: 1.25rem;
-            font-weight: 700;
-            max-width: 52rem;
-            margin: 0 auto;
-            line-height: 1.4;
+            color: #d1d5db;
+            margin-bottom: 2.5rem;
         }
 
-        /* FOOTER */
         .site-footer {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--gov-dark-grey);
+            color: #9ca3af;
             padding: 4.5rem 0 2rem 0;
             font-size: 0.9rem;
             border-top: 1px solid #1e293b;
@@ -901,10 +622,9 @@
         }
 
         .footer-brand {
-            font-family: var(--font-heading);
             font-size: 1.2rem;
             font-weight: 800;
-            color: var(--bg-white);
+            color: var(--gov-white);
             margin-bottom: 0.25rem;
         }
 
@@ -919,12 +639,11 @@
         }
 
         .footer-col-title {
-            font-family: var(--font-heading);
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--bg-white);
+            color: var(--gov-white);
             margin-bottom: 1rem;
         }
 
@@ -933,12 +652,12 @@
         }
 
         .footer-link-item a {
-            color: var(--text-light);
+            color: #9ca3af;
             text-decoration: none;
         }
 
         .footer-link-item a:hover {
-            color: var(--bg-white);
+            color: var(--gov-white);
         }
 
         .footer-list {
@@ -960,47 +679,26 @@
             color: #64748b;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE DESIGN BREAKPOINTS */
         @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .grid-4, .grid-3-cards, .stats-grid, .outcomes-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .flow-arrow {
-                display: none;
-            }
+            .hero-headline { font-size: 2.5rem; }
+            .asset-grid, .unlock-grid { grid-template-columns: repeat(2, 1fr); }
+            .dashboard-list-grid { grid-template-columns: repeat(2, 1fr); }
+            .framework-arrow { display: none; }
         }
 
         @media (max-width: 768px) {
-            .framework-comparison-grid {
-                flex-direction: column;
-            }
-            .comp-vs {
-                margin: -0.5rem 0;
-            }
+            .comparison-wrapper { grid-template-columns: 1fr; }
+            .discovery-pipeline { flex-direction: column; }
+            .flow-arrow-down { transform: rotate(90deg); margin: 0.5rem 0; }
         }
 
         @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            .grid-4, .grid-3-cards, .stats-grid, .outcomes-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .nav-menu {
-                display: none;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
-            }
+            .hero-headline { font-size: 2rem; }
+            .asset-grid, .unlock-grid, .dashboard-list-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-menu { display: none; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
         }
     </style>
 </head>
@@ -1010,11 +708,11 @@
     <div class="announcement-bar">
         <div class="container bar-flex">
             <span class="badge-pill">REGISTRY ACTIVE</span>
-            <span class="bar-text">Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
+            <span>Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
         </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- SITE HEADER & NAVIGATION -->
     <header class="site-header">
         <div class="container nav-flex">
             <a href="/" class="brand-logo">
@@ -1023,450 +721,299 @@
             </a>
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu">
-                    <li><a href="#deliverables">Deliverables</a></li>
-                    <li><a href="#receive">What You Get</a></li>
-                    <li><a href="#cases">Case Studies</a></li>
-                    <li><a href="#process">How It Works</a></li>
-                    <li><a href="#sectors">Who We Serve</a></li>
-                    <li><a href="#ecosystem">Ecosystem</a></li>
-                    <li><a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-nav" target="_blank" rel="noopener">Start Free Assessment</a></li>
+                    <li><a href="#why-ecf">Why ECF</a></li>
+                    <li><a href="#philosophy">Our Philosophy</a></li>
+                    <li><a href="#discovery">Discovery</a></li>
+                    <li><a href="#value">Unlock Value</a></li>
+                    <li><a href="#framework">Our Framework</a></li>
+                    <li><a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-nav" target="_blank" rel="noopener">Start Assessment</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- 1. HERO SECTION (WITH HIGHLIGHTED LIFECYCLE & OUTCOME PILLARS) -->
+        <!-- SECTION 1 – HERO -->
         <section class="hero-section">
-            <div class="container hero-grid">
+            <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <span class="dot"></span> Next-Gen Climate Asset Infrastructure
-                    </div>
-                    <h1 class="hero-title">
-                        Discover &amp; Monetise the Environmental Assets Hidden Inside Your Organisation
-                    </h1>
-                    <p class="hero-lead">
-                        <strong>Earth Carbon Foundation develops, registers, manages, and monetises Environmental Assets throughout their complete lifecycle.</strong><br>
-                        Identify • Measure • Register • Develop Environmental Assets into measurable economic and balance sheet value.
+                    <span class="section-tag">ENVIRONMENTAL ASSET DEVELOPMENT</span>
+                    <h1 class="hero-headline">Every Positive Environmental Action Creates Value.</h1>
+                    <h2 class="hero-subheadline">Discover the Environmental Assets Hidden Within Your Organisation.</h2>
+                    <p class="section-lead" style="margin: 0 auto;">
+                        Every environmental action contributes to healthier natural resources. Our role is to identify, quantify, develop and maximise that value.
                     </p>
-
-                    <!-- LIFECYCLE OUTCOME HIGHLIGHT BOX -->
-                    <div class="hero-outcomes-box">
-                        <div class="outcomes-header-title">KEY REALITY: CARBON CREDITS ARE ONLY ONE OF SEVERAL POSSIBLE OUTCOMES</div>
-                        <div class="outcomes-subtitle">We structure your uncredited low-carbon installations into multi-value assets:</div>
-                        <div class="outcomes-grid">
-                            <div class="outcome-item">
-                                <div class="outcome-item-title"><span>📈</span> Carbon Credit Pooling</div>
-                                <p class="outcome-item-desc">Aggregate small installations (solar, waste, efficiency) to cross verification thresholds for credit issuance.</p>
-                            </div>
-                            <div class="outcome-item">
-                                <div class="outcome-item-title"><span>🏦</span> Green Financing &amp; Capital</div>
-                                <p class="outcome-item-desc">Use Natural Resource Balance Sheets (NRBS™) to qualify for lower interest rates and preferential debt funding.</p>
-                            </div>
-                            <div class="outcome-item">
-                                <div class="outcome-item-title"><span>📜</span> ESG &amp; Supply Chain Mandates</div>
-                                <p class="outcome-item-desc">Secure enterprise contracts and board compliance through auditable Scope 1/2/3 data and digital certificates.</p>
-                            </div>
-                        </div>
+                    
+                    <div class="hero-pillars">
+                        <span class="pillar-pill">⚡ Energy</span>
+                        <span class="pillar-pill">💧 Water</span>
+                        <span class="pillar-pill">♻️ Waste</span>
+                        <span class="pillar-pill">🌿 Biodiversity</span>
+                        <span class="pillar-pill">🌍 Climate</span>
                     </div>
 
                     <div class="cta-group">
                         <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                            Start Free Assessment
+                            ▶ Start Free Assessment
                         </a>
                         <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
-                            Download Environmental Asset Playbook
+                            📘 Download the Playbook
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. TRUST & CREDIBILITY -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="stats-header-title">TRUST &amp; CREDIBILITY</div>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-value">14+</span>
-                        <span class="stat-label">Years Operational Experience</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">1,200+</span>
-                        <span class="stat-label">Institutional Participants</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">17,000+</span>
-                        <span class="stat-label">tCO₂e Identified &amp; Registered</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-value">100M</span>
-                        <span class="stat-label">Ton Target Mitigation Mission</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. CORE DELIVERABLES -->
-        <section class="section-block" id="deliverables">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">CORE DELIVERABLES</span>
-                    <h2 class="section-title">Turn Uncredited Actions Into Quantifiable Balance-Sheet Value</h2>
-                    <p class="section-lead">Instead of developing one isolated project at a time, we aggregate existing low-carbon initiatives into structured, high-integrity portfolios.</p>
-                </div>
-                <div class="grid-4">
-                    <div class="feature-card">
-                        <div class="card-icon-box">📁</div>
-                        <h3 class="card-title">Environmental Asset Portfolio</h3>
-                        <p class="card-desc">Consolidates scattered operational actions into unified, auditable environmental balance sheet assets.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">📊</div>
-                        <h3 class="card-title">Natural Resource Balance Sheet (NRBS™)</h3>
-                        <p class="card-desc">Standardized accounting metrics mapping operational carbon avoidance alongside financial statements.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">📜</div>
-                        <h3 class="card-title">Registry Certificate</h3>
-                        <p class="card-desc">Formal registration and validation of your verified carbon avoidance and capture data points.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">🖥️</div>
-                        <h3 class="card-title">Environmental Dashboard</h3>
-                        <p class="card-desc">Real-time digital visibility into ongoing asset performance, impact verification, and valuation.</p>
-                    </div>
-                </div>
-                <div class="section-cta-wrapper">
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                        Start Free Assessment
-                    </a>
-                    <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
-                        Download Environmental Asset Playbook
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. CASE STUDIES & DIGITAL CERTIFICATES -->
-        <section class="section-block bg-alt" id="cases">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">SECTION 4</span>
-                    <h2 class="section-title">CASE STUDIES</h2>
-                    <p class="section-lead">Auditable, public digital certificates and environmental scoreboards generated across active public and educational deployments.</p>
-                </div>
-                <div class="grid-3-cards">
-                    <!-- Case Study 1 -->
-                    <div class="cert-card">
-                        <img src="Copy of GLS climate Certificate.png" alt="Gujarat Law Society Climate Certificate" class="cert-img">
-                        <div class="cert-body">
-                            <span class="cert-id">SUMMARY ID: CAF-SCH-0025</span>
-                            <h3 class="cert-client">Gujarat Law Society, Ellisbridge</h3>
-                            <ul class="cert-meta-list">
-                                <li><strong>Sector:</strong> Educational Institution[cite: 5]</li>
-                                <li><strong>Action:</strong> Rooftop Solar (30,948 kWh/yr)[cite: 5]</li>
-                                <li><strong>Offset:</strong> 6,167.43 tCO₂e Reduced[cite: 5]</li>
-                                <li><strong>Atmanirbhar Score:</strong> 99%[cite: 5]</li>
-                            </ul>
-                            <span class="cert-status-badge">PENDING / SELF-REPORTED</span>[cite: 5]
-                        </div>
-                    </div>
-                    <!-- Case Study 2 -->
-                    <div class="cert-card">
-                        <img src="Ghandhinagar Asset .png" alt="Gandhinagar Constituency Scoreboard" class="cert-img">
-                        <div class="cert-body">
-                            <span class="cert-id">CONSTITUENCY SCOREBOARD</span>
-                            <h3 class="cert-client">Gandhinagar Parliamentary Constituency</h3>
-                            <ul class="cert-meta-list">
-                                <li><strong>Scope:</strong> 235 Environmental Assets Registered[cite: 4]</li>
-                                <li><strong>Action:</strong> Solar, Water, Waste &amp; Biodiversity[cite: 4]</li>
-                                <li><strong>Offset:</strong> 1,25,000 tCO₂e / year[cite: 4]</li>
-                                <li><strong>Atmanirbhar Score:</strong> 78% Overall[cite: 4]</li>
-                            </ul>
-                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 4]
-                        </div>
-                    </div>
-                    <!-- Case Study 3 -->
-                    <div class="cert-card">
-                        <img src="Board Of Control for Cricket In India.png" alt="Cricket Infrastructure Environmental Scoreboard" class="cert-img">
-                        <div class="cert-body">
-                            <span class="cert-id">INFRASTRUCTURE REGISTRY</span>
-                            <h3 class="cert-client">Cricket Infrastructure Scoreboard</h3>
-                            <ul class="cert-meta-list">
-                                <li><strong>Scope:</strong> 125 Stadium Facilities Registered[cite: 3]</li>
-                                <li><strong>Capacity:</strong> 85 MW Solar &amp; 2.5B Liters Water[cite: 3]</li>
-                                <li><strong>Offset:</strong> 150,000 tCO₂e / year[cite: 3]</li>
-                                <li><strong>Target:</strong> 100M Tons Mission Support[cite: 3]</li>
-                            </ul>
-                            <span class="cert-status-badge cert-status-verified">✓ ACTIVE SCOREBOARD</span>[cite: 3]
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. WHAT YOU WILL RECEIVE -->
-        <section class="section-block" id="receive">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">VERIFIED OUTPUTS</span>
-                    <h2 class="section-title">What You Will Receive</h2>
-                    <p class="section-lead">Every participating entity receives official, auditable registry documentation detailing measurable environmental and resource impact.</p>
-                </div>
-                <div class="grid-4">
-                    <div class="feature-card">
-                        <div class="card-icon-box">📜</div>
-                        <h3 class="card-title">Climate Asset Registry Impact Certificate</h3>
-                        <p class="card-desc">Verified registry documentation featuring unique Summary IDs, verified status tracking, and MoEF&CC-aligned methodology factor seals.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">🌱</div>
-                        <h3 class="card-title">Atmanirbhar % Score Card</h3>
-                        <p class="card-desc">A standardized self-sustaining rate evaluating clean energy generation, water security, and resource independence across operations.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">♻️</div>
-                        <h3 class="card-title">Circularity &amp; Waste Diversion Metrics</h3>
-                        <p class="card-desc">Quantified metrics for waste diverted from landfills, resource re-use rates, and annual tCO₂e reduction baselines.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="card-icon-box">🔒</div>
-                        <h3 class="card-title">Public Verification &amp; Digital Signatures</h3>
-                        <p class="card-desc">Publicly verifiable QR codes, online verification portal links, and unique cryptographic digital signature footprints for audit compliance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. HOW IT WORKS (Single Line Flow Diagram) -->
-        <section class="section-block bg-alt" id="process">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">HOW IT WORKS</span>
-                    <h2 class="section-title">Structured 4-Step Asset Development Pipeline</h2>
-                    <p class="section-lead">A seamless, scientific methodology designed to unlock value without disrupting core operations.</p>
-                </div>
-                <div class="flow-pipeline">
-                    <div class="flow-step">
-                        <span class="flow-num">01</span>
-                        <h3 class="flow-title">Discover</h3>
-                        <p class="flow-text">Audit facilities, clean power setups, and waste systems to isolate unregistered environmental assets.</p>
-                    </div>
-                    <div class="flow-arrow" aria-hidden="true">→</div>
-                    <div class="flow-step">
-                        <span class="flow-num">02</span>
-                        <h3 class="flow-title">Measure</h3>
-                        <p class="flow-text">Quantify carbon avoidance, sequestration, and resource savings using UN-aligned scientific metrics.</p>
-                    </div>
-                    <div class="flow-arrow" aria-hidden="true">→</div>
-                    <div class="flow-step">
-                        <span class="flow-num">03</span>
-                        <h3 class="flow-title">Register</h3>
-                        <p class="flow-text">Issue official registry certificates and log verifiable entries into the central registry database.</p>
-                    </div>
-                    <div class="flow-arrow" aria-hidden="true">→</div>
-                    <div class="flow-step">
-                        <span class="flow-num">04</span>
-                        <h3 class="flow-title">Develop</h3>
-                        <p class="flow-text">Package validated data into institutional portfolios for long-term ESG and financial positioning.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. TARGET SECTORS (Single Line Grid) -->
-        <section class="section-block" id="sectors">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">TARGET SECTORS</span>
-                    <h2 class="section-title">Built for Multi-Sector Climate Action</h2>
-                    <p class="section-lead">Empowering organizations across industrial, public, and private spectrums.</p>
-                </div>
-                <div class="row-grid grid-6-row">
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">🏭</span>
-                            <h3 class="sector-title">Industry</h3>
-                        </div>
-                        <p class="sector-text">Manufacturing and heavy industrial units converting sustainability actions into quantifiable balance-sheet assets.</p>
-                    </div>
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">🏛️</span>
-                            <h3 class="sector-title">Institutions</h3>
-                        </div>
-                        <p class="sector-text">Academic and corporate campuses structuralizing large-scale green infrastructure and solar setups.</p>
-                    </div>
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">☀️</span>
-                            <h3 class="sector-title">Solar EPC</h3>
-                        </div>
-                        <p class="sector-text">Developers monetizing and registering carbon assets embedded in distributed solar generation capacity.</p>
-                    </div>
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">🏢</span>
-                            <h3 class="sector-title">Government</h3>
-                        </div>
-                        <p class="sector-text">Public bodies and municipal entities capturing local environmental action value for regional target tracking.</p>
-                    </div>
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">🚆</span>
-                            <h3 class="sector-title">Infrastructure</h3>
-                        </div>
-                        <p class="sector-text">Transit, logistics, and port infrastructure registering energy efficiency and electrification gains.</p>
-                    </div>
-                    <div class="sector-card-compact">
-                        <div class="sector-header">
-                            <span class="sector-icon">🌾</span>
-                            <h3 class="sector-title">Agriculture</h3>
-                        </div>
-                        <p class="sector-text">Agri-enterprises and forestry authorities measuring land-use carbon sequestration and soil regeneration.</p>
-                    </div>
-                </div>
-                <div class="section-cta-wrapper">
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                        Start Free Assessment
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. INSTITUTIONAL PORTFOLIO FRAMEWORK (WITH EXECUTIVE FLOW COMPARISON) -->
-        <section class="section-block bg-alt" id="framework-insights">
+        <!-- SECTION 2 – WHY ECF? -->
+        <section class="section-block" id="why-ecf">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="section-tag">STRATEGIC ARCHITECTURE</span>
-                    <h2 class="section-title">The Portfolio Approach vs. Single Projects</h2>
-                    <p class="section-lead" style="margin: 0 auto;">How we convert scattered operational measures into unified balance-sheet value.</p>
+                    <span class="section-tag">THE UNTAPPED POTENTIAL</span>
+                    <h2 class="section-title">Most organisations have already invested in sustainability.</h2>
+                    <p class="section-lead">You may already have created significant environmental impact across your site operations:</p>
                 </div>
 
-                <!-- FLOW COMPARISON CARD -->
-                <div class="framework-comparison-grid">
-                    <!-- Traditional Approach -->
-                    <div class="comparison-card traditional">
-                        <span class="comp-badge status-bad">TRADITIONAL APPROACH</span>
-                        <h3 class="comp-title">Isolated Single Projects</h3>
-                        <ul class="comp-list">
-                            <li>❌ High verification costs for small installations</li>
-                            <li>❌ Fragmented data across energy, water, and waste</li>
-                            <li>❌ Uncredited everyday sustainability actions</li>
-                        </ul>
-                    </div>
-
-                    <div class="comp-vs">VS</div>
-
-                    <!-- Earth Carbon Foundation Approach -->
-                    <div class="comparison-card ecf-solution">
-                        <span class="comp-badge status-good">ECF PORTFOLIO MODEL</span>
-                        <h3 class="comp-title">Structured Environmental Asset Portfolio</h3>
-                        <ul class="comp-list">
-                            <li>✅ Aggregated data across all facility measures</li>
-                            <li>✅ Standardized NRBS™ accounting & Atmanirbhar Score</li>
-                            <li>✅ Single auditable registry certificate with QR verification</li>
-                        </ul>
-                    </div>
+                <div class="asset-grid">
+                    <div class="asset-card">☀️ Solar Energy</div>
+                    <div class="asset-card">⚡ Energy Efficiency</div>
+                    <div class="asset-card">🌧️ Rainwater Harvesting</div>
+                    <div class="asset-card">💧 Wastewater Recycling</div>
+                    <div class="asset-card">♻️ Waste Management</div>
+                    <div class="asset-card">🌲 Tree Plantation</div>
+                    <div class="asset-card">🏢 Green Buildings</div>
+                    <div class="asset-card">🎯 CSR &amp; SDG Projects</div>
                 </div>
 
-                <!-- ORIGINAL INFOGRAPHICS DISPLAY -->
-                <div class="infographic-display-container">
-                    <div class="infographic-wrapper space-bottom">
-                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener">
-                            <img src="landing page section 6.png" alt="Approach Comparison Framework" class="infographic-img">
-                        </a>
-                    </div>
-                    <div class="infographic-wrapper">
-                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" target="_blank" rel="noopener">
-                            <img src="landing_page_section_7.png" alt="Start Your Portfolio Framework Flow" class="infographic-img">
-                        </a>
-                    </div>
+                <div class="highlight-banner">
+                    These are Environmental Assets. Most organisations never measure their full value.
                 </div>
             </div>
         </section>
 
-        <!-- 9. THE ECOSYSTEM -->
-        <section class="section-block" id="ecosystem">
+        <!-- SECTION 3 – OUR PHILOSOPHY -->
+        <section class="section-block bg-alt" id="philosophy">
+            <div class="container">
+                <div class="philosophy-box">
+                    <span class="section-tag">OUR GUIDING PRINCIPLE</span>
+                    <h2 class="section-title">Environmental Impact Comes First. Recognition Follows.</h2>
+                    <p class="philosophy-quote">
+                        "Carbon credits are one form of recognition—not the impact itself."
+                    </p>
+                    <p class="section-lead" style="margin: 0 auto;">
+                        Every positive environmental action creates measurable environmental value. Earth Carbon Foundation helps organisations discover, measure and maximise that value.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 – ENVIRONMENTAL ASSET DISCOVERY -->
+        <section class="section-block" id="discovery">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">INTAKE PROCESS</span>
+                    <h2 class="section-title">Environmental Asset Discovery</h2>
+                    <p class="section-lead" style="margin: 0 auto;">Discover your Environmental Assets in just a few minutes.</p>
+                </div>
+
+                <div class="discovery-pipeline">
+                    <div class="discovery-step">
+                        <span class="step-num-badge">Step 1</span>
+                        <div class="step-num-title">Environmental Asset Sector Classification</div>
+                    </div>
+                    <div class="flow-arrow-down">→</div>
+                    <div class="discovery-step">
+                        <span class="step-num-badge">Step 2</span>
+                        <div class="step-num-title">Environmental Asset Inventory</div>
+                    </div>
+                    <div class="flow-arrow-down">→</div>
+                    <div class="discovery-step">
+                        <span class="step-num-badge">Step 3</span>
+                        <div class="step-num-title">Choose Your Business Objective</div>
+                    </div>
+                    <div class="flow-arrow-down">→</div>
+                    <div class="discovery-step">
+                        <span class="step-num-badge">Step 4</span>
+                        <div class="step-num-title">Receive Your Environmental Asset Value Dashboard</div>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
+                        ▶ Start Assessment
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 – YOUR ENVIRONMENTAL ASSET VALUE DASHBOARD -->
+        <section class="section-block bg-alt">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">THE ECOSYSTEM</span>
-                    <h2 class="section-title">Earth Carbon Infrastructure Network</h2>
-                    <p class="section-lead">Interconnected platforms driving scientific verification, public registration, and citizen action.</p>
+                    <span class="section-tag">ASSESSMENT OUTPUTS</span>
+                    <h2 class="section-title">Your Environmental Asset Value Dashboard</h2>
+                    <p class="section-lead">After completing the assessment, your organisation receives an auditable value breakdown:</p>
                 </div>
-                <div class="row-grid grid-5-row">
-                    <div class="eco-card-compact">
-                        <div>
-                            <span class="eco-badge">GOVERNANCE</span>
-                            <h3 class="eco-title">EarthCarbonFoundation.org</h3>
-                            <p class="eco-text">Governing body driving portfolio methodologies, research, and technical asset standards.</p>
-                        </div>
-                        <a href="https://earthcarbonfoundation.org" class="eco-link" target="_blank" rel="noopener">Explore Foundation →</a>
+
+                <div class="dashboard-list-grid">
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Environmental Assets Identified</div>
                     </div>
-                    <div class="eco-card-compact">
-                        <div>
-                            <span class="eco-badge">REGISTRY</span>
-                            <h3 class="eco-title">RegistryEarthCarbon.org</h3>
-                            <p class="eco-text">Centralized registry for tracking, verifying, and issuing environmental assets.</p>
-                        </div>
-                        <a href="https://registryearthcarbon.org" class="eco-link" target="_blank" rel="noopener">Access Registry →</a>
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Environmental Impact Summary</div>
                     </div>
-                    <div class="eco-card-compact">
-                        <div>
-                            <span class="eco-badge">GLOBAL MISSION</span>
-                            <h3 class="eco-title">100MTons.com</h3>
-                            <p class="eco-text">Global campaign tracking organizational commitments toward 100M tCO₂e mitigation.</p>
-                        </div>
-                        <a href="https://100mtons.com" class="eco-link" target="_blank" rel="noopener">View Target →</a>
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Business Value Opportunities</div>
                     </div>
-                    <div class="eco-card-compact">
-                        <div>
-                            <span class="eco-badge">ENGAGEMENT</span>
-                            <h3 class="eco-title">Time2Repay.com</h3>
-                            <p class="eco-text">Citizen and corporate engagement framework for active ecological restitution.</p>
-                        </div>
-                        <a href="https://time2repay.com" class="eco-link" target="_blank" rel="noopener">Explore Framework →</a>
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Compliance Opportunities</div>
                     </div>
-                    <div class="eco-card-compact">
-                        <div>
-                            <span class="eco-badge">SELF-RELIANCE</span>
-                            <h3 class="eco-title">AtmanirbharNow.org</h3>
-                            <p class="eco-text">Decentralized resource self-reliance and sustainability development engine.</p>
-                        </div>
-                        <a href="https://atmanirbharnow.org" class="eco-link" target="_blank" rel="noopener">Learn More →</a>
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Financial Opportunities</div>
+                    </div>
+                    <div class="dashboard-item-card">
+                        <span class="check-icon">✔</span>
+                        <div class="dashboard-item-title">Recommended Development Plan</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 10. FINAL CTA SECTION -->
-        <section class="cta-section" id="contact">
+        <!-- SECTION 6 – UNLOCK ENVIRONMENTAL VALUE -->
+        <section class="section-block" id="value">
             <div class="container">
-                <div class="cta-box">
-                    <h2 class="cta-heading">Ready to Discover Your Environmental Assets?</h2>
-                    <p class="cta-sub">Start a free assessment today or download our Environmental Asset Playbook to get started.</p>
-                    <div class="cta-group">
-                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary-light" target="_blank" rel="noopener">Start Free Assessment</a>
-                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary-light" target="_blank" rel="noopener">Download Environmental Asset Playbook</a>
+                <div class="section-header">
+                    <span class="section-tag">VALUE PATHWAYS</span>
+                    <h2 class="section-title">Unlock Environmental Value</h2>
+                    <p class="section-lead">Your Environmental Assets can be structured to support multiple commercial, compliance, and reporting objectives:</p>
+                </div>
+
+                <div class="unlock-grid">
+                    <div class="unlock-card">📈 ESG &amp; Sustainability Reporting</div>
+                    <div class="unlock-card">🎯 Net Zero Roadmaps</div>
+                    <div class="unlock-card">🌱 Carbon Credits (where eligible)</div>
+                    <div class="unlock-card">🏢 Green Building Certification</div>
+                    <div class="unlock-card">📑 BRSR Compliance</div>
+                    <div class="unlock-card">📊 GRI Standards</div>
+                    <div class="unlock-card">🌿 Green Credits</div>
+                    <div class="unlock-card">⚡ Renewable Energy Certificates</div>
+                    <div class="unlock-card">💧 Water Stewardship</div>
+                    <div class="unlock-card">🌳 Biodiversity Programmes</div>
+                    <div class="unlock-card">♻️ Circular Economy</div>
+                    <div class="unlock-card">🏦 Climate Finance</div>
+                </div>
+
+                <div class="important-callout">
+                    <strong>Important message:</strong> Not every Environmental Asset generates carbon credits. Every Environmental Asset creates measurable value.
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 – WHY EARTH CARBON FOUNDATION? -->
+        <section class="section-block bg-alt">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">OUR DIFFERENCE</span>
+                    <h2 class="section-title">Why Earth Carbon Foundation?</h2>
+                    <p class="section-lead" style="margin: 0 auto;">We don't begin with services. We begin with your Environmental Assets.</p>
+                </div>
+
+                <div class="comparison-wrapper">
+                    <div class="comp-box traditional">
+                        <span class="comp-label">MOST CONSULTANTS ASK:</span>
+                        <div class="comp-question">"Which certification or service do you need?"</div>
                     </div>
-                    <div class="contact-strip">
-                        <span>Need to consult with our secretariat before registering?</span>
-                        <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a> | <a href="tel:+919824025431">+91 9824025431</a>
+
+                    <div class="comp-box ecf">
+                        <span class="comp-label">EARTH CARBON FOUNDATION ASKS:</span>
+                        <div class="comp-question">"Which Environmental Assets have you already created, and how can they deliver greater environmental and business value?"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8 – OUR FRAMEWORK -->
+        <section class="section-block" id="framework">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">LIFECYCLE ARCHITECTURE</span>
+                    <h2 class="section-title">Our Framework</h2>
+                    <p class="section-lead" style="margin: 0 auto;">Every Environmental Asset follows the same structured journey to maximize impact and returns:</p>
+                </div>
+
+                <div class="framework-pipeline">
+                    <div class="framework-node"><div class="framework-node-title">Identify</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node"><div class="framework-node-title">Quantify</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node"><div class="framework-node-title">Verify</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node"><div class="framework-node-title">Develop</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node"><div class="framework-node-title">Register</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node"><div class="framework-node-title">Manage</div></div>
+                    <div class="framework-arrow">→</div>
+                    <div class="framework-node" style="border-top-color: #10b981; background-color: #f0fdf4;"><div class="framework-node-title" style="color: #065f46;">Maximise Value</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9 – WHAT HAPPENS NEXT? -->
+        <section class="section-block bg-alt">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">CLIENT ONBOARDING</span>
+                    <h2 class="section-title">What Happens Next?</h2>
+                    <p class="section-lead">Once your Environmental Assets are identified through the initial discovery process:</p>
+                </div>
+
+                <ol class="next-steps-list">
+                    <li class="next-step-item">
+                        <div class="step-index-circle">1</div>
+                        <div class="next-step-text">Receive your Environmental Asset Value Dashboard.</div>
+                    </li>
+                    <li class="next-step-item">
+                        <div class="step-index-circle">2</div>
+                        <div class="next-step-text">Select the value pathway that best fits your goals.</div>
+                    </li>
+                    <li class="next-step-item">
+                        <div class="step-index-circle">3</div>
+                        <div class="next-step-text">Review your Environmental Asset Development Plan.</div>
+                    </li>
+                    <li class="next-step-item">
+                        <div class="step-index-circle">4</div>
+                        <div class="next-step-text">Receive a tailored commercial proposal.</div>
+                    </li>
+                    <li class="next-step-item">
+                        <div class="step-index-circle">5</div>
+                        <div class="next-step-text">Develop, register and manage your Environmental Assets with ECF.</div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- SECTION 10 – FINAL CALL TO ACTION -->
+        <section class="final-cta-section" id="contact">
+            <div class="container">
+                <div class="final-cta-box">
+                    <h2 class="final-cta-title">Every Positive Environmental Action Creates Value.</h2>
+                    <p class="final-cta-lead">
+                        Let's discover yours. Start your free Environmental Asset Discovery and unlock the full value of your environmental investments.
+                    </p>
+                    <div class="cta-group">
+                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener" style="font-size: 1.1rem; padding: 1.1rem 2.5rem;">
+                            ▶ Start Free Environmental Asset Discovery
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- MISSION BANNER -->
-    <div class="mission-banner">
-        <div class="container">
-            <p class="mission-tag">GLOBAL GOAL</p>
-            <p class="mission-quote">Transform 100 Million tCO₂e of existing environmental actions into structured Environmental Asset Portfolios by 2030.</p>
-        </div>
-    </div>
 
     <!-- SITE FOOTER -->
     <footer class="site-footer">
