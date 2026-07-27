@@ -430,25 +430,106 @@
             color: var(--un-navy);
         }
 
-        /* SECTION 6: UNLOCK VALUE & IMPORTANT CALLOUT */
-        .unlock-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin: 2.5rem 0;
+        /* SECTION 6: THE SIX DIMENSIONS OF ENVIRONMENTAL VALUE (SINGLE LINE ROW) */
+        .dimensions-single-row {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            margin: 2.5rem 0 1.5rem 0;
+            scroll-snap-type: x mandatory;
         }
 
-        .unlock-card {
+        .dim-card-single {
+            flex: 1;
+            min-width: 280px;
+            max-width: 320px;
             background: var(--gov-white);
             border: 1px solid var(--gov-border);
-            padding: 1.25rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--un-navy);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            position: relative;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dim-card-single.dim-env { border-top: 4px solid #2ecc71; }
+        .dim-card-single.dim-ops { border-top: 4px solid #3498db; }
+        .dim-card-single.dim-comp { border-top: 4px solid #f39c12; }
+        .dim-card-single.dim-strat { border-top: 4px solid #e74c3c; }
+        .dim-card-single.dim-fin { border-top: 4px solid #9b59b6; }
+        .dim-card-single.dim-soc { border-top: 4px solid #1abc9c; }
+
+        .dim-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .dim-icon {
+            font-size: 1.75rem;
+        }
+
+        .dim-num {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gov-medium-grey);
+            opacity: 0.4;
+        }
+
+        .dim-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--un-navy);
+            margin-bottom: 0.35rem;
+        }
+
+        .dim-subtitle {
+            font-size: 0.825rem;
+            color: var(--gov-medium-grey);
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px dashed var(--gov-border);
+            line-height: 1.4;
+        }
+
+        .dim-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .dim-list li {
+            font-size: 0.85rem;
+            color: var(--gov-dark-grey);
+            padding-left: 1.15rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+
+        .dim-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--un-blue);
+            font-weight: bold;
+        }
+
+        .philosophy-tag-pill {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: var(--un-navy);
+            border: 1px solid #7dd3fc;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.35rem 1rem;
+            border-radius: 999px;
+            margin-top: 0.5rem;
         }
 
         .important-callout {
@@ -457,9 +538,9 @@
             border-left: 6px solid var(--un-blue);
             padding: 1.5rem 2rem;
             border-radius: var(--radius-md);
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             color: var(--un-navy);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
         }
 
@@ -682,7 +763,7 @@
         /* RESPONSIVE DESIGN BREAKPOINTS */
         @media (max-width: 1024px) {
             .hero-headline { font-size: 2.5rem; }
-            .asset-grid, .unlock-grid { grid-template-columns: repeat(2, 1fr); }
+            .asset-grid { grid-template-columns: repeat(2, 1fr); }
             .dashboard-list-grid { grid-template-columns: repeat(2, 1fr); }
             .framework-arrow { display: none; }
         }
@@ -695,7 +776,7 @@
 
         @media (max-width: 640px) {
             .hero-headline { font-size: 2rem; }
-            .asset-grid, .unlock-grid, .dashboard-list-grid { grid-template-columns: 1fr; }
+            .asset-grid, .dashboard-list-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .nav-menu { display: none; }
             .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -724,7 +805,7 @@
                     <li><a href="#why-ecf">Why ECF</a></li>
                     <li><a href="#philosophy">Our Philosophy</a></li>
                     <li><a href="#discovery">Discovery</a></li>
-                    <li><a href="#value">Unlock Value</a></li>
+                    <li><a href="#dimensions">6 Dimensions</a></li>
                     <li><a href="#framework">Our Framework</a></li>
                     <li><a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-nav" target="_blank" rel="noopener">Start Assessment</a></li>
                 </ul>
@@ -883,28 +964,132 @@
             </div>
         </section>
 
-        <!-- SECTION 6 – UNLOCK ENVIRONMENTAL VALUE -->
-        <section class="section-block" id="value">
+        <!-- SECTION 6 – THE SIX DIMENSIONS OF ENVIRONMENTAL VALUE™ (SINGLE LINE ROW) -->
+        <section class="section-block" id="dimensions">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">VALUE PATHWAYS</span>
-                    <h2 class="section-title">Unlock Environmental Value</h2>
-                    <p class="section-lead">Your Environmental Assets can be structured to support multiple commercial, compliance, and reporting objectives:</p>
+                    <span class="section-tag">HOLISTIC FRAMEWORK</span>
+                    <h2 class="section-title">The Six Dimensions of Environmental Value™</h2>
+                    <p class="section-lead">A holistic framework showing how environmental action cascades into measurable business, financial, and human impact.</p>
+                    <span class="philosophy-tag-pill">🌏 One World, One Family</span>
                 </div>
 
-                <div class="unlock-grid">
-                    <div class="unlock-card">📈 ESG &amp; Sustainability Reporting</div>
-                    <div class="unlock-card">🎯 Net Zero Roadmaps</div>
-                    <div class="unlock-card">🌱 Carbon Credits (where eligible)</div>
-                    <div class="unlock-card">🏢 Green Building Certification</div>
-                    <div class="unlock-card">📑 BRSR Compliance</div>
-                    <div class="unlock-card">📊 GRI Standards</div>
-                    <div class="unlock-card">🌿 Green Credits</div>
-                    <div class="unlock-card">⚡ Renewable Energy Certificates</div>
-                    <div class="unlock-card">💧 Water Stewardship</div>
-                    <div class="unlock-card">🌳 Biodiversity Programmes</div>
-                    <div class="unlock-card">♻️ Circular Economy</div>
-                    <div class="unlock-card">🏦 Climate Finance</div>
+                <!-- SINGLE HORIZONTAL LINE GRID -->
+                <div class="dimensions-single-row">
+                    <!-- Dimension 01 -->
+                    <div class="dim-card-single dim-env">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">🌍</span>
+                                <span class="dim-num">01</span>
+                            </div>
+                            <h3 class="dim-title">Environmental Value</h3>
+                            <p class="dim-subtitle">Foundation — Measurable ecological benefits</p>
+                            <ul class="dim-list">
+                                <li>Reduced GHG emissions</li>
+                                <li>Renewable energy generated</li>
+                                <li>Freshwater conserved</li>
+                                <li>Waste diverted from landfill</li>
+                                <li>Biodiversity &amp; soil health</li>
+                                <li>Better air quality</li>
+                                <li>Reduced fossil fuel use</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dimension 02 -->
+                    <div class="dim-card-single dim-ops">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">⚙️</span>
+                                <span class="dim-num">02</span>
+                            </div>
+                            <h3 class="dim-title">Operational Value</h3>
+                            <p class="dim-subtitle">Day-to-day business efficiency gains</p>
+                            <ul class="dim-list">
+                                <li>Lower electricity &amp; water bills</li>
+                                <li>Reduced fuel &amp; waste costs</li>
+                                <li>Improved resource efficiency</li>
+                                <li>Longer equipment life</li>
+                                <li>Reduced operating expenses</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dimension 03 -->
+                    <div class="dim-card-single dim-comp">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">📋</span>
+                                <span class="dim-num">03</span>
+                            </div>
+                            <h3 class="dim-title">Compliance Value</h3>
+                            <p class="dim-subtitle">Regulatory &amp; reporting alignment</p>
+                            <ul class="dim-list">
+                                <li>Frameworks: BRSR, ESG, GRI</li>
+                                <li>Standards: ISO 14001, 50001</li>
+                                <li>CBAM readiness &amp; EPR</li>
+                                <li>Water regulations compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dimension 04 -->
+                    <div class="dim-card-single dim-strat">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">🚀</span>
+                                <span class="dim-num">04</span>
+                            </div>
+                            <h3 class="dim-title">Strategic Value</h3>
+                            <p class="dim-subtitle">Competitive market positioning</p>
+                            <ul class="dim-list">
+                                <li>Brand reputation &amp; trust</li>
+                                <li>Increased investor confidence</li>
+                                <li>Green procurement preference</li>
+                                <li>Export readiness &amp; tenders</li>
+                                <li>Sustainability leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dimension 05 -->
+                    <div class="dim-card-single dim-fin">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">💰</span>
+                                <span class="dim-num">05</span>
+                            </div>
+                            <h3 class="dim-title">Financial Value</h3>
+                            <p class="dim-subtitle">Direct returns &amp; monetization</p>
+                            <ul class="dim-list">
+                                <li>Carbon &amp; Green Credits</li>
+                                <li>Renewable Certificates (RECs)</li>
+                                <li>Green bonds &amp; ESG finance</li>
+                                <li>Insurance &amp; tax incentives</li>
+                                <li>Premium product pricing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Dimension 06 -->
+                    <div class="dim-card-single dim-soc">
+                        <div>
+                            <div class="dim-header">
+                                <span class="dim-icon">🤝</span>
+                                <span class="dim-num">06</span>
+                            </div>
+                            <h3 class="dim-title">Societal Value</h3>
+                            <p class="dim-subtitle">Human &amp; planetary impact</p>
+                            <ul class="dim-list">
+                                <li>Better public health</li>
+                                <li>Water security &amp; resilience</li>
+                                <li>Employment generation</li>
+                                <li>Community wellbeing</li>
+                                <li>Direct contribution to UN SDGs</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="important-callout">
