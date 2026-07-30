@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Carbon Monetization | Lean Spark AI</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -127,10 +126,10 @@
 </div>
 <nav class="hidden md:flex gap-stack-lg">
 <a class="font-label-bold text-label-bold text-gov-blue border-b-4 border-gov-blue pb-1" href="#">Carbon Monetization</a>
-<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#">Solutions</a>
+<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#form-section">Asset Valuation</a>
 <a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#">Impact</a>
 </nav>
-<button class="font-label-bold text-label-bold hover:underline">Menu</button>
+<button class="font-label-bold text-label-bold hover:underline" onclick="scrollToForm()">Submit Asset</button>
 </div>
 </header>
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
@@ -139,46 +138,49 @@
 <span class="bg-surface-gray px-stack-sm py-1 font-label-bold text-caption tracking-wider uppercase border border-outline-variant">Asset Revenue Engine</span>
 <h1 class="font-display text-display max-w-2xl leading-tight">Turn Unreported Green Assets into Revenue</h1>
 <p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant">
-                Stop viewing ESG as a cost center. Lean Spark AI identifies, verifies, and monetizes your carbon avoidance infrastructure in weeks, not years.
+            Stop viewing ESG as a cost center. Lean Spark AI identifies, verifies, and monetizes your carbon avoidance infrastructure in weeks under a single multi-methodology framework.
             </p>
 <div class="flex flex-col sm:flex-row gap-stack-md mt-stack-sm">
-<button class="btn-primary px-8 py-3 font-label-bold text-body-md">Monetize My Asset</button>
-<button class="btn-secondary px-8 py-3 font-label-bold text-body-md">Join Partner Program</button>
+<button class="btn-primary px-8 py-3 font-label-bold text-body-md" onclick="scrollToForm('owner')">Monetize My Asset</button>
+<button class="btn-secondary px-8 py-3 font-label-bold text-body-md" onclick="scrollToForm('consultant')">Join Partner Program (10% Share)</button>
 </div>
 </section>
-<!-- Image Callout / Visual Anchor -->
+
+<!-- Visual Anchor -->
 <section class="mb-stack-xl">
 <div class="h-64 md:h-96 w-full border-2 border-text-main overflow-hidden">
-<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A clean, industrial architectural photograph of a modern green factory facility during golden hour. The building features sustainable materials and solar arrays on the roof, shot in a crisp, architectural style with deep blues and institutional grays. High-contrast lighting highlights the functional efficiency and permanence of the structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiL1va7TxG7g_XcQn8ToG8sANXXfVf4NTtlXH-DDb2-QcqPhSaqotIQ2-LI6oY6VLUa8WB6wCn8DW1x-cmkV5JTH8nq6X_NoFzWC2nTMiqPPekAKqXcTauYqJ2f6gV0x8gZci_pucqQ5G2iXrNx_li5PTrX6DSO5gjZJ5Snn3aCgjqqjqVW_IhNhLiYuOmm2exzcP7pdka2fFUz6emKimjXufzEGnw4hnCZxaOu5Z927YuiaHpm8-h"/>
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="Modern green factory facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiL1va7TxG7g_XcQn8ToG8sANXXfVf4NTtlXH-DDb2-QcqPhSaqotIQ2-LI6oY6VLUa8WB6wCn8DW1x-cmkV5JTH8nq6X_NoFzWC2nTMiqPPekAKqXcTauYqJ2f6gV0x8gZci_pucqQ5G2iXrNx_li5PTrX6DSO5gjZJ5Snn3aCgjqqjqVW_IhNhLiYuOmm2exzcP7pdka2fFUz6emKimjXufzEGnw4hnCZxaOu5Z927YuiaHpm8-h"/>
 </div>
 </section>
+
 <!-- Decision Flow: 4-Step Process -->
 <section class="py-stack-xl border-t-2 border-text-main">
 <h2 class="font-headline-lg text-headline-lg mb-stack-lg">From Infrastructure to Income</h2>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
 <span class="font-display text-headline-md opacity-20">01</span>
-<h3 class="font-label-bold text-label-bold">Authenticate</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Securely connect your industrial IoT or utility data streams.</p>
+<h3 class="font-label-bold text-label-bold">Submit Asset</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Enter basic technical parameters and coordinates via our 3-minute form.</p>
 </div>
 <div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
 <span class="font-display text-headline-md opacity-20">02</span>
-<h3 class="font-label-bold text-label-bold">Geo-Tag</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Satellite validation of physical assets and operational zones.</p>
+<h3 class="font-label-bold text-label-bold">Multi-Stack</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our engine combines solar, HVAC, and efficiency methodologies automatically.</p>
 </div>
 <div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
 <span class="font-display text-headline-md opacity-20">03</span>
-<h3 class="font-label-bold text-label-bold">Calculate</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Lean AI engine computes carbon avoidance yields instantly.</p>
+<h3 class="font-label-bold text-label-bold">Instant Yield</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Receive an automated proposal detailing your calculated annual carbon revenue range.</p>
 </div>
 <div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
 <span class="font-display text-headline-md opacity-20">04</span>
-<h3 class="font-label-bold text-label-bold">Execute</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Direct listing on global high-integrity carbon registries.</p>
+<h3 class="font-label-bold text-label-bold">Execute POA</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Sign your customized Power of Attorney to place assets into the monetization pool.</p>
 </div>
 </div>
 </section>
-<!-- Value Table: Simplified Comparison -->
+
+<!-- Value Table: Comparison -->
 <section class="py-stack-xl bg-surface-gray px-gutter -mx-gutter border-y-2 border-text-main">
 <div class="max-w-container-max mx-auto">
 <h2 class="font-headline-lg text-headline-lg mb-stack-lg">Institutional Performance Comparison</h2>
@@ -187,101 +189,132 @@
 <thead>
 <tr class="border-b-2 border-text-main">
 <th class="py-stack-md font-label-bold text-label-bold w-1/3">Metric</th>
-<th class="py-stack-md font-label-bold text-label-bold text-on-surface-variant">Static Reporting</th>
-<th class="py-stack-md font-label-bold text-label-bold text-gov-blue">Active Monetization</th>
+<th class="py-stack-md font-label-bold text-label-bold text-on-surface-variant">Traditional Consultant</th>
+<th class="py-stack-md font-label-bold text-label-bold text-gov-blue">Lean Spark Aggregated Framework</th>
 </tr>
 </thead>
 <tbody class="divide-y border-b-2 border-text-main">
 <tr>
-<td class="py-stack-md font-label-bold text-body-md">Update Frequency</td>
-<td class="py-stack-md font-body-md">Annual / Retrospective</td>
-<td class="py-stack-md font-body-md text-gov-blue font-bold">Real-time / Predictive</td>
+<td class="py-stack-md font-label-bold text-body-md">Upfront Cash Outlay</td>
+<td class="py-stack-md font-body-md">₹17 - ₹20 Lakhs per site</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Base Cost Recovery / Zero Out-of-Pocket</td>
 </tr>
 <tr>
-<td class="py-stack-md font-label-bold text-body-md">Financial Outcome</td>
-<td class="py-stack-md font-body-md">Compliance Liability</td>
-<td class="py-stack-md font-body-md text-gov-blue font-bold">Direct Revenue Asset</td>
+<td class="py-stack-md font-label-bold text-body-md">Methodology Scope</td>
+<td class="py-stack-md font-body-md">Single Methodology / Single Application</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Multi-Methodology Stacking (Solar + EE + Waste Heat)</td>
 </tr>
 <tr>
-<td class="py-stack-md font-label-bold text-body-md">Verification Time</td>
-<td class="py-stack-md font-body-md">4 - 9 Months</td>
-<td class="py-stack-md font-body-md text-gov-blue font-bold">&lt; 72 Hours</td>
+<td class="py-stack-md font-label-bold text-body-md">Time to Issuance</td>
+<td class="py-stack-md font-body-md">18 - 24 Months</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Streamlined Umbrella Framework</td>
 </tr>
 <tr>
-<td class="py-stack-md font-label-bold text-body-md">Data Integrity</td>
-<td class="py-stack-md font-body-md">Manual Spreadsheets</td>
-<td class="py-stack-md font-body-md text-gov-blue font-bold">Automated IoT Chain</td>
+<td class="py-stack-md font-label-bold text-body-md">Partner Incentives</td>
+<td class="py-stack-md font-body-md">Zero Backend Revenue Share</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">10% Recurring Credit Revenue Share</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<!-- Social Proof: Minimalist Quotes -->
+
+<!-- LIVE EMBEDDED FORM CONTAINER -->
+<section id="form-section" class="py-stack-xl my-stack-xl border-2 border-text-main bg-white p-stack-md md:p-stack-lg">
+<div class="max-w-2xl mx-auto text-center mb-stack-md">
+<span class="bg-surface-gray px-stack-sm py-1 font-label-bold text-caption tracking-wider uppercase border border-outline-variant">Instant Valuation Portal</span>
+<h2 class="font-headline-lg text-headline-lg mt-2">Evaluate Asset &amp; Generate POA Proposal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Complete the 3-minute form below to calculate annual carbon yield and receive your customized executable POA.</p>
+</div>
+
+<!-- Fillout Embed Widget -->
+<div class="w-full bg-surface-gray border border-outline-variant p-2 rounded-lg">
+<div 
+  data-fillout-id="dhFk78Fi8ius" 
+  data-fillout-embed-type="standard" 
+  style="width:100%;height:700px;border:none;" 
+  data-fillout-inherit-parameters>
+</div>
+<script src="https://server.fillout.com/embed/v1/"></script>
+</div>
+</section>
+
+<!-- Social Proof -->
 <section class="py-stack-xl grid grid-cols-1 md:grid-cols-2 gap-stack-xl">
 <div class="p-stack-lg border-2 border-text-main flex flex-col justify-between">
 <div>
 <span class="material-symbols-outlined text-gov-blue mb-4" data-icon="format_quote">format_quote</span>
-<blockquote class="font-headline-md text-headline-md italic mb-4">"Lean Spark AI unlocked $400k in annual revenue from our cooling system upgrades that we previously thought were just overhead costs."</blockquote>
+<blockquote class="font-headline-md text-headline-md italic mb-4">"We registered our 500 kWp rooftop solar and motor upgrades in 5 minutes. The multi-methodology stack unlocked 20% more carbon credits than single applications."</blockquote>
 </div>
-<cite class="not-italic font-label-bold text-label-bold">— Operations Director, Global Textiles Factory</cite>
+<cite class="not-italic font-label-bold text-label-bold">— Operations Director, Global Textiles Facility</cite>
 </div>
 <div class="p-stack-lg border-2 border-text-main flex flex-col justify-between">
 <div>
 <span class="material-symbols-outlined text-gov-blue mb-4" data-icon="format_quote">format_quote</span>
-<blockquote class="font-headline-md text-headline-md italic mb-4">"The speed of verification is the differentiator. For my clients, moving from data to cash in days instead of months is a game changer."</blockquote>
+<blockquote class="font-headline-md text-headline-md italic mb-4">"Moving our clients into this bundled umbrella program unlocked a 10% recurring revenue stream for our consultancy without taking on VVB risk."</blockquote>
 </div>
 <cite class="not-italic font-label-bold text-label-bold">— Senior ESG Consultant, Tier 1 Firm</cite>
 </div>
 </section>
+
 <!-- Bottom CTA -->
 <section class="py-stack-xl bg-text-main text-white -mx-gutter px-gutter mb-stack-xl">
 <div class="max-w-container-max mx-auto text-center flex flex-col items-center gap-stack-md">
-<h2 class="font-headline-lg text-headline-lg">Secure Your First Carbon Yield Today</h2>
-<p class="font-body-lg text-body-lg max-w-xl opacity-90">Select your profile to begin the institutional verification process.</p>
+<h2 class="font-headline-lg text-headline-lg">Ready to Unlock Your Carbon Revenue?</h2>
+<p class="font-body-lg text-body-lg max-w-xl opacity-90">Choose your role to begin your free 3-minute asset evaluation.</p>
 <div class="flex flex-col sm:flex-row gap-stack-md mt-stack-md w-full max-w-md">
-<button class="bg-white text-text-main border-b-4 border-surface-container-high px-8 py-4 font-label-bold text-body-md w-full hover:bg-surface-gray transition-colors">I Own an Asset</button>
-<button class="bg-gov-blue text-white border-b-4 border-primary px-8 py-4 font-label-bold text-body-md w-full hover:opacity-90 transition-opacity">I Advise Clients</button>
+<button class="bg-white text-text-main border-b-4 border-surface-container-high px-8 py-4 font-label-bold text-body-md w-full hover:bg-surface-gray transition-colors" onclick="scrollToForm('owner')">I Own an Asset</button>
+<button class="bg-gov-blue text-white border-b-4 border-primary px-8 py-4 font-label-bold text-body-md w-full hover:opacity-90 transition-opacity" onclick="scrollToForm('consultant')">I Advise Clients</button>
 </div>
 </div>
 </section>
 </main>
+
 <!-- Footer -->
 <footer class="bg-surface-gray dark:bg-surface-container-high w-full mt-stack-xl border-t-2 border-outline-variant">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-stack-lg flex flex-col md:flex-row justify-between gap-stack-md">
 <div class="flex flex-col gap-2">
 <span class="font-label-bold text-label-bold text-text-main">Lean Spark AI</span>
-<span class="font-body-md text-body-md text-text-main opacity-70">© 2024 Lean Spark AI. All rights reserved.</span>
+<span class="font-body-md text-body-md text-text-main opacity-70">© 2026 Lean Spark AI &amp; Earth Carbon Foundation. All rights reserved.</span>
 </div>
 <div class="flex flex-wrap gap-x-8 gap-y-4">
 <a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Accessibility</a>
 <a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Cookies</a>
-<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Privacy policy</a>
-<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Terms and conditions</a>
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Program Terms</a>
 </div>
 </div>
 </footer>
-<script>
-        // Micro-interaction for scroll reveals
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
 
-            document.querySelectorAll('section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(10px)';
-                section.style.transition = 'all 0.4s ease-out';
-                observer.observe(section);
+<script>
+    // Smooth Scroll Helper Function
+    function scrollToForm(role) {
+        const formSection = document.getElementById('form-section');
+        if (formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    // Scroll reveal observer
+    document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(10px)';
+            section.style.transition = 'all 0.4s ease-out';
+            observer.observe(section);
         });
-    </script>
-</body></html>
+    });
+</script>
+</body>
+</html>
