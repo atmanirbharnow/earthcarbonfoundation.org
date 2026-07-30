@@ -1,1237 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Environmental Asset Discovery &amp; Value Registry</title>
-    <meta name="description" content="Discover, measure, register, and maximize the full value of the environmental assets inside your organisation.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    
-    <style>
-        /* ==========================================================================
-           UNITED NATIONS BLUE & GOV.UK INSTITUTIONAL SINGLE-FILE ARCHITECTURE
-           ========================================================================== */
-        
-        :root {
-            --un-blue: #009edb;
-            --un-navy: #002b49;
-            --un-blue-hover: #0077b5;
-            --un-light-bg: #f0f8ff;
-            
-            --gov-black: #0b0c0c;
-            --gov-dark-grey: #111827;
-            --gov-medium-grey: #4b5563;
-            --gov-border: #bfc1c3;
-            --gov-white: #ffffff;
-            
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --max-width: 1240px;
-            --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-
-        body {
-            font-family: var(--font-stack);
-            background-color: var(--gov-white);
-            color: var(--gov-black);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* TOP ANNOUNCEMENT BANNER */
-        .announcement-bar {
-            background-color: var(--un-navy);
-            color: var(--gov-white);
-            font-size: 0.85rem;
-            padding: 0.6rem 0;
-            border-bottom: 3px solid var(--un-blue);
-        }
-
-        .bar-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-
-        .badge-pill {
-            background-color: var(--un-blue);
-            color: var(--gov-white);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            padding: 0.25rem 0.75rem;
-            text-transform: uppercase;
-        }
-
-        /* HEADER & NAVIGATION */
-        .site-header {
-            background-color: var(--gov-white);
-            border-bottom: 1px solid var(--gov-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 4.5rem;
-        }
-
-        .brand-logo {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .logo-mark {
-            background-color: var(--un-blue);
-            color: var(--gov-white);
-            font-weight: 800;
-            font-size: 1.1rem;
-            padding: 0.4rem 0.75rem;
-            border-radius: var(--radius-sm);
-        }
-
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--un-navy);
-            letter-spacing: -0.02em;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 1.75rem;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-menu a {
-            color: var(--gov-medium-grey);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color 0.15s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--un-blue);
-            text-decoration: underline;
-        }
-
-        .btn-nav {
-            background-color: var(--un-navy) !important;
-            color: var(--gov-white) !important;
-            padding: 0.6rem 1.25rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem !important;
-        }
-
-        /* SECTION STYLING BASE */
-        .section-block {
-            padding: 5rem 0;
-            border-bottom: 1px solid var(--gov-border);
-        }
-
-        .bg-alt {
-            background-color: var(--un-light-bg);
-        }
-
-        .bg-navy {
-            background-color: var(--un-navy);
-            color: var(--gov-white);
-        }
-
-        .section-tag {
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            color: var(--un-blue);
-            display: block;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        .bg-navy .section-tag {
-            color: #38bdf8;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--un-navy);
-            margin-bottom: 0.75rem;
-        }
-
-        .bg-navy .section-title {
-            color: var(--gov-white);
-        }
-
-        .section-lead {
-            font-size: 1.15rem;
-            color: var(--gov-medium-grey);
-            max-width: 48rem;
-            line-height: 1.6;
-        }
-
-        .bg-navy .section-lead {
-            color: #d1d5db;
-        }
-
-        /* BUTTONS */
-        .cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--un-blue);
-            color: var(--gov-white);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.95rem 2rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            transition: background-color 0.15s ease;
-            border-bottom: 3px solid #005a87;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--un-blue-hover);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: var(--gov-white);
-            color: var(--un-navy);
-            border: 1px solid var(--gov-border);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.95rem 2rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f3f4f6;
-        }
-
-        /* SECTION 1: HERO */
-        .hero-section {
-            padding: 5.5rem 0 4.5rem 0;
-            background-color: var(--un-light-bg);
-            border-bottom: 1px solid var(--gov-border);
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .hero-headline {
-            font-size: 3.25rem;
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -0.03em;
-            color: var(--un-navy);
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-subheadline {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--un-blue);
-            margin-bottom: 1rem;
-        }
-
-        .hero-pillars {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0 2.5rem 0;
-            flex-wrap: wrap;
-        }
-
-        .pillar-pill {
-            background: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            padding: 0.5rem 1.25rem;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--un-navy);
-            border-radius: 999px;
-        }
-
-        /* SECTION 2: WHY ECF? */
-        .asset-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.25rem;
-            margin: 2.5rem 0;
-        }
-
-        .asset-card {
-            background: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            border-top: 4px solid var(--un-blue);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--un-navy);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .highlight-banner {
-            background-color: var(--un-navy);
-            color: var(--gov-white);
-            padding: 1.75rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 2rem;
-            border-left: 6px solid var(--un-blue);
-        }
-
-        /* SECTION 3: PHILOSOPHY */
-        .philosophy-box {
-            background-color: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            border-radius: var(--radius-md);
-            padding: 2.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-
-        .philosophy-quote {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--un-navy);
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        /* SECTION 4: DISCOVERY PIPELINE */
-        .discovery-pipeline {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
-            gap: 1rem;
-            margin: 3rem 0;
-            overflow-x: auto;
-        }
-
-        .discovery-step {
-            flex: 1;
-            min-width: 220px;
-            background-color: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            border-top: 4px solid var(--un-blue);
-            border-radius: var(--radius-md);
-            padding: 1.75rem;
-            text-align: center;
-        }
-
-        .step-num-badge {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--un-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .step-num-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--un-navy);
-        }
-
-        .flow-arrow-down {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--un-blue);
-            font-weight: 800;
-        }
-
-        /* SECTION 5: DASHBOARD DELIVERABLES */
-        .dashboard-list-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        .dashboard-item-card {
-            background-color: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            padding: 1.75rem;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .check-icon {
-            color: var(--un-blue);
-            font-size: 1.5rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .dashboard-item-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--un-navy);
-        }
-
-        /* SECTION 6: THE SIX DIMENSIONS OF ENVIRONMENTAL VALUE (SINGLE LINE ROW) */
-        .dimensions-single-row {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-            margin: 2.5rem 0 1.5rem 0;
-            scroll-snap-type: x mandatory;
-        }
-
-        .dim-card-single {
-            flex: 1;
-            min-width: 280px;
-            max-width: 320px;
-            background: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            position: relative;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .dim-card-single.dim-env { border-top: 4px solid #2ecc71; }
-        .dim-card-single.dim-ops { border-top: 4px solid #3498db; }
-        .dim-card-single.dim-comp { border-top: 4px solid #f39c12; }
-        .dim-card-single.dim-strat { border-top: 4px solid #e74c3c; }
-        .dim-card-single.dim-fin { border-top: 4px solid #9b59b6; }
-        .dim-card-single.dim-soc { border-top: 4px solid #1abc9c; }
-
-        .dim-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.75rem;
-        }
-
-        .dim-icon {
-            font-size: 1.75rem;
-        }
-
-        .dim-num {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--gov-medium-grey);
-            opacity: 0.4;
-        }
-
-        .dim-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--un-navy);
-            margin-bottom: 0.35rem;
-        }
-
-        .dim-subtitle {
-            font-size: 0.825rem;
-            color: var(--gov-medium-grey);
-            font-style: italic;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px dashed var(--gov-border);
-            line-height: 1.4;
-        }
-
-        .dim-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .dim-list li {
-            font-size: 0.85rem;
-            color: var(--gov-dark-grey);
-            padding-left: 1.15rem;
-            position: relative;
-            margin-bottom: 0.4rem;
-            line-height: 1.35;
-        }
-
-        .dim-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--un-blue);
-            font-weight: bold;
-        }
-
-        .philosophy-tag-pill {
-            display: inline-block;
-            background-color: #e0f2fe;
-            color: var(--un-navy);
-            border: 1px solid #7dd3fc;
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            margin-top: 0.5rem;
-        }
-
-        .important-callout {
-            background-color: #e0f2fe;
-            border: 1px solid #7dd3fc;
-            border-left: 6px solid var(--un-blue);
-            padding: 1.5rem 2rem;
-            border-radius: var(--radius-md);
-            margin-top: 2rem;
-            color: var(--un-navy);
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
-        /* SECTION 7: WHY ECF VS CONSULTANTS */
-        .comparison-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2.5rem;
-        }
-
-        .comp-box {
-            padding: 2.5rem;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--gov-border);
-        }
-
-        .comp-box.traditional {
-            background-color: #fef2f2;
-            border-top: 4px solid #ef4444;
-        }
-
-        .comp-box.ecf {
-            background-color: #f0fdf4;
-            border-top: 4px solid #10b981;
-        }
-
-        .comp-label {
-            font-size: 0.8rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .traditional .comp-label { color: #991b1b; }
-        .ecf .comp-label { color: #065f46; }
-
-        .comp-question {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--gov-black);
-            line-height: 1.4;
-        }
-
-        /* SECTION 8: 7-STEP FRAMEWORK PIPELINE */
-        .framework-pipeline {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            margin-top: 3rem;
-            overflow-x: auto;
-            padding-bottom: 1rem;
-        }
-
-        .framework-node {
-            background-color: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            border-top: 4px solid var(--un-blue);
-            padding: 1.25rem 1rem;
-            border-radius: var(--radius-sm);
-            text-align: center;
-            min-width: 130px;
-            flex: 1;
-        }
-
-        .framework-node-title {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--un-navy);
-        }
-
-        .framework-arrow {
-            color: var(--un-blue);
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-
-        /* SECTION 9: WHAT HAPPENS NEXT */
-        .next-steps-list {
-            list-style: none;
-            margin-top: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            max-width: 850px;
-        }
-
-        .next-step-item {
-            background-color: var(--gov-white);
-            border: 1px solid var(--gov-border);
-            padding: 1.5rem 2rem;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .step-index-circle {
-            background-color: var(--un-blue);
-            color: var(--gov-white);
-            font-weight: 800;
-            font-size: 1.1rem;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .next-step-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--un-navy);
-        }
-
-        /* SECTION 10: FINAL CTA & FOOTER */
-        .final-cta-section {
-            background-color: var(--un-navy);
-            color: var(--gov-white);
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .final-cta-box {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .final-cta-title {
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .final-cta-lead {
-            font-size: 1.25rem;
-            color: #d1d5db;
-            margin-bottom: 2.5rem;
-        }
-
-        .site-footer {
-            background-color: var(--gov-dark-grey);
-            color: #9ca3af;
-            padding: 4.5rem 0 2rem 0;
-            font-size: 0.9rem;
-            border-top: 1px solid #1e293b;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .footer-brand {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--gov-white);
-            margin-bottom: 0.25rem;
-        }
-
-        .footer-tagline {
-            color: #64748b;
-            margin-bottom: 1rem;
-        }
-
-        .footer-address {
-            font-style: normal;
-            line-height: 1.6;
-        }
-
-        .footer-col-title {
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--gov-white);
-            margin-bottom: 1rem;
-        }
-
-        .footer-link-item {
-            margin-bottom: 0.65rem;
-        }
-
-        .footer-link-item a {
-            color: #9ca3af;
-            text-decoration: none;
-        }
-
-        .footer-link-item a:hover {
-            color: var(--gov-white);
-        }
-
-        .footer-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 1.75rem;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-
-        /* RESPONSIVE DESIGN BREAKPOINTS */
-        @media (max-width: 1024px) {
-            .hero-headline { font-size: 2.5rem; }
-            .asset-grid { grid-template-columns: repeat(2, 1fr); }
-            .dashboard-list-grid { grid-template-columns: repeat(2, 1fr); }
-            .framework-arrow { display: none; }
-        }
-
-        @media (max-width: 768px) {
-            .comparison-wrapper { grid-template-columns: 1fr; }
-            .discovery-pipeline { flex-direction: column; }
-            .flow-arrow-down { transform: rotate(90deg); margin: 0.5rem 0; }
-        }
-
-        @media (max-width: 640px) {
-            .hero-headline { font-size: 2rem; }
-            .asset-grid, .dashboard-list-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .nav-menu { display: none; }
-            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-        }
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Carbon Monetization | Lean Spark AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#414751",
+                    "surface": "#fbf9f8",
+                    "surface-gray": "#F3F2F1",
+                    "outline-variant": "#c1c7d2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#e9f1ff",
+                    "inverse-primary": "#a0caff",
+                    "on-tertiary-container": "#ffede2",
+                    "primary": "#005796",
+                    "gov-blue": "#1D70B8",
+                    "secondary-fixed": "#9af6b5",
+                    "primary-fixed": "#d2e4ff",
+                    "primary-container": "#1d70b8",
+                    "secondary": "#006d3a",
+                    "surface-bright": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "bg-white": "#FFFFFF",
+                    "surface-container": "#efeded",
+                    "on-primary-fixed-variant": "#00497e",
+                    "on-primary-fixed": "#001c37",
+                    "surface-container-high": "#e9e8e7",
+                    "on-secondary-container": "#04723d",
+                    "tertiary": "#824600",
+                    "on-tertiary-fixed-variant": "#6d3a00",
+                    "surface-container-highest": "#e4e2e1",
+                    "surface-container-low": "#f5f3f2",
+                    "primary-fixed-dim": "#a0caff",
+                    "surface-variant": "#e4e2e1",
+                    "tertiary-fixed-dim": "#ffb77b",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#a55a00",
+                    "surface-dim": "#dbdad9",
+                    "tertiary-fixed": "#ffdcc2",
+                    "secondary-container": "#97f3b2",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#0061a6",
+                    "secondary-fixed-dim": "#7eda9a",
+                    "inverse-surface": "#303030",
+                    "institutional-green": "#00703C",
+                    "on-tertiary-fixed": "#2e1500",
+                    "outline": "#717782",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1b1c1c",
+                    "background": "#fbf9f8",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed": "#00210e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "text-main": "#0B0C0C",
+                    "on-secondary-fixed-variant": "#00522a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "margin-mobile": "15px",
+                    "gutter": "30px",
+                    "unit": "8px",
+                    "stack-lg": "32px",
+                    "stack-xl": "48px",
+                    "stack-sm": "8px",
+                    "container-max": "1020px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Public Sans"],
+                    "headline-lg": ["Public Sans"],
+                    "caption": ["Public Sans"],
+                    "body-md": ["Public Sans"],
+                    "headline-lg-mobile": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "display": ["Public Sans"],
+                    "label-bold": ["Public Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["19px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "caption": ["14px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-bold": ["16px", {"lineHeight": "20px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; background-color: #FFFFFF; color: #0B0C0C; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .btn-primary { background-color: #00703C; color: white; border-bottom: 4px solid #004d2a; transition: all 0.1s ease-in-out; }
+        .btn-primary:active { transform: translateY(2px); border-bottom-width: 2px; }
+        .btn-secondary { border: 2px solid #1D70B8; color: #1D70B8; transition: background-color 0.2s; }
+        .btn-secondary:hover { background-color: #F3F2F1; }
+        .divider { height: 2px; background-color: #0B0C0C; }
     </style>
 </head>
-<body>
+<body class="bg-white">
+<!-- TopAppBar -->
+<header class="w-full border-b-2 border-text-main dark:border-white bg-white">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-gov-blue text-headline-md" data-icon="account_balance">account_balance</span>
+<span class="font-headline-md text-headline-md font-bold text-text-main">Lean Spark AI</span>
+</div>
+<nav class="hidden md:flex gap-stack-lg">
+<a class="font-label-bold text-label-bold text-gov-blue border-b-4 border-gov-blue pb-1" href="#">Carbon Monetization</a>
+<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#">Solutions</a>
+<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#">Impact</a>
+</nav>
+<button class="font-label-bold text-label-bold hover:underline">Menu</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<!-- Hero Section -->
+<section class="py-stack-xl flex flex-col items-start gap-stack-md">
+<span class="bg-surface-gray px-stack-sm py-1 font-label-bold text-caption tracking-wider uppercase border border-outline-variant">Asset Revenue Engine</span>
+<h1 class="font-display text-display max-w-2xl leading-tight">Turn Unreported Green Assets into Revenue</h1>
+<p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant">
+                Stop viewing ESG as a cost center. Lean Spark AI identifies, verifies, and monetizes your carbon avoidance infrastructure in weeks, not years.
+            </p>
+<div class="flex flex-col sm:flex-row gap-stack-md mt-stack-sm">
+<button class="btn-primary px-8 py-3 font-label-bold text-body-md">Monetize My Asset</button>
+<button class="btn-secondary px-8 py-3 font-label-bold text-body-md">Join Partner Program</button>
+</div>
+</section>
+<!-- Image Callout / Visual Anchor -->
+<section class="mb-stack-xl">
+<div class="h-64 md:h-96 w-full border-2 border-text-main overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[20%]" data-alt="A clean, industrial architectural photograph of a modern green factory facility during golden hour. The building features sustainable materials and solar arrays on the roof, shot in a crisp, architectural style with deep blues and institutional grays. High-contrast lighting highlights the functional efficiency and permanence of the structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiL1va7TxG7g_XcQn8ToG8sANXXfVf4NTtlXH-DDb2-QcqPhSaqotIQ2-LI6oY6VLUa8WB6wCn8DW1x-cmkV5JTH8nq6X_NoFzWC2nTMiqPPekAKqXcTauYqJ2f6gV0x8gZci_pucqQ5G2iXrNx_li5PTrX6DSO5gjZJ5Snn3aCgjqqjqVW_IhNhLiYuOmm2exzcP7pdka2fFUz6emKimjXufzEGnw4hnCZxaOu5Z927YuiaHpm8-h"/>
+</div>
+</section>
+<!-- Decision Flow: 4-Step Process -->
+<section class="py-stack-xl border-t-2 border-text-main">
+<h2 class="font-headline-lg text-headline-lg mb-stack-lg">From Infrastructure to Income</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
+<span class="font-display text-headline-md opacity-20">01</span>
+<h3 class="font-label-bold text-label-bold">Authenticate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Securely connect your industrial IoT or utility data streams.</p>
+</div>
+<div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
+<span class="font-display text-headline-md opacity-20">02</span>
+<h3 class="font-label-bold text-label-bold">Geo-Tag</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Satellite validation of physical assets and operational zones.</p>
+</div>
+<div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
+<span class="font-display text-headline-md opacity-20">03</span>
+<h3 class="font-label-bold text-label-bold">Calculate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Lean AI engine computes carbon avoidance yields instantly.</p>
+</div>
+<div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
+<span class="font-display text-headline-md opacity-20">04</span>
+<h3 class="font-label-bold text-label-bold">Execute</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Direct listing on global high-integrity carbon registries.</p>
+</div>
+</div>
+</section>
+<!-- Value Table: Simplified Comparison -->
+<section class="py-stack-xl bg-surface-gray px-gutter -mx-gutter border-y-2 border-text-main">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-stack-lg">Institutional Performance Comparison</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-text-main">
+<th class="py-stack-md font-label-bold text-label-bold w-1/3">Metric</th>
+<th class="py-stack-md font-label-bold text-label-bold text-on-surface-variant">Static Reporting</th>
+<th class="py-stack-md font-label-bold text-label-bold text-gov-blue">Active Monetization</th>
+</tr>
+</thead>
+<tbody class="divide-y border-b-2 border-text-main">
+<tr>
+<td class="py-stack-md font-label-bold text-body-md">Update Frequency</td>
+<td class="py-stack-md font-body-md">Annual / Retrospective</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Real-time / Predictive</td>
+</tr>
+<tr>
+<td class="py-stack-md font-label-bold text-body-md">Financial Outcome</td>
+<td class="py-stack-md font-body-md">Compliance Liability</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Direct Revenue Asset</td>
+</tr>
+<tr>
+<td class="py-stack-md font-label-bold text-body-md">Verification Time</td>
+<td class="py-stack-md font-body-md">4 - 9 Months</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">&lt; 72 Hours</td>
+</tr>
+<tr>
+<td class="py-stack-md font-label-bold text-body-md">Data Integrity</td>
+<td class="py-stack-md font-body-md">Manual Spreadsheets</td>
+<td class="py-stack-md font-body-md text-gov-blue font-bold">Automated IoT Chain</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Social Proof: Minimalist Quotes -->
+<section class="py-stack-xl grid grid-cols-1 md:grid-cols-2 gap-stack-xl">
+<div class="p-stack-lg border-2 border-text-main flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-gov-blue mb-4" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline-md text-headline-md italic mb-4">"Lean Spark AI unlocked $400k in annual revenue from our cooling system upgrades that we previously thought were just overhead costs."</blockquote>
+</div>
+<cite class="not-italic font-label-bold text-label-bold">— Operations Director, Global Textiles Factory</cite>
+</div>
+<div class="p-stack-lg border-2 border-text-main flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-gov-blue mb-4" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline-md text-headline-md italic mb-4">"The speed of verification is the differentiator. For my clients, moving from data to cash in days instead of months is a game changer."</blockquote>
+</div>
+<cite class="not-italic font-label-bold text-label-bold">— Senior ESG Consultant, Tier 1 Firm</cite>
+</div>
+</section>
+<!-- Bottom CTA -->
+<section class="py-stack-xl bg-text-main text-white -mx-gutter px-gutter mb-stack-xl">
+<div class="max-w-container-max mx-auto text-center flex flex-col items-center gap-stack-md">
+<h2 class="font-headline-lg text-headline-lg">Secure Your First Carbon Yield Today</h2>
+<p class="font-body-lg text-body-lg max-w-xl opacity-90">Select your profile to begin the institutional verification process.</p>
+<div class="flex flex-col sm:flex-row gap-stack-md mt-stack-md w-full max-w-md">
+<button class="bg-white text-text-main border-b-4 border-surface-container-high px-8 py-4 font-label-bold text-body-md w-full hover:bg-surface-gray transition-colors">I Own an Asset</button>
+<button class="bg-gov-blue text-white border-b-4 border-primary px-8 py-4 font-label-bold text-body-md w-full hover:opacity-90 transition-opacity">I Advise Clients</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-gray dark:bg-surface-container-high w-full mt-stack-xl border-t-2 border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-stack-lg flex flex-col md:flex-row justify-between gap-stack-md">
+<div class="flex flex-col gap-2">
+<span class="font-label-bold text-label-bold text-text-main">Lean Spark AI</span>
+<span class="font-body-md text-body-md text-text-main opacity-70">© 2024 Lean Spark AI. All rights reserved.</span>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Accessibility</a>
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Cookies</a>
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Privacy policy</a>
+<a class="font-body-md text-body-md underline text-text-main hover:text-gov-blue transition-colors duration-200" href="#">Terms and conditions</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for scroll reveals
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
 
-    <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="announcement-bar">
-        <div class="container bar-flex">
-            <span class="badge-pill">REGISTRY ACTIVE</span>
-            <span>Targeting 100 Million tCO₂e Transformed into Structured Assets by 2030</span>
-        </div>
-    </div>
-
-    <!-- SITE HEADER & NAVIGATION -->
-    <header class="site-header">
-        <div class="container nav-flex">
-            <a href="/" class="brand-logo">
-                <span class="logo-mark">ECF</span>
-                <span class="logo-text">Earth Carbon <span>Foundation</span></span>
-            </a>
-            <nav aria-label="Main Navigation">
-                <ul class="nav-menu">
-                    <li><a href="#why-ecf">Why ECF</a></li>
-                    <li><a href="#philosophy">Our Philosophy</a></li>
-                    <li><a href="#discovery">Discovery</a></li>
-                    <li><a href="#dimensions">6 Dimensions</a></li>
-                    <li><a href="#framework">Our Framework</a></li>
-                    <li><a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-nav" target="_blank" rel="noopener">Start Assessment</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- SECTION 1 – HERO -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <span class="section-tag">ENVIRONMENTAL ASSET DEVELOPMENT</span>
-                    <h1 class="hero-headline">Every Positive Environmental Action Creates Value.</h1>
-                    <h2 class="hero-subheadline">Discover the Environmental Assets Hidden Within Your Organisation.</h2>
-                    <p class="section-lead" style="margin: 0 auto;">
-                        Every environmental action contributes to healthier natural resources. Our role is to identify, quantify, develop and maximise that value.
-                    </p>
-                    
-                    <div class="hero-pillars">
-                        <span class="pillar-pill">⚡ Energy</span>
-                        <span class="pillar-pill">💧 Water</span>
-                        <span class="pillar-pill">♻️ Waste</span>
-                        <span class="pillar-pill">🌿 Biodiversity</span>
-                        <span class="pillar-pill">🌍 Climate</span>
-                    </div>
-
-                    <div class="cta-group">
-                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                            ▶ Start Free Assessment
-                        </a>
-                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" class="btn-secondary" target="_blank" rel="noopener">
-                            📘 Download the Playbook
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 2 – WHY ECF? -->
-        <section class="section-block" id="why-ecf">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">THE UNTAPPED POTENTIAL</span>
-                    <h2 class="section-title">Most organisations have already invested in sustainability.</h2>
-                    <p class="section-lead" style="margin: 0 auto;">You may already have created significant environmental impact across your site operations:</p>
-                </div>
-
-                <div class="asset-grid">
-                    <div class="asset-card">☀️ Solar Energy</div>
-                    <div class="asset-card">⚡ Energy Efficiency</div>
-                    <div class="asset-card">🌧️ Rainwater Harvesting</div>
-                    <div class="asset-card">💧 Wastewater Recycling</div>
-                    <div class="asset-card">♻️ Waste Management</div>
-                    <div class="asset-card">🌲 Tree Plantation</div>
-                    <div class="asset-card">🏢 Green Buildings</div>
-                    <div class="asset-card">🎯 CSR &amp; SDG Projects</div>
-                </div>
-
-                <div class="highlight-banner">
-                    These are Environmental Assets. Most organisations never measure their full value.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3 – OUR PHILOSOPHY -->
-        <section class="section-block bg-alt" id="philosophy">
-            <div class="container">
-                <div class="philosophy-box">
-                    <span class="section-tag">OUR GUIDING PRINCIPLE</span>
-                    <h2 class="section-title">Environmental Impact Comes First. Recognition Follows.</h2>
-                    <p class="philosophy-quote">
-                        "Carbon credits are one form of recognition—not the impact itself."
-                    </p>
-                    <p class="section-lead" style="margin: 0 auto;">
-                        Every positive environmental action creates measurable environmental value. Earth Carbon Foundation helps organisations discover, measure and maximise that value.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4 – ENVIRONMENTAL ASSET DISCOVERY -->
-        <section class="section-block" id="discovery">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">INTAKE PROCESS</span>
-                    <h2 class="section-title">Environmental Asset Discovery</h2>
-                    <p class="section-lead" style="margin: 0 auto;">Discover your Environmental Assets in just a few minutes.</p>
-                </div>
-
-                <div class="discovery-pipeline">
-                    <div class="discovery-step">
-                        <span class="step-num-badge">Step 1</span>
-                        <div class="step-num-title">Environmental Asset Sector Classification</div>
-                    </div>
-                    <div class="flow-arrow-down">&rarr;</div>
-                    <div class="discovery-step">
-                        <span class="step-num-badge">Step 2</span>
-                        <div class="step-num-title">Environmental Asset Inventory</div>
-                    </div>
-                    <div class="flow-arrow-down">&rarr;</div>
-                    <div class="discovery-step">
-                        <span class="step-num-badge">Step 3</span>
-                        <div class="step-num-title">Choose Your Business Objective</div>
-                    </div>
-                    <div class="flow-arrow-down">&rarr;</div>
-                    <div class="discovery-step">
-                        <span class="step-num-badge">Step 4</span>
-                        <div class="step-num-title">Receive Your Environmental Asset Value Dashboard</div>
-                    </div>
-                </div>
-
-                <div class="cta-group">
-                    <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener">
-                        ▶ Start Assessment
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5 – YOUR ENVIRONMENTAL ASSET VALUE DASHBOARD -->
-        <section class="section-block bg-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">ASSESSMENT OUTPUTS</span>
-                    <h2 class="section-title">Your Environmental Asset Value Dashboard</h2>
-                    <p class="section-lead">After completing the assessment, your organisation receives an auditable value breakdown:</p>
-                </div>
-
-                <div class="dashboard-list-grid">
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Environmental Assets Identified</div>
-                    </div>
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Environmental Impact Summary</div>
-                    </div>
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Business Value Opportunities</div>
-                    </div>
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Compliance Opportunities</div>
-                    </div>
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Financial Opportunities</div>
-                    </div>
-                    <div class="dashboard-item-card">
-                        <span class="check-icon">&#10004;</span>
-                        <div class="dashboard-item-title">Recommended Development Plan</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 6 – THE SIX DIMENSIONS OF ENVIRONMENTAL VALUE™ (SINGLE LINE ROW) -->
-        <section class="section-block" id="dimensions">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">HOLISTIC FRAMEWORK</span>
-                    <h2 class="section-title">The Six Dimensions of Environmental Value™</h2>
-                    <p class="section-lead">A holistic framework showing how environmental action cascades into measurable business, financial, and human impact.</p>
-                    <span class="philosophy-tag-pill">🌏 One World, One Family</span>
-                </div>
-
-                <!-- SINGLE HORIZONTAL LINE GRID -->
-                <div class="dimensions-single-row">
-                    <!-- Dimension 01 -->
-                    <div class="dim-card-single dim-env">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">🌍</span>
-                                <span class="dim-num">01</span>
-                            </div>
-                            <h3 class="dim-title">Environmental Value</h3>
-                            <p class="dim-subtitle">Foundation — Measurable ecological benefits</p>
-                            <ul class="dim-list">
-                                <li>Reduced GHG emissions</li>
-                                <li>Renewable energy generated</li>
-                                <li>Freshwater conserved</li>
-                                <li>Waste diverted from landfill</li>
-                                <li>Biodiversity &amp; soil health</li>
-                                <li>Better air quality</li>
-                                <li>Reduced fossil fuel use</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Dimension 02 -->
-                    <div class="dim-card-single dim-ops">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">⚙️</span>
-                                <span class="dim-num">02</span>
-                            </div>
-                            <h3 class="dim-title">Operational Value</h3>
-                            <p class="dim-subtitle">Day-to-day business efficiency gains</p>
-                            <ul class="dim-list">
-                                <li>Lower electricity &amp; water bills</li>
-                                <li>Reduced fuel &amp; waste costs</li>
-                                <li>Improved resource efficiency</li>
-                                <li>Longer equipment life</li>
-                                <li>Reduced operating expenses</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Dimension 03 -->
-                    <div class="dim-card-single dim-comp">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">📋</span>
-                                <span class="dim-num">03</span>
-                            </div>
-                            <h3 class="dim-title">Compliance Value</h3>
-                            <p class="dim-subtitle">Regulatory &amp; reporting alignment</p>
-                            <ul class="dim-list">
-                                <li>Frameworks: BRSR, ESG, GRI</li>
-                                <li>Standards: ISO 14001, 50001</li>
-                                <li>CBAM readiness &amp; EPR</li>
-                                <li>Water regulations compliance</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Dimension 04 -->
-                    <div class="dim-card-single dim-strat">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">🚀</span>
-                                <span class="dim-num">04</span>
-                            </div>
-                            <h3 class="dim-title">Strategic Value</h3>
-                            <p class="dim-subtitle">Competitive market positioning</p>
-                            <ul class="dim-list">
-                                <li>Brand reputation &amp; trust</li>
-                                <li>Increased investor confidence</li>
-                                <li>Green procurement preference</li>
-                                <li>Export readiness &amp; tenders</li>
-                                <li>Sustainability leadership</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Dimension 05 -->
-                    <div class="dim-card-single dim-fin">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">💰</span>
-                                <span class="dim-num">05</span>
-                            </div>
-                            <h3 class="dim-title">Financial Value</h3>
-                            <p class="dim-subtitle">Direct returns &amp; monetization</p>
-                            <ul class="dim-list">
-                                <li>Carbon &amp; Green Credits</li>
-                                <li>Renewable Certificates (RECs)</li>
-                                <li>Green bonds &amp; ESG finance</li>
-                                <li>Insurance &amp; tax incentives</li>
-                                <li>Premium product pricing</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Dimension 06 -->
-                    <div class="dim-card-single dim-soc">
-                        <div>
-                            <div class="dim-header">
-                                <span class="dim-icon">🤝</span>
-                                <span class="dim-num">06</span>
-                            </div>
-                            <h3 class="dim-title">Societal Value</h3>
-                            <p class="dim-subtitle">Human &amp; planetary impact</p>
-                            <ul class="dim-list">
-                                <li>Better public health</li>
-                                <li>Water security &amp; resilience</li>
-                                <li>Employment generation</li>
-                                <li>Community wellbeing</li>
-                                <li>Direct contribution to UN SDGs</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="important-callout">
-                    <strong>Important message:</strong> Not every Environmental Asset generates carbon credits. Every Environmental Asset creates measurable value.
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 7 – WHY EARTH CARBON FOUNDATION? -->
-        <section class="section-block bg-alt">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">OUR DIFFERENCE</span>
-                    <h2 class="section-title">Why Earth Carbon Foundation?</h2>
-                    <p class="section-lead" style="margin: 0 auto;">We don't begin with services. We begin with your Environmental Assets.</p>
-                </div>
-
-                <div class="comparison-wrapper">
-                    <div class="comp-box traditional">
-                        <span class="comp-label">MOST CONSULTANTS ASK:</span>
-                        <div class="comp-question">"Which certification or service do you need?"</div>
-                    </div>
-
-                    <div class="comp-box ecf">
-                        <span class="comp-label">EARTH CARBON FOUNDATION ASKS:</span>
-                        <div class="comp-question">"Which Environmental Assets have you already created, and how can they deliver greater environmental and business value?"</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 8 – OUR FRAMEWORK -->
-        <section class="section-block" id="framework">
-            <div class="container">
-                <div class="section-header text-center">
-                    <span class="section-tag">LIFECYCLE ARCHITECTURE</span>
-                    <h2 class="section-title">Our Framework</h2>
-                    <p class="section-lead" style="margin: 0 auto;">Every Environmental Asset follows the same structured journey to maximize impact and returns:</p>
-                </div>
-
-                <div class="framework-pipeline">
-                    <div class="framework-node"><div class="framework-node-title">Identify</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node"><div class="framework-node-title">Quantify</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node"><div class="framework-node-title">Verify</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node"><div class="framework-node-title">Develop</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node"><div class="framework-node-title">Register</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node"><div class="framework-node-title">Manage</div></div>
-                    <div class="framework-arrow">&rarr;</div>
-                    <div class="framework-node" style="border-top-color: #10b981; background-color: #f0fdf4;"><div class="framework-node-title" style="color: #065f46;">Maximise Value</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 9 – WHAT HAPPENS NEXT? -->
-        <section class="section-block bg-alt">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">CLIENT ONBOARDING</span>
-                    <h2 class="section-title">What Happens Next?</h2>
-                    <p class="section-lead">Once your Environmental Assets are identified through the initial discovery process:</p>
-                </div>
-
-                <ol class="next-steps-list">
-                    <li class="next-step-item">
-                        <div class="step-index-circle">1</div>
-                        <div class="next-step-text">Receive your Environmental Asset Value Dashboard.</div>
-                    </li>
-                    <li class="next-step-item">
-                        <div class="step-index-circle">2</div>
-                        <div class="next-step-text">Select the value pathway that best fits your goals.</div>
-                    </li>
-                    <li class="next-step-item">
-                        <div class="step-index-circle">3</div>
-                        <div class="next-step-text">Review your Environmental Asset Development Plan.</div>
-                    </li>
-                    <li class="next-step-item">
-                        <div class="step-index-circle">4</div>
-                        <div class="next-step-text">Receive a tailored commercial proposal.</div>
-                    </li>
-                    <li class="next-step-item">
-                        <div class="step-index-circle">5</div>
-                        <div class="next-step-text">Develop, register and manage your Environmental Assets with ECF.</div>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- SECTION 10 – FINAL CALL TO ACTION -->
-        <section class="final-cta-section" id="contact">
-            <div class="container">
-                <div class="final-cta-box">
-                    <h2 class="final-cta-title">Every Positive Environmental Action Creates Value.</h2>
-                    <p class="final-cta-lead">
-                        Let's discover yours. Start your free Environmental Asset Discovery and unlock the full value of your environmental investments.
-                    </p>
-                    <div class="cta-group">
-                        <a href="https://forms.gle/NLixkew5AzoEs5zF8" class="btn-primary" target="_blank" rel="noopener" style="font-size: 1.1rem; padding: 1.1rem 2.5rem;">
-                            ▶ Start Free Environmental Asset Discovery
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- SITE FOOTER -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <p class="footer-brand">Earth Carbon Foundation</p>
-                    <p class="footer-tagline">Building Structured Environmental Asset Portfolios</p>
-                    <address class="footer-address">
-                        358, Saraswatinagar, Azad Society Road<br>
-                        Ambawadi, Ahmedabad – 380015<br>
-                        Gujarat, India
-                    </address>
-                </div>
-                <div class="footer-col">
-                    <p class="footer-col-title">Secretariat &amp; Contact</p>
-                    <p class="footer-link-item">Email: <a href="mailto:info@earthcarbonfoundation.org">info@earthcarbonfoundation.org</a></p>
-                    <p class="footer-link-item">Phone: <a href="tel:+919824025431">+91 9824025431</a></p>
-                </div>
-                <div class="footer-col">
-                    <p class="footer-col-title">Framework Services</p>
-                    <ul class="footer-list">
-                        <li>Environmental Asset Portfolio</li>
-                        <li>Natural Resource Balance Sheet (NRBS™)</li>
-                        <li>Registry Development &amp; Monitoring</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Earth Carbon Foundation. All Rights Reserved.</p>
-                <p>Developing Environmental Asset Portfolios for Long-Term Climate Action.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(10px)';
+                section.style.transition = 'all 0.4s ease-out';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body></html>
