@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Carbon Monetization | Lean Spark AI</title>
+<title>Carbon Monetization | Lean Spark AI &amp; Earth Carbon Foundation</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -114,11 +114,14 @@
         .btn-secondary { border: 2px solid #1D70B8; color: #1D70B8; transition: background-color 0.2s; }
         .btn-secondary:hover { background-color: #F3F2F1; }
         .divider { height: 2px; background-color: #0B0C0C; }
+        .reveal-section { opacity: 0; transform: translateY(10px); transition: all 0.4s ease-out; }
+        .reveal-section.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-white">
+
 <!-- TopAppBar -->
-<header class="w-full border-b-2 border-text-main dark:border-white bg-white">
+<header class="w-full border-b-2 border-text-main dark:border-white bg-white sticky top-0 z-50">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-20">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-gov-blue text-headline-md" data-icon="account_balance">account_balance</span>
@@ -127,14 +130,15 @@
 <nav class="hidden md:flex gap-stack-lg">
 <a class="font-label-bold text-label-bold text-gov-blue border-b-4 border-gov-blue pb-1" href="#">Carbon Monetization</a>
 <a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#form-section">Asset Valuation</a>
-<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#">Impact</a>
+<a class="font-label-bold text-label-bold text-text-main hover:text-gov-blue" href="#comparison">Impact</a>
 </nav>
 <button class="font-label-bold text-label-bold hover:underline" onclick="scrollToForm()">Submit Asset</button>
 </div>
 </header>
+
 <main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
 <!-- Hero Section -->
-<section class="py-stack-xl flex flex-col items-start gap-stack-md">
+<section class="py-stack-xl flex flex-col items-start gap-stack-md reveal-section">
 <span class="bg-surface-gray px-stack-sm py-1 font-label-bold text-caption tracking-wider uppercase border border-outline-variant">Asset Revenue Engine</span>
 <h1 class="font-display text-display max-w-2xl leading-tight">Turn Unreported Green Assets into Revenue</h1>
 <p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant">
@@ -147,14 +151,16 @@
 </section>
 
 <!-- Visual Anchor -->
-<section class="mb-stack-xl">
-<div class="h-64 md:h-96 w-full border-2 border-text-main overflow-hidden">
-<img class="w-full h-full object-cover grayscale-[20%]" data-alt="Modern green factory facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiL1va7TxG7g_XcQn8ToG8sANXXfVf4NTtlXH-DDb2-QcqPhSaqotIQ2-LI6oY6VLUa8WB6wCn8DW1x-cmkV5JTH8nq6X_NoFzWC2nTMiqPPekAKqXcTauYqJ2f6gV0x8gZci_pucqQ5G2iXrNx_li5PTrX6DSO5gjZJ5Snn3aCgjqqjqVW_IhNhLiYuOmm2exzcP7pdka2fFUz6emKimjXufzEGnw4hnCZxaOu5Z927YuiaHpm8-h"/>
+<section class="mb-stack-xl reveal-section">
+<div class="h-64 md:h-96 w-full border-2 border-text-main overflow-hidden bg-surface-gray">
+<img class="w-full h-full object-cover grayscale-[20%]" 
+     src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80" 
+     alt="Modern renewable energy facility"/>
 </div>
 </section>
 
 <!-- Decision Flow: 4-Step Process -->
-<section class="py-stack-xl border-t-2 border-text-main">
+<section class="py-stack-xl border-t-2 border-text-main reveal-section">
 <h2 class="font-headline-lg text-headline-lg mb-stack-lg">From Infrastructure to Income</h2>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="flex flex-col gap-stack-sm border-l-4 border-gov-blue pl-stack-md py-stack-sm">
@@ -181,7 +187,7 @@
 </section>
 
 <!-- Value Table: Comparison -->
-<section class="py-stack-xl bg-surface-gray px-gutter -mx-gutter border-y-2 border-text-main">
+<section id="comparison" class="py-stack-xl bg-surface-gray px-gutter -mx-gutter border-y-2 border-text-main reveal-section">
 <div class="max-w-container-max mx-auto">
 <h2 class="font-headline-lg text-headline-lg mb-stack-lg">Institutional Performance Comparison</h2>
 <div class="overflow-x-auto">
@@ -221,7 +227,7 @@
 </section>
 
 <!-- LIVE EMBEDDED FORM CONTAINER -->
-<section id="form-section" class="py-stack-xl my-stack-xl border-2 border-text-main bg-white p-stack-md md:p-stack-lg">
+<section id="form-section" class="py-stack-xl my-stack-xl border-2 border-text-main bg-white p-stack-md md:p-stack-lg reveal-section">
 <div class="max-w-2xl mx-auto text-center mb-stack-md">
 <span class="bg-surface-gray px-stack-sm py-1 font-label-bold text-caption tracking-wider uppercase border border-outline-variant">Instant Valuation Portal</span>
 <h2 class="font-headline-lg text-headline-lg mt-2">Evaluate Asset &amp; Generate POA Proposal</h2>
@@ -241,7 +247,7 @@
 </section>
 
 <!-- Social Proof -->
-<section class="py-stack-xl grid grid-cols-1 md:grid-cols-2 gap-stack-xl">
+<section class="py-stack-xl grid grid-cols-1 md:grid-cols-2 gap-stack-xl reveal-section">
 <div class="p-stack-lg border-2 border-text-main flex flex-col justify-between">
 <div>
 <span class="material-symbols-outlined text-gov-blue mb-4" data-icon="format_quote">format_quote</span>
@@ -259,7 +265,7 @@
 </section>
 
 <!-- Bottom CTA -->
-<section class="py-stack-xl bg-text-main text-white -mx-gutter px-gutter mb-stack-xl">
+<section class="py-stack-xl bg-text-main text-white -mx-gutter px-gutter mb-stack-xl reveal-section">
 <div class="max-w-container-max mx-auto text-center flex flex-col items-center gap-stack-md">
 <h2 class="font-headline-lg text-headline-lg">Ready to Unlock Your Carbon Revenue?</h2>
 <p class="font-body-lg text-body-lg max-w-xl opacity-90">Choose your role to begin your free 3-minute asset evaluation.</p>
@@ -288,30 +294,41 @@
 </footer>
 
 <script>
-    // Smooth Scroll Helper Function
+    // Smooth Scroll Helper Function with Role Passing
     function scrollToForm(role) {
         const formSection = document.getElementById('form-section');
+        
+        if (role) {
+            const filloutWidget = document.querySelector('[data-fillout-id]');
+            if (filloutWidget) {
+                filloutWidget.setAttribute('data-fillout-role', role);
+            }
+        }
+
         if (formSection) {
             formSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
 
-    // Scroll reveal observer
+    // Fillout Submission Listener
+    window.addEventListener("message", (event) => {
+        if (event.data && (event.data.type === "fillout_submit" || event.data.event === "submit")) {
+            console.log("Fillout submission received:", event.data);
+        }
+    });
+
+    // Scroll reveal observer with class toggling
     document.addEventListener('DOMContentLoaded', () => {
-        const observerOptions = { threshold: 0.1 };
+        const observerOptions = { threshold: 0.05 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(10px)';
-            section.style.transition = 'all 0.4s ease-out';
+        document.querySelectorAll('.reveal-section').forEach(section => {
             observer.observe(section);
         });
     });
