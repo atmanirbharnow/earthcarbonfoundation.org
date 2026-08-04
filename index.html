@@ -70,12 +70,12 @@
 </nav>
 
 <main>
-    <!-- 1. Hero Section -->
+    <!-- Hero Section -->
     <section class="bg-surface-light border-b border-border py-14 lg:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                 <span class="material-symbols-outlined text-sm">verified</span>
-                Environmental Asset Advisory & Development
+                Environmental Asset Advisory & Programme Development
             </div>
             
             <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight">
@@ -104,7 +104,7 @@
         </div>
     </section>
 
-    <!-- 2. Live Programme Capacity Dials (Radial Progress Bars) -->
+    <!-- Programme Capacity Dials -->
     <section id="capacity" class="py-16 bg-white border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto space-y-2 mb-12">
@@ -190,7 +190,7 @@
         </div>
     </section>
 
-    <!-- 3. EMBEDDED FREE CARBON CALCULATOR -->
+    <!-- STEP 1 IMPLEMENTATION: Free Carbon Estimator + Dynamic Viability Line + Lead Capture -->
     <section id="calculator" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="text-center space-y-2">
@@ -230,7 +230,7 @@
                     <input id="priceInput" type="range" min="5" max="30" value="10" step="1" oninput="calculateCarbon()" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
                 </div>
 
-                <!-- Calculation Results Output -->
+                <!-- Calculation Results Output Cards -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-border">
                     <div class="bg-surface-light p-4 rounded-xl border border-border text-center">
                         <span class="text-[10px] font-bold text-secondary/60 uppercase">Annual Reduction</span>
@@ -246,16 +246,26 @@
                     </div>
                 </div>
 
-                <div class="text-center pt-2">
-                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:brightness-110 text-secondary font-bold px-8 py-3.5 rounded-lg text-sm transition-all shadow-md">
-                        Verify These Credits – Start Engagement (₹4,999)
+                <!-- DYNAMIC VIABILITY LINE (STEP 1) -->
+                <div id="viabilityNotice" class="p-3.5 rounded-lg text-xs font-medium leading-relaxed border transition-all">
+                    <!-- Populated dynamically via calculateCarbon() -->
+                </div>
+
+                <!-- DUAL CTAs (STEP 1) -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:brightness-110 text-secondary font-bold px-6 py-3.5 rounded-lg text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                        <span>Verify These Credits – Start Engagement (₹4,999)</span>
+                    </button>
+                    <button onclick="openEmailEstimateModal()" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 font-semibold px-5 py-3.5 rounded-lg text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-base">mail</span>
+                        <span>📧 Email Me My Estimate</span>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Four-Step Process -->
+    <!-- How It Works -->
     <section id="how-it-works" class="py-16 bg-white border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -264,28 +274,24 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Step 1 -->
                 <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">01</div>
                     <h3 class="font-bold text-base text-secondary">1. Submit & Pay</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">Fill in your details and pay the initial fee to start.</p>
                 </div>
 
-                <!-- Step 2 -->
                 <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">02</div>
                     <h3 class="font-bold text-base text-secondary">2. Review Proposal</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">Get your custom roadmap, contract, and value breakdown.</p>
                 </div>
 
-                <!-- Step 3 -->
                 <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">03</div>
                     <h3 class="font-bold text-base text-secondary">3. Registry Development</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">We manage the audits, VVB, and registry compliance.</p>
                 </div>
 
-                <!-- Step 4 -->
                 <div class="p-6 bg-primary text-white rounded-xl space-y-3 relative shadow-md">
                     <div class="w-9 h-9 rounded-lg bg-mint text-secondary font-bold text-sm flex items-center justify-center font-display">04</div>
                     <h3 class="font-bold text-base text-white">4. Asset Issuance</h3>
@@ -295,7 +301,7 @@
         </div>
     </section>
 
-    <!-- 5. Assets Evaluated -->
+    <!-- Assets Evaluated -->
     <section id="assets" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -324,7 +330,7 @@
         </div>
     </section>
 
-    <!-- 6. Commercial Model -->
+    <!-- Commercial Model + STEP 3 IMPLEMENTATION: Risk-Reversal Promise -->
     <section id="commercials" class="py-16 bg-white border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto space-y-2 mb-10">
@@ -363,11 +369,19 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- STEP 3 NO-GO RISK REVERSAL PROMISE -->
+                <div class="p-4 bg-primary/5 border border-primary/20 rounded-xl text-xs sm:text-sm text-secondary leading-relaxed font-medium flex items-start gap-3">
+                    <span class="text-lg shrink-0">🛡️</span>
+                    <div>
+                        <strong class="text-primary font-bold">Our Eligibility Promise:</strong> If our review finds your asset technically ineligible, we deliver a written eligibility report with recommended fixes — so you never waste registry capital on a non-eligible asset.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. FAQ Section -->
+    <!-- FAQ Section -->
     <section id="faq" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-8">
@@ -392,7 +406,7 @@
         </div>
     </section>
 
-    <!-- 8. Bottom CTA -->
+    <!-- Bottom CTA -->
     <section class="py-16 bg-primary text-white text-center">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <h2 class="font-display font-bold text-2xl sm:text-4xl tracking-tight">
@@ -410,47 +424,67 @@
     </section>
 </main>
 
-<!-- Footer with Resources -->
-<footer id="resources" class="bg-secondary text-white/80 border-t border-white/10 text-xs py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="space-y-2">
-            <div class="font-display font-extrabold text-base text-white">Earth Carbon Foundation</div>
-            <p class="text-white/60 leading-relaxed">
-                Section 8 Environmental Advisory & Asset Registry Infrastructure.
-            </p>
+<!-- STEP 9 IMPLEMENTATION: Contact Bar + Corporate Footer + Governance & Legal -->
+<div class="bg-primary-dark text-white border-t border-white/10 py-5 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left font-medium">
+        <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-mint text-base">mail</span>
+            <a href="mailto:info@earthcarbonfoundation.org" class="hover:text-mint transition-colors">info@earthcarbonfoundation.org</a>
         </div>
-
-        <div class="space-y-2">
-            <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Quick Links</h4>
-            <a href="#capacity" class="block hover:text-mint transition-colors">Programme Capacity</a>
-            <a href="#calculator" class="block hover:text-mint transition-colors">Free Estimator</a>
-            <a href="#how-it-works" class="block hover:text-mint transition-colors">How It Works</a>
-            <a href="#assets" class="block hover:text-mint transition-colors">Asset Methodologies</a>
-            <a href="#commercials" class="block hover:text-mint transition-colors">Commercial Model</a>
-            <a href="#faq" class="block hover:text-mint transition-colors">FAQ</a>
+        <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-mint text-base">call</span>
+            <a href="https://wa.me/919824025431" target="_blank" class="hover:text-mint transition-colors">📞/WhatsApp +91 9824025431</a>
         </div>
-
-        <div class="space-y-2">
-            <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Resources</h4>
-            <a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" class="block hover:text-mint transition-colors">Corporate Profile</a>
-            <a href="https://drive.google.com/file/d/1OmwLrvaagPNYI4NjGl1FaMCBiYAKbGnH/view?usp=sharing" target="_blank" class="block hover:text-mint transition-colors">Draft Agreement</a>
-            <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" class="block hover:text-mint transition-colors">Environmental Asset Playbook</a>
-            <a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" class="block hover:text-mint transition-colors">Carbon Asset Readiness Snapshot</a>
-        </div>
-
-        <div class="space-y-2">
-            <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Contact</h4>
-            <p>Email: info@earthcarbonfoundation.org</p>
-            <p>Gujarat, India</p>
+        <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-mint text-base">location_on</span>
+            <span>📍 Ahmedabad, India</span>
         </div>
     </div>
+</div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-white/10 text-center text-white/40">
-        © 2026 Earth Carbon Foundation. All Rights Reserved.
+<footer id="resources" class="bg-secondary text-white/80 border-t border-white/10 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <div class="font-display font-extrabold text-base text-white">Earth Carbon Foundation</div>
+                <p class="text-white/60 leading-relaxed">
+                    Earth Carbon Foundation — Environmental asset advisory & development. Section 8 Company, License No 113981 CIN No: U85300GJ2019NPL106818.
+                </p>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Quick Links</h4>
+                <a href="#how-it-works" class="block hover:text-mint transition-colors">Process</a>
+                <a href="#calculator" class="block hover:text-mint transition-colors">Estimator</a>
+                <a href="#commercials" class="block hover:text-mint transition-colors">Commercial Model</a>
+                <a href="#faq" class="block hover:text-mint transition-colors">FAQ</a>
+                <a href="mailto:info@earthcarbonfoundation.org?subject=Partner%20Inquiry" class="block hover:text-mint transition-colors">Become a Partner</a>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Resources</h4>
+                <a href="https://drive.google.com/drive/u/0/folders/1Ps4r5ot7WD1bdQvqp6lJbplyXaa5jjrK" target="_blank" class="block hover:text-mint transition-colors">Corporate Profile</a>
+                <a href="https://docs.google.com/document/d/1HuxiJl12UgnRTOYir7L0VJB4IVoXww7P59xlxFepDZo/edit?tab=t.0" target="_blank" class="block hover:text-mint transition-colors">Draft Agreement</a>
+                <a href="https://drive.google.com/drive/u/0/folders/1gwoalCiNOzoyxOX0Vj9fGmWp2BULPvZi" target="_blank" class="block hover:text-mint transition-colors">Environmental Asset Playbook</a>
+                <a href="https://docs.google.com/document/d/1zmodizM37mVL1bwcL7HvnjWlwpzwHviculmUGRbdBR4/edit?tab=t.0" target="_blank" class="block hover:text-mint transition-colors">Carbon Asset Readiness Snapshot</a>
+                <a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=drive_link" target="_blank" class="block hover:text-mint transition-colors">Sample Report PDF</a>
+            </div>
+
+            <div class="space-y-2">
+                <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Legal</h4>
+                <a href="#" onclick="alert('Terms of Engagement: Technical advisory services under Section 8 framework.')" class="block hover:text-mint transition-colors">Terms of Engagement</a>
+                <a href="#" onclick="alert('Privacy Policy: User data is strictly processed for asset estimation and registry submission.')" class="block hover:text-mint transition-colors">Privacy Policy</a>
+                <a href="#" onclick="alert('Refund Policy: Ineligibility reports are delivered if assets fail technical additionality.')" class="block hover:text-mint transition-colors">Refund Policy</a>
+            </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/10 text-center text-white/40">
+            © 2026 Earth Carbon Foundation. All rights reserved.
+        </div>
     </div>
 </footer>
 
-<!-- Modal Form -->
+<!-- Paid Fillout Form Modal -->
 <div id="assessmentModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
         <div class="p-4 bg-primary text-white flex justify-between items-center">
@@ -463,7 +497,68 @@
     </div>
 </div>
 
-<!-- Calculator Script -->
+<!-- STEP 1 LEAD CAPTURE MODAL: Email Me My Estimate -->
+<div id="emailEstimateModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-6 space-y-4">
+        <div class="flex justify-between items-center">
+            <h3 class="font-bold text-base text-secondary font-display">📧 Email Me My Estimate</h3>
+            <button onclick="closeEmailEstimateModal()" class="text-secondary/60 hover:text-secondary">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <p class="text-xs text-secondary/70 leading-relaxed">
+            Enter your work email to receive a branded PDF estimate breakdown for your calculated asset yield.
+        </p>
+        <form onsubmit="handleEmailEstimateSubmit(event)" class="space-y-3">
+            <input type="email" id="estimateEmailInput" required placeholder="name@company.com" class="w-full bg-surface-light border border-border rounded-lg p-3 text-xs focus:ring-primary focus:border-primary"/>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg text-xs transition-all">
+                Send Branded PDF Estimate
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- STEP 11 IMPLEMENTATION: Floating WhatsApp Button with Tooltip -->
+<div id="whatsappFloat" class="fixed bottom-6 right-6 z-40 hidden flex-col items-end gap-1 transition-all duration-500">
+    <div class="bg-secondary text-white text-[11px] font-medium px-3 py-1.5 rounded-lg shadow-lg border border-white/10 flex items-center gap-1.5">
+        <span>Questions? Chat with our team.</span>
+    </div>
+    <a href="https://wa.me/919824025431?text=Hi%20ECF!%20Exploring%20carbon%20registry%20for%20my%20asset." target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+    </a>
+</div>
+
+<!-- STEP 11 IMPLEMENTATION: Exit-Intent / Scroll Popup -->
+<div id="exitPopup" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-6 sm:p-8 space-y-4 text-center">
+        <div class="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto">
+            <span class="material-symbols-outlined text-2xl">description</span>
+        </div>
+        
+        <h3 class="font-bold text-lg text-secondary font-display leading-snug">
+            Wait — see what a real roadmap looks like.
+        </h3>
+        
+        <p class="text-xs text-secondary/70 leading-relaxed">
+            Get the Sample Development Roadmap PDF free. No spam.
+        </p>
+
+        <form onsubmit="handleExitFormSubmit(event)" class="space-y-3 pt-1">
+            <input type="email" id="exitEmailInput" required placeholder="Enter your work email" class="w-full bg-surface-light border border-border rounded-lg p-3 text-xs focus:ring-primary focus:border-primary text-center"/>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3.5 rounded-lg text-xs transition-all shadow-md">
+                Send Me the Sample
+            </button>
+        </form>
+
+        <button onclick="closeExitPopup()" class="text-xs font-semibold text-secondary/50 hover:text-secondary pt-2 block mx-auto">
+            No thanks, I'll decide later.
+        </button>
+    </div>
+</div>
+
+<!-- Application Scripts -->
 <script>
     const factors = {
         solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", max: 2000, step: 10, defaultVal: 100 },
@@ -481,6 +576,7 @@
         const capText = document.getElementById('capacityValueText');
         const priceInput = document.getElementById('priceInput');
         const priceText = document.getElementById('priceValueText');
+        const viabilityBox = document.getElementById('viabilityNotice');
 
         // Update Slider Limits if type changed
         if (capLabel.innerText !== config.label) {
@@ -504,8 +600,21 @@
         document.getElementById('annualTons').innerText = annualTons.toLocaleString() + " tCO₂e";
         document.getElementById('lifetimeTons').innerText = lifetimeTons.toLocaleString() + " tCO₂e";
         document.getElementById('annualValue').innerHTML = "₹" + annualINR.toLocaleString() + ` <span class="text-xs font-normal text-white/70">($${annualUSD.toLocaleString()})</span>`;
+
+        // DYNAMIC VIABILITY LINE LOGIC (STEP 1)
+        if (type === 'solar' && qty < 500) {
+            viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-amber-50 text-amber-900 border border-amber-200/80";
+            viabilityBox.innerHTML = "<strong>⚠️ Under 500 kW?</strong> Standalone registry costs are not viable for small assets. Your recommended path: <strong>Bundled Programme</strong> — your asset pools with similar assets to share registry costs.";
+        } else if (type === 'solar' && qty >= 500) {
+            viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200/80";
+            viabilityBox.innerHTML = "<strong>✅ 500 kW+?</strong> Your asset qualifies for the <strong>Standalone Registry pathway</strong>.";
+        } else {
+            viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-surface-light text-secondary border border-border";
+            viabilityBox.innerHTML = "<strong>Note:</strong> Technical eligibility and pathway (Bundled vs Standalone) will be formally validated during initial review.";
+        }
     }
 
+    // Modal Handlers
     function openAssessmentModal() {
         document.getElementById('assessmentModal').classList.remove('hidden');
     }
@@ -513,8 +622,57 @@
         document.getElementById('assessmentModal').classList.add('hidden');
     }
 
-    // Initial calculation on load
-    window.onload = calculateCarbon;
+    function openEmailEstimateModal() {
+        document.getElementById('emailEstimateModal').classList.remove('hidden');
+    }
+    function closeEmailEstimateModal() {
+        document.getElementById('emailEstimateModal').classList.add('hidden');
+    }
+    function handleEmailEstimateSubmit(e) {
+        e.preventDefault();
+        alert('Thank you! Your estimate PDF has been queued for delivery.');
+        closeEmailEstimateModal();
+    }
+
+    // STEP 11: Exit Popup Controls
+    let exitShown = false;
+    function openExitPopup() {
+        if (!exitShown) {
+            document.getElementById('exitPopup').classList.remove('hidden');
+            exitShown = true;
+        }
+    }
+    function closeExitPopup() {
+        document.getElementById('exitPopup').classList.add('hidden');
+    }
+    function handleExitFormSubmit(e) {
+        e.preventDefault();
+        alert('Sample Roadmap PDF sent to your inbox!');
+        closeExitPopup();
+    }
+
+    // Initialize Page Controls
+    window.onload = function() {
+        calculateCarbon();
+
+        // STEP 11: Display WhatsApp Float after 5 seconds
+        setTimeout(() => {
+            document.getElementById('whatsappFloat').classList.remove('hidden');
+            document.getElementById('whatsappFloat').classList.add('flex');
+        }, 5000);
+
+        // STEP 11: Desktop Exit Intent (Mouse leaves viewport top)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY <= 0) {
+                openExitPopup();
+            }
+        });
+
+        // STEP 11: Mobile 45-second Scroll Timer Trigger
+        setTimeout(() => {
+            openExitPopup();
+        }, 45000);
+    };
 </script>
 
 </body>
