@@ -50,6 +50,7 @@
         </div>
         
         <div class="hidden lg:flex items-center gap-6 text-xs xl:text-sm font-semibold text-secondary/80">
+            <a href="#calculator" class="hover:text-primary transition-colors">Free Estimator</a>
             <a href="#how-it-works" class="hover:text-primary transition-colors">How It Works</a>
             <a href="#assets" class="hover:text-primary transition-colors">Asset Types</a>
             <a href="#commercials" class="hover:text-primary transition-colors">Commercial Model</a>
@@ -87,9 +88,9 @@
                 <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold text-base transition-all shadow-md flex items-center justify-center gap-3">
                     <span>Start Engagement – ₹4,999</span>
                 </button>
-                <a href="https://docs.google.com/document/d/1zmodizM37mVL1bwcL7HvnjWlwpzwHviculmUGRbdBR4/edit?tab=t.0" target="_blank" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 px-6 py-4 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-lg">description</span>
-                    <span>Readiness Snapshot</span>
+                <a href="#calculator" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 px-6 py-4 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">calculate</span>
+                    <span>Calculate Your tCO2e</span>
                 </a>
             </div>
 
@@ -101,8 +102,73 @@
         </div>
     </section>
 
-    <!-- 2. Four-Step Process -->
-    <section id="how-it-works" class="py-16 bg-white border-b border-border">
+    <!-- 2. EMBEDDED FREE CARBON CALCULATOR -->
+    <section id="calculator" class="py-16 bg-white border-b border-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">Instant Estimator</span>
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Free Instant tCO₂e Carbon Estimator</h2>
+                <p class="text-secondary/70 text-sm">Select your methodology and capacity to estimate annual carbon credit yield & value.</p>
+            </div>
+
+            <div class="bg-surface-light border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-lg space-y-6">
+                <!-- Inputs Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Asset Methodology</label>
+                        <select id="assetType" onchange="calculateCarbon()" class="w-full bg-white border border-border rounded-lg p-3 text-sm font-semibold text-secondary focus:ring-primary focus:border-primary">
+                            <option value="solar">Solar PV Generation (kW)</option>
+                            <option value="ee">Energy Efficiency (MWh/yr saved)</option>
+                            <option value="water">Water Conservation (KL/yr recycled)</option>
+                            <option value="forest">Forestry & Afforestation (Hectares)</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label id="capacityLabel" class="block text-xs font-bold text-secondary uppercase tracking-wider">Solar Capacity (kW)</label>
+                            <span id="capacityValueText" class="text-xs font-bold text-primary">100 kW</span>
+                        </div>
+                        <input id="capacityInput" type="range" min="10" max="2000" value="100" step="10" oninput="calculateCarbon()" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
+                    </div>
+                </div>
+
+                <!-- Price Slider -->
+                <div class="space-y-2 pt-2 border-t border-border">
+                    <div class="flex justify-between items-center">
+                        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Carbon Credit Price Assumption ($ / tCO₂e)</label>
+                        <span id="priceValueText" class="text-xs font-bold text-primary">$10.00 / tonne</span>
+                    </div>
+                    <input id="priceInput" type="range" min="5" max="30" value="10" step="1" oninput="calculateCarbon()" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
+                </div>
+
+                <!-- Calculation Results Output -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-border">
+                    <div class="bg-white p-4 rounded-xl border border-border text-center">
+                        <span class="text-[10px] font-bold text-secondary/60 uppercase">Annual Reduction</span>
+                        <div id="annualTons" class="text-2xl font-extrabold text-primary font-display mt-1">82 tCO₂e</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-border text-center">
+                        <span class="text-[10px] font-bold text-secondary/60 uppercase">10-Yr Lifetime Yield</span>
+                        <div id="lifetimeTons" class="text-2xl font-extrabold text-primary font-display mt-1">820 tCO₂e</div>
+                    </div>
+                    <div class="bg-primary text-white p-4 rounded-xl text-center shadow-md">
+                        <span class="text-[10px] font-bold text-mint uppercase">Estimated Value / Year</span>
+                        <div id="annualValue" class="text-xl font-extrabold text-white font-display mt-1">₹68,060 <span class="text-xs font-normal text-white/70">($820)</span></div>
+                    </div>
+                </div>
+
+                <div class="text-center pt-2">
+                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:brightness-110 text-secondary font-bold px-8 py-3.5 rounded-lg text-sm transition-all shadow-md">
+                        Verify These Credits – Start Engagement (₹4,999)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Four-Step Process -->
+    <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">How It Works</h2>
@@ -111,21 +177,21 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Step 1 -->
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">01</div>
                     <h3 class="font-bold text-base text-secondary">1. Submit & Pay</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">Fill in your details and pay the initial fee to start.</p>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">02</div>
                     <h3 class="font-bold text-base text-secondary">2. Review Proposal</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">Get your custom roadmap, contract, and value breakdown.</p>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">03</div>
                     <h3 class="font-bold text-base text-secondary">3. Registry Development</h3>
                     <p class="text-xs text-secondary/70 leading-relaxed">We manage the audits, VVB, and registry compliance.</p>
@@ -141,8 +207,8 @@
         </div>
     </section>
 
-    <!-- 3. Assets Evaluated -->
-    <section id="assets" class="py-16 bg-surface-light border-b border-border">
+    <!-- 4. Assets Evaluated -->
+    <section id="assets" class="py-16 bg-white border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Eligible Asset Methodologies</h2>
@@ -150,19 +216,19 @@
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div class="p-5 rounded-xl bg-white border border-border text-center space-y-2">
+                <div class="p-5 rounded-xl bg-surface-light border border-border text-center space-y-2">
                     <span class="material-symbols-outlined text-primary text-3xl">wb_sunny</span>
                     <h3 class="font-bold text-xs sm:text-sm text-secondary">Solar PV</h3>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-border text-center space-y-2">
+                <div class="p-5 rounded-xl bg-surface-light border border-border text-center space-y-2">
                     <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
                     <h3 class="font-bold text-xs sm:text-sm text-secondary">Energy Efficiency</h3>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-border text-center space-y-2">
+                <div class="p-5 rounded-xl bg-surface-light border border-border text-center space-y-2">
                     <span class="material-symbols-outlined text-primary text-3xl">water_drop</span>
                     <h3 class="font-bold text-xs sm:text-sm text-secondary">Water Conservation</h3>
                 </div>
-                <div class="p-5 rounded-xl bg-white border border-border text-center space-y-2">
+                <div class="p-5 rounded-xl bg-surface-light border border-border text-center space-y-2">
                     <span class="material-symbols-outlined text-primary text-3xl">forest</span>
                     <h3 class="font-bold text-xs sm:text-sm text-secondary">Forestry & NbS</h3>
                 </div>
@@ -170,15 +236,15 @@
         </div>
     </section>
 
-    <!-- 4. Commercial Model -->
-    <section id="commercials" class="py-16 bg-white border-b border-border">
+    <!-- 5. Commercial Model -->
+    <section id="commercials" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto space-y-2 mb-10">
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Transparent Commercial Model</h2>
                 <p class="text-secondary/70 text-sm">Strict division between advisory fee and external operational costs.</p>
             </div>
 
-            <div class="bg-surface-light rounded-2xl border border-border p-6 sm:p-8 space-y-6">
+            <div class="bg-white rounded-2xl border border-border p-6 sm:p-8 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-3 md:border-r border-border md:pr-6">
                         <h3 class="font-bold text-base text-primary flex items-center gap-2">
@@ -188,7 +254,7 @@
                         <p class="text-xs text-secondary/70 leading-relaxed">
                             Covers technical evaluation, methodology structuring, and asset development management.
                         </p>
-                        <div class="text-xs bg-white p-3 rounded border border-border font-medium text-secondary/80">
+                        <div class="text-xs bg-surface-light p-3 rounded border border-border font-medium text-secondary/80">
                             Includes: Initial Value Engagement (₹4,999) & Programme Structuring.
                         </div>
                     </div>
@@ -202,10 +268,10 @@
                             External operational charges billed separately or passed through directly:
                         </p>
                         <div class="grid grid-cols-2 gap-2 text-xs text-secondary/80 font-medium">
-                            <span class="p-2 bg-white rounded border border-border">• Registry Fees</span>
-                            <span class="p-2 bg-white rounded border border-border">• Validation (VVB)</span>
-                            <span class="p-2 bg-white rounded border border-border">• Audit Fees</span>
-                            <span class="p-2 bg-white rounded border border-border">• Lab Verification</span>
+                            <span class="p-2 bg-surface-light rounded border border-border">• Registry Fees</span>
+                            <span class="p-2 bg-surface-light rounded border border-border">• Validation (VVB)</span>
+                            <span class="p-2 bg-surface-light rounded border border-border">• Audit Fees</span>
+                            <span class="p-2 bg-surface-light rounded border border-border">• Lab Verification</span>
                         </div>
                     </div>
                 </div>
@@ -213,22 +279,22 @@
         </div>
     </section>
 
-    <!-- 5. FAQ Section -->
-    <section id="faq" class="py-16 bg-surface-light border-b border-border">
+    <!-- 6. FAQ Section -->
+    <section id="faq" class="py-16 bg-white border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-8">
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Frequently Asked Questions</h2>
             </div>
 
             <div class="space-y-3">
-                <div class="bg-white border border-border rounded-xl p-5">
+                <div class="bg-surface-light border border-border rounded-xl p-5">
                     <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">What does the ₹4,999 engagement fee cover?</h3>
                     <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">
                         It covers the technical review of your asset data, initial emission abatement calculations, additionality checks, and delivery of your custom development roadmap in 3–5 days.
                     </p>
                 </div>
 
-                <div class="bg-white border border-border rounded-xl p-5">
+                <div class="bg-surface-light border border-border rounded-xl p-5">
                     <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Does this guarantee credit issuance?</h3>
                     <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">
                         Final credit issuance depends on third-party verification (VVB) and registry approval. Our initial engagement establishes technical eligibility so you don't waste capital on non-eligible assets.
@@ -238,7 +304,7 @@
         </div>
     </section>
 
-    <!-- 6. Bottom CTA -->
+    <!-- 7. Bottom CTA -->
     <section class="py-16 bg-primary text-white text-center">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <h2 class="font-display font-bold text-2xl sm:text-4xl tracking-tight">
@@ -268,6 +334,7 @@
 
         <div class="space-y-2">
             <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Quick Links</h4>
+            <a href="#calculator" class="block hover:text-mint transition-colors">Free Estimator</a>
             <a href="#how-it-works" class="block hover:text-mint transition-colors">How It Works</a>
             <a href="#assets" class="block hover:text-mint transition-colors">Asset Methodologies</a>
             <a href="#commercials" class="block hover:text-mint transition-colors">Commercial Model</a>
@@ -278,8 +345,9 @@
             <h4 class="font-bold text-white uppercase text-[10px] tracking-wider">Resources</h4>
             <a href="https://drive.google.com/drive/u/0/folders/1Ps4r5ot7WD1bdQvqp6lJbplyXaa5jjrK" target="_blank" class="block hover:text-mint transition-colors">Corporate Profile</a>
             <a href="https://docs.google.com/document/d/1HuxiJl12UgnRTOYir7L0VJB4IVoXww7P59xlxFepDZo/edit?tab=t.0" target="_blank" class="block hover:text-mint transition-colors">Draft Agreement</a>
-            <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" class="block hover:text-mint transition-colors">Environmental Asset Playbook</a>
+            <a href="https://drive.google.com/drive/u/0/folders/1gwoalCiNOzoyxOX0Vj9fGmWp2BULPvZi" target="_blank" class="block hover:text-mint transition-colors">Environmental Asset Playbook</a>
             <a href="https://docs.google.com/document/d/1zmodizM37mVL1bwcL7HvnjWlwpzwHviculmUGRbdBR4/edit?tab=t.0" target="_blank" class="block hover:text-mint transition-colors">Carbon Asset Readiness Snapshot</a>
+            <a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=drive_link" target="_blank" class="block hover:text-mint transition-colors">Sample Report PDF</a>
         </div>
 
         <div class="space-y-2">
@@ -307,13 +375,58 @@
     </div>
 </div>
 
+<!-- Calculator Script -->
 <script>
+    const factors = {
+        solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", max: 2000, step: 10, defaultVal: 100 },
+        ee: { factor: 0.71, label: "Electricity Saved (MWh/yr)", unit: "MWh", max: 5000, step: 50, defaultVal: 200 },
+        water: { factor: 0.0012, label: "Water Recycled (KL/yr)", unit: "KL", max: 500000, step: 5000, defaultVal: 50000 },
+        forest: { factor: 10.0, label: "Afforestation Area (Hectares)", unit: "Ha", max: 500, step: 5, defaultVal: 20 }
+    };
+
+    function calculateCarbon() {
+        const type = document.getElementById('assetType').value;
+        const config = factors[type];
+        
+        const capInput = document.getElementById('capacityInput');
+        const capLabel = document.getElementById('capacityLabel');
+        const capText = document.getElementById('capacityValueText');
+        const priceInput = document.getElementById('priceInput');
+        const priceText = document.getElementById('priceValueText');
+
+        // Update Slider Limits if type changed
+        if (capLabel.innerText !== config.label) {
+            capLabel.innerText = config.label;
+            capInput.max = config.max;
+            capInput.step = config.step;
+            capInput.value = config.defaultVal;
+        }
+
+        const qty = parseFloat(capInput.value);
+        const priceUSD = parseFloat(priceInput.value);
+        capText.innerText = qty.toLocaleString() + " " + config.unit;
+        priceText.innerText = "$" + priceUSD.toFixed(2) + " / tonne";
+
+        // Calculations
+        const annualTons = Math.round(qty * config.factor);
+        const lifetimeTons = annualTons * 10;
+        const annualUSD = annualTons * priceUSD;
+        const annualINR = Math.round(annualUSD * 83); // USD to INR @ 83
+
+        document.getElementById('annualTons').innerText = annualTons.toLocaleString() + " tCO₂e";
+        document.getElementById('lifetimeTons').innerText = lifetimeTons.toLocaleString() + " tCO₂e";
+        document.getElementById('annualValue').innerHTML = "₹" + annualINR.toLocaleString() + ` <span class="text-xs font-normal text-white/70">($${annualUSD.toLocaleString()})</span>`;
+    }
+
     function openAssessmentModal() {
         document.getElementById('assessmentModal').classList.remove('hidden');
     }
     function closeAssessmentModal() {
         document.getElementById('assessmentModal').classList.add('hidden');
     }
+
+    // Initial calculation on load
+    window.onload = calculateCarbon;
 </script>
 
 </body>
