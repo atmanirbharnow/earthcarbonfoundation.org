@@ -39,6 +39,55 @@
         h1, h2, h3, h4, .font-display { font-family: 'Public Sans', sans-serif; }
         .ambient-shadow { box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05); }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Custom Accordion Chevron Rotation */
+        details[open] summary .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Range Slider Styling Fix for Smooth Dragging */
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #003527;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #E2E8F0;
+            border-radius: 4px;
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #003527;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #E2E8F0;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body class="bg-white text-secondary antialiased">
@@ -220,7 +269,7 @@
         </div>
     </section>
 
-    <!-- Estimator Section -->
+    <!-- Estimator Section (Slider Fixed) -->
     <section id="calculator" class="py-16 bg-white border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="text-center space-y-2">
@@ -234,7 +283,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Asset Methodology</label>
-                        <select id="assetType" onchange="calculateCarbon()" class="w-full bg-white border border-border rounded-lg p-3 text-sm font-semibold text-secondary focus:ring-primary focus:border-primary">
+                        <select id="assetType" class="w-full bg-white border border-border rounded-lg p-3 text-sm font-semibold text-secondary focus:ring-primary focus:border-primary">
                             <option value="solar">Solar PV Generation (kW)</option>
                             <option value="ee">Energy Efficiency (MWh/yr saved)</option>
                             <option value="water">Water Conservation (KL/yr recycled)</option>
@@ -247,7 +296,7 @@
                             <label id="capacityLabel" class="block text-xs font-bold text-secondary uppercase tracking-wider">Solar Capacity (kW)</label>
                             <span id="capacityValueText" class="text-xs font-bold text-primary">100 kW</span>
                         </div>
-                        <input id="capacityInput" type="range" min="10" max="2000" value="100" step="10" oninput="calculateCarbon()" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
+                        <input id="capacityInput" type="range" min="10" max="2000" value="100" step="10" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
                     </div>
                 </div>
 
@@ -257,7 +306,7 @@
                         <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Carbon Credit Price Assumption ($ / tCO₂e)</label>
                         <span id="priceValueText" class="text-xs font-bold text-primary">$10.00 / tonne</span>
                     </div>
-                    <input id="priceInput" type="range" min="5" max="30" value="10" step="1" oninput="calculateCarbon()" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
+                    <input id="priceInput" type="range" min="5" max="30" value="10" step="1" class="w-full accent-primary h-2 bg-border rounded-lg cursor-pointer"/>
                 </div>
 
                 <!-- Calculation Results Output Cards -->
@@ -452,58 +501,104 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- COLLAPSIBLE FAQ SECTION -->
     <section id="faq" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-8">
                 <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Frequently Asked Questions</h2>
+                <p class="text-xs text-secondary/60">Click any question below to expand the response.</p>
             </div>
 
             <div class="space-y-3">
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: What does the ₹4,999 engagement fee cover?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: It covers the technical review of your asset data, initial emission abatement calculations, additionality checks, and delivery of your custom development roadmap in 3–5 working days.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: What does the ₹4,999 engagement fee cover?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: It covers the technical review of your asset data, initial emission abatement calculations, additionality checks, and delivery of your custom development roadmap in 3–5 working days.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: How long does the whole process take?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: Your roadmap arrives in 3–5 working days. Registry development typically runs 6–18 months depending on methodology and VVB schedules, with issuance following successful verification.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: How long does the whole process take?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: Your roadmap arrives in 3–5 working days. Registry development typically runs 6–18 months depending on methodology and VVB schedules, with issuance following successful verification.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: What is the total cost to issuance?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: You pay our flat advisory fees plus third-party actuals (registry, VVB, audits) billed transparently. Indicative standalone third-party costs range ₹2–8 lakh depending on asset size; bundled programmes share these costs. Your exact figure appears in your roadmap. We charge zero success fees — you keep 100% of carbon revenue.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: What is the total cost to issuance?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: You pay our flat advisory fees plus third-party actuals (registry, VVB, audits) billed transparently. Indicative standalone third-party costs range ₹2–8 lakh depending on asset size; bundled programmes share these costs. Your exact figure appears in your roadmap. We charge zero success fees — you keep 100% of carbon revenue.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: Who owns the carbon credits?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: You do. ECF never takes ownership or a revenue share of your credits.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: Who owns the carbon credits?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: You do. ECF never takes ownership or a revenue share of your credits.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: What data do I need to submit?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: Electricity bills or meter data, system capacity plates, equipment specs, location, and operational history. A simple checklist is sent immediately after engagement.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: What data do I need to submit?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: Electricity bills or meter data, system capacity plates, equipment specs, location, and operational history. A simple checklist is sent immediately after engagement.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: Which registries do you work with?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: Pathways aligned with Verra, Gold Standard, I-REC and applicable national mechanisms. The right registry for your asset is selected in your roadmap.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: Which registries do you work with?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: Pathways aligned with Verra, Gold Standard, I-REC and applicable national mechanisms. The right registry for your asset is selected in your roadmap.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: Bundled vs Standalone — which is right for me?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: Under 500 kW → Bundled Programme (shared registry costs). 500 kW and above → Standalone Registry. We confirm during technical review.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: Bundled vs Standalone — which is right for me?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: Under 500 kW → Bundled Programme (shared registry costs). 500 kW and above → Standalone Registry. We confirm during technical review.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: What if my asset is not eligible?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: You receive a written eligibility report with recommended fixes, so you never waste registry capital. Full refund within 24 hours of payment if review has not begun.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: What if my asset is not eligible?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: You receive a written eligibility report with recommended fixes, so you never waste registry capital. Full refund within 24 hours of payment if review has not begun.
+                    </div>
+                </details>
 
-                <div class="bg-white border border-border rounded-xl p-5">
-                    <h3 class="font-bold text-sm sm:text-base text-secondary mb-1">Q: Why not go to the registry directly?</h3>
-                    <p class="text-xs sm:text-sm text-secondary/70 leading-relaxed">A: Registries require methodology documentation, VVB coordination and legal structuring most asset owners have never done. We bundle that expertise, cutting rejection risk and months of trial-and-error.</p>
-                </div>
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: Why not go to the registry directly?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-0 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 mt-1 pt-3">
+                        A: Registries require methodology documentation, VVB coordination and legal structuring most asset owners have never done. We bundle that expertise, cutting rejection risk and months of trial-and-error.
+                    </div>
+                </details>
             </div>
         </div>
     </section>
@@ -608,30 +703,34 @@
                 <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Advisory Resources</h4>
                 <ul class="space-y-2.5 text-white/70">
                     <li>
-                        <a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
+                        <a href="https://drive.google.com/drive/u/0/folders/1Ps4r5ot7WD1bdQvqp6lJbplyXaa5jjrK" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
                             <span>Corporate Profile</span>
                             <span class="material-symbols-outlined text-xs text-white/40">open_in_new</span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://drive.google.com/file/d/1OmwLrvaagPNYI4NjGl1FaMCBiYAKbGnH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
+                        <a href="https://docs.google.com/document/d/1HuxiJl12UgnRTOYir7L0VJB4IVoXww7P59xlxFepDZo/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
                             <span>Draft Agreement</span>
                             <span class="material-symbols-outlined text-xs text-white/40">open_in_new</span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
+                        <a href="https://drive.google.com/drive/u/0/folders/1gwoalCiNOzoyxOX0Vj9fGmWp2BULPvZi" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
                             <span>Environmental Asset Playbook</span>
                             <span class="material-symbols-outlined text-xs text-white/40">open_in_new</span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
+                        <a href="https://docs.google.com/document/d/1zmodizM37mVL1bwcL7HvnjWlwpzwHviculmUGRbdBR4/edit?tab=t.0" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
                             <span>Carbon Asset Readiness Snapshot</span>
                             <span class="material-symbols-outlined text-xs text-white/40">open_in_new</span>
                         </a>
                     </li>
                     <li>
+                        <a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5">
+                            <span>Sample Report PDF</span>
+                            <span class="material-symbols-outlined text-xs text-white/40">open_in_new</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -750,7 +849,7 @@
     </div>
 </div>
 
-<!-- JS Calculator & Logic -->
+<!-- JS Calculator & Slider Logic (Fixed Dragging & Multi-event bindings) -->
 <script>
     const factors = {
         solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", max: 2000, step: 10, defaultVal: 100, name: "Solar PV" },
@@ -762,7 +861,9 @@
     let currentCalculatedData = {};
 
     function calculateCarbon() {
-        const type = document.getElementById('assetType').value;
+        const typeEl = document.getElementById('assetType');
+        if (!typeEl) return;
+        const type = typeEl.value;
         const config = factors[type];
         
         const capInput = document.getElementById('capacityInput');
@@ -857,10 +958,26 @@
 
     window.onload = function() {
         calculateCarbon();
+
+        // Bind listeners explicitly to ensure smooth slider dragging
+        const capInput = document.getElementById('capacityInput');
+        const priceInput = document.getElementById('priceInput');
+        const assetTypeSelect = document.getElementById('assetType');
+
+        ['input', 'change'].forEach(evt => {
+            if (capInput) capInput.addEventListener(evt, calculateCarbon);
+            if (priceInput) priceInput.addEventListener(evt, calculateCarbon);
+        });
+        if (assetTypeSelect) assetTypeSelect.addEventListener('change', calculateCarbon);
+
         setTimeout(() => {
-            document.getElementById('whatsappFloat').classList.remove('hidden');
-            document.getElementById('whatsappFloat').classList.add('flex');
+            const wa = document.getElementById('whatsappFloat');
+            if (wa) {
+                wa.classList.remove('hidden');
+                wa.classList.add('flex');
+            }
         }, 5000);
+
         document.addEventListener('mouseleave', (e) => {
             if (e.clientY <= 0) openExitPopup();
         });
