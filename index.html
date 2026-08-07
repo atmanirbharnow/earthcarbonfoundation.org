@@ -801,7 +801,7 @@
             est_tco2e: currentCalculatedData.tco2e || '',
             est_value: currentCalculatedData.value || ''
         });
-        if (iframe) iframe.src = "https://forms.fillout.com/t/m6Bbry78wGus?" + params.toString();
+        if (iframe) iframe.src = "https://forms.fillout.com/t/m6Bbry78wGus" + params.toString();
         const modal = document.getElementById('assessmentModal');
         if (modal) modal.classList.remove('hidden');
     }
