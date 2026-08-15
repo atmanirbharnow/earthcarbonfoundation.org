@@ -645,43 +645,25 @@
     });
 </script>
 
-<!-- 🔥 FIREBASE AUTHENTICATION & DASHBOARD LOGIC 🔥 -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-    // ⚠️ BOSS: PASTE YOUR FIREBASE CONFIG HERE! ⚠️
-<!-- 🔥 FIREBASE AUTHENTICATION & DASHBOARD LOGIC 🔥 -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
     // ⚠️ YOUR FIREBASE CONFIG MUST BE HERE ⚠️
- <!-- 🔥 FIREBASE AUTHENTICATION & DASHBOARD LOGIC 🔥 -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
     import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    // ⚠️ PASTE YOUR REAL FIREBASE CONFIG HERE ️
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBSlKAndSNex1AJqW4DF6zl428eCfWT2UA",
-  authDomain: "earth-carbon--final.firebaseapp.com",
-  databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-  projectId: "earth-carbon--final",
-  storageBucket: "earth-carbon--final.firebasestorage.app",
-  messagingSenderId: "506588865863",
-  appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-  measurementId: "G-B76KKL7VVE"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSLkAndSNex1AJqW4DF6z1428eCfWT2UA",
+      authDomain: "earth-carbon-gmail-final.firebaseapp.com",
+      projectId: "earth-carbon-gmail-final",
+      storageBucket: "earth-carbon-gmail-final.appspot.com",
+      messagingSenderId: "506588865863",
+      appId: "1:506588865863:web:eaa3995e4041e7e14e1862"
+    };
+
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Auth State Observer
     onAuthStateChanged(auth, (user) => {
         const authButtons = document.getElementById('authButtons');
         const userDashboardNav = document.getElementById('userDashboardNav');
@@ -720,8 +702,8 @@ const firebaseConfig = {
             await addDoc(collection(db, "users"), {
                 uid: userCredential.user.uid, email: email, createdAt: new Date(), projects: []
             });
-            alert('Account created successfully! Welcome to Earth Carbon Foundation.');
-            closeSignupModal();
+            alert('Account created successfully!');
+            window.closeSignupModal();
         } catch (error) { alert('Error: ' + error.message); }
     };
 
@@ -731,7 +713,7 @@ const firebaseConfig = {
         const password = document.getElementById('loginPassword').value;
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            closeLoginModal();
+            window.closeLoginModal();
         } catch (error) { alert('Login Error: ' + error.message); }
     };
 
@@ -748,7 +730,6 @@ const firebaseConfig = {
         document.getElementById('userProjectsCount').textContent = count;
     }
 
-    // Modal Controls
     window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
     window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
     window.openSignupModal = () => document.getElementById('signupModal').classList.remove('hidden');
