@@ -76,6 +76,7 @@
         <!-- User Dashboard Nav (Shown when logged in) -->
         <div class="hidden items-center gap-3 shrink-0" id="userDashboardNav">
             <span class="text-sm font-semibold text-primary" id="navUserEmail"></span>
+            <a href="/dashboard.html" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Go to Dashboard</a>
             <button onclick="handleLogout()" class="text-secondary hover:text-red-600 font-semibold text-sm transition-colors px-3 py-2">Logout</button>
         </div>
     </div>
@@ -109,37 +110,6 @@
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Clear process</span>
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Transparent registry pathway</span>
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Section 8 Governance</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- USER DASHBOARD SECTION (Hidden by default, shows after login) -->
-    <section id="userDashboardSection" class="hidden py-16 bg-surface-light border-b border-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl border border-border p-8 shadow-sm space-y-6">
-                <div class="flex items-center justify-between border-b border-border pb-4">
-                    <div>
-                        <h2 class="font-display font-bold text-2xl text-secondary">My Dashboard</h2>
-                        <p class="text-sm text-secondary/70 mt-1">Welcome back! Track your carbon asset progress here.</p>
-                    </div>
-                    <div class="bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm font-bold">Active User</div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-surface-light rounded-xl border border-border">
-                        <span class="text-xs font-bold text-secondary/60 uppercase">Registered Email</span>
-                        <div id="userEmailDisplay" class="text-lg font-bold text-primary font-display mt-1">-</div>
-                    </div>
-                    <div class="p-6 bg-surface-light rounded-xl border border-border">
-                        <span class="text-xs font-bold text-secondary/60 uppercase">Active Submissions</span>
-                        <div class="text-lg font-bold text-primary font-display mt-1"><span id="userProjectsCount">0</span> Projects</div>
-                    </div>
-                </div>
-                <div class="pt-4">
-                    <h3 class="font-bold text-base text-secondary mb-3">Recent Activity</h3>
-                    <div class="p-4 bg-surface-light rounded-lg border border-border text-sm text-secondary/70 text-center">
-                        No recent submissions. <button onclick="openAssessmentModal()" class="text-primary font-bold hover:underline">Start a new engagement</button> to see it here.
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -301,7 +271,7 @@
         </div>
     </section>
 
-    <!-- COLLAPSIBLE FAQ SECTION -->
+    <!-- Collapsible FAQ Section -->
     <section id="faq" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-8">
@@ -376,7 +346,7 @@
         </div>
     </section>
 
-    <!-- PROGRAMME PARTNER SECTION -->
+    <!-- Programme Partner Section -->
     <section id="partner" class="py-16 bg-white border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-primary text-white rounded-2xl p-8 sm:p-10 space-y-6 text-center">
@@ -399,7 +369,7 @@
     <!-- Bottom CTA -->
     <section class="py-16 bg-primary-dark text-white text-center">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 class="font-display font-bold text-2xl sm:text-4xl tracking-tight">Ready to Onboard Your Assets into the Registry?</h2>
+            <h2 class="font-display font-bold text-2xl sm:4xl tracking-tight">Ready to Onboard Your Assets into the Registry?</h2>
             <p class="text-white/80 text-sm sm:text-base">Start your engagement today for ₹4,999 and receive your complete roadmap within 3–5 working days.</p>
             <div>
                 <button onclick="openAssessmentModal()" class="bg-mint text-secondary font-bold px-8 py-4 rounded-lg text-base hover:brightness-110 transition-all shadow-lg">Start Engagement – ₹4,999</button>
@@ -408,7 +378,7 @@
     </section>
 </main>
 
-<!-- INSTITUTIONAL FOOTER -->
+<!-- Institutional Footer -->
 <footer class="bg-secondary text-white border-t border-white/10 pt-16 pb-12 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
@@ -495,7 +465,7 @@
     </div>
 </div>
 
-<!-- LOGIN MODAL (NEW) -->
+<!-- Login Modal -->
 <div id="loginModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-8">
         <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-secondary/50 hover:text-secondary transition-colors"><span class="material-symbols-outlined">close</span></button>
@@ -515,7 +485,7 @@
     </div>
 </div>
 
-<!-- SIGNUP MODAL (NEW) -->
+<!-- Signup Modal -->
 <div id="signupModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-8">
         <button onclick="closeSignupModal()" class="absolute top-4 right-4 text-secondary/50 hover:text-secondary transition-colors"><span class="material-symbols-outlined">close</span></button>
@@ -560,7 +530,7 @@
     </div>
 </div>
 
-<!-- Existing JS Calculator & Slider Logic -->
+<!-- Calculator & Interactive Scripts -->
 <script>
     const factors = {
         solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500, name: "Solar PV" },
@@ -569,6 +539,7 @@
         forest: { factor: 10.0, label: "Afforestation Area (Hectares)", unit: "Ha", min: 10, max: 500, step: 10, defaultVal: 20, name: "Forestry & NbS" }
     };
     let currentCalculatedData = {};
+    
     function updateSliderBounds(config) {
         const capInput = document.getElementById('capacityInput');
         const capLabel = document.getElementById('capacityLabel');
@@ -579,6 +550,7 @@
         capInput.step = config.step;
         capInput.value = config.defaultVal;
     }
+
     function calculateCarbon() {
         const typeEl = document.getElementById('assetType');
         const capInput = document.getElementById('capacityInput');
@@ -617,8 +589,10 @@
         }
         currentCalculatedData = { methodology: config.name, capacity: qty + " " + config.unit, tco2e: annualTons + " tCO2e/yr", value: "₹" + annualINR.toLocaleString() };
     }
+
     function toggleInlineEmailForm() { const form = document.getElementById('inlineEmailForm'); if (form) form.classList.toggle('hidden'); }
     function handleInlineEmailSubmit(e) { e.preventDefault(); alert('Your free estimate breakdown has been sent to your email.'); const form = document.getElementById('inlineEmailForm'); if (form) form.classList.add('hidden'); }
+    
     function openAssessmentModal() {
         const iframe = document.getElementById('filloutIframe');
         const params = new URLSearchParams({ est_methodology: currentCalculatedData.methodology || '', est_capacity: currentCalculatedData.capacity || '', est_tco2e: currentCalculatedData.tco2e || '', est_value: currentCalculatedData.value || '' });
@@ -628,16 +602,27 @@
     function closeAssessmentModal() { const modal = document.getElementById('assessmentModal'); if (modal) modal.classList.add('hidden'); }
     function openPartnerModal() { const modal = document.getElementById('partnerModal'); if (modal) modal.classList.remove('hidden'); }
     function closePartnerModal() { const modal = document.getElementById('partnerModal'); if (modal) modal.classList.add('hidden'); }
+    
     let exitShown = false;
     function openExitPopup() { if (!exitShown) { const popup = document.getElementById('exitPopup'); if (popup) popup.classList.remove('hidden'); exitShown = true; } }
     function closeExitPopup() { const popup = document.getElementById('exitPopup'); if (popup) popup.classList.add('hidden'); }
     function handleExitFormSubmit(e) { e.preventDefault(); alert('Sample Roadmap PDF sent!'); closeExitPopup(); }
+
     document.addEventListener('DOMContentLoaded', function() {
         const capInput = document.getElementById('capacityInput');
         const priceInput = document.getElementById('priceInput');
         const assetTypeSelect = document.getElementById('assetType');
-        if (assetTypeSelect) { updateSliderBounds(factors[assetTypeSelect.value]); assetTypeSelect.addEventListener('change', function() { updateSliderBounds(factors[this.value]); calculateCarbon(); }); }
-        ['input', 'change'].forEach(evt => { if (capInput) capInput.addEventListener(evt, calculateCarbon); if (priceInput) priceInput.addEventListener(evt, calculateCarbon); });
+        if (assetTypeSelect) { 
+            updateSliderBounds(factors[assetTypeSelect.value]); 
+            assetTypeSelect.addEventListener('change', function() { 
+                updateSliderBounds(factors[this.value]); 
+                calculateCarbon(); 
+            }); 
+        }
+        ['input', 'change'].forEach(evt => { 
+            if (capInput) capInput.addEventListener(evt, calculateCarbon); 
+            if (priceInput) priceInput.addEventListener(evt, calculateCarbon); 
+        });
         calculateCarbon();
         setTimeout(() => { const wa = document.getElementById('whatsappFloat'); if (wa) { wa.classList.remove('hidden'); wa.classList.add('flex'); } }, 5000);
         document.addEventListener('mouseleave', (e) => { if (e.clientY <= 0) openExitPopup(); });
@@ -645,22 +630,22 @@
     });
 </script>
 
-    // ⚠️ YOUR FIREBASE CONFIG MUST BE HERE ⚠️
+<!-- Firebase Authentication & Session Handling -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const firebaseConfig = {
- apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
- authDomain: "earth-carbon--final.firebaseapp.com",
-  databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-  projectId: "earth-carbon--final",
-  storageBucket: "earth-carbon--final.firebasestorage.app",
-  messagingSenderId: "506588865863",
-  appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-  measurementId: "G-B76KKL7VVE"
-};
+    const firebaseConfig = {
+        apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
+        authDomain: "earth-carbon--final.firebaseapp.com",
+        databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
+        projectId: "earth-carbon--final",
+        storageBucket: "earth-carbon--final.firebasestorage.app",
+        messagingSenderId: "506588865863",
+        appId: "1:506588865863:web:eaa3995e4041e714e1862",
+        measurementId: "G-B76KKL7VVE"
+    };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -669,25 +654,21 @@ const firebaseConfig = {
     onAuthStateChanged(auth, (user) => {
         const authButtons = document.getElementById('authButtons');
         const userDashboardNav = document.getElementById('userDashboardNav');
-        const userDashboardSection = document.getElementById('userDashboardSection');
         
         if (user) {
-            if(authButtons) authButtons.classList.add('hidden');
-            if(userDashboardNav) {
+            if (authButtons) authButtons.classList.add('hidden');
+            if (userDashboardNav) {
                 userDashboardNav.classList.remove('hidden');
                 userDashboardNav.classList.add('flex');
-                document.getElementById('navUserEmail').textContent = user.email;
+                const navEmail = document.getElementById('navUserEmail');
+                if (navEmail) navEmail.textContent = user.email;
             }
-            if(userDashboardSection) userDashboardSection.classList.remove('hidden');
-            document.getElementById('userEmailDisplay').textContent = user.email;
-            loadUserData(user.uid);
         } else {
-            if(authButtons) authButtons.classList.remove('hidden');
-            if(userDashboardNav) {
+            if (authButtons) authButtons.classList.remove('hidden');
+            if (userDashboardNav) {
                 userDashboardNav.classList.add('hidden');
                 userDashboardNav.classList.remove('flex');
             }
-            if(userDashboardSection) userDashboardSection.classList.add('hidden');
         }
     });
 
@@ -697,16 +678,25 @@ const firebaseConfig = {
         const password = document.getElementById('signupPassword').value;
         const confirmPassword = document.getElementById('signupConfirmPassword').value;
 
-        if (password !== confirmPassword) { alert('Passwords do not match!'); return; }
+        if (password !== confirmPassword) { 
+            alert('Passwords do not match!'); 
+            return; 
+        }
 
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             await addDoc(collection(db, "users"), {
-                uid: userCredential.user.uid, email: email, createdAt: new Date(), projects: []
+                uid: userCredential.user.uid, 
+                email: email, 
+                createdAt: new Date(), 
+                projects: []
             });
             alert('Account created successfully!');
             window.closeSignupModal();
-        } catch (error) { alert('Error: ' + error.message); }
+            window.location.href = "/dashboard.html";
+        } catch (error) { 
+            alert('Signup Error: ' + error.message); 
+        }
     };
 
     window.handleLogin = async (e) => {
@@ -716,21 +706,16 @@ const firebaseConfig = {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             window.closeLoginModal();
-        } catch (error) { alert('Login Error: ' + error.message); }
+            window.location.href = "/dashboard.html";
+        } catch (error) { 
+            alert('Login Error: ' + error.message); 
+        }
     };
 
     window.handleLogout = async () => {
         await signOut(auth);
-        alert('Logged out successfully.');
+        window.location.reload();
     };
-
-    async function loadUserData(userId) {
-        const q = query(collection(db, "submissions"), where("userId", "==", userId));
-        const querySnapshot = await getDocs(q);
-        let count = 0;
-        querySnapshot.forEach(() => { count++; });
-        document.getElementById('userProjectsCount').textContent = count;
-    }
 
     window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
     window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
