@@ -46,23 +46,40 @@
     .btn-action {
       background: var(--un-blue);
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: opacity 0.2s;
     }
+    .btn-action:hover { opacity: 0.9; }
 
-    .btn-action:disabled, .btn-action.disabled {
-      background: #cbd5e1;
-      cursor: not-allowed;
-      pointer-events: none;
+    /* Social Share Buttons */
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.1s;
     }
+    .social-btn:hover { transform: translateY(-1px); }
+    .bg-linkedin { background-color: #0A66C2; }
+    .bg-x { background-color: #000000; }
+    .bg-facebook { background-color: #1877F2; }
+    .bg-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
 
     .btn-logout {
       background: #fee2e2;
@@ -95,45 +112,57 @@
     <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
       <div>
         <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
-        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Loading Asset...</h2>
-        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="assetSubtitle">Gujarat, India</p>
+        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Earth Carbon Foundation Pilot Site</h2>
+        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="assetSubtitle">Ahmedabad, Gujarat</p>
       </div>
       <div style="text-align:right;">
-        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">ID: Pending</span>
-        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Initial Sync</p>
+        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">ID: ECF-REG-0104</span>
+        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Stage 2 Validation Underway</p>
       </div>
     </div>
   </div>
 
-  <!-- DYNAMIC METRICS -->
+  <!-- 19-YEAR DYNAMIC METRICS -->
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Impact Overview</h3>
     <div class="kpi-grid">
       <div class="kpi-card" style="background:#ecfdf5; border-color:#a7f3d0;">
         <div class="kpi-label" style="color:#065f46;">Atmanirbhar Index™</div>
-        <div class="kpi-val" id="atmanirbharScore">--</div>
+        <div class="kpi-val" id="atmanirbharScore">98%</div>
         <span style="font-size:0.75rem; color:#047857; font-weight:600;">Resource Self-Reliance</span>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Annual Mitigation</div>
-        <div class="kpi-val" style="color:var(--un-navy);"><span id="annualMitigation">--</span> <span style="font-size:1rem;">tCO₂e</span></div>
+        <div class="kpi-val" style="color:var(--un-navy);"><span id="annualMitigation">520</span> <span style="font-size:1rem;">tCO₂e</span></div>
         <span style="font-size:0.75rem; color:var(--slate-gray);">Grid Offset</span>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">10-Yr Projected Yield</div>
-        <div class="kpi-val" style="color:#0284c7;"><span id="lifetimeYield">--</span> <span style="font-size:1rem;">tCO₂e</span></div>
-        <span style="font-size:0.75rem; color:var(--slate-gray);">Lifetime Value</span>
+        <div class="kpi-label">19-Year Cumulative Yield</div>
+        <div class="kpi-val" style="color:#0284c7;"><span id="nineteenYearYield">9,880</span> <span style="font-size:1rem;">tCO₂e</span></div>
+        <span style="font-size:0.75rem; color:var(--slate-gray);">19-Yr Crediting Period</span>
       </div>
     </div>
   </div>
 
-  <!-- DOCUMENTATION & ROADMAP LINK -->
+  <!-- ACTIONS & SOCIAL MEDIA SHARE -->
   <div class="dash-card">
-    <h3 style="margin-top:0; color:var(--un-navy);">Official Verified Documentation</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray);">Access verified roadmaps and protocol agreements generated for this asset.</p>
-    <div style="display:flex; gap:12px; flex-wrap:wrap;">
-      <a id="roadmapBtn" class="btn-action disabled" href="#" target="_blank" style="background:var(--emerald-green);">📄 Download Roadmap (Generating...)</a>
-      <button class="btn-action" style="background:var(--un-navy);" onclick="window.print()">🖨️ Print Summary</button>
+    <h3 style="margin-top:0; color:var(--un-navy);">Official Documents &amp; Impact Sharing</h3>
+    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:15px;">Download your roadmap, print your official certificate, or publish your verified metrics directly to social media.</p>
+    
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+      <a id="roadmapBtn" class="btn-action" href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" style="background:var(--emerald-green);">📄 Download Roadmap (PDF)</a>
+      <button class="btn-action" style="background:var(--un-navy);" onclick="window.print()">🖨️ Print Summary Report</button>
+    </div>
+
+    <!-- Social Share Buttons -->
+    <div style="border-top:1px solid #e2e8f0; padding-top:15px;">
+      <span style="font-size:0.75rem; font-weight:700; color:var(--slate-gray); text-transform:uppercase; display:block; margin-bottom:8px;">Share Verified Credential:</span>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button onclick="shareOnLinkedIn()" class="social-btn bg-linkedin">💼 Share on LinkedIn</button>
+        <button onclick="shareOnX()" class="social-btn bg-x">𝕏 Post on X</button>
+        <button onclick="shareOnFacebook()" class="social-btn bg-facebook">📘 Share on Facebook</button>
+        <button onclick="copyInstagramSummary()" class="social-btn bg-insta">📸 Copy for Instagram / Story</button>
+      </div>
     </div>
   </div>
 
@@ -144,7 +173,7 @@
       Asset registered in <strong>Carbon Advisory Cohort #01</strong>.
     </p>
     <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;" id="progressionStatus">
-      <strong>Progression Status:</strong> Initial Intake Received
+      <strong>Progression Status:</strong> Technical review passed. Proposal under VVB audit.
     </div>
   </div>
 
@@ -154,11 +183,11 @@
   <p>© 2026 Earth Carbon Foundation | Institutional Sustainability Portal</p>
 </footer>
 
-<!-- Firebase SDK & Real-Time Data Sync -->
+<!-- Firebase SDK & Social Integration Logic -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, doc, onSnapshot, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
@@ -175,13 +204,18 @@
   const auth = getAuth(app);
   const db = getFirestore(app);
 
+  let currentAssetData = {
+    institution: "Earth Carbon Foundation Pilot Site",
+    atmanirbhar: "98%",
+    annualTco2e: "520",
+    nineteenYield: "9,880"
+  };
+
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       window.location.href = "/";
     } else {
       document.getElementById('userDisplayEmail').textContent = `(${user.email})`;
-      document.getElementById('clientName').textContent = user.email.split('@')[0].toUpperCase();
-      
       listenToUserData(user.email);
     }
   });
@@ -193,39 +227,65 @@
       if (!snapshot.empty) {
         const data = snapshot.docs[0].data();
 
-        if (data.institutionName) document.getElementById('clientName').textContent = data.institutionName;
+        if (data.institutionName) {
+          document.getElementById('clientName').textContent = data.institutionName;
+          currentAssetData.institution = data.institutionName;
+        }
         if (data.location) document.getElementById('assetSubtitle').textContent = data.location;
         if (data.assetId) document.getElementById('assetId').textContent = `ID: ${data.assetId}`;
         if (data.stage) document.getElementById('projectStage').textContent = `Status: ${data.stage}`;
         
-        document.getElementById('atmanirbharScore').textContent = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "97%";
-        document.getElementById('annualMitigation').textContent = data.annualTco2e || "410";
-        document.getElementById('lifetimeYield').textContent = data.lifetimeTco2e || (data.annualTco2e ? data.annualTco2e * 10 : "4,100");
+        const score = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "98%";
+        document.getElementById('atmanirbharScore').textContent = score;
+        currentAssetData.atmanirbhar = score;
+
+        const annual = Number(data.annualTco2e) || 520;
+        const yield19 = data.nineteenYearTco2e || (annual * 19);
+        
+        document.getElementById('annualMitigation').textContent = annual.toLocaleString();
+        document.getElementById('nineteenYearYield').textContent = yield19.toLocaleString();
+        currentAssetData.annualTco2e = annual.toLocaleString();
+        currentAssetData.nineteenYield = yield19.toLocaleString();
 
         if (data.statusSummary) {
           document.getElementById('progressionStatus').innerHTML = `<strong>Progression Status:</strong> ${data.statusSummary}`;
         }
 
-        // Enable Roadmap PDF button if generated
+        // Map Roadmap PDF URL
         const roadmapBtn = document.getElementById('roadmapBtn');
-        if (data.roadmapPdfUrl) {
+        if (data.roadmapPdfUrl && data.roadmapPdfUrl.startsWith('http')) {
           roadmapBtn.href = data.roadmapPdfUrl;
-          roadmapBtn.classList.remove('disabled');
-          roadmapBtn.textContent = "📄 Download Verified Roadmap (PDF)";
         }
-      } else {
-        // Fallback default view for new users
-        document.getElementById('atmanirbharScore').textContent = "97%";
-        document.getElementById('annualMitigation').textContent = "410";
-        document.getElementById('lifetimeYield').textContent = "4,100";
-        document.getElementById('assetId').textContent = "ID: ECF-REG-0104";
-        document.getElementById('projectStage').textContent = "Status: Stage 1 Active";
-        document.getElementById('progressionStatus').innerHTML = "<strong>Progression Status:</strong> Data intake in progress. Your 3–5 day roadmap will appear here once ready.";
       }
     });
   }
 
-  window.handleLogout = function() {
+  // --- SOCIAL MEDIA SHARING HANDLERS ---
+  window.shareOnLinkedIn = () => {
+    const shareText = `Proud to announce that ${currentAssetData.institution} has achieved an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} with ${currentAssetData.annualTco2e} tCO2e annual carbon mitigation verified with Earth Carbon Foundation! 🌍🌱\n\n19-Year Projected Yield: ${currentAssetData.nineteenYield} tCO2e.`;
+    const shareUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareText + "\nhttps://earthcarbonfoundation.org")}`;
+    window.open(shareUrl, '_blank', 'width=600,height=600');
+  };
+
+  window.shareOnX = () => {
+    const text = `Our asset has achieved an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} and is mitigating ${currentAssetData.annualTco2e} tCO2e/year with @EarthCarbonOrg! 19-Yr Projected Yield: ${currentAssetData.nineteenYield} tCO2e. 🌍 #ClimateAction #CarbonRegistry`;
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent('https://earthcarbonfoundation.org')}`;
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
+
+  window.shareOnFacebook = () => {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://earthcarbonfoundation.org')}&quote=${encodeURIComponent(`Verified Climate Asset: ${currentAssetData.institution} achieved ${currentAssetData.atmanirbhar} Atmanirbhar Index and ${currentAssetData.annualTco2e} tCO2e/yr mitigation!`)}`;
+    window.open(shareUrl, '_blank', 'width=600,height=500');
+  };
+
+  window.copyInstagramSummary = () => {
+    const text = `🌿 Verified Climate Asset Update 🌿\n\n🏢 Asset: ${currentAssetData.institution}\n📊 Atmanirbhar Index™: ${currentAssetData.atmanirbhar}\n⚡ Annual Mitigation: ${currentAssetData.annualTco2e} tCO2e/yr\n📈 19-Year Yield: ${currentAssetData.nineteenYield} tCO2e\n\nVerified via Earth Carbon Foundation (earthcarbonfoundation.org)`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("📋 Verified Asset Summary copied to clipboard! You can now paste it into your Instagram Caption, Bio, or Story.");
+    });
+  };
+
+  window.handleLogout = () => {
     signOut(auth).then(() => {
       window.location.href = "/";
     });
