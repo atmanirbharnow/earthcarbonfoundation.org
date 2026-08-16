@@ -14,7 +14,6 @@
     }
 
     body { font-family: 'Poppins', sans-serif; background: #f8fafc; margin: 0; color: #1e293b; }
-    
     .dash-container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
 
     .dash-card {
@@ -54,7 +53,15 @@
       font-size: 0.9rem;
       border: none;
       cursor: pointer;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-action:disabled, .btn-action.disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
     .btn-logout {
@@ -67,14 +74,11 @@
       border: 1px solid #fecaca;
       cursor: pointer;
     }
-    .btn-logout:hover {
-      background: #fecaca;
-    }
   </style>
 </head>
 <body>
 
-<header class="header" style="display:flex; justify-content:space-between; align-items:center; padding: 15px 30px; background:#fff; border-bottom:1px solid #e2e8f0;">
+<header style="display:flex; justify-content:space-between; align-items:center; padding: 15px 30px; background:#fff; border-bottom:1px solid #e2e8f0;">
   <h1 style="margin:0; font-size:1.25rem; color:var(--un-navy);">Earth Carbon Foundation</h1>
   <nav style="display:flex; align-items:center; gap:18px;">
     <a href="/" style="text-decoration:none; color:var(--slate-gray); font-weight:600; font-size:0.9rem;">Home</a>
@@ -86,61 +90,61 @@
 
 <div class="dash-container">
   
-  <!-- INSTITUTION HEADER -->
+  <!-- ASSET HEADER -->
   <div class="dash-card" style="border-left: 5px solid var(--emerald-green);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
       <div>
         <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
-        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Asset Dashboard</h2>
-        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="clientSubtitle">Gujarat, India</p>
+        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Loading Asset...</h2>
+        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="assetSubtitle">Gujarat, India</p>
       </div>
       <div style="text-align:right;">
-        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;">ID: ECF-REG-0104</span>
-        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);">Status: Stage 1 Review Active</p>
+        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">ID: Pending</span>
+        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Initial Sync</p>
       </div>
     </div>
   </div>
 
-  <!-- KEY SUSTAINABILITY METRICS -->
+  <!-- DYNAMIC METRICS -->
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Impact Overview</h3>
     <div class="kpi-grid">
       <div class="kpi-card" style="background:#ecfdf5; border-color:#a7f3d0;">
         <div class="kpi-label" style="color:#065f46;">Atmanirbhar Index™</div>
-        <div class="kpi-val">97%</div>
+        <div class="kpi-val" id="atmanirbharScore">--</div>
         <span style="font-size:0.75rem; color:#047857; font-weight:600;">Resource Self-Reliance</span>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">Annual Mitigation</div>
-        <div class="kpi-val" style="color:var(--un-navy);">410 <span style="font-size:1rem;">tCO₂e</span></div>
+        <div class="kpi-val" style="color:var(--un-navy);"><span id="annualMitigation">--</span> <span style="font-size:1rem;">tCO₂e</span></div>
         <span style="font-size:0.75rem; color:var(--slate-gray);">Grid Offset</span>
       </div>
       <div class="kpi-card">
         <div class="kpi-label">10-Yr Projected Yield</div>
-        <div class="kpi-val" style="color:#0284c7;">4,100 <span style="font-size:1rem;">tCO₂e</span></div>
+        <div class="kpi-val" style="color:#0284c7;"><span id="lifetimeYield">--</span> <span style="font-size:1rem;">tCO₂e</span></div>
         <span style="font-size:0.75rem; color:var(--slate-gray);">Lifetime Value</span>
       </div>
     </div>
   </div>
 
-  <!-- OFFICIAL ASSETS & ACTIONS -->
+  <!-- DOCUMENTATION & ROADMAP LINK -->
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Official Verified Documentation</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray);">Download your official roadmap documents or check verification status.</p>
+    <p style="font-size:0.85rem; color:var(--slate-gray);">Access verified roadmaps and protocol agreements generated for this asset.</p>
     <div style="display:flex; gap:12px; flex-wrap:wrap;">
-      <button class="btn-action" style="background:var(--emerald-green);" onclick="window.print()">📄 Print Readiness Summary</button>
-      <a class="btn-action" href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" style="background:var(--un-navy);">🔗 View Registry Protocol</a>
+      <a id="roadmapBtn" class="btn-action disabled" href="#" target="_blank" style="background:var(--emerald-green);">📄 Download Roadmap (Generating...)</a>
+      <button class="btn-action" style="background:var(--un-navy);" onclick="window.print()">🖨️ Print Summary</button>
     </div>
   </div>
 
-  <!-- POA CREDIT POOLING PROGRESS -->
+  <!-- PROGRESS TRACKER -->
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Programmatic Carbon Credit Pooling (PoA)</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:10px;">
-      Your registered asset is being processed for <strong>Carbon Advisory Cohort #01</strong>.
+    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:10px;" id="poaDetails">
+      Asset registered in <strong>Carbon Advisory Cohort #01</strong>.
     </p>
-    <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;">
-      <strong>Progression Status:</strong> Technical Review Active → Generating Custom Roadmap (3–5 Working Days)
+    <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;" id="progressionStatus">
+      <strong>Progression Status:</strong> Initial Intake Received
     </div>
   </div>
 
@@ -150,10 +154,11 @@
   <p>© 2026 Earth Carbon Foundation | Institutional Sustainability Portal</p>
 </footer>
 
-<!-- Firebase SDK & Session Protection -->
+<!-- Firebase SDK & Real-Time Data Sync -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { getFirestore, doc, onSnapshot, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
@@ -168,17 +173,57 @@
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
+  const db = getFirestore(app);
 
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       window.location.href = "/";
     } else {
-      const emailEl = document.getElementById('userDisplayEmail');
-      if (emailEl) emailEl.textContent = `(${user.email})`;
-      const clientNameEl = document.getElementById('clientName');
-      if (clientNameEl) clientNameEl.textContent = user.email.split('@')[0].toUpperCase();
+      document.getElementById('userDisplayEmail').textContent = `(${user.email})`;
+      document.getElementById('clientName').textContent = user.email.split('@')[0].toUpperCase();
+      
+      listenToUserData(user.email);
     }
   });
+
+  function listenToUserData(userEmail) {
+    const q = query(collection(db, "projects"), where("clientEmail", "==", userEmail));
+    
+    onSnapshot(q, (snapshot) => {
+      if (!snapshot.empty) {
+        const data = snapshot.docs[0].data();
+
+        if (data.institutionName) document.getElementById('clientName').textContent = data.institutionName;
+        if (data.location) document.getElementById('assetSubtitle').textContent = data.location;
+        if (data.assetId) document.getElementById('assetId').textContent = `ID: ${data.assetId}`;
+        if (data.stage) document.getElementById('projectStage').textContent = `Status: ${data.stage}`;
+        
+        document.getElementById('atmanirbharScore').textContent = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "97%";
+        document.getElementById('annualMitigation').textContent = data.annualTco2e || "410";
+        document.getElementById('lifetimeYield').textContent = data.lifetimeTco2e || (data.annualTco2e ? data.annualTco2e * 10 : "4,100");
+
+        if (data.statusSummary) {
+          document.getElementById('progressionStatus').innerHTML = `<strong>Progression Status:</strong> ${data.statusSummary}`;
+        }
+
+        // Enable Roadmap PDF button if generated
+        const roadmapBtn = document.getElementById('roadmapBtn');
+        if (data.roadmapPdfUrl) {
+          roadmapBtn.href = data.roadmapPdfUrl;
+          roadmapBtn.classList.remove('disabled');
+          roadmapBtn.textContent = "📄 Download Verified Roadmap (PDF)";
+        }
+      } else {
+        // Fallback default view for new users
+        document.getElementById('atmanirbharScore').textContent = "97%";
+        document.getElementById('annualMitigation').textContent = "410";
+        document.getElementById('lifetimeYield').textContent = "4,100";
+        document.getElementById('assetId').textContent = "ID: ECF-REG-0104";
+        document.getElementById('projectStage').textContent = "Status: Stage 1 Active";
+        document.getElementById('progressionStatus').innerHTML = "<strong>Progression Status:</strong> Data intake in progress. Your 3–5 day roadmap will appear here once ready.";
+      }
+    });
+  }
 
   window.handleLogout = function() {
     signOut(auth).then(() => {
