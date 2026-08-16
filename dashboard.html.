@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Dashboard | Earth Carbon Foundation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --un-blue: #009edb;
+      --un-navy: #002b49;
+      --emerald-green: #059669;
+      --slate-gray: #64748b;
+    }
+
+    body { font-family: 'Poppins', sans-serif; background: #f8fafc; margin: 0; color: #1e293b; }
+    
+    .dash-container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
+
+    .dash-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .kpi-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .kpi-val { font-size: 2.2rem; font-weight: 800; color: var(--emerald-green); line-height: 1; margin: 6px 0; }
+    .kpi-label { font-size: 0.8rem; font-weight: 700; color: var(--slate-gray); text-transform: uppercase; }
+
+    .btn-action {
+      background: var(--un-blue);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-logout {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      border: 1px solid #fecaca;
+      cursor: pointer;
+    }
+    .btn-logout:hover {
+      background: #fecaca;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header" style="display:flex; justify-content:space-between; align-items:center; padding: 15px 30px; background:#fff; border-bottom:1px solid #e2e8f0;">
+  <h1 style="margin:0; font-size:1.25rem; color:var(--un-navy);">Earth Carbon Foundation</h1>
+  <nav style="display:flex; align-items:center; gap:18px;">
+    <a href="/" style="text-decoration:none; color:var(--slate-gray); font-weight:600; font-size:0.9rem;">Home</a>
+    <span style="color:var(--emerald-green); font-weight:700; font-size:0.9rem;">Dashboard</span>
+    <span id="userDisplayEmail" style="font-size:0.8rem; color:var(--slate-gray); font-weight:600;"></span>
+    <button onclick="handleLogout()" class="btn-logout">Logout</button>
+  </nav>
+</header>
+
+<div class="dash-container">
+  
+  <!-- INSTITUTION HEADER -->
+  <div class="dash-card" style="border-left: 5px solid var(--emerald-green);">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+      <div>
+        <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
+        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Asset Dashboard</h2>
+        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="clientSubtitle">Gujarat, India</p>
+      </div>
+      <div style="text-align:right;">
+        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;">ID: ECF-REG-0104</span>
+        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);">Status: Stage 1 Review Active</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY SUSTAINABILITY METRICS -->
+  <div class="dash-card">
+    <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Impact Overview</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card" style="background:#ecfdf5; border-color:#a7f3d0;">
+        <div class="kpi-label" style="color:#065f46;">Atmanirbhar Index™</div>
+        <div class="kpi-val">97%</div>
+        <span style="font-size:0.75rem; color:#047857; font-weight:600;">Resource Self-Reliance</span>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Annual Mitigation</div>
+        <div class="kpi-val" style="color:var(--un-navy);">410 <span style="font-size:1rem;">tCO₂e</span></div>
+        <span style="font-size:0.75rem; color:var(--slate-gray);">Grid Offset</span>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">10-Yr Projected Yield</div>
+        <div class="kpi-val" style="color:#0284c7;">4,100 <span style="font-size:1rem;">tCO₂e</span></div>
+        <span style="font-size:0.75rem; color:var(--slate-gray);">Lifetime Value</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFICIAL ASSETS & ACTIONS -->
+  <div class="dash-card">
+    <h3 style="margin-top:0; color:var(--un-navy);">Official Verified Documentation</h3>
+    <p style="font-size:0.85rem; color:var(--slate-gray);">Download your official roadmap documents or check verification status.</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <button class="btn-action" style="background:var(--emerald-green);" onclick="window.print()">📄 Print Readiness Summary</button>
+      <a class="btn-action" href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" style="background:var(--un-navy);">🔗 View Registry Protocol</a>
+    </div>
+  </div>
+
+  <!-- POA CREDIT POOLING PROGRESS -->
+  <div class="dash-card">
+    <h3 style="margin-top:0; color:var(--un-navy);">Programmatic Carbon Credit Pooling (PoA)</h3>
+    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:10px;">
+      Your registered asset is being processed for <strong>Carbon Advisory Cohort #01</strong>.
+    </p>
+    <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;">
+      <strong>Progression Status:</strong> Technical Review Active → Generating Custom Roadmap (3–5 Working Days)
+    </div>
+  </div>
+
+</div>
+
+<footer style="text-align:center; padding:20px; color:var(--slate-gray); font-size:0.85rem; border-top:1px solid #e2e8f0; margin-top:30px;">
+  <p>© 2026 Earth Carbon Foundation | Institutional Sustainability Portal</p>
+</footer>
+
+<!-- Firebase SDK & Session Protection -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
+    authDomain: "earth-carbon--final.firebaseapp.com",
+    databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
+    projectId: "earth-carbon--final",
+    storageBucket: "earth-carbon--final.firebasestorage.app",
+    messagingSenderId: "506588865863",
+    appId: "1:506588865863:web:eaa3995e4041e714e1862",
+    measurementId: "G-B76KKL7VVE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "/";
+    } else {
+      const emailEl = document.getElementById('userDisplayEmail');
+      if (emailEl) emailEl.textContent = `(${user.email})`;
+      const clientNameEl = document.getElementById('clientName');
+      if (clientNameEl) clientNameEl.textContent = user.email.split('@')[0].toUpperCase();
+    }
+  });
+
+  window.handleLogout = function() {
+    signOut(auth).then(() => {
+      window.location.href = "/";
+    });
+  };
+</script>
+
+</body>
+</html>
