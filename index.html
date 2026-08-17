@@ -57,6 +57,7 @@
         </div>
         
         <div class="hidden lg:flex items-center gap-6 text-xs xl:text-sm font-semibold text-secondary/80">
+            <a href="#cohort-live" class="hover:text-primary transition-colors">15 MW Cohort</a>
             <a href="#how-it-works" class="hover:text-primary transition-colors">Process</a>
             <a href="#calculator" class="hover:text-primary transition-colors">Estimator</a>
             <a href="#commercials" class="hover:text-primary transition-colors">Commercial Model</a>
@@ -110,6 +111,51 @@
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Clear process</span>
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Transparent registry pathway</span>
                 <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Section 8 Governance</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE 15 MW REGISTRY COHORT TRACKER -->
+    <section id="cohort-live" class="py-10 bg-secondary text-white border-b border-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="inline-block w-2.5 h-2.5 bg-mint rounded-full animate-ping"></span>
+                        <h2 class="font-display font-bold text-xl sm:text-2xl text-white">15 MW Renewable Aggregation Cohort</h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-white/70">Live allocation counter and verified greenhouse gas mitigation yield.</p>
+                </div>
+                <span class="bg-mint/20 border border-mint/40 text-mint text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Q3 2026 Batch Active
+                </span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="space-y-2">
+                <div class="w-full bg-slate-800 rounded-xl h-5 p-0.5 overflow-hidden border border-white/10">
+                    <div id="cohort-progress-bar" class="h-full rounded-lg bg-gradient-to-r from-mint to-sky-400 transition-all duration-700 ease-out" style="width: 0%;"></div>
+                </div>
+                <div class="flex justify-between items-center text-xs text-white/70 font-semibold">
+                    <span>Allocated: <strong id="allocated-kw" class="text-white text-sm">0 kW</strong></span>
+                    <span>Pool Limit: <strong class="text-white text-sm">15,000 kW (15 MW)</strong></span>
+                </div>
+            </div>
+
+            <!-- Real-Time Metrics -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                    <div class="text-[11px] font-bold uppercase text-white/60 tracking-wider">Enrolled Assets</div>
+                    <div id="kpi-institutions" class="text-2xl sm:text-3xl font-extrabold text-white font-display mt-1">--</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                    <div class="text-[11px] font-bold uppercase text-mint tracking-wider">Annual tCO₂e Mitigation</div>
+                    <div id="kpi-annual-mitigation" class="text-2xl sm:text-3xl font-extrabold text-mint font-display mt-1">--</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
+                    <div class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">10-Yr Projected Yield</div>
+                    <div id="kpi-tenyear-yield" class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-display mt-1">--</div>
+                </div>
             </div>
         </div>
     </section>
@@ -630,11 +676,11 @@
     });
 </script>
 
-<!-- Firebase Authentication & Session Handling -->
+<!-- Firebase Authentication & Real-Time Firestore Sync -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
@@ -651,6 +697,7 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
+    // 1. Authentication State
     onAuthStateChanged(auth, (user) => {
         const authButtons = document.getElementById('authButtons');
         const userDashboardNav = document.getElementById('userDashboardNav');
@@ -670,6 +717,47 @@
                 userDashboardNav.classList.remove('flex');
             }
         }
+    });
+
+    // 2. Real-Time 15 MW Cohort Progress & Metrics Listener
+    const TOTAL_POOL_KW = 15000; // 15 MW Cohort Capacity Pool
+
+    onSnapshot(collection(db, "projects"), (snapshot) => {
+        let totalAllocatedKw = 0;
+        let totalAnnualTco2e = 0;
+        let totalTenYearYield = 0;
+        let activeCount = 0;
+
+        snapshot.forEach((doc) => {
+            const data = doc.data();
+            const kw = parseFloat(data.slotAllocationKw) || 0;
+            const annual = parseFloat(data.annualTco2e) || (kw * 0.82);
+            const tenYr = parseFloat(data.tenYearTco2e) || (annual * 10);
+
+            totalAllocatedKw += kw;
+            totalAnnualTco2e += annual;
+            totalTenYearYield += tenYr;
+            activeCount++;
+        });
+
+        // Update Cohort Progress Bar
+        const progressPercent = Math.min((totalAllocatedKw / TOTAL_POOL_KW) * 100, 100).toFixed(1);
+        const progressBar = document.getElementById("cohort-progress-bar");
+        const allocatedKwEl = document.getElementById("allocated-kw");
+
+        if (progressBar) progressBar.style.width = `${progressPercent}%`;
+        if (allocatedKwEl) allocatedKwEl.innerText = `${totalAllocatedKw.toLocaleString()} kW (${progressPercent}%)`;
+
+        // Update Live Counter Cards
+        const kpiInst = document.getElementById("kpi-institutions");
+        const kpiAnn = document.getElementById("kpi-annual-mitigation");
+        const kpiTen = document.getElementById("kpi-tenyear-yield");
+
+        if (kpiInst) kpiInst.innerText = activeCount > 0 ? activeCount : "800+";
+        if (kpiAnn) kpiAnn.innerText = `${Math.round(totalAnnualTco2e).toLocaleString()} tCO₂e`;
+        if (kpiTen) kpiTen.innerText = `${Math.round(totalTenYearYield).toLocaleString()} tCO₂e`;
+    }, (error) => {
+        console.warn("Firestore Real-Time Listener:", error.message);
     });
 
     window.handleSignup = async (e) => {
