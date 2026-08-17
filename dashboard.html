@@ -27,7 +27,7 @@
 
     .kpi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
       margin-top: 15px;
     }
@@ -40,8 +40,19 @@
       text-align: center;
     }
 
-    .kpi-val { font-size: 2.2rem; font-weight: 800; color: var(--emerald-green); line-height: 1; margin: 6px 0; }
-    .kpi-label { font-size: 0.8rem; font-weight: 700; color: var(--slate-gray); text-transform: uppercase; }
+    .kpi-val { font-size: 2rem; font-weight: 800; color: var(--emerald-green); line-height: 1.1; margin: 6px 0; }
+    .kpi-label { font-size: 0.75rem; font-weight: 700; color: var(--slate-gray); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .badge-status {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-paid { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+    .badge-pending { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
 
     .btn-action {
       background: var(--un-blue);
@@ -107,24 +118,27 @@
 
 <div class="dash-container">
   
-  <!-- ASSET HEADER -->
+  <!-- ASSET HEADER & STATUS -->
   <div class="dash-card" style="border-left: 5px solid var(--emerald-green);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
       <div>
-        <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
-        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Earth Carbon Foundation Pilot Site</h2>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+          <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
+          <span id="paymentStatusBadge" class="badge-status badge-paid">Payment: Verified</span>
+        </div>
+        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Earth Carbon Foundation Registered Asset</h2>
         <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="assetSubtitle">Ahmedabad, Gujarat</p>
       </div>
       <div style="text-align:right;">
-        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">ID: ECF-REG-0104</span>
-        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Stage 2 Validation Underway</p>
+        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">15 MW Cohort Allocated</span>
+        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Registration Active &amp; Verified</p>
       </div>
     </div>
   </div>
 
-  <!-- 10-YEAR DYNAMIC METRICS -->
+  <!-- IMPACT & ALLOCATION METRICS -->
   <div class="dash-card">
-    <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Impact Overview</h3>
+    <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Asset Capacity</h3>
     <div class="kpi-grid">
       <div class="kpi-card" style="background:#ecfdf5; border-color:#a7f3d0;">
         <div class="kpi-label" style="color:#065f46;">Atmanirbhar Index™</div>
@@ -132,25 +146,30 @@
         <span style="font-size:0.75rem; color:#047857; font-weight:600;">Resource Self-Reliance</span>
       </div>
       <div class="kpi-card">
+        <div class="kpi-label">Reserved Capacity</div>
+        <div class="kpi-val" style="color:var(--un-navy);"><span id="slotCapacity">50</span> <span style="font-size:1rem;">kW</span></div>
+        <span style="font-size:0.75rem; color:var(--slate-gray);">15 MW Pool Allocation</span>
+      </div>
+      <div class="kpi-card">
         <div class="kpi-label">Annual Mitigation</div>
-        <div class="kpi-val" style="color:var(--un-navy);"><span id="annualMitigation">520</span> <span style="font-size:1rem;">tCO₂e</span></div>
+        <div class="kpi-val" style="color:var(--emerald-green);"><span id="annualMitigation">41</span> <span style="font-size:1rem;">tCO₂e</span></div>
         <span style="font-size:0.75rem; color:var(--slate-gray);">Grid Offset</span>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">10-Year Cumulative Reduction</div>
-        <div class="kpi-val" style="color:#0284c7;"><span id="tenYearYield">5,200</span> <span style="font-size:1rem;">tCO₂e</span></div>
+        <div class="kpi-label">10-Year Reduction</div>
+        <div class="kpi-val" style="color:#0284c7;"><span id="tenYearYield">410</span> <span style="font-size:1rem;">tCO₂e</span></div>
         <span style="font-size:0.75rem; color:var(--slate-gray);">10-Yr Crediting Period</span>
       </div>
     </div>
   </div>
 
-  <!-- ACTIONS & SOCIAL MEDIA SHARE -->
+  <!-- OFFICIAL DOCUMENTS & SOCIAL SHARE -->
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Official Documents &amp; Impact Sharing</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:15px;">Download your roadmap, print your official certificate, or publish your verified metrics directly to social media.</p>
+    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:15px;">Download your executed MEADA Agreement, print your verification certificate, or publish your verified metrics directly to social media.</p>
     
     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
-      <a id="roadmapBtn" class="btn-action" href="https://drive.google.com/file/d/1r58XFOa3o04EfMAl2FtihQZIdm-EH_hH/view?usp=sharing" target="_blank" style="background:var(--emerald-green);">📄 Download Roadmap (PDF)</a>
+      <a id="roadmapBtn" class="btn-action" href="https://drive.google.com/file/d/1r58XFOa3o04EfMAl2FtihQZIdm-EH_hH/view?usp=sharing" target="_blank" style="background:var(--emerald-green);">📄 Download MEADA Agreement (PDF)</a>
       <button class="btn-action" style="background:var(--un-navy);" onclick="window.print()">🖨️ Print Summary Report</button>
     </div>
 
@@ -170,10 +189,10 @@
   <div class="dash-card">
     <h3 style="margin-top:0; color:var(--un-navy);">Programmatic Carbon Credit Pooling (PoA)</h3>
     <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:10px;" id="poaDetails">
-      Asset registered in <strong>Carbon Advisory Cohort #01</strong>.
+      Asset registered in <strong>15 MW Renewable Energy Cohort (Q3 2026)</strong>.
     </p>
     <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;" id="progressionStatus">
-      <strong>Progression Status:</strong> Technical review passed. Proposal under VVB audit.
+      <strong>Progression Status:</strong> MEADA agreement generated and verified. Allocation locked against the 15 MW pool.
     </div>
   </div>
 
@@ -183,11 +202,11 @@
   <p>© 2026 Earth Carbon Foundation | Institutional Sustainability Portal</p>
 </footer>
 
-<!-- Firebase SDK & Social Integration Logic -->
+<!-- Firebase SDK & Real-Time Sync Logic -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getFirestore, doc, onSnapshot, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
@@ -205,10 +224,11 @@
   const db = getFirestore(app);
 
   let currentAssetData = {
-    institution: "Earth Carbon Foundation Pilot Site",
+    institution: "Earth Carbon Foundation Registered Asset",
     atmanirbhar: "98%",
-    annualTco2e: "520",
-    tenYearYield: "5,200",
+    slotCapacity: "50",
+    annualTco2e: "41",
+    tenYearYield: "410",
     reportUrl: "https://drive.google.com/file/d/1r58XFOa3o04EfMAl2FtihQZIdm-EH_hH/view?usp=sharing"
   };
 
@@ -217,74 +237,99 @@
       window.location.href = "/";
     } else {
       document.getElementById('userDisplayEmail').textContent = `(${user.email})`;
-      listenToUserData(user.email);
+      listenToUserData(user.email.toLowerCase().trim());
     }
   });
 
-  function listenToUserData(userEmail) {
-    const q = query(collection(db, "projects"), where("clientEmail", "==", userEmail));
+  function updateDashboardUI(data) {
+    if (data.institutionName) {
+      document.getElementById('clientName').textContent = data.institutionName;
+      currentAssetData.institution = data.institutionName;
+    }
+    if (data.location) document.getElementById('assetSubtitle').textContent = data.location;
+    if (data.status) document.getElementById('projectStage').textContent = `Status: ${data.status}`;
     
-    onSnapshot(q, (snapshot) => {
-      if (!snapshot.empty) {
-        const data = snapshot.docs[0].data();
+    // Slot Allocation
+    const kw = parseFloat(data.slotAllocationKw) || 50;
+    document.getElementById('slotCapacity').textContent = kw.toLocaleString();
+    currentAssetData.slotCapacity = kw.toLocaleString();
 
-        if (data.institutionName) {
-          document.getElementById('clientName').textContent = data.institutionName;
-          currentAssetData.institution = data.institutionName;
-        }
-        if (data.location) document.getElementById('assetSubtitle').textContent = data.location;
-        if (data.assetId) document.getElementById('assetId').textContent = `ID: ${data.assetId}`;
-        if (data.stage) document.getElementById('projectStage').textContent = `Status: ${data.stage}`;
-        
-        const score = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "98%";
-        document.getElementById('atmanirbharScore').textContent = score;
-        currentAssetData.atmanirbhar = score;
+    // Atmanirbhar Index
+    const score = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "98%";
+    document.getElementById('atmanirbharScore').textContent = score;
+    currentAssetData.atmanirbhar = score;
 
-        const annual = Number(data.annualTco2e) || 520;
-        const yield10 = data.tenYearTco2e || (annual * 10);
-        
-        document.getElementById('annualMitigation').textContent = annual.toLocaleString();
-        
-        const tenYrEl = document.getElementById('tenYearYield');
-        if (tenYrEl) tenYrEl.textContent = yield10.toLocaleString();
+    // GHG Mitigation
+    const annual = Number(data.annualTco2e) || Math.round(kw * 0.82);
+    const yield10 = data.tenYearTco2e || (annual * 10);
+    
+    document.getElementById('annualMitigation').textContent = annual.toLocaleString();
+    document.getElementById('tenYearYield').textContent = yield10.toLocaleString();
 
-        currentAssetData.annualTco2e = annual.toLocaleString();
-        currentAssetData.tenYearYield = yield10.toLocaleString();
+    currentAssetData.annualTco2e = annual.toLocaleString();
+    currentAssetData.tenYearYield = yield10.toLocaleString();
 
-        if (data.statusSummary) {
-          document.getElementById('progressionStatus').innerHTML = `<strong>Progression Status:</strong> ${data.statusSummary}`;
-        }
+    // Payment Status Badge
+    const payBadge = document.getElementById('paymentStatusBadge');
+    if (data.paymentStatus) {
+      payBadge.textContent = `Payment: ${data.paymentStatus}`;
+      if (data.paymentStatus.toLowerCase().includes("paid") || data.paymentStatus.toLowerCase().includes("verified")) {
+        payBadge.className = "badge-status badge-paid";
+      } else {
+        payBadge.className = "badge-status badge-pending";
+      }
+    }
 
-        // Map Roadmap PDF URL
-        const roadmapBtn = document.getElementById('roadmapBtn');
-        if (data.roadmapPdfUrl && data.roadmapPdfUrl.startsWith('http')) {
-          roadmapBtn.href = data.roadmapPdfUrl;
-          currentAssetData.reportUrl = data.roadmapPdfUrl;
-        }
+    if (data.documentStatus) {
+      document.getElementById('progressionStatus').innerHTML = `<strong>Progression Status:</strong> ${data.documentStatus}`;
+    }
+
+    // Map Agreement/Roadmap PDF Link
+    const pdfUrl = data.agreementPdfUrl || data.roadmapPdfUrl;
+    if (pdfUrl && pdfUrl.startsWith('http')) {
+      const roadmapBtn = document.getElementById('roadmapBtn');
+      roadmapBtn.href = pdfUrl;
+      currentAssetData.reportUrl = pdfUrl;
+    }
+  }
+
+  function listenToUserData(userEmail) {
+    // 1. Direct Document Listener (Matching Document ID: email)
+    onSnapshot(doc(db, "projects", userEmail), (docSnap) => {
+      if (docSnap.exists()) {
+        updateDashboardUI(docSnap.data());
+      } else {
+        // 2. Query Fallback for legacy records with mapped field clientEmail
+        const q = query(collection(db, "projects"), where("clientEmail", "==", userEmail));
+        onSnapshot(q, (snapshot) => {
+          if (!snapshot.empty) {
+            updateDashboardUI(snapshot.docs[0].data());
+          }
+        });
       }
     });
   }
 
   // --- SOCIAL MEDIA SHARING HANDLERS ---
   window.shareOnLinkedIn = () => {
-    const shareText = `Proud to announce that ${currentAssetData.institution} has achieved an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} with ${currentAssetData.annualTco2e} tCO2e annual carbon mitigation verified with Earth Carbon Foundation! 🌍🌱\n\n10-Year Projected Reduction: ${currentAssetData.tenYearYield} tCO2e.\n\nView our verified report:\n${currentAssetData.reportUrl}`;
+    const shareText = `Proud to announce that ${currentAssetData.institution} has reserved a ${currentAssetData.slotCapacity} kW capacity slot with an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} and ${currentAssetData.annualTco2e} tCO2e annual carbon mitigation verified with Earth Carbon Foundation! 🌍🌱\n\n10-Year Projected Reduction: ${currentAssetData.tenYearYield} tCO2e.\n\nView our verified agreement & roadmap:\n${currentAssetData.reportUrl}`;
     const shareUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareText)}`;
     window.open(shareUrl, '_blank', 'width=600,height=600');
   };
 
   window.shareOnX = () => {
-    const text = `Our asset achieved an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} & is mitigating ${currentAssetData.annualTco2e} tCO2e/yr verified by @EarthCarbonOrg! 10-Yr Reduction: ${currentAssetData.tenYearYield} tCO2e. 🌍\n\nReport: ${currentAssetData.reportUrl} #ClimateAction #CarbonRegistry`;
+    const text = `Our asset reserved ${currentAssetData.slotCapacity} kW with an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} & is mitigating ${currentAssetData.annualTco2e} tCO2e/yr verified by @EarthCarbonOrg! 🌍\n\nRoadmap: ${currentAssetData.reportUrl} #ClimateAction #CarbonRegistry`;
     const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(shareUrl, '_blank', 'width=600,height=400');
   };
 
   window.shareOnFacebook = () => {
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentAssetData.reportUrl)}&quote=${encodeURIComponent(`Verified Climate Asset: ${currentAssetData.institution} achieved ${currentAssetData.atmanirbhar} Atmanirbhar Index, ${currentAssetData.annualTco2e} tCO2e/yr mitigation, and ${currentAssetData.tenYearYield} tCO2e 10-year cumulative reduction!`)}`;
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentAssetData.reportUrl)}&quote=${encodeURIComponent(`Verified Climate Asset: ${currentAssetData.institution} reserved ${currentAssetData.slotCapacity} kW, achieved ${currentAssetData.atmanirbhar} Atmanirbhar Index, and ${currentAssetData.annualTco2e} tCO2e/yr mitigation!`)}`;
     window.open(shareUrl, '_blank', 'width=600,height=500');
   };
 
   window.copyInstagramSummary = () => {
-    const text = `🌿 Verified Climate Asset Update 🌿\n\n🏢 Asset: ${currentAssetData.institution}\n📊 Atmanirbhar Index™: ${currentAssetData.atmanirbhar}\n⚡ Annual Mitigation: ${currentAssetData.annualTco2e} tCO2e/yr\n📈 10-Year Cumulative: ${currentAssetData.tenYearYield} tCO2e\n📄 Verified Report: ${currentAssetData.reportUrl}\n\nVerified via Earth Carbon Foundation (earthcarbonfoundation.org)`;
+    const text = `🌿 Verified Climate Asset Update 🌿\n\n🏢 Asset: ${currentAssetData.institution}\n⚡ Reserved Capacity: ${currentAssetData.slotCapacity} kW\n📊 Atmanirbhar Index™: ${currentAssetData.atmanirbhar}\n⚡ Annual Mitigation: ${currentAssetData.annualTco2e} tCO2e/yr\n📈 10-Year Cumulative: ${currentAssetData.tenYearYield} tCO2e\n📄 Verified Document: ${currentAssetData.reportUrl}\n\nVerified via Earth Carbon Foundation (earthcarbonfoundation.org)`;
     navigator.clipboard.writeText(text).then(() => {
       alert("📋 Verified Asset Summary & Link copied to clipboard! Ready to paste into your Instagram Story, Bio, or Caption.");
     });
