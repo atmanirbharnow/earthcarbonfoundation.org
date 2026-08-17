@@ -492,22 +492,22 @@
 <!-- Engagement Assessment Form Modal -->
 <div id="assessmentModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
-        <div class="p-4 bg-primary text-white flex justify-between items-center">
+        <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
             <span class="font-bold text-sm font-display">Environmental Asset Engagement Form (₹4,999)</span>
             <button onclick="closeAssessmentModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
         </div>
-        <iframe id="filloutIframe" src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full h-full border-0"></iframe>
+        <iframe id="filloutIframe" src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full grow border-0"></iframe>
     </div>
 </div>
 
 <!-- Partner Application Modal -->
 <div id="partnerModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
-        <div class="p-4 bg-primary text-white flex justify-between items-center">
+        <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
             <span class="font-bold text-sm font-display">Apply as a Programme Partner</span>
             <button onclick="closePartnerModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
         </div>
-        <iframe src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full h-full border-0"></iframe>
+        <iframe src="https://forms.gle/A9K4ZvTZ94HvAisR7" class="w-full grow border-0"></iframe>
     </div>
 </div>
 
@@ -639,15 +639,22 @@
     function toggleInlineEmailForm() { const form = document.getElementById('inlineEmailForm'); if (form) form.classList.toggle('hidden'); }
     function handleInlineEmailSubmit(e) { e.preventDefault(); alert('Your free estimate breakdown has been sent to your email.'); const form = document.getElementById('inlineEmailForm'); if (form) form.classList.add('hidden'); }
     
-    function openAssessmentModal() {
-        const iframe = document.getElementById('filloutIframe');
-        const params = new URLSearchParams({ est_methodology: currentCalculatedData.methodology || '', est_capacity: currentCalculatedData.capacity || '', est_tco2e: currentCalculatedData.tco2e || '', est_value: currentCalculatedData.value || '' });
-        if (iframe) iframe.src = "https://forms.gle/PHZePsX1jieAQ3p38" + params.toString();
-        const modal = document.getElementById('assessmentModal'); if (modal) modal.classList.remove('hidden');
-    }
-    function closeAssessmentModal() { const modal = document.getElementById('assessmentModal'); if (modal) modal.classList.add('hidden'); }
-    function openPartnerModal() { const modal = document.getElementById('partnerModal'); if (modal) modal.classList.remove('hidden'); }
-    function closePartnerModal() { const modal = document.getElementById('partnerModal'); if (modal) modal.classList.add('hidden'); }
+    window.openAssessmentModal = function() {
+        const modal = document.getElementById('assessmentModal');
+        if (modal) modal.classList.remove('hidden');
+    };
+    window.closeAssessmentModal = function() {
+        const modal = document.getElementById('assessmentModal');
+        if (modal) modal.classList.add('hidden');
+    };
+    window.openPartnerModal = function() {
+        const modal = document.getElementById('partnerModal');
+        if (modal) modal.classList.remove('hidden');
+    };
+    window.closePartnerModal = function() {
+        const modal = document.getElementById('partnerModal');
+        if (modal) modal.classList.add('hidden');
+    };
     
     let exitShown = false;
     function openExitPopup() { if (!exitShown) { const popup = document.getElementById('exitPopup'); if (popup) popup.classList.remove('hidden'); exitShown = true; } }
