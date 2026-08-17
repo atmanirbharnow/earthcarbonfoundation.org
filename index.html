@@ -496,7 +496,7 @@
             <span class="font-bold text-sm font-display">Environmental Asset Engagement Form (₹4,999)</span>
             <button onclick="closeAssessmentModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
         </div>
-        <iframe id="filloutIframe" src="https://forms.fillout.com/t/m6Bbry78wGus" class="w-full h-full border-0"></iframe>
+        <iframe id="filloutIframe" src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full h-full border-0"></iframe>
     </div>
 </div>
 
@@ -507,7 +507,7 @@
             <span class="font-bold text-sm font-display">Apply as a Programme Partner</span>
             <button onclick="closePartnerModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
         </div>
-        <iframe src="https://forms.fillout.com/t/8U5DPzo3NUus" class="w-full h-full border-0"></iframe>
+        <iframe src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full h-full border-0"></iframe>
     </div>
 </div>
 
@@ -642,7 +642,7 @@
     function openAssessmentModal() {
         const iframe = document.getElementById('filloutIframe');
         const params = new URLSearchParams({ est_methodology: currentCalculatedData.methodology || '', est_capacity: currentCalculatedData.capacity || '', est_tco2e: currentCalculatedData.tco2e || '', est_value: currentCalculatedData.value || '' });
-        if (iframe) iframe.src = "https://forms.fillout.com/t/m6Bbry78wGus" + params.toString();
+        if (iframe) iframe.src = "https://forms.gle/PHZePsX1jieAQ3p38" + params.toString();
         const modal = document.getElementById('assessmentModal'); if (modal) modal.classList.remove('hidden');
     }
     function closeAssessmentModal() { const modal = document.getElementById('assessmentModal'); if (modal) modal.classList.add('hidden'); }
