@@ -137,7 +137,7 @@
                     <div id="cohort-progress-bar" class="h-full rounded-lg bg-gradient-to-r from-mint to-sky-400 transition-all duration-700 ease-out" style="width: 0%;"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-white/70 font-semibold">
-                    <span>Allocated: <strong id="allocated-kw" class="text-white text-sm">0 kW</strong></span>
+                    <span>Allocated: <strong id="allocated-kw" class="text-white text-sm">0 kW (0.0%)</strong></span>
                     <span>Pool Limit: <strong class="text-white text-sm">15,000 kW (15 MW)</strong></span>
                 </div>
             </div>
@@ -146,15 +146,15 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                 <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
                     <div class="text-[11px] font-bold uppercase text-white/60 tracking-wider">Enrolled Assets</div>
-                    <div id="kpi-institutions" class="text-2xl sm:text-3xl font-extrabold text-white font-display mt-1">--</div>
+                    <div id="kpi-institutions" class="text-2xl sm:text-3xl font-extrabold text-white font-display mt-1">0</div>
                 </div>
                 <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
                     <div class="text-[11px] font-bold uppercase text-mint tracking-wider">Annual tCO₂e Mitigation</div>
-                    <div id="kpi-annual-mitigation" class="text-2xl sm:text-3xl font-extrabold text-mint font-display mt-1">--</div>
+                    <div id="kpi-annual-mitigation" class="text-2xl sm:text-3xl font-extrabold text-mint font-display mt-1">0 tCO₂e</div>
                 </div>
                 <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
                     <div class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">10-Yr Projected Yield</div>
-                    <div id="kpi-tenyear-yield" class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-display mt-1">--</div>
+                    <div id="kpi-tenyear-yield" class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-display mt-1">0 tCO₂e</div>
                 </div>
             </div>
         </div>
@@ -683,7 +683,7 @@
     });
 </script>
 
-<!-- Firebase Authentication & Real-Time Firestore Sync -->
+<!-- Firebase Authentication & Multi-Field Real-Time Firestore Sync -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -726,28 +726,56 @@
         }
     });
 
-    // 2. Real-Time 15 MW Cohort Progress & Metrics Listener
+    // 2. Real-Time 15 MW Cohort Progress & Metrics Listener (Multi-Field Fallback)
     const TOTAL_POOL_KW = 15000; // 15 MW Cohort Capacity Pool
 
     onSnapshot(collection(db, "projects"), (snapshot) => {
         let totalAllocatedKw = 0;
         let totalAnnualTco2e = 0;
         let totalTenYearYield = 0;
-        let activeCount = 0;
+        let activeCount = snapshot.size;
 
         snapshot.forEach((doc) => {
             const data = doc.data();
-            const kw = parseFloat(data.slotAllocationKw) || 0;
-            const annual = parseFloat(data.annualTco2e) || (kw * 0.82);
-            const tenYr = parseFloat(data.tenYearTco2e) || (annual * 10);
+
+            // Extract Annual tCO2e across all possible key variations
+            const annual = parseFloat(
+                data.annualTco2e || 
+                data["annual tCO2e"] || 
+                data["annual tC02e"] || 
+                data.annual_tco2e || 
+                0
+            );
+
+            // Extract Capacity (kW) across all possible key variations
+            let kw = parseFloat(
+                data.slotAllocationKw || 
+                data.capacity || 
+                data.energyCapacity || 
+                data.Energy_Capacity || 
+                0
+            );
+
+            // Fallback estimation if kW is omitted: (1 kW ≈ 0.82 tCO2e/yr)
+            if (!kw && annual > 0) {
+                kw = Math.round(annual / 0.82);
+            }
+
+            // Extract 10-Yr Yield
+            const tenYr = parseFloat(
+                data.tenYearTco2e || 
+                data["10 year tCO2e"] || 
+                data["10 year tC02e"] || 
+                data.ten_year_tco2e || 
+                (annual > 0 ? annual * 10 : kw * 0.82 * 10)
+            );
 
             totalAllocatedKw += kw;
-            totalAnnualTco2e += annual;
+            totalAnnualTco2e += (annual > 0 ? annual : kw * 0.82);
             totalTenYearYield += tenYr;
-            activeCount++;
         });
 
-        // Update Cohort Progress Bar
+        // Update Cohort Progress Bar & Percentage
         const progressPercent = Math.min((totalAllocatedKw / TOTAL_POOL_KW) * 100, 100).toFixed(1);
         const progressBar = document.getElementById("cohort-progress-bar");
         const allocatedKwEl = document.getElementById("allocated-kw");
@@ -760,7 +788,7 @@
         const kpiAnn = document.getElementById("kpi-annual-mitigation");
         const kpiTen = document.getElementById("kpi-tenyear-yield");
 
-        if (kpiInst) kpiInst.innerText = activeCount > 0 ? activeCount : "800+";
+        if (kpiInst) kpiInst.innerText = activeCount;
         if (kpiAnn) kpiAnn.innerText = `${Math.round(totalAnnualTco2e).toLocaleString()} tCO₂e`;
         if (kpiTen) kpiTen.innerText = `${Math.round(totalTenYearYield).toLocaleString()} tCO₂e`;
     }, (error) => {
