@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Earth Carbon Foundation | Climate Asset Registry, India</title>
-    <meta name="description" content="Register solar, energy-efficiency, water & forestry assets for carbon credits. Free instant tCO₂e estimator, transparent fees, roadmap in 3–5 days. Start for ₹4,999.">
+    <title>Earth Carbon Foundation | Environmental Asset Advisory & Registry Infrastructure</title>
+    <meta name="description" content="Discover, quantify, and turn renewable energy, energy efficiency, water, and nature initiatives into recognised environmental assets and verified carbon outcomes.">
     
     <!-- Tailwind CSS with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script id="tailwind-config">
@@ -23,6 +23,7 @@
                         "primary-dark": "#002117",
                         secondary: "#0F172A",
                         mint: "#10B981",
+                        "mint-dark": "#059669",
                         "surface-light": "#F8FAFC",
                         border: "#E2E8F0"
                     },
@@ -37,7 +38,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #0F172A; }
         h1, h2, h3, h4, .font-display { font-family: 'Public Sans', sans-serif; }
-        .ambient-shadow { box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05); }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         details[open] summary .faq-chevron { transform: rotate(180deg); }
         input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 10px; background: #E2E8F0; border-radius: 5px; outline: none; cursor: pointer; }
@@ -53,19 +53,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         <div class="flex items-center gap-3 shrink-0">
             <span class="font-display font-extrabold text-xl sm:text-2xl text-primary tracking-tight">Earth Carbon Foundation</span>
-            <span class="hidden md:inline-block bg-surface-light border border-border text-[10px] font-bold px-2.5 py-0.5 rounded-full text-secondary/70 uppercase">Asset Registry</span>
+            <span class="hidden md:inline-block bg-surface-light border border-border text-[10px] font-bold px-2.5 py-0.5 rounded-full text-secondary/70 uppercase">Asset Infrastructure</span>
         </div>
         
         <div class="hidden lg:flex items-center gap-6 text-xs xl:text-sm font-semibold text-secondary/80">
+            <a href="#what-is-asset" class="hover:text-primary transition-colors">Asset Types</a>
+            <a href="#estimator" class="hover:text-primary transition-colors">Asset Estimator</a>
             <a href="#cohort-live" class="hover:text-primary transition-colors">15 MW Cohort</a>
-            <a href="#how-it-works" class="hover:text-primary transition-colors">Process</a>
-            <a href="#calculator" class="hover:text-primary transition-colors">Estimator</a>
-            <a href="#commercials" class="hover:text-primary transition-colors">Commercial Model</a>
+            <a href="#how-it-works" class="hover:text-primary transition-colors">Methodology</a>
+            <a href="#who-is-this-for" class="hover:text-primary transition-colors">Who It's For</a>
             <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
-            <a href="#partner" class="hover:text-primary transition-colors">Become a Partner</a>
+            <a href="#partner" class="hover:text-primary transition-colors">Partners</a>
         </div>
 
-        <!-- Auth Buttons (Shown when logged out) -->
+        <!-- Auth Buttons (Logged Out) -->
         <div class="flex items-center gap-3 shrink-0" id="authButtons">
             <button onclick="openLoginModal()" class="text-secondary hover:text-primary font-semibold text-sm transition-colors px-3 py-2">Login</button>
             <button onclick="openAssessmentModal()" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center gap-2">
@@ -74,49 +75,261 @@
             </button>
         </div>
 
-        <!-- User Dashboard Nav (Shown when logged in) -->
+        <!-- User Dashboard Nav (Logged In) -->
         <div class="hidden items-center gap-3 shrink-0" id="userDashboardNav">
             <span class="text-sm font-semibold text-primary" id="navUserEmail"></span>
-            <a href="/dashboard.html" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Go to Dashboard</a>
+            <a href="/dashboard.html" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Dashboard</a>
             <button onclick="handleLogout()" class="text-secondary hover:text-red-600 font-semibold text-sm transition-colors px-3 py-2">Logout</button>
         </div>
     </div>
 </nav>
 
 <main>
-    <!-- Hero Section -->
+    <!-- 1. Hero Section -->
     <section class="bg-surface-light border-b border-border py-14 lg:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                 <span class="material-symbols-outlined text-sm">verified</span>
-                Environmental Asset Advisory & Programme Development
+                Environmental Asset Advisory & Programme Infrastructure
             </div>
-            <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight">
-                Climate Asset Registry Made Simple
+            <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight uppercase">
+                You May Already Own an Environmental Asset.
             </h1>
-            <p class="text-base sm:text-lg text-secondary/70 leading-relaxed max-w-2xl mx-auto font-medium">
-                Submit your asset details, receive your proposal, and move through registry to carbon asset issuance.
+            <p class="text-base sm:text-lg text-secondary/75 leading-relaxed max-w-3xl mx-auto font-medium">
+                We identify what you've created, measure its environmental impact, assess its development potential, and help you turn qualifying assets into recognised environmental or carbon outcomes.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold text-base transition-all shadow-md flex items-center justify-center gap-3">
-                    <span>Start Engagement – ₹4,999</span>
-                </button>
-                <a href="#calculator" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 px-6 py-4 rounded-lg font-semibold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
-                    <span class="material-symbols-outlined text-primary text-lg">calculate</span>
-                    <span>Calculate Your tCO2e</span>
+                <a href="#estimator" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold text-base transition-all shadow-md flex items-center justify-center gap-3">
+                    <span class="material-symbols-outlined text-mint text-lg">travel_explore</span>
+                    <span>Check My Asset — Free</span>
                 </a>
+                <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-white border-2 border-primary text-primary hover:bg-primary/5 px-6 py-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
+                    <span>Start Engagement (₹4,999)</span>
+                </button>
             </div>
-            <p class="text-xs text-secondary/50 font-medium">One-page e-signed agreement • No hidden terms • Refund policy applies</p>
-            <div class="flex items-center justify-center gap-6 text-xs text-secondary/60 font-semibold pt-2">
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Clear process</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Transparent registry pathway</span>
-                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Section 8 Governance</span>
+            <p class="text-xs text-secondary/50 font-medium">One-page e-signed agreement • No hidden terms • Rigorous data verification</p>
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-secondary/60 font-semibold pt-2">
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Independent Measurement</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Transparent Registry Pathways</span>
+                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-mint text-base">check_circle</span> Section 8 Institutional Governance</span>
             </div>
         </div>
     </section>
 
-    <!-- LIVE 15 MW REGISTRY COHORT TRACKER -->
-    <section id="cohort-live" class="py-10 bg-secondary text-white border-b border-border">
+    <!-- 2. What is an Asset Strip -->
+    <section id="what-is-asset" class="py-12 bg-white border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <h2 class="font-display font-extrabold text-sm sm:text-base text-secondary tracking-widest uppercase text-primary">
+                What Can Be An Environmental Asset?
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2">
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">☀️</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Renewable Energy</span>
+                </div>
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">⚡</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Energy Efficiency</span>
+                </div>
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">💧</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Water Savings</span>
+                </div>
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">♻️</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Waste &amp; Recycling</span>
+                </div>
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">🌳</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Nature / Trees</span>
+                </div>
+                <div class="p-4 bg-surface-light rounded-xl border border-border flex flex-col items-center justify-center gap-2 hover:border-primary/40 transition-colors">
+                    <span class="text-2xl">🔄</span>
+                    <span class="text-xs font-bold text-secondary uppercase">Resource Recovery</span>
+                </div>
+            </div>
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <p class="text-xs sm:text-sm text-secondary/70 font-medium">
+                    If your project reduces resource use, emissions, waste, or environmental impact, it may be measurable as an environmental asset.
+                </p>
+                <a href="#estimator" class="text-xs font-bold text-primary hover:text-primary-dark underline shrink-0 uppercase tracking-wider">
+                    Check My Asset →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Trust Strip -->
+    <section class="py-12 bg-surface-light border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <div class="space-y-1">
+                <h3 class="font-display font-extrabold text-xs sm:text-sm tracking-widest text-primary/80 uppercase">
+                    Real Assets. Real Projects. Measurable Impact.
+                </h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="p-6 bg-white rounded-xl border border-border space-y-1 shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-primary font-display">800+</div>
+                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">Assets Assessed</div>
+                </div>
+                <div class="p-6 bg-white rounded-xl border border-border space-y-1 shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-primary font-display">250+ MW</div>
+                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">Capacity Under Review</div>
+                </div>
+                <div class="p-6 bg-white rounded-xl border border-border space-y-1 shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-primary font-display">100M+ tCO₂e</div>
+                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">Projected Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. The Value Hook Section -->
+    <section class="py-16 bg-white border-b border-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
+            <div class="max-w-3xl mx-auto space-y-3">
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary tracking-tight uppercase">
+                    Your Environmental Action May Be Worth More Than You Think.
+                </h2>
+                <p class="text-sm text-secondary/70 leading-relaxed">
+                    Most organizations treat sustainability projects strictly as operational expenses. ECF helps you unlock the multi-dimensional asset value of your decarbonization actions.
+                </p>
+            </div>
+
+            <!-- Value Flowchart Visual -->
+            <div class="bg-surface-light border border-border rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto space-y-6 shadow-sm">
+                <div class="inline-block bg-primary text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider font-display">
+                    Your Implemented Project
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-white p-4 rounded-xl border border-border space-y-1">
+                        <div class="text-xs font-bold text-secondary uppercase tracking-wider">Resource Value</div>
+                        <p class="text-[11px] text-secondary/70">Grid power, diesel, or municipal water bill savings.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-border space-y-1">
+                        <div class="text-xs font-bold text-primary uppercase tracking-wider">Carbon Value</div>
+                        <p class="text-[11px] text-secondary/70">Quantified tCO₂e mitigation yield &amp; credit potential.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-border space-y-1">
+                        <div class="text-xs font-bold text-secondary uppercase tracking-wider">Business Value</div>
+                        <p class="text-[11px] text-secondary/70">Certified ESG compliance, ESG ratings, and customer trust.</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-2xl">arrow_downward</span>
+                </div>
+                <div class="bg-primary/5 border border-primary/20 p-4 rounded-xl">
+                    <div class="text-xs font-extrabold text-primary uppercase tracking-wider">Development Potential</div>
+                    <p class="text-xs text-secondary/80 mt-1 font-medium">
+                        ECF measures the underlying environmental benefit first. Applicable development pathways are assessed after eligibility and data quality are established.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 & 6. Estimator & Selling Preliminary Asset Profile Engine -->
+    <section id="estimator" class="py-16 bg-surface-light border-b border-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">Self-Assessment Tool</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-secondary">
+                    Environmental Asset &amp; Carbon Potential Estimator
+                </h2>
+                <p class="text-secondary/70 text-sm max-w-xl mx-auto">
+                    Get a preliminary indication of your environmental impact, carbon potential, and development readiness.
+                </p>
+            </div>
+
+            <div class="bg-white border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-lg space-y-6">
+                <!-- What do you have selection -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-extrabold text-secondary uppercase tracking-wider">What Do You Have?</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold text-secondary">
+                        <label class="flex items-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
+                            <input type="radio" name="assetSelect" value="solar" checked onchange="switchAssetType('solar')" class="text-primary focus:ring-primary"/>
+                            <span>Solar PV</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
+                            <input type="radio" name="assetSelect" value="ee" onchange="switchAssetType('ee')" class="text-primary focus:ring-primary"/>
+                            <span>Energy Efficiency</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
+                            <input type="radio" name="assetSelect" value="water" onchange="switchAssetType('water')" class="text-primary focus:ring-primary"/>
+                            <span>Water Savings</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
+                            <input type="radio" name="assetSelect" value="forest" onchange="switchAssetType('forest')" class="text-primary focus:ring-primary"/>
+                            <span>Forestry / Nature</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sliders -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 border-t border-border">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label id="capacityLabel" class="block text-xs font-bold text-secondary uppercase tracking-wider">Solar Capacity (kW)</label>
+                            <span id="capacityValueText" class="text-xs font-bold text-primary">500 kW</span>
+                        </div>
+                        <input id="capacityInput" type="range" min="500" max="10000" value="500" step="500"/>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Carbon Credit Price Assumption ($ / tCO₂e)</label>
+                            <span id="priceValueText" class="text-xs font-bold text-primary">$10.00 / tonne</span>
+                        </div>
+                        <input id="priceInput" type="range" min="5" max="30" value="10" step="1"/>
+                    </div>
+                </div>
+
+                <!-- Preliminary Asset Profile Card Output -->
+                <div class="bg-surface-light border border-border rounded-xl p-5 space-y-4">
+                    <div class="flex justify-between items-center border-b border-border pb-3">
+                        <span class="text-xs font-extrabold uppercase text-secondary font-display">Your Preliminary Asset Profile</span>
+                        <span id="profileDataReadiness" class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">Good Readiness</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold">
+                        <div>
+                            <span class="text-secondary/60 text-[10px] uppercase block">Identified Asset</span>
+                            <span id="profileAssetName" class="text-sm font-bold text-secondary">Solar Energy Generation</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary/60 text-[10px] uppercase block">Estimated Impact / Yr</span>
+                            <span id="annualTons" class="text-sm font-bold text-primary font-display">410 tCO₂e</span>
+                        </div>
+                        <div>
+                            <span class="text-secondary/60 text-[10px] uppercase block">10-Yr Projected Yield</span>
+                            <span id="lifetimeTons" class="text-sm font-bold text-sky-600 font-display">4,100 tCO₂e</span>
+                        </div>
+                    </div>
+
+                    <div id="viabilityNotice" class="p-3 rounded-lg text-xs font-medium leading-relaxed border transition-all"></div>
+                </div>
+
+                <!-- Action Hub -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-lg text-sm transition-all shadow-md flex items-center justify-center gap-2">
+                        <span>Start ₹4,999 Professional Engagement</span>
+                    </button>
+                    <button onclick="toggleInlineEmailForm()" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 font-semibold px-6 py-4 rounded-lg text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
+                        <span>📧 Email Me My Free Report</span>
+                    </button>
+                </div>
+                
+                <div id="inlineEmailForm" class="hidden p-4 bg-surface-light border border-border rounded-xl space-y-3">
+                    <form onsubmit="handleInlineEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2">
+                        <input type="email" required placeholder="Enter your work email for report dispatch" class="grow bg-white border border-border rounded-lg p-2.5 text-xs focus:ring-primary focus:border-primary"/>
+                        <button type="submit" class="bg-primary hover:bg-primary-dark text-white font-bold px-5 py-2.5 rounded-lg text-xs transition-all shrink-0">Send Free Estimate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 15 MW Aggregation Cohort Offer -->
+    <section id="cohort-live" class="py-14 bg-secondary text-white border-b border-border">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
@@ -124,7 +337,9 @@
                         <span class="inline-block w-2.5 h-2.5 bg-mint rounded-full animate-ping"></span>
                         <h2 class="font-display font-bold text-xl sm:text-2xl text-white">15 MW Renewable Aggregation Cohort</h2>
                     </div>
-                    <p class="text-xs sm:text-sm text-white/70">Live allocation counter and verified greenhouse gas mitigation yield.</p>
+                    <p class="text-xs sm:text-sm text-white/70">
+                        For qualifying renewable-energy projects seeking structured carbon-asset development through aggregation.
+                    </p>
                 </div>
                 <span class="bg-mint/20 border border-mint/40 text-mint text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     Q3 2026 Batch Active
@@ -157,274 +372,217 @@
                     <div id="kpi-tenyear-yield" class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-display mt-1">0 tCO₂e</div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Proof Strip -->
-    <section class="py-12 bg-white border-b border-border">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <div class="space-y-2">
-                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Built on Verified Standards & Expert Guidance</h2>
-                <p class="text-xs sm:text-sm font-semibold text-primary/80 uppercase tracking-wider">Pathways aligned with: Verra • Gold Standard • I-REC • UN SDGs</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-1">
-                    <div class="text-3xl font-extrabold text-primary font-display">800+</div>
-                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">Assets Assessed</div>
-                </div>
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-1">
-                    <div class="text-3xl font-extrabold text-primary font-display">250+ MW</div>
-                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">MW Under Review</div>
-                </div>
-                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-1">
-                    <div class="text-3xl font-extrabold text-primary font-display">100M+ tCO₂e</div>
-                    <div class="text-xs font-bold text-secondary uppercase tracking-wider">tCO₂e Projected</div>
-                </div>
-            </div>
-            <p class="text-xs font-semibold text-secondary/70 bg-primary/5 py-2.5 px-4 rounded-full inline-block border border-primary/10">Cohort 1 onboarding now — founding members lock priority capacity.</p>
-        </div>
-    </section>
-
-    <!-- Estimator Section -->
-    <section id="calculator" class="py-16 bg-white border-b border-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">Instant Estimator</span>
-                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Free Instant tCO₂e Carbon Estimator</h2>
-                <p class="text-secondary/70 text-sm">Select your methodology and capacity to estimate annual carbon credit yield & value.</p>
-            </div>
-            <div class="bg-surface-light border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-lg space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Asset Methodology</label>
-                        <select id="assetType" class="w-full bg-white border border-border rounded-lg p-3 text-sm font-semibold text-secondary focus:ring-primary focus:border-primary">
-                            <option value="solar">Solar PV Generation (kW)</option>
-                            <option value="ee">Energy Efficiency (MWh/yr saved)</option>
-                            <option value="water">Water Conservation (KL/yr recycled)</option>
-                            <option value="forest">Forestry & Afforestation (Hectares)</option>
-                        </select>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center">
-                            <label id="capacityLabel" class="block text-xs font-bold text-secondary uppercase tracking-wider">Solar Capacity (kW)</label>
-                            <span id="capacityValueText" class="text-xs font-bold text-primary">500 kW</span>
-                        </div>
-                        <input id="capacityInput" type="range" min="500" max="10000" value="500" step="500"/>
-                    </div>
-                </div>
-                <div class="space-y-2 pt-2 border-t border-border">
-                    <div class="flex justify-between items-center">
-                        <label class="block text-xs font-bold text-secondary uppercase tracking-wider">Carbon Credit Price Assumption ($ / tCO₂e)</label>
-                        <span id="priceValueText" class="text-xs font-bold text-primary">$10.00 / tonne</span>
-                    </div>
-                    <input id="priceInput" type="range" min="5" max="30" value="10" step="1"/>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-border">
-                    <div class="bg-white p-4 rounded-xl border border-border text-center">
-                        <span class="text-[10px] font-bold text-secondary/60 uppercase">Annual Reduction</span>
-                        <div id="annualTons" class="text-2xl font-extrabold text-primary font-display mt-1">410 tCO₂e</div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-border text-center">
-                        <span class="text-[10px] font-bold text-secondary/60 uppercase">10-Yr Lifetime Yield</span>
-                        <div id="lifetimeTons" class="text-2xl font-extrabold text-primary font-display mt-1">4,100 tCO₂e</div>
-                    </div>
-                    <div class="bg-primary text-white p-4 rounded-xl text-center shadow-md">
-                        <span class="text-[10px] font-bold text-mint uppercase">Estimated Value / Year</span>
-                        <div id="annualValue" class="text-xl font-extrabold text-white font-display mt-1">₹3,40,300 <span class="text-xs font-normal text-white/70">($4,100)</span></div>
-                    </div>
-                </div>
-                <div id="viabilityNotice" class="p-3.5 rounded-lg text-xs font-medium leading-relaxed border transition-all"></div>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:brightness-110 text-secondary font-bold px-6 py-3.5 rounded-lg text-sm transition-all shadow-md flex items-center justify-center gap-2">
-                        <span>Verify These Credits – Start Engagement (₹4,999)</span>
-                    </button>
-                    <button onclick="toggleInlineEmailForm()" class="w-full sm:w-auto bg-white border border-border text-secondary hover:border-secondary/40 font-semibold px-5 py-3.5 rounded-lg text-sm transition-all flex items-center justify-center gap-2 shadow-sm">
-                        <span>📧 Email Me My Estimate</span>
-                    </button>
-                </div>
-                <div id="inlineEmailForm" class="hidden p-4 bg-white border border-border rounded-xl space-y-3 pt-3">
-                    <form onsubmit="handleInlineEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2">
-                        <input type="email" required placeholder="Enter your work email" class="grow bg-surface-light border border-border rounded-lg p-2.5 text-xs focus:ring-primary focus:border-primary"/>
-                        <button type="submit" class="bg-primary hover:bg-primary-dark text-white font-bold px-5 py-2.5 rounded-lg text-xs transition-all shrink-0">Send My Free Estimate</button>
-                    </form>
-                </div>
+            <div class="text-center pt-2">
+                <button onclick="openAssessmentModal()" class="bg-mint hover:bg-mint-dark text-secondary font-extrabold px-6 py-2.5 rounded-lg text-xs uppercase tracking-wider transition-all">
+                    Apply for 15 MW Cohort Allocation
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
+    <!-- 8. How It Works -->
+    <section id="how-it-works" class="py-16 bg-white border-b border-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2">
-                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">How It Works</h2>
-                <p class="text-secondary/70 text-sm">A direct, four-stage journey from asset data to carbon credits.</p>
+                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">
+                    From Environmental Action to Recognised Asset
+                </h2>
+                <p class="text-secondary/70 text-sm">A four-stage methodology to quantify and develop qualifying environmental impact.</p>
             </div>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">01</div>
-                    <h3 class="font-bold text-base text-secondary">1. Submit & Pay</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Fill in your details and pay the initial fee to start.</p>
+                    <h3 class="font-bold text-base text-secondary">Discover</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Tell us what you've already implemented across energy, water, or emissions.</p>
                 </div>
-                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">02</div>
-                    <h3 class="font-bold text-base text-secondary">2. Review Proposal</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Get your custom roadmap, contract, and value breakdown.</p>
+                    <h3 class="font-bold text-base text-secondary">Assess</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">We quantify baseline impact, additionality, and primary data readiness.</p>
                 </div>
-                <div class="p-6 bg-white rounded-xl border border-border space-y-3 relative">
+                <div class="p-6 bg-surface-light rounded-xl border border-border space-y-3">
                     <div class="w-9 h-9 rounded-lg bg-primary text-white font-bold text-sm flex items-center justify-center font-display">03</div>
-                    <h3 class="font-bold text-base text-secondary">3. Registry Development</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">We manage the audits, VVB, and registry compliance.</p>
+                    <h3 class="font-bold text-base text-secondary">Develop</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">We determine the appropriate development pathway and audit structure.</p>
                 </div>
-                <div class="p-6 bg-primary text-white rounded-xl space-y-3 relative shadow-md">
+                <div class="p-6 bg-primary text-white rounded-xl space-y-3 shadow-md">
                     <div class="w-9 h-9 rounded-lg bg-mint text-secondary font-bold text-sm flex items-center justify-center font-display">04</div>
-                    <h3 class="font-bold text-base text-white">4. Asset Issuance</h3>
-                    <p class="text-xs text-white/80 leading-relaxed">Your carbon credits are issued and ready to monetize.</p>
+                    <h3 class="font-bold text-base text-white">Register / Contract</h3>
+                    <p class="text-xs text-white/80 leading-relaxed">Qualifying outcomes move toward registration, validation, or environmental contracts.*</p>
                 </div>
+            </div>
+
+            <p class="text-center text-[11px] text-secondary/50 font-medium max-w-2xl mx-auto">
+                *Note: Issuance and monetization are outcomes subject to methodology validation, VVB audits, and applicable registry governance requirements.
+            </p>
+        </div>
+    </section>
+
+    <!-- 9. Who Is This For? -->
+    <section id="who-is-this-for" class="py-16 bg-surface-light border-b border-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+            <div class="space-y-2">
+                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">
+                    Built for Organisations That Create Environmental Value
+                </h2>
+                <p class="text-secondary/70 text-sm">Already invested in reducing energy, water, waste or emissions? Start by finding out what you've created.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">Solar &amp; EPC Developers</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Monetize rooftop &amp; ground-mount clean generation assets.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">Industry &amp; MSME</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Convert efficiency retrofits and fuel switches into assets.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">Institutions &amp; Campuses</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Certify net-zero progress and self-reliance performance.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">Hotels &amp; Hospitals</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Structure wastewater recycling and heat recovery impact.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">ESCOs &amp; Consultants</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Add asset structuring to client energy conservation audits.</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-border">
+                    <div class="text-sm font-bold text-primary">Agri &amp; Nature Projects</div>
+                    <p class="text-[11px] text-secondary/60 mt-1">Quantify afforestation and biochar soil enhancement yields.</p>
+                </div>
+            </div>
+
+            <div>
+                <a href="#estimator" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold px-8 py-3.5 rounded-lg text-sm transition-all shadow-md">
+                    Check My Asset
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Commercial Model -->
-    <section id="commercials" class="py-16 bg-white border-b border-border">
+    <!-- 10. Partner Section -->
+    <section id="partner" class="py-16 bg-white border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto space-y-2 mb-10">
-                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Transparent Commercial Model</h2>
-                <p class="text-secondary/70 text-sm">Strict division between advisory fee and external operational costs.</p>
-            </div>
-            <div class="bg-surface-light rounded-2xl border border-border p-6 sm:p-8 space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-3 md:border-r border-border md:pr-6">
-                        <h3 class="font-bold text-base text-primary flex items-center gap-2"><span class="material-symbols-outlined">work</span>Earth Carbon Advisory Fees</h3>
-                        <p class="text-xs text-secondary/70 leading-relaxed">Covers technical evaluation, methodology structuring, and asset development management.</p>
-                        <div class="text-xs bg-white p-3 rounded border border-border font-medium text-secondary/80">Includes: Initial Value Engagement (₹4,999) & Programme Structuring.</div>
-                    </div>
-                    <div class="space-y-3">
-                        <h3 class="font-bold text-base text-secondary flex items-center gap-2"><span class="material-symbols-outlined">receipt_long</span>Third-Party Actual Costs</h3>
-                        <p class="text-xs text-secondary/70 leading-relaxed">External operational charges billed separately or passed through directly:</p>
-                        <div class="grid grid-cols-2 gap-2 text-xs text-secondary/80 font-medium">
-                            <span class="p-2 bg-white rounded border border-border">• Registry Fees</span>
-                            <span class="p-2 bg-white rounded border border-border">• Validation (VVB)</span>
-                            <span class="p-2 bg-white rounded border border-border">• Audit Fees</span>
-                            <span class="p-2 bg-white rounded border border-border">• Lab Verification</span>
-                        </div>
-                    </div>
+            <div class="bg-primary text-white rounded-2xl p-8 sm:p-10 space-y-6 text-center shadow-lg">
+                <div class="space-y-2">
+                    <h2 class="font-display font-black text-2xl sm:text-3xl uppercase">
+                        EPC, ESCO or Consultant? Turn Projects into Asset Opportunities.
+                    </h2>
+                    <p class="text-white/80 text-sm">Introduce qualifying asset owners. ECF handles the entire technical development pathway.</p>
                 </div>
-                <div class="pt-4 border-t border-border space-y-3 text-xs sm:text-sm text-secondary leading-relaxed font-medium">
-                    <p>🛡️ Our Eligibility Promise: If our review finds your asset technically ineligible, we deliver a written eligibility report with recommended fixes — so you never waste registry capital on a non-eligible asset.</p>
-                    <p>📄 Every engagement is formalised with a one-page, e-signed Environmental Asset Engagement Agreement — locking your fee, your 3–5 day roadmap SLA, and our eligibility promise. <a href="https://drive.google.com/file/d/1OmwLrvaagPNYI4NjGl1FaMCBiYAKbGnH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-primary font-bold underline hover:text-primary-dark">View sample agreement</a></p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold text-white/90">
+                    <div class="p-4 bg-white/10 rounded-lg">✓ Zero technical overhead — we manage audits &amp; methodology</div>
+                    <div class="p-4 bg-white/10 rounded-lg">✓ Transparent partner reward per onboarded asset</div>
+                    <div class="p-4 bg-white/10 rounded-lg">✓ Priority capacity allocation for your client assets</div>
+                </div>
+                <div>
+                    <a href="https://forms.gle/A9K4ZvTZ94HvAisR7" target="_blank" rel="noopener noreferrer" class="inline-block bg-mint text-secondary font-bold px-8 py-3.5 rounded-lg text-sm hover:brightness-110 transition-all shadow-md">
+                        Become a Partner
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Collapsible FAQ Section -->
+    <!-- 11. FAQ Section -->
     <section id="faq" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-8">
-                <h2 class="font-display font-bold text-2xl sm:text-3xl text-secondary">Frequently Asked Questions</h2>
-                <p class="text-xs text-secondary/60">Click any question below to expand the response.</p>
+                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">Frequently Asked Questions</h2>
+                <p class="text-xs text-secondary/60">Everything you need to know about the onboarding and engagement process.</p>
             </div>
+            
             <div class="space-y-3">
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: Do I need an existing carbon credit project?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: No. We begin with your underlying environmental action or physical asset (such as solar rooftop, waste heat recovery, or water recycling) and assess whether it has a suitable development pathway.
+                    </div>
+                </details>
+
+                <details class="bg-white border border-border rounded-xl group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
+                        <span>Q: What if my asset is not eligible for carbon credits?</span>
+                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
+                    </summary>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: The assessment still identifies measurable environmental impact and other potential value pathways (e.g., I-REC, internal ESG reporting, or supply-chain contracts). Carbon-credit eligibility is never assumed blindly.
+                    </div>
+                </details>
+
                 <details class="bg-white border border-border rounded-xl group transition-all">
                     <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
                         <span>Q: What does the ₹4,999 engagement fee cover?</span>
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: It covers the technical review of your asset data, initial emission abatement calculations, additionality checks, and delivery of your custom development roadmap in 3–5 working days.</div>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: It covers the technical evaluation of your asset data, initial emission abatement calculations, additionality checks, and delivery of your custom development roadmap in 3–5 working days.
+                    </div>
                 </details>
+
                 <details class="bg-white border border-border rounded-xl group transition-all">
                     <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: How long does the whole process take?</span>
+                        <span>Q: Who owns the environmental/carbon outcome?</span>
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: Your roadmap arrives in 3–5 working days. Registry development typically runs 6–18 months depending on methodology and VVB schedules, with issuance following successful verification.</div>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: You do. Earth Carbon Foundation operates as an advisory and registry development enabler. ECF never takes ownership or revenue share of your credits.
+                    </div>
                 </details>
+
                 <details class="bg-white border border-border rounded-xl group transition-all">
                     <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
                         <span>Q: What is the total cost to issuance?</span>
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: You pay our flat advisory fees plus third-party actuals (registry, VVB, audits) billed transparently. Indicative standalone third-party costs range ₹2–8 lakh depending on asset size; bundled programmes share these costs. Your exact figure appears in your roadmap. We charge zero success fees — you keep 100% of carbon revenue.</div>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: You pay our transparent advisory fees plus third-party actuals (registry, VVB, validation audits) billed directly or shared within pooled cohorts. Indicative third-party costs range ₹2–8 lakh for standalone projects; pooled cohorts share these costs. We charge zero success commission.
+                    </div>
                 </details>
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Who owns the carbon credits?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: You do. ECF never takes ownership or a revenue share of your credits.</div>
-                </details>
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: What data do I need to submit?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: Electricity bills or meter data, system capacity plates, equipment specs, location, and operational history. A simple checklist is sent immediately after engagement.</div>
-                </details>
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Which registries do you work with?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: Pathways aligned with Verra, Gold Standard, I-REC and applicable national mechanisms. The right registry for your asset is selected in your roadmap.</div>
-                </details>
+
                 <details class="bg-white border border-border rounded-xl group transition-all">
                     <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
                         <span>Q: Bundled vs Standalone — which is right for me?</span>
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: Under 500 kW → Bundled Programme (shared registry costs). 500 kW and above → Standalone Registry. We confirm during technical review.</div>
-                </details>
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: What if my asset is not eligible?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: You receive a written eligibility report with recommended fixes, so you never waste registry capital. Full refund within 24 hours of payment if review has not begun.</div>
-                </details>
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm sm:text-base text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Why not go to the registry directly?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">A: Registries require methodology documentation, VVB coordination and legal structuring most asset owners have never done. We bundle that expertise, cutting rejection risk and months of trial-and-error.</div>
+                    <div class="px-5 pb-5 text-xs sm:text-sm text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
+                        A: Under 500 kW → Bundled Programme (shared registry and audit costs). 500 kW and above → Standalone Registry pathway. We confirm this during your technical review.
+                    </div>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- Programme Partner Section -->
-    <section id="partner" class="py-16 bg-white border-b border-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-primary text-white rounded-2xl p-8 sm:p-10 space-y-6 text-center">
-                <div class="space-y-2">
-                    <h2 class="font-display font-bold text-2xl sm:text-3xl">EPC, ESCO or Consultant? Become a Programme Partner.</h2>
-                    <p class="text-white/80 text-sm">Earn recurring referral income by onboarding asset owners into the registry — we handle all technical work.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold text-white/90">
-                    <div class="p-3 bg-white/10 rounded-lg">• Zero technical overhead — we deliver everything</div>
-                    <div class="p-3 bg-white/10 rounded-lg">• Transparent partner reward per onboarded asset</div>
-                    <div class="p-3 bg-white/10 rounded-lg">• Priority capacity allocation for your clients</div>
-                </div>
-                <div>
-                    <a href="https://forms.gle/A9K4ZvTZ94HvAisR7" target="_blank" rel="noopener noreferrer" class="inline-block bg-mint text-secondary font-bold px-8 py-3.5 rounded-lg text-sm hover:brightness-110 transition-all shadow-md">Apply as a Partner</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom CTA -->
+    <!-- 12. Final CTA -->
     <section class="py-16 bg-primary-dark text-white text-center">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 class="font-display font-bold text-2xl sm:4xl tracking-tight">Ready to Onboard Your Assets into the Registry?</h2>
-            <p class="text-white/80 text-sm sm:text-base">Start your engagement today for ₹4,999 and receive your complete roadmap within 3–5 working days.</p>
-            <div>
-                <button onclick="openAssessmentModal()" class="bg-mint text-secondary font-bold px-8 py-4 rounded-lg text-base hover:brightness-110 transition-all shadow-lg">Start Engagement – ₹4,999</button>
+            <h2 class="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight">
+                You've Already Invested. Now Find Out What You Created.
+            </h2>
+            <p class="text-white/80 text-sm sm:text-base max-w-xl mx-auto">
+                Start with a free preliminary assessment. If your asset shows development potential, continue with professional assessment and registry development.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="#estimator" class="w-full sm:w-auto bg-mint text-secondary font-bold px-8 py-4 rounded-lg text-sm hover:brightness-110 transition-all shadow-lg uppercase tracking-wider">
+                    Check My Asset — Free
+                </a>
+                <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-8 py-4 rounded-lg text-sm transition-all">
+                    Start Engagement — ₹4,999
+                </button>
             </div>
         </div>
     </section>
 </main>
 
-<!-- Institutional Footer -->
+<!-- 13. Institutional Knowledge Centre Footer -->
 <footer class="bg-secondary text-white border-t border-white/10 pt-16 pb-12 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div class="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
@@ -433,7 +591,9 @@
                     <span class="font-display font-extrabold text-lg text-white tracking-tight">Earth Carbon Foundation</span>
                     <span class="bg-mint/20 text-mint text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-mint/30 uppercase tracking-wider">Section 8 NPO</span>
                 </div>
-                <p class="text-white/70 text-xs leading-relaxed">Registered Environmental Advisory & Carbon Asset Infrastructure. Operating in full compliance with international carbon accounting standards and Section 8 non-profit governance frameworks.</p>
+                <p class="text-white/70 text-xs leading-relaxed">
+                    Registered Environmental Advisory &amp; Carbon Asset Infrastructure. Operating in full compliance with international carbon accounting standards and Section 8 non-profit governance frameworks.
+                </p>
             </div>
             <div class="shrink-0 flex flex-wrap items-center gap-4 text-[11px] font-semibold text-white/80">
                 <div class="flex items-center gap-2 bg-white/5 px-3 py-2 rounded-lg border border-white/10">
@@ -446,42 +606,58 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <div class="space-y-4">
-                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Contact & Headquarters</h4>
-                <ul class="space-y-3 text-white/70">
-                    <li><a href="mailto:info@earthcarbonfoundation.org" class="flex items-center gap-2.5 hover:text-mint transition-colors group"><span class="material-symbols-outlined text-mint/80 text-base group-hover:scale-110 transition-transform">mail</span><span>info@earthcarbonfoundation.org</span></a></li>
-                    <li><a href="https://wa.me/919824025431" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 hover:text-mint transition-colors group"><span class="material-symbols-outlined text-mint/80 text-base group-hover:scale-110 transition-transform">call</span><span>+91-9824025431</span></a></li>
-                    <li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-mint/80 text-base shrink-0 mt-0.5">location_on</span><span>Ahmedabad, Gujarat, India</span></li>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="space-y-3">
+                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Discover</h4>
+                <ul class="space-y-2 text-white/70">
+                    <li><a href="#estimator" class="hover:text-mint transition-colors">Environmental Asset Estimator</a></li>
+                    <li><a href="#who-is-this-for" class="hover:text-mint transition-colors">Asset Readiness Assessment</a></li>
+                    <li><a href="#cohort-live" class="hover:text-mint transition-colors">15 MW Renewable Cohort</a></li>
                 </ul>
             </div>
-            <div class="space-y-4">
-                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Advisory Resources</h4>
-                <ul class="space-y-2.5 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Corporate Profile</span><span class="material-symbols-outlined text-xs text-white/40">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1Y5p-f3TKgKTq7xCeBwu_LGoOhK54sjwN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Draft Agreement</span><span class="material-symbols-outlined text-xs text-white/40">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Environmental Asset Playbook</span><span class="material-symbols-outlined text-xs text-white/40">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Carbon Asset Readiness Snapshot</span><span class="material-symbols-outlined text-xs text-white/40">open_in_new</span></a></li>
+
+            <div class="space-y-3">
+                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Knowledge &amp; Resources</h4>
+                <ul class="space-y-2 text-white/70">
+                    <li><a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Asset Playbook</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+                    <li><a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Readiness Snapshot</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+                    <li><a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Corporate Profile</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+                    <li><a href="https://drive.google.com/file/d/1Y5p-f3TKgKTq7xCeBwu_LGoOhK54sjwN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Draft Agreement</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
                 </ul>
             </div>
-            <div class="space-y-4">
-                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Legal Policies</h4>
-                <ul class="space-y-2.5 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Terms of Engagement</span><span class="material-symbols-outlined text-xs text-white/40">description</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1STw2B_c0xd0AGCFvCk7newAXkzAZovgk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Refund Policy</span><span class="material-symbols-outlined text-xs text-white/40">description</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1LNnUHPf5vsHGLJRsgi8R-vAVgBRunS0W/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Privacy Policy</span><span class="material-symbols-outlined text-xs text-white/40">description</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/16jDfiJq_ktuPC18F5ZB1ND1iLIJMUMhN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Disclaimer</span><span class="material-symbols-outlined text-xs text-white/40">description</span></a></li>
+
+            <div class="space-y-3">
+                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Standards &amp; Pathways</h4>
+                <ul class="space-y-2 text-white/70 text-[11px]">
+                    <li>Verra (VCS) Alignment</li>
+                    <li>Gold Standard Mechanism</li>
+                    <li>I-REC Clean Energy Attributes</li>
+                    <li>UN SDGs Impact Metrics</li>
+                    <li>Indian Carbon Market (CCTS)</li>
                 </ul>
             </div>
-            <div class="space-y-4">
-                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Governance & Compliance</h4>
-                <ul class="space-y-2.5 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1-SDL_8X6q169Uu0OoPwCLb8UZHfj_UOL/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Declarations & Governance</span><span class="material-symbols-outlined text-xs text-white/40">description</span></a></li>
-                    <li><a href="mailto:info@earthcarbonfoundation.org?subject=Grievance%20Redressal" class="hover:text-mint transition-colors flex items-center gap-1.5"><span>Grievance Officer</span><span class="material-symbols-outlined text-xs text-white/40">mail</span></a></li>
+
+            <div class="space-y-3">
+                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Governance &amp; Legal</h4>
+                <ul class="space-y-2 text-white/70">
+                    <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Terms of Engagement</a></li>
+                    <li><a href="https://drive.google.com/file/d/1STw2B_c0xd0AGCFvCk7newAXkzAZovgk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Refund Policy</a></li>
+                    <li><a href="https://drive.google.com/file/d/1LNnUHPf5vsHGLJRsgi8R-vAVgBRunS0W/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Privacy Policy</a></li>
+                    <li><a href="https://drive.google.com/file/d/1-SDL_8X6q169Uu0OoPwCLb8UZHfj_UOL/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Governance Declarations</a></li>
                 </ul>
-                <div class="pt-2 text-[11px] text-white/50 leading-relaxed border-t border-white/10">Pathways structured under international protocols (Verra, Gold Standard, I-REC, UN SDGs).</div>
+            </div>
+
+            <div class="space-y-3">
+                <h4 class="font-display font-bold text-white uppercase text-[11px] tracking-widest text-mint">Contact Headquarters</h4>
+                <ul class="space-y-2 text-white/70 text-[11px]">
+                    <li><a href="mailto:info@earthcarbonfoundation.org" class="hover:text-mint transition-colors">info@earthcarbonfoundation.org</a></li>
+                    <li><a href="https://wa.me/919824025431" target="_blank" class="hover:text-mint transition-colors">+91-9824025431</a></li>
+                    <li>Ahmedabad, Gujarat, India</li>
+                </ul>
             </div>
         </div>
+
         <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/50 text-[11px]">
             <div>© 2026 Earth Carbon Foundation. All rights reserved.</div>
             <div class="flex items-center gap-6"><span>Section 8 Non-Profit Enterprise</span><span>•</span><span>Gujarat, India</span></div>
@@ -558,112 +734,104 @@
 <!-- Floating WhatsApp Button -->
 <div id="whatsappFloat" class="fixed bottom-6 right-6 z-40 hidden flex-col items-end gap-1 transition-all">
     <div class="bg-secondary text-white text-[11px] font-medium px-3 py-1.5 rounded-lg shadow-lg border border-white/10">Questions? Chat with our team.</div>
-    <a href="https://wa.me/919824025431?text=Hi%20ECF!%20Exploring%20carbon%20registry%20for%20my%20asset." target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
+    <a href="https://wa.me/919824025431?text=Hi%20ECF!%20Exploring%20environmental%20asset%20pathways." target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     </a>
 </div>
 
-<!-- Calculator & Interactive Scripts -->
+<!-- Estimator Engine Scripts -->
 <script>
     const factors = {
-        solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500, name: "Solar PV" },
-        ee: { factor: 0.71, label: "Electricity Saved (MWh/yr)", unit: "MWh", min: 100, max: 5000, step: 100, defaultVal: 500, name: "Energy Efficiency" },
-        water: { factor: 0.0012, label: "Water Recycled (KL/yr)", unit: "KL", min: 10000, max: 500000, step: 10000, defaultVal: 50000, name: "Water Conservation" },
-        forest: { factor: 10.0, label: "Afforestation Area (Hectares)", unit: "Ha", min: 10, max: 500, step: 10, defaultVal: 20, name: "Forestry & NbS" }
+        solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500, name: "Solar Energy Generation" },
+        ee: { factor: 0.71, label: "Electricity Saved (MWh/yr)", unit: "MWh", min: 100, max: 5000, step: 100, defaultVal: 500, name: "Energy Efficiency Retrofit" },
+        water: { factor: 0.0012, label: "Water Recycled (KL/yr)", unit: "KL", min: 10000, max: 500000, step: 10000, defaultVal: 50000, name: "Water Conservation / Recycling" },
+        forest: { factor: 10.0, label: "Afforestation Area (Hectares)", unit: "Ha", min: 10, max: 500, step: 10, defaultVal: 20, name: "Forestry & Nature Removal" }
     };
-    let currentCalculatedData = {};
-    
-    function updateSliderBounds(config) {
+    let currentAssetKey = 'solar';
+
+    function switchAssetType(type) {
+        currentAssetKey = type;
+        const config = factors[type];
         const capInput = document.getElementById('capacityInput');
         const capLabel = document.getElementById('capacityLabel');
-        if (!capInput || !capLabel) return;
-        capLabel.innerText = config.label;
-        capInput.min = config.min;
-        capInput.max = config.max;
-        capInput.step = config.step;
-        capInput.value = config.defaultVal;
+        if (capInput && capLabel) {
+            capLabel.innerText = config.label;
+            capInput.min = config.min;
+            capInput.max = config.max;
+            capInput.step = config.step;
+            capInput.value = config.defaultVal;
+        }
+        calculateCarbon();
     }
 
     function calculateCarbon() {
-        const typeEl = document.getElementById('assetType');
+        const config = factors[currentAssetKey];
         const capInput = document.getElementById('capacityInput');
         const priceInput = document.getElementById('priceInput');
-        if (!typeEl || !capInput || !priceInput) return;
-        const type = typeEl.value;
-        const config = factors[type];
-        const capText = document.getElementById('capacityValueText');
-        const priceText = document.getElementById('priceValueText');
-        const viabilityBox = document.getElementById('viabilityNotice');
+        if (!capInput || !priceInput) return;
+
         const qty = parseFloat(capInput.value);
         const priceUSD = parseFloat(priceInput.value);
+
+        const capText = document.getElementById('capacityValueText');
+        const priceText = document.getElementById('priceValueText');
         if (capText) capText.innerText = qty.toLocaleString() + " " + config.unit;
         if (priceText) priceText.innerText = "$" + priceUSD.toFixed(2) + " / tonne";
+
         const annualTons = Math.round(qty * config.factor);
         const lifetimeTons = annualTons * 10;
-        const annualUSD = annualTons * priceUSD;
-        const annualINR = Math.round(annualUSD * 83);
+
         const annEl = document.getElementById('annualTons');
         const lifeEl = document.getElementById('lifetimeTons');
-        const valEl = document.getElementById('annualValue');
+        const profileAssetName = document.getElementById('profileAssetName');
+
         if (annEl) annEl.innerText = annualTons.toLocaleString() + " tCO₂e";
         if (lifeEl) lifeEl.innerText = lifetimeTons.toLocaleString() + " tCO₂e";
-        if (valEl) valEl.innerHTML = "₹" + annualINR.toLocaleString() + ` <span class="text-xs font-normal text-white/70">($${annualUSD.toLocaleString()})</span>`;
+        if (profileAssetName) profileAssetName.innerText = config.name;
+
+        const viabilityBox = document.getElementById('viabilityNotice');
         if (viabilityBox) {
-            if (type === 'solar' && qty < 500) {
-                viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-amber-50 text-amber-900 border border-amber-200";
-                viabilityBox.innerHTML = "⚠️ Under 500 kW? Standalone registry costs are not viable for small assets. Your recommended path: Bundled Programme — your asset pools with similar assets to share registry costs.";
-            } else if (type === 'solar' && qty >= 500) {
-                viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200";
-                viabilityBox.innerHTML = "✅ 500 kW+? Your asset qualifies for the Standalone Registry pathway.";
+            if (currentAssetKey === 'solar' && qty < 500) {
+                viabilityBox.className = "p-3 rounded-lg text-xs font-medium leading-relaxed bg-amber-50 text-amber-900 border border-amber-200";
+                viabilityBox.innerHTML = "💡 Recommended Pathway: <strong>15 MW Aggregation Cohort</strong> (shared registry and verification costs).";
             } else {
-                viabilityBox.className = "p-3.5 rounded-lg text-xs font-medium leading-relaxed bg-surface-light text-secondary border border-border";
-                viabilityBox.innerHTML = "Pathways and eligibility determined during initial technical review.";
+                viabilityBox.className = "p-3 rounded-lg text-xs font-medium leading-relaxed bg-emerald-50 text-emerald-900 border border-emerald-200";
+                viabilityBox.innerHTML = "✅ Asset Qualifies: Suitable for preliminary quantification and custom roadmap development.";
             }
         }
-        currentCalculatedData = { methodology: config.name, capacity: qty + " " + config.unit, tco2e: annualTons + " tCO2e/yr", value: "₹" + annualINR.toLocaleString() };
     }
 
-    function toggleInlineEmailForm() { const form = document.getElementById('inlineEmailForm'); if (form) form.classList.toggle('hidden'); }
-    function handleInlineEmailSubmit(e) { e.preventDefault(); alert('Your free estimate breakdown has been sent to your email.'); const form = document.getElementById('inlineEmailForm'); if (form) form.classList.add('hidden'); }
-    
-    window.openAssessmentModal = function() {
-        const modal = document.getElementById('assessmentModal');
-        if (modal) modal.classList.remove('hidden');
-    };
-    window.closeAssessmentModal = function() {
-        const modal = document.getElementById('assessmentModal');
-        if (modal) modal.classList.add('hidden');
-    };
-    window.openPartnerModal = function() {
-        const modal = document.getElementById('partnerModal');
-        if (modal) modal.classList.remove('hidden');
-    };
-    window.closePartnerModal = function() {
-        const modal = document.getElementById('partnerModal');
-        if (modal) modal.classList.add('hidden');
-    };
+    function toggleInlineEmailForm() {
+        const form = document.getElementById('inlineEmailForm');
+        if (form) form.classList.toggle('hidden');
+    }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function handleInlineEmailSubmit(e) {
+        e.preventDefault();
+        alert('Your preliminary environmental asset estimate has been logged and dispatched.');
+        const form = document.getElementById('inlineEmailForm');
+        if (form) form.classList.add('hidden');
+    }
+
+    window.openAssessmentModal = () => document.getElementById('assessmentModal').classList.remove('hidden');
+    window.closeAssessmentModal = () => document.getElementById('assessmentModal').classList.add('hidden');
+    window.openPartnerModal = () => document.getElementById('partnerModal').classList.remove('hidden');
+    window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
+
+    document.addEventListener('DOMContentLoaded', () => {
         const capInput = document.getElementById('capacityInput');
         const priceInput = document.getElementById('priceInput');
-        const assetTypeSelect = document.getElementById('assetType');
-        if (assetTypeSelect) { 
-            updateSliderBounds(factors[assetTypeSelect.value]); 
-            assetTypeSelect.addEventListener('change', function() { 
-                updateSliderBounds(factors[this.value]); 
-                calculateCarbon(); 
-            }); 
-        }
-        ['input', 'change'].forEach(evt => { 
-            if (capInput) capInput.addEventListener(evt, calculateCarbon); 
-            if (priceInput) priceInput.addEventListener(evt, calculateCarbon); 
-        });
+        if (capInput) capInput.addEventListener('input', calculateCarbon);
+        if (priceInput) priceInput.addEventListener('input', calculateCarbon);
         calculateCarbon();
-        setTimeout(() => { const wa = document.getElementById('whatsappFloat'); if (wa) { wa.classList.remove('hidden'); wa.classList.add('flex'); } }, 5000);
+        setTimeout(() => {
+            const wa = document.getElementById('whatsappFloat');
+            if (wa) { wa.classList.remove('hidden'); wa.classList.add('flex'); }
+        }, 4000);
     });
 </script>
 
-<!-- Firebase Authentication & Multi-Field Real-Time Firestore Sync -->
+<!-- Firebase Authentication & Live Real-Time Multi-Field Firestore Sync -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
@@ -684,11 +852,10 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // 1. Authentication State
+    // Auth State
     onAuthStateChanged(auth, (user) => {
         const authButtons = document.getElementById('authButtons');
         const userDashboardNav = document.getElementById('userDashboardNav');
-        
         if (user) {
             if (authButtons) authButtons.classList.add('hidden');
             if (userDashboardNav) {
@@ -706,8 +873,8 @@
         }
     });
 
-    // 2. Real-Time 15 MW Cohort Progress & Metrics Listener (Multi-Field Fallback)
-    const TOTAL_POOL_KW = 15000; // 15 MW Cohort Capacity Pool
+    // Real-Time 15 MW Cohort Progress & Metrics Listener
+    const TOTAL_POOL_KW = 15000;
 
     onSnapshot(collection(db, "projects"), (snapshot) => {
         let totalAllocatedKw = 0;
@@ -718,7 +885,6 @@
         snapshot.forEach((doc) => {
             const data = doc.data();
 
-            // Extract Annual tCO2e across all possible key variations
             const annual = parseFloat(
                 data.annualTco2e || 
                 data["annual tCO2e"] || 
@@ -727,7 +893,6 @@
                 0
             );
 
-            // Extract Capacity (kW) across all possible key variations
             let kw = parseFloat(
                 data.slotAllocationKw || 
                 data.capacity || 
@@ -736,12 +901,10 @@
                 0
             );
 
-            // Fallback estimation if kW is omitted: (1 kW ≈ 0.82 tCO2e/yr)
             if (!kw && annual > 0) {
                 kw = Math.round(annual / 0.82);
             }
 
-            // Extract 10-Yr Yield
             const tenYr = parseFloat(
                 data.tenYearTco2e || 
                 data["10 year tCO2e"] || 
@@ -755,7 +918,6 @@
             totalTenYearYield += tenYr;
         });
 
-        // Update Cohort Progress Bar & Percentage
         const progressPercent = Math.min((totalAllocatedKw / TOTAL_POOL_KW) * 100, 100).toFixed(1);
         const progressBar = document.getElementById("cohort-progress-bar");
         const allocatedKwEl = document.getElementById("allocated-kw");
@@ -763,7 +925,6 @@
         if (progressBar) progressBar.style.width = `${progressPercent}%`;
         if (allocatedKwEl) allocatedKwEl.innerText = `${totalAllocatedKw.toLocaleString()} kW (${progressPercent}%)`;
 
-        // Update Live Counter Cards
         const kpiInst = document.getElementById("kpi-institutions");
         const kpiAnn = document.getElementById("kpi-annual-mitigation");
         const kpiTen = document.getElementById("kpi-tenyear-yield");
@@ -772,7 +933,7 @@
         if (kpiAnn) kpiAnn.innerText = `${Math.round(totalAnnualTco2e).toLocaleString()} tCO₂e`;
         if (kpiTen) kpiTen.innerText = `${Math.round(totalTenYearYield).toLocaleString()} tCO₂e`;
     }, (error) => {
-        console.warn("Firestore Real-Time Listener:", error.message);
+        console.warn("Firestore Listener:", error.message);
     });
 
     window.handleSignup = async (e) => {
@@ -780,26 +941,14 @@
         const email = document.getElementById('signupEmail').value;
         const password = document.getElementById('signupPassword').value;
         const confirmPassword = document.getElementById('signupConfirmPassword').value;
-
-        if (password !== confirmPassword) { 
-            alert('Passwords do not match!'); 
-            return; 
-        }
-
+        if (password !== confirmPassword) { alert('Passwords do not match!'); return; }
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await addDoc(collection(db, "users"), {
-                uid: userCredential.user.uid, 
-                email: email, 
-                createdAt: new Date(), 
-                projects: []
-            });
+            await addDoc(collection(db, "users"), { uid: userCredential.user.uid, email: email, createdAt: new Date(), projects: [] });
             alert('Account created successfully!');
             window.closeSignupModal();
             window.location.href = "/dashboard.html";
-        } catch (error) { 
-            alert('Signup Error: ' + error.message); 
-        }
+        } catch (error) { alert('Signup Error: ' + error.message); }
     };
 
     window.handleLogin = async (e) => {
@@ -810,16 +959,10 @@
             await signInWithEmailAndPassword(auth, email, password);
             window.closeLoginModal();
             window.location.href = "/dashboard.html";
-        } catch (error) { 
-            alert('Login Error: ' + error.message); 
-        }
+        } catch (error) { alert('Login Error: ' + error.message); }
     };
 
-    window.handleLogout = async () => {
-        await signOut(auth);
-        window.location.reload();
-    };
-
+    window.handleLogout = async () => { await signOut(auth); window.location.reload(); };
     window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
     window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
     window.openSignupModal = () => document.getElementById('signupModal').classList.remove('hidden');
