@@ -1,345 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Client Dashboard | Earth Carbon Foundation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --un-blue: #009edb;
-      --un-navy: #002b49;
-      --emerald-green: #059669;
-      --slate-gray: #64748b;
-    }
-
-    body { font-family: 'Poppins', sans-serif; background: #f8fafc; margin: 0; color: #1e293b; }
-    .dash-container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
-
-    .dash-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .kpi-card {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .kpi-val { font-size: 2rem; font-weight: 800; color: var(--emerald-green); line-height: 1.1; margin: 6px 0; }
-    .kpi-label { font-size: 0.75rem; font-weight: 700; color: var(--slate-gray); text-transform: uppercase; letter-spacing: 0.5px; }
-
-    .badge-status {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .badge-paid { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
-    .badge-pending { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
-
-    .btn-action {
-      background: var(--un-blue);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity 0.2s;
-    }
-    .btn-action:hover { opacity: 0.9; }
-
-    /* Social Share Buttons */
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 6px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.1s;
-    }
-    .social-btn:hover { transform: translateY(-1px); }
-    .bg-linkedin { background-color: #0A66C2; }
-    .bg-x { background-color: #000000; }
-    .bg-facebook { background-color: #1877F2; }
-    .bg-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-
-    .btn-logout {
-      background: #fee2e2;
-      color: #991b1b;
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      border: 1px solid #fecaca;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ECF Asset Portal | Client Dashboard & Progress Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#003527",
+                        "primary-dark": "#002117",
+                        secondary: "#0F172A",
+                        mint: "#10B981",
+                        "mint-dark": "#059669",
+                        "surface-light": "#F8FAFC",
+                        border: "#E2E8F0"
+                    },
+                    fontFamily: {
+                        display: ["Public Sans", "sans-serif"],
+                        body: ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+        h1, h2, h3, h4, .font-display { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
 </head>
-<body>
+<body class="antialiased min-h-screen flex flex-col">
 
-<header style="display:flex; justify-content:space-between; align-items:center; padding: 15px 30px; background:#fff; border-bottom:1px solid #e2e8f0;">
-  <h1 style="margin:0; font-size:1.25rem; color:var(--un-navy);">Earth Carbon Foundation</h1>
-  <nav style="display:flex; align-items:center; gap:18px;">
-    <a href="/" style="text-decoration:none; color:var(--slate-gray); font-weight:600; font-size:0.9rem;">Home</a>
-    <span style="color:var(--emerald-green); font-weight:700; font-size:0.9rem;">Dashboard</span>
-    <span id="userDisplayEmail" style="font-size:0.8rem; color:var(--slate-gray); font-weight:600;"></span>
-    <button onclick="handleLogout()" class="btn-logout">Logout</button>
-  </nav>
+<!-- Top Navigation -->
+<header class="bg-white border-b border-border sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="font-display font-black text-lg sm:text-xl text-primary">Earth Carbon Foundation</span>
+            <span class="bg-primary/10 text-primary text-[10px] font-black px-2 py-0.5 rounded-full uppercase">Client Portal</span>
+        </div>
+        
+        <div class="flex items-center gap-4">
+            <div class="text-right hidden sm:block">
+                <span id="userEmailDisplay" class="text-xs font-bold text-secondary block">Loading...</span>
+                <span id="entityNameDisplay" class="text-[10px] text-secondary/60 font-semibold uppercase">Verified Asset Account</span>
+            </div>
+            <button onclick="handleDashboardLogout()" class="text-xs font-bold text-secondary hover:text-red-600 border border-border px-3 py-1.5 rounded-lg transition-colors">
+                Logout
+            </button>
+        </div>
+    </div>
 </header>
 
-<div class="dash-container">
-  
-  <!-- ASSET HEADER & STATUS -->
-  <div class="dash-card" style="border-left: 5px solid var(--emerald-green);">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
-      <div>
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
-          <span style="background:#d1fae5; color:#065f46; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">VERIFIED CLIMATE ASSET</span>
-          <span id="paymentStatusBadge" class="badge-status badge-paid">Payment: Verified</span>
-        </div>
-        <h2 style="color:var(--un-navy); margin:6px 0 2px 0;" id="clientName">Earth Carbon Foundation Registered Asset</h2>
-        <p style="margin:0; color:var(--slate-gray); font-size:0.85rem;" id="assetSubtitle">Ahmedabad, Gujarat</p>
-      </div>
-      <div style="text-align:right;">
-        <span style="color:var(--emerald-green); font-weight:800; font-size:1.1rem;" id="assetId">15 MW Cohort Allocated</span>
-        <p style="margin:2px 0 0 0; font-size:0.75rem; color:var(--slate-gray);" id="projectStage">Status: Registration Active &amp; Verified</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- IMPACT & ALLOCATION METRICS -->
-  <div class="dash-card">
-    <h3 style="margin-top:0; color:var(--un-navy);">Atmanirbhar Index™ &amp; Asset Capacity</h3>
-    <div class="kpi-grid">
-      <div class="kpi-card" style="background:#ecfdf5; border-color:#a7f3d0;">
-        <div class="kpi-label" style="color:#065f46;">Atmanirbhar Index™</div>
-        <div class="kpi-val" id="atmanirbharScore">98%</div>
-        <span style="font-size:0.75rem; color:#047857; font-weight:600;">Resource Self-Reliance</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Reserved Capacity</div>
-        <div class="kpi-val" style="color:var(--un-navy);"><span id="slotCapacity">50</span> <span style="font-size:1rem;">kW</span></div>
-        <span style="font-size:0.75rem; color:var(--slate-gray);">15 MW Pool Allocation</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Annual Mitigation</div>
-        <div class="kpi-val" style="color:var(--emerald-green);"><span id="annualMitigation">41</span> <span style="font-size:1rem;">tCO₂e</span></div>
-        <span style="font-size:0.75rem; color:var(--slate-gray);">Grid Offset</span>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">10-Year Reduction</div>
-        <div class="kpi-val" style="color:#0284c7;"><span id="tenYearYield">410</span> <span style="font-size:1rem;">tCO₂e</span></div>
-        <span style="font-size:0.75rem; color:var(--slate-gray);">10-Yr Crediting Period</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- OFFICIAL DOCUMENTS & SOCIAL SHARE -->
-  <div class="dash-card">
-    <h3 style="margin-top:0; color:var(--un-navy);">Official Documents &amp; Impact Sharing</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:15px;">Download your executed MEADA Agreement, print your verification certificate, or publish your verified metrics directly to social media.</p>
+<main class="grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
     
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
-      <a id="roadmapBtn" class="btn-action" href="https://drive.google.com/file/d/1r58XFOa3o04EfMAl2FtihQZIdm-EH_hH/view?usp=sharing" target="_blank" style="background:var(--emerald-green);">📄 Download MEADA Agreement (PDF)</a>
-      <button class="btn-action" style="background:var(--un-navy);" onclick="window.print()">🖨️ Print Summary Report</button>
+    <!-- Top Summary Banner & Social Disclosure Generator -->
+    <div class="bg-primary text-white rounded-2xl p-6 sm:p-8 shadow-md flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+        <div class="space-y-2 max-w-2xl">
+            <div class="flex items-center gap-2">
+                <span class="bg-mint text-secondary text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Active Aggregation Pipeline</span>
+                <span id="projectCodeBadge" class="text-xs font-mono text-white/70">ECF-PRJ-2026-084</span>
+            </div>
+            <h1 id="assetTitle" class="text-2xl sm:text-3xl font-black font-display uppercase tracking-tight">500 kW Rooftop Solar Decarbonization Asset</h1>
+            <p class="text-xs sm:text-sm text-white/80">Track technical validation, milestone invoices, executed legal proposals, and carbon registry yields.</p>
+        </div>
+
+        <!-- Social Progress Disclosure Hub -->
+        <div class="bg-white/10 border border-white/20 p-4 rounded-xl space-y-3 w-full lg:w-auto shrink-0 text-center lg:text-left">
+            <div class="text-xs font-bold uppercase tracking-wider text-mint flex items-center justify-center lg:justify-start gap-1">
+                <span class="material-symbols-outlined text-sm">share</span>
+                <span>ESG Disclosure &amp; Impact Badge</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="shareOnLinkedIn()" class="bg-[#0077B5] hover:brightness-110 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 grow justify-center">
+                    <span>Share on LinkedIn</span>
+                </button>
+                <button onclick="shareOnWhatsApp()" class="bg-[#25D366] hover:brightness-110 text-white text-xs font-bold px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 grow justify-center">
+                    <span>WhatsApp Status</span>
+                </button>
+            </div>
+        </div>
     </div>
 
-    <!-- Social Share Buttons -->
-    <div style="border-top:1px solid #e2e8f0; padding-top:15px;">
-      <span style="font-size:0.75rem; font-weight:700; color:var(--slate-gray); text-transform:uppercase; display:block; margin-bottom:8px;">Share Verified Credential:</span>
-      <div style="display:flex; gap:8px; flex-wrap:wrap;">
-        <button onclick="shareOnLinkedIn()" class="social-btn bg-linkedin">💼 Share on LinkedIn</button>
-        <button onclick="shareOnX()" class="social-btn bg-x">𝕏 Post on X</button>
-        <button onclick="shareOnFacebook()" class="social-btn bg-facebook">📘 Share on Facebook</button>
-        <button onclick="copyInstagramSummary()" class="social-btn bg-insta">📸 Copy for Instagram / Story</button>
-      </div>
+    <!-- Live 4-Stage Development Progress Bar -->
+    <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-4">
+        <div class="flex justify-between items-center">
+            <h3 class="text-xs font-black uppercase tracking-wider text-secondary font-display">Development Lifecycle Progress</h3>
+            <span id="overallProgressPercent" class="text-xs font-black text-primary bg-primary/10 px-2.5 py-1 rounded-full">50% Completed</span>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-xs font-bold pt-2">
+            <div id="step1-card" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-xl space-y-1">
+                <div class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm text-emerald-700">check_circle</span> Stage 1</div>
+                <div class="text-[11px] font-medium text-emerald-800">Assessment (₹4,999)</div>
+            </div>
+            <div id="step2-card" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 rounded-xl space-y-1">
+                <div class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm text-emerald-700">check_circle</span> Stage 2</div>
+                <div class="text-[11px] font-medium text-emerald-800">Proposal &amp; Agreement</div>
+            </div>
+            <div id="step3-card" class="p-3 bg-amber-50 border border-amber-200 text-amber-900 rounded-xl space-y-1">
+                <div class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm text-amber-700">pending</span> Stage 3</div>
+                <div class="text-[11px] font-medium text-amber-800">Registry &amp; VVB Audit</div>
+            </div>
+            <div id="step4-card" class="p-3 bg-surface-light border border-border text-secondary/50 rounded-xl space-y-1">
+                <div class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-sm">lock</span> Stage 4</div>
+                <div class="text-[11px] font-medium">Issuance &amp; Monetization</div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- PROGRESS TRACKER -->
-  <div class="dash-card">
-    <h3 style="margin-top:0; color:var(--un-navy);">Programmatic Carbon Credit Pooling (PoA)</h3>
-    <p style="font-size:0.85rem; color:var(--slate-gray); margin-bottom:10px;" id="poaDetails">
-      Asset registered in <strong>15 MW Renewable Energy Cohort (Q3 2026)</strong>.
-    </p>
-    <div style="background:#f1f5f9; padding:12px; border-radius:6px; font-size:0.85rem;" id="progressionStatus">
-      <strong>Progression Status:</strong> MEADA agreement generated and verified. Allocation locked against the 15 MW pool.
+    <!-- 3 Core Operational Panels: Billing, Legal/Proposal, Tracking/Sync -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- PANEL 1: BILLING & VALIDATION -->
+        <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 border-b border-border pb-3">
+                    <span class="material-symbols-outlined text-primary text-xl">receipt_long</span>
+                    <h2 class="text-sm font-black uppercase text-secondary font-display">1. Billing &amp; Validation</h2>
+                </div>
+
+                <!-- Milestone Invoices List -->
+                <div class="space-y-3">
+                    <div class="p-3.5 bg-surface-light border border-border rounded-xl space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-secondary">Stage 1: Technical Assessment</span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 rounded">PAID</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-secondary/70">
+                            <span>Amount: <strong>₹4,999 (Inc. GST)</strong></span>
+                            <a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" class="text-primary font-bold hover:underline">Tax Invoice PDF &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-amber-50/60 border border-amber-200 rounded-xl space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-secondary">Stage 2: 15 MW Cohort Allocation</span>
+                            <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded">PROFORMA ISSUED</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs text-secondary/70">
+                            <span>Amount: <strong>₹35,000 (Inc. GST)</strong></span>
+                            <a href="https://drive.google.com/file/d/1STw2B_c0xd0AGCFvCk7newAXkzAZovgk/view?usp=sharing" target="_blank" class="text-amber-800 font-bold hover:underline">Proforma Invoice &rarr;</a>
+                        </div>
+                        <button onclick="triggerPaymentGateway(35000, 'Stage 2 Cohort Structuring')" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-2 rounded-lg text-xs transition-all uppercase tracking-wider">
+                            Pay Milestone (₹35,000)
+                        </button>
+                    </div>
+
+                    <div class="p-3.5 bg-surface-light border border-border rounded-xl opacity-60">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="font-bold text-secondary">Stage 3: Validation &amp; VVB Audit</span>
+                            <span class="bg-slate-200 text-slate-700 text-[10px] font-black px-2 py-0.5 rounded">UPCOMING</span>
+                        </div>
+                        <p class="text-[10px] text-secondary/60 mt-1">Shared pooled audit fee unlocked upon Stage 2 sign-off.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-[11px] text-secondary/60 border-t border-border pt-3">
+                All receipts issued under ECF Section 8 institutional compliance standards.
+            </div>
+        </div>
+
+        <!-- PANEL 2: LEGAL & PROPOSAL -->
+        <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 border-b border-border pb-3">
+                    <span class="material-symbols-outlined text-primary text-xl">gavel</span>
+                    <h2 class="text-sm font-black uppercase text-secondary font-display">2. Legal &amp; Proposal</h2>
+                </div>
+
+                <div class="space-y-3 text-xs">
+                    <!-- Proposal Delivery Status -->
+                    <div class="p-3.5 bg-surface-light border border-border rounded-xl space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">Custom Programme Proposal</span>
+                            <span class="text-mint font-black text-[10px] bg-primary px-2 py-0.5 rounded">ISSUED</span>
+                        </div>
+                        <p class="text-secondary/70 text-[11px]">Comprehensive 10-year yield and revenue roadmap based on 500 kW capacity.</p>
+                        <a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" class="inline-block text-primary font-bold hover:underline">
+                            View &amp; Download Proposal PDF &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Draft Agreement & Signature -->
+                    <div class="p-3.5 bg-surface-light border border-border rounded-xl space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-secondary">Participation Agreement</span>
+                            <span class="text-amber-800 font-bold text-[10px] bg-amber-100 px-2 py-0.5 rounded">AWAITING E-SIGN</span>
+                        </div>
+                        <p class="text-secondary/70 text-[11px]">One-page bilateral terms governing asset aggregation and revenue share.</p>
+                        <div class="flex items-center gap-2 pt-1">
+                            <a href="https://drive.google.com/file/d/1Y5p-f3TKgKTq7xCeBwu_LGoOhK54sjwN/view?usp=sharing" target="_blank" class="text-primary font-bold hover:underline text-[11px]">Review Draft</a>
+                            <span>•</span>
+                            <button onclick="openSigningModal()" class="text-mint font-bold hover:underline text-[11px]">Sign via Zoho Sign</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-[11px] text-secondary/60 border-t border-border pt-3">
+                Governed by Section 8 compliance; ECF takes zero ownership of underlying client assets[cite: 1].
+            </div>
+        </div>
+
+        <!-- PANEL 3: TRACKING & REGISTRY SYNC -->
+        <div class="bg-white border border-border rounded-2xl p-6 shadow-sm space-y-6 flex flex-col justify-between">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2 border-b border-border pb-3">
+                    <span class="material-symbols-outlined text-primary text-xl">sync_saved_locally</span>
+                    <h2 class="text-sm font-black uppercase text-secondary font-display">3. Tracking &amp; Sync</h2>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="p-3 bg-surface-light border border-border rounded-xl space-y-1">
+                        <span class="text-[10px] font-bold uppercase text-secondary/60 block">Annual Carbon Mitigation</span>
+                        <div class="text-xl font-black text-primary font-display">410 tCO₂e / year</div>
+                        <span class="text-[10px] text-secondary/50 font-medium">CEA Grid Emission Baseline: 0.82 kg CO₂/kWh</span>
+                    </div>
+
+                    <div class="p-3 bg-surface-light border border-border rounded-xl space-y-1">
+                        <span class="text-[10px] font-bold uppercase text-secondary/60 block">10-Year Abatement Pool</span>
+                        <div class="text-xl font-black text-sky-600 font-display">4,100 tCO₂e</div>
+                        <span class="text-[10px] text-secondary/50 font-medium">Current Pool Allocation: 15 MW Q3 Cohort</span>
+                    </div>
+
+                    <div class="p-3 bg-surface-light border border-border rounded-xl space-y-1">
+                        <span class="text-[10px] font-bold uppercase text-secondary/60 block">SLA Execution Window</span>
+                        <div class="text-xs font-bold text-secondary">Cohort Audit: <span class="text-emerald-700 font-extrabold">Within 5 Business Days</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-[11px] text-secondary/60 border-t border-border pt-3">
+                Live synchronization with Verra/GS registry preparation schemas.
+            </div>
+        </div>
     </div>
-  </div>
+</main>
 
-</div>
-
-<footer style="text-align:center; padding:20px; color:var(--slate-gray); font-size:0.85rem; border-top:1px solid #e2e8f0; margin-top:30px;">
-  <p>© 2026 Earth Carbon Foundation | Institutional Sustainability Portal</p>
+<footer class="bg-white border-t border-border py-6 text-center text-xs text-secondary/60 mt-auto">
+    <div class="max-w-7xl mx-auto px-4">
+        © 2026 Earth Carbon Foundation | Environmental Asset Registry Infrastructure[cite: 1]
+    </div>
 </footer>
 
-<!-- Firebase SDK & Real-Time Sync Logic -->
+<!-- Mock Payment Modal -->
+<div id="paymentModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden shadow-2xl p-6 space-y-4">
+        <div class="flex justify-between items-center border-b border-border pb-3">
+            <h3 class="font-bold text-sm text-secondary">Milestone Payment Checkout</h3>
+            <button onclick="closePaymentModal()" class="text-secondary/50 hover:text-secondary"><span class="material-symbols-outlined">close</span></button>
+        </div>
+        <div class="space-y-2">
+            <div class="text-xs text-secondary/70">Milestone: <strong id="modalMilestoneName" class="text-secondary">Stage 2 Allocation</strong></div>
+            <div class="text-2xl font-black text-primary font-display" id="modalMilestoneAmount">₹35,000</div>
+            <p class="text-[11px] text-secondary/60">Secured via Razorpay / Direct RTGS Banking. Instant GST Tax Invoice generated on completion.</p>
+        </div>
+        <button onclick="completePaymentSimulation()" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all">
+            Simulate Successful Payment
+        </button>
+    </div>
+</div>
+
+<!-- Firebase Sync & Dashboard Logic -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { getFirestore, doc, onSnapshot, collection, query, where } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
-    authDomain: "earth-carbon--final.firebaseapp.com",
-    databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-    projectId: "earth-carbon--final",
-    storageBucket: "earth-carbon--final.firebasestorage.app",
-    messagingSenderId: "506588865863",
-    appId: "1:506588865863:web:eaa3995e4041e714e1862",
-    measurementId: "G-B76KKL7VVE"
-  };
+    const firebaseConfig = {
+        apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
+        authDomain: "earth-carbon--final.firebaseapp.com",
+        databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
+        projectId: "earth-carbon--final",
+        storageBucket: "earth-carbon--final.firebasestorage.app",
+        messagingSenderId: "506588865863",
+        appId: "1:506588865863:web:eaa3995e4041e714e1862",
+        measurementId: "G-B76KKL7VVE"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-  let currentAssetData = {
-    institution: "Earth Carbon Foundation Registered Asset",
-    atmanirbhar: "98%",
-    slotCapacity: "50",
-    annualTco2e: "41",
-    tenYearYield: "410",
-    reportUrl: "https://drive.google.com/file/d/1r58XFOa3o04EfMAl2FtihQZIdm-EH_hH/view?usp=sharing"
-  };
-
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      window.location.href = "/";
-    } else {
-      document.getElementById('userDisplayEmail').textContent = `(${user.email})`;
-      listenToUserData(user.email.toLowerCase().trim());
-    }
-  });
-
-  function updateDashboardUI(data) {
-    if (data.institutionName) {
-      document.getElementById('clientName').textContent = data.institutionName;
-      currentAssetData.institution = data.institutionName;
-    }
-    if (data.location) document.getElementById('assetSubtitle').textContent = data.location;
-    if (data.status) document.getElementById('projectStage').textContent = `Status: ${data.status}`;
-    
-    // Slot Allocation
-    const kw = parseFloat(data.slotAllocationKw) || 50;
-    document.getElementById('slotCapacity').textContent = kw.toLocaleString();
-    currentAssetData.slotCapacity = kw.toLocaleString();
-
-    // Atmanirbhar Index
-    const score = data.atmanirbharScore ? `${data.atmanirbharScore}%` : "98%";
-    document.getElementById('atmanirbharScore').textContent = score;
-    currentAssetData.atmanirbhar = score;
-
-    // GHG Mitigation
-    const annual = Number(data.annualTco2e) || Math.round(kw * 0.82);
-    const yield10 = data.tenYearTco2e || (annual * 10);
-    
-    document.getElementById('annualMitigation').textContent = annual.toLocaleString();
-    document.getElementById('tenYearYield').textContent = yield10.toLocaleString();
-
-    currentAssetData.annualTco2e = annual.toLocaleString();
-    currentAssetData.tenYearYield = yield10.toLocaleString();
-
-    // Payment Status Badge
-    const payBadge = document.getElementById('paymentStatusBadge');
-    if (data.paymentStatus) {
-      payBadge.textContent = `Payment: ${data.paymentStatus}`;
-      if (data.paymentStatus.toLowerCase().includes("paid") || data.paymentStatus.toLowerCase().includes("verified")) {
-        payBadge.className = "badge-status badge-paid";
-      } else {
-        payBadge.className = "badge-status badge-pending";
-      }
-    }
-
-    if (data.documentStatus) {
-      document.getElementById('progressionStatus').innerHTML = `<strong>Progression Status:</strong> ${data.documentStatus}`;
-    }
-
-    // Map Agreement/Roadmap PDF Link
-    const pdfUrl = data.agreementPdfUrl || data.roadmapPdfUrl;
-    if (pdfUrl && pdfUrl.startsWith('http')) {
-      const roadmapBtn = document.getElementById('roadmapBtn');
-      roadmapBtn.href = pdfUrl;
-      currentAssetData.reportUrl = pdfUrl;
-    }
-  }
-
-  function listenToUserData(userEmail) {
-    // 1. Direct Document Listener (Matching Document ID: email)
-    onSnapshot(doc(db, "projects", userEmail), (docSnap) => {
-      if (docSnap.exists()) {
-        updateDashboardUI(docSnap.data());
-      } else {
-        // 2. Query Fallback for legacy records with mapped field clientEmail
-        const q = query(collection(db, "projects"), where("clientEmail", "==", userEmail));
-        onSnapshot(q, (snapshot) => {
-          if (!snapshot.empty) {
-            updateDashboardUI(snapshot.docs[0].data());
-          }
-        });
-      }
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.href = "/index.html";
+        } else {
+            const emailEl = document.getElementById("userEmailDisplay");
+            if (emailEl) emailEl.innerText = user.email;
+        }
     });
-  }
 
-  // --- SOCIAL MEDIA SHARING HANDLERS ---
-  window.shareOnLinkedIn = () => {
-    const shareText = `Proud to announce that ${currentAssetData.institution} has reserved a ${currentAssetData.slotCapacity} kW capacity slot with an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} and ${currentAssetData.annualTco2e} tCO2e annual carbon mitigation verified with Earth Carbon Foundation! 🌍🌱\n\n10-Year Projected Reduction: ${currentAssetData.tenYearYield} tCO2e.\n\nView our verified agreement & roadmap:\n${currentAssetData.reportUrl}`;
-    const shareUrl = `https://www.linkedin.com/feed/?shareActive=true&text=${encodeURIComponent(shareText)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=600');
-  };
+    window.handleDashboardLogout = async () => {
+        await signOut(auth);
+        window.location.href = "/index.html";
+    };
 
-  window.shareOnX = () => {
-    const text = `Our asset reserved ${currentAssetData.slotCapacity} kW with an Atmanirbhar Index™ of ${currentAssetData.atmanirbhar} & is mitigating ${currentAssetData.annualTco2e} tCO2e/yr verified by @EarthCarbonOrg! 🌍\n\nRoadmap: ${currentAssetData.reportUrl} #ClimateAction #CarbonRegistry`;
-    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=400');
-  };
+    window.triggerPaymentGateway = (amount, milestone) => {
+        document.getElementById("modalMilestoneName").innerText = milestone;
+        document.getElementById("modalMilestoneAmount").innerText = "₹" + amount.toLocaleString();
+        document.getElementById("paymentModal").classList.remove("hidden");
+    };
 
-  window.shareOnFacebook = () => {
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentAssetData.reportUrl)}&quote=${encodeURIComponent(`Verified Climate Asset: ${currentAssetData.institution} reserved ${currentAssetData.slotCapacity} kW, achieved ${currentAssetData.atmanirbhar} Atmanirbhar Index, and ${currentAssetData.annualTco2e} tCO2e/yr mitigation!`)}`;
-    window.open(shareUrl, '_blank', 'width=600,height=500');
-  };
+    window.closePaymentModal = () => {
+        document.getElementById("paymentModal").classList.add("hidden");
+    };
 
-  window.copyInstagramSummary = () => {
-    const text = `🌿 Verified Climate Asset Update 🌿\n\n🏢 Asset: ${currentAssetData.institution}\n⚡ Reserved Capacity: ${currentAssetData.slotCapacity} kW\n📊 Atmanirbhar Index™: ${currentAssetData.atmanirbhar}\n⚡ Annual Mitigation: ${currentAssetData.annualTco2e} tCO2e/yr\n📈 10-Year Cumulative: ${currentAssetData.tenYearYield} tCO2e\n📄 Verified Document: ${currentAssetData.reportUrl}\n\nVerified via Earth Carbon Foundation (earthcarbonfoundation.org)`;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("📋 Verified Asset Summary & Link copied to clipboard! Ready to paste into your Instagram Story, Bio, or Caption.");
-    });
-  };
+    window.completePaymentSimulation = () => {
+        alert("Payment received! Make.com webhook triggered. Tax Invoice and Cohort Allocation updated.");
+        closePaymentModal();
+    };
 
-  window.handleLogout = () => {
-    signOut(auth).then(() => {
-      window.location.href = "/";
-    });
-  };
+    window.openSigningModal = () => {
+        alert("Redirecting to Zoho Sign envelope for digital execution...");
+    };
+
+    // Social Media Progress Disclosure
+    window.shareOnLinkedIn = () => {
+        const text = encodeURIComponent("Proud to announce that our 500 kW clean energy installation is officially onboarded with Earth Carbon Foundation (ECF) into their 15 MW Aggregation Cohort, mitigating 410 tCO2e/year! 🌍🌱 #Sustainability #Decarbonization #ESG");
+        const url = encodeURIComponent("https://earthcarbonfoundation.org");
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}&summary=${text}`, "_blank");
+    };
+
+    window.shareOnWhatsApp = () => {
+        const text = encodeURIComponent("Excited to share that our operational solar asset has been verified and registered with Earth Carbon Foundation for 410 tCO2e annual decarbonization impact! Check your asset at: https://earthcarbonfoundation.org");
+        window.open(`https://wa.me/?text=${text}`, "_blank");
+    };
 </script>
 
 </body>
