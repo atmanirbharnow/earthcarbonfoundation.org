@@ -9,9 +9,6 @@
     <!-- Tailwind CSS with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     
-    <!-- Mermaid.js for Diagrams -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    
     <!-- Google Fonts & Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -97,13 +94,6 @@
             border-radius: 0.5rem;
             margin-bottom: 0.5rem;
         }
-        
-        /* Mermaid Custom Container Alignment */
-        .mermaid svg {
-            max-width: 100% !important;
-            height: auto !important;
-            margin: 0 auto;
-        }
     </style>
 </head>
 <body class="bg-white text-secondary antialiased">
@@ -143,7 +133,7 @@
 </nav>
 
 <main>
-    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION (CUSTOM DRIVE IMAGES APPLIED) -->
+    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION -->
     <section id="hero-assets" class="bg-surface-light border-b border-border py-14 lg:py-20 text-center overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
@@ -312,59 +302,149 @@
         </div>
     </section>
 
-    <!-- SECTION 3: HOW IT WORKS (REPLACED WITH BEAUTIFIED MERMAID FLOW DIAGRAM) -->
+    <!-- SECTION 3: HOW IT WORKS (UN BUNDLED METHODOLOGY EXPLAINED) -->
     <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-            <div class="text-center max-w-2xl mx-auto space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">The Solution</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">How It Works</h2>
-                <p class="text-secondary/70 text-sm font-medium">Standalone verification is cost-prohibitive for individual assets. ECF solves this through aggregation.</p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">UN Framework &amp; Carbon Certification Process</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">How Carbon Aggregation Works</h2>
+                <p class="text-secondary/70 text-sm font-medium">
+                    Every carbon project requires rigorous milestones: <strong>Project Concept Note (PCN)</strong>, <strong>Registry Listing</strong>, <strong>VVB Validation</strong>, and <strong>Verification Audits</strong>. See how UN-compliant bundling removes the financial barrier for individual asset owners.
+                </p>
             </div>
 
-            <!-- Beautiful Mermaid Diagram Container -->
-            <div class="bg-white border border-border rounded-3xl p-4 sm:p-8 md:p-10 shadow-sm max-w-4xl mx-auto overflow-x-auto flex flex-col items-center">
-                <div class="mermaid w-full flex justify-center py-2">
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#F8FAFC',
-    'primaryTextColor': '#0F172A',
-    'primaryBorderColor': '#CBD5E1',
-    'lineColor': '#003527',
-    'secondaryColor': '#ffffff',
-    'tertiaryColor': '#F1F5F9',
-    'fontSize': '14px',
-    'fontFamily': 'Inter, sans-serif',
-    'clusterBkg': '#F8FAFC',
-    'clusterBorder': '#E2E8F0'
-  }
-}}%%
-graph TD
-    subgraph "Current Practice: Single Methodology (High Cost)"
-    A1["🏭 Small Factory"] -->|"Apply Alone"| B1["❌ Expensive Audit Fee"]
-    A2["🏥 Hospital"] -->|"Apply Alone"| B2["❌ Expensive Audit Fee"]
-    A3["🏢 Warehouse"] -->|"Apply Alone"| B3["❌ Expensive Audit Fee"]
-    style B1 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
-    style B2 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
-    style B3 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
-    style A1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    style A2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    style A3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    end
+            <!-- Comparison Grid: Option 1 vs Option 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- OPTION 1: Standalone Single Methodology (High Cost) -->
+                <div class="bg-white border-2 border-red-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-black uppercase px-4 py-1 rounded-bl-xl tracking-wider">
+                        Option 1: Traditional
+                    </div>
 
-    subgraph "Our Approach: Bundled Methodology (Shared Value)"
-    C1["🏭 Small Factory"] -->|"Join Group"| D["📦 One Big Application (PoA)"]
-    C2["🏥 Hospital"] -->|"Join Group"| D
-    C3["🏢 Warehouse"] -->|"Join Group"| D
-    
-    D -->|"Single Shared Audit"| E["✅ Cost Split Between Everyone & Maximized Returns"]
-    style D fill:#DCFCE7,stroke:#10B981,stroke-width:2px,color:#065F46,font-weight:bold
-    style E fill:#003527,stroke:#10B981,stroke-width:2px,color:#FFFFFF,font-weight:bold
-    style C1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    style C2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    style C3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
-    end
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-black text-red-600 uppercase tracking-widest block mb-1">Single Methodology • 1 User</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-secondary font-display">Standalone Project Pathway</h3>
+                            <p class="text-xs text-secondary/70 mt-1">Each asset owner applies alone and bears 100% of the certification lifecycle expenses.</p>
+                        </div>
+
+                        <!-- User Assets applying separately -->
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
+                                <span class="text-lg block">🏭</span>
+                                <span class="text-[11px] font-black text-secondary block">Small Factory</span>
+                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
+                            </div>
+                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
+                                <span class="text-lg block">🏥</span>
+                                <span class="text-[11px] font-black text-secondary block">Hospital</span>
+                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
+                            </div>
+                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
+                                <span class="text-lg block">🏢</span>
+                                <span class="text-[11px] font-black text-secondary block">Warehouse</span>
+                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
+                            </div>
+                        </div>
+
+                        <!-- Heavy Standalone Costs -->
+                        <div class="bg-red-50/70 border border-red-200 rounded-2xl p-4 space-y-2 text-xs">
+                            <div class="font-extrabold text-red-800 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                                <span>❌</span> High Individual Fee Burden (Per Site):
+                            </div>
+                            <ul class="space-y-1.5 text-secondary/80 text-[11px]">
+                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
+                                    <span>PCN &amp; PDD Documentation</span>
+                                    <span class="font-bold text-red-700">₹2.0L - ₹3.5L</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
+                                    <span>Third-Party VVB Validation</span>
+                                    <span class="font-bold text-red-700">₹3.5L - ₹6.0L</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
+                                    <span>Registry Account &amp; Listing</span>
+                                    <span class="font-bold text-red-700">₹1.5L - ₹2.5L</span>
+                                </li>
+                                <li class="flex items-center justify-between pt-0.5">
+                                    <span>Annual Verification Audits</span>
+                                    <span class="font-bold text-red-700">₹2.0L - ₹4.0L</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-red-100 text-center">
+                        <span class="text-xs font-black text-red-700 uppercase block">❌ Not Viable For Sites Under 15 MW</span>
+                        <span class="text-[11px] text-secondary/60">Fixed audit &amp; registration costs wipe out years of carbon revenue.</span>
+                    </div>
                 </div>
+
+                <!-- OPTION 2: UN Bundled Methodology (ECF Solution) -->
+                <div class="bg-primary text-white border-2 border-mint rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-mint text-secondary text-[10px] font-black uppercase px-4 py-1 rounded-bl-xl tracking-wider">
+                        Option 2: ECF Solution
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs font-black text-mint uppercase tracking-widest block mb-1">UN Bundled Standard • Multiple Users</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-white font-display">United Nations Bundling Model</h3>
+                            <p class="text-xs text-white/80 mt-1">
+                                Under UN rules, multiple users with identical technology bundle into a single cohort (up to the <strong>15 MW Small-Scale Threshold</strong>).
+                            </p>
+                        </div>
+
+                        <!-- Combined Group Box -->
+                        <div class="bg-white/10 border border-white/20 rounded-2xl p-4 text-center space-y-3">
+                            <div class="flex items-center justify-center gap-3">
+                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏭 Factory</span>
+                                <span class="text-xs font-bold text-mint">+</span>
+                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏥 Hospital</span>
+                                <span class="text-xs font-bold text-mint">+</span>
+                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏢 Warehouse</span>
+                            </div>
+                            <div class="flex justify-center text-mint">
+                                <span class="material-symbols-outlined text-xl">south</span>
+                            </div>
+                            <div class="bg-mint text-secondary font-black text-xs uppercase py-2 px-4 rounded-xl tracking-wide shadow-md">
+                                📦 One Joint Master Application (PoA Portfolio)
+                            </div>
+                        </div>
+
+                        <!-- Shared Benefits -->
+                        <div class="bg-white/10 border border-mint/40 rounded-2xl p-4 space-y-2 text-xs">
+                            <div class="font-extrabold text-mint uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                                <span>✅</span> Combined Cost Advantages:
+                            </div>
+                            <ul class="space-y-1.5 text-white/90 text-[11px]">
+                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
+                                    <span>Single PCN &amp; Master PDD</span>
+                                    <span class="font-bold text-mint">Shared by Cohort</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
+                                    <span>One Consolidated VVB Validation</span>
+                                    <span class="font-bold text-mint">Shared by Cohort</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
+                                    <span>Shared Registry Onboarding</span>
+                                    <span class="font-bold text-mint">Zero Standalone Listing Fee</span>
+                                </li>
+                                <li class="flex items-center justify-between pt-0.5">
+                                    <span>Bundled Capacity Threshold</span>
+                                    <span class="font-bold text-mint">Maximized Net Returns</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-white/20 text-center">
+                        <span class="text-xs font-black text-mint uppercase block">✅ No Need to Own 15 MW Alone</span>
+                        <span class="text-[11px] text-white/70">Combine small 500 kW+ capacities to unlock institutional carbon credits together.</span>
+                    </div>
+                </div>
+
             </div>
             
             <p class="text-center text-[11px] text-secondary/50 font-medium max-w-xl mx-auto">
@@ -801,9 +881,6 @@ graph TD
     window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Initialize Mermaid diagrams
-        mermaid.initialize({ startOnLoad: true });
-
         // Clone cards for seamless infinite CSS looping
         const track = document.getElementById('heroCarouselTrack');
         if (track && !track.dataset.cloned) {
