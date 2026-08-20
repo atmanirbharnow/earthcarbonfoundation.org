@@ -133,7 +133,7 @@
 </nav>
 
 <main>
-    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION (CUSTOM DRIVE IMAGES APPLIED) -->
+    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION -->
     <section id="hero-assets" class="bg-surface-light border-b border-border py-14 lg:py-20 text-center overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
@@ -302,60 +302,96 @@
         </div>
     </section>
 
-    <!-- SECTION 3: HOW IT WORKS (AGGREGATION ENGINE) -->
+    <!-- SECTION 3: HOW IT WORKS (EASY-TO-UNDERSTAND CITIZEN FLOW DIAGRAM) -->
     <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <div class="text-center max-w-2xl mx-auto space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">The Solution</span>
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">The Solution</span>
                 <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">How It Works</h2>
-                <p class="text-secondary/70 text-sm">Standalone verification is cost-prohibitive for individual assets. ECF solves this through aggregation.</p>
+                <p class="text-secondary/70 text-sm font-medium">Standalone verification is cost-prohibitive for individual assets. ECF solves this through aggregation.</p>
             </div>
 
-            <!-- Aggregation Tree Flow Diagram -->
-            <div class="bg-white border border-border rounded-2xl p-6 sm:p-10 shadow-sm space-y-8 max-w-3xl mx-auto">
-                <!-- Step A: Distributed Assets -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                    <div class="p-3 bg-surface-light border border-border rounded-xl">
-                        <span class="text-xs font-black text-secondary block">☀️ 500 kW</span>
-                        <span class="text-[10px] text-secondary/60">Factory Site</span>
+            <!-- Aggregation Tree Flow Diagram Container -->
+            <div class="bg-white border border-border rounded-3xl p-6 sm:p-10 shadow-sm space-y-8 max-w-3xl mx-auto">
+                
+                <!-- Step 1: Distributed Local Assets -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-xs font-bold text-secondary/60 uppercase tracking-wider px-1">
+                        <span>Step 1: Individual Sites Join</span>
+                        <span class="text-primary font-black">Sub-5 MW Assets</span>
                     </div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl">
-                        <span class="text-xs font-black text-secondary block">☀️ 750 kW</span>
-                        <span class="text-[10px] text-secondary/60">Hospital Rooftop</span>
-                    </div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl">
-                        <span class="text-xs font-black text-secondary block">☀️ 1 MW</span>
-                        <span class="text-[10px] text-secondary/60">Logistics Hub</span>
-                    </div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl">
-                        <span class="text-xs font-black text-secondary block">☀️ 2 MW</span>
-                        <span class="text-[10px] text-secondary/60">University Campus</span>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
+                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
+                                <span>☀️</span> 500 kW
+                            </span>
+                            <span class="text-[11px] font-semibold text-secondary/70">Factory Site</span>
+                        </div>
+                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
+                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
+                                <span>☀️</span> 750 kW
+                            </span>
+                            <span class="text-[11px] font-semibold text-secondary/70">Hospital Rooftop</span>
+                        </div>
+                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
+                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
+                                <span>☀️</span> 1 MW
+                            </span>
+                            <span class="text-[11px] font-semibold text-secondary/70">Logistics Hub</span>
+                        </div>
+                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
+                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
+                                <span>☀️</span> 2 MW
+                            </span>
+                            <span class="text-[11px] font-semibold text-secondary/70">University Campus</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex justify-center text-primary"><span class="material-symbols-outlined text-3xl">south</span></div>
-
-                <!-- Step B: Aggregation -->
-                <div class="p-4 bg-primary/5 border border-primary/20 rounded-xl text-center">
-                    <span class="text-xs font-black text-primary uppercase tracking-widest block font-display">ECF Aggregation Pool</span>
-                    <span class="text-xl sm:text-2xl font-black text-secondary font-display">4.25 MW+ Bundled / PoA</span>
+                <!-- Connector Arrow -->
+                <div class="flex flex-col items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
                 </div>
 
-                <div class="flex justify-center text-primary"><span class="material-symbols-outlined text-3xl">south</span></div>
-
-                <!-- Step C: Shared Costs -->
-                <div class="p-4 bg-surface-light border border-border rounded-xl text-center">
-                    <span class="text-xs font-black text-secondary uppercase tracking-widest block font-display">Validation &amp; Audit</span>
-                    <span class="text-sm font-bold text-secondary/80">Registry &amp; Audit Development Costs Shared Proportionately</span>
+                <!-- Step 2: Aggregation Pool Bundle -->
+                <div class="p-6 bg-surface-light border border-border rounded-2xl text-center space-y-1.5 shadow-sm">
+                    <span class="text-[11px] font-black text-primary uppercase tracking-widest block font-display">ECF Aggregation Pool</span>
+                    <div class="text-2xl sm:text-3xl font-black text-secondary font-display tracking-tight">
+                        4.25 MW+ Bundled / PoA
+                    </div>
+                    <p class="text-xs text-secondary/70 font-medium">Combining multiple small assets into one large, institutional carbon pool.</p>
                 </div>
 
-                <div class="flex justify-center text-primary"><span class="material-symbols-outlined text-3xl">south</span></div>
-
-                <!-- Step D: Programme & Shared Revenue -->
-                <div class="p-5 bg-primary text-white rounded-xl text-center space-y-1 shadow-md">
-                    <span class="text-xs font-black text-mint uppercase tracking-widest block font-display">Eligible Programme</span>
-                    <span class="text-lg font-black block">Revenue Realized &amp; Shared Transparently*</span>
+                <!-- Connector Arrow -->
+                <div class="flex flex-col items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
                 </div>
+
+                <!-- Step 3: Shared Validation & Audit -->
+                <div class="p-6 bg-surface-light border border-border rounded-2xl text-center space-y-1.5 shadow-sm">
+                    <span class="text-[11px] font-black text-secondary/80 uppercase tracking-widest block font-display">Validation &amp; Audit</span>
+                    <div class="text-sm sm:text-base font-black text-secondary font-display">
+                        Registry &amp; Audit Development Costs Shared Proportionately
+                    </div>
+                    <p class="text-xs text-secondary/70 font-medium">Audit expenses are divided across the cohort, drastically cutting overhead per participant.</p>
+                </div>
+
+                <!-- Connector Arrow -->
+                <div class="flex flex-col items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
+                </div>
+
+                <!-- Step 4: Eligible Revenue Realization -->
+                <div class="p-6 bg-primary text-white rounded-2xl text-center space-y-2 shadow-lg border border-primary-dark">
+                    <span class="text-[11px] font-black text-mint uppercase tracking-widest block font-display">Eligible Programme</span>
+                    <div class="text-xl sm:text-2xl font-black block font-display tracking-tight">
+                        Revenue Realized &amp; Shared Transparently*
+                    </div>
+                    <p class="text-xs text-white/80 font-medium max-w-md mx-auto">
+                        Monetized carbon and environmental credits are directly distributed to site owners based on actual energy yields.
+                    </p>
+                </div>
+
             </div>
             
             <p class="text-center text-[11px] text-secondary/50 font-medium max-w-xl mx-auto">
