@@ -9,6 +9,9 @@
     <!-- Tailwind CSS with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     
+    <!-- Mermaid.js for Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    
     <!-- Google Fonts & Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -94,6 +97,13 @@
             border-radius: 0.5rem;
             margin-bottom: 0.5rem;
         }
+        
+        /* Mermaid Custom Container Alignment */
+        .mermaid svg {
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body class="bg-white text-secondary antialiased">
@@ -133,7 +143,7 @@
 </nav>
 
 <main>
-    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION -->
+    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION (CUSTOM DRIVE IMAGES APPLIED) -->
     <section id="hero-assets" class="bg-surface-light border-b border-border py-14 lg:py-20 text-center overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
@@ -171,16 +181,14 @@
 
                     <!-- Card 3: Nature Based Credits (NBS) -->
                     <div onclick="selectHeroAsset('forest')" class="hero-asset-card group">
-                    <img src="https://lh3.googleusercontent.com/d/1c9TZhQPgel_lHYuN2PhQebsFVZ3aOYIo" alt="Nature Based Credits (NBS)" loading="lazy" />
-                        
-                    <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Nature Based (NBS)</span>
+                        <img src="https://lh3.googleusercontent.com/d/1MeXabOn4Ft23CeNTwqCGfo3f0acnkWgl" alt="Nature Based Credits (NBS)" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Nature Based (NBS)</span>
                     </div>
 
                     <!-- Card 4: Industrial Credits -->
                     <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                    <img src="https://lh3.googleusercontent.com/d/1WVHJwNggQAp7RgzwsoPN4bWJbUEGIC-f" alt="Industrial Credits" loading="lazy" />
-                         
-                    <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Industrial Credits</span>
+                        <img src="https://lh3.googleusercontent.com/d/1c9TZhQPgel_lHYuN2PhQebsFVZ3aOYIo" alt="Industrial Credits" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Industrial Credits</span>
                     </div>
 
                     <!-- Card 5: Rain Water Harvesting -->
@@ -304,96 +312,59 @@
         </div>
     </section>
 
-    <!-- SECTION 3: HOW IT WORKS (EASY-TO-UNDERSTAND CITIZEN FLOW DIAGRAM) -->
+    <!-- SECTION 3: HOW IT WORKS (REPLACED WITH BEAUTIFIED MERMAID FLOW DIAGRAM) -->
     <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">The Solution</span>
                 <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">How It Works</h2>
                 <p class="text-secondary/70 text-sm font-medium">Standalone verification is cost-prohibitive for individual assets. ECF solves this through aggregation.</p>
             </div>
 
-            <!-- Aggregation Tree Flow Diagram Container -->
-            <div class="bg-white border border-border rounded-3xl p-6 sm:p-10 shadow-sm space-y-8 max-w-3xl mx-auto">
-                
-                <!-- Step 1: Distributed Local Assets -->
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between text-xs font-bold text-secondary/60 uppercase tracking-wider px-1">
-                        <span>Step 1: Individual Sites Join</span>
-                        <span class="text-primary font-black">Sub-5 MW Assets</span>
-                    </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
-                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
-                                <span>☀️</span> 500 kW
-                            </span>
-                            <span class="text-[11px] font-semibold text-secondary/70">Factory Site</span>
-                        </div>
-                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
-                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
-                                <span>☀️</span> 750 kW
-                            </span>
-                            <span class="text-[11px] font-semibold text-secondary/70">Hospital Rooftop</span>
-                        </div>
-                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
-                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
-                                <span>☀️</span> 1 MW
-                            </span>
-                            <span class="text-[11px] font-semibold text-secondary/70">Logistics Hub</span>
-                        </div>
-                        <div class="p-3 bg-surface-light border border-border rounded-2xl flex flex-col items-center justify-center gap-1 shadow-sm">
-                            <span class="text-base font-black text-secondary flex items-center gap-1.5 font-display">
-                                <span>☀️</span> 2 MW
-                            </span>
-                            <span class="text-[11px] font-semibold text-secondary/70">University Campus</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Beautiful Mermaid Diagram Container -->
+            <div class="bg-white border border-border rounded-3xl p-4 sm:p-8 md:p-10 shadow-sm max-w-4xl mx-auto overflow-x-auto flex flex-col items-center">
+                <div class="mermaid w-full flex justify-center py-2">
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#F8FAFC',
+    'primaryTextColor': '#0F172A',
+    'primaryBorderColor': '#CBD5E1',
+    'lineColor': '#003527',
+    'secondaryColor': '#ffffff',
+    'tertiaryColor': '#F1F5F9',
+    'fontSize': '14px',
+    'fontFamily': 'Inter, sans-serif',
+    'clusterBkg': '#F8FAFC',
+    'clusterBorder': '#E2E8F0'
+  }
+}}%%
+graph TD
+    subgraph "Current Practice: Single Methodology (High Cost)"
+    A1["🏭 Small Factory"] -->|"Apply Alone"| B1["❌ Expensive Audit Fee"]
+    A2["🏥 Hospital"] -->|"Apply Alone"| B2["❌ Expensive Audit Fee"]
+    A3["🏢 Warehouse"] -->|"Apply Alone"| B3["❌ Expensive Audit Fee"]
+    style B1 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
+    style B2 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
+    style B3 fill:#FEE2E2,stroke:#EF4444,stroke-width:2px,color:#991B1B,font-weight:bold
+    style A1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    style A2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    style A3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    end
 
-                <!-- Connector Arrow -->
-                <div class="flex flex-col items-center justify-center">
-                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
+    subgraph "Our Approach: Bundled Methodology (Shared Value)"
+    C1["🏭 Small Factory"] -->|"Join Group"| D["📦 One Big Application (PoA)"]
+    C2["🏥 Hospital"] -->|"Join Group"| D
+    C3["🏢 Warehouse"] -->|"Join Group"| D
+    
+    D -->|"Single Shared Audit"| E["✅ Cost Split Between Everyone & Maximized Returns"]
+    style D fill:#DCFCE7,stroke:#10B981,stroke-width:2px,color:#065F46,font-weight:bold
+    style E fill:#003527,stroke:#10B981,stroke-width:2px,color:#FFFFFF,font-weight:bold
+    style C1 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    style C2 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    style C3 fill:#FFFFFF,stroke:#CBD5E1,stroke-width:1.5px
+    end
                 </div>
-
-                <!-- Step 2: Aggregation Pool Bundle -->
-                <div class="p-6 bg-surface-light border border-border rounded-2xl text-center space-y-1.5 shadow-sm">
-                    <span class="text-[11px] font-black text-primary uppercase tracking-widest block font-display">ECF Aggregation Pool</span>
-                    <div class="text-2xl sm:text-3xl font-black text-secondary font-display tracking-tight">
-                        4.25 MW+ Bundled / PoA
-                    </div>
-                    <p class="text-xs text-secondary/70 font-medium">Combining multiple small assets into one large, institutional carbon pool.</p>
-                </div>
-
-                <!-- Connector Arrow -->
-                <div class="flex flex-col items-center justify-center">
-                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
-                </div>
-
-                <!-- Step 3: Shared Validation & Audit -->
-                <div class="p-6 bg-surface-light border border-border rounded-2xl text-center space-y-1.5 shadow-sm">
-                    <span class="text-[11px] font-black text-secondary/80 uppercase tracking-widest block font-display">Validation &amp; Audit</span>
-                    <div class="text-sm sm:text-base font-black text-secondary font-display">
-                        Registry &amp; Audit Development Costs Shared Proportionately
-                    </div>
-                    <p class="text-xs text-secondary/70 font-medium">Audit expenses are divided across the cohort, drastically cutting overhead per participant.</p>
-                </div>
-
-                <!-- Connector Arrow -->
-                <div class="flex flex-col items-center justify-center">
-                    <span class="material-symbols-outlined text-primary text-2xl animate-bounce">arrow_downward</span>
-                </div>
-
-                <!-- Step 4: Eligible Revenue Realization -->
-                <div class="p-6 bg-primary text-white rounded-2xl text-center space-y-2 shadow-lg border border-primary-dark">
-                    <span class="text-[11px] font-black text-mint uppercase tracking-widest block font-display">Eligible Programme</span>
-                    <div class="text-xl sm:text-2xl font-black block font-display tracking-tight">
-                        Revenue Realized &amp; Shared Transparently*
-                    </div>
-                    <p class="text-xs text-white/80 font-medium max-w-md mx-auto">
-                        Monetized carbon and environmental credits are directly distributed to site owners based on actual energy yields.
-                    </p>
-                </div>
-
             </div>
             
             <p class="text-center text-[11px] text-secondary/50 font-medium max-w-xl mx-auto">
@@ -830,6 +801,9 @@
     window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
 
     document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Mermaid diagrams
+        mermaid.initialize({ startOnLoad: true });
+
         // Clone cards for seamless infinite CSS looping
         const track = document.getElementById('heroCarouselTrack');
         if (track && !track.dataset.cloned) {
