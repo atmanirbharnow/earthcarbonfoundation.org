@@ -57,7 +57,7 @@
             display: flex;
             gap: 16px;
             width: max-content;
-            animation: continuousScroll 24s linear infinite;
+            animation: continuousScroll 32s linear infinite;
             will-change: transform;
         }
         .carousel-outer:hover .carousel-track {
@@ -133,70 +133,100 @@
 </nav>
 
 <main>
-    <!-- SECTION 1: HERO IMAGE SLIDER & ASSET RECOGNITION -->
+    <!-- SECTION 1: WHO CAN PARTICIPATE (REVOLVING PLACEHOLDER SLIDER) -->
     <section id="hero-assets" class="bg-surface-light border-b border-border py-14 lg:py-20 text-center overflow-hidden">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
-                <span class="material-symbols-outlined text-sm">bolt</span>
-                Operating Asset Aggregation Framework
+                <span class="material-symbols-outlined text-sm">domain</span>
+                Multi-Sector Commercial &amp; Institutional Intake
             </div>
 
             <div class="space-y-4">
                 <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight uppercase">
-                    Do You Own One of These?
+                    Who Can Participate?
                 </h1>
                 <p class="text-base sm:text-xl text-primary font-bold tracking-wide">
-                    500 kW+ • INSTALLED • OPERATING
+                    MUST HAVE MINIMUM 500 kW OR EQUIVALENT INSTALLATIONS
                 </p>
                 <p class="text-sm sm:text-base text-secondary/70 max-w-2xl mx-auto">
-                    Transform your existing commercial, industrial, or institutional infrastructure into verified environmental and carbon assets.
+                    Transform your operating rooftop solar, waste heat recovery, water reuse, or energy efficiency projects into certified carbon assets.
                 </p>
             </div>
 
-            <!-- Asset Continuous Sliding Carousel -->
+            <!-- Revolving Carousel with 12 Sectors -->
             <div class="carousel-outer">
                 <div class="carousel-track" id="heroCarouselTrack">
                     
-                    <!-- Card 1: Solar Rooftop -->
+                    <!-- 1. MSME -->
                     <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1Kkzao8P6FaIGCrL4xPzCAyYaDQYLBe61" alt="Solar Rooftop" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Solar Rooftop</span>
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="MSME" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">MSME</span>
                     </div>
 
-                    <!-- Card 2: Wind Energy Credits -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1B7V6a07JS_PwxjnuJao8tEt1gH_i2Gu9" alt="Wind Energy" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Wind Energy</span>
-                    </div>
-
-                    <!-- Card 3: Nature Based Credits (NBS) -->
-                    <div onclick="selectHeroAsset('forest')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1MeXabOn4Ft23CeNTwqCGfo3f0acnkWgl" alt="Nature Based Credits (NBS)" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Nature Based (NBS)</span>
-                    </div>
-
-                    <!-- Card 4: Industrial Credits -->
+                    <!-- 2. Hotel -->
                     <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1c9TZhQPgel_lHYuN2PhQebsFVZ3aOYIo" alt="Industrial Credits" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Industrial Credits</span>
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hotel & Hospitality" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Hotels &amp; Resorts</span>
                     </div>
 
-                    <!-- Card 5: Rain Water Harvesting -->
-                    <div onclick="selectHeroAsset('water')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1VfPWgoi9XscQBVHwspg_3xKlX0H8Xffy" alt="Rain Water Harvesting" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Rain Water Harvest</span>
-                    </div>
-
-                    <!-- Card 6: Biogas -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1qWCZO1zcl9Tw_DgyPvBGX-8FBICL-Ztw" alt="Biogas" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Biogas</span>
-                    </div>
-
-                    <!-- Card 7: Energy Transmission Credits -->
+                    <!-- 3. Process Industries -->
                     <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://lh3.googleusercontent.com/d/1JqCIGQ3SzN-rL9qVH9m9rpXYvWxfezQB" alt="Energy Transmission Credits" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Transmission</span>
+                        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=500&q=80" alt="Process Industries" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Process Industries</span>
+                    </div>
+
+                    <!-- 4. Pharmaceuticals -->
+                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=500&q=80" alt="Pharmaceuticals" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Pharmaceuticals</span>
+                    </div>
+
+                    <!-- 5. Manufacturing -->
+                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=80" alt="Manufacturing" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Manufacturing</span>
+                    </div>
+
+                    <!-- 6. Public Events -->
+                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=80" alt="Public Events" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Public Events</span>
+                    </div>
+
+                    <!-- 7. Community Halls -->
+                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=500&q=80" alt="Community Halls" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Community Halls</span>
+                    </div>
+
+                    <!-- 8. Service Sector -->
+                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Service Sector" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Service Sector</span>
+                    </div>
+
+                    <!-- 9. Educational Campuses -->
+                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=500&q=80" alt="Educational Campuses" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Campus &amp; Schools</span>
+                    </div>
+
+                    <!-- 10. EPC -->
+                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=500&q=80" alt="EPC Contractors" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">EPC Contractors</span>
+                    </div>
+
+                    <!-- 11. Architects -->
+                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80" alt="Architects & Planners" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Architects</span>
+                    </div>
+
+                    <!-- 12. Developer -->
+                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Real Estate & Infrastructure Developers" loading="lazy" />
+                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Developers</span>
                     </div>
 
                 </div>
