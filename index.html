@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Earth Carbon Foundation | Environmental Asset Aggregation & Registry</title>
-    <meta name="description" content="Aggregate operating solar, efficiency, water, and nature assets into multi-megawatt carbon portfolios and shared value programmes.">
+    <meta name="description" content="Convert distributed solar, water, waste, forestry, and efficiency assets into verified institutional value through UN-aligned aggregation programmes.">
     
     <!-- Tailwind CSS with Plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -43,57 +43,6 @@
         input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #E2E8F0; border-radius: 4px; outline: none; }
         input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #003527; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
         input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #003527; cursor: pointer; border: none; }
-
-        /* Continuous Circular Image Slider Styles */
-        .carousel-outer {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 10px 0;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-        .carousel-track {
-            display: flex;
-            gap: 16px;
-            width: max-content;
-            animation: continuousScroll 32s linear infinite;
-            will-change: transform;
-        }
-        .carousel-outer:hover .carousel-track {
-            animation-play-state: paused;
-        }
-        @keyframes continuousScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .hero-asset-card {
-            width: 180px;
-            background: #ffffff;
-            border: 2px solid #E2E8F0;
-            border-radius: 1rem;
-            padding: 0.75rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            text-align: center;
-        }
-        .hero-asset-card:hover {
-            border-color: #003527;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 18px rgba(0, 53, 39, 0.12);
-        }
-        .hero-asset-card img {
-            width: 100%;
-            height: 105px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
     </style>
 </head>
 <body class="bg-white text-secondary antialiased">
@@ -107,167 +56,142 @@
         </a>
         
         <div class="hidden lg:flex items-center gap-7 text-xs xl:text-sm font-bold text-secondary/80">
-            <a href="#hero-assets" class="hover:text-primary transition-colors">About</a>
-            <a href="#resources" class="hover:text-primary transition-colors">Resources</a>
+            <a href="#about" class="hover:text-primary transition-colors">About</a>
+            <a href="#intake" class="hover:text-primary transition-colors">What You Have</a>
+            <a href="#calculator" class="hover:text-primary transition-colors">Calculator</a>
+            <a href="#aggregation" class="hover:text-primary transition-colors">Why Aggregate</a>
             <a href="#how-it-works" class="hover:text-primary transition-colors">How It Works</a>
-            <a href="#mission-counter" class="hover:text-primary transition-colors">100M Mission</a>
+            <a href="#offtake" class="hover:text-primary transition-colors">Buy Credits</a>
+            <a href="#pipeline" class="hover:text-primary transition-colors">Pipeline</a>
             <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
-            <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
         </div>
 
-        <!-- Auth & Start Engagement CTAs -->
         <div class="flex items-center gap-3 shrink-0" id="authButtons">
             <button onclick="openLoginModal()" class="text-secondary hover:text-primary font-bold text-xs sm:text-sm transition-colors px-2 py-2">Login</button>
             <button onclick="openAssessmentModal()" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center gap-2">
-                <span>Submit Asset</span>
+                <span>Assess Asset</span>
                 <span class="text-mint bg-white/10 px-2 py-0.5 rounded">₹4,999</span>
             </button>
         </div>
 
         <div class="hidden items-center gap-3 shrink-0" id="userDashboardNav">
             <span class="text-xs sm:text-sm font-semibold text-primary" id="navUserEmail"></span>
-            <a href="/dashboard.html" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Dashboard</a>
+            <button onclick="openAssessmentModal()" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Client Portal</button>
             <button onclick="handleLogout()" class="text-secondary hover:text-red-600 font-semibold text-xs sm:text-sm transition-colors px-2 py-2">Logout</button>
         </div>
     </div>
 </nav>
 
 <main>
-    <!-- SECTION 1: WHO CAN PARTICIPATE (REVOLVING PLACEHOLDER SLIDER) -->
-    <section id="hero-assets" class="bg-surface-light border-b border-border py-14 lg:py-20 text-center overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <!-- SECTION 1: HERO SECTION -->
+    <section id="about" class="bg-surface-light border-b border-border py-16 lg:py-24 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
-                <span class="material-symbols-outlined text-sm">domain</span>
-                Multi-Sector Commercial &amp; Institutional Intake
+                <span class="material-symbols-outlined text-sm">energy_savings_leaf</span>
+                Environmental Asset Monetisation
             </div>
 
             <div class="space-y-4">
                 <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight uppercase">
-                    Who Can Participate?
+                    Convert Your Environmental Assets into Value
                 </h1>
-                <p class="text-base sm:text-xl text-primary font-bold tracking-wide">
-                    MUST HAVE MINIMUM 500 kW OR EQUIVALENT INSTALLATIONS
+                <p class="text-xs sm:text-sm font-black text-primary uppercase tracking-widest">
+                    Solar • Water • Waste • Forest • Energy Efficiency • More
                 </p>
-                <p class="text-sm sm:text-base text-secondary/70 max-w-2xl mx-auto">
-                    Transform your operating rooftop solar, waste heat recovery, water reuse, or energy efficiency projects into certified carbon assets.
+                <p class="text-sm sm:text-base text-secondary/70 max-w-2xl mx-auto leading-relaxed">
+                    Already creating measurable environmental benefits? ECF helps assess, quantify, qualify, and connect eligible assets with global environmental markets.
                 </p>
             </div>
 
-            <!-- Revolving Carousel with 12 Sectors -->
-            <div class="carousel-outer">
-                <div class="carousel-track" id="heroCarouselTrack">
-                    
-                    <!-- 1. MSME -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80" alt="MSME" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">MSME</span>
-                    </div>
-
-                    <!-- 2. Hotel -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80" alt="Hotel & Hospitality" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Hotels &amp; Resorts</span>
-                    </div>
-
-                    <!-- 3. Process Industries -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=500&q=80" alt="Process Industries" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Process Industries</span>
-                    </div>
-
-                    <!-- 4. Pharmaceuticals -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=500&q=80" alt="Pharmaceuticals" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Pharmaceuticals</span>
-                    </div>
-
-                    <!-- 5. Manufacturing -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=80" alt="Manufacturing" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Manufacturing</span>
-                    </div>
-
-                    <!-- 6. Public Events -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=500&q=80" alt="Public Events" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Public Events</span>
-                    </div>
-
-                    <!-- 7. Community Halls -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=500&q=80" alt="Community Halls" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Community Halls</span>
-                    </div>
-
-                    <!-- 8. Service Sector -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Service Sector" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Service Sector</span>
-                    </div>
-
-                    <!-- 9. Educational Campuses -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=500&q=80" alt="Educational Campuses" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Campus &amp; Schools</span>
-                    </div>
-
-                    <!-- 10. EPC -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=500&q=80" alt="EPC Contractors" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">EPC Contractors</span>
-                    </div>
-
-                    <!-- 11. Architects -->
-                    <div onclick="selectHeroAsset('ee')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=500&q=80" alt="Architects & Planners" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Architects</span>
-                    </div>
-
-                    <!-- 12. Developer -->
-                    <div onclick="selectHeroAsset('solar')" class="hero-asset-card group">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Real Estate & Infrastructure Developers" loading="lazy" />
-                        <span class="text-xs font-black text-secondary group-hover:text-primary uppercase tracking-tight">Developers</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="pt-4 flex justify-center">
-                <a href="#calculator" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-black text-base transition-all shadow-md flex items-center gap-2 uppercase tracking-wider">
-                    <span>Try Free Calculator</span>
-                    <span class="material-symbols-outlined text-mint text-lg">arrow_forward</span>
+            <!-- Dual Split Intent CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#intake" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
+                    <span>I Have Environmental Assets</span>
+                    <span class="material-symbols-outlined text-mint text-sm">arrow_forward</span>
+                </a>
+                <a href="#offtake" class="w-full sm:w-auto bg-white border-2 border-border hover:border-primary text-secondary px-8 py-4 rounded-xl font-black text-sm transition-all shadow-sm flex items-center justify-center gap-2 uppercase tracking-wider">
+                    <span>I Want to Buy</span>
+                    <span class="material-symbols-outlined text-primary text-sm">north_east</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: FREE ASSET CALCULATOR -->
-    <section id="calculator" class="py-16 bg-white border-b border-border">
+    <!-- SECTION 2: WHAT DO YOU HAVE? (8 SECTOR CARDS) -->
+    <section id="intake" class="py-16 bg-white border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Step 01: Identification</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">What Do You Have?</h2>
+                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
+                    Select the environmental assets you <strong>operate, own, or control</strong> to begin eligibility mapping.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="selectHeroAsset('solar')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">☀️</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Solar / Renewable Energy</span>
+                </div>
+                <div onclick="selectHeroAsset('water')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">💧</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Water / Treatment / Reuse</span>
+                </div>
+                <div onclick="selectHeroAsset('ee')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">♻️</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Waste / Biogas / Biomass</span>
+                </div>
+                <div onclick="selectHeroAsset('forest')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">🌳</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Forest / Agroforestry / Land</span>
+                </div>
+                <div onclick="selectHeroAsset('ee')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">⚡</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Energy Efficiency</span>
+                </div>
+                <div onclick="selectHeroAsset('forest')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">🌱</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Nature / Restoration</span>
+                </div>
+                <div onclick="selectHeroAsset('solar')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">🏭</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Industrial / Process Heat</span>
+                </div>
+                <div onclick="openAssessmentModal()" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                    <span class="text-3xl block group-hover:scale-110 transition-transform">➕</span>
+                    <span class="font-bold text-xs sm:text-sm text-secondary block">Other Assets / Methane</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FREE ASSET CALCULATOR -->
+    <section id="calculator" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div class="text-center space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Stage 1: Discovery</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">Free Asset Calculator</h2>
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Step 02: Discovery</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">Free Environmental Asset Calculator</h2>
                 <p class="text-secondary/70 text-sm font-semibold tracking-wide">
                     YOUR ASSET &rarr; CAPACITY &rarr; IMPACT &rarr; INDICATIVE VALUE
                 </p>
             </div>
 
-            <div class="bg-surface-light border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+            <div class="bg-white border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
                 <!-- Asset Choice Radio Tabs -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold">
-                    <label class="flex items-center justify-center gap-2 p-3 bg-white rounded-lg border border-border cursor-pointer hover:border-primary">
+                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
                         <input type="radio" name="calcAsset" value="solar" checked onchange="switchAssetType('solar')" class="text-primary focus:ring-primary"/>
                         <span>Solar PV</span>
                     </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-white rounded-lg border border-border cursor-pointer hover:border-primary">
+                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
                         <input type="radio" name="calcAsset" value="ee" onchange="switchAssetType('ee')" class="text-primary focus:ring-primary"/>
                         <span>Efficiency</span>
                     </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-white rounded-lg border border-border cursor-pointer hover:border-primary">
+                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
                         <input type="radio" name="calcAsset" value="water" onchange="switchAssetType('water')" class="text-primary focus:ring-primary"/>
                         <span>Water Reuse</span>
                     </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-white rounded-lg border border-border cursor-pointer hover:border-primary">
+                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
                         <input type="radio" name="calcAsset" value="forest" onchange="switchAssetType('forest')" class="text-primary focus:ring-primary"/>
                         <span>Nature & Agro</span>
                     </label>
@@ -292,30 +216,29 @@
                 </div>
 
                 <!-- Result Box -->
-                <div class="bg-white border border-border rounded-xl p-6 space-y-4">
+                <div class="bg-surface-light border border-border rounded-xl p-6 space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                        <div class="p-3 bg-surface-light rounded-lg border border-border">
-                            <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">Asset Type</span>
-                            <span id="profileAssetName" class="text-sm font-black text-secondary mt-1 block">Solar Energy</span>
+                        <div class="p-3 bg-white rounded-lg border border-border">
+                            <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">Asset Category</span>
+                            <span id="profileAssetName" class="text-sm font-black text-secondary mt-1 block">Solar Energy Generation</span>
                         </div>
-                        <div class="p-3 bg-surface-light rounded-lg border border-border">
+                        <div class="p-3 bg-white rounded-lg border border-border">
                             <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">Annual Impact</span>
                             <span id="annualTons" class="text-lg font-black text-primary font-display mt-1 block">410 tCO₂e/year</span>
                         </div>
-                        <div class="p-3 bg-surface-light rounded-lg border border-border">
+                        <div class="p-3 bg-white rounded-lg border border-border">
                             <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">10-Yr Value Estimate*</span>
                             <span id="lifetimeTons" class="text-lg font-black text-emerald-700 font-display mt-1 block">$41,000 (~₹34.4L)</span>
                         </div>
                     </div>
                     <p class="text-[11px] text-center text-secondary/50 font-medium">
-                        *Illustrative only — not a guaranteed credit/value. Actual yields are determined by rigorous primary meter audits and registry approval.
+                        *Indicative estimate only. Final eligibility and value depend on applicable methodologies, baseline verification, registry approval, and prevailing market conditions.
                     </p>
                 </div>
 
-                <!-- Engagement Trigger -->
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                     <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
-                        <span>Lock In Your Asset — ₹4,999</span>
+                        <span>Assess My Asset — ₹4,999</span>
                     </button>
                     <button onclick="toggleInlineEmailForm()" class="w-full sm:w-auto bg-white border-2 border-border text-secondary hover:border-primary font-bold px-6 py-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
                         <span>📧 Email Free Calculation</span>
@@ -332,261 +255,207 @@
         </div>
     </section>
 
-    <!-- SECTION 3: HOW IT WORKS (UN BUNDLED METHODOLOGY EXPLAINED) -->
-    <section id="how-it-works" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">UN Framework &amp; Carbon Certification Process</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">How Carbon Aggregation Works</h2>
-                <p class="text-secondary/70 text-sm font-medium">
-                    Every carbon project requires rigorous milestones: <strong>Project Concept Note (PCN)</strong>, <strong>Registry Listing</strong>, <strong>VVB Validation</strong>, and <strong>Verification Audits</strong>. See how UN-compliant bundling removes the financial barrier for individual asset owners.
+    <!-- SECTION 4: ONE ASSET — MULTIPLE VALUES -->
+    <section class="py-16 bg-white border-b border-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
+            <div class="space-y-2">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Revenue Stacking</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">One Asset — Multiple Values</h2>
+                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
+                    ECF identifies the multi-layered environmental value your asset creates and the specific market mechanisms to monetise each stream.
                 </p>
             </div>
 
-            <!-- Comparison Grid: Option 1 vs Option 2 -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                
-                <!-- OPTION 1: Standalone Single Methodology (High Cost) -->
-                <div class="bg-white border-2 border-red-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-red-500 text-white text-[10px] font-black uppercase px-4 py-1 rounded-bl-xl tracking-wider">
-                        Option 1: Traditional
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <span class="text-xs font-black text-red-600 uppercase tracking-widest block mb-1">Single Methodology • 1 User</span>
-                            <h3 class="text-xl sm:text-2xl font-black text-secondary font-display">Standalone Project Pathway</h3>
-                            <p class="text-xs text-secondary/70 mt-1">Each asset owner applies alone and bears 100% of the certification lifecycle expenses.</p>
-                        </div>
-
-                        <!-- User Assets applying separately -->
-                        <div class="grid grid-cols-3 gap-2 text-center">
-                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
-                                <span class="text-lg block">🏭</span>
-                                <span class="text-[11px] font-black text-secondary block">Small Factory</span>
-                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
-                            </div>
-                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
-                                <span class="text-lg block">🏥</span>
-                                <span class="text-[11px] font-black text-secondary block">Hospital</span>
-                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
-                            </div>
-                            <div class="p-2.5 bg-red-50 border border-red-100 rounded-xl">
-                                <span class="text-lg block">🏢</span>
-                                <span class="text-[11px] font-black text-secondary block">Warehouse</span>
-                                <span class="text-[9px] text-red-600 font-bold block mt-0.5">Applies Alone</span>
-                            </div>
-                        </div>
-
-                        <!-- Heavy Standalone Costs -->
-                        <div class="bg-red-50/70 border border-red-200 rounded-2xl p-4 space-y-2 text-xs">
-                            <div class="font-extrabold text-red-800 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                                <span>❌</span> High Individual Fee Burden (Per Site):
-                            </div>
-                            <ul class="space-y-1.5 text-secondary/80 text-[11px]">
-                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
-                                    <span>PCN &amp; PDD Documentation</span>
-                                    <span class="font-bold text-red-700">₹2.0L - ₹3.5L</span>
-                                </li>
-                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
-                                    <span>Third-Party VVB Validation</span>
-                                    <span class="font-bold text-red-700">₹3.5L - ₹6.0L</span>
-                                </li>
-                                <li class="flex items-center justify-between border-b border-red-100 pb-1">
-                                    <span>Registry Account &amp; Listing</span>
-                                    <span class="font-bold text-red-700">₹1.5L - ₹2.5L</span>
-                                </li>
-                                <li class="flex items-center justify-between pt-0.5">
-                                    <span>Annual Verification Audits</span>
-                                    <span class="font-bold text-red-700">₹2.0L - ₹4.0L</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-4 border-t border-red-100 text-center">
-                        <span class="text-xs font-black text-red-700 uppercase block">❌ Not Viable For Sites Under 15 MW</span>
-                        <span class="text-[11px] text-secondary/60">Fixed audit &amp; registration costs wipe out years of carbon revenue.</span>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-black">01</div>
+                    <h3 class="font-display font-black text-lg text-secondary uppercase">Carbon Credits</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Quantified grid displacement and methane avoidance verified under international registry standards.</p>
                 </div>
-
-                <!-- OPTION 2: UN Bundled Methodology (ECF Solution) -->
-                <div class="bg-primary text-white border-2 border-mint rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-mint text-secondary text-[10px] font-black uppercase px-4 py-1 rounded-bl-xl tracking-wider">
-                        Option 2: ECF Solution
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <span class="text-xs font-black text-mint uppercase tracking-widest block mb-1">UN Bundled Standard • Multiple Users</span>
-                            <h3 class="text-xl sm:text-2xl font-black text-white font-display">United Nations Bundling Model</h3>
-                            <p class="text-xs text-white/80 mt-1">
-                                Under UN rules, multiple users with identical technology bundle into a single cohort (up to the <strong>15 MW Small-Scale Threshold</strong>).
-                            </p>
-                        </div>
-
-                        <!-- Combined Group Box -->
-                        <div class="bg-white/10 border border-white/20 rounded-2xl p-4 text-center space-y-3">
-                            <div class="flex items-center justify-center gap-3">
-                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏭 Factory</span>
-                                <span class="text-xs font-bold text-mint">+</span>
-                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏥 Hospital</span>
-                                <span class="text-xs font-bold text-mint">+</span>
-                                <span class="text-xs font-bold bg-white/10 px-2.5 py-1 rounded-lg">🏢 Warehouse</span>
-                            </div>
-                            <div class="flex justify-center text-mint">
-                                <span class="material-symbols-outlined text-xl">south</span>
-                            </div>
-                            <div class="bg-mint text-secondary font-black text-xs uppercase py-2 px-4 rounded-xl tracking-wide shadow-md">
-                                📦 One Joint Master Application (PoA Portfolio)
-                            </div>
-                        </div>
-
-                        <!-- Shared Benefits -->
-                        <div class="bg-white/10 border border-mint/40 rounded-2xl p-4 space-y-2 text-xs">
-                            <div class="font-extrabold text-mint uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                                <span>✅</span> Combined Cost Advantages:
-                            </div>
-                            <ul class="space-y-1.5 text-white/90 text-[11px]">
-                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
-                                    <span>Single PCN &amp; Master PDD</span>
-                                    <span class="font-bold text-mint">Shared by Cohort</span>
-                                </li>
-                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
-                                    <span>One Consolidated VVB Validation</span>
-                                    <span class="font-bold text-mint">Shared by Cohort</span>
-                                </li>
-                                <li class="flex items-center justify-between border-b border-white/10 pb-1">
-                                    <span>Shared Registry Onboarding</span>
-                                    <span class="font-bold text-mint">Zero Standalone Listing Fee</span>
-                                </li>
-                                <li class="flex items-center justify-between pt-0.5">
-                                    <span>Bundled Capacity Threshold</span>
-                                    <span class="font-bold text-mint">Maximized Net Returns</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="mt-6 pt-4 border-t border-white/20 text-center">
-                        <span class="text-xs font-black text-mint uppercase block">✅ No Need to Own 15 MW Alone</span>
-                        <span class="text-[11px] text-white/70">Combine small 500 kW+ capacities to unlock institutional carbon credits together.</span>
-                    </div>
+                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-mint text-secondary flex items-center justify-center font-black">02</div>
+                    <h3 class="font-display font-black text-lg text-secondary uppercase">Water Stewardship</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Quantifiable effluent treatment, recycling, and groundwater recharge monetization credentials.</p>
                 </div>
-
+                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-secondary text-white flex items-center justify-center font-black">03</div>
+                    <h3 class="font-display font-black text-lg text-secondary uppercase">Nature & Biodiversity</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Afforestation, soil carbon enhancement, and ecosystem preservation metrics for institutional ESG.</p>
+                </div>
             </div>
-            
-            <p class="text-center text-[11px] text-secondary/50 font-medium max-w-xl mx-auto">
-                *Participation, issuance, and revenue distribution are subject to formal verification audits and the executed programme agreement.
-            </p>
         </div>
     </section>
 
-    <!-- SECTION 4: WANT YOUR ASSET ASSESSED? (PAID CHECKOUT) -->
-    <section id="pricing-assessment" class="py-16 bg-white border-b border-border">
+    <!-- SECTION 5: WHY AGGREGATE? (500 kW -> 15 MW) -->
+    <section id="aggregation" class="py-16 bg-surface-light border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">Economics of Scale</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">Why Aggregate? 500 kW &rarr; 15 MW+</h2>
+                <p class="text-secondary/70 text-sm">
+                    Standalone registration costs ₹4–8 lakh, rendering sub-15 MW sites non-viable. ECF pools distributed installations into high-integrity portfolios.
+                </p>
+            </div>
+
+            <!-- Aggregation Graphic -->
+            <div class="bg-white border border-border rounded-3xl p-8 space-y-8 shadow-sm">
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
+                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">500 kW Site</div>
+                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">750 kW Site</div>
+                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">1 MW Facility</div>
+                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">2 MW Plant</div>
+                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">5 MW Rooftop</div>
+                </div>
+
+                <div class="flex justify-center text-primary">
+                    <span class="material-symbols-outlined text-3xl">south</span>
+                </div>
+
+                <div class="bg-primary text-white rounded-2xl p-6 text-center space-y-2">
+                    <div class="text-xs font-black uppercase text-mint tracking-widest">ECF Programme of Activities (PoA)</div>
+                    <div class="text-xl sm:text-2xl font-black font-display uppercase">15 MW+ Consolidated Portfolio</div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-xs">
+                    <div class="p-4 bg-surface-light rounded-xl border border-border">
+                        <strong class="block text-secondary text-sm font-black mb-1">Shared Costs</strong>
+                        <span class="text-secondary/70">Amortizes audit, registry, and VVB validation fees across all participants.</span>
+                    </div>
+                    <div class="p-4 bg-surface-light rounded-xl border border-border">
+                        <strong class="block text-secondary text-sm font-black mb-1">Better Economics</strong>
+                        <span class="text-secondary/70">Eliminates individual ₹5L+ overheads, yielding higher net INR per tCO₂e.</span>
+                    </div>
+                    <div class="p-4 bg-surface-light rounded-xl border border-border">
+                        <strong class="block text-secondary text-sm font-black mb-1">Buyer Appeal</strong>
+                        <span class="text-secondary/70">Global institutional buyers procure bulk volume from multi-megawatt programmes.</span>
+                    </div>
+                </div>
+                
+                <p class="text-[11px] text-center text-secondary/50 font-medium">
+                    *Aggregation is subject to the eligibility requirements of the applicable programme, methodology, and registry.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: FROM ASSET TO MARKET -->
+    <section id="how-it-works" class="py-16 bg-white border-b border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Execution Architecture</span>
+                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">From Asset to Market</h2>
+                <p class="text-secondary/70 text-sm">ECF works to connect eligible environmental value with identifiable market demand.</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 text-center text-xs font-bold">
+                <div class="p-3 bg-surface-light border border-border rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">1</span>
+                    <span class="text-secondary">ASSESS</span>
+                </div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">2</span>
+                    <span class="text-secondary">QUALIFY</span>
+                </div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">3</span>
+                    <span class="text-secondary">VALUE YIELD</span>
+                </div>
+                <div class="p-3 bg-mint/20 border border-mint/40 rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-mint text-secondary text-[10px] flex items-center justify-center mx-auto mb-1 font-display">4</span>
+                    <span class="text-primary font-black">TEST DEMAND</span>
+                </div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">5</span>
+                    <span class="text-secondary">DEVELOP</span>
+                </div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">6</span>
+                    <span class="text-secondary">VERIFY</span>
+                </div>
+                <div class="p-3 bg-primary text-white border border-primary rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-mint text-secondary text-[10px] flex items-center justify-center mx-auto mb-1 font-display">7</span>
+                    <span class="text-white">MONETISE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: ₹4,999 ASSET ASSESSMENT (PRIMARY CONVERSION) -->
+    <section id="pricing" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-primary text-white rounded-2xl p-8 sm:p-12 shadow-xl text-center space-y-6 relative overflow-hidden">
+            <div class="bg-primary text-white rounded-3xl p-8 sm:p-12 shadow-xl text-center space-y-6 relative overflow-hidden">
                 <div class="space-y-2">
-                    <span class="text-xs font-black text-mint uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Commercial Onboarding</span>
-                    <h2 class="font-display font-black text-3xl sm:text-4xl uppercase">Want Your Asset Assessed?</h2>
+                    <span class="text-xs font-black text-mint uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Engagement Intake</span>
+                    <h2 class="font-display font-black text-3xl sm:text-4xl uppercase">Find Out What Your Asset Can Be Worth</h2>
                 </div>
 
                 <div class="space-y-1">
                     <div class="text-4xl sm:text-5xl font-black text-mint font-display">₹4,999</div>
-                    <div class="text-xs font-bold uppercase tracking-widest text-white/80">One-Time Engagement Fee</div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-white/80">One-Time Asset Assessment</div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3 max-w-md mx-auto text-left text-xs font-bold text-white/90 pt-2">
-                    <div class="p-3 bg-white/10 rounded-lg flex items-center gap-2"><span>📋</span> Asset Registration</div>
-                    <div class="p-3 bg-white/10 rounded-lg flex items-center gap-2"><span>📊</span> Formal Assessment</div>
-                    <div class="p-3 bg-white/10 rounded-lg flex items-center gap-2"><span>📄</span> Programme Proposal</div>
-                    <div class="p-3 bg-white/10 rounded-lg flex items-center gap-2"><span>🤝</span> Draft Agreement</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-md mx-auto text-left text-xs font-bold text-white/90 pt-2">
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Asset eligibility assessment</div>
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Environmental impact estimate</div>
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Applicable market pathways</div>
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Indicative monetisation yield</div>
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Aggregation suitability score</div>
+                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Assessment proposal report</div>
                 </div>
 
                 <div class="pt-4">
                     <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:bg-mint-dark text-secondary font-black px-10 py-4 rounded-xl text-sm transition-all shadow-lg uppercase tracking-wider inline-flex items-center gap-2">
-                        <span>Submit &amp; Pay ₹4,999 &rarr;</span>
+                        <span>Assess My Asset &rarr;</span>
                     </button>
                 </div>
 
-                <p class="text-[11px] text-white/70 max-w-md mx-auto leading-relaxed">
-                    Your payment initiates the formal ECF technical assessment &amp; commercial proposal workflow. Participation, issuance, and revenue are subject to eligibility and agreement execution.
+                <p class="text-[11px] text-white/60 max-w-md mx-auto leading-relaxed">
+                    Assessment does not guarantee registration, issuance, credit volume, price or sale. Final outcomes depend on methodology, verification, registry requirements and market conditions.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: WHAT HAPPENS NEXT -->
-    <section class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Execution Path</span>
-                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">What Happens Next</h2>
-                <p class="text-secondary/70 text-sm">Clear, disciplined milestone tracking from submission to issuance.</p>
+    <!-- SECTION 8: ECF OFFTAKE NETWORK (DEMAND SIDE) -->
+    <section id="offtake" class="py-16 bg-white border-b border-border">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+            <div class="space-y-2">
+                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">For Buyers & Investors</span>
+                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">ECF Offtake Network</h2>
+                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
+                    Tell ECF what you are looking for. We connect institutional demand with verified aggregation pipelines.
+                </p>
             </div>
 
-            <!-- Horizontal Step Sequence -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 text-center text-xs font-bold">
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">1</span>
-                    <span class="text-secondary">SUBMIT</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div class="p-8 bg-surface-light border border-border rounded-2xl text-left space-y-4">
+                    <h3 class="font-display font-black text-xl text-secondary uppercase">I Want to Buy Credits</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Procure high-integrity carbon credits, water conservation units, and environmental attributes from verified project cohorts.</p>
+                    <button onclick="openPartnerModal()" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all">Submit Offtake Mandate &rarr;</button>
                 </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">2</span>
-                    <span class="text-secondary">₹4,999</span>
-                </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">3</span>
-                    <span class="text-secondary">CONFIRM</span>
-                </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">4</span>
-                    <span class="text-primary font-extrabold">PROPOSAL</span>
-                </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">5</span>
-                    <span class="text-secondary">AGREEMENT</span>
-                </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">6</span>
-                    <span class="text-secondary">BUNDLE</span>
-                </div>
-                <div class="p-3 bg-white border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">7</span>
-                    <span class="text-secondary">DEVELOP</span>
-                </div>
-                <div class="p-3 bg-primary text-white border border-primary rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-mint text-secondary text-[10px] flex items-center justify-center mx-auto mb-1 font-display">8</span>
-                    <span class="text-white">OUTCOME</span>
+                <div class="p-8 bg-surface-light border border-border rounded-2xl text-left space-y-4">
+                    <h3 class="font-display font-black text-xl text-secondary uppercase">I Want to Invest / Buy Assets</h3>
+                    <p class="text-xs text-secondary/70 leading-relaxed">Invest directly in or acquire eligible clean energy, wastewater, or biomass assets structured for programmatic aggregation.</p>
+                    <button onclick="openPartnerModal()" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all">Register as Asset Buyer &rarr;</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: 100 MILLION TON MISSION & LIVE 15 MW COUNTER -->
-    <section id="mission-counter" class="py-16 bg-secondary text-white border-b border-border">
+    <!-- SECTION 9: ACTIVE AGGREGATION PIPELINE (LIVE METRICS) -->
+    <section id="pipeline" class="py-16 bg-secondary text-white border-b border-border">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
             <div class="space-y-2">
                 <span class="bg-mint/20 border border-mint/40 text-mint text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                    Institutional Target 2030
+                    Institutional Aggregation Queue
                 </span>
-                <h2 class="font-display font-black text-4xl sm:text-6xl text-white tracking-tight">
-                    100,000,000 <span class="text-mint text-2xl sm:text-4xl">tCO₂e</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight">
+                    Active Aggregation Pipeline
                 </h2>
-                <p class="text-xs sm:text-sm text-white/70 uppercase tracking-widest font-bold">Earth Carbon Foundation Mission Target</p>
+                <p class="text-xs sm:text-sm text-white/70 uppercase tracking-widest font-bold">15 MW Renewable Solar Programme</p>
             </div>
 
-            <!-- Live 15 MW Aggregation Pool Bar -->
             <div class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                    <div class="text-left">
-                        <span class="text-xs font-bold uppercase text-mint tracking-wider block">Active Aggregation Batch</span>
-                        <span class="text-lg font-black text-white font-display">Current 15 MW Renewable Programme</span>
-                    </div>
-                    <span class="bg-mint/20 text-mint text-xs font-bold px-3 py-1 rounded-full border border-mint/30">Live Firestore Sync</span>
-                </div>
-
                 <div class="space-y-2">
                     <div class="w-full bg-slate-800 rounded-xl h-5 p-0.5 overflow-hidden border border-white/10">
                         <div id="cohort-progress-bar" class="h-full rounded-lg bg-gradient-to-r from-mint to-sky-400 transition-all duration-700 ease-out" style="width: 0%;"></div>
@@ -619,46 +488,28 @@
         </div>
     </section>
 
-    <!-- SECTION 7: FINAL CONVERSION ACTION -->
-    <section id="contact" class="py-16 bg-white border-b border-border text-center">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <h2 class="font-display font-black text-3xl sm:text-5xl text-secondary uppercase">
-                Your Asset Could Be Next.
-            </h2>
-            <p class="text-secondary/70 text-sm max-w-xl mx-auto font-medium">
-                Whether you choose instant preliminary discovery or direct onboarding with a dedicated development proposal, take the first step today.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                <a href="#calculator" class="w-full sm:w-auto bg-surface-light border-2 border-primary text-primary hover:bg-primary/5 font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-sm uppercase tracking-wider">
-                    Try Free Calculator
-                </a>
-                <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-md uppercase tracking-wider">
-                    Submit &amp; Pay ₹4,999
-                </button>
-            </div>
-
-            <!-- Direct Contact Connectors -->
-            <div class="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs font-bold text-secondary/80">
-                <a href="https://wa.me/919824025431?text=Hi%20ECF!%20Exploring%20environmental%20asset%20aggregation." target="_blank" class="hover:text-primary transition-colors flex items-center gap-1">
-                    <span>💬 WhatsApp</span>
-                </a>
-                <a href="tel:+919824025431" class="hover:text-primary transition-colors flex items-center gap-1">
-                    <span>📅 Call (+91-9824025431)</span>
-                </a>
-                <a href="mailto:info@earthcarbonfoundation.org" class="hover:text-primary transition-colors flex items-center gap-1">
-                    <span>✉ info@earthcarbonfoundation.org</span>
-                </a>
+    <!-- SECTION 10: WHY ECF / TRUST -->
+    <section class="py-16 bg-white border-b border-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
+            <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">Why ECF?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-xs font-bold text-secondary/80">
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Environmental asset assessment</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Multi-asset / multi-value monetization</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Aggregation of distributed projects</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Methodology & programme alignment</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Marketability assessment & demand testing</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Institutional buyer / offtake network</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ End-to-end monitoring & verification pathway</div>
+                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Transparent live Looker Studio client ledger</div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 8: FAQ -->
+    <!-- SECTION 11: FAQ & GOVERNANCE -->
     <section id="faq" class="py-16 bg-surface-light border-b border-border">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
             <div class="text-center space-y-2 mb-6">
                 <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">Frequently Asked Questions</h2>
-                <p class="text-xs text-secondary/60">Everything you need to know about the aggregation and onboarding process.</p>
             </div>
             
             <div class="space-y-3">
@@ -678,17 +529,17 @@
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
                     <div class="px-5 pb-5 text-xs text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
-                        A: It covers primary data verification, additionality checks, technical emission calculations, and delivery of a customized Programme Proposal and draft participation agreement within 3–5 working days.
+                        A: It covers primary eligibility screening, technical emission calculations, marketability modeling, and generation of your custom Programme Proposal and live portal dashboard.
                     </div>
                 </details>
 
                 <details class="bg-white border border-border rounded-xl group transition-all">
                     <summary class="font-bold text-sm text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Why is aggregation necessary for assets under 5 MW?</span>
+                        <span>Q: Why is aggregation necessary for assets under 15 MW?</span>
                         <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
                     </summary>
                     <div class="px-5 pb-5 text-xs text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
-                        A: Standalone registry listing and third-party VVB validation costs ₹4–8 lakh, which is non-viable for sub-5 MW installations. Aggregation amortizes these fixed costs across the cohort.
+                        A: Standalone registry listing and third-party VVB validation costs ₹4–8 lakh, which is non-viable for small installations. Aggregation amortizes these fixed costs across the cohort.
                     </div>
                 </details>
             </div>
@@ -696,25 +547,14 @@
     </section>
 </main>
 
-<!-- SECTION 9: FOOTER WITH SECURE RESOURCE DOWNLOADS & DEDICATED PARTNER HUB -->
+<!-- Footer -->
 <footer id="resources" class="bg-secondary text-white border-t border-white/10 pt-16 pb-12 text-xs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <!-- Partner Callout Strip -->
-        <div class="bg-primary/40 rounded-2xl p-6 border border-mint/30 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="space-y-1 text-center md:text-left">
-                <span class="font-display font-black text-sm uppercase text-mint">EPC, ESCO &amp; Consultant Partnership &rarr;</span>
-                <p class="text-white/80 text-xs">Onboard your client assets into the 15 MW aggregation pipeline. Zero technical overhead.</p>
-            </div>
-            <button onclick="openPartnerModal()" class="bg-mint hover:bg-mint-dark text-secondary font-black px-6 py-2.5 rounded-lg text-xs uppercase tracking-wider transition-all shrink-0">
-                Partner Application
-            </button>
-        </div>
-
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div class="space-y-3">
                 <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">About &amp; Governance</h4>
                 <p class="text-white/70 text-xs leading-relaxed">
-                    Earth Carbon Foundation is an institutional Section 8 non-profit enterprise operating structured carbon aggregation frameworks in Gujarat, India.
+                    Earth Carbon Foundation is an institutional non-profit enterprise operating structured carbon aggregation frameworks in Gujarat, India.
                 </p>
                 <div class="space-y-1 text-[11px] text-white/50">
                     <div>CIN: U85300GJ2019NPL106818</div>
@@ -725,10 +565,9 @@
             <div class="space-y-3">
                 <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">Knowledge Downloads</h4>
                 <ul class="space-y-2 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Asset Playbook</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Readiness Snapshot</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Corporate Profile</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
-                    <li><a href="https://drive.google.com/file/d/1Y5p-f3TKgKTq7xCeBwu_LGoOhK54sjwN/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors flex items-center gap-1"><span>Draft Agreement</span><span class="material-symbols-outlined text-[10px]">open_in_new</span></a></li>
+                    <li><a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Asset Playbook</a></li>
+                    <li><a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Readiness Snapshot</a></li>
+                    <li><a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Corporate Profile</a></li>
                 </ul>
             </div>
 
@@ -738,7 +577,6 @@
                     <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Terms of Engagement</a></li>
                     <li><a href="https://drive.google.com/file/d/1STw2B_c0xd0AGCFvCk7newAXkzAZovgk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Refund Policy</a></li>
                     <li><a href="https://drive.google.com/file/d/1LNnUHPf5vsHGLJRsgi8R-vAVgBRunS0W/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Privacy Policy</a></li>
-                    <li><a href="https://drive.google.com/file/d/1-SDL_8X6q169Uu0OoPwCLb8UZHfj_UOL/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Governance Declarations</a></li>
                 </ul>
             </div>
 
@@ -759,7 +597,7 @@
     </div>
 </footer>
 
-<!-- Engagement Assessment Modal -->
+<!-- Modals -->
 <div id="assessmentModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
         <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
@@ -770,18 +608,16 @@
     </div>
 </div>
 
-<!-- Partner Modal -->
 <div id="partnerModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
         <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
-            <span class="font-black text-sm font-display uppercase tracking-wider">Programme Partner Application</span>
+            <span class="font-black text-sm font-display uppercase tracking-wider">ECF Offtake &amp; Partner Network Application</span>
             <button onclick="closePartnerModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
         </div>
         <iframe src="https://forms.gle/A9K4ZvTZ94HvAisR7" class="w-full grow border-0"></iframe>
     </div>
 </div>
 
-<!-- Login Modal -->
 <div id="loginModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-8">
         <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-secondary/50 hover:text-secondary"><span class="material-symbols-outlined">close</span></button>
@@ -797,43 +633,10 @@
             </div>
             <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all shadow-md">Login</button>
         </form>
-        <p class="text-center text-xs text-secondary/60 mt-4">No account yet? <button onclick="closeLoginModal(); openSignupModal();" class="text-primary font-bold hover:underline">Sign Up</button></p>
     </div>
 </div>
 
-<!-- Signup Modal -->
-<div id="signupModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-8">
-        <button onclick="closeSignupModal()" class="absolute top-4 right-4 text-secondary/50 hover:text-secondary"><span class="material-symbols-outlined">close</span></button>
-        <h2 class="font-display font-black text-2xl text-secondary mb-6 text-center uppercase">Create Account</h2>
-        <form onsubmit="handleSignup(event)" class="space-y-4">
-            <div>
-                <label class="block text-xs font-black text-secondary uppercase tracking-wider mb-1">Email</label>
-                <input type="email" id="signupEmail" required class="w-full bg-surface-light border border-border rounded-lg p-3 text-sm focus:ring-primary focus:border-primary outline-none"/>
-            </div>
-            <div>
-                <label class="block text-xs font-black text-secondary uppercase tracking-wider mb-1">Password</label>
-                <input type="password" id="signupPassword" required class="w-full bg-surface-light border border-border rounded-lg p-3 text-sm focus:ring-primary focus:border-primary outline-none"/>
-            </div>
-            <div>
-                <label class="block text-xs font-black text-secondary uppercase tracking-wider mb-1">Confirm Password</label>
-                <input type="password" id="signupConfirmPassword" required class="w-full bg-surface-light border border-border rounded-lg p-3 text-sm focus:ring-primary focus:border-primary outline-none"/>
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all shadow-md">Sign Up</button>
-        </form>
-        <p class="text-center text-xs text-secondary/60 mt-4">Already registered? <button onclick="closeSignupModal(); openLoginModal();" class="text-primary font-bold hover:underline">Login</button></p>
-    </div>
-</div>
-
-<!-- Floating WhatsApp Action -->
-<div id="whatsappFloat" class="fixed bottom-6 right-6 z-40 hidden flex-col items-end gap-1">
-    <div class="bg-secondary text-white text-[11px] font-medium px-3 py-1.5 rounded-lg shadow-lg border border-white/10">Questions? Chat with our team.</div>
-    <a href="https://wa.me/919824025431?text=Hi%20ECF!%20Exploring%20environmental%20asset%20aggregation." target="_blank" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    </a>
-</div>
-
-<!-- Dynamic Calculator Engine & Infinite Slider Duplicate Logic -->
+<!-- Dynamic Calculator Engine -->
 <script>
     const factors = {
         solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500, name: "Solar Energy Generation" },
@@ -909,32 +712,23 @@
     window.closeAssessmentModal = () => document.getElementById('assessmentModal').classList.add('hidden');
     window.openPartnerModal = () => document.getElementById('partnerModal').classList.remove('hidden');
     window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
+    window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
+    window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Clone cards for seamless infinite CSS looping
-        const track = document.getElementById('heroCarouselTrack');
-        if (track && !track.dataset.cloned) {
-            track.innerHTML += track.innerHTML;
-            track.dataset.cloned = 'true';
-        }
-
         const capInput = document.getElementById('capacityInput');
         const priceInput = document.getElementById('priceInput');
         if (capInput) capInput.addEventListener('input', calculateCarbon);
         if (priceInput) priceInput.addEventListener('input', calculateCarbon);
         calculateCarbon();
-        setTimeout(() => {
-            const wa = document.getElementById('whatsappFloat');
-            if (wa) { wa.classList.remove('hidden'); wa.classList.add('flex'); }
-        }, 3000);
     });
 </script>
 
 <!-- Firebase Auth & Firestore Live Aggregation Sync -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
@@ -951,7 +745,6 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Auth State
     onAuthStateChanged(auth, (user) => {
         const authButtons = document.getElementById('authButtons');
         const userDashboardNav = document.getElementById('userDashboardNav');
@@ -972,9 +765,7 @@
         }
     });
 
-    // Real-Time 15 MW Cohort Progress & Metrics Listener
     const TOTAL_POOL_KW = 15000;
-
     onSnapshot(collection(db, "projects"), (snapshot) => {
         let totalAllocatedKw = 0;
         let totalAnnualTco2e = 0;
@@ -983,30 +774,10 @@
 
         snapshot.forEach((doc) => {
             const data = doc.data();
-
-            if (data.status === "proposal_issued" || data.proposalIssued || data.proposal) {
-                proposalsIssued++;
-            }
-
-            const annual = parseFloat(
-                data.annualTco2e || 
-                data["annual tCO2e"] || 
-                data["annual tC02e"] || 
-                data.annual_tco2e || 
-                0
-            );
-
-            let kw = parseFloat(
-                data.slotAllocationKw || 
-                data.capacity || 
-                data.energyCapacity || 
-                data.Energy_Capacity || 
-                0
-            );
-
-            if (!kw && annual > 0) {
-                kw = Math.round(annual / 0.82);
-            }
+            if (data.status === "proposal_issued" || data.proposalIssued || data.proposal) proposalsIssued++;
+            const annual = parseFloat(data.annualTco2e || data.annual_tco2e || 0);
+            let kw = parseFloat(data.slotAllocationKw || data.capacity || 0);
+            if (!kw && annual > 0) kw = Math.round(annual / 0.82);
 
             totalAllocatedKw += kw;
             totalAnnualTco2e += (annual > 0 ? annual : kw * 0.82);
@@ -1017,7 +788,6 @@
 
         const progressBar = document.getElementById("cohort-progress-bar");
         const allocatedKwEl = document.getElementById("allocated-kw");
-
         if (progressBar) progressBar.style.width = `${progressPercent}%`;
         if (allocatedKwEl) allocatedKwEl.innerText = `${totalAllocatedKw.toLocaleString()} kW (${progressPercent}%)`;
 
@@ -1034,21 +804,6 @@
         console.warn("Firestore Listener:", error.message);
     });
 
-    window.handleSignup = async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('signupEmail').value;
-        const password = document.getElementById('signupPassword').value;
-        const confirmPassword = document.getElementById('signupConfirmPassword').value;
-        if (password !== confirmPassword) { alert('Passwords do not match!'); return; }
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await addDoc(collection(db, "users"), { uid: userCredential.user.uid, email: email, createdAt: new Date(), projects: [] });
-            alert('Account created successfully!');
-            window.closeSignupModal();
-            window.location.href = "/dashboard.html";
-        } catch (error) { alert('Signup Error: ' + error.message); }
-    };
-
     window.handleLogin = async (e) => {
         e.preventDefault();
         const email = document.getElementById('loginEmail').value;
@@ -1056,16 +811,10 @@
         try {
             await signInWithEmailAndPassword(auth, email, password);
             window.closeLoginModal();
-            window.location.href = "/dashboard.html";
         } catch (error) { alert('Login Error: ' + error.message); }
     };
 
     window.handleLogout = async () => { await signOut(auth); window.location.reload(); };
-    window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
-    window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
-    window.openSignupModal = () => document.getElementById('signupModal').classList.remove('hidden');
-    window.closeSignupModal = () => document.getElementById('signupModal').classList.add('hidden');
 </script>
-
 </body>
 </html>
