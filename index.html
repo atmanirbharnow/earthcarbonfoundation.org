@@ -68,15 +68,15 @@
 
         <div class="flex items-center gap-3 shrink-0" id="authButtons">
             <button onclick="openLoginModal()" class="text-secondary hover:text-primary font-bold text-xs sm:text-sm transition-colors px-2 py-2">Login</button>
-            <button onclick="openAssessmentModal()" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center gap-2">
+            <a href="https://rzp.io/rzp/QhoV82k" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center gap-2">
                 <span>Assess Asset</span>
                 <span class="text-mint bg-white/10 px-2 py-0.5 rounded">₹4,999</span>
-            </button>
+            </a>
         </div>
 
         <div class="hidden items-center gap-3 shrink-0" id="userDashboardNav">
             <span class="text-xs sm:text-sm font-semibold text-primary" id="navUserEmail"></span>
-            <button onclick="openAssessmentModal()" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Client Portal</button>
+            <a href="https://rzp.io/rzp/QhoV82k" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Client Portal</a>
             <button onclick="handleLogout()" class="text-secondary hover:text-red-600 font-semibold text-xs sm:text-sm transition-colors px-2 py-2">Logout</button>
         </div>
     </div>
@@ -105,7 +105,7 @@
 
             <!-- Dual Split Intent CTAs -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="#intake" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
+                <a href="https://rzp.io/rzp/QhoV82k" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
                     <span>I Have Environmental Assets</span>
                     <span class="material-symbols-outlined text-mint text-sm">arrow_forward</span>
                 </a>
@@ -157,7 +157,7 @@
                     <span class="text-3xl block group-hover:scale-110 transition-transform">🏭</span>
                     <span class="font-bold text-xs sm:text-sm text-secondary block">Industrial / Process Heat</span>
                 </div>
-                <div onclick="openAssessmentModal()" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
+                <div onclick="window.open('https://rzp.io/rzp/QhoV82k', '_blank')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
                     <span class="text-3xl block group-hover:scale-110 transition-transform">➕</span>
                     <span class="font-bold text-xs sm:text-sm text-secondary block">Other Assets / Methane</span>
                 </div>
@@ -237,9 +237,9 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
+                    <a href="https://rzp.io/rzp/QhoV82k" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider text-center">
                         <span>Assess My Asset — ₹4,999</span>
-                    </button>
+                    </a>
                     <button onclick="toggleInlineEmailForm()" class="w-full sm:w-auto bg-white border-2 border-border text-secondary hover:border-primary font-bold px-6 py-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
                         <span>📧 Email Free Calculation</span>
                     </button>
@@ -404,9 +404,9 @@
                 </div>
 
                 <div class="pt-4">
-                    <button onclick="openAssessmentModal()" class="w-full sm:w-auto bg-mint hover:bg-mint-dark text-secondary font-black px-10 py-4 rounded-xl text-sm transition-all shadow-lg uppercase tracking-wider inline-flex items-center gap-2">
+                    <a href="https://rzp.io/rzp/QhoV82k" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-mint hover:bg-mint-dark text-secondary font-black px-10 py-4 rounded-xl text-sm transition-all shadow-lg uppercase tracking-wider inline-flex items-center gap-2">
                         <span>Assess My Asset &rarr;</span>
-                    </button>
+                    </a>
                 </div>
 
                 <p class="text-[11px] text-white/60 max-w-md mx-auto leading-relaxed">
@@ -598,16 +598,6 @@
 </footer>
 
 <!-- Modals -->
-<div id="assessmentModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
-        <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
-            <span class="font-black text-sm font-display uppercase tracking-wider">Environmental Asset Engagement Form (₹4,999)</span>
-            <button onclick="closeAssessmentModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
-        </div>
-        <iframe id="filloutIframe" src="https://forms.gle/PHZePsX1jieAQ3p38" class="w-full grow border-0"></iframe>
-    </div>
-</div>
-
 <div id="partnerModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
         <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
@@ -708,8 +698,6 @@
         if (form) form.classList.add('hidden');
     }
 
-    window.openAssessmentModal = () => document.getElementById('assessmentModal').classList.remove('hidden');
-    window.closeAssessmentModal = () => document.getElementById('assessmentModal').classList.add('hidden');
     window.openPartnerModal = () => document.getElementById('partnerModal').classList.remove('hidden');
     window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
     window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
