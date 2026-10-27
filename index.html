@@ -1,808 +1,447 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Earth Carbon Foundation | Environmental Asset Aggregation & Registry</title>
-    <meta name="description" content="Convert distributed solar, water, waste, forestry, and efficiency assets into verified institutional value through UN-aligned aggregation programmes.">
-    
-    <!-- Tailwind CSS with Plugins -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    
-    <!-- Google Fonts & Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#003527",
-                        "primary-dark": "#002117",
-                        secondary: "#0F172A",
-                        mint: "#10B981",
-                        "mint-dark": "#059669",
-                        "surface-light": "#F8FAFC",
-                        border: "#E2E8F0"
-                    },
-                    fontFamily: {
-                        display: ["Public Sans", "sans-serif"],
-                        body: ["Inter", "sans-serif"]
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #0F172A; }
-        h1, h2, h3, h4, .font-display { font-family: 'Public Sans', sans-serif; }
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        details[open] summary .faq-chevron { transform: rotate(180deg); }
-        input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #E2E8F0; border-radius: 4px; outline: none; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #003527; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
-        input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #003527; cursor: pointer; border: none; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Carbon Foundation | Sovereign Environmental Data Registry</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- React & ReactDOM CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for In-Browser JSX Compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="bg-white text-secondary antialiased">
+<body class="bg-[#f8f9ff] text-[#0b1c30] antialiased min-h-screen flex flex-col justify-between font-sans selection:bg-[#6cf8bb] selection:text-[#00714d]">
 
-<!-- Navigation -->
-<nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-        <a href="#" class="flex items-center gap-3 shrink-0">
-            <span class="font-display font-black text-xl sm:text-2xl text-primary tracking-tight">Earth Carbon Foundation</span>
-            <span class="hidden md:inline-block bg-surface-light border border-border text-[10px] font-bold px-2.5 py-0.5 rounded-full text-secondary/70 uppercase">Asset Registry</span>
-        </a>
-        
-        <div class="hidden lg:flex items-center gap-7 text-xs xl:text-sm font-bold text-secondary/80">
-            <a href="#about" class="hover:text-primary transition-colors">About</a>
-            <a href="#intake" class="hover:text-primary transition-colors">What You Have</a>
-            <a href="#calculator" class="hover:text-primary transition-colors">Calculator</a>
-            <a href="#aggregation" class="hover:text-primary transition-colors">Why Aggregate</a>
-            <a href="#how-it-works" class="hover:text-primary transition-colors">How It Works</a>
-            <a href="#offtake" class="hover:text-primary transition-colors">Buy Credits</a>
-            <a href="#pipeline" class="hover:text-primary transition-colors">Pipeline</a>
-            <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
-        </div>
+    <div id="root"></div>
 
-        <div class="flex items-center gap-3 shrink-0" id="authButtons">
-            <button onclick="openLoginModal()" class="text-secondary hover:text-primary font-bold text-xs sm:text-sm transition-colors px-2 py-2">Login</button>
-            <a href="https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center gap-2">
-                <span>Assess Asset</span>
-                <span class="text-mint bg-white/10 px-2 py-0.5 rounded">₹4,999</span>
-            </a>
-        </div>
+    <script type="text/babel">
+        function App() {
+            const [currentScreen, setCurrentScreen] = React.useState('welcome');
+            const [copied, setCopied] = React.useState(false);
+            const [generatedId] = React.useState('ECF-2026-412');
+            const [paymentRail, setPaymentRail] = React.useState('upi');
+            const [adminAuth, setAdminAuth] = React.useState(false);
+            const [adminPass, setAdminPass] = React.useState('');
 
-        <div class="hidden items-center gap-3 shrink-0" id="userDashboardNav">
-            <span class="text-xs sm:text-sm font-semibold text-primary" id="navUserEmail"></span>
-            <a href="https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html" target="_blank" rel="noopener noreferrer" class="bg-primary hover:bg-primary-dark text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-lg transition-all">Client Portal</a>
-            <button onclick="handleLogout()" class="text-secondary hover:text-red-600 font-semibold text-xs sm:text-sm transition-colors px-2 py-2">Logout</button>
-        </div>
-    </div>
-</nav>
+            const sectoralScopes = {
+                "Scope 1: Energy Industries": [
+                    "Electricity generation and supply",
+                    "Displacement of more-GHG-intensive output",
+                    "Renewable energy (Solar, Wind, Hydro)",
+                    "Low carbon electricity",
+                    "Energy efficiency",
+                    "Fuel/feedstock switch",
+                    "Energy for industries"
+                ],
+                "Scope 2: Energy Distribution": [
+                    "Grid loss reduction",
+                    "Transmission efficiency"
+                ],
+                "Scope 3: Energy Demand": [
+                    "Building energy efficiency",
+                    "Industrial process optimization",
+                    "Appliance and lighting retrofits"
+                ],
+                "Scope 7: Transport": [
+                    "Bus rapid transit (BRT) systems",
+                    "Electric vehicle (EV) fleets & charging infrastructure",
+                    "Rail transport optimization"
+                ],
+                "Scope 13: Waste Handling and Disposal": [
+                    "Landfill gas capture and power generation",
+                    "Composting & organic waste valorization",
+                    "Wastewater treatment methane destruction"
+                ],
+                "Scope 14: Afforestation & Reforestation": [
+                    "GHG removal by carbon sinks",
+                    "Agroforestry & mangrove restoration"
+                ],
+                "Scope 15: Agriculture": [
+                    "Soil organic carbon sequestration & biochar",
+                    "GHG emission avoidance via livestock management",
+                    "Alternate wetting and drying (AWD) in paddy cultivation"
+                ]
+            };
 
-<main>
-    <!-- SECTION 1: HERO SECTION -->
-    <section id="about" class="bg-surface-light border-b border-border py-16 lg:py-24 text-center">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">
-                <span class="material-symbols-outlined text-sm">energy_savings_leaf</span>
-                Environmental Asset Monetisation
-            </div>
+            const [form2A, setForm2A] = React.useState({
+                scope: 'Scope 1: Energy Industries',
+                subCategory: 'Renewable energy (Solar, Wind, Hydro)',
+                role: 'Farmer / Producer',
+                state: 'Gujarat',
+                district: 'Ahmedabad',
+                projectSize: '',
+                contactName: '',
+                contactEmail: '',
+                contactPhone: ''
+            });
 
-            <div class="space-y-4">
-                <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-secondary tracking-tight max-w-4xl mx-auto leading-tight uppercase">
-                    Convert Your Environmental Assets into Value
-                </h1>
-                <p class="text-xs sm:text-sm font-black text-primary uppercase tracking-widest">
-                    Solar • Water • Waste • Forest • Energy Efficiency • More
-                </p>
-                <p class="text-sm sm:text-base text-secondary/70 max-w-2xl mx-auto leading-relaxed">
-                    Already creating measurable environmental benefits? ECF helps assess, quantify, qualify, and connect eligible assets with global environmental markets.
-                </p>
-            </div>
+            const [form2B, setForm2B] = React.useState({
+                orgName: '',
+                selectedScopes: [],
+                participantCount: '',
+                geography: '',
+                contactPerson: '',
+                contactEmail: '',
+                contactPhone: ''
+            });
 
-            <!-- Dual Split Intent CTAs -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-black text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider">
-                    <span>I Have Environmental Assets</span>
-                    <span class="material-symbols-outlined text-mint text-sm">arrow_forward</span>
-                </a>
-                <a href="#offtake" class="w-full sm:w-auto bg-white border-2 border-border hover:border-primary text-secondary px-8 py-4 rounded-xl font-black text-sm transition-all shadow-sm flex items-center justify-center gap-2 uppercase tracking-wider">
-                    <span>I Want to Buy</span>
-                    <span class="material-symbols-outlined text-primary text-sm">north_east</span>
-                </a>
-            </div>
-        </div>
-    </section>
+            const [poaCohorts] = React.useState([
+                { id: 'POA-SOLAR-01', title: 'Gujarat Decentralized Solar Grid PoA', capacityFilled: 82, targetKw: '50 MW', lead: 'Earth Carbon Foundation' },
+                { id: 'POA-AGRI-02', title: 'North India Soil Sequestration & Biochar', capacityFilled: 64, targetKw: '25,000 Tons', lead: 'AgriCarbon Alliance' },
+                { id: 'POA-EV-03', title: 'Pan-India Electric Fleet & Charging Hub', capacityFilled: 91, targetKw: '10,000 EVs', lead: 'GreenLogistics India' }
+            ]);
 
-    <!-- SECTION 2: WHAT DO YOU HAVE? (8 SECTOR CARDS) -->
-    <section id="intake" class="py-16 bg-white border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Step 01: Identification</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">What Do You Have?</h2>
-                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
-                    Select the environmental assets you <strong>operate, own, or control</strong> to begin eligibility mapping.
-                </p>
-            </div>
+            const [errors, setErrors] = React.useState({});
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div onclick="selectHeroAsset('solar')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">☀️</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Solar / Renewable Energy</span>
-                </div>
-                <div onclick="selectHeroAsset('water')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">💧</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Water / Treatment / Reuse</span>
-                </div>
-                <div onclick="selectHeroAsset('ee')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">♻️</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Waste / Biogas / Biomass</span>
-                </div>
-                <div onclick="selectHeroAsset('forest')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">🌳</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Forest / Agroforestry / Land</span>
-                </div>
-                <div onclick="selectHeroAsset('ee')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">⚡</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Energy Efficiency</span>
-                </div>
-                <div onclick="selectHeroAsset('forest')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">🌱</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Nature / Restoration</span>
-                </div>
-                <div onclick="selectHeroAsset('solar')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">🏭</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Industrial / Process Heat</span>
-                </div>
-                <div onclick="window.open('https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html', '_blank')" class="p-5 bg-surface-light border border-border hover:border-primary rounded-2xl cursor-pointer transition-all hover:shadow-md text-center space-y-2 group">
-                    <span class="text-3xl block group-hover:scale-110 transition-transform">➕</span>
-                    <span class="font-bold text-xs sm:text-sm text-secondary block">Other Assets / Methane</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            const handleScopeToggle = (scopeKey) => {
+                setForm2B(prev => ({
+                    ...prev,
+                    selectedScopes: prev.selectedScopes.includes(scopeKey)
+                        ? prev.selectedScopes.filter(s => s !== scopeKey)
+                        : [...prev.selectedScopes, scopeKey]
+                }));
+            };
 
-    <!-- SECTION 3: FREE ASSET CALCULATOR -->
-    <section id="calculator" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Step 02: Discovery</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">Free Environmental Asset Calculator</h2>
-                <p class="text-secondary/70 text-sm font-semibold tracking-wide">
-                    YOUR ASSET &rarr; CAPACITY &rarr; IMPACT &rarr; INDICATIVE VALUE
-                </p>
-            </div>
+            const validateForm2A = () => {
+                const newErrors = {};
+                if (!form2A.projectSize) newErrors.projectSize = 'Project size is required';
+                if (!form2A.contactName) newErrors.contactName = 'Name is required';
+                if (!form2A.contactEmail || !form2A.contactEmail.includes('@')) newErrors.contactEmail = 'Valid email is required';
+                if (!form2A.contactPhone) newErrors.contactPhone = 'Phone number is required';
+                setErrors(newErrors);
+                return Object.keys(newErrors).length === 0;
+            };
 
-            <div class="bg-white border-2 border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
-                <!-- Asset Choice Radio Tabs -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-bold">
-                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
-                        <input type="radio" name="calcAsset" value="solar" checked onchange="switchAssetType('solar')" class="text-primary focus:ring-primary"/>
-                        <span>Solar PV</span>
-                    </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
-                        <input type="radio" name="calcAsset" value="ee" onchange="switchAssetType('ee')" class="text-primary focus:ring-primary"/>
-                        <span>Efficiency</span>
-                    </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
-                        <input type="radio" name="calcAsset" value="water" onchange="switchAssetType('water')" class="text-primary focus:ring-primary"/>
-                        <span>Water Reuse</span>
-                    </label>
-                    <label class="flex items-center justify-center gap-2 p-3 bg-surface-light rounded-lg border border-border cursor-pointer hover:border-primary">
-                        <input type="radio" name="calcAsset" value="forest" onchange="switchAssetType('forest')" class="text-primary focus:ring-primary"/>
-                        <span>Nature & Agro</span>
-                    </label>
-                </div>
+            const validateForm2B = () => {
+                const newErrors = {};
+                if (!form2B.orgName) newErrors.orgName = 'Organization name is required';
+                if (form2B.selectedScopes.length === 0) newErrors.selectedScopes = 'Select at least one sectoral scope';
+                if (!form2B.participantCount) newErrors.participantCount = 'Participant count is required';
+                if (!form2B.geography) newErrors.geography = 'Geography is required';
+                if (!form2B.contactPerson) newErrors.contactPerson = 'Contact person is required';
+                if (!form2B.contactEmail || !form2B.contactEmail.includes('@')) newErrors.contactEmail = 'Valid email is required';
+                setErrors(newErrors);
+                return Object.keys(newErrors).length === 0;
+            };
 
-                <!-- Sliders -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-border">
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center text-xs font-bold uppercase">
-                            <span id="capacityLabel" class="text-secondary">Installed Capacity</span>
-                            <span id="capacityValueText" class="text-primary font-black">500 kW</span>
+            const handleCopyText = (text) => {
+                navigator.clipboard.writeText(text);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+            };
+
+            return (
+                <div className="min-h-screen flex flex-col justify-between">
+                    {/* Header */}
+                    <header className="bg-white border-b border-[#c2c8c4]/40 sticky top-0 z-50 shadow-xs">
+                        <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+                            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentScreen('welcome')}>
+                                <div className="w-10 h-10 rounded-lg bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center font-bold">
+                                    <span className="material-symbols-outlined text-[24px]">eco</span>
+                                </div>
+                                <div>
+                                    <span className="text-xl font-extrabold tracking-tight text-[#000b07]">Earth Carbon Foundation</span>
+                                    <div className="flex items-center space-x-1.5">
+                                        <span className="w-2 h-2 rounded-full bg-[#006c49]"></span>
+                                        <span className="text-xs text-[#727875] font-mono">Sovereign Environmental Data Registry</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <button onClick={() => setCurrentScreen('pathways')} className="text-xs font-semibold bg-[#eff4ff] text-[#006c49] border border-[#006c49]/30 px-4 py-2.5 rounded-lg hover:bg-[#e2edff] transition-all cursor-pointer">
+                                    Explore PoA Portfolios
+                                </button>
+                                <button onClick={() => setCurrentScreen('admin')} className="text-xs font-semibold bg-[#0f241d] text-[#6ffbbe] px-4 py-2.5 rounded-lg hover:bg-black transition-all cursor-pointer">
+                                    Admin Portal
+                                </button>
+                            </div>
                         </div>
-                        <input id="capacityInput" type="range" min="500" max="10000" value="500" step="500"/>
-                    </div>
-                    <div class="space-y-2">
-                        <div class="flex justify-between items-center text-xs font-bold uppercase">
-                            <span class="text-secondary">Indicative Carbon Rate</span>
-                            <span id="priceValueText" class="text-primary font-black">$10.00 / tCO₂e</span>
+                    </header>
+
+                    {/* Main Content */}
+                    <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 flex flex-col justify-center">
+
+                        {currentScreen === 'welcome' && (
+                            <div className="max-w-2xl mx-auto text-center space-y-8 bg-white border border-[#c2c8c4]/60 rounded-3xl p-10 sm:p-14 shadow-sm">
+                                <div className="w-20 h-20 mx-auto rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center shadow-md">
+                                    <span className="material-symbols-outlined text-[40px]">eco</span>
+                                </div>
+                                <div className="space-y-4">
+                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#eff4ff] text-[#006c49] border border-[#c2c8c4]/40">
+                                        Environmental Registry Protocol
+                                    </span>
+                                    <h1 className="text-3xl sm:text-5xl font-extrabold text-[#000b07] tracking-tight">
+                                        Welcome to Earth Carbon Foundation
+                                    </h1>
+                                    <div className="py-2 space-y-2">
+                                        <p className="text-xl font-semibold text-[#006c49] italic">"The World Is One Family"</p>
+                                        <p className="text-xs text-[#727875] font-mono uppercase tracking-widest">— Vasudhaiva Kutumbakam —</p>
+                                    </div>
+                                </div>
+                                <div className="pt-4 flex justify-center">
+                                    <button onClick={() => setCurrentScreen('pathways')} className="px-8 h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-base flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer">
+                                        <span>Enter Registry & PoA Portfolios</span>
+                                        <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        {currentScreen === 'pathways' && (
+                            <div className="space-y-12">
+                                <div className="text-center space-y-4 max-w-3xl mx-auto">
+                                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#eff4ff] text-[#006c49] border border-[#c2c8c4]/40">Global Climate Asset Registry & PoA Platform</span>
+                                    <h1 className="text-3xl sm:text-5xl font-extrabold text-[#000b07] tracking-tight">Monetize Your Low-Carbon Actions with Institutional Rigor</h1>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div onClick={() => setCurrentScreen('form-2a')} className="group bg-white border-2 border-[#c2c8c4]/60 hover:border-[#006c49] rounded-3xl p-8 shadow-sm transition-all duration-300 cursor-pointer flex flex-col justify-between">
+                                        <div className="space-y-6">
+                                            <div className="w-12 h-12 rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center">
+                                                <span className="material-symbols-outlined text-[24px]">agriculture</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <span className="text-xs font-mono uppercase tracking-wider text-[#006c49] font-bold">Option A • Smallholders & Single Assets</span>
+                                                <h2 className="text-2xl font-extrabold text-[#000b07]">Join an Existing Programme</h2>
+                                                <p className="text-xs sm:text-sm text-[#424845]">Plug into active baseline frameworks with zero upfront screening fees.</p>
+                                            </div>
+                                        </div>
+                                        <div className="pt-8"><button className="w-full h-12 bg-[#0f241d] group-hover:bg-[#006c49] text-white font-bold rounded-xl text-xs">Proceed to Form 2A</button></div>
+                                    </div>
+
+                                    <div onClick={() => setCurrentScreen('form-2b')} className="group bg-white border-2 border-[#c2c8c4]/60 hover:border-[#006c49] rounded-3xl p-8 shadow-sm transition-all duration-300 cursor-pointer flex flex-col justify-between">
+                                        <div className="space-y-6">
+                                            <div className="w-12 h-12 rounded-2xl bg-[#0f241d] text-[#6ffbbe] flex items-center justify-center">
+                                                <span className="material-symbols-outlined text-[24px]">domain</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <span className="text-xs font-mono uppercase tracking-wider text-[#006c49] font-bold">Option B • EPCs & Developers</span>
+                                                <h2 className="text-2xl font-extrabold text-[#000b07]">Propose a Bundled Programme</h2>
+                                                <p className="text-xs sm:text-sm text-[#424845]">Structure and register large-scale multi-site carbon portfolios.</p>
+                                            </div>
+                                        </div>
+                                        <div className="pt-8"><button className="w-full h-12 bg-[#0f241d] group-hover:bg-[#006c49] text-white font-bold rounded-xl text-xs">Proceed to Form 2B</button></div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-6 pt-6">
+                                    <div className="border-b border-[#c2c8c4]/40 pb-3 flex justify-between items-center">
+                                        <div>
+                                            <h2 className="text-xl font-extrabold text-[#000b07]">Active Waitlisted PoA Cohorts</h2>
+                                            <p className="text-xs text-[#727875]">Real-time capacity and saturation indicators.</p>
+                                        </div>
+                                        <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#006c49]/15 text-[#006c49] font-bold">Live Feed</span>
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                        {poaCohorts.map((poa) => (
+                                            <div key={poa.id} className="bg-white border border-[#c2c8c4]/60 rounded-2xl p-6 shadow-xs space-y-4">
+                                                <div className="flex justify-between items-start">
+                                                    <span className="text-[10px] font-mono bg-[#eff4ff] text-[#006c49] px-2.5 py-1 rounded font-bold">{poa.id}</span>
+                                                    <span className="text-xs font-bold text-[#727875]">{poa.targetKw}</span>
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-base font-bold text-[#000b07]">{poa.title}</h3>
+                                                    <p className="text-xs text-[#727875] mt-0.5">Lead: {poa.lead}</p>
+                                                </div>
+                                                <div className="space-y-1.5 pt-2">
+                                                    <div className="flex justify-between text-xs font-bold">
+                                                        <span className="text-[#727875]">Cohort Saturation</span>
+                                                        <span className="text-[#006c49]">{poa.capacityFilled}% Filled</span>
+                                                    </div>
+                                                    <div className="w-full h-3 bg-[#e5eeff] rounded-full overflow-hidden p-0.5 border border-[#c2c8c4]/30">
+                                                        <div className="h-full bg-gradient-to-r from-[#006c49] to-[#6cf8bb] rounded-full" style={{ width: `${poa.capacityFilled}%` }}></div>
+                                                    </div>
+                                                </div>
+                                                <button onClick={() => setCurrentScreen('form-2a')} className="w-full h-10 bg-[#eff4ff] hover:bg-[#0f241d] hover:text-white text-[#000b07] font-bold rounded-xl text-xs border border-[#c2c8c4]/40 cursor-pointer">Lock Slot in PoA →</button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {currentScreen === 'form-2a' && (
+                            <div className="bg-white border border-[#c2c8c4]/60 rounded-3xl p-8 sm:p-10 shadow-sm space-y-8 max-w-3xl mx-auto w-full">
+                                <div className="flex justify-between items-center border-b border-[#c2c8c4]/30 pb-4">
+                                    <div>
+                                        <span className="text-xs font-mono text-[#006c49] font-bold uppercase">Form 2A • UNFCCC Scope Selection</span>
+                                        <h1 className="text-2xl font-extrabold text-[#000b07]">Join Existing Programme (PoA)</h1>
+                                    </div>
+                                    <button onClick={() => setCurrentScreen('pathways')} className="text-xs font-bold text-[#006c49] flex items-center gap-1 cursor-pointer">Back</button>
+                                </div>
+
+                                <form onSubmit={(e) => { e.preventDefault(); if(validateForm2A()) setCurrentScreen('payment'); }} className="space-y-6">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#000b07] uppercase">1. UNFCCC Sectoral Scope</label>
+                                            <select value={form2A.scope} onChange={(e) => {
+                                                const newScope = e.target.value;
+                                                setForm2A({...form2A, scope: newScope, subCategory: sectoralScopes[newScope][0]});
+                                            }} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs font-medium outline-none">
+                                                {Object.keys(sectoralScopes).map((scopeKey) => (
+                                                    <option key={scopeKey} value={scopeKey}>{scopeKey}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#000b07] uppercase">2. Activity Sub-Category</label>
+                                            <select value={form2A.subCategory} onChange={(e) => setForm2A({...form2A, subCategory: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs font-medium outline-none">
+                                                {sectoralScopes[form2A.scope]?.map((sub) => (
+                                                    <option key={sub} value={sub}>{sub}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#000b07] uppercase">3. Stakeholder Role</label>
+                                            <select value={form2A.role} onChange={(e) => setForm2A({...form2A, role: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs font-medium outline-none">
+                                                <option value="Farmer / Producer">Farmer / Producer</option>
+                                                <option value="Cooperative Head">Cooperative Head</option>
+                                                <option value="Small Business Owner">Small Business Owner</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-bold text-[#000b07] uppercase">4. Project Size / Capacity</label>
+                                            <input type="text" placeholder="e.g. 50 kW or tons" value={form2A.projectSize} onChange={(e) => setForm2A({...form2A, projectSize: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-sm outline-none" />
+                                            {errors.projectSize && <span className="text-[10px] text-red-600 font-bold">{errors.projectSize}</span>}
+                                        </div>
+                                    </div>
+
+                                    <div className="border-t border-[#c2c8c4]/30 pt-4 space-y-4">
+                                        <h3 className="text-xs font-bold uppercase text-[#727875]">Contact & Verification Details</h3>
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                            <input type="text" placeholder="Full Name" value={form2A.contactName} onChange={(e) => setForm2A({...form2A, contactName: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                            <input type="email" placeholder="Email Address" value={form2A.contactEmail} onChange={(e) => setForm2A({...form2A, contactEmail: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                            <input type="text" placeholder="Phone Number" value={form2A.contactPhone} onChange={(e) => setForm2A({...form2A, contactPhone: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" className="w-full h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-sm cursor-pointer shadow-md">Proceed to Secure Booking (₹2,100) →</button>
+                                </form>
+                            </div>
+                        )}
+
+                        {currentScreen === 'form-2b' && (
+                            <div className="bg-white border border-[#c2c8c4]/60 rounded-3xl p-8 sm:p-10 shadow-sm space-y-8 max-w-3xl mx-auto w-full">
+                                <div className="flex justify-between items-center border-b border-[#c2c8c4]/30 pb-4">
+                                    <div>
+                                        <span className="text-xs font-mono text-[#006c49] font-bold uppercase">Form 2B • Aggregator Pipeline</span>
+                                        <h1 className="text-2xl font-extrabold text-[#000b07]">Propose a Bundled Programme</h1>
+                                    </div>
+                                    <button onClick={() => setCurrentScreen('pathways')} className="text-xs font-bold text-[#006c49] cursor-pointer">Back</button>
+                                </div>
+
+                                <form onSubmit={(e) => { e.preventDefault(); if(validateForm2B()) setCurrentScreen('payment'); }} className="space-y-6">
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-bold text-[#000b07] uppercase">Organization Name</label>
+                                        <input type="text" placeholder="e.g. Gujarat Solar EPC Ltd." value={form2B.orgName} onChange={(e) => setForm2B({...form2B, orgName: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-sm outline-none" />
+                                    </div>
+
+                                    <div className="space-y-1.5">
+                                        <label className="text-xs font-bold text-[#000b07] uppercase">Target Sectoral Scopes (Multi-select)</label>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                                            {Object.keys(sectoralScopes).map((scopeKey) => (
+                                                <button type="button" key={scopeKey} onClick={() => handleScopeToggle(scopeKey)} className={`p-3 rounded-xl border text-xs font-bold transition-all text-left cursor-pointer ${form2B.selectedScopes.includes(scopeKey) ? 'bg-[#006c49] text-white border-[#006c49]' : 'bg-[#f8f9ff] text-[#000b07] border-[#c2c8c4]/60'}`}>
+                                                    {scopeKey}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <input type="number" placeholder="Expected Participant Count" value={form2B.participantCount} onChange={(e) => setForm2B({...form2B, participantCount: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                        <input type="text" placeholder="Target Geography / State(s)" value={form2B.geography} onChange={(e) => setForm2B({...form2B, geography: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                    </div>
+
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                        <input type="text" placeholder="Contact Person Name" value={form2B.contactPerson} onChange={(e) => setForm2B({...form2B, contactPerson: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                        <input type="email" placeholder="Corporate Email" value={form2B.contactEmail} onChange={(e) => setForm2B({...form2B, contactEmail: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                        <input type="text" placeholder="Direct Phone" value={form2B.contactPhone} onChange={(e) => setForm2B({...form2B, contactPhone: e.target.value})} className="w-full h-11 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-xs" />
+                                    </div>
+
+                                    <button type="submit" className="w-full h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-sm cursor-pointer shadow-md">Proceed to Secure Booking (₹2,100) →</button>
+                                </form>
+                            </div>
+                        )}
+
+                        {currentScreen === 'payment' && (
+                            <div className="max-w-xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-3xl p-8 shadow-sm">
+                                <div className="flex justify-between items-center border-b border-[#c2c8c4]/30 pb-4">
+                                    <div>
+                                        <span className="text-xs font-mono text-[#006c49] font-bold uppercase">Step 3 of 3 • Secure Escrow</span>
+                                        <h1 className="text-2xl font-extrabold text-[#000b07]">PoA Space Booking Fee</h1>
+                                    </div>
+                                    <span className="text-xs font-mono bg-[#6cf8bb]/30 px-2.5 py-1 rounded text-[#00714d] font-bold">256-bit SSL</span>
+                                </div>
+                                <div className="p-4 bg-[#eff4ff] rounded-2xl border border-[#c2c8c4]/40 flex items-center justify-between">
+                                    <span className="text-sm font-bold text-[#000b07]">PoA Cohort Monetisation Booking</span>
+                                    <span className="text-xl font-extrabold text-[#006c49]">₹2,100</span>
+                                </div>
+                                <button onClick={() => setCurrentScreen('success')} className="w-full h-14 bg-[#0f241d] hover:bg-black text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 cursor-pointer shadow-md">
+                                    <span>Pay ₹2,100 & Lock PoA Space</span>
+                                </button>
+                            </div>
+                        )}
+
+                        {currentScreen === 'success' && (
+                            <div className="max-w-2xl mx-auto space-y-8 bg-white border border-[#c2c8c4]/60 rounded-3xl p-8 sm:p-10 shadow-sm text-center">
+                                <div className="w-16 h-16 mx-auto rounded-full bg-[#006c49] text-white flex items-center justify-center shadow-lg">
+                                    <span className="material-symbols-outlined text-3xl">check_circle</span>
+                                </div>
+                                <h1 className="text-2xl font-extrabold text-[#000b07]">PoA Cohort Space Confirmed!</h1>
+                                <div className="bg-[#f8f9ff] border border-[#c2c8c4]/60 rounded-2xl p-5 flex items-center justify-between">
+                                    <span className="text-2xl font-extrabold text-[#000b07] font-mono">{generatedId}</span>
+                                    <button onClick={() => handleCopyText(generatedId)} className="px-4 py-2 bg-[#0f241d] text-white text-xs font-bold rounded-xl cursor-pointer">Copy ID</button>
+                                </div>
+                                <button onClick={() => setCurrentScreen('welcome')} className="w-full h-12 bg-[#0f241d] text-white font-bold rounded-xl text-xs cursor-pointer">Return to Registry Home</button>
+                            </div>
+                        )}
+
+                        {currentScreen === 'admin' && (
+                            <div className="max-w-2xl mx-auto space-y-6 bg-white border border-[#c2c8c4]/60 rounded-3xl p-8 shadow-sm">
+                                <h1 className="text-2xl font-extrabold text-[#000b07]">Admin Intake Portal</h1>
+                                {!adminAuth ? (
+                                    <div className="space-y-4 py-6">
+                                        <input type="password" placeholder="Enter Admin Password (ecf2026)" value={adminPass} onChange={(e) => setAdminPass(e.target.value)} className="w-full h-12 px-3 bg-[#f8f9ff] border border-[#c2c8c4] rounded-xl text-sm" />
+                                        <button onClick={() => { if(adminPass === 'ecf2026') setAdminAuth(true); else alert('Invalid password'); }} className="w-full h-12 bg-[#0f241d] text-white font-bold rounded-xl text-xs cursor-pointer">Authenticate</button>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-4">
+                                        <div className="p-4 bg-[#eff4ff] rounded-xl border border-[#006c49]/30 flex justify-between items-center">
+                                            <div>
+                                                <span className="text-xs font-bold text-[#006c49] block">Pending Submission #412</span>
+                                                <p className="text-xs text-[#000b07]">Form 2A • Gujarat Solar Cohort • ₹2,100 Paid</p>
+                                            </div>
+                                            <span className="px-3 py-1 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">Awaiting Approval</span>
+                                        </div>
+                                        <button onClick={() => alert('Application Approved & Synced to Google Sheet Application Tracker!')} className="w-full h-12 bg-[#006c49] text-white font-bold rounded-xl text-xs cursor-pointer">Approve & Issue ID</button>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                    </main>
+
+                    <footer className="bg-[#000b07] text-white py-8 px-6 border-t border-[#0f241d]">
+                        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-xs text-[#727875] gap-4">
+                            <p>© 2026 Earth Carbon Foundation. Ahmedabad, Gujarat, India. All rights reserved.</p>
+                            <div className="flex gap-6">
+                                <span className="hover:text-white cursor-pointer">Registry Master Terms</span>
+                                <span className="hover:text-white cursor-pointer">Privacy Framework</span>
+                            </div>
                         </div>
-                        <input id="priceInput" type="range" min="5" max="30" value="10" step="1"/>
-                    </div>
+                    </footer>
                 </div>
-
-                <!-- Result Box -->
-                <div class="bg-surface-light border border-border rounded-xl p-6 space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                        <div class="p-3 bg-white rounded-lg border border-border">
-                            <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">Asset Category</span>
-                            <span id="profileAssetName" class="text-sm font-black text-secondary mt-1 block">Solar Energy Generation</span>
-                        </div>
-                        <div class="p-3 bg-white rounded-lg border border-border">
-                            <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">Annual Impact</span>
-                            <span id="annualTons" class="text-lg font-black text-primary font-display mt-1 block">410 tCO₂e/year</span>
-                        </div>
-                        <div class="p-3 bg-white rounded-lg border border-border">
-                            <span class="text-[10px] font-extrabold uppercase text-secondary/60 block">10-Yr Value Estimate*</span>
-                            <span id="lifetimeTons" class="text-lg font-black text-emerald-700 font-display mt-1 block">$41,000 (~₹34.4L)</span>
-                        </div>
-                    </div>
-                    <p class="text-[11px] text-center text-secondary/50 font-medium">
-                        *Indicative estimate only. Final eligibility and value depend on applicable methodologies, baseline verification, registry approval, and prevailing market conditions.
-                    </p>
-                </div>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                    <a href="https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-primary hover:bg-primary-dark text-white font-extrabold px-8 py-4 rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 uppercase tracking-wider text-center">
-                        <span>Assess My Asset — ₹4,999</span>
-                    </a>
-                    <button onclick="toggleInlineEmailForm()" class="w-full sm:w-auto bg-white border-2 border-border text-secondary hover:border-primary font-bold px-6 py-4 rounded-xl text-sm transition-all flex items-center justify-center gap-2">
-                        <span>📧 Email Free Calculation</span>
-                    </button>
-                </div>
-
-                <div id="inlineEmailForm" class="hidden p-4 bg-white border border-border rounded-xl">
-                    <form onsubmit="handleInlineEmailSubmit(event)" class="flex flex-col sm:flex-row gap-2">
-                        <input type="email" required placeholder="Enter work email for calculation dispatch" class="grow bg-surface-light border border-border rounded-lg p-3 text-xs focus:ring-primary focus:border-primary"/>
-                        <button type="submit" class="bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all">Send Estimate</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: ONE ASSET — MULTIPLE VALUES -->
-    <section class="py-16 bg-white border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-center">
-            <div class="space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Revenue Stacking</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">One Asset — Multiple Values</h2>
-                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
-                    ECF identifies the multi-layered environmental value your asset creates and the specific market mechanisms to monetise each stream.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-black">01</div>
-                    <h3 class="font-display font-black text-lg text-secondary uppercase">Carbon Credits</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Quantified grid displacement and methane avoidance verified under international registry standards.</p>
-                </div>
-                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-mint text-secondary flex items-center justify-center font-black">02</div>
-                    <h3 class="font-display font-black text-lg text-secondary uppercase">Water Stewardship</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Quantifiable effluent treatment, recycling, and groundwater recharge monetization credentials.</p>
-                </div>
-                <div class="p-6 bg-surface-light border border-border rounded-2xl space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-secondary text-white flex items-center justify-center font-black">03</div>
-                    <h3 class="font-display font-black text-lg text-secondary uppercase">Nature & Biodiversity</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Afforestation, soil carbon enhancement, and ecosystem preservation metrics for institutional ESG.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: WHY AGGREGATE? (500 kW -> 15 MW) -->
-    <section id="aggregation" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3.5 py-1 rounded-full">Economics of Scale</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">Why Aggregate? 500 kW &rarr; 15 MW+</h2>
-                <p class="text-secondary/70 text-sm">
-                    Standalone registration costs ₹4–8 lakh, rendering sub-15 MW sites non-viable. ECF pools distributed installations into high-integrity portfolios.
-                </p>
-            </div>
-
-            <!-- Aggregation Graphic -->
-            <div class="bg-white border border-border rounded-3xl p-8 space-y-8 shadow-sm">
-                <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-center">
-                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">500 kW Site</div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">750 kW Site</div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">1 MW Facility</div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">2 MW Plant</div>
-                    <div class="p-3 bg-surface-light border border-border rounded-xl font-bold text-xs">5 MW Rooftop</div>
-                </div>
-
-                <div class="flex justify-center text-primary">
-                    <span class="material-symbols-outlined text-3xl">south</span>
-                </div>
-
-                <div class="bg-primary text-white rounded-2xl p-6 text-center space-y-2">
-                    <div class="text-xs font-black uppercase text-mint tracking-widest">ECF Programme of Activities (PoA)</div>
-                    <div class="text-xl sm:text-2xl font-black font-display uppercase">15 MW+ Consolidated Portfolio</div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-xs">
-                    <div class="p-4 bg-surface-light rounded-xl border border-border">
-                        <strong class="block text-secondary text-sm font-black mb-1">Shared Costs</strong>
-                        <span class="text-secondary/70">Amortizes audit, registry, and VVB validation fees across all participants.</span>
-                    </div>
-                    <div class="p-4 bg-surface-light rounded-xl border border-border">
-                        <strong class="block text-secondary text-sm font-black mb-1">Better Economics</strong>
-                        <span class="text-secondary/70">Eliminates individual ₹5L+ overheads, yielding higher net INR per tCO₂e.</span>
-                    </div>
-                    <div class="p-4 bg-surface-light rounded-xl border border-border">
-                        <strong class="block text-secondary text-sm font-black mb-1">Buyer Appeal</strong>
-                        <span class="text-secondary/70">Global institutional buyers procure bulk volume from multi-megawatt programmes.</span>
-                    </div>
-                </div>
-                
-                <p class="text-[11px] text-center text-secondary/50 font-medium">
-                    *Aggregation is subject to the eligibility requirements of the applicable programme, methodology, and registry.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: FROM ASSET TO MARKET -->
-    <section id="how-it-works" class="py-16 bg-white border-b border-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-            <div class="text-center space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">Execution Architecture</span>
-                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">From Asset to Market</h2>
-                <p class="text-secondary/70 text-sm">ECF works to connect eligible environmental value with identifiable market demand.</p>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 text-center text-xs font-bold">
-                <div class="p-3 bg-surface-light border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">1</span>
-                    <span class="text-secondary">ASSESS</span>
-                </div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">2</span>
-                    <span class="text-secondary">QUALIFY</span>
-                </div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">3</span>
-                    <span class="text-secondary">VALUE YIELD</span>
-                </div>
-                <div class="p-3 bg-mint/20 border border-mint/40 rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-mint text-secondary text-[10px] flex items-center justify-center mx-auto mb-1 font-display">4</span>
-                    <span class="text-primary font-black">TEST DEMAND</span>
-                </div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">5</span>
-                    <span class="text-secondary">DEVELOP</span>
-                </div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center mx-auto mb-1 font-display">6</span>
-                    <span class="text-secondary">VERIFY</span>
-                </div>
-                <div class="p-3 bg-primary text-white border border-primary rounded-xl">
-                    <span class="w-6 h-6 rounded-full bg-mint text-secondary text-[10px] flex items-center justify-center mx-auto mb-1 font-display">7</span>
-                    <span class="text-white">MONETISE</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: ₹4,999 ASSET ASSESSMENT (PRIMARY CONVERSION) -->
-    <section id="pricing" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-primary text-white rounded-3xl p-8 sm:p-12 shadow-xl text-center space-y-6 relative overflow-hidden">
-                <div class="space-y-2">
-                    <span class="text-xs font-black text-mint uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Engagement Intake</span>
-                    <h2 class="font-display font-black text-3xl sm:text-4xl uppercase">Find Out What Your Asset Can Be Worth</h2>
-                </div>
-
-                <div class="space-y-1">
-                    <div class="text-4xl sm:text-5xl font-black text-mint font-display">₹4,999</div>
-                    <div class="text-xs font-bold uppercase tracking-widest text-white/80">One-Time Asset Assessment</div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-md mx-auto text-left text-xs font-bold text-white/90 pt-2">
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Asset eligibility assessment</div>
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Environmental impact estimate</div>
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Applicable market pathways</div>
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Indicative monetisation yield</div>
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Aggregation suitability score</div>
-                    <div class="p-2.5 bg-white/10 rounded-lg">✓ Assessment proposal report</div>
-                </div>
-
-                <div class="pt-4">
-                    <a href="https://rzp.io/rzp/QhoV82k?callback_url=https%3A%2F%2Fearthcarbonfoundation.org%2Fthankyou.html" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-mint hover:bg-mint-dark text-secondary font-black px-10 py-4 rounded-xl text-sm transition-all shadow-lg uppercase tracking-wider inline-flex items-center gap-2">
-                        <span>Assess My Asset &rarr;</span>
-                    </a>
-                </div>
-
-                <p class="text-[11px] text-white/60 max-w-md mx-auto leading-relaxed">
-                    Assessment does not guarantee registration, issuance, credit volume, price or sale. Final outcomes depend on methodology, verification, registry requirements and market conditions.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: ECF OFFTAKE NETWORK (DEMAND SIDE) -->
-    <section id="offtake" class="py-16 bg-white border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <div class="space-y-2">
-                <span class="text-xs font-black text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">For Buyers & Investors</span>
-                <h2 class="font-display font-black text-2xl sm:text-4xl text-secondary uppercase">ECF Offtake Network</h2>
-                <p class="text-secondary/70 text-sm max-w-2xl mx-auto">
-                    Tell ECF what you are looking for. We connect institutional demand with verified aggregation pipelines.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div class="p-8 bg-surface-light border border-border rounded-2xl text-left space-y-4">
-                    <h3 class="font-display font-black text-xl text-secondary uppercase">I Want to Buy Credits</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Procure high-integrity carbon credits, water conservation units, and environmental attributes from verified project cohorts.</p>
-                    <button onclick="openPartnerModal()" class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all">Submit Offtake Mandate &rarr;</button>
-                </div>
-                <div class="p-8 bg-surface-light border border-border rounded-2xl text-left space-y-4">
-                    <h3 class="font-display font-black text-xl text-secondary uppercase">I Want to Invest / Buy Assets</h3>
-                    <p class="text-xs text-secondary/70 leading-relaxed">Invest directly in or acquire eligible clean energy, wastewater, or biomass assets structured for programmatic aggregation.</p>
-                    <button onclick="openPartnerModal()" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all">Register as Asset Buyer &rarr;</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 9: ACTIVE AGGREGATION PIPELINE (LIVE METRICS) -->
-    <section id="pipeline" class="py-16 bg-secondary text-white border-b border-border">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
-            <div class="space-y-2">
-                <span class="bg-mint/20 border border-mint/40 text-mint text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                    Institutional Aggregation Queue
-                </span>
-                <h2 class="font-display font-black text-3xl sm:text-5xl text-white tracking-tight">
-                    Active Aggregation Pipeline
-                </h2>
-                <p class="text-xs sm:text-sm text-white/70 uppercase tracking-widest font-bold">15 MW Renewable Solar Programme</p>
-            </div>
-
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-6">
-                <div class="space-y-2">
-                    <div class="w-full bg-slate-800 rounded-xl h-5 p-0.5 overflow-hidden border border-white/10">
-                        <div id="cohort-progress-bar" class="h-full rounded-lg bg-gradient-to-r from-mint to-sky-400 transition-all duration-700 ease-out" style="width: 0%;"></div>
-                    </div>
-                    <div class="flex justify-between items-center text-xs text-white/70 font-semibold">
-                        <span>Allocated: <strong id="allocated-kw" class="text-white text-sm">0 kW (0.0%)</strong></span>
-                        <span>Capacity Pool: <strong class="text-white text-sm">15,000 kW (15 MW)</strong></span>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
-                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                        <span class="text-[10px] uppercase font-bold text-white/60 block">Live Submissions</span>
-                        <span id="kpi-institutions" class="text-2xl font-black text-white font-display mt-1 block">0</span>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                        <span class="text-[10px] uppercase font-bold text-white/60 block">Proposals Issued</span>
-                        <span id="kpi-proposals" class="text-2xl font-black text-mint font-display mt-1 block">0</span>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                        <span class="text-[10px] uppercase font-bold text-white/60 block">tCO₂e Under Mgmt</span>
-                        <span id="kpi-annual-mitigation" class="text-2xl font-black text-sky-400 font-display mt-1 block">0</span>
-                    </div>
-                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
-                        <span class="text-[10px] uppercase font-bold text-white/60 block">MW Remaining</span>
-                        <span id="kpi-mw-remaining" class="text-2xl font-black text-amber-400 font-display mt-1 block">15.0 MW</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 10: WHY ECF / TRUST -->
-    <section class="py-16 bg-white border-b border-border">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center">
-            <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">Why ECF?</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left text-xs font-bold text-secondary/80">
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Environmental asset assessment</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Multi-asset / multi-value monetization</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Aggregation of distributed projects</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Methodology & programme alignment</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Marketability assessment & demand testing</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Institutional buyer / offtake network</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ End-to-end monitoring & verification pathway</div>
-                <div class="p-3 bg-surface-light border border-border rounded-xl">✓ Transparent live Looker Studio client ledger</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 11: FAQ & GOVERNANCE -->
-    <section id="faq" class="py-16 bg-surface-light border-b border-border">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <div class="text-center space-y-2 mb-6">
-                <h2 class="font-display font-black text-2xl sm:text-3xl text-secondary uppercase">Frequently Asked Questions</h2>
-            </div>
-            
-            <div class="space-y-3">
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Do I need an existing carbon credit project?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
-                        A: No. We begin with your operating asset (solar rooftop, energy efficiency retrofit, or water recycling facility) and aggregate it into an institutional portfolio.
-                    </div>
-                </details>
-
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: What does the ₹4,999 engagement fee cover?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
-                        A: It covers primary eligibility screening, technical emission calculations, marketability modeling, and generation of your custom Programme Proposal and live portal dashboard.
-                    </div>
-                </details>
-
-                <details class="bg-white border border-border rounded-xl group transition-all">
-                    <summary class="font-bold text-sm text-secondary p-5 cursor-pointer flex justify-between items-center select-none list-none">
-                        <span>Q: Why is aggregation necessary for assets under 15 MW?</span>
-                        <span class="material-symbols-outlined text-primary faq-chevron transition-transform duration-200">expand_more</span>
-                    </summary>
-                    <div class="px-5 pb-5 text-xs text-secondary/70 leading-relaxed border-t border-border/50 pt-3">
-                        A: Standalone registry listing and third-party VVB validation costs ₹4–8 lakh, which is non-viable for small installations. Aggregation amortizes these fixed costs across the cohort.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- Footer -->
-<footer id="resources" class="bg-secondary text-white border-t border-white/10 pt-16 pb-12 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="space-y-3">
-                <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">About &amp; Governance</h4>
-                <p class="text-white/70 text-xs leading-relaxed">
-                    Earth Carbon Foundation is an institutional non-profit enterprise operating structured carbon aggregation frameworks in Gujarat, India.
-                </p>
-                <div class="space-y-1 text-[11px] text-white/50">
-                    <div>CIN: U85300GJ2019NPL106818</div>
-                    <div>License No: 113981</div>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">Knowledge Downloads</h4>
-                <ul class="space-y-2 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1s_K5aatZV16fOD9NGilgl1KJ7OwplOTo/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Asset Playbook</a></li>
-                    <li><a href="https://drive.google.com/file/d/1AhAuqwLHXprsz8jGPdArHdIHnLmYM6cv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Readiness Snapshot</a></li>
-                    <li><a href="https://drive.google.com/file/d/1FLOn7KRThW67ECnFmGfdtqHm5EyZcyR5/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Corporate Profile</a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-3">
-                <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">Legal &amp; Policies</h4>
-                <ul class="space-y-2 text-white/70">
-                    <li><a href="https://drive.google.com/file/d/1Kf7iX6x33_UceGFR4ZCLCP7TfDoYynZE/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Terms of Engagement</a></li>
-                    <li><a href="https://drive.google.com/file/d/1STw2B_c0xd0AGCFvCk7newAXkzAZovgk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Refund Policy</a></li>
-                    <li><a href="https://drive.google.com/file/d/1LNnUHPf5vsHGLJRsgi8R-vAVgBRunS0W/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="hover:text-mint transition-colors">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-3">
-                <h4 class="font-display font-black text-mint uppercase text-xs tracking-wider">Headquarters</h4>
-                <ul class="space-y-2 text-white/70">
-                    <li>Ahmedabad, Gujarat, India</li>
-                    <li><a href="mailto:info@earthcarbonfoundation.org" class="hover:text-mint transition-colors">info@earthcarbonfoundation.org</a></li>
-                    <li><a href="https://wa.me/919824025431" target="_blank" class="hover:text-mint transition-colors">+91-9824025431</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/50 text-[11px]">
-            <div>&copy; 2026 Earth Carbon Foundation. All rights reserved.</div>
-            <div>Institutional Environmental Asset Registry Infrastructure</div>
-        </div>
-    </div>
-</footer>
-
-<!-- Modals -->
-<div id="partnerModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-4xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl flex flex-col">
-        <div class="p-4 bg-primary text-white flex justify-between items-center shrink-0">
-            <span class="font-black text-sm font-display uppercase tracking-wider">ECF Offtake &amp; Partner Network Application</span>
-            <button onclick="closePartnerModal()" class="text-white hover:text-mint transition-colors"><span class="material-symbols-outlined">close</span></button>
-        </div>
-        <iframe src="https://forms.gle/A9K4ZvTZ94HvAisR7" class="w-full grow border-0"></iframe>
-    </div>
-</div>
-
-<div id="loginModal" class="fixed inset-0 z-50 hidden bg-secondary/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-2xl overflow-hidden relative shadow-2xl p-8">
-        <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-secondary/50 hover:text-secondary"><span class="material-symbols-outlined">close</span></button>
-        <h2 class="font-display font-black text-2xl text-secondary mb-6 text-center uppercase">Login</h2>
-        <form onsubmit="handleLogin(event)" class="space-y-4">
-            <div>
-                <label class="block text-xs font-black text-secondary uppercase tracking-wider mb-1">Email</label>
-                <input type="email" id="loginEmail" required class="w-full bg-surface-light border border-border rounded-lg p-3 text-sm focus:ring-primary focus:border-primary outline-none"/>
-            </div>
-            <div>
-                <label class="block text-xs font-black text-secondary uppercase tracking-wider mb-1">Password</label>
-                <input type="password" id="loginPassword" required class="w-full bg-surface-light border border-border rounded-lg p-3 text-sm focus:ring-primary focus:border-primary outline-none"/>
-            </div>
-            <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white font-black py-3.5 rounded-lg text-sm uppercase tracking-wider transition-all shadow-md">Login</button>
-        </form>
-    </div>
-</div>
-
-<!-- Dynamic Calculator Engine -->
-<script>
-    const factors = {
-        solar: { factor: 0.82, label: "Solar Capacity (kW)", unit: "kW", min: 500, max: 10000, step: 500, defaultVal: 500, name: "Solar Energy Generation" },
-        ee: { factor: 0.71, label: "Electricity Saved (MWh/yr)", unit: "MWh", min: 100, max: 5000, step: 100, defaultVal: 500, name: "Energy Efficiency Retrofit" },
-        water: { factor: 0.0012, label: "Water Recycled (KL/yr)", unit: "KL", min: 10000, max: 500000, step: 10000, defaultVal: 50000, name: "Water Conservation / Recycling" },
-        forest: { factor: 10.0, label: "Afforestation Area (Hectares)", unit: "Ha", min: 10, max: 500, step: 10, defaultVal: 20, name: "Forestry & Nature Removal" }
-    };
-    let currentAssetKey = 'solar';
-
-    function selectHeroAsset(type) {
-        const radios = document.getElementsByName('calcAsset');
-        radios.forEach(r => { if(r.value === type) r.checked = true; });
-        switchAssetType(type);
-        window.location.hash = '#calculator';
-    }
-
-    function switchAssetType(type) {
-        currentAssetKey = type;
-        const config = factors[type];
-        const capInput = document.getElementById('capacityInput');
-        const capLabel = document.getElementById('capacityLabel');
-        if (capInput && capLabel) {
-            capLabel.innerText = config.label;
-            capInput.min = config.min;
-            capInput.max = config.max;
-            capInput.step = config.step;
-            capInput.value = config.defaultVal;
+            );
         }
-        calculateCarbon();
-    }
 
-    function calculateCarbon() {
-        const config = factors[currentAssetKey];
-        const capInput = document.getElementById('capacityInput');
-        const priceInput = document.getElementById('priceInput');
-        if (!capInput || !priceInput) return;
-
-        const qty = parseFloat(capInput.value);
-        const priceUSD = parseFloat(priceInput.value);
-
-        const capText = document.getElementById('capacityValueText');
-        const priceText = document.getElementById('priceValueText');
-        if (capText) capText.innerText = qty.toLocaleString() + " " + config.unit;
-        if (priceText) priceText.innerText = "$" + priceUSD.toFixed(2) + " / tCO₂e";
-
-        const annualTons = Math.round(qty * config.factor);
-        const lifetimeTons = annualTons * 10;
-        const lifetimeUSD = lifetimeTons * priceUSD;
-        const inrLakhs = (lifetimeUSD * 84 / 100000).toFixed(1);
-
-        const annEl = document.getElementById('annualTons');
-        const lifeEl = document.getElementById('lifetimeTons');
-        const profileAssetName = document.getElementById('profileAssetName');
-
-        if (annEl) annEl.innerText = annualTons.toLocaleString() + " tCO₂e/year";
-        if (lifeEl) lifeEl.innerText = `$${lifetimeUSD.toLocaleString()} (~₹${inrLakhs}L)`;
-        if (profileAssetName) profileAssetName.innerText = config.name;
-    }
-
-    function toggleInlineEmailForm() {
-        const form = document.getElementById('inlineEmailForm');
-        if (form) form.classList.toggle('hidden');
-    }
-
-    function handleInlineEmailSubmit(e) {
-        e.preventDefault();
-        alert('Your preliminary estimate has been dispatched to your email.');
-        const form = document.getElementById('inlineEmailForm');
-        if (form) form.classList.add('hidden');
-    }
-
-    window.openPartnerModal = () => document.getElementById('partnerModal').classList.remove('hidden');
-    window.closePartnerModal = () => document.getElementById('partnerModal').classList.add('hidden');
-    window.openLoginModal = () => document.getElementById('loginModal').classList.remove('hidden');
-    window.closeLoginModal = () => document.getElementById('loginModal').classList.add('hidden');
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const capInput = document.getElementById('capacityInput');
-        const priceInput = document.getElementById('priceInput');
-        if (capInput) capInput.addEventListener('input', calculateCarbon);
-        if (priceInput) priceInput.addEventListener('input', calculateCarbon);
-        calculateCarbon();
-    });
-</script>
-
-<!-- Firebase Auth & Firestore Live Aggregation Sync -->
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDX3NjpYaR9Os2fsaUpeLrVL5wzxWLNRd8",
-        authDomain: "earth-carbon--final.firebaseapp.com",
-        databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-        projectId: "earth-carbon--final",
-        storageBucket: "earth-carbon--final.firebasestorage.app",
-        messagingSenderId: "506588865863",
-        appId: "1:506588865863:web:eaa3995e4041e714e1862",
-        measurementId: "G-B76KKL7VVE"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
-    onAuthStateChanged(auth, (user) => {
-        const authButtons = document.getElementById('authButtons');
-        const userDashboardNav = document.getElementById('userDashboardNav');
-        if (user) {
-            if (authButtons) authButtons.classList.add('hidden');
-            if (userDashboardNav) {
-                userDashboardNav.classList.remove('hidden');
-                userDashboardNav.classList.add('flex');
-                const navEmail = document.getElementById('navUserEmail');
-                if (navEmail) navEmail.textContent = user.email;
-            }
-        } else {
-            if (authButtons) authButtons.classList.remove('hidden');
-            if (userDashboardNav) {
-                userDashboardNav.classList.add('hidden');
-                userDashboardNav.classList.remove('flex');
-            }
-        }
-    });
-
-    const TOTAL_POOL_KW = 15000;
-    onSnapshot(collection(db, "projects"), (snapshot) => {
-        let totalAllocatedKw = 0;
-        let totalAnnualTco2e = 0;
-        let activeCount = snapshot.size;
-        let proposalsIssued = 0;
-
-        snapshot.forEach((doc) => {
-            const data = doc.data();
-            if (data.status === "proposal_issued" || data.proposalIssued || data.proposal) proposalsIssued++;
-            const annual = parseFloat(data.annualTco2e || data.annual_tco2e || 0);
-            let kw = parseFloat(data.slotAllocationKw || data.capacity || 0);
-            if (!kw && annual > 0) kw = Math.round(annual / 0.82);
-
-            totalAllocatedKw += kw;
-            totalAnnualTco2e += (annual > 0 ? annual : kw * 0.82);
-        });
-
-        const progressPercent = Math.min((totalAllocatedKw / TOTAL_POOL_KW) * 100, 100).toFixed(1);
-        const remainingMw = Math.max((TOTAL_POOL_KW - totalAllocatedKw) / 1000, 0).toFixed(1);
-
-        const progressBar = document.getElementById("cohort-progress-bar");
-        const allocatedKwEl = document.getElementById("allocated-kw");
-        if (progressBar) progressBar.style.width = `${progressPercent}%`;
-        if (allocatedKwEl) allocatedKwEl.innerText = `${totalAllocatedKw.toLocaleString()} kW (${progressPercent}%)`;
-
-        const kpiInst = document.getElementById("kpi-institutions");
-        const kpiProp = document.getElementById("kpi-proposals");
-        const kpiAnn = document.getElementById("kpi-annual-mitigation");
-        const kpiMw = document.getElementById("kpi-mw-remaining");
-
-        if (kpiInst) kpiInst.innerText = activeCount;
-        if (kpiProp) kpiProp.innerText = proposalsIssued;
-        if (kpiAnn) kpiAnn.innerText = `${Math.round(totalAnnualTco2e).toLocaleString()}`;
-        if (kpiMw) kpiMw.innerText = `${remainingMw} MW`;
-    }, (error) => {
-        console.warn("Firestore Listener:", error.message);
-    });
-
-    window.handleLogin = async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            window.closeLoginModal();
-        } catch (error) { alert('Login Error: ' + error.message); }
-    };
-
-    window.handleLogout = async () => { await signOut(auth); window.location.reload(); };
-</script>
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
 </body>
 </html>
