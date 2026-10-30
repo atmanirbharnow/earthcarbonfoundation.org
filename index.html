@@ -3,163 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Earth Carbon Foundation | B2B Environmental Asset Monetization</title>
+  <title>Earth Carbon Foundation | Turn Clean Infrastructure into Environmental Assets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0f382c;
-      --primary-dark: #09241c;
-      --secondary: #00875a;
-      --accent-green: #e3fcef;
-      --text-dark: #111827;
-      --text-muted: #4b5563;
-      --bg-light: #f8faf9;
+      --primary: #0b3d2e;
+      --primary-dark: #06231a;
+      --accent-green: #10b981;
+      --accent-light: #e6f7f0;
+      --gold: #d97706;
+      --text-dark: #0f172a;
+      --text-muted: #475569;
+      --bg: #f8fafc;
       --card-border: #e2e8f0;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.5; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.6; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    
-    /* Top Bar */
-    .top-bar { background: var(--primary-dark); color: #fff; font-size: 0.85rem; padding: 0.5rem 0; font-weight: 500; }
-    .top-bar-flex { display: flex; justify-content: space-between; align-items: center; }
-    .live-tag { background: #10b981; color: #fff; padding: 2px 8px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
 
-    /* Header Nav */
-    header { background: #fff; border-bottom: 1px solid var(--card-border); padding: 1rem 0; position: sticky; top: 0; z-index: 50; }
-    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-weight: 800; font-size: 1.25rem; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-size: 0.9rem; font-weight: 500; }
+    /* Top Live Bar */
+    .top-strip { background: var(--primary-dark); color: #e2e8f0; font-size: 0.8rem; padding: 0.6rem 0; font-weight: 500; }
+    .top-flex { display: flex; justify-content: space-between; align-items: center; }
+    .badge-live { background: var(--accent-green); color: #fff; padding: 2px 8px; border-radius: 999px; font-weight: 700; font-size: 0.7rem; margin-right: 6px; }
+
+    /* Nav */
+    header { background: #fff; border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 100; }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; height: 72px; }
+    .logo { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 600; transition: 0.15s; }
     .nav-links a:hover { color: var(--primary); }
 
     /* Hero */
-    .hero { background: #fff; padding: 4.5rem 0 3.5rem 0; text-align: center; border-bottom: 1px solid var(--card-border); }
-    .hero-badge { display: inline-block; background: var(--accent-green); color: var(--primary); font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 1.5rem; letter-spacing: 0.04em; }
-    .hero h1 { font-size: 2.75rem; font-weight: 800; line-height: 1.2; color: var(--text-dark); max-width: 900px; margin: 0 auto 1.25rem; letter-spacing: -0.02em; }
-    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 760px; margin: 0 auto 2rem; }
-    
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
-    .stat-card { background: var(--bg-light); border: 1px solid var(--card-border); padding: 1.5rem; border-radius: 8px; text-align: center; }
-    .stat-val { font-size: 1.85rem; font-weight: 800; color: var(--primary); }
-    .stat-lbl { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
-
-    /* Buttons */
-    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.75rem; font-size: 0.95rem; font-weight: 600; border-radius: 6px; text-decoration: none; transition: 0.15s ease-in-out; cursor: pointer; }
-    .btn-primary { background: var(--primary); color: #fff; border: none; }
+    .hero { background: linear-gradient(180deg, #fff 0%, #f1f8f5 100%); padding: 5rem 0 4rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+    .tagline { display: inline-block; background: var(--accent-light); color: var(--primary); font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; margin-bottom: 1.5rem; letter-spacing: 0.04em; }
+    .hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; max-width: 950px; margin: 0 auto 1.25rem; letter-spacing: -0.02em; color: var(--text-dark); }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 780px; margin: 0 auto 2.25rem; }
+    .btn-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: 0.15s ease-in-out; cursor: pointer; }
+    .btn-primary { background: var(--primary); color: #fff; border: 1px solid var(--primary); box-shadow: 0 4px 12px rgba(11,61,46,0.15); }
     .btn-primary:hover { background: var(--primary-dark); }
-    .btn-secondary { background: #fff; color: var(--text-dark); border: 1px solid var(--card-border); margin-left: 1rem; }
+    .btn-secondary { background: #fff; color: var(--text-dark); border: 1px solid var(--card-border); }
+    .btn-secondary:hover { background: #f8fafc; border-color: #cbd5e1; }
 
-    /* Section Styles */
-    .section { padding: 4rem 0; }
+    /* Traction Cards */
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
+    .stat-card { background: #fff; border: 1px solid var(--card-border); padding: 1.5rem; border-radius: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1.1; }
+    .stat-label { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-top: 0.35rem; }
+
+    /* 5-Step Stage Explorer */
+    .section { padding: 4.5rem 0; }
     .section-title { text-align: center; margin-bottom: 2.5rem; }
-    .section-title h2 { font-size: 2rem; font-weight: 700; color: var(--text-dark); }
-    .section-title p { color: var(--text-muted); margin-top: 0.5rem; }
+    .section-title h2 { font-size: 2.2rem; font-weight: 800; color: var(--text-dark); }
+    .section-title p { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; }
 
-    /* Benchmark Table */
-    .table-container { background: #fff; border-radius: 8px; border: 1px solid var(--card-border); overflow-x: auto; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+    .stepper { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+    .step-btn { background: #fff; border: 1px solid var(--card-border); padding: 1rem 0.5rem; border-radius: 8px; cursor: pointer; text-align: center; transition: 0.2s; font-size: 0.85rem; font-weight: 700; }
+    .step-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 12px rgba(11,61,46,0.2); }
+    .inspection-panel { background: #fff; border: 1px solid var(--card-border); border-left: 5px solid var(--accent-green); border-radius: 8px; padding: 1.75rem; }
+    .panel-header { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+
+    /* Benchmarks Table */
+    .table-box { background: #fff; border: 1px solid var(--card-border); border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
     table { width: 100%; border-collapse: collapse; text-align: left; }
-    th { background: #f1f5f3; padding: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--card-border); }
-    td { padding: 1rem; border-bottom: 1px solid var(--card-border); font-size: 0.9rem; }
-    .total-row { background: #eaf5ee; font-weight: 700; color: var(--primary); }
-    .badge { background: #e6f4ea; color: #137333; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+    th { background: #f8fafc; padding: 1.1rem; font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--card-border); }
+    td { padding: 1.1rem; border-bottom: 1px solid var(--card-border); font-size: 0.92rem; }
+    .total-row { background: var(--accent-light); font-weight: 800; color: var(--primary); }
+    .status-pill { background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 
-    /* Pricing Offer Grid */
+    /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .pricing-card { background: #fff; border-radius: 8px; border: 1px solid var(--card-border); padding: 2.5rem; position: relative; }
-    .pricing-card.featured { border: 2px solid var(--secondary); box-shadow: 0 4px 20px rgba(0,135,90,0.08); }
-    .price-pill { background: var(--accent-green); color: var(--secondary); font-size: 0.8rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; }
-    .price-amount { font-size: 2.25rem; font-weight: 800; color: var(--text-dark); margin: 0.5rem 0 1rem; }
-    .check-list { list-style: none; margin: 1.5rem 0 2rem; }
-    .check-list li { margin-bottom: 0.75rem; font-size: 0.9rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
-    .check-list li::before { content: "✓"; color: var(--secondary); font-weight: 800; }
+    .price-card { background: #fff; border: 1px solid var(--card-border); border-radius: 12px; padding: 2.5rem; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+    .price-card.popular { border: 2px solid var(--accent-green); box-shadow: 0 8px 24px rgba(16,185,129,0.1); }
+    .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin: 0.5rem 0 1rem; }
+    .price-features { list-style: none; margin: 1.5rem 0 2rem; }
+    .price-features li { margin-bottom: 0.85rem; font-size: 0.95rem; color: var(--text-muted); display: flex; align-items: center; gap: 10px; }
+    .price-features li::before { content: "✓"; color: var(--accent-green); font-weight: 800; }
+
+    /* Modal Form */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 200; }
+    .modal-card { background: #fff; border-radius: 12px; width: 100%; max-width: 520px; padding: 2.5rem; position: relative; }
+    .form-group { margin-bottom: 1rem; text-align: left; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .form-group input, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid var(--card-border); border-radius: 6px; font-size: 0.95rem; }
 
     /* Footer */
-    footer { background: var(--primary-dark); color: #94a3b8; padding: 3rem 0; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1); }
-    footer a { color: #cbd5e1; text-decoration: none; }
-    footer a:hover { color: #fff; }
-    .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer { background: var(--primary-dark); color: #94a3b8; padding: 3.5rem 0 2rem; font-size: 0.85rem; }
+    .footer-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem; }
+    .footer-links a { color: #cbd5e1; text-decoration: none; margin-left: 1.5rem; font-weight: 500; }
+    .footer-links a:hover { color: #fff; }
 
-    @media (max-width: 768px) {
-      .stats-grid, .pricing-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
+    @media (max-width: 850px) {
+      .hero h1 { font-size: 2.2rem; }
+      .stats-grid, .pricing-grid, .stepper { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Ribbon -->
-  <div class="top-bar">
-    <div class="container top-bar-flex">
-      <div>✦ B2B ENVIRONMENTAL ASSET MONETIZATION FOR SOLAR EPCS & C&I OWNERS</div>
-      <div><span class="live-tag">● LIVE INTAKE</span> Guaranteed 10-Day SLA</div>
+  <!-- Top Announcement Bar -->
+  <div class="top-strip">
+    <div class="container top-flex">
+      <div><span class="badge-live">● LIVE INTAKE</span> Turn commercial clean infrastructure into recurring revenue</div>
+      <div>
+        <a href="#intake" onclick="openIntakeModal()" style="color:#6ee7b7; text-decoration:none; font-weight:700;">PLEDGE ASSET NOW ➜</a>
+      </div>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Main Navigation -->
   <header>
     <div class="container nav-flex">
       <a href="#" class="logo">🌱 Earth Carbon Foundation</a>
       <nav class="nav-links">
-        <a href="#benchmarks">Asset Yields</a>
-        <a href="#offer">Feasibility Package</a>
-        <a href="#standards">Methodologies</a>
-        <a href="#contact">Compliance</a>
+        <a href="#pipeline">Asset Yields</a>
+        <a href="#workflow">5-Step Workflow</a>
+        <a href="#packages">Feasibility Dossier</a>
+        <a href="#compliance">Statutory Info</a>
       </nav>
+      <button class="btn btn-primary" onclick="openIntakeModal()" style="padding:0.6rem 1.25rem;">Start Asset Discovery</button>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">B2B ENVIRONMENTAL ASSET DEVELOPMENT</div>
+      <span class="tagline">✦ B2B ENVIRONMENTAL ASSET MONETIZATION FOR SOLAR EPCS & C&I OWNERS ✦</span>
       <h1>Turn Commercial Solar & Industrial Assets into Recurring Revenue</h1>
-      <p>Earth Carbon Foundation enables Solar EPCs, developers, and facility owners to quantify, register, and monetize clean infrastructure investments into verified carbon credits.</p>
-      <div>
-        <a href="#offer" class="btn btn-primary">Start Asset Discovery ➜</a>
-        <a href="#benchmarks" class="btn btn-secondary">Explore Benchmark Yields</a>
+      <p>Earth Carbon Foundation enables Solar EPCs, developers, and facility owners to quantify, register, and monetize environmental attributes from solar installations, energy efficiency, and resource recovery into verified credits.</p>
+      
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="openIntakeModal()">Start Asset Discovery ➜</button>
+        <a href="#pipeline" class="btn btn-secondary">Explore Benchmark Yields</a>
       </div>
 
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-val">250+ MW</div>
-          <div class="stat-lbl">Solar & EPC Pipeline</div>
+          <div class="stat-num">250+ MW</div>
+          <div class="stat-label">Active Solar & EPC Pipeline</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">₹12.5 Cr+</div>
-          <div class="stat-lbl">Estimated Asset Yield</div>
+          <div class="stat-num">₹12.5 Cr+</div>
+          <div class="stat-label">Estimated Asset Yield</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">800+</div>
-          <div class="stat-lbl">Portfolio Project Sites</div>
+          <div class="stat-num">800+</div>
+          <div class="stat-label">Portfolio Project Sites</div>
         </div>
         <div class="stat-card">
-          <div class="stat-val">1,200+</div>
-          <div class="stat-lbl">Commercial Partners</div>
+          <div class="stat-num">1,200+</div>
+          <div class="stat-label">EPC & Developer Partners</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sample Benchmark Snapshot -->
-  <section class="section" id="benchmarks">
+  <!-- 5-Step Asset Development Workflow -->
+  <section class="section" id="workflow">
     <div class="container">
       <div class="section-title">
-        <h2>Sample Asset Monetization Snapshot</h2>
-        <p>Representative yields and annual carbon revenues across C&I clean technology assets</p>
+        <h2>5-Step Asset Development Workflow</h2>
+        <p>Interactive project maturity stages from initial onboarding to credit issuance</p>
       </div>
 
-      <div class="table-container">
+      <div class="stepper">
+        <button class="step-btn active" onclick="setStep(1)">01 • INTAKE ✦</button>
+        <button class="step-btn" onclick="setStep(2)">02 • ELIGIBILITY ➜</button>
+        <button class="step-btn" onclick="setStep(3)">03 • PROPOSAL ➜</button>
+        <button class="step-btn" onclick="setStep(4)">04 • REGISTRY ➜</button>
+        <button class="step-btn" onclick="setStep(5)">05 • ISSUANCE ✦</button>
+      </div>
+
+      <div class="inspection-panel" id="inspectionBox">
+        <div class="panel-header" id="panelTitle">📍 INSPECTION PANEL • Step 1: Intake</div>
+        <p id="panelFocus" style="color:var(--text-muted); margin-bottom: 0.5rem;"><strong>Focus:</strong> Onboard project specs, baseline generation metrics & sectoral methodology mapping.</p>
+        <p id="panelDeliverable" style="color:var(--text-dark);"><strong>Primary Deliverable:</strong> Activity Specs & Baseline Scope Dossier | <strong>Next Milestone:</strong> Step 2: Additionality & Scope Screening.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmarks Table -->
+  <section class="section" id="pipeline" style="background:#fff; border-top:1px solid var(--card-border); border-bottom:1px solid var(--card-border);">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sample Asset Monetization Benchmarks</h2>
+        <p>Representative yields and annual carbon revenue modeling across commercial infrastructure</p>
+      </div>
+
+      <div class="table-box">
         <table>
           <thead>
             <tr>
               <th>Asset ID</th>
-              <th>Facility Archetype</th>
+              <th>Commercial Facility Archetype</th>
               <th>Operational Scale</th>
               <th>Annual Yield</th>
-              <th>Est. Annual Revenue</th>
-              <th>Standard</th>
+              <th>Est. Revenue (INR)</th>
+              <th>Methodology Standard</th>
               <th>Readiness</th>
             </tr>
           </thead>
@@ -167,34 +211,34 @@
             <tr>
               <td><strong>AST-C&I-01</strong></td>
               <td>Commercial Rooftop Solar PV Cluster</td>
-              <td>1,250 kWp Grid-Tied</td>
+              <td>1,250 kWp Grid-Tied System</td>
               <td><strong>1,450 tCO₂e</strong></td>
               <td>₹8,70,000</td>
               <td>ACM0002 (VCS)</td>
-              <td><span class="badge">Monetization Ready</span></td>
+              <td><span class="status-pill">Monetization Ready</span></td>
             </tr>
             <tr>
               <td><strong>AST-C&I-02</strong></td>
               <td>Industrial Wastewater & Effluent Recycling</td>
-              <td>150 kL/day Closed-Loop ZLD</td>
+              <td>150 kL/day Closed-Loop ZLD System</td>
               <td><strong>480 tCO₂e</strong></td>
               <td>₹2,88,000</td>
               <td>AMS-III.F (GS)</td>
-              <td><span class="badge">Feasibility Verified</span></td>
+              <td><span class="status-pill">Feasibility Verified</span></td>
             </tr>
             <tr>
               <td><strong>AST-C&I-03</strong></td>
               <td>Food & Agro Biomass Recovery to Energy</td>
-              <td>1,400 T/yr Waste to Biogas</td>
+              <td>1,400 T/yr Organic Waste to Biogas</td>
               <td><strong>1,120 tCO₂e</strong></td>
               <td>₹6,72,000</td>
               <td>AMS-III.E (VCS)</td>
-              <td><span class="badge">Monetization Ready</span></td>
+              <td><span class="status-pill">Monetization Ready</span></td>
             </tr>
             <tr class="total-row">
               <td>PORTFOLIO TOTAL</td>
               <td>Aggregated 3-Asset Commercial Cluster</td>
-              <td>Turnkey Portfolio</td>
+              <td>Turnkey Environmental Portfolio</td>
               <td>3,050 tCO₂e</td>
               <td>₹18,30,000</td>
               <td>Multi-Standard</td>
@@ -207,65 +251,157 @@
   </section>
 
   <!-- Commercial Packages -->
-  <section class="section" id="offer" style="background:#fff; border-top: 1px solid var(--card-border);">
+  <section class="section" id="packages">
     <div class="container">
       <div class="section-title">
         <h2>Turnkey Asset Monetization Offer</h2>
-        <p>Fixed-fee professional environmental engineering, feasibility assessment, and roadmap</p>
+        <p>Fixed-fee engineering, feasibility assessment, and performance-based issuance</p>
       </div>
 
       <div class="pricing-grid">
-        <div class="pricing-card featured">
-          <span class="price-pill">★ FLAGSHIP ASSESSMENT PACKAGE</span>
-          <h3>Single Facility Feasibility Dossier</h3>
-          <p style="color:var(--text-muted); font-size:0.85rem; margin-top:4px;">Guaranteed 10-Day SLA • Rooftops & Clean Facilities up to 50 MW</p>
-          <div class="price-amount">₹19,999 <span style="font-size:0.9rem; font-weight:400; color:var(--text-muted);">/ facility</span></div>
-          <ul class="check-list">
-            <li>Complete Carbon Abatement & Solar Yield Quantification (tCO₂e)</li>
-            <li>Multi-Standard Registry Matching (CDM, VCS, Gold Standard, GCC)</li>
-            <li>Additionality Barrier & Environmental Ownership Audit</li>
-            <li>Financial Revenue Model & Estimated Payback Delta</li>
-            <li>Audit-Ready Dossier + 45-Min Executive Technical Debrief</li>
-          </ul>
-          <a href="#" class="btn btn-primary" style="width:100%;">Order Feasibility Dossier (₹19,999) ➜</a>
+        <div class="price-card popular">
+          <div>
+            <span style="font-size:0.75rem; font-weight:800; background:var(--accent-light); color:var(--primary); padding:4px 10px; border-radius:4px;">★ FLAGSHIP ASSESSMENT PACKAGE</span>
+            <h3 style="margin-top:1rem; font-size:1.4rem;">Single Facility Feasibility Dossier</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem;">Guaranteed 10-Day SLA • Solar EPCs, C&I Rooftops, and Clean Facilities up to 50 MW</p>
+            <div class="price-tag">₹19,999 <span style="font-size:0.9rem; font-weight:500; color:var(--text-muted);">/ facility</span></div>
+            <ul class="price-features">
+              <li>Complete Carbon Abatement & Solar Yield Quantification (tCO₂e)</li>
+              <li>Multi-Standard Registry Matching (CDM, VCS, Gold Standard, GCC)</li>
+              <li>Additionality Barrier & Environmental Attribute Ownership Audit</li>
+              <li>Financial Monetization Model (Expected Annual Carbon Revenue & Payback Delta)</li>
+              <li>Turnkey Feasibility Dossier + 45-Min Executive Debrief with Carbon Desk Lead</li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" onclick="openIntakeModal()" style="width:100%;">Order Feasibility Dossier (₹19,999) ➜</button>
         </div>
 
-        <div class="pricing-card">
-          <span class="price-pill" style="background:#e0f2fe; color:#0369a1;">✦ PORTFOLIO AGGREGATION</span>
-          <h3>Full-Cycle Registry Issuance Mandate</h3>
-          <p style="color:var(--text-muted); font-size:0.85rem; margin-top:4px;">Performance-Aligned Mandate • Portfolios & Large Utilities > 50 MW</p>
-          <div class="price-amount">Custom Mandate</div>
-          <ul class="check-list">
-            <li>End-to-end PDD drafting & designated auditor (DOE/VVB) management</li>
-            <li>Digital MRV telemetry integration & continuous verification</li>
-            <li>Registry account opening, credit minting & serial issuance</li>
-            <li>Institutional buyer off-take structuring & floor monetization</li>
-            <li>Dedicated Portfolio Lead & legal attribute conveyance</li>
-          </ul>
-          <a href="#" class="btn btn-secondary" style="width:100%; margin-left:0;">Inquire for Portfolio Issuance ➜</a>
+        <div class="price-card">
+          <div>
+            <span style="font-size:0.75rem; font-weight:800; background:#e0f2fe; color:#0369a1; padding:4px 10px; border-radius:4px;">✦ PORTFOLIO AGGREGATION</span>
+            <h3 style="margin-top:1rem; font-size:1.4rem;">Full-Cycle Registry Issuance Mandate</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem;">Performance-Aligned / Custom • Multi-Facility Portfolios & Utilities > 50 MW</p>
+            <div class="price-tag">Custom Mandate</div>
+            <ul class="price-features">
+              <li>End-to-end PDD drafting & Designated Auditor (DOE/VVB) management</li>
+              <li>Digital MRV telemetry integration & continuous verification monitoring</li>
+              <li>Registry account opening, credit minting & serial number tracking</li>
+              <li>Institutional buyer off-take structuring & premium market execution</li>
+              <li>Dedicated Portfolio Lead & legal attribute transfer mandate</li>
+            </ul>
+          </div>
+          <button class="btn btn-secondary" onclick="openIntakeModal()" style="width:100%;">Inquire for Portfolio Issuance ➜</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact">
+  <!-- Intake Modal -->
+  <div class="modal-overlay" id="intakeModal">
+    <div class="modal-card">
+      <h3 style="margin-bottom:0.5rem; font-size:1.3rem;">Start Environmental Asset Discovery</h3>
+      <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem;">Submit your basic facility parameters to receive your preliminary asset quantification.</p>
+      
+      <form onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label>Company / Developer Name</label>
+          <input type="text" required placeholder="e.g. Apex Solar EPC Pvt Ltd">
+        </div>
+        <div class="form-group">
+          <label>Official Email Address</label>
+          <input type="email" required placeholder="director@company.com">
+        </div>
+        <div class="form-group">
+          <label>Facility Clean-Tech Type</label>
+          <select required>
+            <option value="">Select Primary Asset...</option>
+            <option>Commercial Rooftop Solar PV</option>
+            <option>Ground-Mounted Solar (Captive / Open Access)</option>
+            <option>Industrial Wastewater & ZLD</option>
+            <option>Biomass, Biogas & Organic Waste</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Solar Installed Scale (kWp)</label>
+          <input type="number" placeholder="e.g. 1250">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">Submit for Asset Discovery ➜</button>
+        <button type="button" class="btn btn-secondary" onclick="closeIntakeModal()" style="width:100%; margin-top:0.5rem; border:none;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Statutory Footer -->
+  <footer id="compliance">
     <div class="container">
       <div class="footer-flex">
         <div>
-          <div style="font-weight:700; color:#fff; margin-bottom:4px;">EARTH CARBON FOUNDATION</div>
-          <div>CIN: U85300GJ2019NPL106818 • Section 8 License No: 113981 • Registered Non-Profit</div>
+          <div style="font-weight:800; font-size:1.1rem; color:#fff; margin-bottom:4px;">EARTH CARBON FOUNDATION</div>
+          <div>CIN: U85300GJ2019NPL106818 • Section 8 License No: 113981 (Dt. 31/01/2019)</div>
+          <div style="margin-top:2px;">Registered Non-Profit Organisation • Ahmedabad, Gujarat, India</div>
         </div>
-        <div style="display:flex; gap:1.5rem;">
+        <div class="footer-links">
           <a href="#">Terms of Engagement</a>
           <a href="#">Refund Policy</a>
           <a href="#">Privacy Policy</a>
           <a href="#">Regulatory Notice</a>
         </div>
       </div>
+      <div style="text-align:center; color:#64748b; font-size:0.75rem;">
+        Fee Transparency: Membership covers stated ECF services only. Third-party validation, verification, registry fees, and studies are quoted separately where applicable.
+      </div>
     </div>
   </footer>
 
+  <script>
+    const stepsData = {
+      1: {
+        title: "📍 INSPECTION PANEL • Step 1: Intake",
+        focus: "Focus: Onboard project specs, baseline generation metrics & sectoral methodology mapping.",
+        deliverable: "Primary Deliverable: Activity Specs & Baseline Scope Dossier | Next Milestone: Step 2: Additionality & Scope Screening."
+      },
+      2: {
+        title: "📍 INSPECTION PANEL • Step 2: Eligibility & Additionality",
+        focus: "Focus: Additionality barrier testing, regulatory surplus checks, and investment barrier analysis.",
+        deliverable: "Primary Deliverable: Formal Additionality Audit Matrix | Next Milestone: Step 3: Development Proposal."
+      },
+      3: {
+        title: "📍 INSPECTION PANEL • Step 3: Development Proposal & Mandate",
+        focus: "Focus: Project design scope, revenue sharing structure, and legal attribute transfer mandates.",
+        deliverable: "Primary Deliverable: Project Mandate Sign-Off & Registration Roadmap | Next Milestone: Step 4: Registry & VVB Audit."
+      },
+      4: {
+        title: "📍 INSPECTION PANEL • Step 4: Registry & VVB Audit",
+        focus: "Focus: PDD drafting, UNFCCC/VCS/GS submission, and Designated Operational Entity (DOE/VVB) audit management.",
+        deliverable: "Primary Deliverable: Validated PDD & Independent Audit Approval | Next Milestone: Step 5: Telemetry & Minting."
+      },
+      5: {
+        title: "📍 INSPECTION PANEL • Step 5: Digital MRV & Credit Minting",
+        focus: "Focus: Continuous digital telemetry monitoring, verification report submission, and serial credit minting.",
+        deliverable: "Primary Deliverable: Issued Registry Carbon Credits (tCO₂e) & Corporate Monetization."
+      }
+    };
+
+    function setStep(stepNum) {
+      document.querySelectorAll('.step-btn').forEach((btn, idx) => {
+        btn.classList.toggle('active', idx + 1 === stepNum);
+      });
+      document.getElementById('panelTitle').innerText = stepsData[stepNum].title;
+      document.getElementById('panelFocus').innerHTML = "<strong>" + stepsData[stepNum].focus.split(':')[0] + ":</strong> " + stepsData[stepNum].focus.split(':')[1];
+      document.getElementById('panelDeliverable').innerHTML = "<strong>" + stepsData[stepNum].deliverable;
+    }
+
+    function openIntakeModal() {
+      document.getElementById('intakeModal').style.display = 'flex';
+    }
+    function closeIntakeModal() {
+      document.getElementById('intakeModal').style.display = 'none';
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      alert("Submission received! Your facility has been logged in the ECF discovery queue.");
+      closeIntakeModal();
+    }
+  </script>
 </body>
 </html>
-
