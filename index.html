@@ -1,27 +1,757 @@
-<!-- SECTION 1: External CTA Button Bar -->
-<div style="text-align: center; background-color: #0b6623; padding: 15px; margin-bottom: 20px;">
-  <a href="https://forms.gle/Fy7frRibZmQBaFEbA" target="_blank" style="display: inline-block; padding: 12px 30px; background-color: #ffffff; color: #0b6623; text-decoration: none; border-radius: 6px; font-weight: bold; font-family: sans-serif; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-    Register / Open Form (Secure External Link)
-  </a>
-</div>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth Carbon Foundation | Institutional Environmental Asset Registry & Acceleration</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ecf: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#16a34a',
+              600: '#15803d',
+              700: '#166534',
+              800: '#14532d',
+              900: '#052e16',
+              dark: '#0b1315',
+              surface: '#121e21',
+              card: '#18272b',
+              border: '#253d44',
+              accent: '#10b981'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-ecf-dark text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white">
 
-<!-- SECTION 2: Forward / Backward Navigation Jump Bar -->
-<div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; font-family: sans-serif;">
-  <a href="#hero-section" style="padding: 8px 16px; background: #e2e8f0; color: #333; text-decoration: none; border-radius: 4px; font-size: 14px;">⬅ Top / Hero</a>
-  <a href="#spreadsheet-section" style="padding: 8px 16px; background: #0b6623; color: #fff; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold;">View Live Data Sheet ⬇</a>
-  <a href="#footer-section" style="padding: 8px 16px; background: #e2e8f0; color: #333; text-decoration: none; border-radius: 4px; font-size: 14px;">FAQ / Footer ➡</a>
-</div>
+  <!-- ========================================================
+       GLOBAL NAVIGATION BAR
+       ======================================================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-ecf-dark/90 border-b border-ecf-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-700 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-900/30">
+          🌿
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-white block leading-none">EARTH CARBON</span>
+          <span class="text-[10px] tracking-widest text-emerald-400 font-mono uppercase">FOUNDATION • REGISTRY</span>
+        </div>
+      </div>
 
-<!-- SECTION 3: Main Spreadsheet Embed (Forced Full-Width & Centered) -->
-<div id="spreadsheet-section" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 15px;">
-  <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-    <div style="background: #0f172a; color: #fff; padding: 12px 20px; font-family: sans-serif; font-weight: bold; font-size: 15px;">
-      Earth Carbon Foundation — Live Institutional Asset Registry & Portfolio Data
+      <nav class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-slate-300">
+        <a href="#value" class="hover:text-emerald-400 transition-colors">Value</a>
+        <a href="#sectors" class="hover:text-emerald-400 transition-colors">Sectors</a>
+        <a href="#audience" class="hover:text-emerald-400 transition-colors">Audiences</a>
+        <a href="#frameworks" class="hover:text-emerald-400 transition-colors">Frameworks</a>
+        <a href="#process" class="hover:text-emerald-400 transition-colors">Process</a>
+        <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a href="https://forms.gle/Fy7frRibZmQBaFEbA" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-ecf-dark font-bold text-sm tracking-wide transition-all duration-200 transform hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20">
+          <span>Register Asset</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
     </div>
-    
-    <!-- Responsive Full-Width Iframe -->
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRArJ87etBIRLaLwkNg-X1cSj49R4rkaiarygh6AwwHNBsZGNAt2IRL4lZ6MzI_R4NLh4DqHetSGFt1/pubhtml?gid=1527121418&amp;single=true&amp;widget=true&amp;headers=false" 
-            style="width: 100%; height: 700px; border: none; display: block;">
-    </iframe>
-  </div>
-</div>
+  </header>
+
+  <main class="space-y-24 py-12">
+
+    <!-- ========================================================
+         SECTION 1: HERO SECTION
+         ======================================================== -->
+    <section id="hero" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8 pb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-700/50 text-emerald-300 text-xs font-medium mb-6 animate-pulse">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+        Institutional Registry & Carbon Asset Monetization Engine
+      </div>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+        Turn Low-Carbon Operations Into <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-green-500 bg-clip-text text-transparent">Institutional Economic Value</span>
+      </h1>
+      <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
+        We bridge commercial enterprises, clean-tech developers, and institutional campuses directly with global carbon registries. Zero compliance headaches. Rapid baseline validation. Maximum monetization yield.
+      </p>
+      
+      <!-- Primary Action Cluster -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://forms.gle/Fy7frRibZmQBaFEbA" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-base tracking-wide transition-all duration-300 transform hover:scale-[1.02] shadow-xl shadow-emerald-500/25 flex items-center justify-center gap-3">
+          <span>Start Asset Registration</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="#process" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-ecf-card hover:bg-ecf-border border border-ecf-border text-slate-200 font-semibold text-base transition-colors flex items-center justify-center">
+          How It Works
+        </a>
+      </div>
+
+      <!-- Trust Ribbon Badges -->
+      <div class="mt-14 pt-8 border-t border-ecf-border/60 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+        <div class="p-4 rounded-xl bg-ecf-card/40 border border-ecf-border/50">
+          <div class="text-xs text-emerald-400 font-mono font-medium">UNFCCC CDM & VCS</div>
+          <div class="text-sm font-semibold text-white mt-1">Full Methodological Compliance</div>
+        </div>
+        <div class="p-4 rounded-xl bg-ecf-card/40 border border-ecf-border/50">
+          <div class="text-xs text-emerald-400 font-mono font-medium">Gold Standard & GCC</div>
+          <div class="text-sm font-semibold text-white mt-1">Global Dual Registry Alignment</div>
+        </div>
+        <div class="p-4 rounded-xl bg-ecf-card/40 border border-ecf-border/50">
+          <div class="text-xs text-emerald-400 font-mono font-medium">Section 8 Non-Profit</div>
+          <div class="text-sm font-semibold text-white mt-1">Institutional Fiduciary Trust</div>
+        </div>
+        <div class="p-4 rounded-xl bg-ecf-card/40 border border-ecf-border/50">
+          <div class="text-xs text-emerald-400 font-mono font-medium">DOE / VVB Audited</div>
+          <div class="text-sm font-semibold text-white mt-1">Accredited 3rd-Party Verification</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 2: STRATEGIC IMPACT
+         ======================================================== -->
+    <section id="strategic-impact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-ecf-card border border-ecf-border p-8 lg:p-12 relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Institutional Registry Mandate</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Accelerating Macro Climate Goals Through Micro Asset Aggregation</h2>
+          <p class="text-slate-300 mt-4 leading-relaxed">
+            Individual commercial assets often struggle with exorbitant transaction costs, verification delays, and prohibitive registry minimums. Earth Carbon Foundation aggregates, packages, and executes accredited validation across distributed portfolios—turning mid-market decarbonization into liquid, tradeable environmental assets.
+          </p>
+        </div>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-5 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-2xl font-bold text-emerald-400 font-mono">100%</div>
+            <div class="text-white font-semibold mt-1">Transparent Serialization</div>
+            <p class="text-xs text-slate-400 mt-2">Every tCO₂e logged directly to verifiable registry standards without greenwashing risk.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-2xl font-bold text-teal-400 font-mono">0 ₹</div>
+            <div class="text-white font-semibold mt-1">Upfront Developer Risk</div>
+            <p class="text-xs text-slate-400 mt-2">Performance-aligned engagement model ensures accessibility for qualifying commercial portfolios.</p>
+          </div>
+          <div class="p-5 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-2xl font-bold text-green-400 font-mono">60–90 Days</div>
+            <div class="text-white font-semibold mt-1">Rapid Monetization On-Ramp</div>
+            <p class="text-xs text-slate-400 mt-2">Automated baseline quantification cuts traditional verification timelines by more than 60%.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 3: VALUE WE CREATE
+         ======================================================== -->
+    <section id="value" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Tangible Economic Return</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">How ECF Unlocks Direct Value For Your Facility</h2>
+        <p class="text-slate-300 mt-4">We turn daily sustainability choices into documented balance sheet assets.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border hover:border-emerald-500/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-700/60 flex items-center justify-center text-xl text-emerald-400 mb-6">
+            📈
+          </div>
+          <h3 class="text-xl font-bold text-white">Ancillary Carbon Revenue</h3>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            Generate recurring annual cash flow from verified carbon credits (VCCs) alongside your standard utility cost reductions.
+          </p>
+          <div class="mt-4 text-xs font-mono text-emerald-400">Est. ₹600 - ₹1,200 per tCO₂e yield</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border hover:border-emerald-500/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-700/60 flex items-center justify-center text-xl text-emerald-400 mb-6">
+            📜
+          </div>
+          <h3 class="text-xl font-bold text-white">Turnkey ESG Compliance</h3>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            Fulfill BRSR, Scope 1, Scope 2, and institutional green procurement requirements with auditor-ready documentation.
+          </p>
+          <div class="mt-4 text-xs font-mono text-emerald-400">DOE & VVB certified reports</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border hover:border-emerald-500/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-950 border border-emerald-700/60 flex items-center justify-center text-xl text-emerald-400 mb-6">
+            ⚡
+          </div>
+          <h3 class="text-xl font-bold text-white">Automated MRV Infrastructure</h3>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            Eliminate costly external carbon consultants. Our proprietary calculation models handle quantification and monitoring automatically.
+          </p>
+          <div class="mt-4 text-xs font-mono text-emerald-400">Standardized baseline quantification</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 4: CURRENT SITUATION
+         ======================================================== -->
+    <section id="situation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 lg:p-12 rounded-2xl bg-gradient-to-br from-ecf-card to-ecf-surface border border-ecf-border">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">The Problem We Solve</span>
+            <h2 class="text-3xl font-bold text-white mt-2">Millions in Unclaimed Clean Value Left on Table</h2>
+            <p class="text-slate-300 mt-4 leading-relaxed text-sm">
+              Today, commercial rooftop solar plants, zero-liquid-discharge (ZLD) plants, biogas units, and energy efficiency upgrades are treated simply as operating expenses.
+            </p>
+            <div class="mt-6 space-y-3">
+              <div class="flex items-start gap-3">
+                <span class="text-red-400 font-bold">✕</span>
+                <span class="text-sm text-slate-300">Registry fees and VVB validation costs run into tens of lakhs for standalone submissions.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-red-400 font-bold">✕</span>
+                <span class="text-sm text-slate-300">Methodology requirements are opaque, causing 80% of small/mid developers to drop out.</span>
+              </div>
+              <div class="flex items-start gap-3">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span class="text-sm text-white font-medium">ECF solves this through unified aggregation and pre-modeled registry pathways.</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 rounded-xl bg-ecf-dark/80 border border-ecf-border">
+            <h4 class="text-sm font-mono text-emerald-400 uppercase">Typical Mid-Market Facility Baseline</h4>
+            <div class="mt-4 space-y-4">
+              <div class="flex justify-between items-center py-2 border-b border-ecf-border">
+                <span class="text-sm text-slate-300">500 kW Rooftop Solar Asset</span>
+                <span class="text-sm font-mono font-bold text-white">~650 tCO₂e / year</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-ecf-border">
+                <span class="text-sm text-slate-300">Estimated Unmonetized Yield</span>
+                <span class="text-sm font-mono font-bold text-emerald-400">₹3,90,000 / year</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-sm text-slate-300">5-Year Crediting Realization</span>
+                <span class="text-sm font-mono font-bold text-emerald-300">₹19,50,000</span>
+              </div>
+            </div>
+            <a href="https://forms.gle/Fy7frRibZmQBaFEbA" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="mt-6 block w-full py-3 text-center rounded-lg bg-emerald-500 hover:bg-emerald-400 text-ecf-dark font-bold text-xs uppercase tracking-wider transition-colors">
+              Claim Your Facility Assessment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 5: SECTORS WE FOCUS ON
+         ======================================================== -->
+    <section id="sectors" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Eligible Asset Verticals</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Active Methodological Sectors</h2>
+        <p class="text-slate-300 mt-3">Projects mapped directly to UNFCCC Sectoral Scopes (1 to 15).</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border hover:border-emerald-500/60 transition-all">
+          <div class="text-2xl mb-3">☀️</div>
+          <span class="text-[11px] font-mono text-emerald-400">SCOPE 01 • ENERGY</span>
+          <h4 class="text-lg font-bold text-white mt-1">Solar PV & Clean Power</h4>
+          <p class="text-xs text-slate-400 mt-2">Commercial rooftop, captive ground mount, and small hydro generation portfolios.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border hover:border-emerald-500/60 transition-all">
+          <div class="text-2xl mb-3">💧</div>
+          <span class="text-[11px] font-mono text-emerald-400">SCOPE 03 • WATER</span>
+          <h4 class="text-lg font-bold text-white mt-1">Water Autarky & ZLD</h4>
+          <p class="text-xs text-slate-400 mt-2">Zero Liquid Discharge, wastewater recycling, and membrane bioreactor efficiency.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border hover:border-emerald-500/60 transition-all">
+          <div class="text-2xl mb-3">♻️</div>
+          <span class="text-[11px] font-mono text-emerald-400">SCOPE 13 • WASTE</span>
+          <h4 class="text-lg font-bold text-white mt-1">Agro-Biomass & Waste</h4>
+          <p class="text-xs text-slate-400 mt-2">Organic waste diversion, anaerobic digestion, and briquetting energy replacement.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border hover:border-emerald-500/60 transition-all">
+          <div class="text-2xl mb-3">⚙️</div>
+          <span class="text-[11px] font-mono text-emerald-400">SCOPE 02 • EFFICIENCY</span>
+          <h4 class="text-lg font-bold text-white mt-1">Industrial Modernization</h4>
+          <p class="text-xs text-slate-400 mt-2">VFD retrofit, heat recovery systems, and commercial HVAC building management.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 6: AUDIENCE WE SERVE
+         ======================================================== -->
+    <section id="audience" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Target Stakeholders</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Built For Decision Makers Driving Real Impact</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Audience 1: Commercial & Industrial -->
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono uppercase text-emerald-400">Enterprises & MSMEs</div>
+          <h3 class="text-xl font-bold text-white mt-2">Industrial & Commercial Facilities</h3>
+          <p class="text-sm text-slate-300 mt-4 leading-relaxed">
+            Factory owners, warehouse operators, and commercial building managers seeking to convert required rooftop solar or energy efficiency capex into liquid revenue streams.
+          </p>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400">
+            <li>✔ Turn Capex into positive yield</li>
+            <li>✔ Automatic Scope 1 & 2 carbon ledgers</li>
+            <li>✔ Zero impact on daily operations</li>
+          </ul>
+        </div>
+
+        <!-- Audience 2: Campuses -->
+        <div class="p-8 rounded-2xl bg-ecf-card border-2 border-emerald-500/40 relative shadow-lg shadow-emerald-950/40">
+          <div class="absolute -top-3 right-6 px-3 py-0.5 rounded-full bg-emerald-500 text-ecf-dark text-[10px] font-bold uppercase tracking-wider">
+            Signature Focus
+          </div>
+          <div class="text-xs font-mono uppercase text-emerald-400">Educational & Healthcare Hubs</div>
+          <h3 class="text-xl font-bold text-white mt-2">Atmanirbhar Campus Index</h3>
+          <p class="text-sm text-slate-300 mt-4 leading-relaxed">
+            University campuses, technical institutes, and hospital conglomerates aiming for self-reliant water, energy, and waste systems with transparent institutional scoring.
+          </p>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400">
+            <li>✔ Atmanirbhar Net-Zero Benchmarking</li>
+            <li>✔ Campus sustainability certifications</li>
+            <li>✔ Student & faculty ESG research credentials</li>
+          </ul>
+        </div>
+
+        <!-- Audience 3: Project Developers -->
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono uppercase text-emerald-400">Clean-Tech Originators</div>
+          <h3 class="text-xl font-bold text-white mt-2">ESCOs, EPCs & Developers</h3>
+          <p class="text-sm text-slate-300 mt-4 leading-relaxed">
+            Renewable installers and water treatment developers looking to offer carbon credit monetization as an added value-proposition to close end-clients faster.
+          </p>
+          <ul class="mt-6 space-y-2 text-xs text-slate-400">
+            <li>✔ Differentiate your commercial bids</li>
+            <li>✔ Bulk portfolio enrollment desk</li>
+            <li>✔ Co-shared monetization upside</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 7: EIGHT CORE VALUES
+         ======================================================== -->
+    <section id="values" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Institutional Governance</span>
+        <h2 class="text-3xl font-bold text-white mt-2">The Eight ECF Principles</h2>
+        <p class="text-slate-300 text-sm mt-2">The ethical backbone guaranteeing integrity across all serialized assets.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">01 • FIDUCIARY DUTY</div>
+          <div class="text-white font-semibold text-sm mt-1">Section 8 Stewardship</div>
+          <p class="text-xs text-slate-400 mt-2">Operating with non-profit objectivity and uncompromised public interest.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">02 • SCIENTIFIC RIGOR</div>
+          <div class="text-white font-semibold text-sm mt-1">Verifiable Baselines</div>
+          <p class="text-xs text-slate-400 mt-2">No estimated shortcuts. All calculations rely on empirical metering data.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">03 • ZERO GREENWASH</div>
+          <div class="text-white font-semibold text-sm mt-1">True Additionality</div>
+          <p class="text-xs text-slate-400 mt-2">Rigorous additionality testing aligned with global carbon registry standards.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">04 • RADICAL ACCESS</div>
+          <div class="text-white font-semibold text-sm mt-1">Democratized Entry</div>
+          <p class="text-xs text-slate-400 mt-2">Breaking registration barriers for mid-market installations under 1 MW.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">05 • PUBLIC REGISTRY</div>
+          <div class="text-white font-semibold text-sm mt-1">Auditable Ledgers</div>
+          <p class="text-xs text-slate-400 mt-2">Public serial tracking to prevent any possibility of double-counting.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">06 • LOCAL IMPACT</div>
+          <div class="text-white font-semibold text-sm mt-1">Atmanirbhar Vision</div>
+          <p class="text-xs text-slate-400 mt-2">Championing domestic regional energy security and water independence.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">07 • TRANSPARENCY</div>
+          <div class="text-white font-semibold text-sm mt-1">Open Methodologies</div>
+          <p class="text-xs text-slate-400 mt-2">Publicly available PDD quantification equations and monitoring frameworks.</p>
+        </div>
+        <div class="p-5 rounded-xl bg-ecf-card/80 border border-ecf-border">
+          <div class="text-emerald-400 font-mono text-xs font-bold">08 • CONTINUOUS MRV</div>
+          <div class="text-white font-semibold text-sm mt-1">Live Validation</div>
+          <p class="text-xs text-slate-400 mt-2">Iterative cycle monitoring to ensure sustained operational performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 8: FRAMEWORKS WE ADOPT
+         ======================================================== -->
+    <section id="frameworks" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 lg:p-12 rounded-2xl bg-ecf-card border border-ecf-border text-center">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Universal Compatibility</span>
+        <h2 class="text-3xl font-bold text-white mt-2">International Standards & Methodological Alignment</h2>
+        <p class="text-slate-300 text-sm max-w-2xl mx-auto mt-3">
+          Our data models correspond precisely to accredited global carbon registries.
+        </p>
+
+        <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-xs font-mono text-emerald-400">UNFCCC CDM</div>
+            <h4 class="text-base font-bold text-white mt-1">Clean Dev Mechanism</h4>
+            <p class="text-xs text-slate-400 mt-2">AMS-I.D (Grid Solar), AMS-III.F (Biogas), and AMS-III.D (Agro Methane).</p>
+          </div>
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-xs font-mono text-emerald-400">VERRA / VCS</div>
+            <h4 class="text-base font-bold text-white mt-1">Verified Carbon Standard</h4>
+            <p class="text-xs text-slate-400 mt-2">VM0008, VM0011, and VM0038 industrial energy efficiency methodologies.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-xs font-mono text-emerald-400">GOLD STANDARD</div>
+            <h4 class="text-base font-bold text-white mt-1">Global Goals SDG Impact</h4>
+            <p class="text-xs text-slate-400 mt-2">Verified emissions reductions paired with measurable clean water & SDG 7 metrics.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-xs font-mono text-emerald-400">GCC</div>
+            <h4 class="text-base font-bold text-white mt-1">Global Carbon Council</h4>
+            <p class="text-xs text-slate-400 mt-2">Approved regional greenhouse gas crediting protocol for emerging Asian economies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 9: IMPACTS CREATED
+         ======================================================== -->
+    <section id="impacts" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Quantifiable Progress</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Verified Foundation Footprint</h2>
+        <p class="text-slate-300 mt-3 text-sm">Real-time cumulative metrics across all enrolled portfolios.</p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border text-center">
+          <div class="text-4xl font-extrabold text-emerald-400 font-mono">250+ MW</div>
+          <div class="text-white font-semibold text-sm mt-2">Clean Energy Pipeline</div>
+          <div class="text-xs text-slate-400 mt-1">Solar PV & biomass capacity</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border text-center">
+          <div class="text-4xl font-extrabold text-teal-300 font-mono">3,050 t</div>
+          <div class="text-white font-semibold text-sm mt-2">Annual Abatement Yield</div>
+          <div class="text-xs text-slate-400 mt-1">Certified tCO₂e mitigation</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border text-center">
+          <div class="text-4xl font-extrabold text-emerald-400 font-mono">₹18.3L</div>
+          <div class="text-white font-semibold text-sm mt-2">Est. Annual Cash Yield</div>
+          <div class="text-xs text-slate-400 mt-1">Direct developer monetization</div>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-ecf-card border border-ecf-border text-center">
+          <div class="text-4xl font-extrabold text-green-300 font-mono">800+</div>
+          <div class="text-white font-semibold text-sm mt-2">Asset Nodes Mapped</div>
+          <div class="text-xs text-slate-400 mt-1">Institutional facilities active</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 10: TRUST CREATED
+         ======================================================== -->
+    <section id="trust" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-gradient-to-r from-ecf-card via-ecf-surface to-ecf-card border border-ecf-border p-8 lg:p-12">
+        <div class="max-w-3xl">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Institutional Confidence</span>
+          <h2 class="text-3xl font-bold text-white mt-2">Guaranteed Integrity Through Audited Ledgers</h2>
+          <p class="text-slate-300 mt-4 text-sm leading-relaxed">
+            Every credit registered with Earth Carbon Foundation is issued under designated third-party Designated Operational Entities (DOEs) and Validation/Verification Bodies (VVBs). Serialized identifiers prevent multi-listing, assuring carbon credit buyers of absolute purity and provenance.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 items-center">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-xs font-mono text-emerald-300">
+            ✔ Ministry of Corporate Affairs Section 8 License
+          </span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-xs font-mono text-emerald-300">
+            ✔ Independent VVB Annual Audits
+          </span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/60 text-xs font-mono text-emerald-300">
+            ✔ Public Traceable Serialization
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 11: LIVE KPIS & SIX-STEP PROCESS
+         ======================================================== -->
+    <section id="process" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">The Onboarding Engine</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">From Facility To Registry In 6 Clear Steps</h2>
+        <p class="text-slate-300 mt-3 text-sm">We handle 95% of the heavy lifting behind the scenes.</p>
+      </div>
+
+      <!-- Process Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 01</div>
+          <h4 class="text-lg font-bold text-white">Select Action</h4>
+          <p class="text-xs text-slate-300 mt-2">Identify your existing clean asset: rooftop solar, water recycling plant, or energy efficiency retrofit.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 02</div>
+          <h4 class="text-lg font-bold text-white">Rapid Assessment</h4>
+          <p class="text-xs text-slate-300 mt-2">Submit basic operational metrics via our intake form to get an instant baseline abatement calculation.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 03</div>
+          <h4 class="text-lg font-bold text-white">Execute Onboarding</h4>
+          <p class="text-xs text-slate-300 mt-2">Sign the frictionless facility registration agreement. No upfront financial capital required.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 04</div>
+          <h4 class="text-lg font-bold text-white">Document & Verify</h4>
+          <p class="text-xs text-slate-300 mt-2">ECF compiles Project Design Documents (PDD) and coordinates directly with certified VVB auditors.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-ecf-border relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 05</div>
+          <h4 class="text-lg font-bold text-white">Continuous Improvement</h4>
+          <p class="text-xs text-slate-300 mt-2">Track monthly utility savings and emission abatements on your clean data dashboard.</p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-ecf-card border border-emerald-500/50 bg-emerald-950/20 relative">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-2">STEP 06</div>
+          <h4 class="text-lg font-bold text-white">Realize Value</h4>
+          <p class="text-xs text-slate-300 mt-2">Receive serialized carbon credits or direct INR monetization proceeds credited to your enterprise.</p>
+        </div>
+      </div>
+
+      <!-- Live Data Component (Clean Responsive Full-Width Container) -->
+      <div class="mt-12 p-6 lg:p-8 rounded-2xl bg-ecf-surface border border-ecf-border">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-ecf-border gap-4">
+          <div>
+            <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Live Registry Snapshot</span>
+            <h3 class="text-xl font-bold text-white mt-1">Serialized Active Project Portfolio</h3>
+          </div>
+          <a href="https://forms.gle/Fy7frRibZmQBaFEbA" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-ecf-dark font-bold text-xs uppercase tracking-wider transition-colors">
+            Register In Next Batch
+          </a>
+        </div>
+
+        <!-- Safe, Responsive Full-Width Table Layout -->
+        <div class="mt-6 overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="text-slate-400 border-b border-ecf-border font-mono uppercase text-[11px]">
+                <th class="py-3 px-4">Serial Number</th>
+                <th class="py-3 px-4">Project Archetype</th>
+                <th class="py-3 px-4">Sector Scope</th>
+                <th class="py-3 px-4">Standard</th>
+                <th class="py-3 px-4">Annual Abatement</th>
+                <th class="py-3 px-4">Readiness</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-ecf-border/60 text-slate-200">
+              <tr class="hover:bg-ecf-card/60 transition-colors">
+                <td class="py-4 px-4 font-mono text-emerald-400">ECF-2026-SOL-089</td>
+                <td class="py-4 px-4 font-semibold text-white">Commercial Rooftop Solar (1.2 MW)</td>
+                <td class="py-4 px-4">Scope 01: Renewable Power</td>
+                <td class="py-4 px-4 font-mono">UNFCCC CDM AMS-I.D</td>
+                <td class="py-4 px-4 font-mono font-bold text-emerald-300">1,560 tCO₂e</td>
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-emerald-950 text-emerald-400 font-mono text-[10px]">MONETIZING</span></td>
+              </tr>
+              <tr class="hover:bg-ecf-card/60 transition-colors">
+                <td class="py-4 px-4 font-mono text-emerald-400">ECF-2026-WTR-042</td>
+                <td class="py-4 px-4 font-semibold text-white">Industrial ZLD & Membrane Recycling</td>
+                <td class="py-4 px-4">Scope 03: Water Autarky</td>
+                <td class="py-4 px-4 font-mono">Gold Standard GS-WTR</td>
+                <td class="py-4 px-4 font-mono font-bold text-emerald-300">890 tCO₂e</td>
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-teal-950 text-teal-300 font-mono text-[10px]">VERIFYING</span></td>
+              </tr>
+              <tr class="hover:bg-ecf-card/60 transition-colors">
+                <td class="py-4 px-4 font-mono text-emerald-400">ECF-2026-BIO-015</td>
+                <td class="py-4 px-4 font-semibold text-white">Agro-Biomass Briquette Gasifier</td>
+                <td class="py-4 px-4">Scope 13: Waste to Energy</td>
+                <td class="py-4 px-4 font-mono">Verra / VCS VM0008</td>
+                <td class="py-4 px-4 font-mono font-bold text-emerald-300">600 tCO₂e</td>
+                <td class="py-4 px-4"><span class="px-2 py-1 rounded bg-emerald-950 text-emerald-400 font-mono text-[10px]">ISSUED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 12: WHAT WE DO ON BEHALF OF USERS
+         ======================================================== -->
+    <section id="delegation" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-ecf-card border border-ecf-border p-8 lg:p-12">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Complete Automation</span>
+          <h2 class="text-3xl font-bold text-white mt-2">What ECF Does On Your Behalf</h2>
+          <p class="text-slate-300 text-sm mt-3">You focus on running your business. Our carbon engineering engine handles everything else.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-emerald-400 text-xl font-bold font-mono mb-2">01</div>
+            <h4 class="text-base font-bold text-white">Measurement & Baseline Modeling</h4>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              We ingest your inverter and meter readings to determine grid emission factors, baseline displacement, and net abatement yields.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-emerald-400 text-xl font-bold font-mono mb-2">02</div>
+            <h4 class="text-base font-bold text-white">PDD Authoring & Method Alignment</h4>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Our registered carbon architects author the complete Project Design Document (PDD) conforming to strict CDM/VCS protocols.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-emerald-400 text-xl font-bold font-mono mb-2">03</div>
+            <h4 class="text-base font-bold text-white">VVB Auditor Desk Management</h4>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              We manage all queries, site verification coordination, and audit clearances with accredited third-party validation agencies.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl bg-ecf-surface border border-ecf-border">
+            <div class="text-emerald-400 text-xl font-bold font-mono mb-2">04</div>
+            <h4 class="text-base font-bold text-white">Registry Issuance & Offtake Sales</h4>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              We secure official credit serialization on international registries and place your credits with pre-vetted institutional buyers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         SECTION 13: FAQ (ADDRESSING CORE FRICTION)
+         ======================================================== -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400">Clear Answers</span>
+        <h2 class="text-3xl font-bold text-white mt-2">Frequently Asked Questions</h2>
+        <p class="text-slate-300 text-sm mt-2">Everything you need to know about enrollment, data, and revenue.</p>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group p-6 rounded-xl bg-ecf-card border border-ecf-border open:border-emerald-500/50 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-white list-none text-base">
+            <span>What does ECF asset registration include?</span>
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+            Registration provides end-to-end baseline modeling, PDD authoring, VVB verification management, public serialization on our registry, and access to institutional carbon buyers. You also receive formal documentation suitable for BRSR and corporate ESG reporting.
+          </p>
+        </details>
+
+        <details class="group p-6 rounded-xl bg-ecf-card border border-ecf-border open:border-emerald-500/50 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-white list-none text-base">
+            <span>What operational data is required from our end?</span>
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+            We only require your baseline facility data: utility electricity bills, monthly generation logs (e.g., solar inverter reports), or water flow meter readings. Our ingestion engine automates the carbon calculations without demanding dedicated staff time.
+          </p>
+        </details>
+
+        <details class="group p-6 rounded-xl bg-ecf-card border border-ecf-border open:border-emerald-500/50 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-white list-none text-base">
+            <span>Is my commercial solar or water recycling plant eligible?</span>
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+            Yes. Any clean energy project (from 50 kW to multiple MWs), water recycling facility (ZLD/STP/ETP), or organic waste project commissioned within eligible crediting windows qualifies under our programmatic aggregation model.
+          </p>
+        </details>
+
+        <details class="group p-6 rounded-xl bg-ecf-card border border-ecf-border open:border-emerald-500/50 transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-white list-none text-base">
+            <span>When and how do we receive carbon credit proceeds?</span>
+            <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="text-slate-300 text-sm mt-4 leading-relaxed">
+            Credits are serialized upon completed VVB verification cycles. You can choose to retire the credits for your organization's own Net-Zero compliance or monetize them through ECF's institutional carbon liquidity network with proceeds disbursed directly in INR.
+          </p>
+        </details>
+      </div>
+
+      <!-- Final High-Converting Exit CTA -->
+      <div class="mt-16 p-10 rounded-2xl bg-gradient-to-r from-emerald-950 via-ecf-surface to-teal-950 border border-emerald-500/50 text-center">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Ready to Monetize Your Low-Carbon Assets?</h3>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto mt-3">
+          Join 800+ facilities turning sustainable infrastructure into accredited economic yield.
+        </p>
+        <div class="mt-8 flex justify-center">
+          <a href="https://forms.gle/Fy7frRibZmQBaFEbA" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-ecf-dark font-extrabold text-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-105 shadow-xl shadow-emerald-500/30 flex items-center gap-3">
+            <span>Open Fast-Track Registration Form</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+        <div class="mt-4 text-xs font-mono text-emerald-400">Takes < 3 minutes • Instant baseline quantification assessment</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       GLOBAL FOOTER
+       ======================================================== -->
+  <footer class="border-t border-ecf-border py-12 bg-ecf-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-400">
+      <div>
+        <span class="font-bold text-white">EARTH CARBON FOUNDATION</span> • Institutional Asset Registry & Acceleration
+        <div class="mt-1">Licensed under Section 8 of the Companies Act, 2013 • Non-Profit Environmental Registry</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-emerald-400 transition-colors">Back to Top</a>
+        <a href="https://forms.gle/Fy7frRibZmQBaFEbA" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Direct Registration Portal ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
