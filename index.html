@@ -3,81 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earth Carbon Foundation | Institutional Asset Registry</title>
+    <title>Earth Carbon Foundation | Institutional Asset Registry & Carbon Credit Proposals</title>
     <style>
         :root {
-            --primary-color: #0b6623;
-            --dark-bg: #0f172a;
-            --light-bg: #f8fafc;
-            --text-main: #334155;
+            --primary: #0b6623;
+            --primary-hover: #084e1b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
         }
-        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: var(--text-main); background-color: #ffffff; line-height: 1.6; }
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; background-color: #ffffff; line-height: 1.6; }
         
-        /* SECTION 1: Top External CTA Bar */
-        .top-cta-bar { background-color: var(--primary-color); text-align: center; padding: 12px; }
-        .top-cta-bar a { background-color: #ffffff; color: var(--primary-color); padding: 10px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        /* Top Navigation & Conversion Banner */
+        .top-banner { background-color: var(--dark); color: #fff; text-align: center; padding: 10px; font-size: 0.9rem; }
+        .cta-bar { background-color: var(--primary); text-align: center; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .cta-button { background-color: #ffffff; color: var(--primary); padding: 12px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 1.05rem; transition: background 0.2s; }
+        .cta-button:hover { background-color: #f1f5f9; }
 
-        /* SECTION 2: Hero Section */
-        .hero-section { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        .hero-section h1 { font-size: 2.5rem; color: var(--dark-bg); margin-bottom: 15px; }
-        .hero-section p { font-size: 1.15rem; color: #64748b; margin-bottom: 25px; }
+        /* Hero Section */
+        .hero { max-width: 900px; margin: 50px auto 30px; padding: 0 20px; text-align: center; }
+        .hero h1 { font-size: 2.75rem; color: var(--dark); margin-bottom: 15px; font-weight: 800; letter-spacing: -0.025em; }
+        .hero p { font-size: 1.2rem; color: var(--gray); margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; }
 
-        /* SECTION 3: Modular Content Blocks Grid */
-        .grid-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--light-bg); border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; }
-        .card h3 { color: var(--primary-color); margin-top: 0; }
+        /* Sections Layout */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        h2.section-title { text-align: center; font-size: 2rem; color: var(--dark); margin-bottom: 40px; }
+        
+        /* What We Do Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 30px; }
+        .card h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
 
-        /* SECTION 4: Live Data Sheet Container */
-        .sheet-container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
-        .sheet-wrapper { background: var(--light-bg); border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; }
-        .sheet-header { background: var(--dark-bg); color: #fff; padding: 15px 20px; font-weight: bold; }
-        iframe { width: 100%; height: 600px; border: none; display: block; }
+        /* Contextual CTA Box */
+        .contextual-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 40px; text-align: center; margin: 50px 0; }
+        .contextual-box h3 { margin-top: 0; font-size: 1.75rem; color: #fff; }
+        .contextual-box p { color: #94a3b8; margin-bottom: 25px; }
+        .btn-light { background-color: var(--primary); color: #fff; padding: 12px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; }
+        .btn-light:hover { background-color: var(--primary-hover); }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-section h1 { font-size: 2rem; }
-        }
+        /* FAQ Section */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-bottom: 20px; }
+        .faq-item h4 { margin-top: 0; color: var(--dark); font-size: 1.15rem; }
+        .faq-item p { margin-bottom: 0; color: var(--gray); }
+
+        /* Live Data Registry Section */
+        .sheet-section { background: #f1f5f9; padding: 60px 0; margin-top: 60px; border-top: 1px solid var(--border); }
+        .sheet-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .sheet-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .sheet-header { background: var(--dark); color: #fff; padding: 15px 25px; font-weight: bold; }
+        iframe { width: 100%; height: 650px; border: none; display: block; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); }
     </style>
 </head>
 <body>
 
-    <!-- EDITABLE SECTION: Top Conversion CTA -->
-    <div class="top-cta-bar">
-        <a href="https://forms.gle/Fy7frRibZmQBaFEbA" target="_blank">Register / Open Form</a>
+    <!-- Sticky Primary Conversion Bar -->
+    <div class="cta-bar">
+        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">🚀 Submit Carbon Credit Proposal Intake</a>
     </div>
 
-    <!-- EDITABLE SECTION: Hero Content -->
-    <section class="hero-section">
+    <!-- Hero Section -->
+    <section class="hero">
         <h1>Earth Carbon Foundation</h1>
-        <p>Where Low-Carbon Investments Create Environmental and Economic Opportunities. One Action. Multiple Environmental Benefits.</p>
+        <p>Where Low-Carbon Investments Create Environmental and Economic Opportunities. One Action. Multiple Environmental Benefits. Measurable Contributions. Potential Economic Value.</p>
+        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light" style="padding: 14px 32px; font-size: 1.1rem;">Register for Carbon Credit Proposal</a>
     </section>
 
-    <!-- EDITABLE SECTION: Core Pillars / What We Do -->
-    <div class="grid-container">
-        <div class="card">
-            <h3>01. Measure & Assess</h3>
-            <p>Our data engine identifies baseline environmental metrics, automated compliance requirements, and carbon reduction opportunities instantly.</p>
+    <!-- What We Do on Behalf of Users -->
+    <div class="container">
+        <h2 class="section-title">What ECF Does on Your Behalf</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>01. Measure & Assess</h3>
+                <p>Our automated data engine analyzes your operational footprints, calculates baseline emission reductions, and flags high-yield carbon asset opportunities instantly.</p>
+            </div>
+            <div class="card">
+                <h3>02. Document & Verify</h3>
+                <p>We compile rigorous multi-standard documentation (UNFCCC CDM, Verra/VCS, Gold Standard aligned) so your team bypasses technical complexity.</p>
+            </div>
+            <div class="card">
+                <h3>03. Monetize & Issue</h3>
+                <p>We structure verified actions into tradeable, high-liquidity carbon instruments and connect qualified portfolios directly to credit buyers.</p>
+            </div>
         </div>
-        <div class="card">
-            <h3>02. Document & Report</h3>
-            <p>Prepare statutory, ESG, BRSR, and carbon credit documentation seamlessly with institutional multi-standard rigor.</p>
-        </div>
-        <div class="card">
-            <h3>03. Create Value</h3>
-            <p>Transform clean infrastructure and operational efficiencies into verifiable, bankable environmental assets.</p>
+
+        <!-- Contextual Secondary CTA 1 -->
+        <div class="contextual-box">
+            <h3>Ready to Monetize Your Environmental Actions?</h3>
+            <p>Skip the paperwork complexity. Submit your project parameters directly into our secure intake pipeline for structured evaluation.</p>
+            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light">Open Proposal Intake Form ➔</a>
         </div>
     </div>
 
-    <!-- EDITABLE SECTION: Live Data Registry Sheet -->
-    <div class="sheet-container">
-        <div class="sheet-wrapper">
-            <div class="sheet-header">
-                Live Institutional Portfolio & Registry Data
+    <!-- FAQ Section -->
+    <div class="container" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4>What does registration include?</h4>
+                <p>Registration establishes your verified institutional project record, unlocks our automated baseline data engine, and initiates eligibility scoping for carbon asset development and multi-standard registry integration.</p>
             </div>
-            <!-- Embedded Google Sheet (Edit rows directly in your Google Sheet to update website data) -->
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRArJ87etBIRLaLwkNg-X1cSj49R4rkaiarygh6AwwHNBsZGNAt2IRL4lZ6MzI_R4NLh4DqHetSGFt1/pubhtml?gid=1527121418&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            <div class="faq-item">
+                <h4>How are carbon credits issued?</h4>
+                <p>Credits are issued following rigorous third-party DOE/VVB validation, adherence to approved methodologies (e.g., UNFCCC PoA frameworks), and successful verification of measured emission reductions against established baselines.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What are the exact fees and deliverables?</h4>
+                <p>Standard institutional portfolio onboarding is structured at an accessible tier (₹19,999 intake review fee). Deliverables include a verified Impact & Eligibility Report, structured asset ledger entry, and a tailored carbon credit monetization roadmap.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can ECF work with historical environmental actions?</h4>
+                <p>Yes. Our data engine evaluates retroactive green interventions across campuses, industrial facilities, and community sites to check vintage eligibility under applicable standards.</p>
+            </div>
+        </div>
+
+        <!-- Contextual Secondary CTA 2 -->
+        <div class="contextual-box" style="margin-top: 40px; background: linear-gradient(135deg, #0b6623 0%, #084e1b 100%);">
+            <h3>Have Questions About Your Specific Project?</h3>
+            <p>Log your project details directly through our intake form to receive a customized scoping proposal from our carbon architects.</p>
+            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">Start Carbon Proposal Intake Now</a>
         </div>
     </div>
+
+    <!-- Live Spreadsheet Registry Section -->
+    <section class="sheet-section">
+        <div class="sheet-wrapper">
+            <h2 class="section-title" style="margin-bottom: 20px;">Live Institutional Portfolio & Registry Data</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Transparent, real-time tracking of aggregated low-carbon interventions and registry metrics.</p>
+            <div class="sheet-box">
+                <div class="sheet-header">
+                    Earth Carbon Foundation — Public Registry & Portfolio View
+                </div>
+                <!-- Clean, responsive spreadsheet embed -->
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRArJ87etBIRLaLwkNg-X1cSj49R4rkaiarygh6AwwHNBsZGNAt2IRL4lZ6MzI_R4NLh4DqHetSGFt1/pubhtml?gid=1527121418&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>CIN: U85300GJ2019NPL106818 • Earth Carbon Foundation (ECF) Institutional Asset Registry<br>
+        Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
+    </footer>
 
 </body>
 </html>
