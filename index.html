@@ -16,7 +16,6 @@
         body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; background-color: #ffffff; line-height: 1.6; }
         
         /* Top Navigation & Conversion Banner */
-        .top-banner { background-color: var(--dark); color: #fff; text-align: center; padding: 10px; font-size: 0.9rem; }
         .cta-bar { background-color: var(--primary); text-align: center; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .cta-button { background-color: #ffffff; color: var(--primary); padding: 12px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 1.05rem; transition: background 0.2s; }
         .cta-button:hover { background-color: #f1f5f9; }
@@ -31,9 +30,10 @@
         h2.section-title { text-align: center; font-size: 2rem; color: var(--dark); margin-bottom: 40px; }
         
         /* What We Do Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; align-items: stretch; }
+        .card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 30px; box-sizing: border-box; }
         .card h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
+        .card p { color: var(--gray); margin-bottom: 0; }
 
         /* Contextual CTA Box */
         .contextual-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 40px; text-align: center; margin: 50px 0; }
@@ -63,7 +63,7 @@
 
     <!-- Sticky Primary Conversion Bar -->
     <div class="cta-bar">
-        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">🚀 Submit Carbon Credit Proposal.</a>
+        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">🚀 Submit Carbon Credit Proposal Intake</a>
     </div>
 
     <!-- Hero Section -->
@@ -73,21 +73,21 @@
         <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light" style="padding: 14px 32px; font-size: 1.1rem;">Register for Carbon Credit Proposal</a>
     </section>
 
-    <!-- What Do we on Your behalf 
-    ( complete peace of mind)  -->
+    <!-- What We Do on Behalf of Users (Properly Ordered Grid & Typos Fixed) -->
     <div class="container">
         <h2 class="section-title">What ECF Does on Your Behalf</h2>
         <div class="grid">
             <div class="card">
-                <h3>01. Proposal Preparation & Sumission </h3>
-                <p> Preparation of technical proposals, carbon accounting documentation and submission to the relevant carbon credit registry..</p>
+                <h3>01. Proposal Preparation & Submission</h3>
+                <p>Preparation of technical proposals, carbon accounting documentation, and submission to the relevant carbon credit registry.</p>
             </div>
             <div class="card">
-                <h3>02. Arrange Inspection & Verification  </h3>
-                <p> Compile rigorous multi-standard documentation (UNFCCC CDM, Verra/VCS, Gold Standard aligned)accelerate faster Issuance..</p>
+                <h3>02. Arrange Inspection & Verification</h3>
+                <p>Compile rigorous multi-standard documentation (UNFCCC CDM, Verra/VCS, Gold Standard aligned) to accelerate faster issuance.</p>
+            </div>
             <div class="card">
-                <h3>03. Registry Cordination for  faste Issaunce of Instrument. </h3>
-                <p> On your behalf we Handle registry queries, documents & clarifications </p>
+                <h3>03. Registry Coordination & Fast Issuance</h3>
+                <p>On your behalf, we handle registry queries, documents, and fast-track the issuance of your credits.</p>
             </div>
         </div>
 
