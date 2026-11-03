@@ -36,10 +36,10 @@
         .card p { color: var(--gray); margin-bottom: 0; }
 
         /* Contextual CTA Box */
-        .contextual-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 40px; text-align: center; margin: 50px 0; }
-        .contextual-box h3 { margin-top: 0; font-size: 1.75rem; color: #fff; }
-        .contextual-box p { color: #94a3b8; margin-bottom: 25px; }
-        .btn-light { background-color: var(--primary); color: #fff; padding: 12px 28px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; }
+        .contextual-box { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #fff; border-radius: 12px; padding: 50px 40px; text-align: center; margin: 60px auto; max-width: 900px; }
+        .contextual-box h3 { margin-top: 0; font-size: 2rem; color: #fff; margin-bottom: 15px; }
+        .contextual-box p { color: #94a3b8; margin-bottom: 30px; font-size: 1.1rem; }
+        .btn-light { background-color: var(--primary); color: #fff; padding: 14px 36px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 1.1rem; }
         .btn-light:hover { background-color: var(--primary-hover); }
 
         /* FAQ Section */
@@ -48,15 +48,8 @@
         .faq-item h4 { margin-top: 0; color: var(--dark); font-size: 1.15rem; }
         .faq-item p { margin-bottom: 0; color: var(--gray); }
 
-        /* Live Data Registry Section */
-        .sheet-section { background: #f1f5f9; padding: 60px 0; margin-top: 60px; border-top: 1px solid var(--border); }
-        .sheet-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .sheet-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .sheet-header { background: var(--dark); color: #fff; padding: 15px 25px; font-weight: bold; }
-        iframe { width: 100%; height: 650px; border: none; display: block; }
-
         /* Footer */
-        footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); }
+        footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -70,7 +63,7 @@
     <section class="hero">
         <h1>Earth Carbon Foundation</h1>
         <p>Where Low-Carbon Investments Create Environmental and Economic Opportunities. One Action. Multiple Environmental Benefits. Measurable Contributions. Potential Economic Value.</p>
-        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light" style="padding: 14px 32px; font-size: 1.1rem;">Start Free</a>
+        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light">Start Free</a>
     </section>
 
     <!-- What We Do on Behalf of Users -->
@@ -89,13 +82,6 @@
                 <h3>03. Registry Coordination & Fast Issuance</h3>
                 <p>On your behalf, we handle registry queries, documents, and fast-track the issuance of your credits.</p>
             </div>
-        </div>
-
-        <!-- Contextual Secondary CTA Box -->
-        <div class="contextual-box">
-            <h3>Ready to Monetize Your Environmental Actions?</h3>
-            <p>Skip the paperwork complexity. Submit your project parameters directly into our secure intake pipeline for structured evaluation.</p>
-            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light">Start Free ➔</a>
         </div>
     </div>
 
@@ -120,29 +106,16 @@
                 <p>Yes. Our data engine evaluates retroactive green interventions across campuses, industrial facilities, and community sites to check vintage eligibility under applicable standards.</p>
             </div>
         </div>
-
-        <!-- Contextual Secondary CTA Box -->
-        <div class="contextual-box" style="margin-top: 40px; background: linear-gradient(135deg, #0b6623 0%, #084e1b 100%);">
-            <h3>Have Questions About Your Specific Project?</h3>
-            <p>Log your project details directly through our intake form to receive a customized scoping proposal from our carbon architects.</p>
-            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">Start Free</a>
-        </div>
     </div>
 
-    <!-- Live Spreadsheet Registry Section -->
-    <section class="sheet-section">
-        <div class="sheet-wrapper">
-            <h2 class="section-title" style="margin-bottom: 20px;">Live Institutional Portfolio & Registry Data</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Transparent, real-time tracking of aggregated low-carbon interventions and registry metrics.</p>
-            <div class="sheet-box">
-                <div class="sheet-header">
-                    Earth Carbon Foundation — Public Registry & Portfolio View
-                </div>
-                <!-- Clean, responsive spreadsheet embed -->
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRArJ87etBIRLaLwkNg-X1cSj49R4rkaiarygh6AwwHNBsZGNAt2IRL4lZ6MzI_R4NLh4DqHetSGFt1/pubhtml?gid=1527121418&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
+    <!-- Final Focused Conversion CTA Section (Replacing the Spreadsheet) -->
+    <div class="container">
+        <div class="contextual-box">
+            <h3>Ready to Monetize Your Environmental Actions?</h3>
+            <p>Skip the paperwork complexity. Submit your project parameters directly into our secure intake pipeline for structured evaluation and carbon credit proposals.</p>
+            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="btn-light">Start Free ➔</a>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
