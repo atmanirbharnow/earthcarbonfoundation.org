@@ -15,12 +15,10 @@
         }
         body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; background-color: #ffffff; line-height: 1.6; }
         
-        /* 1. Plain Forest Green Sticky CTA Bar */
-        .cta-bar { background-color: var(--primary); text-align: center; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .cta-button { background-color: #ffffff; color: var(--primary); padding: 10px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 1rem; transition: background 0.2s; }
-        .cta-button:hover { background-color: #f1f5f9; }
+        /* 1. Plain Forest Green Sticky Bar (No Buttons) */
+        .cta-bar { background-color: var(--primary); height: 40px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 
-        /* Hero Section (Cleaned up extra taglines) */
+        /* Hero Section */
         .hero { max-width: 900px; margin: 60px auto 40px; padding: 0 20px; text-align: center; }
         .hero h1 { font-size: 2.8rem; color: var(--dark); margin-bottom: 20px; font-weight: 800; letter-spacing: -0.025em; }
         .hero p { font-size: 1.25rem; color: var(--gray); margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; }
@@ -42,7 +40,7 @@
         .btn-light { background-color: var(--primary); color: #fff; padding: 14px 36px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 1.1rem; }
         .btn-light:hover { background-color: var(--primary-hover); }
 
-        /* 4. Single Line Social Media Thumbnails / Channels */
+        /* Single Line Social Media Thumbnails / Channels */
         .social-bar { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
         .social-bar a { color: var(--primary); font-weight: 600; text-decoration: none; padding: 8px 16px; background: #f1f5f9; border-radius: 6px; border: 1px solid var(--border); transition: background 0.2s; }
         .social-bar a:hover { background: #e2e8f0; }
@@ -53,10 +51,8 @@
 </head>
 <body>
 
-    <!-- 1. Plain Forest Green Sticky CTA Bar -->
-    <div class="cta-bar">
-        <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank" class="cta-button">Start Free</a>
-    </div>
+    <!-- 1. Plain Forest Green Sticky Bar (No Buttons) -->
+    <div class="cta-bar"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -93,7 +89,7 @@
         </div>
     </div>
 
-    <!-- 4. Social Media Thumbnails / Official Channels in a Single Line -->
+    <!-- Social Media Thumbnails / Official Channels in a Single Line -->
     <div class="container" style="text-align: center; margin-top: 40px;">
         <h3 style="color: var(--dark); margin-bottom: 15px;">Official Channels</h3>
         <div class="social-bar">
