@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECF Admin Portal | Secure Vetting Dashboard</title>
+    <style>
+        :root { --primary: #0b6623; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; }
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; }
+        .login-box, .admin-panel { max-width: 900px; margin: 50px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .admin-panel { display: none; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        th, td { padding: 12px 15px; border-bottom: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
+        th { background: #f8fafc; }
+    </style>
+    <!-- Firebase Auth & DB SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+    <!-- Admin Login Screen -->
+    <div class="login-box" id="loginScreen">
+        <h2>ECF Secure Admin Login</h2>
+        <p>Authorized personnel only. Log in to vet incoming project proposals.</p>
+        <div class="form-group">
+            <label>Admin Email</label>
+            <input type="email" id="adminEmail" placeholder="admin@earthcarbonfoundation.org">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="adminPassword" placeholder="••••••••">
+        </div>
+        <button class="btn" onclick="loginAdmin()">Login to Vetting Portal</button>
+        <p id="loginError" style="color: red; margin-top: 15px;"></p>
+    </div>
+
+    <!-- Admin Vetting Dashboard Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <h2>Project Vetting & Approval Dashboard</h2>
+        <p>Review paid submissions, verify LoI commitments, and manage pipeline advancement.</p>
+        <button class="btn" style="width: auto; background: #dc2626; margin-bottom: 20px;" onclick="logoutAdmin()">Log Out</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Methodology</th>
+                    <th>Capacity / Tier</th>
+                    <th>Payment Status</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="adminTableBody">
+                <tr><td colspan="5" style="text-align: center;">Loading submissions...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.database();
+
+        function loginAdmin() {
+            const email = document.getElementById('adminEmail').value;
+            const pass = document.getElementById('adminPassword').value;
+            auth.signInWithEmailAndPassword(email, pass)
+                .then(() => { loadAdminData(); })
+                .catch(err => { document.getElementById('loginError').innerText = err.message; });
+        }
+
+        function logoutAdmin() {
+            auth.signOut().then(() => {
+                document.getElementById('adminPanel').style.display = 'none';
+                document.getElementById('loginScreen').style.display = 'block';
+            });
+        }
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                loadAdminData();
+            }
+        });
+
+        function loadAdminData() {
+            db.ref('projects').on('value', snapshot => {
+                const data = snapshot.val();
+                const tbody = document.getElementById('adminTableBody');
+                tbody.innerHTML = "";
+                if (!data) {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center;">No submissions found.</td></tr>`;
+                    return;
+                }
+                Object.values(data).reverse().forEach(proj => {
+                    const dateStr = proj.timestamp ? new Date(proj.timestamp).toLocaleString() : "Just now";
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><strong>${proj.entityName}</strong><br><small style="color:var(--gray);">${proj.contactEmail}</small></td>
+                        <td>${proj.projectType}</td>
+                        <td>${proj.scaleTier}</td>
+                        <td><span style="color: #166534; font-weight:600;">✓ ${proj.paymentStatus}</span></td>
+                        <td><small style="color:var(--gray);">${dateStr}</small></td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
