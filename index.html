@@ -116,6 +116,7 @@
                     <select id="metricValueDropdown" required onchange="checkBundlingNotice()">
                         <option value="" disabled selected>-- First select a project type above --</option>
                     </select>
+                    <!-- Step 2: Low-Capacity Bundling Explainer Notice -->
                     <div id="bundlingNoticeBox" class="bundling-notice">
                         ℹ️ <strong>Aggregation Notice:</strong> Submissions under 500 kW are automatically pooled into our upcoming regional aggregation clusters to clear the Programme of Activities (PoA) threshold.
                     </div>
@@ -123,13 +124,13 @@
 
                 <div class="payment-notice">
                     <strong>Razorpay Secure Gateway (₹19,999):</strong>
-                    Submitting this form records your proposal and seamlessly redirects you to complete your secure payment.
+                    Submitting this form records your proposal, generates your automated LoI receipt, and seamlessly redirects you to complete your secure payment.
                 </div>
 
                 <button type="submit" class="btn-submit">Proceed to Secure Payment (₹19,999) ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
-                <span id="routingFeedback">Redirecting to Razorpay payment gateway...</span>
+                <span id="routingFeedback">Slot reserved and LoI receipt generated! Redirecting to Razorpay...</span>
             </div>
         </div>
 
@@ -252,6 +253,7 @@
             }
         }
 
+        // Step 2: Bundling Explainer Trigger
         function checkBundlingNotice() {
             const val = document.getElementById('metricValueDropdown').value;
             const noticeBox = document.getElementById('bundlingNoticeBox');
@@ -262,7 +264,7 @@
             }
         }
 
-        // Form Submission & Clean Razorpay Redirect Handler
+        // Step 1 & Step 3: Form Submission, Automated LoI Receipt & Razorpay Redirect Handler
         document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -274,25 +276,78 @@
             let allocatedPipeline = selectedTier.includes("More than") ? "Aditi_Impex_Large_Scale_Pipeline" : "Pilot_Small_Scale_Cohort";
 
             const newProjectRef = database.ref('projects').push();
-            newProjectRef.set({
+            const submissionData = {
                 entityName: entityName,
                 contactEmail: contactEmail,
                 projectType: methodologyType,
                 scaleTier: selectedTier,
                 routingPipeline: allocatedPipeline,
-                paymentStatus: "Redirected_To_Razorpay",
+                paymentStatus: "Pending_Gateway_Redirect",
                 timestamp: new Date().toISOString()
-            }, function(error) {
+            };
+
+            newProjectRef.set(submissionData, function(error) {
                 if (error) {
                     alert("Submission failed. Please check network connection.");
                 } else {
+                    // Step 3: Automatically generate and trigger browser-based LoI text receipt download
+                    generateLoIReceipt(submissionData);
+
                     document.getElementById('successMessage').style.display = 'block';
+                    
+                    // Step 1: Smooth redirect to Razorpay payment link after receipt triggers
                     setTimeout(() => {
                         window.location.href = RAZORPAY_PAYMENT_URL;
-                    }, 1200);
+                    }, 1500);
                 }
             });
         });
+
+        // Step 3: Browser-based LoI Receipt Generator Function
+        function generateLoIReceipt(data) {
+            const receiptContent = `
+==================================================
+EARTH CARBON FOUNDATION | OFFICIAL LOI & RECEIPT
+==================================================
+CIN: U85300GJ2019NPL106818
+Ahmedabad, Gujarat, India
+
+Date: ${new Date(data.timestamp).toLocaleString()}
+Fee Status: Processing Fee ₹19,999.00 (Initiated)
+
+--------------------------------------------------
+PARTNER ORGANIZATION DETAILS:
+--------------------------------------------------
+Entity Name: ${data.entityName}
+Contact Email: ${data.contactEmail}
+Project Methodology: ${data.projectType}
+Committed Capacity / Tier: ${data.scaleTier}
+Assigned Pipeline: ${data.routingPipeline}
+
+--------------------------------------------------
+LETTER OF INTENT & COHORT RESERVATION DECLARATION:
+--------------------------------------------------
+This document certifies that the above organization has 
+formally reserved its slot in the ECF / Aditi Impex 
+Programme of Activities (PoA) development pipeline toward 
+our 100M-tonne CO2e 5-year target. Technical review and 
+MEADA agreement execution are now officially initiated.
+
+Authorized Registry Stamp & Signatory
+Earth Carbon Foundation
+==================================================
+            `;
+
+            const blob = new Blob([receiptContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ECF_LoI_Receipt_${data.entityName.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
 
         // Real-time Dashboard Listener
         database.ref('projects').on('value', function(snapshot) {
