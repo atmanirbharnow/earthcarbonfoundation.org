@@ -111,12 +111,11 @@
 
                 <div class="form-group">
                     <label for="methodologyType">Select UNFCCC Project Type</label>
-                    <!-- Fixed: Added onchange event handler back -->
                     <select id="methodologyType" required onchange="updateScaleDropdown()">
                         <option value="" disabled selected>-- Select Project Type --</option>
-                        <option value="Type_I_Renewable">Type I: Renewable Energy (Capacity)</option>
-                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency (Annual Savings)</option>
-                        <option value="Type_III_OtherActivities">Type III: Other Activities (Emission Reductions)</option>
+                        <option value="Type I: Renewable Energy">Type I: Renewable Energy (Capacity)</option>
+                        <option value="Type II: Energy Efficiency">Type II: Energy Efficiency (Annual Savings)</option>
+                        <option value="Type III: Other Activities">Type III: Other Activities (Emission Reductions)</option>
                     </select>
                 </div>
 
@@ -191,7 +190,6 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Dynamically populate scale dropdown based on UNFCCC Project Type selection
         function updateScaleDropdown() {
             const projectType = document.getElementById('methodologyType').value;
             const dropdown = document.getElementById('metricValueDropdown');
@@ -199,21 +197,21 @@
             
             dropdown.innerHTML = '<option value="" disabled selected>-- Select Metric Tier --</option>';
 
-            if (projectType === "Type_I_Renewable") {
+            if (projectType === "Type I: Renewable Energy") {
                 label.innerText = "Installation Capacity (Must be 500 kW or more)";
                 const options = [
-                    {val: "Ineligible_Under_500Kw", text: "Less than 500 kW (Ineligible)"},
-                    {val: "Tier_500_1000Kw", text: "500 kW – 1,000 kW (0.5 MW – 1 MW)"},
-                    {val: "Tier_1000_2000Kw", text: "1,000 kW – 2,000 kW (1 MW – 2 MW)"},
-                    {val: "Tier_2000_3000Kw", text: "2,000 kW – 3,000 kW (2 MW – 3 MW)"},
-                    {val: "Tier_3000_4000Kw", text: "3,000 kW – 4,000 kW (3 MW – 4 MW)"},
-                    {val: "Tier_4000_5000Kw", text: "4,000 kW – 5,000 kW (4 MW – 5 MW)"},
-                    {val: "Tier_5000_6000Kw", text: "5,000 kW – 6,000 kW (5 MW – 6 MW)"},
-                    {val: "Tier_6000_7000Kw", text: "6,000 kW – 7,000 kW (6 MW – 7 MW)"},
-                    {val: "Tier_7000_8000Kw", text: "7,000 kW – 8,000 kW (7 MW – 8 MW)"},
-                    {val: "Tier_8000_9000Kw", text: "8,000 kW – 9,000 kW (8 MW – 9 MW)"},
-                    {val: "Tier_9000_15000Kw", text: "9,000 kW – 15,000 kW (9 MW – 15 MW Max Small-Scale)"},
-                    {val: "Tier_Above_15MW", text: "More than 15 MW (Large-Scale Enterprise Pipeline)"}
+                    {val: "Ineligible Under 500kW", text: "Less than 500 kW (Ineligible)"},
+                    {val: "500 kW – 1,000 kW", text: "500 kW – 1,000 kW (0.5 MW – 1 MW)"},
+                    {val: "1,000 kW – 2,000 kW", text: "1,000 kW – 2,000 kW (1 MW – 2 MW)"},
+                    {val: "2,000 kW – 3,000 kW", text: "2,000 kW – 3,000 kW (2 MW – 3 MW)"},
+                    {val: "3,000 kW – 4,000 kW", text: "3,000 kW – 4,000 kW (3 MW – 4 MW)"},
+                    {val: "4,000 kW – 5,000 kW", text: "4,000 kW – 5,000 kW (4 MW – 5 MW)"},
+                    {val: "5,000 kW – 6,000 kW", text: "5,000 kW – 6,000 kW (5 MW – 6 MW)"},
+                    {val: "6,000 kW – 7,000 kW", text: "6,000 kW – 7,000 kW (6 MW – 7 MW)"},
+                    {val: "7,000 kW – 8,000 kW", text: "7,000 kW – 8,000 kW (7 MW – 8 MW)"},
+                    {val: "8,000 kW – 9,000 kW", text: "8,000 kW – 9,000 kW (8 MW – 9 MW)"},
+                    {val: "9,000 kW – 15,000 kW", text: "9,000 kW – 15,000 kW (9 MW – 15 MW Max Small-Scale)"},
+                    {val: "More than 15 MW", text: "More than 15 MW (Large-Scale Enterprise Pipeline)"}
                 ];
                 options.forEach(opt => {
                     let el = document.createElement('option');
@@ -222,14 +220,14 @@
                     dropdown.appendChild(el);
                 });
 
-            } else if (projectType === "Type_II_EnergyEfficiency") {
+            } else if (projectType === "Type II: Energy Efficiency") {
                 label.innerText = "Annual Energy Savings (Max 60 GWh/year for Small-Scale)";
                 const options = [
-                    {val: "EE_Tier_Under_Threshold", text: "Low savings tier / Ineligible baseline"},
-                    {val: "EE_Tier_Up_To_15GWh", text: "Up to 15 GWh per year"},
-                    {val: "EE_Tier_15_to_30GWh", text: "15 GWh to 30 GWh per year"},
-                    {val: "EE_Tier_30_to_60GWh", text: "30 GWh to 60 GWh per year (Max Small-Scale)"},
-                    {val: "EE_Tier_Above_60GWh", text: "More than 60 GWh per year (Large-Scale Enterprise Pipeline)"}
+                    {val: "Low savings / Ineligible", text: "Low savings tier / Ineligible baseline"},
+                    {val: "Up to 15 GWh/year", text: "Up to 15 GWh per year"},
+                    {val: "15 GWh to 30 GWh/year", text: "15 GWh to 30 GWh per year"},
+                    {val: "30 GWh to 60 GWh/year", text: "30 GWh to 60 GWh per year (Max Small-Scale)"},
+                    {val: "More than 60 GWh/year", text: "More than 60 GWh per year (Large-Scale Enterprise Pipeline)"}
                 ];
                 options.forEach(opt => {
                     let el = document.createElement('option');
@@ -238,14 +236,14 @@
                     dropdown.appendChild(el);
                 });
 
-            } else if (projectType === "Type_III_OtherActivities") {
+            } else if (projectType === "Type III: Other Activities") {
                 label.innerText = "Annual Emission Reductions (Max 60 ktCO2e/year for Small-Scale)";
                 const options = [
-                    {val: "III_Tier_Under_Threshold", text: "Low reduction tier / Ineligible baseline"},
-                    {val: "III_Tier_Up_To_15kt", text: "Up to 15 kt CO2e per year"},
-                    {val: "III_Tier_15_to_30kt", text: "15 kt to 30 kt CO2e per year"},
-                    {val: "III_Tier_30_to_60kt", text: "30 kt to 60 kt CO2e per year (Max Small-Scale)"},
-                    {val: "III_Tier_Above_60kt", text: "More than 60 kt CO2e per year (Large-Scale Enterprise Pipeline)"}
+                    {val: "Low reduction / Ineligible", text: "Low reduction tier / Ineligible baseline"},
+                    {val: "Up to 15 ktCO2e/year", text: "Up to 15 kt CO2e per year"},
+                    {val: "15 kt to 30 ktCO2e/year", text: "15 kt to 30 kt CO2e per year"},
+                    {val: "30 kt to 60 ktCO2e/year", text: "30 kt to 60 kt CO2e per year (Max Small-Scale)"},
+                    {val: "More than 60 ktCO2e/year", text: "More than 60 kt CO2e per year (Large-Scale Enterprise Pipeline)"}
                 ];
                 options.forEach(opt => {
                     let el = document.createElement('option');
@@ -270,12 +268,12 @@
             let alertBoxColor = "#dcfce7";
             let textColor = "#166534";
 
-            if (selectedTier.includes("Ineligible") || selectedTier.includes("Under_Threshold")) {
+            if (selectedTier.includes("Ineligible") || selectedTier.includes("Low")) {
                 allocatedPipeline = "Ineligible_Under_Threshold";
                 routingDescription = "Notice: Project scale is below minimum program thresholds and is currently ineligible.";
                 alertBoxColor = "#fee2e2";
                 textColor = "#991b1b";
-            } else if (selectedTier.includes("Above_15MW") || selectedTier.includes("Above_60GWh") || selectedTier.includes("Above_60kt")) {
+            } else if (selectedTier.includes("More than 15 MW") || selectedTier.includes("More than 60 GWh") || selectedTier.includes("More than 60 kt")) {
                 allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
                 routingDescription = "Success! Scale exceeds small-scale limits and is automatically parked into the Large-Scale Project Pipeline.";
             } else {
@@ -343,7 +341,7 @@
                 }
 
                 const dateStr = proj.timestamp ? new Date(proj.timestamp).toLocaleString() : "Just now";
-                let displayTier = proj.scaleTier ? proj.scaleTier.replace(/_/g, ' ') : "N/A";
+                let displayTier = proj.scaleTier || "N/A";
 
                 const row = document.createElement('tr');
                 row.innerHTML = `
