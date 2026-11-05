@@ -149,7 +149,7 @@
                     <p class="number" id="statSmallScale">0</p>
                 </div>
                 <div class="stat-card">
-                    <h4>Aditi Impex Large-Scale</h4>
+                    <h4>Large-Scale Project</h4>
                     <p class="number" id="statLargeScale">0</p>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                         <tr>
                             <th>Organization</th>
                             <th>Type</th>
-                            <th>Assigned Pipeline</th>
+                            <th>Capacity Captured / Committed</th>
                             <th>Timestamp</th>
                         </tr>
                     </thead>
@@ -243,121 +243,4 @@
                     {val: "III_Tier_Under_Threshold", text: "Low reduction tier / Ineligible baseline"},
                     {val: "III_Tier_Up_To_15kt", text: "Up to 15 kt CO2e per year"},
                     {val: "III_Tier_15_to_30kt", text: "15 kt to 30 kt CO2e per year"},
-                    {val: "III_Tier_30_to_60kt", text: "30 kt to 60 kt CO2e per year (Max Small-Scale)"},
-                    {val: "III_Tier_Above_60kt", text: "More than 60 kt CO2e per year (Large-Scale Enterprise Pipeline)"}
-                ];
-                options.forEach(opt => {
-                    let el = document.createElement('option');
-                    el.value = opt.val;
-                    el.textContent = opt.text;
-                    dropdown.appendChild(el);
-                });
-            }
-        }
-
-        // Form Submission Handler
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const entityName = document.getElementById('entityName').value;
-            const contactEmail = document.getElementById('contactEmail').value;
-            const methodologyType = document.getElementById('methodologyType').value;
-            const selectedTier = document.getElementById('metricValueDropdown').value;
-
-            let allocatedPipeline = "";
-            let routingDescription = "";
-            let alertBoxColor = "#dcfce7";
-            let textColor = "#166534";
-
-            if (selectedTier.includes("Ineligible") || selectedTier.includes("Under_Threshold")) {
-                allocatedPipeline = "Ineligible_Under_Threshold";
-                routingDescription = "Notice: Project scale is below minimum program thresholds and is currently ineligible.";
-                alertBoxColor = "#fee2e2";
-                textColor = "#991b1b";
-            } else if (selectedTier.includes("Above_15MW") || selectedTier.includes("Above_60GWh") || selectedTier.includes("Above_60kt")) {
-                allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
-                routingDescription = "Success! Scale exceeds small-scale limits and is automatically parked into the Aditi Impex Large-Scale Pipeline.";
-            } else {
-                allocatedPipeline = "Pilot_Small_Scale_Cohort";
-                routingDescription = "Success! Project scale qualifies and is parked into the Small-Scale PoA Cohort.";
-            }
-
-            const newProjectRef = database.ref('projects').push();
-            newProjectRef.set({
-                entityName: entityName,
-                contactEmail: contactEmail,
-                projectType: methodologyType,
-                scaleTier: selectedTier,
-                routingPipeline: allocatedPipeline,
-                timestamp: new Date().toISOString()
-            }, function(error) {
-                if (error) {
-                    alert("Submission failed. Please check network connection.");
-                } else {
-                    const msgDiv = document.getElementById('successMessage');
-                    msgDiv.style.backgroundColor = alertBoxColor;
-                    msgDiv.style.color = textColor;
-                    document.getElementById('routingFeedback').innerText = routingDescription;
-                    msgDiv.style.display = 'block';
-                    
-                    if (allocatedPipeline !== "Ineligible_Under_Threshold") {
-                        document.getElementById('projectForm').reset();
-                        document.getElementById('metricValueDropdown').innerHTML = '<option value="" disabled selected>-- First select a project type above --</option>';
-                    }
-
-                    setTimeout(() => {
-                        msgDiv.style.display = 'none';
-                    }, 7000);
-                }
-            });
-        });
-
-        // Real-time Listener for Live Dashboard Dashboard Updates
-        database.ref('projects').on('value', function(snapshot) {
-            const data = snapshot.val();
-            const tableBody = document.getElementById('liveTableBody');
-            
-            let totalCount = 0;
-            let smallScaleCount = 0;
-            let largeScaleCount = 0;
-            
-            tableBody.innerHTML = "";
-
-            if (!data) {
-                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No submissions recorded yet.</td></tr>`;
-                document.getElementById('statTotal').innerText = "0";
-                document.getElementById('statSmallScale').innerText = "0";
-                document.getElementById('statLargeScale').innerText = "0";
-                return;
-            }
-
-            const projectsArray = Object.values(data).reverse(); // Most recent first
-
-            projectsArray.forEach(proj => {
-                totalCount++;
-                if (proj.routingPipeline === "Pilot_Small_Scale_Cohort") {
-                    smallScaleCount++;
-                } else if (proj.routingPipeline === "Aditi_Impex_Large_Scale_Pipeline") {
-                    largeScaleCount++;
-                }
-
-                const dateStr = proj.timestamp ? new Date(proj.timestamp).toLocaleString() : "Just now";
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td><strong>${proj.entityName}</strong><br><span style="font-size:0.8rem; color:var(--gray);">${proj.contactEmail}</span></td>
-                    <td>${proj.projectType}</td>
-                    <td><span style="padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; background: ${proj.routingPipeline === 'Aditi_Impex_Large_Scale_Pipeline' ? '#dbeafe; color: #1e40af;' : '#dcfce7; color: #166534;'}">${proj.routingPipeline}</span></td>
-                    <td style="font-size: 0.8rem; color: var(--gray);">${dateStr}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-
-            // Update stats counters live
-            document.getElementById('statTotal').innerText = totalCount;
-            document.getElementById('statSmallScale').innerText = smallScaleCount;
-            document.getElementById('statLargeScale').innerText = largeScaleCount;
-        });
-    </script>
-</body>
-</html>
+                    {val: "III_Tier_30_to_60kt", text: "30 kt to 60 kt CO2e per year (Max Small-Scale)"
