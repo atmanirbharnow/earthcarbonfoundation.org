@@ -50,7 +50,7 @@
         footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
     </style>
 
-    <!-- Firebase SDK (Compat Version for Easy Integration) -->
+    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
@@ -84,16 +84,16 @@
         </div>
     </div>
 
-    <!-- 15 MW Cohort Pilot Registration Section (Firebase Connected) -->
+    <!-- Registration & Intelligent Routing Portal -->
     <div class="container" id="register">
         <div class="form-container">
-            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Project Registration & 500 MW Intake Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Submit project parameters for automated routing into our 15 MW pilot cohort pipeline.</p>
+            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Intelligent Project Intake & Allocation Portal</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Submissions are automatically screened and routed between the 15 MW Pilot Cohort and Large-Scale Pipelines.</p>
             
             <form id="projectForm">
                 <div class="form-group">
                     <label for="entityName">Organization / Entity Name</label>
-                    <input type="text" id="entityName" required placeholder="e.g., Aditi Impex Partner Facility">
+                    <input type="text" id="entityName" required placeholder="e.g., Partner Organization">
                 </div>
                 <div class="form-group">
                     <label for="contactEmail">Contact Email</label>
@@ -101,32 +101,23 @@
                 </div>
                 <div class="form-group">
                     <label for="powerCapacity">Power Capacity Input (MW)</label>
-                    <input type="number" id="powerCapacity" min="1" max="500" required placeholder="Enter capacity (e.g., 500 MW target or pilot slice)">
+                    <input type="number" id="powerCapacity" min="1" step="any" required placeholder="Enter capacity in MW (e.g., 15 or 500)">
                 </div>
                 <div class="form-group">
-                    <label for="methodology">Select Primary Methodology Category</label>
+                    <label for="methodology">Select Methodology Category</label>
                     <select id="methodology">
-                        <option value="Solar_Aggregation">01. Small-Scale Solar Aggregation (15 MW Cohort)</option>
+                        <option value="Solar_Aggregation">01. Small-Scale Solar Aggregation</option>
                         <option value="Energy_Efficiency">02. Industrial Energy Efficiency</option>
                         <option value="Biomass_Waste">03. Biomass & Resource Recovery</option>
-                        <option value="Large_Scale_Universal">04. Large-Scale Multi-Methodology (>15 MW Pipeline)</option>
+                        <option value="Unlisted_Methodology_Screening">04. Unlisted Methodology (Requires Screening)</option>
+                        <option value="Universal_Multi_Methodology">05. Enterprise Multi-Methodology Pipeline</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Submit to 15 MW Pilot Cohort ➔</button>
+                <button type="submit" class="btn-submit">Process & Route Submission ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
-                Success! Your project has been logged and routed to the nearest 15 MW pilot cohort bucket.
+                <span id="routingFeedback">Project successfully registered and routed!</span>
             </div>
-        </div>
-    </div>
-
-    <!-- Social Media Channels -->
-    <div class="container" style="text-align: center; margin-top: 40px;">
-        <h3 style="color: var(--dark); margin-bottom: 15px;">Official Channels</h3>
-        <div class="social-bar">
-            <a href="https://forms.gle/fyHcDuxA3ymRQNku6" target="_blank">🚀 Intake Form ↗</a>
-            <a href="https://twitter.com/EarthAmit44114" target="_blank">🌐 X (Twitter) @EarthAmit44114 ↗</a>
-            <a href="https://instagram.com/amitsinh979" target="_blank">📷 Instagram @amitsinh979 ↗</a>
         </div>
     </div>
 
@@ -136,50 +127,28 @@
         Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
     </footer>
 
-    <!-- Firebase Connection Script -->
+    <!-- Firebase & Routing Logic Script -->
     <script>
-        // Your Firebase Realtime Database Configuration
         const firebaseConfig = {
             databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
         };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Handle Form Submission and Save to Realtime Database
         document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const entityName = document.getElementById('entityName').value;
             const contactEmail = document.getElementById('contactEmail').value;
-            const powerCapacity = document.getElementById('powerCapacity').value;
+            const powerCapacity = Number(document.getElementById('powerCapacity').value);
             const methodology = document.getElementById('methodology').value;
 
-            // Determine routing bucket (Small-scale 15 MW cohort vs Large scale)
-            let cohortRouting = powerCapacity >= 500 ? "Large_Scale_500MW_Allocation" : "Pilot_15MW_Cohort";
+            // Intelligent Routing Logic according to 500 MW and 15 MW threshold rules
+            let allocatedPipeline = "";
+            let routingDescription = "";
 
-            // Push data to Firebase Realtime Database under 'projects' node
-            const newProjectRef = database.ref('projects').push();
-            newProjectRef.set({
-                entityName: entityName,
-                contactEmail: contactEmail,
-                powerCapacityMW: Number(powerCapacity),
-                methodology: methodology,
-                routingCohort: cohortRouting,
-                timestamp: new Date().toISOString()
-            }, function(error) {
-                if (error) {
-                    alert("Submission failed. Please check network.");
-                } else {
-                    document.getElementById('projectForm').reset();
-                    document.getElementById('successMessage').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            if (powerCapacity >= 500) {
+                allocatedPipeline = "Large_Scale_Enterprise_Pipeline";
+                routingDescription = "Routed to Large-Scale Pipeline (>500 MW Tier across methodologies).";
+            } else if (powerCapacity <= 15) {
