@@ -14,39 +14,17 @@
             --border: #e2e8f0;
         }
         body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; background-color: #ffffff; line-height: 1.6; }
-        
-        /* Plain Forest Green Sticky Bar */
         .cta-bar { background-color: var(--primary); height: 40px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-
-        /* Hero Section */
         .hero { max-width: 900px; margin: 50px auto 30px; padding: 0 20px; text-align: center; }
-        .hero h1 { font-size: 2.8rem; color: var(--dark); margin-bottom: 20px; font-weight: 800; letter-spacing: -0.025em; }
+        .hero h1 { font-size: 2.8rem; color: var(--dark); margin-bottom: 20px; font-weight: 800; }
         .hero p { font-size: 1.25rem; color: var(--gray); margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; }
-
-        /* Sections Layout */
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        h2.section-title { text-align: center; font-size: 2.2rem; color: var(--dark); margin-bottom: 30px; font-weight: 700; }
-        
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 24px; box-sizing: border-box; }
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1.2rem; }
-        .card p { color: var(--gray); margin-bottom: 0; font-size: 0.95rem; }
-
-        /* Registration Form Container */
         .form-container { background: var(--light); border: 1px solid var(--border); border-radius: 12px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 40px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
         .btn-submit { background-color: var(--primary); color: #fff; padding: 14px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 100%; transition: background 0.2s; }
         .btn-submit:hover { background-color: var(--primary-hover); }
-
-        /* Social Media Bar */
-        .social-bar { display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
-        .social-bar a { color: var(--primary); font-weight: 600; text-decoration: none; padding: 8px 16px; background: #f1f5f9; border-radius: 6px; border: 1px solid var(--border); transition: background 0.2s; }
-        .social-bar a:hover { background: #e2e8f0; }
-
-        /* Footer */
         footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
     </style>
 
@@ -56,39 +34,17 @@
 </head>
 <body>
 
-    <!-- Plain Forest Green Sticky Bar -->
     <div class="cta-bar"></div>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>Earth Carbon Foundation</h1>
         <p>Where Low-Carbon Investments Create Environmental and Economic Opportunities.</p>
     </section>
 
-    <!-- Core Proposition Section -->
-    <div class="container">
-        <h2 class="section-title">Value Proposition We Create</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Unregistered Actions</h3>
-                <p>Environmental actions often remain unrecognised and underutilised across organizations.</p>
-            </div>
-            <div class="card">
-                <h3>Global Contribution</h3>
-                <p>Every individual green action contributes directly to collective global climate goals.</p>
-            </div>
-            <div class="card">
-                <h3>Tradeable Instruments</h3>
-                <p>Eligible, properly developed projects may generate tradeable environmental instruments.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Registration & Intelligent Routing Portal -->
     <div class="container" id="register">
         <div class="form-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Allocation Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Select your installation capacity bracket for automated routing.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Select your UNFCCC project category and scale for automated routing.</p>
             
             <form id="projectForm">
                 <div class="form-group">
@@ -102,30 +58,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="projectCapacityTier">What is the current capacity of your installation? (Must be 500 kW or more to qualify)</label>
-                    <select id="projectCapacityTier" required>
-                        <option value="" disabled selected>-- Select Current Installation Capacity --</option>
-                        <option value="Ineligible_Under_500Kw">Less than 500 kW (Ineligible for bundled program)</option>
-                        <option value="Tier_500_1000Kw">500 kW – 1,000 kW (0.5 MW – 1 MW)</option>
-                        <option value="Tier_1000_2000Kw">1,000 kW – 2,000 kW (1 MW – 2 MW)</option>
-                        <option value="Tier_2000_3000Kw">2,000 kW – 3,000 kW (2 MW – 3 MW)</option>
-                        <option value="Tier_3000_4000Kw">3,000 kW – 4,000 kW (3 MW – 4 MW)</option>
-                        <option value="Tier_4000_5000Kw">4,000 kW – 5,000 kW (4 MW – 5 MW)</option>
-                        <option value="Tier_5000_6000Kw">5,000 kW – 6,000 kW (5 MW – 6 MW)</option>
-                        <option value="Tier_6000_7000Kw">6,000 kW – 7,000 kW (6 MW – 7 MW)</option>
-                        <option value="Tier_7000_8000Kw">7,000 kW – 8,000 kW (7 MW – 8 MW)</option>
-                        <option value="Tier_8000_9000Kw">8,000 kW – 9,000 kW (8 MW – 9 MW)</option>
-                        <option value="Tier_9000_15000Kw">9,000 kW – 15,000 kW (9 MW – 15 MW Max Small-Scale)</option>
-                        <option value="Tier_Above_15MW">More than 15 MW (Large-Scale Enterprise Pipeline)</option>
+                    <label for="methodologyType">Select UNFCCC Project Type</label>
+                    <select id="methodologyType" required onchange="updateScaleDropdown()">
+                        <option value="" disabled selected>-- Select Project Type --</option>
+                        <option value="Type_I_Renewable">Type I: Renewable Energy (Capacity)</option>
+                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency (Annual Savings)</option>
+                        <option value="Type_III_OtherActivities">Type III: Other Activities (Emission Reductions)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="methodologyType">Select UNFCCC Project Type</label>
-                    <select id="methodologyType">
-                        <option value="Type_I_Renewable">Type I: Renewable Energy</option>
-                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency</option>
-                        <option value="Type_III_OtherActivities">Type III: Other Activities / Methane</option>
+                    <label id="scaleLabel" for="metricValueDropdown">Select Project Scale / Output Metric</label>
+                    <select id="metricValueDropdown" required>
+                        <option value="" disabled selected>-- First select a project type above --</option>
                     </select>
                 </div>
 
@@ -137,13 +82,12 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>CIN: U85300GJ2019NPL106818 • Earth Carbon Foundation (ECF) Institutional Asset Registry<br>
         Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
     </footer>
 
-    <!-- Firebase & Routing Logic Script -->
+    <!-- Dynamic Dropdown & Firebase Routing Script -->
     <script>
         const firebaseConfig = {
             databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
@@ -152,40 +96,105 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
+        // Dynamically populate scale dropdown based on UNFCCC Project Type selection
+        function updateScaleDropdown() {
+            const projectType = document.getElementById('methodologyType').value;
+            const dropdown = document.getElementById('metricValueDropdown');
+            const label = document.getElementById('scaleLabel');
+            
+            dropdown.innerHTML = '<option value="" disabled selected>-- Select Metric Tier --</option>';
+
+            if (projectType === "Type_I_Renewable") {
+                label.innerText = "Installation Capacity (Must be 500 kW or more)";
+                const options = [
+                    {val: "Ineligible_Under_500Kw", text: "Less than 500 kW (Ineligible)"},
+                    {val: "Tier_500_1000Kw", text: "500 kW – 1,000 kW (0.5 MW – 1 MW)"},
+                    {val: "Tier_1000_2000Kw", text: "1,000 kW – 2,000 kW (1 MW – 2 MW)"},
+                    {val: "Tier_2000_3000Kw", text: "2,000 kW – 3,000 kW (2 MW – 3 MW)"},
+                    {val: "Tier_3000_4000Kw", text: "3,000 kW – 4,000 kW (3 MW – 4 MW)"},
+                    {val: "Tier_4000_5000Kw", text: "4,000 kW – 5,000 kW (4 MW – 5 MW)"},
+                    {val: "Tier_5000_6000Kw", text: "5,000 kW – 6,000 kW (5 MW – 6 MW)"},
+                    {val: "Tier_6000_7000Kw", text: "6,000 kW – 7,000 kW (6 MW – 7 MW)"},
+                    {val: "Tier_7000_8000Kw", text: "7,000 kW – 8,000 kW (7 MW – 8 MW)"},
+                    {val: "Tier_8000_9000Kw", text: "8,000 kW – 9,000 kW (8 MW – 9 MW)"},
+                    {val: "Tier_9000_15000Kw", text: "9,000 kW – 15,000 kW (9 MW – 15 MW Max Small-Scale)"},
+                    {val: "Tier_Above_15MW", text: "More than 15 MW (Large-Scale Enterprise Pipeline)"}
+                ];
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt.val;
+                    el.textContent = opt.text;
+                    dropdown.appendChild(el);
+                });
+
+            } else if (projectType === "Type_II_EnergyEfficiency") {
+                label.innerText = "Annual Energy Savings (Max 60 GWh/year for Small-Scale)";
+                const options = [
+                    {val: "EE_Tier_Under_Threshold", text: "Low savings tier / Ineligible baseline"},
+                    {val: "EE_Tier_Up_To_15GWh", text: "Up to 15 GWh per year"},
+                    {val: "EE_Tier_15_to_30GWh", text: "15 GWh to 30 GWh per year"},
+                    {val: "EE_Tier_30_to_60GWh", text: "30 GWh to 60 GWh per year (Max Small-Scale)"},
+                    {val: "EE_Tier_Above_60GWh", text: "More than 60 GWh per year (Large-Scale Enterprise Pipeline)"}
+                ];
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt.val;
+                    el.textContent = opt.text;
+                    dropdown.appendChild(el);
+                });
+
+            } else if (projectType === "Type_III_OtherActivities") {
+                label.innerText = "Annual Emission Reductions (Max 60 ktCO2e/year for Small-Scale)";
+                const options = [
+                    {val: "III_Tier_Under_Threshold", text: "Low reduction tier / Ineligible baseline"},
+                    {val: "III_Tier_Up_To_15kt", text: "Up to 15 kt CO2e per year"},
+                    {val: "III_Tier_15_to_30kt", text: "15 kt to 30 kt CO2e per year"},
+                    {val: "III_Tier_30_to_60kt", text: "30 kt to 60 kt CO2e per year (Max Small-Scale)"},
+                    {val: "III_Tier_Above_60kt", text: "More than 60 kt CO2e per year (Large-Scale Enterprise Pipeline)"}
+                ];
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt.val;
+                    el.textContent = opt.text;
+                    dropdown.appendChild(el);
+                });
+            }
+        }
+
         document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const entityName = document.getElementById('entityName').value;
             const contactEmail = document.getElementById('contactEmail').value;
-            const capacityTier = document.getElementById('projectCapacityTier').value;
             const methodologyType = document.getElementById('methodologyType').value;
+            const selectedTier = document.getElementById('metricValueDropdown').value;
 
             let allocatedPipeline = "";
             let routingDescription = "";
             let alertBoxColor = "#dcfce7";
             let textColor = "#166534";
 
-            // Routing evaluation based on selected tier value
-            if (capacityTier === "Ineligible_Under_500Kw") {
+            // Routing logic based on selected tiers
+            if (selectedTier.includes("Ineligible") || selectedTier.includes("Under_Threshold")) {
                 allocatedPipeline = "Ineligible_Under_Threshold";
-                routingDescription = "Notice: Submissions must be 500 kW or more to qualify for the bundled program. Project is currently ineligible.";
+                routingDescription = "Notice: Project scale is below the minimum program threshold and is currently ineligible.";
                 alertBoxColor = "#fee2e2";
                 textColor = "#991b1b";
-            } else if (capacityTier === "Tier_Above_15MW") {
+            } else if (selectedTier.includes("Above_15MW") || selectedTier.includes("Above_60GWh") || selectedTier.includes("Above_60kt")) {
                 allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
-                routingDescription = "Success! Capacity exceeds 15 MW and is automatically parked into the Large-Scale Enterprise Project Pipeline.";
+                routingDescription = "Success! Scale exceeds small-scale limits and is automatically parked into the Large-Scale Enterprise Pipeline.";
             } else {
-                allocatedPipeline = "Pilot_15MW_Renewable_Cohort";
-                routingDescription = "Success! Project capacity qualifies and is parked into the 15 MW Renewable Energy / Small-Scale Cohort.";
+                allocatedPipeline = "Pilot_Small_Scale_Cohort";
+                routingDescription = "Success! Project scale qualifies and is parked into the Small-Scale PoA Cohort.";
             }
 
-            // Push structured payload to Firebase Database
+            // Push payload to Firebase
             const newProjectRef = database.ref('projects').push();
             newProjectRef.set({
                 entityName: entityName,
                 contactEmail: contactEmail,
-                capacityTier: capacityTier,
-                methodologyCategory: methodologyType,
+                projectType: methodologyType,
+                scaleTier: selectedTier,
                 routingPipeline: allocatedPipeline,
                 timestamp: new Date().toISOString()
             }, function(error) {
@@ -200,6 +209,7 @@
                     
                     if (allocatedPipeline !== "Ineligible_Under_Threshold") {
                         document.getElementById('projectForm').reset();
+                        document.getElementById('metricValueDropdown').innerHTML = '<option value="" disabled selected>-- First select a project type above --</option>';
                     }
 
                     setTimeout(() => {
