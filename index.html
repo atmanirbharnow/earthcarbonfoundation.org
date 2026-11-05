@@ -87,8 +87,8 @@
     <!-- Registration & Intelligent Routing Portal -->
     <div class="container" id="register">
         <div class="form-container">
-            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Intelligent Project Intake & Allocation Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Submissions are automatically screened and routed between the 15 MW Pilot Cohort and Large-Scale Pipelines.</p>
+            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Allocation Portal</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Minimum entry-level submission: 500 kW (0.5 MW) for small-scale cohorts, scaling up to enterprise thresholds.</p>
             
             <form id="projectForm">
                 <div class="form-group">
@@ -100,20 +100,20 @@
                     <input type="email" id="contactEmail" required placeholder="partner@earthcarbonfoundation.org">
                 </div>
                 <div class="form-group">
-                    <label for="powerCapacity">Power Capacity Input (MW)</label>
-                    <input type="number" id="powerCapacity" min="1" step="any" required placeholder="Enter capacity in MW (e.g., 15 or 500)">
+                    <label for="projectScaleInput">Project Scale / Output Metric (MW, GWh/yr, or ktCO2e/yr)</label>
+                    <input type="number" id="projectScaleInput" min="0.5" step="any" required placeholder="e.g., 0.5 (for 500 kW) up to 15 MW or 60 GWh/yr">
                 </div>
                 <div class="form-group">
-                    <label for="methodology">Select Methodology Category</label>
-                    <select id="methodology">
-                        <option value="Solar_Aggregation">01. Small-Scale Solar Aggregation</option>
-                        <option value="Energy_Efficiency">02. Industrial Energy Efficiency</option>
-                        <option value="Biomass_Waste">03. Biomass & Resource Recovery</option>
-                        <option value="Unlisted_Methodology_Screening">04. Unlisted Methodology (Requires Screening)</option>
-                        <option value="Universal_Multi_Methodology">05. Enterprise Multi-Methodology Pipeline</option>
+                    <label for="methodologyType">Select UNFCCC Small-Scale Project Type</label>
+                    <select id="methodologyType">
+                        <option value="Type_I_Renewable">Type I: Renewable Energy (Max 15 MW)</option>
+                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency (Max 60 GWh/year)</option>
+                        <option value="Type_III_OtherActivities">Type III: Other Activities / Methane (Max 60 ktCO2e/year)</option>
+                        <option value="Unlisted_Methodology_Screening">Unlisted Methodology (Requires Screening)</option>
+                        <option value="Large_Scale_Enterprise">Large-Scale Enterprise Pipeline (> Small-Scale Limits)</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Process & Route Submission ➔</button>
+                <button type="submit" class="btn-submit">Process & Route PoA Submission ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
                 <span id="routingFeedback">Project successfully registered and routed!</span>
@@ -141,14 +141,48 @@
 
             const entityName = document.getElementById('entityName').value;
             const contactEmail = document.getElementById('contactEmail').value;
-            const powerCapacity = Number(document.getElementById('powerCapacity').value);
-            const methodology = document.getElementById('methodology').value;
+            const projectScaleInput = Number(document.getElementById('projectScaleInput').value);
+            const methodologyType = document.getElementById('methodologyType').value;
 
-            // Intelligent Routing Logic according to 500 MW and 15 MW threshold rules
+            // Updated routing logic reflecting 500 kW (0.5 MW) minimum and small-scale bounds
             let allocatedPipeline = "";
             let routingDescription = "";
 
-            if (powerCapacity >= 500) {
-                allocatedPipeline = "Large_Scale_Enterprise_Pipeline";
-                routingDescription = "Routed to Large-Scale Pipeline (>500 MW Tier across methodologies).";
-            } else if (powerCapacity <= 15) {
+            if (projectScaleInput < 0.5) {
+                alert("Minimum entry-level submission for PoA projects is 500 kW (0.5 MW).");
+                return;
+            }
+
+            if (methodologyType === "Large_Scale_Enterprise" || projectScaleInput > 15) {
+                allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
+                routingDescription = "Routed to Aditi Impex Limited Large-Scale Enterprise Pipeline.";
+            } else {
+                allocatedPipeline = "Small_Scale_PoA_15MW_Cohort";
+                routingDescription = "Allocated to Small-Scale PoA Cohort (Type I/II/III compliant framework).";
+            }
+
+            // Push structured payload to Firebase Database
+            const newProjectRef = database.ref('projects').push();
+            newProjectRef.set({
+                entityName: entityName,
+                contactEmail: contactEmail,
+                scaleInput: projectScaleInput,
+                methodologyCategory: methodologyType,
+                routingPipeline: allocatedPipeline,
+                timestamp: new Date().toISOString()
+            }, function(error) {
+                if (error) {
+                    alert("Submission failed. Please check network connection.");
+                } else {
+                    document.getElementById('projectForm').reset();
+                    document.getElementById('routingFeedback').innerText = "Success! " + routingDescription;
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 6000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
