@@ -44,6 +44,12 @@
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        
+        /* Checkbox styling for LoI */
+        .checkbox-group { display: flex; align-items: flex-start; gap: 12px; margin: 25px 0; background: #ffffff; padding: 15px; border: 1px solid var(--border); border-radius: 8px; }
+        .checkbox-group input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--primary); cursor: pointer; }
+        .checkbox-group label { font-size: 0.95krem; color: var(--dark); font-weight: 500; cursor: pointer; line-height: 1.4; }
+
         .btn-submit { background-color: var(--primary); color: #fff; padding: 14px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 100%; transition: background 0.2s; }
         .btn-submit:hover { background-color: var(--primary-hover); }
 
@@ -95,8 +101,8 @@
     <!-- Registration & Intelligent Routing Portal -->
     <div class="container" id="register">
         <div class="form-container">
-            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Allocation Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Select your UNFCCC project category and scale for automated routing.</p>
+            <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Slot Reservation Portal</h2>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Secure your project's placement in our active registry cohorts toward our 100M-tonne goal.</p>
             
             <form id="projectForm">
                 <div class="form-group">
@@ -126,7 +132,15 @@
                     </select>
                 </div>
 
-                <button type="submit" class="btn-submit">Process & Route Submission ➔</button>
+                <!-- Conversion Milestone: LoI & Cohort Slot Reservation Checkbox -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="loiCommitment" required>
+                    <label for="loiCommitment">
+                        <strong>Letter of Intent & Cohort Reservation:</strong> We formally submit this project proposal to be waitlisted and booked into the ECF / Aditi Impex PoA development pipeline, committing to initiate technical verification upon review.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">Secure Slot & Submit Proposal ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
                 <span id="routingFeedback">Project successfully registered and routed!</span>
@@ -136,7 +150,7 @@
         <!-- Live Pipeline Status Dashboard Section -->
         <div class="dashboard-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Live Pipeline Status Dashboard</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of incoming registry proposals and pipeline routing distribution.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of committed registry proposals and pipeline routing distribution.</p>
 
             <!-- Stats Counters -->
             <div class="stats-grid">
@@ -155,7 +169,7 @@
             </div>
 
             <!-- Live Submissions Table -->
-            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Recent Live Intake Log</h3>
+            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Recent Committed Intake Log</h3>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -262,6 +276,7 @@
             const contactEmail = document.getElementById('contactEmail').value;
             const methodologyType = document.getElementById('methodologyType').value;
             const selectedTier = document.getElementById('metricValueDropdown').value;
+            const loiChecked = document.getElementById('loiCommitment').checked;
 
             let allocatedPipeline = "";
             let routingDescription = "";
@@ -275,10 +290,10 @@
                 textColor = "#991b1b";
             } else if (selectedTier.includes("More than 15 MW") || selectedTier.includes("More than 60 GWh") || selectedTier.includes("More than 60 kt")) {
                 allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
-                routingDescription = "Success! Scale exceeds small-scale limits and is automatically parked into the Large-Scale Project Pipeline.";
+                routingDescription = "Success! Slot reserved. Scale exceeds small-scale limits and is parked into the Large-Scale Project Pipeline.";
             } else {
                 allocatedPipeline = "Pilot_Small_Scale_Cohort";
-                routingDescription = "Success! Project scale qualifies and is parked into the Small-Scale PoA Cohort.";
+                routingDescription = "Success! Cohort slot reserved. Project is parked into the Small-Scale PoA Cohort.";
             }
 
             const newProjectRef = database.ref('projects').push();
@@ -287,6 +302,7 @@
                 contactEmail: contactEmail,
                 projectType: methodologyType,
                 scaleTier: selectedTier,
+                loiConfirmed: loiChecked,
                 routingPipeline: allocatedPipeline,
                 timestamp: new Date().toISOString()
             }, function(error) {
@@ -323,7 +339,7 @@
             tableBody.innerHTML = "";
 
             if (!data) {
-                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No submissions recorded yet.</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No committed submissions recorded yet.</td></tr>`;
                 document.getElementById('statTotal').innerText = "0";
                 document.getElementById('statSmallScale').innerText = "0";
                 document.getElementById('statLargeScale').innerText = "0";
