@@ -38,9 +38,7 @@
         .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
         
-        /* Bundling Explainer Notice */
         .bundling-notice { background: #fefce8; border: 1px solid #fde047; border-radius: 6px; padding: 12px; margin-top: 8px; font-size: 0.85rem; color: #854d0e; display: none; }
-
         .payment-notice { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin-bottom: 20px; font-size: 0.95rem; color: #166534; }
         .payment-notice strong { display: block; margin-bottom: 4px; font-size: 1rem; }
 
@@ -56,10 +54,9 @@
         footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
     </style>
 
-    <!-- Firebase SDK Compat & Razorpay Checkout Script -->
+    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
 
@@ -91,7 +88,7 @@
     <div class="container" id="register">
         <div class="form-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Slot Reservation & LoI Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Complete your processing fee (₹19,999) to instantly secure your cohort slot and trigger your MEADA / LoI agreement.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Complete your processing fee (₹19,999) to instantly secure your cohort slot and trigger your agreement package.</p>
             
             <form id="projectForm">
                 <div class="form-group">
@@ -119,31 +116,30 @@
                     <select id="metricValueDropdown" required onchange="checkBundlingNotice()">
                         <option value="" disabled selected>-- First select a project type above --</option>
                     </select>
-                    <!-- Step 2: Bundling Explainer Notice -->
                     <div id="bundlingNoticeBox" class="bundling-notice">
                         ℹ️ <strong>Aggregation Notice:</strong> Submissions under 500 kW are automatically pooled into our upcoming regional aggregation clusters to clear the Programme of Activities (PoA) threshold.
                     </div>
                 </div>
 
                 <div class="payment-notice">
-                    <strong>Secure Razorpay Payment Integration (₹19,999):</strong>
-                    Clicking below initiates the secure payment gateway. Upon successful payment verification, your slot is instantly booked and your LoI receipt downloads automatically.
+                    <strong>Razorpay Secure Gateway (₹19,999):</strong>
+                    Submitting this form records your proposal and seamlessly redirects you to complete your secure payment.
                 </div>
 
-                <button type="submit" class="btn-submit">Pay ₹19,999 & Secure PoA Slot ➔</button>
+                <button type="submit" class="btn-submit">Proceed to Secure Payment (₹19,999) ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
-                <span id="routingFeedback">Payment verified successfully! Slot reserved and receipt generated.</span>
+                <span id="routingFeedback">Redirecting to Razorpay payment gateway...</span>
             </div>
         </div>
 
         <div class="dashboard-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Live Pipeline Status Dashboard</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of secured and paid registry proposals.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of incoming registry proposals.</p>
 
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h4>Total Paid Submissions</h4>
+                    <h4>Total Submissions</h4>
                     <p class="number" id="statTotal">0</p>
                 </div>
                 <div class="stat-card">
@@ -156,7 +152,7 @@
                 </div>
             </div>
 
-            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Secured & Verified Intake Log</h3>
+            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Recent Intake Log</h3>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -169,7 +165,7 @@
                     </thead>
                     <tbody id="liveTableBody">
                         <tr>
-                            <td colspan="4" style="text-align: center; color: var(--gray);">Waiting for secured submissions...</td>
+                            <td colspan="4" style="text-align: center; color: var(--gray);">Waiting for submissions...</td>
                         </tr>
                     </tbody>
                 </table>
@@ -189,6 +185,7 @@
 
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+        const RAZORPAY_PAYMENT_URL = "https://rzp.io/rzp/F7SC6zD";
 
         function updateScaleDropdown() {
             const projectType = document.getElementById('methodologyType').value;
@@ -255,7 +252,6 @@
             }
         }
 
-        // Step 2: Display Bundling Explainer Notice if pooled tier is selected
         function checkBundlingNotice() {
             const val = document.getElementById('metricValueDropdown').value;
             const noticeBox = document.getElementById('bundlingNoticeBox');
@@ -266,7 +262,7 @@
             }
         }
 
-        // Step 1 & 3: Razorpay Payment Integration & Automated Receipt Download Handler
+        // Form Submission & Clean Razorpay Redirect Handler
         document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -277,111 +273,28 @@
 
             let allocatedPipeline = selectedTier.includes("More than") ? "Aditi_Impex_Large_Scale_Pipeline" : "Pilot_Small_Scale_Cohort";
 
-            // Simulated or test Razorpay checkout options (replace key_id with your live/test Razorpay key)
-            var options = {
-                "key": "rzp_live_YOUR_KEY_HERE", // Replace with your Razorpay Key ID
-                "amount": 1999900, // Amount in currency subunits (₹19,999.00 = 1999900 paise)
-                "currency": "INR",
-                "name": "Earth Carbon Foundation",
-                "description": "PoA Cohort Slot Reservation & MEADA Fee",
-                "image": "https://www.earthcarbonfoundation.org/logo.png", // Optional logo URL
-                "handler": function (response){
-                    // Payment successful! Record to Firebase and trigger Step 3 receipt download
-                    const newProjectRef = database.ref('projects').push();
-                    const submissionData = {
-                        entityName: entityName,
-                        contactEmail: contactEmail,
-                        projectType: methodologyType,
-                        scaleTier: selectedTier,
-                        routingPipeline: allocatedPipeline,
-                        paymentId: response.razorpay_payment_id,
-                        paymentStatus: "Verified_Paid",
-                        timestamp: new Date().toISOString()
-                    };
-
-                    newProjectRef.set(submissionData, function(error) {
-                        if (error) {
-                            alert("Payment recorded, but database sync encountered an issue. Please contact support.");
-                        } else {
-                            document.getElementById('successMessage').style.display = 'block';
-                            document.getElementById('projectForm').reset();
-                            document.getElementById('bundlingNoticeBox').style.display = 'none';
-
-                            // Step 3: Automatically generate and trigger browser-based LoI text receipt download
-                            generateLoIReceipt(submissionData);
-
-                            setTimeout(() => {
-                                document.getElementById('successMessage').style.display = 'none';
-                            }, 8000);
-                        }
-                    });
-                },
-                "prefill": {
-                    "name": entityName,
-                    "email": contactEmail
-                },
-                "theme": {
-                    "color": "#0b6623"
+            const newProjectRef = database.ref('projects').push();
+            newProjectRef.set({
+                entityName: entityName,
+                contactEmail: contactEmail,
+                projectType: methodologyType,
+                scaleTier: selectedTier,
+                routingPipeline: allocatedPipeline,
+                paymentStatus: "Redirected_To_Razorpay",
+                timestamp: new Date().toISOString()
+            }, function(error) {
+                if (error) {
+                    alert("Submission failed. Please check network connection.");
+                } else {
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = RAZORPAY_PAYMENT_URL;
+                    }, 1200);
                 }
-            };
-
-            // Fallback if Razorpay modal fails to load, open direct link
-            try {
-                var rzp1 = new Razorpay(options);
-                rzp1.open();
-            } catch (err) {
-                window.location.href = "https://rzp.io/rzp/F7SC6zD";
-            }
+            });
         });
 
-        // Step 3: Browser-based LoI Receipt Generator Function
-        function generateLoIReceipt(data) {
-            const receiptContent = `
-==================================================
-EARTH CARBON FOUNDATION | OFFICIAL LOI & RECEIPT
-==================================================
-CIN: U85300GJ2019NPL106818
-Ahmedabad, Gujarat, India
-
-Date: ${new Date(data.timestamp).toLocaleString()}
-Payment Reference ID: ${data.paymentId}
-Status: VERIFIED & PAID (₹19,999.00)
-
---------------------------------------------------
-PARTNER ORGANIZATION DETAILS:
---------------------------------------------------
-Entity Name: ${data.entityName}
-Contact Email: ${data.contactEmail}
-Project Methodology: ${data.projectType}
-Committed Capacity / Tier: ${data.scaleTier}
-Assigned Pipeline: ${data.routingPipeline}
-
---------------------------------------------------
-LETTER OF INTENT & COHORT RESERVATION DECLARATION:
---------------------------------------------------
-This document certifies that the above organization has 
-formally reserved its slot in the ECF / Aditi Impex 
-Programme of Activities (PoA) development pipeline toward 
-our 100M-tonne CO2e 5-year target. Technical review and 
-MEADA agreement execution are now officially initiated.
-
-Authorized Registry Stamp & Signatory
-Earth Carbon Foundation
-==================================================
-            `;
-
-            const blob = new Blob([receiptContent], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `ECF_LoI_Receipt_${data.entityName.replace(/\s+/g, '_')}.txt`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-
-        // Real-time Listener for Live Dashboard Updates
+        // Real-time Dashboard Listener
         database.ref('projects').on('value', function(snapshot) {
             const data = snapshot.val();
             const tableBody = document.getElementById('liveTableBody');
@@ -393,7 +306,7 @@ Earth Carbon Foundation
             tableBody.innerHTML = "";
 
             if (!data) {
-                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No secured submissions recorded yet.</td></tr>`;
+                tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No submissions recorded yet.</td></tr>`;
                 document.getElementById('statTotal').innerText = "0";
                 document.getElementById('statSmallScale').innerText = "0";
                 document.getElementById('statLargeScale').innerText = "0";
