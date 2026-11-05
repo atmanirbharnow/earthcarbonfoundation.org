@@ -25,6 +25,14 @@
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
         .btn-submit { background-color: var(--primary); color: #fff; padding: 14px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 100%; transition: background 0.2s; }
         .btn-submit:hover { background-color: var(--primary-hover); }
+
+        /* Dashboard Styles */
+        .dashboard-container { background: #f1f5f9; border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-top: 40px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px; }
+        .stat-card { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .stat-card h4 { margin: 0 0 10px; color: var(--gray); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: 800; color: var(--primary); margin: 0; }
+
         footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
     </style>
 
@@ -41,6 +49,7 @@
         <p>Where Low-Carbon Investments Create Environmental and Economic Opportunities.</p>
     </section>
 
+    <!-- Registration & Intelligent Routing Portal -->
     <div class="container" id="register">
         <div class="form-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Allocation Portal</h2>
@@ -68,7 +77,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label id="scaleLabel" for="metricValueDropdown">Select Project Scale / Output Metric</label>
+                    <label id="scaleLabel" for="metricValueDropdown">Installation Capacity / Output Scale</label>
                     <select id="metricValueDropdown" required>
                         <option value="" disabled selected>-- First select a project type above --</option>
                     </select>
@@ -80,6 +89,27 @@
                 <span id="routingFeedback">Project successfully registered and routed!</span>
             </div>
         </div>
+
+        <!-- Live Pipeline Status Dashboard Section -->
+        <div class="dashboard-container">
+            <h3 style="margin-top: 0; color: var(--dark); text-align: center;">Live Pipeline Status Dashboard</h3>
+            <p style="text-align: center; color: var(--gray); font-size: 0.95rem; margin-bottom: 15px;">Real-time tracking of submissions across operational conduits.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Total Submissions</h4>
+                    <p class="stat-number" id="countTotal">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Small-Scale PoA Cohort</h4>
+                    <p class="stat-number" id="countSmallScale">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Aditi Impex Large-Scale</h4>
+                    <p class="stat-number" id="countLargeScale">0</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -87,7 +117,7 @@
         Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
     </footer>
 
-    <!-- Dynamic Dropdown & Firebase Routing Script -->
+    <!-- Dynamic Dropdown, Real-time Dashboard & Firebase Routing Script -->
     <script>
         const firebaseConfig = {
             databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
@@ -95,6 +125,27 @@
 
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+
+        // Listen live to Firebase database changes to update dashboard metrics automatically
+        database.ref('projects').on('value', function(snapshot) {
+            let total = 0;
+            let smallScale = 0;
+            let largeScale = 0;
+
+            snapshot.forEach(function(childSnapshot) {
+                let proj = childSnapshot.val();
+                total++;
+                if (proj.routingPipeline === "Pilot_Small_Scale_Cohort") {
+                    smallScale++;
+                } else if (proj.routingPipeline === "Aditi_Impex_Large_Scale_Pipeline") {
+                    largeScale++;
+                }
+            });
+
+            document.getElementById('countTotal').innerText = total;
+            document.getElementById('countSmallScale').innerText = smallScale;
+            document.getElementById('countLargeScale').innerText = largeScale;
+        });
 
         // Dynamically populate scale dropdown based on UNFCCC Project Type selection
         function updateScaleDropdown() {
@@ -188,7 +239,7 @@
                 routingDescription = "Success! Project scale qualifies and is parked into the Small-Scale PoA Cohort.";
             }
 
-            // Push payload to Firebase
+            // Push payload to Firebase Database
             const newProjectRef = database.ref('projects').push();
             newProjectRef.set({
                 entityName: entityName,
@@ -202,22 +253,3 @@
                     alert("Submission failed. Please check network connection.");
                 } else {
                     const msgDiv = document.getElementById('successMessage');
-                    msgDiv.style.backgroundColor = alertBoxColor;
-                    msgDiv.style.color = textColor;
-                    document.getElementById('routingFeedback').innerText = routingDescription;
-                    msgDiv.style.display = 'block';
-                    
-                    if (allocatedPipeline !== "Ineligible_Under_Threshold") {
-                        document.getElementById('projectForm').reset();
-                        document.getElementById('metricValueDropdown').innerHTML = '<option value="" disabled selected>-- First select a project type above --</option>';
-                    }
-
-                    setTimeout(() => {
-                        msgDiv.style.display = 'none';
-                    }, 7000);
-                }
-            });
-        });
-    </script>
-</body>
-</html>
