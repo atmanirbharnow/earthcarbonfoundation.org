@@ -88,7 +88,7 @@
     <div class="container" id="register">
         <div class="form-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">PoA Project Intake & Allocation Portal</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Minimum entry-level submission: 500 kW (0.5 MW) for small-scale cohorts, scaling up to enterprise thresholds.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Automatic routing based on your current project capacity.</p>
             
             <form id="projectForm">
                 <div class="form-group">
@@ -100,20 +100,18 @@
                     <input type="email" id="contactEmail" required placeholder="partner@earthcarbonfoundation.org">
                 </div>
                 <div class="form-group">
-                    <label for="projectScaleInput">Project Scale / Output Metric (MW, GWh/yr, or ktCO2e/yr)</label>
-                    <input type="number" id="projectScaleInput" min="0.5" step="any" required placeholder="e.g., 0.5 (for 500 kW) up to 15 MW or 60 GWh/yr">
+                    <label for="currentCapacity">What is the current project capacity? (in MW)</label>
+                    <input type="number" id="currentCapacity" min="0.01" step="any" required placeholder="e.g., 0.6 for 600 kW, or 20 for 20 MW">
                 </div>
                 <div class="form-group">
-                    <label for="methodologyType">Select UNFCCC Small-Scale Project Type</label>
+                    <label for="methodologyType">Select UNFCCC Project Type</label>
                     <select id="methodologyType">
-                        <option value="Type_I_Renewable">Type I: Renewable Energy (Max 15 MW)</option>
-                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency (Max 60 GWh/year)</option>
-                        <option value="Type_III_OtherActivities">Type III: Other Activities / Methane (Max 60 ktCO2e/year)</option>
-                        <option value="Unlisted_Methodology_Screening">Unlisted Methodology (Requires Screening)</option>
-                        <option value="Large_Scale_Enterprise">Large-Scale Enterprise Pipeline (> Small-Scale Limits)</option>
+                        <option value="Type_I_Renewable">Type I: Renewable Energy</option>
+                        <option value="Type_II_EnergyEfficiency">Type II: Energy Efficiency</option>
+                        <option value="Type_III_OtherActivities">Type III: Other Activities / Methane</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-submit">Process & Route PoA Submission ➔</button>
+                <button type="submit" class="btn-submit">Process & Route Submission ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
                 <span id="routingFeedback">Project successfully registered and routed!</span>
@@ -141,24 +139,26 @@
 
             const entityName = document.getElementById('entityName').value;
             const contactEmail = document.getElementById('contactEmail').value;
-            const projectScaleInput = Number(document.getElementById('projectScaleInput').value);
+            const capacityMW = Number(document.getElementById('currentCapacity').value);
             const methodologyType = document.getElementById('methodologyType').value;
 
-            // Updated routing logic reflecting 500 kW (0.5 MW) minimum and small-scale bounds
             let allocatedPipeline = "";
             let routingDescription = "";
+            let alertBoxColor = "#dcfce7";
+            let textColor = "#166534";
 
-            if (projectScaleInput < 0.5) {
-                alert("Minimum entry-level submission for PoA projects is 500 kW (0.5 MW).");
-                return;
-            }
-
-            if (methodologyType === "Large_Scale_Enterprise" || projectScaleInput > 15) {
-                allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
-                routingDescription = "Routed to Aditi Impex Limited Large-Scale Enterprise Pipeline.";
+            // Strict capacity routing rules
+            if (capacityMW < 0.5) {
+                allocatedPipeline = "Ineligible_Under_Threshold";
+                routingDescription = "Notice: Current capacity is below the 500 kW minimum threshold. Project is currently ineligible for PoA intake.";
+                alertBoxColor = "#fee2e2";
+                textColor = "#991b1b";
+            } else if (capacityMW >= 0.5 && capacityMW <= 15) {
+                allocatedPipeline = "Pilot_15MW_Renewable_Cohort";
+                routingDescription = "Success! Capacity is parked into the 15 MW Renewable Energy / Small-Scale Project Cohort.";
             } else {
-                allocatedPipeline = "Small_Scale_PoA_15MW_Cohort";
-                routingDescription = "Allocated to Small-Scale PoA Cohort (Type I/II/III compliant framework).";
+                allocatedPipeline = "Aditi_Impex_Large_Scale_Pipeline";
+                routingDescription = "Success! Capacity exceeds 15 MW and is automatically parked into the Large-Scale Enterprise Project Pipeline.";
             }
 
             // Push structured payload to Firebase Database
@@ -166,7 +166,7 @@
             newProjectRef.set({
                 entityName: entityName,
                 contactEmail: contactEmail,
-                scaleInput: projectScaleInput,
+                capacityMW: capacityMW,
                 methodologyCategory: methodologyType,
                 routingPipeline: allocatedPipeline,
                 timestamp: new Date().toISOString()
@@ -174,12 +174,19 @@
                 if (error) {
                     alert("Submission failed. Please check network connection.");
                 } else {
-                    document.getElementById('projectForm').reset();
-                    document.getElementById('routingFeedback').innerText = "Success! " + routingDescription;
-                    document.getElementById('successMessage').style.display = 'block';
+                    const msgDiv = document.getElementById('successMessage');
+                    msgDiv.style.backgroundColor = alertBoxColor;
+                    msgDiv.style.color = textColor;
+                    document.getElementById('routingFeedback').innerText = routingDescription;
+                    msgDiv.style.display = 'block';
+                    
+                    if (allocatedPipeline !== "Ineligible_Under_Threshold") {
+                        document.getElementById('projectForm').reset();
+                    }
+
                     setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 6000);
+                        msgDiv.style.display = 'none';
+                    }, 7000);
                 }
             });
         });
