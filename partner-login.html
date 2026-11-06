@@ -23,13 +23,11 @@
         .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1rem; transition: background 0.2s; }
         .btn:hover { background: var(--primary-hover); }
         
-        /* Metrics & Summary Cards */
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
         .metric-card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
         .metric-card h4 { margin: 0 0 8px 0; font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
         .metric-card .number { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0; }
 
-        /* Project Detail Rows */
         .project-card { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
         .project-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 12px; }
         .project-header h3 { margin: 0; color: var(--dark); font-size: 1.2rem; }
@@ -137,15 +135,12 @@
                 if (customerProjects.length === 0) {
                     noResult.style.display = 'block';
                 } else {
-                    // Populate Dashboard UI
                     document.getElementById('clientEntityName').innerText = entityNameFound;
                     document.getElementById('clientEmailDisplay').innerText = "Registered Account: " + email;
-                    
                     document.getElementById('metricWaitlistCount').innerText = customerProjects.length;
 
-                    // Calculate or assign mockup credit metrics for MVP demonstration
-                    let totalIssued = customerProjects.length * 12500; // Sample metric calculation per cohort
-                    let availableSale = totalIssued * 0.8; // 80% available for commercial monetization
+                    let totalIssued = customerProjects.length * 12500; 
+                    let availableSale = totalIssued * 0.8; 
 
                     document.getElementById('metricCreditsIssued').innerText = totalIssued.toLocaleString() + " tCO₂e";
                     document.getElementById('metricCreditsForSale').innerText = availableSale.toLocaleString() + " tCO₂e";
@@ -154,7 +149,6 @@
                     container.innerHTML = "";
 
                     customerProjects.forEach((proj, index) => {
-                        // Mock fields for registry integration and issuance tracking if not explicitly set
                         let registryStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                         let registryLink = proj.registryLink || "https://unfccc.int/registry/poa-pending-" + (index + 1);
                         let creditVintage = proj.vintage || "2026 - 2031 (5-Year PoA Cycle)";
