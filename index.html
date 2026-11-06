@@ -16,6 +16,14 @@
         body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; color: #334155; background-color: #ffffff; line-height: 1.6; }
         
         .cta-bar { background-color: var(--primary); height: 40px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        /* Breadcrumb Direction & Home Sign Bar */
+        .breadcrumb-bar { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 20px; font-size: 0.9rem; }
+        .breadcrumb-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
+        .breadcrumb-container a { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .breadcrumb-container a:hover { text-decoration: underline; }
+        .breadcrumb-container span { color: var(--dark); font-weight: 500; }
+
         .hero { max-width: 900px; margin: 50px auto 30px; padding: 0 20px; text-align: center; }
         .hero h1 { font-size: 2.8rem; color: var(--dark); margin-bottom: 20px; font-weight: 800; letter-spacing: -0.025em; }
         .hero p { font-size: 1.25rem; color: var(--gray); margin-bottom: 30px; max-width: 750px; margin-left: auto; margin-right: auto; }
@@ -51,7 +59,6 @@
         th { background-color: #f1f5f9; color: var(--dark); font-weight: 600; }
         tr:last-child td { border-bottom: none; }
 
-        /* Footer, Social Media & Portal Access Links */
         footer { text-align: center; padding: 40px 20px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
         .social-links { margin: 15px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .social-links a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
@@ -68,6 +75,12 @@
 <body>
 
     <div class="cta-bar"></div>
+    
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-container">
+            <span>🏠 Home / Institutional Asset Registry</span>
+        </div>
+    </div>
 
     <section class="hero">
         <h1>Earth Carbon Foundation</h1>
@@ -180,7 +193,6 @@
         </div>
     </div>
 
-    <!-- Footer with Social Media Links & Portal Access -->
     <footer>
         <div class="social-links">
             <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> • 
@@ -189,25 +201,23 @@
             <a href="https://www.youtube.com" target="_blank">YouTube</a>
         </div>
         <div class="portal-access">
-    <a href="admin.html">Admin Vetting Portal</a> | 
-    <a href="partner-login.html">Partner Account Login</a>
-</div>
+            <a href="admin.html">Admin Vetting Portal</a> | 
+            <a href="partner-login.html">Partner Account Login</a>
+        </div>
         <p style="margin-top: 15px;">CIN: U85300GJ2019NPL106818 • Earth Carbon Foundation (ECF) Institutional Asset Registry<br>
         Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
     </footer>
 
     <script>
         const firebaseConfig = {
-  apiKey: "AIzaSyBSlKAndSNex1AJqW4DF6zl428eCfWT2UA",
-  authDomain: "earth-carbon--final.firebaseapp.com",
-  databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-  projectId: "earth-carbon--final",
-  storageBucket: "earth-carbon--final.firebasestorage.app",
-  messagingSenderId: "506588865863",
-  appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-  measurementId: "G-B76KKL7VVE"
-};
-            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
+            apiKey: "AIzaSyBSlKAndSNex1AJqW4DF6zl428eCfWT2UA",
+            authDomain: "earth-carbon--final.firebaseapp.com",
+            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
+            projectId: "earth-carbon--final",
+            storageBucket: "earth-carbon--final.firebasestorage.app",
+            messagingSenderId: "506588865863",
+            appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
+            measurementId: "G-B76KKL7VVE"
         };
 
         firebase.initializeApp(firebaseConfig);
@@ -416,7 +426,6 @@ Earth Carbon Foundation
                 }
             });
 
-            // Limit table display to exactly the 10 most recent submissions
             const recentTenProjects = projectsArray.slice(0, 10);
 
             recentTenProjects.forEach(proj => {
