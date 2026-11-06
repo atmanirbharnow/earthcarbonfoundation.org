@@ -122,12 +122,12 @@
                 Object.entries(data).forEach(([key, proj]) => {
                     let entityName = proj.entityName || "Valued Partner";
                     let contactEmail = proj.contactEmail || "N/A";
-                    let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<b>#${i+1} ${a.type}</b>: ${a.description}`).join('<br>') : `${proj.projectType} - ${proj.scaleTier}`;
+                    let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<b>#${i+1} ${a.type}</b>: ${a.scaleTier}`).join('<br>') : `${proj.projectType} - ${proj.scaleTier}`;
 
                     let currentStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                     let currentLink = proj.registryLink || "";
-                    let currentIssued = proj.issuedCredits || "12,500 tCO₂e";
-                    let currentForSale = proj.availableCredits || "10,000 tCO₂e";
+                    let currentIssued = proj.issuedCredits || "15,000 tCO₂e";
+                    let currentForSale = proj.availableCredits || "12,000 tCO₂e";
 
                     const row = document.createElement('tr');
                     row.innerHTML = `
