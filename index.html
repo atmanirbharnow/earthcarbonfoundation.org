@@ -39,7 +39,7 @@
         .form-container, .dashboard-container { background: var(--light); border: 1px solid var(--border); border-radius: 12px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 40px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: #fff; }
         
         /* Multi-Activity Repeater Box */
         .activity-item { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; position: relative; }
@@ -304,10 +304,14 @@
             
             let activities = [];
             document.querySelectorAll('.activity-item').forEach(item => {
-                activities.push({
-                    type: item.querySelector('.act-type').value,
-                    scaleTier: item.querySelector('.act-scale').value
-                });
+                let typeEl = item.querySelector('.act-type');
+                let scaleEl = item.querySelector('.act-scale');
+                if (typeEl && scaleEl) {
+                    activities.push({
+                        type: typeEl.value,
+                        scaleTier: scaleEl.value
+                    });
+                }
             });
 
             const submissionData = {
