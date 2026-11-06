@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECF Partner Portal | Track Your PoA Slot</title>
+    <style>
+        :root { --primary: #0b6623; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; }
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; }
+        .portal-box { max-width: 600px; margin: 60px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
+        .result-card { margin-top: 20px; padding: 20px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; text-align: left; display: none; }
+    </style>
+    <!-- Firebase SDK Compat -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+    <div class="portal-box">
+        <h2>Partner Portal Lookup</h2>
+        <p>Enter your registered contact email to check your PoA slot reservation and payment verification status.</p>
+        
+        <div class="form-group">
+            <label>Registered Email Address</label>
+            <input type="email" id="lookupEmail" placeholder="partner@company.com">
+        </div>
+        <button class="btn" onclick="lookupPartnerStatus()">Check My Reservation Status</button>
+
+        <div id="resultCard" class="result-card">
+            <h3 style="margin-top:0; color:#166534;">Reservation Found</h3>
+            <p><strong>Entity Name:</strong> <span id="resEntity"></span></p>
+            <p><strong>Project Methodology:</strong> <span id="resType"></span></p>
+            <p><strong>Committed Tier:</strong> <span id="resTier"></span></p>
+            <p><strong>Pipeline Status:</strong> <span id="resStatus" style="font-weight:bold; color:#0b6623;"></span></p>
+        </div>
+        <p id="noResult" style="color:red; margin-top:15px; display:none;">No active reservation found for this email address.</p>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        function lookupPartnerStatus() {
+            const email = document.getElementById('lookupEmail').value.trim().toLowerCase();
+            const resultCard = document.getElementById('resultCard');
+            const noResult = document.getElementById('noResult');
+            
+            resultCard.style.display = 'none';
+            noResult.style.display = 'none';
+
+            if (!email) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            db.ref('projects').once('value', snapshot => {
+                const data = snapshot.val();
+                if (!data) {
+                    noResult.style.display = 'block';
+                    return;
+                }
+
+                let found = false;
+                Object.values(data).forEach(proj => {
+                    if (proj.contactEmail && proj.contactEmail.trim().toLowerCase() === email) {
+                        found = true;
+                        document.getElementById('resEntity').innerText = proj.entityName;
+                        document.getElementById('resType').innerText = proj.projectType;
+                        document.getElementById('resTier').innerText = proj.scaleTier;
+                        document.getElementById('resStatus').innerText = "Verified & Waitlisted in " + proj.routingPipeline;
+                        resultCard.style.display = 'block';
+                    }
+                });
+
+                if (!found) {
+                    noResult.style.display = 'block';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
