@@ -7,12 +7,9 @@
     <style>
         :root { --primary: #0b6623; --primary-hover: #084e1b; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; --gray: #64748b; }
         body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; }
-        
-        /* Breadcrumb Direction & Home Sign Bar */
         .breadcrumb-bar { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 20px; font-size: 0.9rem; }
         .breadcrumb-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
         .breadcrumb-container a { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
-        .breadcrumb-container a:hover { text-decoration: underline; }
         .breadcrumb-container span { color: var(--dark); font-weight: 500; }
 
         .login-box, .admin-panel { max-width: 1100px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -20,19 +17,15 @@
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
         .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
-        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.2s; }
-        .btn:hover { background: var(--primary-hover); }
+        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
         
         .table-wrapper { overflow-x: auto; margin-top: 20px; }
         table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
         th, td { padding: 12px 15px; border-bottom: 1px solid var(--border); text-align: left; font-size: 0.85rem; vertical-align: middle; }
         th { background: #f8fafc; color: var(--dark); font-weight: 600; }
-        
         select.status-select, input.edit-input { padding: 6px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
         .save-btn { background: #2563eb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; margin-top: 5px; }
-        .save-btn:hover { background: #1d4ed8; }
     </style>
-    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
@@ -47,10 +40,10 @@
 
     <div class="login-box" id="loginScreen">
         <h2>ECF Secure Admin Login</h2>
-        <p style="color: var(--gray);">Authorized personnel only. Log in to vet proposals and manage registry issuance.</p>
+        <p style="color: var(--gray);">Authorized personnel only. Log in to vet multi-activity proposals.</p>
         <div class="form-group">
             <label>Admin Email</label>
-            <input type="email" id="adminEmail" placeholder="admin@earthcarbonfoundation.org" value="admin@earthcarbonfoundation.org">
+            <input type="email" id="adminEmail" value="admin@earthcarbonfoundation.org">
         </div>
         <div class="form-group">
             <label>Password</label>
@@ -63,10 +56,10 @@
     <div class="admin-panel" id="adminPanel">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 20px;">
             <div>
-                <h2 style="margin: 0; color: var(--dark);">Project Vetting & Registry Management</h2>
-                <p style="margin: 5px 0 0 0; color: var(--gray); font-size: 0.9rem;">Manage waitlisted project statuses, assign registry links, and update credit issuances.</p>
+                <h2 style="margin: 0; color: var(--dark);">Multi-Activity Vetting & Registry Management</h2>
+                <p style="margin: 5px 0 0 0; color: var(--gray); font-size: 0.9rem;">Manage bundled activity statuses, assign registry links, and update credit issuances.</p>
             </div>
-            <button class="btn" style="width: auto; background: #dc2626; padding: 8px 16px;" onclick="logoutAdmin()">Log Out</button>
+            <button class="btn" style="width: auto; background: #dc2626; padding: 8px 16px;" onclick="auth.signOut()">Log Out</button>
         </div>
         
         <div class="table-wrapper">
@@ -74,7 +67,7 @@
                 <thead>
                     <tr>
                         <th>Organization & Email</th>
-                        <th>Project Type & Tier</th>
+                        <th>Registered Activities</th>
                         <th>Registry Status</th>
                         <th>Registry Link URL</th>
                         <th>Issued / For Sale Credits</th>
@@ -96,28 +89,15 @@
             projectId: "earth-carbon--final",
             storageBucket: "earth-carbon--final.firebasestorage.app",
             messagingSenderId: "506588865863",
-            appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-            measurementId: "G-B76KKL7VVE"
+            appId: "1:506588865863:web:eaa3995e4041e7e14e1862"
         };
-
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.database();
 
         function loginAdmin() {
-            const email = document.getElementById('adminEmail').value.trim();
-            const pass = document.getElementById('adminPassword').value;
-            
-            auth.signInWithEmailAndPassword(email, pass)
-                .then(() => { loadAdminData(); })
+            auth.signInWithEmailAndPassword(document.getElementById('adminEmail').value.trim(), document.getElementById('adminPassword').value)
                 .catch(err => { document.getElementById('loginError').innerText = "Login Failed: " + err.message; });
-        }
-
-        function logoutAdmin() {
-            auth.signOut().then(() => {
-                document.getElementById('adminPanel').style.display = 'none';
-                document.getElementById('loginScreen').style.display = 'block';
-            });
         }
 
         auth.onAuthStateChanged(user => {
@@ -140,10 +120,9 @@
                 }
 
                 Object.entries(data).forEach(([key, proj]) => {
-                    let entityName = proj.entityName || proj.orgName || proj.scope || "Valued Partner";
-                    let contactEmail = proj.contactEmail || proj.email || "N/A";
-                    let projType = proj.projectType || proj.formType || "Standard Methodology";
-                    let scaleTier = proj.scaleTier || proj.subCategory || proj.geography || "Standard Tier";
+                    let entityName = proj.entityName || "Valued Partner";
+                    let contactEmail = proj.contactEmail || "N/A";
+                    let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<b>#${i+1} ${a.type}</b>: ${a.description}`).join('<br>') : `${proj.projectType} - ${proj.scaleTier}`;
 
                     let currentStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                     let currentLink = proj.registryLink || "";
@@ -153,7 +132,7 @@
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td><strong>${entityName}</strong><br><small style="color:var(--gray);">${contactEmail}</small></td>
-                        <td>${projType}<br><small style="color:var(--gray);">${scaleTier}</small></td>
+                        <td><div style="font-size:0.8rem; line-height:1.4;">${activitiesHtml}</div></td>
                         <td>
                             <select id="status_${key}" class="status-select">
                                 <option value="Under Technical Review & PDD Drafting" ${currentStatus.includes('Technical Review') ? 'selected' : ''}>Under Technical Review</option>
@@ -161,16 +140,12 @@
                                 <option value="Verified & Credits Issued" ${currentStatus.includes('Verified') ? 'selected' : ''}>Verified & Credits Issued</option>
                             </select>
                         </td>
+                        <td><input type="text" id="link_${key}" class="edit-input" value="${currentLink}" placeholder="https://unfccc.int/..."></td>
                         <td>
-                            <input type="text" id="link_${key}" class="edit-input" value="${currentLink}" placeholder="https://unfccc.int/...">
+                            <input type="text" id="issued_${key}" class="edit-input" value="${currentIssued}" style="margin-bottom:4px;">
+                            <input type="text" id="forsale_${key}" class="edit-input" value="${currentForSale}">
                         </td>
-                        <td>
-                            <input type="text" id="issued_${key}" class="edit-input" value="${currentIssued}" placeholder="12,500 tCO₂e" style="margin-bottom:4px;">
-                            <input type="text" id="forsale_${key}" class="edit-input" value="${currentForSale}" placeholder="10,000 tCO₂e">
-                        </td>
-                        <td>
-                            <button class="save-btn" onclick="updateProject('${key}')">Save Updates</button>
-                        </td>
+                        <td><button class="save-btn" onclick="updateProject('${key}')">Save Updates</button></td>
                     `;
                     tbody.appendChild(row);
                 });
@@ -178,22 +153,13 @@
         }
 
         function updateProject(key) {
-            const newStatus = document.getElementById(`status_${key}`).value;
-            const newLink = document.getElementById(`link_${key}`).value;
-            const newIssued = document.getElementById(`issued_${key}`).value;
-            const newForSale = document.getElementById(`forsale_${key}`).value;
-
             db.ref('projects/' + key).update({
-                registryStatus: newStatus,
-                registryLink: newLink,
-                issuedCredits: newIssued,
-                availableCredits: newForSale
-            }, error => {
-                if (error) {
-                    alert("Failed to update project records.");
-                } else {
-                    alert("Project vetting details updated successfully! Partner dashboard is now synchronized.");
-                }
+                registryStatus: document.getElementById(`status_${key}`).value,
+                registryLink: document.getElementById(`link_${key}`).value,
+                issuedCredits: document.getElementById(`issued_${key}`).value,
+                availableCredits: document.getElementById(`forsale_${key}`).value
+            }, err => {
+                if (!err) alert("Multi-activity project details updated successfully!");
             });
         }
     </script>
