@@ -7,6 +7,14 @@
     <style>
         :root { --primary: #0b6623; --primary-hover: #084e1b; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; --gray: #64748b; }
         body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; }
+        
+        /* Breadcrumb Direction & Home Sign Bar */
+        .breadcrumb-bar { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 20px; font-size: 0.9rem; }
+        .breadcrumb-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
+        .breadcrumb-container a { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+        .breadcrumb-container a:hover { text-decoration: underline; }
+        .breadcrumb-container span { color: var(--dark); font-weight: 500; }
+
         .login-box, .admin-panel { max-width: 1100px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .admin-panel { display: none; }
         .form-group { margin-bottom: 20px; text-align: left; }
@@ -31,7 +39,12 @@
 </head>
 <body>
 
-    <!-- Admin Login Screen -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumb-container">
+            <a href="index.html">🏠 Home</a> / <span>Secure Admin Vetting Portal</span>
+        </div>
+    </div>
+
     <div class="login-box" id="loginScreen">
         <h2>ECF Secure Admin Login</h2>
         <p style="color: var(--gray);">Authorized personnel only. Log in to vet proposals and manage registry issuance.</p>
@@ -47,7 +60,6 @@
         <p id="loginError" style="color: #dc2626; margin-top: 15px; font-weight: 600;"></p>
     </div>
 
-    <!-- Admin Vetting Dashboard Panel -->
     <div class="admin-panel" id="adminPanel">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 20px;">
             <div>
@@ -128,6 +140,11 @@
                 }
 
                 Object.entries(data).forEach(([key, proj]) => {
+                    let entityName = proj.entityName || proj.orgName || proj.scope || "Valued Partner";
+                    let contactEmail = proj.contactEmail || proj.email || "N/A";
+                    let projType = proj.projectType || proj.formType || "Standard Methodology";
+                    let scaleTier = proj.scaleTier || proj.subCategory || proj.geography || "Standard Tier";
+
                     let currentStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                     let currentLink = proj.registryLink || "";
                     let currentIssued = proj.issuedCredits || "12,500 tCO₂e";
@@ -135,8 +152,8 @@
 
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td><strong>${proj.entityName}</strong><br><small style="color:var(--gray);">${proj.contactEmail}</small></td>
-                        <td>${proj.projectType}<br><small style="color:var(--gray);">${proj.scaleTier}</small></td>
+                        <td><strong>${entityName}</strong><br><small style="color:var(--gray);">${contactEmail}</small></td>
+                        <td>${projType}<br><small style="color:var(--gray);">${scaleTier}</small></td>
                         <td>
                             <select id="status_${key}" class="status-select">
                                 <option value="Under Technical Review & PDD Drafting" ${currentStatus.includes('Technical Review') ? 'selected' : ''}>Under Technical Review</option>
