@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECF Admin Portal | Secure Vetting Dashboard</title>
+    <title>ECF Admin Portal | Secure Vetting & Registry Management</title>
     <style>
-        :root { --primary: #0b6623; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; }
+        :root { --primary: #0b6623; --primary-hover: #084e1b; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; --gray: #64748b; }
         body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; }
-        .login-box, .admin-panel { max-width: 900px; margin: 50px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .login-box, .admin-panel { max-width: 1100px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .admin-panel { display: none; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
         .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
-        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-        th, td { padding: 12px 15px; border-bottom: 1px solid var(--border); text-align: left; font-size: 0.9rem; }
-        th { background: #f8fafc; }
+        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .btn:hover { background: var(--primary-hover); }
+        
+        .table-wrapper { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+        th, td { padding: 12px 15px; border-bottom: 1px solid var(--border); text-align: left; font-size: 0.85rem; vertical-align: middle; }
+        th { background: #f8fafc; color: var(--dark); font-weight: 600; }
+        
+        select.status-select, input.edit-input { padding: 6px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
+        .save-btn { background: #2563eb; color: #white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: #fff; font-weight: 600; margin-top: 5px; }
+        .save-btn:hover { background: #1d4ed8; }
     </style>
-    <!-- Firebase Auth & DB SDK -->
+    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
@@ -27,39 +34,46 @@
     <!-- Admin Login Screen -->
     <div class="login-box" id="loginScreen">
         <h2>ECF Secure Admin Login</h2>
-        <p>Authorized personnel only. Log in to vet incoming project proposals.</p>
+        <p style="color: var(--gray);">Authorized personnel only. Log in to vet proposals and manage registry issuance.</p>
         <div class="form-group">
             <label>Admin Email</label>
-            <input type="email" id="adminEmail" placeholder="admin@earthcarbonfoundation.org">
+            <input type="email" id="adminEmail" placeholder="admin@earthcarbonfoundation.org" value="admin@earthcarbonfoundation.org">
         </div>
         <div class="form-group">
             <label>Password</label>
             <input type="password" id="adminPassword" placeholder="••••••••">
         </div>
         <button class="btn" onclick="loginAdmin()">Login to Vetting Portal</button>
-        <p id="loginError" style="color: red; margin-top: 15px;"></p>
+        <p id="loginError" style="color: #dc2626; margin-top: 15px; font-weight: 600;"></p>
     </div>
 
     <!-- Admin Vetting Dashboard Panel -->
     <div class="admin-panel" id="adminPanel">
-        <h2>Project Vetting & Approval Dashboard</h2>
-        <p>Review paid submissions, verify LoI commitments, and manage pipeline advancement.</p>
-        <button class="btn" style="width: auto; background: #dc2626; margin-bottom: 20px;" onclick="logoutAdmin()">Log Out</button>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 20px;">
+            <div>
+                <h2 style="margin: 0; color: var(--dark);">Project Vetting & Registry Management</h2>
+                <p style="margin: 5px 0 0 0; color: var(--gray); font-size: 0.9rem;">Manage waitlisted project statuses, assign registry links, and update credit issuances.</p>
+            </div>
+            <button class="btn" style="width: auto; background: #dc2626; padding: 8px 16px;" onclick="logoutAdmin()">Log Out</button>
+        </div>
         
-        <table>
-            <thead>
-                <tr>
-                    <th>Organization</th>
-                    <th>Methodology</th>
-                    <th>Capacity / Tier</th>
-                    <th>Payment Status</th>
-                    <th>Timestamp</th>
-                </tr>
-            </thead>
-            <tbody id="adminTableBody">
-                <tr><td colspan="5" style="text-align: center;">Loading submissions...</td></tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Organization & Email</th>
+                        <th>Project Type & Tier</th>
+                        <th>Registry Status</th>
+                        <th>Registry Link URL</th>
+                        <th>Issued / For Sale Credits</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    <tr><td colspan="6" style="text-align: center; color: var(--gray);">Loading submissions...</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -71,11 +85,12 @@
         const db = firebase.database();
 
         function loginAdmin() {
-            const email = document.getElementById('adminEmail').value;
+            const email = document.getElementById('adminEmail').value.trim();
             const pass = document.getElementById('adminPassword').value;
+            
             auth.signInWithEmailAndPassword(email, pass)
                 .then(() => { loadAdminData(); })
-                .catch(err => { document.getElementById('loginError').innerText = err.message; });
+                .catch(err => { document.getElementById('loginError').innerText = "Login Failed: " + err.message; });
         }
 
         function logoutAdmin() {
@@ -98,22 +113,62 @@
                 const data = snapshot.val();
                 const tbody = document.getElementById('adminTableBody');
                 tbody.innerHTML = "";
+                
                 if (!data) {
-                    tbody.innerHTML = `<tr><td colspan="5" style="text-align: center;">No submissions found.</td></tr>`;
+                    tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: var(--gray);">No submissions found in registry ledger.</td></tr>`;
                     return;
                 }
-                Object.values(data).reverse().forEach(proj => {
-                    const dateStr = proj.timestamp ? new Date(proj.timestamp).toLocaleString() : "Just now";
+
+                Object.entries(data).forEach(([key, proj]) => {
+                    let currentStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
+                    let currentLink = proj.registryLink || "";
+                    let currentIssued = proj.issuedCredits || "12,500 tCO₂e";
+                    let currentForSale = proj.availableCredits || "10,000 tCO₂e";
+
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td><strong>${proj.entityName}</strong><br><small style="color:var(--gray);">${proj.contactEmail}</small></td>
-                        <td>${proj.projectType}</td>
-                        <td>${proj.scaleTier}</td>
-                        <td><span style="color: #166534; font-weight:600;">✓ ${proj.paymentStatus}</span></td>
-                        <td><small style="color:var(--gray);">${dateStr}</small></td>
+                        <td>${proj.projectType}<br><small style="color:var(--gray);">${proj.scaleTier}</small></td>
+                        <td>
+                            <select id="status_${key}" class="status-select">
+                                <option value="Under Technical Review & PDD Drafting" ${currentStatus.includes('Technical Review') ? 'selected' : ''}>Under Technical Review</option>
+                                <option value="Submitted to UNFCCC PoA Registry" ${currentStatus.includes('Submitted') ? 'selected' : ''}>Submitted to Registry</option>
+                                <option value="Verified & Credits Issued" ${currentStatus.includes('Verified') ? 'selected' : ''}>Verified & Credits Issued</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="link_${key}" class="edit-input" value="${currentLink}" placeholder="https://unfccc.int/...">
+                        </td>
+                        <td>
+                            <input type="text" id="issued_${key}" class="edit-input" value="${currentIssued}" placeholder="12,500 tCO₂e" style="margin-bottom:4px;">
+                            <input type="text" id="forsale_${key}" class="edit-input" value="${currentForSale}" placeholder="10,000 tCO₂e">
+                        </td>
+                        <td>
+                            <button class="save-btn" onclick="updateProject('${key}')">Save Updates</button>
+                        </td>
                     `;
                     tbody.appendChild(row);
                 });
+            });
+        }
+
+        function updateProject(key) {
+            const newStatus = document.getElementById(`status_${key}`).value;
+            const newLink = document.getElementById(`link_${key}`).value;
+            const newIssued = document.getElementById(`issued_${key}`).value;
+            const newForSale = document.getElementById(`forsale_${key}`).value;
+
+            db.ref('projects/' + key).update({
+                registryStatus: newStatus,
+                registryLink: newLink,
+                issuedCredits: newIssued,
+                availableCredits: newForSale
+            }, error => {
+                if (error) {
+                    alert("Failed to update project records.");
+                } else {
+                    alert("Project vetting details updated successfully! Partner dashboard is now synchronized.");
+                }
             });
         }
     </script>
