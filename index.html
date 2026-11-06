@@ -17,7 +17,6 @@
         
         .cta-bar { background-color: var(--primary); height: 40px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        /* Breadcrumb Direction & Home Sign Bar */
         .breadcrumb-bar { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 20px; font-size: 0.9rem; }
         .breadcrumb-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
         .breadcrumb-container a { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
@@ -41,7 +40,6 @@
         .form-group label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; box-sizing: border-box; background: #fff; }
         
-        /* Multi-Activity Repeater Box */
         .activity-item { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 15px; position: relative; }
         .remove-btn { background: #fee2e2; color: #dc2626; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.8rem; float: right; margin-bottom: 10px; }
         .remove-btn:hover { background: #fecaca; }
@@ -69,7 +67,6 @@
         .portal-access a:hover { color: var(--dark); }
     </style>
 
-    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
@@ -212,21 +209,25 @@
             div.innerHTML = `
                 ${index > 1 ? '<button type="button" class="remove-btn" onclick="this.parentElement.remove()">Remove Activity</button>' : ''}
                 <div class="form-group" style="margin-bottom: 12px;">
-                    <label>Activity #${index} Type</label>
+                    <label>Activity #${index} Main Category</label>
                     <select class="act-type" id="type_${index}" required onchange="updateActivityScale(${index})">
-                        <option value="" disabled selected>-- Select UNFCCC Project Type --</option>
-                        <option value="Type I: Renewable Energy">Type I: Renewable Energy (Capacity)</option>
-                        <option value="Type II: Energy Efficiency">Type II: Energy Efficiency (Annual Savings)</option>
-                        <option value="Type III: Other Activities">Type III: Other Activities (Emission Reductions)</option>
+                        <option value="" disabled selected>-- Select Main Category --</option>
+                        <option value="Type I – Renewable Energy">Type I – Renewable Energy</option>
+                        <option value="Type II – Energy Efficiency">Type II – Energy Efficiency</option>
+                        <option value="Type III – Other Emission Reduction Activities">Type III – Other Emission Reduction Activities</option>
+                        <option value="Type IV – Land Use, Forestry & Nature-Based Removals">Type IV – Land Use, Forestry & Nature-Based Removals</option>
+                        <option value="Type V – Other Specialised Methodology Activities">Type V – Other Specialised Methodology Activities</option>
                     </select>
                 </div>
                 <div class="form-group" style="margin-bottom: 8px;">
-                    <label id="label_scale_${index}">Activity #${index} Scale / Output Metric</label>
-                    <select class="act-scale" id="scale_${index}" required onchange="checkActivityPooling(${index})">
-                        <option value="" disabled selected>-- First select a project type above --</option>
-                    </select>
+                    <label id="label_scale_${index}">Activity #${index} Specific Metric / Technology</label>
+                    <div id="container_input_${index}">
+                        <select class="act-scale" id="scale_${index}" required onchange="checkActivityPooling(${index})">
+                            <option value="" disabled selected>-- First select a category above --</option>
+                        </select>
+                    </div>
                     <div id="notice_${index}" class="bundling-notice">
-                        ℹ️ <strong>Aggregation Notice:</strong> Submissions under 500 kW / low tier are automatically pooled into regional aggregation clusters to clear the Programme of Activities (PoA) threshold.
+                        ℹ️ <strong>Aggregation Notice:</strong> Submissions under low tier/capacity are automatically pooled into regional aggregation clusters to clear the Programme of Activities (PoA) threshold.
                     </div>
                 </div>
             `;
@@ -234,17 +235,29 @@
         }
 
         function updateActivityScale(index) {
-            const projectType = document.getElementById(`type_${index}`).value;
-            const dropdown = document.getElementById(`scale_${index}`);
+            const category = document.getElementById(`type_${index}`).value;
+            const containerInput = document.getElementById(`container_input_${index}`);
             const label = document.getElementById(`label_scale_${index}`);
-            
-            dropdown.innerHTML = '<option value="" disabled selected>-- Select Metric Tier --</option>';
             document.getElementById(`notice_${index}`).style.display = 'none';
 
-            let options = [];
-            if (projectType === "Type I: Renewable Energy") {
-                label.innerText = `Activity #${index} Installation Capacity`;
-                options = [
+            containerInput.innerHTML = "";
+
+            if (category === "Type I – Renewable Energy") {
+                label.innerText = `Activity #${index} Installation Capacity Tier`;
+                let select = document.createElement('select');
+                select.className = 'act-scale';
+                select.id = `scale_${index}`;
+                select.required = true;
+                select.onchange = function() { checkActivityPooling(index); };
+                
+                let defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = "-- Select Capacity Tier --";
+                select.appendChild(defaultOpt);
+
+                const options = [
                     "Under 500kW (Pooled into Regional Aggregation)",
                     "500 kW – 1,000 kW (0.5 MW – 1 MW)",
                     "1,000 kW – 2,000 kW (1 MW – 2 MW)",
@@ -258,38 +271,121 @@
                     "9,000 kW – 15,000 kW (9 MW – 15 MW Max Small-Scale)",
                     "More than 15 MW (Large-Scale Enterprise Pipeline)"
                 ];
-            } else if (projectType === "Type II: Energy Efficiency") {
-                label.innerText = `Activity #${index} Annual Energy Savings`;
-                options = [
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt;
+                    el.textContent = opt;
+                    select.appendChild(el);
+                });
+                containerInput.appendChild(select);
+
+            } else if (category === "Type II – Energy Efficiency") {
+                label.innerText = `Activity #${index} Annual Energy Savings Tier`;
+                let select = document.createElement('select');
+                select.className = 'act-scale';
+                select.id = `scale_${index}`;
+                select.required = true;
+                select.onchange = function() { checkActivityPooling(index); };
+
+                let defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = "-- Select Savings Tier --";
+                select.appendChild(defaultOpt);
+
+                const options = [
                     "Low savings tier (Pooled into Aggregation Cluster)",
                     "Up to 15 GWh per year",
                     "15 GWh to 30 GWh per year",
                     "30 GWh to 60 GWh per year (Max Small-Scale)",
                     "More than 60 GWh per year (Large-Scale Enterprise Pipeline)"
                 ];
-            } else if (projectType === "Type III: Other Activities") {
-                label.innerText = `Activity #${index} Annual Emission Reductions`;
-                options = [
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt;
+                    el.textContent = opt;
+                    select.appendChild(el);
+                });
+                containerInput.appendChild(select);
+
+            } else if (category === "Type III – Other Emission Reduction Activities") {
+                label.innerText = `Activity #${index} Annual Emission Reductions Tier`;
+                let select = document.createElement('select');
+                select.className = 'act-scale';
+                select.id = `scale_${index}`;
+                select.required = true;
+                select.onchange = function() { checkActivityPooling(index); };
+
+                let defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = "-- Select Reductions Tier --";
+                select.appendChild(defaultOpt);
+
+                const options = [
                     "Low reduction tier (Pooled into Aggregation Cluster)",
                     "Up to 15 kt CO2e per year",
                     "15 kt to 30 kt CO2e per year",
                     "30 kt to 60 kt CO2e per year (Max Small-Scale)",
                     "More than 60 kt CO2e per year (Large-Scale Enterprise Pipeline)"
                 ];
-            }
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt;
+                    el.textContent = opt;
+                    select.appendChild(el);
+                });
+                containerInput.appendChild(select);
 
-            options.forEach(opt => {
-                let el = document.createElement('option');
-                el.value = opt;
-                el.textContent = opt;
-                dropdown.appendChild(el);
-            });
+            } else if (category === "Type IV – Land Use, Forestry & Nature-Based Removals") {
+                label.innerText = `Activity #${index} Land-Use / Forestry Sub-Category`;
+                let select = document.createElement('select');
+                select.className = 'act-scale';
+                select.id = `scale_${index}`;
+                select.required = true;
+
+                let defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = "-- Select Forestry / Land-Use Category --";
+                select.appendChild(defaultOpt);
+
+                const options = [
+                    "Afforestation (A)",
+                    "Reforestation (R)",
+                    "Agroforestry",
+                    "Forest restoration and eligible forest management",
+                    "Other eligible land-use and biomass activities"
+                ];
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt;
+                    el.textContent = opt;
+                    select.appendChild(el);
+                });
+                containerInput.appendChild(select);
+
+            } else if (category === "Type V – Other Specialised Methodology Activities") {
+                label.innerText = `Activity #${index} Technology Specifics (Please Mention)`;
+                let input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'act-scale';
+                input.id = `scale_${index}`;
+                input.required = true;
+                input.placeholder = "e.g., Industrial Process Optimization, CCUS, Biochar";
+                containerInput.appendChild(input);
+            }
         }
 
         function checkActivityPooling(index) {
-            const val = document.getElementById(`scale_${index}`).value;
+            const scaleEl = document.getElementById(`scale_${index}`);
+            if (!scaleEl) return;
+            const val = scaleEl.value;
             const noticeBox = document.getElementById(`notice_${index}`);
-            if (val.includes("Pooled") || val.includes("Under 500kW")) {
+            if (val.includes("Pooled") || val.includes("Under 500kW") || val.includes("Low savings") || val.includes("Low reduction")) {
                 noticeBox.style.display = 'block';
             } else {
                 noticeBox.style.display = 'none';
