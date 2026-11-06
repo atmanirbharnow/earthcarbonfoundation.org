@@ -21,7 +21,7 @@
         th { background: #f8fafc; color: var(--dark); font-weight: 600; }
         
         select.status-select, input.edit-input { padding: 6px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem; width: 100%; box-sizing: border-box; }
-        .save-btn { background: #2563eb; color: #white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; color: #fff; font-weight: 600; margin-top: 5px; }
+        .save-btn { background: #2563eb; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: 600; margin-top: 5px; }
         .save-btn:hover { background: #1d4ed8; }
     </style>
     <!-- Firebase SDK Compat -->
@@ -78,18 +78,16 @@
 
     <script>
         const firebaseConfig = {
-            const firebaseConfig = {
-  apiKey: "AIzaSyBSlKAndSNex1AJqW4DF6zl428eCfWT2UA",
-  authDomain: "earth-carbon--final.firebaseapp.com",
-  databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
-  projectId: "earth-carbon--final",
-  storageBucket: "earth-carbon--final.firebasestorage.app",
-  messagingSenderId: "506588865863",
-  appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-  measurementId: "G-B76KKL7VVE"
-};
-            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com/"
+            apiKey: "AIzaSyBSlKAndSNex1AJqW4DF6zl428eCfWT2UA",
+            authDomain: "earth-carbon--final.firebaseapp.com",
+            databaseURL: "https://earth-carbon--final-default-rtdb.firebaseio.com",
+            projectId: "earth-carbon--final",
+            storageBucket: "earth-carbon--final.firebasestorage.app",
+            messagingSenderId: "506588865863",
+            appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
+            measurementId: "G-B76KKL7VVE"
         };
+
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.database();
