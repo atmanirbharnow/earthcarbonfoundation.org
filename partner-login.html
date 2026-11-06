@@ -5,21 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECF Partner Dashboard | Project Registry & Credits Tracking</title>
     <style>
-        :root { 
-            --primary: #0b6623; 
-            --primary-hover: #084e1b; 
-            --dark: #0f172a; 
-            --light: #f8fafc; 
-            --border: #e2e8f0; 
-            --gray: #64748b;
-        }
-        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; line-height: 1.6; }
-        
-        /* Breadcrumb Direction & Home Sign Bar */
+        :root { --primary: #0b6623; --primary-hover: #084e1b; --dark: #0f172a; --light: #f8fafc; --border: #e2e8f0; --gray: #64748b; }
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 0; background: #f1f5f9; color: #334155; line-height: 1.6; }
         .breadcrumb-bar { background: #f8fafc; border-bottom: 1px solid var(--border); padding: 12px 20px; font-size: 0.9rem; }
         .breadcrumb-container { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
         .breadcrumb-container a { color: var(--primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 4px; }
-        .breadcrumb-container a:hover { text-decoration: underline; }
         .breadcrumb-container span { color: var(--dark); font-weight: 500; }
 
         .wrapper { max-width: 900px; margin: 40px auto; padding: 0 20px; }
@@ -27,28 +17,22 @@
         .dashboard-box { display: none; text-align: left; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--dark); }
-        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
-        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1rem; transition: background 0.2s; }
-        .btn:hover { background: var(--primary-hover); }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 6px; box-sizing: border-box; }
+        .btn { background: var(--primary); color: #fff; padding: 12px 24px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; }
         
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
         .metric-card { background: var(--light); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
-        .metric-card h4 { margin: 0 0 8px 0; font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; }
+        .metric-card h4 { margin: 0 0 8px 0; font-size: 0.85rem; color: var(--gray); text-transform: uppercase; }
         .metric-card .number { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin: 0; }
 
         .project-card { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
         .project-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 12px; }
-        .project-header h3 { margin: 0; color: var(--dark); font-size: 1.2rem; }
         .badge { background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
-        
         .detail-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem; margin-bottom: 8px; }
         .detail-row span { color: var(--gray); }
         .detail-row strong { color: var(--dark); }
-        
         .back-link { display: inline-block; margin-top: 20px; color: var(--primary); text-decoration: none; font-weight: 600; cursor: pointer; }
-        .back-link:hover { text-decoration: underline; }
     </style>
-    <!-- Firebase SDK Compat -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
@@ -63,7 +47,7 @@
     <div class="wrapper">
         <div class="portal-box" id="loginBox">
             <h2>Partner Account Portal</h2>
-            <p style="color: var(--gray); margin-bottom: 25px;">Enter your registered contact email to access your detailed project asset registry and carbon credit ledger.</p>
+            <p style="color: var(--gray); margin-bottom: 25px;">Enter your registered contact email to view your multi-activity project portfolio and carbon credits ledger.</p>
             
             <div class="form-group">
                 <label>Registered Email Address</label>
@@ -84,7 +68,7 @@
 
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <h4>Projects Waitlisted</h4>
+                    <h4>Submissions</h4>
                     <p class="number" id="metricWaitlistCount">0</p>
                 </div>
                 <div class="metric-card">
@@ -97,7 +81,7 @@
                 </div>
             </div>
 
-            <h3 style="color: var(--dark); margin-top: 30px;">Registered Project Submissions & Registry Ledger</h3>
+            <h3 style="color: var(--dark); margin-top: 30px;">Registered Multi-Activity Submissions & Registry Ledger</h3>
             <div id="projectsListContainer"></div>
 
             <a class="back-link" onclick="logoutPortal()">← Lookup another account</a>
@@ -112,18 +96,14 @@
             projectId: "earth-carbon--final",
             storageBucket: "earth-carbon--final.firebasestorage.app",
             messagingSenderId: "506588865863",
-            appId: "1:506588865863:web:eaa3995e4041e7e14e1862",
-            measurementId: "G-B76KKL7VVE"
+            appId: "1:506588865863:web:eaa3995e4041e7e14e1862"
         };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
 
         function lookupPartnerData() {
             const email = document.getElementById('lookupEmail').value.trim().toLowerCase();
-            const loginBox = document.getElementById('loginBox');
-            const dashboardBox = document.getElementById('dashboardBox');
             const noResult = document.getElementById('noResult');
-
             noResult.style.display = 'none';
 
             if (!email) {
@@ -142,10 +122,10 @@
                 let entityNameFound = "";
 
                 Object.values(data).forEach(proj => {
-                    let projEmail = proj.contactEmail || proj.email || "";
+                    let projEmail = proj.contactEmail || "";
                     if (projEmail.trim().toLowerCase() === email) {
                         customerProjects.push(proj);
-                        entityNameFound = proj.entityName || proj.orgName || "Valued Partner";
+                        entityNameFound = proj.entityName || "Valued Partner";
                     }
                 });
 
@@ -156,7 +136,7 @@
                     document.getElementById('clientEmailDisplay').innerText = "Registered Account: " + email;
                     document.getElementById('metricWaitlistCount').innerText = customerProjects.length;
 
-                    let totalIssued = customerProjects.length * 12500; 
+                    let totalIssued = customerProjects.length * 15000; 
                     let availableSale = totalIssued * 0.8; 
 
                     document.getElementById('metricCreditsIssued').innerText = totalIssued.toLocaleString() + " tCO₂e";
@@ -166,28 +146,20 @@
                     container.innerHTML = "";
 
                     customerProjects.forEach((proj, index) => {
+                        let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<li><b>${a.type}</b>: ${a.description}</li>`).join('') : `<li>${proj.projectType} - ${proj.scaleTier}</li>`;
                         let registryStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                         let registryLink = proj.registryLink || "https://unfccc.int/registry/poa-pending-" + (index + 1);
-                        let creditVintage = proj.vintage || "2026 - 2031 (5-Year PoA Cycle)";
-                        let issuedCount = proj.issuedCredits || "12,500 tCO₂e";
-                        let forSaleCount = proj.availableCredits || "10,000 tCO₂e";
-                        let projType = proj.projectType || proj.formType || "Standard Methodology";
-                        let scaleTier = proj.scaleTier || proj.subCategory || "Standard Tier";
 
                         const card = document.createElement('div');
                         card.className = 'project-card';
                         card.innerHTML = `
                             <div class="project-header">
-                                <h3>Project #${index + 1}: ${projType}</h3>
+                                <h3>Submission #${index + 1}</h3>
                                 <span class="badge">${proj.paymentStatus || 'Verified & Paid'}</span>
                             </div>
-                            <div class="detail-row">
-                                <span>Committed Capacity / Tier:</span>
-                                <strong>${scaleTier}</strong>
-                            </div>
-                            <div class="detail-row">
-                                <span>Assigned Pipeline:</span>
-                                <strong>${proj.routingPipeline || 'Pilot_Small_Scale_Cohort'}</strong>
+                            <div style="margin-bottom: 12px;">
+                                <span style="color: var(--gray); font-size:0.85rem; font-weight:600;">Bundled Activities:</span>
+                                <ul style="margin: 5px 0 0 0; padding-left: 20px; font-size: 0.9rem;">${activitiesHtml}</ul>
                             </div>
                             <div class="detail-row">
                                 <span>Registry Submission Status:</span>
@@ -198,27 +170,19 @@
                                 <a href="${registryLink}" target="_blank" style="color: #2563eb; text-decoration: underline;">View on Registry Portal ↗</a>
                             </div>
                             <div class="detail-row">
-                                <span>Carbon Credit Issuance:</span>
-                                <strong>${issuedCount}</strong>
-                            </div>
-                            <div class="detail-row">
-                                <span>Available for Commercial Sale:</span>
-                                <strong style="color: #166534;">${forSaleCount}</strong>
-                            </div>
-                            <div class="detail-row">
-                                <span>Credit Validity / Vintage:</span>
-                                <strong>${creditVintage}</strong>
+                                <span>Carbon Credit Issuance / Sale:</span>
+                                <strong>${proj.issuedCredits || '15,000 tCO₂e'} / <span style="color:#166534;">${proj.availableCredits || '12,000 tCO₂e'}</span></strong>
                             </div>
                             <div class="detail-row" style="margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px;">
-                                <span>Submission Timestamp:</span>
+                                <span>Timestamp:</span>
                                 <small style="color: var(--gray);">${proj.timestamp ? new Date(proj.timestamp).toLocaleString() : 'N/A'}</small>
                             </div>
                         `;
                         container.appendChild(card);
                     });
 
-                    loginBox.style.display = 'none';
-                    dashboardBox.style.display = 'block';
+                    document.getElementById('loginBox').style.display = 'none';
+                    document.getElementById('dashboardBox').style.display = 'block';
                 }
             });
         }
