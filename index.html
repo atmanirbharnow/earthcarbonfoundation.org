@@ -51,7 +51,14 @@
         th { background-color: #f1f5f9; color: var(--dark); font-weight: 600; }
         tr:last-child td { border-bottom: none; }
 
-        footer { text-align: center; padding: 40px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
+        /* Footer, Social Media & Portal Access Links */
+        footer { text-align: center; padding: 40px 20px; color: var(--gray); font-size: 0.9rem; border-top: 1px solid var(--border); margin-top: 60px; background-color: var(--light); }
+        .social-links { margin: 15px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .social-links a { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+        .social-links a:hover { color: var(--primary-hover); text-decoration: underline; }
+        .portal-access { margin-top: 15px; font-size: 0.85rem; }
+        .portal-access a { color: var(--gray); text-decoration: underline; margin: 0 10px; }
+        .portal-access a:hover { color: var(--dark); }
     </style>
 
     <!-- Firebase SDK Compat -->
@@ -116,7 +123,6 @@
                     <select id="metricValueDropdown" required onchange="checkBundlingNotice()">
                         <option value="" disabled selected>-- First select a project type above --</option>
                     </select>
-                    <!-- Step 2: Low-Capacity Bundling Explainer Notice -->
                     <div id="bundlingNoticeBox" class="bundling-notice">
                         ℹ️ <strong>Aggregation Notice:</strong> Submissions under 500 kW are automatically pooled into our upcoming regional aggregation clusters to clear the Programme of Activities (PoA) threshold.
                     </div>
@@ -124,19 +130,19 @@
 
                 <div class="payment-notice">
                     <strong>Razorpay Secure Gateway (₹19,999):</strong>
-                    Submitting this form records your proposal, generates your automated LoI receipt, and seamlessly redirects you to complete your secure payment.
+                    Submitting this form records your proposal, dispatches your automated confirmation email, downloads your LoI receipt, and redirects you to complete payment.
                 </div>
 
                 <button type="submit" class="btn-submit">Proceed to Secure Payment (₹19,999) ➔</button>
             </form>
             <div id="successMessage" style="display:none; margin-top:20px; padding:15px; background:#dcfce7; color:#166534; border-radius:6px; text-align:center; font-weight:600;">
-                <span id="routingFeedback">Slot reserved and LoI receipt generated! Redirecting to Razorpay...</span>
+                <span id="routingFeedback">Slot reserved, receipt generated & confirmation email sent! Redirecting...</span>
             </div>
         </div>
 
         <div class="dashboard-container">
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Live Pipeline Status Dashboard</h2>
-            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of incoming registry proposals.</p>
+            <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">Real-time tracking of 10 most recent waitlisted and secured entities.</p>
 
             <div class="stats-grid">
                 <div class="stat-card">
@@ -153,7 +159,7 @@
                 </div>
             </div>
 
-            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Recent Intake Log</h3>
+            <h3 style="color: var(--dark); margin-top: 30px; font-size: 1.1rem;">Recent 10 Waitlisted Entities</h3>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -174,8 +180,19 @@
         </div>
     </div>
 
+    <!-- Footer with Social Media Links & Portal Access -->
     <footer>
-        <p>CIN: U85300GJ2019NPL106818 • Earth Carbon Foundation (ECF) Institutional Asset Registry<br>
+        <div class="social-links">
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> • 
+            <a href="https://twitter.com" target="_blank">Twitter / X</a> • 
+            <a href="https://github.com" target="_blank">GitHub</a> • 
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+        </div>
+        <div class="portal-access">
+            <a href="admin.html">Admin Vetting Portal</a> | 
+            <a href="https://accounts.google.com" target="_blank">Partner Account Login</a>
+        </div>
+        <p style="margin-top: 15px;">CIN: U85300GJ2019NPL106818 • Earth Carbon Foundation (ECF) Institutional Asset Registry<br>
         Ahmedabad, Gujarat, India • Multi-Standard Climate Registry Framework</p>
     </footer>
 
@@ -187,6 +204,7 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
         const RAZORPAY_PAYMENT_URL = "https://rzp.io/rzp/F7SC6zD";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxTS9O_vePQM708HT5XE_rqfm4l3HxzrEz_iJyBE_HnEMIygsr09e4xrt-lcgo137hKIw/exec";
 
         function updateScaleDropdown() {
             const projectType = document.getElementById('methodologyType').value;
@@ -253,7 +271,6 @@
             }
         }
 
-        // Step 2: Bundling Explainer Trigger
         function checkBundlingNotice() {
             const val = document.getElementById('metricValueDropdown').value;
             const noticeBox = document.getElementById('bundlingNoticeBox');
@@ -264,7 +281,6 @@
             }
         }
 
-        // Step 1 & Step 3: Form Submission, Automated LoI Receipt & Razorpay Redirect Handler
         document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -290,20 +306,32 @@
                 if (error) {
                     alert("Submission failed. Please check network connection.");
                 } else {
-                    // Step 3: Automatically generate and trigger browser-based LoI text receipt download
                     generateLoIReceipt(submissionData);
+
+                    if (APPS_SCRIPT_URL) {
+                        fetch(APPS_SCRIPT_URL, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                email: contactEmail,
+                                entityName: entityName,
+                                projectType: methodologyType,
+                                scaleTier: selectedTier,
+                                pipeline: allocatedPipeline
+                            })
+                        }).catch(err => console.log("Email dispatch background notice:", err));
+                    }
 
                     document.getElementById('successMessage').style.display = 'block';
                     
-                    // Step 1: Smooth redirect to Razorpay payment link after receipt triggers
                     setTimeout(() => {
                         window.location.href = RAZORPAY_PAYMENT_URL;
-                    }, 1500);
+                    }, 1800);
                 }
             });
         });
 
-        // Step 3: Browser-based LoI Receipt Generator Function
         function generateLoIReceipt(data) {
             const receiptContent = `
 ==================================================
@@ -313,6 +341,7 @@ CIN: U85300GJ2019NPL106818
 Ahmedabad, Gujarat, India
 
 Date: ${new Date(data.timestamp).toLocaleString()}
+Email Id registered: ${data.contactEmail}
 Fee Status: Processing Fee ₹19,999.00 (Initiated)
 
 --------------------------------------------------
@@ -349,7 +378,6 @@ Earth Carbon Foundation
             URL.revokeObjectURL(url);
         }
 
-        // Real-time Dashboard Listener
         database.ref('projects').on('value', function(snapshot) {
             const data = snapshot.val();
             const tableBody = document.getElementById('liveTableBody');
@@ -377,7 +405,12 @@ Earth Carbon Foundation
                 } else if (proj.routingPipeline === "Aditi_Impex_Large_Scale_Pipeline") {
                     largeScaleCount++;
                 }
+            });
 
+            // Limit table display to exactly the 10 most recent submissions
+            const recentTenProjects = projectsArray.slice(0, 10);
+
+            recentTenProjects.forEach(proj => {
                 const dateStr = proj.timestamp ? new Date(proj.timestamp).toLocaleString() : "Just now";
                 let displayTier = proj.scaleTier || "N/A";
 
