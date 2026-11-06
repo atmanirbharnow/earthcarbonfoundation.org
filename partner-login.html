@@ -146,7 +146,7 @@
                     container.innerHTML = "";
 
                     customerProjects.forEach((proj, index) => {
-                        let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<li><b>${a.type}</b>: ${a.description}</li>`).join('') : `<li>${proj.projectType} - ${proj.scaleTier}</li>`;
+                        let activitiesHtml = proj.activities ? proj.activities.map((a, i) => `<li><b>${a.type}</b>: ${a.scaleTier}</li>`).join('') : `<li>${proj.projectType} - ${proj.scaleTier}</li>`;
                         let registryStatus = proj.registryStatus || "Under Technical Review & PDD Drafting";
                         let registryLink = proj.registryLink || "https://unfccc.int/registry/poa-pending-" + (index + 1);
 
