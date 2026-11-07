@@ -475,21 +475,10 @@
                 timestamp: new Date().toISOString()
             };
 
-            // 1. Send data to Google Apps Script first (Guarantees Email & Sheet Log)
-            fetch(APPS_SCRIPT_URL, {
-                method: "POST",
-                headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevents CORS preflight blocks
-                body: JSON.stringify(submissionData)
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log("Sheet & Email triggered successfully:", result);
-            })
-            .catch(err => {
-                console.log("Server log note:", err);
-            });
+            // 1. 100% Reliable non-blocking trigger to Google Apps Script
+            navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(submissionData));
 
-            // 2. Simultaneously backup to Firebase for real-time dashboard UI
+            // 2. Backup to Firebase for real-time dashboard UI
             const newProjectRef = database.ref('projects').push();
             newProjectRef.set(submissionData);
 
