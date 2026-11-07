@@ -180,14 +180,22 @@
             <p style="text-align: center; color: var(--gray); margin-bottom: 25px;">Real-time tracking of institutional submissions and emission reduction metrics.</p>
 
             <!-- KPI Summary Cards -->
-            <div class="grid" style="margin-bottom: 25px;">
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px;">Total Pipeline Entries</h3>
-                    <p id="kpiTotalCount" style="font-size: 1.8rem; font-weight: 800; color: var(--primary);">0</p>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Small-Scale Submissions</h3>
+                    <p id="kpiSmallCount" style="font-size: 1.6rem; font-weight: 800; color: #d97706;">0</p>
                 </div>
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px;">Active Cohort Focus</h3>
-                    <p style="font-size: 1.2rem; font-weight: 700; color: var(--dark);">PoA Small-Scale / Large-Scale</p>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Large-Scale Submissions</h3>
+                    <p id="kpiLargeCount" style="font-size: 1.6rem; font-weight: 800; color: var(--primary);">0</p>
+                </div>
+                <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Total Submissions</h3>
+                    <p id="kpiTotalCount" style="font-size: 1.6rem; font-weight: 800; color: var(--dark);">0</p>
+                </div>
+                <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Total tCO₂e Committed</h3>
+                    <p id="kpiTco2Count" style="font-size: 1.5rem; font-weight: 800; color: #0284c7;">0 tCO₂e</p>
                 </div>
             </div>
 
