@@ -498,24 +498,71 @@
             }, 1800);
         });
 
-        database.ref('projects').on('value', function(snapshot) {
+     database.ref('projects').on('value', function(snapshot) {
             const data = snapshot.val();
             const tableBody = document.getElementById('liveTableBody');
-            const kpiCount = document.getElementById('kpiTotalCount');
+            const kpiSmall = document.getElementById('kpiSmallCount');
+            const kpiLarge = document.getElementById('kpiLargeCount');
+            const kpiTotal = document.getElementById('kpiTotalCount');
+            const kpiTco2 = document.getElementById('kpiTco2Count');
+            
             tableBody.innerHTML = "";
 
             if (!data) {
                 tableBody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--gray);">No submissions recorded yet.</td></tr>`;
-                if (kpiCount) kpiCount.innerText = "0";
+                if (kpiSmall) kpiSmall.innerText = "0";
+                if (kpiLarge) kpiLarge.innerText = "0";
+                if (kpiTotal) kpiTotal.innerText = "0";
+                if (kpiTco2) kpiTco2.innerText = "0 tCO₂e";
                 return;
             }
 
             const projectsArray = Object.values(data);
-            if (kpiCount) kpiCount.innerText = projectsArray.length;
+            let smallCount = 0;
+            let largeCount = 0;
+            let estimatedTotalTco2 = 0;
+
+            projectsArray.forEach(proj => {
+                let itemsToCheck = [];
+                if (proj.activities && Array.isArray(proj.activities)) {
+                    itemsToCheck = proj.activities;
+                } else if (proj.scaleTier) {
+                    itemsToCheck = [{ type: proj.projectType || "Activity", scaleTier: proj.scaleTier }];
+                }
+
+                let projectHasLarge = false;
+                itemsToCheck.forEach(item => {
+                    const tier = (item.scaleTier || "").toLowerCase();
+                    if (tier.includes("large-scale") || tier.includes("more than 15 mw") || tier.includes("more than 60 gwh") || tier.includes("more than 60 kt")) {
+                        projectHasLarge = true;
+                    }
+
+                    // Ticker estimation
+                    if (tier.includes("under 500kw") || tier.includes("pooled") || tier.includes("low")) estimatedTotalTco2 += 250;
+                    else if (tier.includes("1 mw") || tier.includes("15 kt")) estimatedTotalTco2 += 15000;
+                    else if (tier.includes("3 mw") || tier.includes("30 kt")) estimatedTotalTco2 += 35000;
+                    else if (tier.includes("large-scale") || tier.includes("more than")) estimatedTotalTco2 += 100000;
+                    else estimatedTotalTco2 += 5000;
+                });
+
+                if (projectHasLarge) largeCount++;
+                else smallCount++;
+            });
+
+            if (kpiSmall) kpiSmall.innerText = smallCount;
+            if (kpiLarge) kpiLarge.innerText = largeCount;
+            if (kpiTotal) kpiTotal.innerText = projectsArray.length;
+            if (kpiTco2) kpiTco2.innerText = estimatedTotalTco2.toLocaleString() + " tCO₂e";
 
             const recentArray = projectsArray.reverse().slice(0, 10);
             recentArray.forEach(proj => {
-                let actListSummary = proj.activities ? proj.activities.map(a => `• <strong>${a.type}</strong>: ${a.scaleTier}`).join('<br>') : "Standard Activity Tier";
+                let actListSummary = "";
+                if (proj.activities && Array.isArray(proj.activities)) {
+                    actListSummary = proj.activities.map(a => `• <strong>${a.type}</strong>: ${a.scaleTier}`).join('<br>');
+                } else {
+                    actListSummary = `• <strong>${proj.projectType || 'Standard'}</strong>: ${proj.scaleTier || 'Standard Tier'}`;
+                }
+
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td><strong>${proj.entityName}</strong><br><small style="color:var(--gray);">${proj.contactEmail}</small></td>
