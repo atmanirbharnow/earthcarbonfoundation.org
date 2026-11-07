@@ -229,6 +229,7 @@
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
         const RAZORPAY_PAYMENT_URL = "https://rzp.io/rzp/F7SC6zD";
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqNp1z7nD86EcLHs0QgdH-5ZJRsYL9BGS4VhGLntFfrg9hJmyunGgOuf0fnKdnJrGT_w/exec";
 
         window.onload = function() {
             addActivityRow();
@@ -454,17 +455,27 @@
                 timestamp: new Date().toISOString()
             };
 
+            // 1. Save to Firebase Database
             const newProjectRef = database.ref('projects').push();
             newProjectRef.set(submissionData, function(error) {
                 if (error) {
-                    alert("Submission failed. Please check network connection.");
-                } else {
-                    document.getElementById('successMessage').style.display = 'block';
-                    setTimeout(() => {
-                        window.location.href = RAZORPAY_PAYMENT_URL;
-                    }, 1800);
+                    console.log("Firebase sync warning:", error);
                 }
             });
+
+            // 2. Send to Google Apps Script Web App Endpoint (Logs Sheet & Emails)
+            fetch(APPS_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(submissionData)
+            }).catch(err => console.log("Apps Script trigger note:", err));
+
+            // 3. Display success and redirect to Razorpay
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(() => {
+                window.location.href = RAZORPAY_PAYMENT_URL;
+            }, 1800);
         });
 
         database.ref('projects').on('value', function(snapshot) {
