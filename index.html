@@ -448,7 +448,7 @@
             }
         }
 
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
+    document.getElementById('projectForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const entityName = document.getElementById('entityName').value;
@@ -475,23 +475,25 @@
                 timestamp: new Date().toISOString()
             };
 
-            // 1. Save to Firebase Database
-            const newProjectRef = database.ref('projects').push();
-            newProjectRef.set(submissionData, function(error) {
-                if (error) {
-                    console.log("Firebase sync warning:", error);
-                }
-            });
-
-            // 2. Send to Google Apps Script Web App Endpoint (Logs Sheet & Emails)
+            // 1. Send data to Google Apps Script first (Guarantees Email & Sheet Log)
             fetch(APPS_SCRIPT_URL, {
                 method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevents CORS preflight blocks
                 body: JSON.stringify(submissionData)
-            }).catch(err => console.log("Apps Script trigger note:", err));
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log("Sheet & Email triggered successfully:", result);
+            })
+            .catch(err => {
+                console.log("Server log note:", err);
+            });
 
-            // 3. Display success and redirect to Razorpay
+            // 2. Simultaneously backup to Firebase for real-time dashboard UI
+            const newProjectRef = database.ref('projects').push();
+            newProjectRef.set(submissionData);
+
+            // 3. Display success message and redirect to Razorpay checkout
             document.getElementById('successMessage').style.display = 'block';
             setTimeout(() => {
                 window.location.href = RAZORPAY_PAYMENT_URL;
