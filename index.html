@@ -49,7 +49,7 @@
         .breadcrumb-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 8px; color: var(--gray); }
         .breadcrumb-container span { color: var(--dark); font-weight: 500; }
 
-        /* Rotating Standards & Compliance Ticker Styling (White Background & Forest Green Theme) */
+        /* Rotating Standards & Compliance Ticker Section (White Background & Forest Green Text) */
         .ticker-section { background: #ffffff; padding: 25px 0; overflow: hidden; width: 100%; border-bottom: 2px solid var(--border); border-top: 1px solid var(--border); }
         .ticker-header { max-width: 1100px; margin: 0 auto; text-align: center; padding: 0 20px 15px 20px; }
         .ticker-header p { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin: 0; }
@@ -58,19 +58,19 @@
             100% { transform: translateX(-50%); }
         }
         .ticker-wrap { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
-        .ticker-move { display: inline-block; animation: ticker 35s linear infinite; }
+        .ticker-move { display: inline-block; animation: ticker 40s linear infinite; }
         .ticker-item {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin: 0 25px;
+            margin: 0 20px;
             color: var(--primary);
             background: #f0fdf4;
             border: 1px solid #bbf7d0;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             letter-spacing: 0.02em;
         }
         .ticker-item span { color: var(--primary); font-size: 1.1rem; }
@@ -137,14 +137,16 @@
         </div>
     </div>
 
-    <!-- Rotating Standards & Compliance Ticker Section (White Background & Forest Green Text) -->
+    <!-- Rotating Standards, Article 6 & Global Frameworks Ticker Section -->
     <div class="ticker-section">
         <div class="ticker-header">
-            <p>Aligned Frameworks & Global Standards Compliance</p>
+            <p>Aligned Frameworks, Article 6 Pathways & Global Standards Compliance</p>
         </div>
         <div class="ticker-wrap">
             <div class="ticker-move">
                 <div class="ticker-item"><span>✓</span> UNFCCC / CDM</div>
+                <div class="ticker-item"><span>✓</span> Article 6.2 & 6.4 Pathway</div>
+                <div class="ticker-item"><span>✓</span> International Cooperation & ITMOs</div>
                 <div class="ticker-item"><span>✓</span> Atmanirbhar Bharat</div>
                 <div class="ticker-item"><span>✓</span> IGBC Green Building</div>
                 <div class="ticker-item"><span>✓</span> SBTi</div>
@@ -155,6 +157,8 @@
                 <div class="ticker-item"><span>✓</span> Net Zero Target</div>
                 <!-- Duplicate set for seamless infinite loop animation -->
                 <div class="ticker-item"><span>✓</span> UNFCCC / CDM</div>
+                <div class="ticker-item"><span>✓</span> Article 6.2 & 6.4 Pathway</div>
+                <div class="ticker-item"><span>✓</span> International Cooperation & ITMOs</div>
                 <div class="ticker-item"><span>✓</span> Atmanirbhar Bharat</div>
                 <div class="ticker-item"><span>✓</span> IGBC Green Building</div>
                 <div class="ticker-item"><span>✓</span> SBTi</div>
@@ -181,6 +185,54 @@
             <div class="card">
                 <h3>Tradeable Instruments</h3>
                 <p>Eligible, properly developed projects may generate tradeable environmental instruments.</p>
+            </div>
+        </div>
+
+        <!-- Low Carbon Lifecycle Process Card (Based on SS1 & SS2 Caterpillar-to-Butterfly Progression) -->
+        <div class="card" style="background: #ffffff; border: 2px solid var(--primary); padding: 35px; border-radius: 12px; text-align: left; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(11,102,35,0.08);">
+            <h3 style="color: var(--primary); margin-top: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 20px;">
+                <span>🦋</span> Low-Carbon Lifecycle & Transformation Pathway
+            </h3>
+            <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 25px;">
+                From high emissions baseline to full net-zero metamorphosis through structured green building standards, greenhouse gas accounting, and carbon credit monetization.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px;">
+                <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">🐛</div>
+                    <h4 style="color: var(--dark); margin: 0 0 6px 0; font-size: 1rem;">1. High Emissions</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Significant carbon emissions and unoptimized resource usage.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">📊</div>
+                    <h4 style="color: var(--dark); margin: 0 0 6px 0; font-size: 1rem;">2. Baseline Assessment</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Define energy and emissions benchmarks across operations.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">⚡</div>
+                    <h4 style="color: var(--dark); margin: 0 0 6px 0; font-size: 1rem;">3. Reduction Strategies</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Implement renewable energy, efficiency, and resource optimization.</p>
+                </div>
+
+                <div style="background: #f8fafc; padding: 18px; border-radius: 8px; border: 1px solid var(--border); text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">📜</div>
+                    <h4 style="color: var(--dark); margin: 0 0 6px 0; font-size: 1rem;">4. Certification</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Guide projects through green building standards and MRV protocols.</p>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 18px; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">💰</div>
+                    <h4 style="color: var(--primary); margin: 0 0 6px 0; font-size: 1rem;">5. Revenue Generation</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Enable carbon credit trading and ITMO transfers for returns.</p>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 18px; border-radius: 8px; border: 1px solid #bbf7d0; text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 8px;">🦋</div>
+                    <h4 style="color: var(--primary); margin: 0 0 6px 0; font-size: 1rem;">6. Net Zero</h4>
+                    <p style="margin: 0; color: var(--gray); font-size: 0.85rem;">Achieve long-term carbon neutrality and resilience.</p>
+                </div>
             </div>
         </div>
 
@@ -654,7 +706,7 @@
                 row.innerHTML = `
                     <td><strong>${proj.entityName}</strong><br><small style="color:var(--gray);">${proj.contactEmail}</small></td>
                     <td><div style="font-size:0.85rem; line-height:1.4;">${actListSummary}</div></td>
-                    <td><span style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:600; font-size:0.8rem;">${proj.routingPipeline || 'Cohort'}</span></td>
+                    <td><span style="background:#dcfce7; color:#166534; padding:4px 8px; border-radius:4px; font-weight:600; font-size:0.80rem;">${proj.routingPipeline || 'Cohort'}</span></td>
                     <td style="font-size: 0.8rem; color: var(--gray);">${proj.timestamp ? new Date(proj.timestamp).toLocaleString() : 'Just now'}</td>
                 `;
                 tableBody.appendChild(row);
