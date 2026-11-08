@@ -347,7 +347,7 @@
                 
                 <h3 style="color: var(--dark); font-size: 1.1rem; margin-bottom: 15px;">Low-Carbon Activities Included in This Slot</h3>
                 <div id="activitiesContainer">
-                    <!-- Dynamic activity rows will be injected here -->
+                    <!-- Dynamic activity rows will be injected here on load -->
                 </div>
 
                 <button type="button" class="btn-add" onclick="addActivityRow()">+ Add Another Low-Carbon Activity</button>
@@ -440,9 +440,9 @@
         const RAZORPAY_PAYMENT_URL = "https://rzp.io/rzp/F7SC6zD";
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqNp1z7nD86EcLHs0QgdH-5ZJRsYL9BGS4VhGLntFfrg9hJmyunGgOuf0fnKdnJrGT_w/exec";
 
-        window.onload = function() {
+        window.addEventListener('DOMContentLoaded', (event) => {
             addActivityRow();
-        };
+        });
 
         function addActivityRow() {
             const container = document.getElementById('activitiesContainer');
@@ -467,7 +467,7 @@
                 <div class="form-group" style="margin-bottom: 8px;">
                     <label id="label_scale_${index}">Activity #${index} Specific Metric / Technology</label>
                     <div id="container_input_${index}">
-                        <select class="act-scale" id="scale_${index}" required onchange="checkActivityPooling(${index})">
+                        <select class="act-scale" id="scale_${index}" required>
                             <option value="" disabled selected>-- First select a category above --</option>
                         </select>
                     </div>
@@ -600,4 +600,37 @@
 
                 const options = [
                     "Afforestation (A)",
-                    "Reforestation (
+                    "Reforestation (R)",
+                    "Agroforestry",
+                    "Forest restoration and eligible forest management",
+                    "Other eligible land-use and biomass activities"
+                ];
+                options.forEach(opt => {
+                    let el = document.createElement('option');
+                    el.value = opt;
+                    el.textContent = opt;
+                    select.appendChild(el);
+                });
+                containerInput.appendChild(select);
+
+            } else if (category === "Type V – Other Specialised Methodology Activities") {
+                label.innerText = `Activity #${index} Technology Specifics (Please Mention)`;
+                let input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'act-scale';
+                input.id = `scale_${index}`;
+                input.required = true;
+                input.placeholder = "e.g., Industrial Process Optimization, CCUS, Biochar";
+                containerInput.appendChild(input);
+            }
+        }
+
+        function checkActivityPooling(index) {
+            const scaleEl = document.getElementById(`scale_${index}`);
+            if (!scaleEl) return;
+            const val = scaleEl.value;
+            const noticeBox = document.getElementById(`notice_${index}`);
+            if (val.includes("Pooled") || val.includes("Under 500kW") || val.includes("Low savings") || val.includes("Low reduction")) {
+                noticeBox.style.display = 'block';
+            } else {
+                noticeBox.style.display = 'none';
