@@ -360,28 +360,28 @@
             <h2 style="margin-top: 0; color: var(--dark); text-align: center;">Live Pipeline Status & KPI Dashboard</h2>
             <p style="text-align: center; color: var(--gray); margin-bottom: 25px;">Real-time tracking of institutional submissions and emission reduction metrics.</p>
 
-            <!-- KPI Summary Cards with 2030 Target Tracking -->
+            <!-- Revised KPI Summary Cards -->
             <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Small-Scale Submissions</h3>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Small Scale Projects</h3>
                     <p id="kpiSmallCount" style="font-size: 1.6rem; font-weight: 800; color: #d97706;">0</p>
                 </div>
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Large-Scale Submissions</h3>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Large Scale Projects</h3>
                     <p id="kpiLargeCount" style="font-size: 1.6rem; font-weight: 800; color: var(--primary);">0</p>
                 </div>
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Total Submissions</h3>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Total Projects</h3>
                     <p id="kpiTotalCount" style="font-size: 1.6rem; font-weight: 800; color: var(--dark);">0</p>
                 </div>
                 <div class="card" style="background: #ffffff; text-align: center; padding: 15px;">
-                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Total tCO₂e Committed</h3>
-                    <p id="kpiTco2Count" style="font-size: 1.5rem; font-weight: 800; color: #0284c7;">0 tCO₂e</p>
-                    <small style="color: var(--gray); font-size: 0.75rem; display: block; margin-top: 4px;">Target: 100M Tons by 2030</small>
+                    <h3 style="color: var(--gray); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 5px;">Target vs Reduced tCO₂e</h3>
+                    <p id="kpiTco2Count" style="font-size: 1.3rem; font-weight: 800; color: #0284c7;">0 tCO₂e</p>
+                    <small id="kpiRemainingTarget" style="color: var(--gray); font-size: 0.75rem; display: block; margin-top: 4px;">Target: 10M Tons by 2030</small>
                 </div>
             </div>
 
-            <h3 style="color: var(--dark); margin-top: 10px; font-size: 1.1rem;">Recent Waitlisted & Secured Entities (Top 10)</h3>
+            <h3 style="color: var(--dark); margin-top: 10px; font-size: 1.1rem;">Recent Waitlisted & Secured Entities (Top 10 Submissions)</h3>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -433,15 +433,19 @@
         const RAZORPAY_PAYMENT_URL = "https://rzp.io/rzp/F7SC6zD";
         const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwqNp1z7nD86EcLHs0QgdH-5ZJRsYL9BGS4VhGLntFfrg9hJmyunGgOuf0fnKdnJrGT_w/exec";
 
-        // Ensures execution on full DOM load so the first activity row renders correctly
+        // Target: 10 Million tons (10,000,000 tCO2e) by 2030
+        const TARGET_TCO2E_2030 = 10000000;
+
         window.addEventListener('DOMContentLoaded', (event) => {
-            if (document.getElementById('activitiesContainer').children.length === 0) {
+            const container = document.getElementById('activitiesContainer');
+            if (container && container.children.length === 0) {
                 addActivityRow();
             }
         });
 
         function addActivityRow() {
             const container = document.getElementById('activitiesContainer');
+            if (!container) return;
             const index = container.children.length + 1;
             
             const div = document.createElement('div');
@@ -637,46 +641,47 @@
             }
         }
 
-        document.getElementById('projectForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        const projectForm = document.getElementById('projectForm');
+        if (projectForm) {
+            projectForm.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            const entityName = document.getElementById('entityName').value;
-            const contactEmail = document.getElementById('contactEmail').value;
-            
-            let activities = [];
-            document.querySelectorAll('.activity-item').forEach(item => {
-                let typeEl = item.querySelector('.act-type');
-                let scaleEl = item.querySelector('.act-scale');
-                if (typeEl && scaleEl) {
-                    activities.push({
-                        type: typeEl.value,
-                        scaleTier: scaleEl.value
-                    });
-                }
+                const entityName = document.getElementById('entityName').value;
+                const contactEmail = document.getElementById('contactEmail').value;
+                
+                let activities = [];
+                document.querySelectorAll('.activity-item').forEach(item => {
+                    let typeEl = item.querySelector('.act-type');
+                    let scaleEl = item.querySelector('.act-scale');
+                    if (typeEl && scaleEl) {
+                        activities.push({
+                            type: typeEl.value,
+                            scaleTier: scaleEl.value
+                        });
+                    }
+                });
+
+                const submissionData = {
+                    entityName: entityName,
+                    contactEmail: contactEmail,
+                    activities: activities,
+                    routingPipeline: "Pilot_Small_Scale_Cohort",
+                    paymentStatus: "Pending_Gateway_Redirect",
+                    timestamp: new Date().toISOString()
+                };
+
+                navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(submissionData));
+
+                const newProjectRef = database.ref('projects').push();
+                newProjectRef.set(submissionData);
+
+                const successMsg = document.getElementById('successMessage');
+                if (successMsg) successMsg.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = RAZORPAY_PAYMENT_URL;
+                }, 1800);
             });
-
-            const submissionData = {
-                entityName: entityName,
-                contactEmail: contactEmail,
-                activities: activities,
-                routingPipeline: "Pilot_Small_Scale_Cohort",
-                paymentStatus: "Pending_Gateway_Redirect",
-                timestamp: new Date().toISOString()
-            };
-
-            // 1. 100% Reliable non-blocking background trigger to Google Apps Script for Email & Sheet Logging
-            navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(submissionData));
-
-            // 2. Backup to Firebase Database for live dashboard UI
-            const newProjectRef = database.ref('projects').push();
-            newProjectRef.set(submissionData);
-
-            // 3. Display success and redirect to Razorpay
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(() => {
-                window.location.href = RAZORPAY_PAYMENT_URL;
-            }, 1800);
-        });
+        }
 
         database.ref('projects').on('value', function(snapshot) {
             const data = snapshot.val();
@@ -685,6 +690,7 @@
             const kpiLarge = document.getElementById('kpiLargeCount');
             const kpiTotal = document.getElementById('kpiTotalCount');
             const kpiTco2 = document.getElementById('kpiTco2Count');
+            const kpiRemaining = document.getElementById('kpiRemainingTarget');
             
             if (!tableBody) return;
             tableBody.innerHTML = "";
@@ -695,13 +701,14 @@
                 if (kpiLarge) kpiLarge.innerText = "0";
                 if (kpiTotal) kpiTotal.innerText = "0";
                 if (kpiTco2) kpiTco2.innerText = "0 tCO₂e";
+                if (kpiRemaining) kpiRemaining.innerText = "10M Target | 10M remaining";
                 return;
             }
 
             const projectsArray = Object.values(data);
             let smallCount = 0;
             let largeCount = 0;
-            let estimatedTotalTco2 = 0;
+            let totalReducedTco2 = 0;
 
             projectsArray.forEach(proj => {
                 let itemsToCheck = [];
@@ -718,11 +725,11 @@
                         projectHasLarge = true;
                     }
 
-                    if (tier.includes("under 500kw") || tier.includes("pooled") || tier.includes("low")) estimatedTotalTco2 += 250;
-                    else if (tier.includes("1 mw") || tier.includes("15 kt")) estimatedTotalTco2 += 15000;
-                    else if (tier.includes("3 mw") || tier.includes("30 kt")) estimatedTotalTco2 += 35000;
-                    else if (tier.includes("large-scale") || tier.includes("more than")) estimatedTotalTco2 += 100000;
-                    else estimatedTotalTco2 += 5000;
+                    if (tier.includes("under 500kw") || tier.includes("pooled") || tier.includes("low")) totalReducedTco2 += 250;
+                    else if (tier.includes("1 mw") || tier.includes("15 kt")) totalReducedTco2 += 15000;
+                    else if (tier.includes("3 mw") || tier.includes("30 kt")) totalReducedTco2 += 35000;
+                    else if (tier.includes("large-scale") || tier.includes("more than")) totalReducedTco2 += 100000;
+                    else totalReducedTco2 += 5000;
                 });
 
                 if (projectHasLarge) largeCount++;
@@ -732,7 +739,13 @@
             if (kpiSmall) kpiSmall.innerText = smallCount;
             if (kpiLarge) kpiLarge.innerText = largeCount;
             if (kpiTotal) kpiTotal.innerText = projectsArray.length;
-            if (kpiTco2) kpiTco2.innerText = estimatedTotalTco2.toLocaleString() + " tCO₂e";
+            if (kpiTco2) kpiTco2.innerText = totalReducedTco2.toLocaleString() + " tCO₂e";
+
+            let remaining = TARGET_TCO2E_2030 - totalReducedTco2;
+            if (remaining < 0) remaining = 0;
+            if (kpiRemaining) {
+                kpiRemaining.innerText = `Reduced so far | ${remaining.toLocaleString()} tCO₂e remaining to 10M Target`;
+            }
 
             const recentArray = projectsArray.reverse().slice(0, 10);
             recentArray.forEach(proj => {
