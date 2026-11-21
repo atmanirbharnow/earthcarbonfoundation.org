@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EarthCarbon Foundation | Unified Carbon Asset Portal & Atmanirbhar Registry</title>
   
-  <!-- Google Fonts & Tailwind CSS CDN -->
+  <!-- Fonts & Tailwind CSS CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -85,7 +85,7 @@
     </div>
   </section>
 
-  <!-- 4. INTERACTIVE 10-SECOND CARBON YIELD ESTIMATOR -->
+  <!-- 4. INTERACTIVE 10-SECOND CARBON & ATMANIRBHAR YIELD ESTIMATOR -->
   <section id="calculator" class="py-12 px-4 max-w-3xl mx-auto w-full">
     <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative">
       <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
@@ -99,60 +99,108 @@
       </div>
 
       <!-- Sector Selector Tabs -->
-      <div class="mb-6">
-        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Select Resource Vertical</label>
+      <div class="mb-4">
+        <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-2">1. Select Resource Vertical</label>
         <div class="grid grid-cols-3 gap-2">
           <button type="button" onclick="setVertical('solar')" id="btn-solar" class="py-2.5 text-xs font-bold rounded-xl border border-emerald-500 bg-emerald-500 text-slate-950 transition-all">
             ☀️ Solar Rooftops
           </button>
           <button type="button" onclick="setVertical('biogas')" id="btn-biogas" class="py-2.5 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition-all">
-            ♻️ Biogas & Waste
+            ♻️ Biogas & CBG
           </button>
           <button type="button" onclick="setVertical('soil')" id="btn-soil" class="py-2.5 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition-all">
-            🌾 Soil & Biochar
+            🌾 Soil & Waste
           </button>
+        </div>
+      </div>
+
+      <!-- Currency Corridor Selector -->
+      <div class="mb-6">
+        <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-2">2. Valuation Currency Corridor</label>
+        <div class="grid grid-cols-4 gap-2">
+          <button type="button" onclick="setCurrency('INR')" id="cur-INR" class="py-1.5 text-xs font-bold rounded-lg border border-emerald-500 bg-emerald-500/20 text-emerald-300">INR (₹)</button>
+          <button type="button" onclick="setCurrency('GBP')" id="cur-GBP" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">GBP (£)</button>
+          <button type="button" onclick="setCurrency('AED')" id="cur-AED" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">AED</button>
+          <button type="button" onclick="setCurrency('AUD')" id="cur-AUD" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">AUD (A$)</button>
         </div>
       </div>
 
       <!-- Slider Input -->
       <div class="space-y-3 mb-6 bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
         <div class="flex justify-between items-center text-sm font-semibold">
-          <span class="text-slate-300">Operational Capacity:</span>
+          <span class="text-slate-300">Operational Asset Capacity:</span>
           <span class="text-emerald-400 font-mono text-base"><span id="capacityVal">50</span> <span id="capacityUnit">kW</span></span>
         </div>
-        <input type="range" id="capacityRange" min="5" max="500" value="50" class="w-full h-2.5 bg-slate-800 rounded-lg cursor-pointer accent-emerald-400" />
+        <input type="range" id="capacityRange" min="5" max="1500" step="5" value="50" class="w-full h-2.5 bg-slate-800 rounded-lg cursor-pointer accent-emerald-400" />
         <div class="flex justify-between text-[10px] text-slate-500 font-mono">
           <span>Min: 5</span>
-          <span>Baseline Model</span>
-          <span>Max: 500</span>
+          <span>Article 6 Additionality Baseline</span>
+          <span>Max: 1,500</span>
         </div>
       </div>
 
       <!-- Estimated Yield Outputs -->
       <div class="grid grid-cols-2 gap-4 mb-6">
         <div class="bg-emerald-950/40 border border-emerald-800/80 p-4 rounded-2xl">
-          <p class="text-xs text-emerald-400 font-medium">Annual Abatement Pipeline</p>
+          <p class="text-xs text-emerald-400 font-medium">Annual Abatement Yield</p>
           <p id="annualAbatement" class="text-2xl font-bold text-white font-mono mt-1">73 tCO2e</p>
-          <p class="text-[10px] text-slate-400 mt-1">Sovereign Article 6 scope</p>
+          <p class="text-[10px] text-slate-400 mt-1">UNFCCC CDM Methodology</p>
         </div>
         <div class="bg-emerald-950/40 border border-emerald-800/80 p-4 rounded-2xl">
-          <p class="text-xs text-emerald-400 font-medium">Estimated 7-Yr Asset Value</p>
+          <p class="text-xs text-emerald-400 font-medium">Estimated 7-Yr Pipeline Value</p>
           <p id="sevenYrValue" class="text-2xl font-bold text-emerald-300 font-mono mt-1">₹89,125</p>
-          <p class="text-[10px] text-slate-400 mt-1">Net monetizable value</p>
+          <p class="text-[10px] text-slate-400 mt-1">Retroactive + forward monetization</p>
         </div>
       </div>
 
-      <!-- Ingestion Form (Sends data directly to Google Sheet) -->
-      <form id="calculatorForm" onsubmit="submitCalculatorLead(event)" class="space-y-3">
-        <div class="flex flex-col sm:flex-row gap-2">
-          <input type="email" id="calcEmail" required placeholder="Enter institutional or official email..." class="flex-1 px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 transition" />
-          <button type="submit" id="calcSubmitBtn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/20">
-            Lock Preliminary Slot ➔
-          </button>
+      <!-- ENRICHED INTAKE FORM (Direct CRM synchronization to Tab 02) -->
+      <form id="calculatorForm" onsubmit="submitCalculatorLead(event)" class="space-y-3 pt-2 border-t border-slate-800/80">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- 1. Organization Name -->
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Company / Organization / Facility Name *</label>
+            <input type="text" id="calcName" required placeholder="e.g. Gujarat Textile Cluster / Trust" 
+                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
+          </div>
+
+          <!-- 2. WhatsApp / Phone -->
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">WhatsApp / Phone Number *</label>
+            <input type="tel" id="calcPhone" required placeholder="+91 94140 12830" 
+                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
+          </div>
         </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <!-- 3. Work Email -->
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Official / Institutional Email *</label>
+            <input type="email" id="calcEmail" required placeholder="director@organization.com" 
+                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
+          </div>
+
+          <!-- 4. Trade Corridor -->
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Launch Trade Corridor *</label>
+            <select id="calcCorridor" class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-400 transition">
+              <option value="India (Domestic / INR)">India (Home Base / INR ₹)</option>
+              <option value="United Kingdom (CETA / GBP)">United Kingdom (India-UK CETA / GBP £)</option>
+              <option value="United Arab Emirates (CEPA / AED)">UAE (India-UAE CEPA / AED)</option>
+              <option value="Australia (ECTA / AUD)">Australia (India-Australia ECTA / AUD A$)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="calcSubmitBtn" 
+                class="w-full mt-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/20">
+          Generate Free LoI Draft & Lock Triage Slot ➔
+        </button>
       </form>
-      <div id="calcSuccessMsg" class="hidden p-3 mt-3 bg-emerald-900/60 border border-emerald-700 rounded-xl text-xs text-emerald-200 text-center font-medium">
-        ✅ Preliminary slot reserved! The baseline parameters have been recorded in the central foundation ledger.
+
+      <!-- Instant Success Message -->
+      <div id="calcSuccessMsg" class="hidden p-4 mt-3 bg-emerald-950/80 border border-emerald-700 rounded-xl text-center space-y-1">
+        <p class="text-sm font-bold text-emerald-300">✅ Inquiry & Carbon Yield Profile Logged!</p>
+        <p class="text-xs text-slate-300">Your organization has been queued in our central registry database. Our Technical Desk will dispatch your LoI draft within 24 hours.</p>
       </div>
     </div>
   </section>
@@ -224,12 +272,20 @@
     const WEBHOOK_SECRET = "EC_LIVE_SECRET_2026_x89";
 
     const BENCHMARKS = {
-      solar: { factor: 1.45, price: 1200, unit: 'kW' },
-      biogas: { factor: 3.80, price: 1250, unit: 'm³/day' },
-      soil: { factor: 2.10, price: 1400, unit: 'Acres' }
+      solar: { factor: 1.45, priceINR: 1200, unit: 'kW' },
+      biogas: { factor: 3.80, priceINR: 1250, unit: 'm³/day' },
+      soil: { factor: 2.10, priceINR: 1400, unit: 'Acres' }
+    };
+
+    const FX_RATES = {
+      INR: { symbol: '₹', rate: 1.0 },
+      GBP: { symbol: '£', rate: 0.0092 },
+      AED: { symbol: 'AED ', rate: 0.0438 },
+      AUD: { symbol: 'A$ ', rate: 0.0185 }
     };
 
     let activeVertical = 'solar';
+    let activeCurrency = 'INR';
 
     function setVertical(v) {
       activeVertical = v;
@@ -245,17 +301,33 @@
       updateCalculations();
     }
 
+    function setCurrency(cur) {
+      activeCurrency = cur;
+      ['INR', 'GBP', 'AED', 'AUD'].forEach(item => {
+        const btn = document.getElementById('cur-' + item);
+        if (item === cur) {
+          btn.className = "py-1.5 text-xs font-bold rounded-lg border border-emerald-500 bg-emerald-500/20 text-emerald-300";
+        } else {
+          btn.className = "py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800";
+        }
+      });
+      updateCalculations();
+    }
+
     function updateCalculations() {
       const cap = Number(document.getElementById('capacityRange').value);
       document.getElementById('capacityVal').innerText = cap;
 
       const bm = BENCHMARKS[activeVertical];
       const annualAbatement = Math.round(cap * bm.factor);
-      const grossCarbon = annualAbatement * bm.price;
-      const sevenYrValue = Math.round(grossCarbon * 7 * 0.125 + (cap * 250));
+      const grossCarbonINR = annualAbatement * bm.priceINR;
+      const sevenYrValueINR = Math.round(grossCarbonINR * 7 * 0.125 + (cap * 250));
+
+      const fx = FX_RATES[activeCurrency];
+      const convertedValue = Math.round(sevenYrValueINR * fx.rate);
 
       document.getElementById('annualAbatement').innerText = annualAbatement.toLocaleString() + ' tCO2e';
-      document.getElementById('sevenYrValue').innerText = '₹' + sevenYrValue.toLocaleString();
+      document.getElementById('sevenYrValue').innerText = fx.symbol + convertedValue.toLocaleString();
     }
 
     document.getElementById('capacityRange').addEventListener('input', updateCalculations);
@@ -274,32 +346,50 @@
           }
         }
       } catch (err) {
-        // Fallback to initial display values if fetch has network delays
+        // Keeps initial fallback values if network latency occurs
       }
     }
     loadLiveStats();
-    // Refresh stats every 60 seconds
     setInterval(loadLiveStats, 60000);
 
-    // SUBMIT CALCULATOR LEAD TO SPREADSHEET (Calls doPost on your Google Apps Script)
+    // SUBMIT ENRICHED LEAD TO SPREADSHEET (Calls doPost on your Google Apps Script)
     async function submitCalculatorLead(e) {
       e.preventDefault();
       const btn = document.getElementById('calcSubmitBtn');
+      const name = document.getElementById('calcName').value;
+      const phone = document.getElementById('calcPhone').value;
       const email = document.getElementById('calcEmail').value;
+      const corridor = document.getElementById('calcCorridor').value;
       const capacity = Number(document.getElementById('capacityRange').value);
-      const sevenYrValText = document.getElementById('sevenYrValue').innerText.replace(/[₹,]/g, '');
+      
+      // Calculate 7-yr INR baseline regardless of display currency for consistent sheet records
+      const bm = BENCHMARKS[activeVertical];
+      const annualAbatement = Math.round(capacity * bm.factor);
+      const sevenYrValINR = Math.round((annualAbatement * bm.priceINR) * 7 * 0.125 + (capacity * 250));
+
+      // Automated Priority Tier Triage
+      let priority = "P2 - Normal";
+      if (capacity >= 500) {
+        priority = "P0 - Immediate";
+      } else if (capacity >= 100) {
+        priority = "P1 - High";
+      }
 
       btn.disabled = true;
-      btn.innerText = 'Syncing...';
+      btn.innerText = 'Locking Slot & Syncing...';
 
       const payload = {
         secret: WEBHOOK_SECRET,
         event: 'lead.calculator_submission',
         lead: {
+          name: name,
           email: email,
+          phone: phone,
           vertical: activeVertical,
           capacity: capacity,
-          estimated_yield_inr: Number(sevenYrValText) || 0,
+          estimated_yield_inr: sevenYrValINR,
+          priority_tier: priority,
+          corridor: corridor,
           utm_source: new URLSearchParams(window.location.search).get('utm_source') || 'organic_web',
           utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || 'carbon_yield_calc'
         }
@@ -318,7 +408,7 @@
         document.getElementById('calcSuccessMsg').classList.remove('hidden');
       } finally {
         btn.disabled = false;
-        btn.innerText = 'Lock Preliminary Slot ➔';
+        btn.innerText = 'Generate Free LoI Draft & Lock Triage Slot ➔';
       }
     }
 
@@ -326,3 +416,58 @@
   </script>
 </body>
 </html>
+Also: Update Your Google Apps Script handleLeadSubmission
+
+To map these new fields (Name, Phone, Priority, and Corridor) cleanly into your 02Lead Capture & Inquiries tab, update the handleLeadSubmission function in your Apps Script (Code.gs):
+Javascript
+/**
+ * Logs enriched web inquiries and calculator leads directly into '02Lead Capture & Inquiries'
+ */
+function handleLeadSubmission(data) {
+  const lead = data.lead || data;
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  
+  // Connect to Tab 02
+  let logSheet = ss.getSheetByName("02Lead Capture & Inquiries") || ss.getSheetByName("Lead Capture & Inquiries");
+  
+  const timestamp = Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm:ss");
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const nextFollowUp = Utilities.formatDate(tomorrow, "Asia/Kolkata", "yyyy-MM-dd");
+
+  const clientName = lead.name || "Web Inquirer";
+  const email = lead.email || "N/A";
+  const phone = lead.phone || "N/A";
+  const vertical = lead.vertical || "solar";
+  const capacity = Number(lead.capacity || 0);
+  const estYield = Number(lead.estimated_yield_inr || 0);
+  const priority = lead.priority_tier || (capacity >= 500 ? "P0 - Immediate" : "P1 - High");
+  const notes = "Corridor: " + (lead.corridor || "India") + "; Inbound via 10-sec yield calculator";
+
+  // Appends row matching columns A to N in Tab 02
+  logSheet.appendRow([
+    timestamp,                                // A: Timestamp
+    clientName,                               // B: Client Name
+    email,                                    // C: Email
+    phone,                                    // D: Phone
+    vertical,                                 // E: Vertical
+    capacity,                                 // F: Capacity (kW / Tons)
+    estYield,                                 // G: Est. 7-Yr Value (INR)
+    priority,                                 // H: Priority Tier
+    "Open Lead (P0)",                         // I: Status
+    "Amit Sinh",                              // J: Assigned Owner
+    nextFollowUp,                             // K: Next Follow-Up Date
+    lead.utm_source || "organic_web",         // L: UTM Source
+    lead.utm_campaign || "carbon_yield_calc", // M: UTM Campaign
+    notes                                     // N: Outreach Notes
+  ]);
+
+  SpreadsheetApp.flush();
+
+  return ContentService.createTextOutput(JSON.stringify({
+    status: "success",
+    client: clientName,
+    email: email,
+    priority: priority
+  })).setMimeType(ContentService.MimeType.JSON);
+}
