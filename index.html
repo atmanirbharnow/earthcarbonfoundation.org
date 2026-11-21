@@ -2,17 +2,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EarthCarbon Foundation | Unified Carbon Asset Portal & Atmanirbhar Registry</title>
+  <title>EarthCarbon Foundation | Sovereign Carbon Registry & Atmanirbhar Resource Autonomy</title>
   
-  <!-- Fonts & Tailwind CSS CDN -->
+  <!-- Typography & Tailwind CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
     @keyframes marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
@@ -24,317 +25,500 @@
     .animate-marquee:hover {
       animation-play-state: paused;
     }
+
+    /* Forest Green Custom Tokens */
+    .bg-forest-950 { background-color: #081C15; }
+    .bg-forest-900 { background-color: #1B4332; }
+    .bg-forest-800 { background-color: #2D6A4F; }
+    .bg-forest-700 { background-color: #40916C; }
+    .bg-forest-50  { background-color: #F2F9F5; }
+    .border-forest-200 { border-color: #D1E7DD; }
+    .border-forest-800 { border-color: #2D6A4F; }
+    .text-forest-950 { color: #081C15; }
+    .text-forest-900 { color: #1B4332; }
+    .text-forest-800 { color: #2D6A4F; }
+    .text-forest-600 { color: #40916C; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-slate-950">
+<body class="bg-forest-50 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white">
 
-  <!-- 1. LIVE SOCIAL PROOF TICKER (Streams real-time metrics from Google Sheet via doGet) -->
-  <div class="w-full bg-emerald-950 border-b border-emerald-800/80 overflow-hidden py-2.5 z-50">
-    <div class="whitespace-nowrap text-xs font-mono tracking-wide text-emerald-300">
-      <div id="tickerContent" class="animate-marquee space-x-10 cursor-pointer">
+  <!-- 1. LIVE SOCIAL PROOF TICKER (Google Sheet Real-Time Streaming) -->
+  <div class="w-full bg-forest-950 border-b border-forest-800 text-white overflow-hidden py-3 z-50">
+    <div class="whitespace-nowrap text-xs font-mono tracking-wider">
+      <div id="tickerContent" class="animate-marquee space-x-12 cursor-pointer">
         <span class="inline-flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping inline-block"></span>
-          ● LIVE CARBON LEDGER: <span id="tickerAbatement" class="font-bold text-white">50,000</span> tCO2e AUDITED
+          ● LIVE AUDITED LEDGER: <span id="tickerAbatement" class="font-bold text-emerald-300">50,000</span> tCO2e VERIFIED
         </span>
-        <span class="text-emerald-600">|</span>
-        <span>REALIZED NET REVENUE: ₹<span id="tickerRevenue" class="font-bold text-white">3,50,000</span></span>
-        <span class="text-emerald-600">|</span>
-        <span>CORRIDORS: INDIA (INR ₹) • UK (GBP £) • UAE (AED) • AUSTRALIA (AUD A$)</span>
-        <span class="text-emerald-600">|</span>
-        <span class="font-bold text-emerald-200">2030 TARGET: 100 CRORE & 100 MtCO2e</span>
-        <span class="text-emerald-600">|</span>
-        <span>STANDARDS: UNFCCC CDM • ARTICLE 6 • GOLD STANDARD • VERRA VCS</span>
+        <span class="text-emerald-700">|</span>
+        <span>NET REVENUE REALIZED: ₹<span id="tickerRevenue" class="font-bold text-white">3,50,000</span></span>
+        <span class="text-emerald-700">|</span>
+        <span>TRADE CORRIDORS: INDIA (INR ₹) • UK (GBP £) • UAE (AED) • AUSTRALIA (AUD A$)</span>
+        <span class="text-emerald-700">|</span>
+        <span class="font-bold text-emerald-300">2030 TARGET: ₹100 CRORE & 100 MtCO2e</span>
+        <span class="text-emerald-700">|</span>
+        <span>STANDARDS: UNFCCC CDM PoA • ARTICLE 6 • GOLD STANDARD • VERRA VCS</span>
       </div>
     </div>
   </div>
 
-  <!-- 2. NAVBAR -->
-  <header class="w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-emerald-500/20">
+  <!-- 2. EXPANDED FULL-SCREEN NAVBAR -->
+  <header class="w-full bg-white border-b border-forest-200 sticky top-0 z-40 shadow-sm">
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Organization Title -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-forest-900 text-white flex items-center justify-center font-bold text-2xl shadow-md shadow-forest-900/20">
           🌱
         </div>
         <div>
-          <span class="font-bold text-base tracking-tight text-white block">Earth Carbon Foundation</span>
-          <span class="text-[10px] text-emerald-400 font-mono tracking-wider uppercase block">Atmanirbhar Resource Autonomy</span>
+          <span class="font-extrabold text-lg sm:text-xl tracking-tight text-forest-950 block leading-tight">
+            Earth Carbon Foundation
+          </span>
+          <span class="text-[11px] font-mono font-semibold tracking-wider uppercase text-forest-600 block">
+            Atmanirbhar Resource Autonomy
+          </span>
         </div>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="#calculator" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">Yield Calculator</a>
-        <a href="#how-it-works" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">How It Works</a>
-        <a href="#faq" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">FAQ</a>
-        <a href="#reserve" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold rounded-lg transition-all shadow-md shadow-emerald-500/10">Reserve PoA Slot</a>
+      </a>
+
+      <!-- Navigation & Primary CTAs -->
+      <div class="flex items-center gap-3 sm:gap-6">
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-forest-900">
+          <a href="#calculator" class="hover:text-emerald-600 transition">Yield Calculator</a>
+          <a href="#how-it-works" class="hover:text-emerald-600 transition">How It Works</a>
+          <a href="#faq" class="hover:text-emerald-600 transition">FAQ</a>
+          <a href="#contact" class="hover:text-emerald-600 transition">Contact Us</a>
+        </nav>
+
+        <a href="https://cal.id/amit-sinh-earth-carbon" target="_blank" rel="noopener noreferrer" 
+           class="px-4 py-2.5 rounded-xl border-2 border-forest-800 text-forest-900 hover:bg-forest-900 hover:text-white text-xs sm:text-sm font-bold transition shadow-sm">
+          📅 Book Consultation
+        </a>
+
+        <a href="#reserve" 
+           class="px-5 py-2.5 rounded-xl bg-forest-900 hover:bg-forest-800 text-white text-xs sm:text-sm font-bold transition-all shadow-md shadow-forest-900/20">
+          Reserve PoA Slot
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- 3. HERO SECTION -->
-  <section class="py-16 px-4 text-center relative overflow-hidden border-b border-slate-900 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-950">
-    <div class="max-w-4xl mx-auto space-y-5">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/50 border border-emerald-700/60 text-emerald-300 text-xs font-medium">
-        <span>🌍</span> World is One Family • Clean Air, Water, Soil, Habitat & Clean Energy
+  <!-- 3. FULL-WIDTH HERO SECTION (Forest Green & Pure White) -->
+  <section class="w-full bg-gradient-to-b from-white via-forest-50 to-white py-16 sm:py-24 px-4 sm:px-8 border-b border-forest-200">
+    <div class="max-w-6xl mx-auto text-center space-y-6">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-forest-200 text-forest-800 text-xs sm:text-sm font-semibold shadow-sm">
+        <span>🌍</span> Vasudhaiva Kutumbakam • "World is One Family" (Air, Water, Soil, Energy, Habitat)
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-        Convert Low-Carbon Actions Into <br class="hidden sm:inline"/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
-          Tangible Financial Instruments
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-forest-950 tracking-tight leading-[1.15]">
+        Convert Low-Carbon Actions Into <br class="hidden sm:inline" />
+        <span class="text-emerald-700 underline decoration-emerald-400 decoration-wavy decoration-2">
+          Verified Carbon Assets & Dividends
         </span>
       </h1>
-      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-        Pioneering sovereign carbon asset aggregation under Article 6 & Clean Development Mechanism (CDM) Programme of Activities. Unlock retroactive 7-year verified carbon dividends for your institutional assets.
+
+      <p class="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+        Pioneering sovereign carbon asset aggregation under Article 6 & UNFCCC Clean Development Mechanism (CDM) Programme of Activities. Unlock retroactive 7-year verified carbon dividends across India, UK, UAE, and Australia.
       </p>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <a href="#calculator" class="px-8 py-4 bg-forest-900 hover:bg-forest-800 text-white rounded-2xl font-bold text-sm sm:text-base shadow-xl shadow-forest-900/20 transition-all transform hover:-translate-y-0.5">
+          Launch 10-Second Estimator ➔
+        </a>
+        <a href="https://cal.id/amit-sinh-earth-carbon" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-white hover:bg-forest-50 border-2 border-forest-800 text-forest-900 rounded-2xl font-bold text-sm sm:text-base shadow-sm transition-all">
+          📅 Schedule 1:1 Video Audit
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- ADDITION 1: INSTITUTIONAL TRUST SIGNALS STRIP -->
-  <div class="border-y border-slate-900 bg-slate-950/80 py-4 px-4">
-    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-6 text-slate-400 text-xs font-mono">
+  <!-- 4. INSTITUTIONAL ACCREDITATION & TRUST STRIP -->
+  <div class="w-full bg-white border-y border-forest-200 py-6 px-4 sm:px-8 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-around gap-6 text-forest-900 text-xs sm:text-sm font-mono font-medium">
       <div class="flex items-center gap-2">
-        <span class="text-emerald-400 font-bold text-sm">✓</span> Govt of India Section 8 Reg. (#113981)
+        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">✓</span>
+        Section 8 Licensed Non-Profit (#113981)
       </div>
       <div class="flex items-center gap-2">
-        <span class="text-emerald-400 font-bold text-sm">✓</span> UNFCCC CDM & Article 6 Standards
+        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">✓</span>
+        CIN: U85300GJ2019NPL106818
       </div>
       <div class="flex items-center gap-2">
-        <span class="text-emerald-400 font-bold text-sm">✓</span> 7-Year Retroactive Abatement Claims
+        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">✓</span>
+        UNFCCC CDM & Article 6 Methodologies
       </div>
       <div class="flex items-center gap-2">
-        <span class="text-emerald-400 font-bold text-sm">✓</span> Zero-Cost Open Telemetry
+        <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">✓</span>
+        7-Year Retroactive Abatement Liquidity
       </div>
     </div>
   </div>
 
-  <!-- ADDITION 2: "HOW IT WORKS IN 3 STEPS" PROCESS SECTION -->
-  <section id="how-it-works" class="py-14 px-4 max-w-4xl mx-auto">
-    <div class="text-center mb-10">
-      <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400">Streamlined Path to Carbon Revenue</h3>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">From Clean Kilowatts to Carbon Yield in 3 Steps</h2>
+  <!-- 5. "HOW IT WORKS IN 3 STEPS" PROCESS -->
+  <section id="how-it-works" class="w-full max-w-7xl mx-auto py-16 sm:py-24 px-4 sm:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Institutional Roadmap
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-950 mt-3">
+        From Clean Assets to Carbon Revenue in 3 Steps
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 mt-2">
+        Eliminate high solo-validation expenses through EarthCarbon's sovereign Programme of Activities (PoA).
+      </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
-        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">1</div>
-        <h4 class="font-bold text-white text-base mb-1.5">Instant Yield Estimate</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Calculate your 7-year baseline carbon yield and reserve your institutional priority slot in 10 seconds.</p>
-      </div>
-      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
-        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">2</div>
-        <h4 class="font-bold text-white text-base mb-1.5">Portfolio Aggregation</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">EarthCarbon pools your asset with regional cohorts, drafting the Project Design Document (PDD) without validation overhead.</p>
-      </div>
-      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
-        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">3</div>
-        <h4 class="font-bold text-white text-base mb-1.5">Annual Liquidity</h4>
-        <p class="text-xs text-slate-400 leading-relaxed">Verified emission reductions are transacted under bilateral trade corridors, with direct yield settlement to your ledger.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- 4. INTERACTIVE 10-SECOND CARBON YIELD ESTIMATOR & ENRICHED CRM INTAKE -->
-  <section id="calculator" class="py-10 px-4 max-w-3xl mx-auto w-full">
-    <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative">
-      <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
-        <div>
-          <h2 class="text-xl font-bold text-emerald-300">10-Second Carbon Yield Estimator</h2>
-          <p class="text-xs text-slate-400 mt-1">Real-time valuation across 7-year retroactive and forward abatement horizons</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white border-2 border-forest-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-2xl bg-forest-900 text-white font-mono font-bold text-lg flex items-center justify-center mb-6">
+          01
         </div>
-        <span class="text-xs px-2.5 py-1 bg-emerald-900/40 border border-emerald-700/60 text-emerald-300 rounded-full font-mono">
-          Layer 1 Hook
-        </span>
+        <h3 class="text-lg font-bold text-forest-950 mb-2">10-Second Baseline Estimation</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Input your solar capacity, bio-gas output, or biochar acreage to calculate 7-year forward and retroactive carbon asset yields.
+        </p>
       </div>
 
-      <!-- Sector Selector Tabs -->
-      <div class="mb-4">
-        <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-2">1. Select Resource Vertical</label>
-        <div class="grid grid-cols-3 gap-2">
-          <button type="button" onclick="setVertical('solar')" id="btn-solar" class="py-2.5 text-xs font-bold rounded-xl border border-emerald-500 bg-emerald-500 text-slate-950 transition-all">
-            ☀️ Solar Rooftops
-          </button>
-          <button type="button" onclick="setVertical('biogas')" id="btn-biogas" class="py-2.5 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition-all">
-            ♻️ Biogas & CBG
-          </button>
-          <button type="button" onclick="setVertical('soil')" id="btn-soil" class="py-2.5 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition-all">
-            🌾 Soil & Waste
-          </button>
+      <div class="bg-white border-2 border-forest-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-2xl bg-forest-900 text-white font-mono font-bold text-lg flex items-center justify-center mb-6">
+          02
         </div>
+        <h3 class="text-lg font-bold text-forest-950 mb-2">Sovereign PoA Bundling</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Your project is aggregated into regional trade cohorts. EarthCarbon handles Project Design Documents (PDD) and registry audits.
+        </p>
       </div>
 
-      <!-- Currency Corridor Selector -->
-      <div class="mb-6">
-        <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-2">2. Valuation Currency Corridor</label>
-        <div class="grid grid-cols-4 gap-2">
-          <button type="button" onclick="setCurrency('INR')" id="cur-INR" class="py-1.5 text-xs font-bold rounded-lg border border-emerald-500 bg-emerald-500/20 text-emerald-300">INR (₹)</button>
-          <button type="button" onclick="setCurrency('GBP')" id="cur-GBP" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">GBP (£)</button>
-          <button type="button" onclick="setCurrency('AED')" id="cur-AED" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">AED</button>
-          <button type="button" onclick="setCurrency('AUD')" id="cur-AUD" class="py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800">AUD (A$)</button>
+      <div class="bg-white border-2 border-forest-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition">
+        <div class="w-12 h-12 rounded-2xl bg-forest-900 text-white font-mono font-bold text-lg flex items-center justify-center mb-6">
+          03
         </div>
-      </div>
-
-      <!-- Slider Input -->
-      <div class="space-y-3 mb-6 bg-slate-950/50 p-4 rounded-2xl border border-slate-800">
-        <div class="flex justify-between items-center text-sm font-semibold">
-          <span class="text-slate-300">Operational Asset Capacity:</span>
-          <span class="text-emerald-400 font-mono text-base"><span id="capacityVal">50</span> <span id="capacityUnit">kW</span></span>
-        </div>
-        <input type="range" id="capacityRange" min="5" max="1500" step="5" value="50" class="w-full h-2.5 bg-slate-800 rounded-lg cursor-pointer accent-emerald-400" />
-        <div class="flex justify-between text-[10px] text-slate-500 font-mono">
-          <span>Min: 5</span>
-          <span>Article 6 Additionality Baseline</span>
-          <span>Max: 1,500</span>
-        </div>
-      </div>
-
-      <!-- Estimated Yield Outputs -->
-      <div class="grid grid-cols-2 gap-4 mb-6">
-        <div class="bg-emerald-950/40 border border-emerald-800/80 p-4 rounded-2xl">
-          <p class="text-xs text-emerald-400 font-medium">Annual Abatement Yield</p>
-          <p id="annualAbatement" class="text-2xl font-bold text-white font-mono mt-1">73 tCO2e</p>
-          <p class="text-[10px] text-slate-400 mt-1">UNFCCC CDM Methodology</p>
-        </div>
-        <div class="bg-emerald-950/40 border border-emerald-800/80 p-4 rounded-2xl">
-          <p class="text-xs text-emerald-400 font-medium">Estimated 7-Yr Pipeline Value</p>
-          <p id="sevenYrValue" class="text-2xl font-bold text-emerald-300 font-mono mt-1">₹89,125</p>
-          <p class="text-[10px] text-slate-400 mt-1">Retroactive + forward monetization</p>
-        </div>
-      </div>
-
-      <!-- ENRICHED INTAKE FORM (Direct CRM synchronization to Tab 02) -->
-      <form id="calculatorForm" onsubmit="submitCalculatorLead(event)" class="space-y-3 pt-2 border-t border-slate-800/80">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <!-- 1. Organization Name -->
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Company / Organization / Facility Name *</label>
-            <input type="text" id="calcName" required placeholder="e.g. Gujarat Textile Cluster / Trust" 
-                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
-          </div>
-
-          <!-- 2. WhatsApp / Phone -->
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">WhatsApp / Phone Number *</label>
-            <input type="tel" id="calcPhone" required placeholder="+91 94140 12830" 
-                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <!-- 3. Work Email -->
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Official / Institutional Email *</label>
-            <input type="email" id="calcEmail" required placeholder="director@organization.com" 
-                   class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-400 transition" />
-          </div>
-
-          <!-- 4. Trade Corridor -->
-          <div>
-            <label class="block text-[11px] font-semibold text-slate-400 mb-1">Launch Trade Corridor *</label>
-            <select id="calcCorridor" class="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-700 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-400 transition">
-              <option value="India (Domestic / INR)">India (Home Base / INR ₹)</option>
-              <option value="United Kingdom (CETA / GBP)">United Kingdom (India-UK CETA / GBP £)</option>
-              <option value="United Arab Emirates (CEPA / AED)">UAE (India-UAE CEPA / AED)</option>
-              <option value="Australia (ECTA / AUD)">Australia (India-Australia ECTA / AUD A$)</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" id="calcSubmitBtn" 
-                class="w-full mt-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3.5 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/20">
-          Generate Free LoI Draft & Lock Triage Slot ➔
-        </button>
-      </form>
-
-      <!-- Instant Success Notification -->
-      <div id="calcSuccessMsg" class="hidden p-4 mt-3 bg-emerald-950/80 border border-emerald-700 rounded-xl text-center space-y-1">
-        <p class="text-sm font-bold text-emerald-300">✅ Inquiry & Carbon Yield Profile Logged!</p>
-        <p class="text-xs text-slate-300">Your organization has been queued in our central registry database. Our Technical Desk will dispatch your LoI draft within 24 hours.</p>
+        <h3 class="text-lg font-bold text-forest-950 mb-2">Direct Monetization Settlement</h3>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          Monetize verified credits across signed trade corridors (India, UK CETA, UAE CEPA, Australia ECTA) with automated treasury payouts.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- 5. MULTI-ACTIVITY SLOT RESERVATION & RAZORPAY CHECKOUT -->
-  <section id="reserve" class="py-12 px-4 max-w-3xl mx-auto w-full">
-    <div class="bg-slate-900 border border-emerald-800/60 rounded-3xl p-6 sm:p-8 shadow-2xl relative">
-      <div class="text-center max-w-xl mx-auto mb-8">
-        <span class="text-xs font-mono px-3 py-1 bg-emerald-950 border border-emerald-700/80 text-emerald-300 rounded-full font-bold">
-          Layer 3: Multi-Activity Reservation
+  <!-- 6. EXPANDED FULL-SCREEN 10-SECOND CALCULATOR & ENRICHED CRM INTAKE -->
+  <section id="calculator" class="w-full bg-white border-y border-forest-200 py-16 sm:py-24 px-4 sm:px-8">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="bg-white border-2 border-forest-800 rounded-3xl p-6 sm:p-12 shadow-xl relative">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 mb-8 border-b border-forest-200 gap-4">
+          <div>
+            <span class="text-xs font-mono font-bold text-emerald-800 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+              Layer 1: Free Conversion Hook
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2">
+              10-Second Carbon Yield Estimator
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">
+              Select your resource vertical and corridor to calculate certified credit volume & asset value.
+            </p>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-mono font-bold text-slate-500 block">METHODOLOGY</span>
+            <span class="text-xs font-mono font-extrabold text-forest-900 block">UNFCCC CDM • ART 6.2/6.4</span>
+          </div>
+        </div>
+
+        <!-- 1. Resource Autonomy Vertical Selector -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-forest-950 mb-3">
+            1. Select Resource Vertical
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <button type="button" onclick="setVertical('solar')" id="btn-solar" 
+                    class="py-3 px-4 text-xs sm:text-sm font-bold rounded-2xl border-2 border-forest-900 bg-forest-900 text-white transition-all shadow-sm">
+              ☀️ Clean Solar & Rooftops
+            </button>
+            <button type="button" onclick="setVertical('biogas')" id="btn-biogas" 
+                    class="py-3 px-4 text-xs sm:text-sm font-bold rounded-2xl border-2 border-forest-200 text-forest-900 hover:bg-forest-50 transition-all">
+              ♻️ Biogas & CBG Monetization
+            </button>
+            <button type="button" onclick="setVertical('soil')" id="btn-soil" 
+                    class="py-3 px-4 text-xs sm:text-sm font-bold rounded-2xl border-2 border-forest-200 text-forest-900 hover:bg-forest-50 transition-all">
+              🌾 Soil & Biochar Sequestration
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Currency Corridor Selector -->
+        <div class="mb-8">
+          <label class="block text-xs font-bold uppercase tracking-wider text-forest-950 mb-3">
+            2. Valuation Currency Corridor
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <button type="button" onclick="setCurrency('INR')" id="cur-INR" 
+                    class="py-2.5 text-xs font-mono font-bold rounded-xl border-2 border-forest-900 bg-forest-50 text-forest-900">
+              INR ₹ (India Domestic)
+            </button>
+            <button type="button" onclick="setCurrency('GBP')" id="cur-GBP" 
+                    class="py-2.5 text-xs font-mono font-semibold rounded-xl border-2 border-forest-200 text-slate-600 hover:bg-forest-50">
+              GBP £ (UK CETA)
+            </button>
+            <button type="button" onclick="setCurrency('AED')" id="cur-AED" 
+                    class="py-2.5 text-xs font-mono font-semibold rounded-xl border-2 border-forest-200 text-slate-600 hover:bg-forest-50">
+              AED (UAE CEPA)
+            </button>
+            <button type="button" onclick="setCurrency('AUD')" id="cur-AUD" 
+                    class="py-2.5 text-xs font-mono font-semibold rounded-xl border-2 border-forest-200 text-slate-600 hover:bg-forest-50">
+              AUD A$ (Australia ECTA)
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Capacity Range Slider -->
+        <div class="bg-forest-50 border-2 border-forest-200 rounded-2xl p-6 mb-8">
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-sm font-bold text-forest-950">Operating Capacity:</span>
+            <span class="text-forest-900 font-mono font-extrabold text-lg sm:text-xl">
+              <span id="capacityVal">50</span> <span id="capacityUnit">kW</span>
+            </span>
+          </div>
+          <input type="range" id="capacityRange" min="5" max="1500" step="5" value="50" 
+                 class="w-full h-3 bg-white border border-forest-200 rounded-lg cursor-pointer accent-emerald-700" />
+          <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-2">
+            <span>5 Units (Individual / Gaushala)</span>
+            <span>Additionality Baseline</span>
+            <span>1,500 Units (Industrial MSME)</span>
+          </div>
+        </div>
+
+        <!-- 4. Dynamic Yield Outputs -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div class="bg-white border-2 border-forest-200 p-6 rounded-2xl shadow-sm">
+            <span class="text-xs font-mono font-bold text-forest-700 uppercase tracking-wider">Annual Abatement</span>
+            <p id="annualAbatement" class="text-3xl sm:text-4xl font-extrabold text-forest-950 font-mono mt-1">73 tCO2e</p>
+            <p class="text-xs text-slate-500 mt-1">UNFCCC CDM Sectoral Scope 1 & 4</p>
+          </div>
+          <div class="bg-white border-2 border-emerald-600 p-6 rounded-2xl shadow-sm bg-emerald-50/30">
+            <span class="text-xs font-mono font-bold text-emerald-800 uppercase tracking-wider">Estimated 7-Year Asset Value</span>
+            <p id="sevenYrValue" class="text-3xl sm:text-4xl font-extrabold text-emerald-800 font-mono mt-1">₹89,125</p>
+            <p class="text-xs text-emerald-700 font-medium mt-1">Retroactive + forward aggregated monetization</p>
+          </div>
+        </div>
+
+        <!-- 5. Enriched CRM Intake Form (Auto-Posts to 02Lead Capture & Inquiries) -->
+        <form id="calculatorForm" onsubmit="submitCalculatorLead(event)" class="space-y-4 pt-4 border-t border-forest-200">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-forest-950 mb-1">Company / Facility / Trust Name *</label>
+              <input type="text" id="calcName" required placeholder="e.g. Gujarat Solar Park / Radiant MSME" 
+                     class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl text-sm text-forest-950 placeholder-slate-400 focus:outline-none focus:border-forest-900 transition" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-forest-950 mb-1">WhatsApp / Phone Number *</label>
+              <input type="tel" id="calcPhone" required placeholder="+91 98240 25431" 
+                     class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl text-sm text-forest-950 placeholder-slate-400 focus:outline-none focus:border-forest-900 transition" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-forest-950 mb-1">Official Institutional Email *</label>
+              <input type="email" id="calcEmail" required placeholder="director@organization.com" 
+                     class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl text-sm text-forest-950 placeholder-slate-400 focus:outline-none focus:border-forest-900 transition" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-forest-950 mb-1">Trade Corridor Jurisdiction *</label>
+              <select id="calcCorridor" class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl text-sm text-forest-950 focus:outline-none focus:border-forest-900 transition font-medium">
+                <option value="India (Domestic / INR)">India (Home Base / INR ₹)</option>
+                <option value="United Kingdom (CETA / GBP)">United Kingdom (India-UK CETA / GBP £)</option>
+                <option value="United Arab Emirates (CEPA / AED)">UAE (India-UAE CEPA / AED)</option>
+                <option value="Australia (ECTA / AUD)">Australia (India-Australia ECTA / AUD A$)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" id="calcSubmitBtn" 
+                  class="w-full mt-3 bg-forest-900 hover:bg-forest-800 text-white font-extrabold py-4 rounded-xl text-base transition-all shadow-xl shadow-forest-900/20">
+            Generate Free LoI Draft & Lock Triage Slot ➔
+          </button>
+        </form>
+
+        <!-- Dynamic Success Banner -->
+        <div id="calcSuccessMsg" class="hidden p-6 mt-4 bg-emerald-50 border-2 border-emerald-600 rounded-2xl text-center space-y-2">
+          <p class="text-base font-extrabold text-emerald-900">✅ Preliminary Slot Reserved & Logged to Central Ledger!</p>
+          <p class="text-xs sm:text-sm text-emerald-800 max-w-xl mx-auto">
+            Your asset details have been transmitted directly to our Google Sheets Registry. An official Letter of Intent (LoI) draft will be issued to your email within 24 hours.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. MULTI-ACTIVITY SLOT RESERVATION & RAZORPAY CHECKOUT -->
+  <section id="reserve" class="w-full max-w-5xl mx-auto py-16 sm:py-24 px-4 sm:px-8">
+    <div class="bg-forest-900 text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-300 bg-forest-800 px-3 py-1 rounded-full border border-forest-700">
+          Layer 3: PoA Multi-Activity Intake
         </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-3">Secure Your Cohort PoA Placement</h2>
-        <p class="text-xs sm:text-sm text-slate-400 mt-2">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-3">
+          Lock Your Cohort Registry Placement
+        </h2>
+        <p class="text-xs sm:text-sm text-emerald-100 mt-2 leading-relaxed">
           Covers Project Design Document (PDD) drafting, additionality validation, and enrollment in the bundled Clean Development Mechanism (CDM) registry.
         </p>
       </div>
 
-      <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 mb-6 space-y-3 text-xs sm:text-sm">
-        <div class="flex justify-between items-center py-2 border-b border-slate-800/80">
-          <span class="text-slate-400">Processing & Registry Gating Fee:</span>
-          <span class="text-emerald-400 font-mono font-bold text-base">₹19,999 (INR) / £249 (GBP)</span>
+      <div class="bg-forest-950/80 border border-forest-800 rounded-2xl p-6 sm:p-8 mb-8 space-y-4 text-xs sm:text-sm">
+        <div class="flex justify-between items-center py-2 border-b border-forest-800">
+          <span class="text-slate-300">Intake & Legal Structuring Fee:</span>
+          <span class="text-emerald-400 font-mono font-bold text-base sm:text-lg">₹19,999 (INR) / £249 (GBP)</span>
         </div>
-        <div class="flex justify-between items-center py-2 border-b border-slate-800/80">
-          <span class="text-slate-400">Supported Corridors:</span>
+        <div class="flex justify-between items-center py-2 border-b border-forest-800">
+          <span class="text-slate-300">Signed Bilateral Corridors:</span>
           <span class="text-white font-medium">India (Domestic) • UK (CETA) • UAE (CEPA) • Australia (ECTA)</span>
         </div>
         <div class="flex justify-between items-center py-2">
-          <span class="text-slate-400">Deliverable:</span>
-          <span class="text-emerald-300 font-medium">Multi-Activity LoI Receipt + Instant Ledger Synchronization</span>
+          <span class="text-slate-300">Standard SLA Deliverable:</span>
+          <span class="text-emerald-300 font-medium">Signed Multi-Activity LoI + Instant Ledger Synchronization</span>
         </div>
       </div>
 
       <!-- Razorpay Payment Direct Link Trigger -->
-      <div class="text-center">
-        <a href="https://rzp.io/rzp/F7SC6zD" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold rounded-xl text-base shadow-xl shadow-emerald-500/20 transition-all transform hover:-translate-y-0.5">
+      <div class="text-center space-y-3">
+        <a href="https://rzp.io/rzp/F7SC6zD" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center justify-center gap-3 w-full py-5 bg-white hover:bg-emerald-50 text-forest-950 font-black rounded-2xl text-base sm:text-lg shadow-2xl transition-all transform hover:-translate-y-0.5">
           <span>Proceed to Secure Razorpay Checkout (₹19,999)</span>
-          <span class="text-lg">➔</span>
+          <span class="text-xl">➔</span>
         </a>
-        <p class="text-[11px] text-slate-500 mt-3 font-mono">
-          🔒 Secured via Razorpay Multi-Currency Gateway • Automated Instant Webhook Sync to Sheet Tab 5
+        <p class="text-xs font-mono text-emerald-200">
+          🔒 Secured via Razorpay Multi-Currency Gateway • Webhook Instant Sync to Tab 06
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FREQUENTLY ANSWERED QUESTIONS (FAQ) -->
+  <section id="faq" class="w-full max-w-5xl mx-auto py-16 px-4 sm:px-8 border-t border-forest-200">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Knowledge Base
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-forest-950 mt-2">
+        Frequently Answered Questions
+      </h2>
+    </div>
+
+    <div class="space-y-4 text-xs sm:text-sm">
+      <div class="bg-white border-2 border-forest-200 p-6 rounded-2xl shadow-sm">
+        <p class="font-bold text-forest-950 text-base mb-2">Can we claim credits for solar systems installed 2–5 years ago?</p>
+        <p class="text-slate-600 leading-relaxed">
+          Yes. Under selected Article 6 bilateral mechanisms and verified registries, retroactive additionality can be recognized up to 7 years with continuous generation and inverter utility logs.
+        </p>
+      </div>
+      <div class="bg-white border-2 border-forest-200 p-6 rounded-2xl shadow-sm">
+        <p class="font-bold text-forest-950 text-base mb-2">What does the ₹19,999 slot reservation fee cover?</p>
+        <p class="text-slate-600 leading-relaxed">
+          It covers baseline technical audit, additionality validation, cohort aggregation legal structuring, and drafting your tailored Letter of Intent (LoI) for registry submission.
+        </p>
+      </div>
+      <div class="bg-white border-2 border-forest-200 p-6 rounded-2xl shadow-sm">
+        <p class="font-bold text-forest-950 text-base mb-2">Who is eligible to participate?</p>
+        <p class="text-slate-600 leading-relaxed">
+          Commercial & Industrial (C&I) solar rooftops, Gaushalas with bio-methanation, MSME energy efficiency projects, and agricultural soil biochar projects across India, the UK, UAE, and Australia.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ADDITION 3: FREQUENTLY ANSWERED QUESTIONS (FAQ) SECTION -->
-  <section id="faq" class="py-14 px-4 max-w-3xl mx-auto border-t border-slate-900">
-    <div class="text-center mb-8">
-      <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400">Registry Guidance & Queries</h3>
-      <h2 class="text-2xl font-bold text-white mt-1">Frequently Answered Questions</h2>
-    </div>
-    <div class="space-y-4 text-xs sm:text-sm">
-      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
-        <p class="font-bold text-emerald-300 mb-1.5">Can we claim credits for solar systems installed 2–5 years ago?</p>
-        <p class="text-slate-400 leading-relaxed">Yes. Under selected Article 6 bilateral mechanisms and verified registries, retroactive additionality can be recognized up to 7 years with continuous generation and inverter utility logs.</p>
-      </div>
-      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
-        <p class="font-bold text-emerald-300 mb-1.5">What does the ₹19,999 slot reservation fee cover?</p>
-        <p class="text-slate-400 leading-relaxed">It covers baseline technical audit, additionality validation, cohort aggregation legal structuring, and drafting your tailored Letter of Intent (LoI) for registry submission.</p>
-      </div>
-      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
-        <p class="font-bold text-emerald-300 mb-1.5">Who is eligible to participate?</p>
-        <p class="text-slate-400 leading-relaxed">Commercial & Industrial (C&I) solar rooftops, Gaushalas with bio-methanation, MSME energy efficiency projects, and agricultural soil biochar projects across India, the UK, UAE, and Australia.</p>
+  <!-- 9. CONTACT & SCHEDULING SECTION (Full-Width White & Green) -->
+  <section id="contact" class="w-full bg-white border-t border-forest-200 py-16 sm:py-24 px-4 sm:px-8">
+    <div class="max-w-5xl mx-auto text-center space-y-6">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+        Direct Technical Desk
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-forest-950">
+        Initiate Your Carbon Audit With Our Lead Engineers
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
+        Have questions regarding additionality validation, cohort aggregation, or Article 6 trade agreements? Connect directly with our team.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 max-w-2xl mx-auto">
+        <!-- Direct Email Card -->
+        <a href="mailto:info@earthcarbonfoundation.org" 
+           class="bg-forest-50 border-2 border-forest-200 p-6 rounded-2xl text-center hover:border-forest-800 transition shadow-sm block">
+          <span class="text-2xl block mb-2">✉️</span>
+          <span class="text-xs font-bold text-slate-500 uppercase font-mono">Email Us Directly</span>
+          <p class="text-base font-extrabold text-forest-950 mt-1">info@earthcarbonfoundation.org</p>
+          <span class="text-xs text-forest-700 font-semibold mt-2 block">24h SLA Technical Response ➔</span>
+        </a>
+
+        <!-- Cal.com Appointment Card -->
+        <a href="https://cal.id/amit-sinh-earth-carbon" target="_blank" rel="noopener noreferrer" 
+           class="bg-forest-50 border-2 border-forest-200 p-6 rounded-2xl text-center hover:border-forest-800 transition shadow-sm block">
+          <span class="text-2xl block mb-2">📅</span>
+          <span class="text-xs font-bold text-slate-500 uppercase font-mono">Book Direct Appointment</span>
+          <p class="text-base font-extrabold text-forest-950 mt-1">1:1 Video Consultation</p>
+          <span class="text-xs text-forest-700 font-semibold mt-2 block">Select Time on Cal.id ➔</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 6. FOOTER -->
-  <footer class="mt-auto border-t border-slate-900 bg-slate-950 py-10 px-4 text-center text-xs text-slate-500 space-y-3">
-    <div class="flex flex-wrap justify-center gap-4 text-slate-400 font-medium mb-2">
-      <a href="https://www.linkedin.com/in/amit-sinh-earth-carbon-ba84042a2" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">LinkedIn</a>
-      <span>•</span>
-      <a href="https://x.com/EarthAmit44114" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">X (Twitter)</a>
-      <span>•</span>
-      <a href="https://www.instagram.com/amitsinh979/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">Instagram</a>
-      <span>•</span>
-      <a href="https://www.facebook.com/people/Earth-Carbon-Foundation/100083333313032/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">Facebook</a>
+  <!-- 10. EXPANDED FOOTER WITH OFFICIAL SOCIAL LINKS & CIN DETAILS -->
+  <footer class="w-full bg-forest-950 text-slate-300 py-14 px-4 sm:px-8 border-t border-forest-800">
+    <div class="max-w-7xl mx-auto space-y-8 text-center sm:text-left">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 border-b border-forest-800 pb-8">
+        <div>
+          <span class="text-lg font-extrabold text-white block">EARTH CARBON FOUNDATION</span>
+          <span class="text-xs text-emerald-400 font-mono">Atmanirbhar Resource Autonomy Framework</span>
+        </div>
+
+        <!-- Social Media Direct Links -->
+        <div class="flex flex-wrap items-center justify-center gap-5 text-sm font-semibold">
+          <a href="https://www.linkedin.com/in/amit-sinh-earth-carbon-ba84042a2" target="_blank" rel="noopener noreferrer" 
+             class="text-slate-300 hover:text-white transition flex items-center gap-1.5">
+            <span>LinkedIn</span>
+          </a>
+          <span class="text-forest-700">•</span>
+          <a href="https://x.com/EarthAmit44114" target="_blank" rel="noopener noreferrer" 
+             class="text-slate-300 hover:text-white transition flex items-center gap-1.5">
+            <span>X (Twitter)</span>
+          </a>
+          <span class="text-forest-700">•</span>
+          <a href="https://www.instagram.com/amitsinh979/" target="_blank" rel="noopener noreferrer" 
+             class="text-slate-300 hover:text-white transition flex items-center gap-1.5">
+            <span>Instagram</span>
+          </a>
+          <span class="text-forest-700">•</span>
+          <a href="https://www.facebook.com/people/Earth-Carbon-Foundation/100083333313032/" target="_blank" rel="noopener noreferrer" 
+             class="text-slate-300 hover:text-white transition flex items-center gap-1.5">
+            <span>Facebook</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Regulatory & Legal Disclaimer -->
+      <div class="text-xs text-slate-400 space-y-2 leading-relaxed font-mono">
+        <p>
+          Corporate Identity Number (CIN): <strong class="text-slate-200">U85300GJ2019NPL106818</strong> • Section 8 License No: <strong class="text-slate-200">113981</strong>
+        </p>
+        <p>
+          Registered Headquarters: Ahmedabad, Gujarat, India • Non-Profit Entity Under Companies Act, 2013
+        </p>
+        <p class="text-[11px] text-slate-500">
+          Disclaimer: Carbon credit yields and 7-year valuations are estimates modeled under conservative UNFCCC CDM additionality baselines. Final certification depends on third-party DOE audit and Article 6 registry authorization.
+        </p>
+      </div>
+
     </div>
-    <p>
-      EARTH CARBON FOUNDATION • CIN: U85300GJ2019NPL106818 • Section 8 License No: 113981 • Non-Profit Organisation
-    </p>
-    <p class="text-[11px] text-slate-600">
-      Ahmedabad, Gujarat, India • Multi-Standard Sovereign Climate Registry Framework
-    </p>
   </footer>
 
-  <!-- 7. APPLICATION LOGIC & LIVE SYNC SCRIPTS -->
+  <!-- 11. FRONT-END SCRIPT & BI-DIRECTIONAL GOOGLE SHEETS SYNC -->
   <script>
-    // Live Google Apps Script Endpoint & Secret
     const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzGoySWz9KVlbl6bzBykfBgU3O9IbO6cH8qTQpUEG5G7O_hHDbXSeMbbWhhT-zesx1T/exec";
     const WEBHOOK_SECRET = "EC_LIVE_SECRET_2026_x89";
 
@@ -359,9 +543,9 @@
       ['solar', 'biogas', 'soil'].forEach(item => {
         const btn = document.getElementById('btn-' + item);
         if (item === v) {
-          btn.className = "py-2.5 text-xs font-bold rounded-xl border border-emerald-500 bg-emerald-500 text-slate-950 transition-all";
+          btn.className = "py-3 px-4 text-xs sm:text-sm font-bold rounded-2xl border-2 border-forest-900 bg-forest-900 text-white transition-all shadow-sm";
         } else {
-          btn.className = "py-2.5 text-xs font-semibold rounded-xl border border-slate-700 text-slate-300 hover:bg-slate-800 transition-all";
+          btn.className = "py-3 px-4 text-xs sm:text-sm font-bold rounded-2xl border-2 border-forest-200 text-forest-900 hover:bg-forest-50 transition-all";
         }
       });
       document.getElementById('capacityUnit').innerText = BENCHMARKS[v].unit;
@@ -373,9 +557,9 @@
       ['INR', 'GBP', 'AED', 'AUD'].forEach(item => {
         const btn = document.getElementById('cur-' + item);
         if (item === cur) {
-          btn.className = "py-1.5 text-xs font-bold rounded-lg border border-emerald-500 bg-emerald-500/20 text-emerald-300";
+          btn.className = "py-2.5 text-xs font-mono font-bold rounded-xl border-2 border-forest-900 bg-forest-50 text-forest-900";
         } else {
-          btn.className = "py-1.5 text-xs font-semibold rounded-lg border border-slate-700 text-slate-400 hover:bg-slate-800";
+          btn.className = "py-2.5 text-xs font-mono font-semibold rounded-xl border-2 border-forest-200 text-slate-600 hover:bg-forest-50";
         }
       });
       updateCalculations();
@@ -399,7 +583,7 @@
 
     document.getElementById('capacityRange').addEventListener('input', updateCalculations);
 
-    // FETCH LIVE STATS FOR MARQUEE TICKER (Calls doGet on your Google Apps Script)
+    // FETCH LIVE STATS FOR TOP TICKER (Calls doGet on Google Apps Script)
     async function loadLiveStats() {
       try {
         const res = await fetch(WEBHOOK_URL);
@@ -413,13 +597,13 @@
           }
         }
       } catch (err) {
-        // Keeps initial fallback values if network latency occurs
+        // Fallback default numbers if network delay occurs
       }
     }
     loadLiveStats();
     setInterval(loadLiveStats, 60000);
 
-    // SUBMIT ENRICHED LEAD TO SPREADSHEET (Calls doPost on your Google Apps Script)
+    // SUBMIT ENRICHED LEAD TO SPREADSHEET (Calls doPost on Google Apps Script)
     async function submitCalculatorLead(e) {
       e.preventDefault();
       const btn = document.getElementById('calcSubmitBtn');
@@ -442,7 +626,7 @@
       }
 
       btn.disabled = true;
-      btn.innerText = 'Locking Slot & Syncing...';
+      btn.innerText = 'Syncing With Central Registry...';
 
       const payload = {
         secret: WEBHOOK_SECRET,
