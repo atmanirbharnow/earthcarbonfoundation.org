@@ -62,6 +62,8 @@
       </div>
       <div class="flex items-center gap-4">
         <a href="#calculator" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">Yield Calculator</a>
+        <a href="#how-it-works" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">How It Works</a>
+        <a href="#faq" class="text-xs font-semibold text-slate-300 hover:text-emerald-400 transition hidden sm:inline-block">FAQ</a>
         <a href="#reserve" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold rounded-lg transition-all shadow-md shadow-emerald-500/10">Reserve PoA Slot</a>
       </div>
     </div>
@@ -85,8 +87,51 @@
     </div>
   </section>
 
-  <!-- 4. INTERACTIVE 10-SECOND CARBON & ATMANIRBHAR YIELD ESTIMATOR -->
-  <section id="calculator" class="py-12 px-4 max-w-3xl mx-auto w-full">
+  <!-- ADDITION 1: INSTITUTIONAL TRUST SIGNALS STRIP -->
+  <div class="border-y border-slate-900 bg-slate-950/80 py-4 px-4">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-around gap-6 text-slate-400 text-xs font-mono">
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-bold text-sm">✓</span> Govt of India Section 8 Reg. (#113981)
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-bold text-sm">✓</span> UNFCCC CDM & Article 6 Standards
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-bold text-sm">✓</span> 7-Year Retroactive Abatement Claims
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-emerald-400 font-bold text-sm">✓</span> Zero-Cost Open Telemetry
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDITION 2: "HOW IT WORKS IN 3 STEPS" PROCESS SECTION -->
+  <section id="how-it-works" class="py-14 px-4 max-w-4xl mx-auto">
+    <div class="text-center mb-10">
+      <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400">Streamlined Path to Carbon Revenue</h3>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">From Clean Kilowatts to Carbon Yield in 3 Steps</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">1</div>
+        <h4 class="font-bold text-white text-base mb-1.5">Instant Yield Estimate</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">Calculate your 7-year baseline carbon yield and reserve your institutional priority slot in 10 seconds.</p>
+      </div>
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">2</div>
+        <h4 class="font-bold text-white text-base mb-1.5">Portfolio Aggregation</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">EarthCarbon pools your asset with regional cohorts, drafting the Project Design Document (PDD) without validation overhead.</p>
+      </div>
+      <div class="bg-slate-900/60 border border-slate-800 p-6 rounded-2xl">
+        <div class="w-9 h-9 rounded-xl bg-emerald-950 border border-emerald-700 text-emerald-300 font-bold flex items-center justify-center mb-4 text-base">3</div>
+        <h4 class="font-bold text-white text-base mb-1.5">Annual Liquidity</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">Verified emission reductions are transacted under bilateral trade corridors, with direct yield settlement to your ledger.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. INTERACTIVE 10-SECOND CARBON YIELD ESTIMATOR & ENRICHED CRM INTAKE -->
+  <section id="calculator" class="py-10 px-4 max-w-3xl mx-auto w-full">
     <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative">
       <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-800">
         <div>
@@ -197,7 +242,7 @@
         </button>
       </form>
 
-      <!-- Instant Success Message -->
+      <!-- Instant Success Notification -->
       <div id="calcSuccessMsg" class="hidden p-4 mt-3 bg-emerald-950/80 border border-emerald-700 rounded-xl text-center space-y-1">
         <p class="text-sm font-bold text-emerald-300">✅ Inquiry & Carbon Yield Profile Logged!</p>
         <p class="text-xs text-slate-300">Your organization has been queued in our central registry database. Our Technical Desk will dispatch your LoI draft within 24 hours.</p>
@@ -242,6 +287,28 @@
         <p class="text-[11px] text-slate-500 mt-3 font-mono">
           🔒 Secured via Razorpay Multi-Currency Gateway • Automated Instant Webhook Sync to Sheet Tab 5
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITION 3: FREQUENTLY ANSWERED QUESTIONS (FAQ) SECTION -->
+  <section id="faq" class="py-14 px-4 max-w-3xl mx-auto border-t border-slate-900">
+    <div class="text-center mb-8">
+      <h3 class="text-xs font-mono uppercase tracking-wider text-emerald-400">Registry Guidance & Queries</h3>
+      <h2 class="text-2xl font-bold text-white mt-1">Frequently Answered Questions</h2>
+    </div>
+    <div class="space-y-4 text-xs sm:text-sm">
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <p class="font-bold text-emerald-300 mb-1.5">Can we claim credits for solar systems installed 2–5 years ago?</p>
+        <p class="text-slate-400 leading-relaxed">Yes. Under selected Article 6 bilateral mechanisms and verified registries, retroactive additionality can be recognized up to 7 years with continuous generation and inverter utility logs.</p>
+      </div>
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <p class="font-bold text-emerald-300 mb-1.5">What does the ₹19,999 slot reservation fee cover?</p>
+        <p class="text-slate-400 leading-relaxed">It covers baseline technical audit, additionality validation, cohort aggregation legal structuring, and drafting your tailored Letter of Intent (LoI) for registry submission.</p>
+      </div>
+      <div class="bg-slate-900/80 border border-slate-800 p-5 rounded-2xl">
+        <p class="font-bold text-emerald-300 mb-1.5">Who is eligible to participate?</p>
+        <p class="text-slate-400 leading-relaxed">Commercial & Industrial (C&I) solar rooftops, Gaushalas with bio-methanation, MSME energy efficiency projects, and agricultural soil biochar projects across India, the UK, UAE, and Australia.</p>
       </div>
     </div>
   </section>
@@ -362,7 +429,6 @@
       const corridor = document.getElementById('calcCorridor').value;
       const capacity = Number(document.getElementById('capacityRange').value);
       
-      // Calculate 7-yr INR baseline regardless of display currency for consistent sheet records
       const bm = BENCHMARKS[activeVertical];
       const annualAbatement = Math.round(capacity * bm.factor);
       const sevenYrValINR = Math.round((annualAbatement * bm.priceINR) * 7 * 0.125 + (capacity * 250));
@@ -416,58 +482,3 @@
   </script>
 </body>
 </html>
-Also: Update Your Google Apps Script handleLeadSubmission
-
-To map these new fields (Name, Phone, Priority, and Corridor) cleanly into your 02Lead Capture & Inquiries tab, update the handleLeadSubmission function in your Apps Script (Code.gs):
-Javascript
-/**
- * Logs enriched web inquiries and calculator leads directly into '02Lead Capture & Inquiries'
- */
-function handleLeadSubmission(data) {
-  const lead = data.lead || data;
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  
-  // Connect to Tab 02
-  let logSheet = ss.getSheetByName("02Lead Capture & Inquiries") || ss.getSheetByName("Lead Capture & Inquiries");
-  
-  const timestamp = Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm:ss");
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  const nextFollowUp = Utilities.formatDate(tomorrow, "Asia/Kolkata", "yyyy-MM-dd");
-
-  const clientName = lead.name || "Web Inquirer";
-  const email = lead.email || "N/A";
-  const phone = lead.phone || "N/A";
-  const vertical = lead.vertical || "solar";
-  const capacity = Number(lead.capacity || 0);
-  const estYield = Number(lead.estimated_yield_inr || 0);
-  const priority = lead.priority_tier || (capacity >= 500 ? "P0 - Immediate" : "P1 - High");
-  const notes = "Corridor: " + (lead.corridor || "India") + "; Inbound via 10-sec yield calculator";
-
-  // Appends row matching columns A to N in Tab 02
-  logSheet.appendRow([
-    timestamp,                                // A: Timestamp
-    clientName,                               // B: Client Name
-    email,                                    // C: Email
-    phone,                                    // D: Phone
-    vertical,                                 // E: Vertical
-    capacity,                                 // F: Capacity (kW / Tons)
-    estYield,                                 // G: Est. 7-Yr Value (INR)
-    priority,                                 // H: Priority Tier
-    "Open Lead (P0)",                         // I: Status
-    "Amit Sinh",                              // J: Assigned Owner
-    nextFollowUp,                             // K: Next Follow-Up Date
-    lead.utm_source || "organic_web",         // L: UTM Source
-    lead.utm_campaign || "carbon_yield_calc", // M: UTM Campaign
-    notes                                     // N: Outreach Notes
-  ]);
-
-  SpreadsheetApp.flush();
-
-  return ContentService.createTextOutput(JSON.stringify({
-    status: "success",
-    client: clientName,
-    email: email,
-    priority: priority
-  })).setMimeType(ContentService.MimeType.JSON);
-}
